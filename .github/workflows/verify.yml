@@ -1,0 +1,42 @@
+name: verify
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  public-verifiers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Run all public verifiers
+        run: bash VERIFY_LOCAL.sh
+      - name: Generated results are stable
+        run: git diff --exit-code -- 03-consecutive-squares/results.csv
+
+  release-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reject private paths in current tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-files | grep -E '(^|/)(06-registry|hol01[^/]*|OPEN_ANTERIORITY[^/]*|PRIVATE_DO_NOT_PUBLISH)(/|$)' ; then
+            echo "::error::Private or withheld path detected in the public repository"
+            exit 1
+          fi
+      - name: Reject private paths in reachable history
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git log --all --name-only --pretty=format: | grep -E '(^|/)(06-registry|hol01[^/]*|OPEN_ANTERIORITY[^/]*|PRIVATE_DO_NOT_PUBLISH)(/|$)' ; then
+            echo "::error::A withheld path exists in Git history. Rebuild from a fresh git init."
+            exit 1
+          fi
+      - name: Validate JSON metadata
+        run: python -m json.tool .zenodo.json >/dev/null

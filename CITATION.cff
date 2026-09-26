@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software release, please cite it using the metadata below."
+title: "Couret — finite verifications"
+type: software
+authors:
+  - family-names: Couret
+    given-names: Alexandre
+license: MIT
+version: 1.0.0
+date-released: 2026-09-21
+abstract: >-
+  Reproducible finite computations for consecutive-square prime values,
+  prime races modulo 30, and finite Fourier and Parseval closure checks.
+keywords:
+  - number theory
+  - reproducibility
+  - Bateman-Horn
+  - Chebyshev bias
+  - finite Fourier analysis
