@@ -1,5 +1,7 @@
 # Couret — finite verifications (public release v1.0.0)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22978365.svg)](https://doi.org/10.5281/zenodo.22978365)
+
 This repository contains reproducible **finite computations and checks**. The status of each
 statement is stated locally: exact finite arithmetic, floating-point finite verification,
 truncated numerical evaluation, conjectural prediction, or conditional interpretation.
@@ -34,6 +36,10 @@ part of this public release**. Their absence is intentional. They require a sepa
 publication decision.
 
 ## Reproducibility and citation
+
+Permanent archive on Zenodo:
+- Version DOI (v1.0.0): [10.5281/zenodo.22978365](https://doi.org/10.5281/zenodo.22978365)
+- Concept DOI: [10.5281/zenodo.22978364](https://doi.org/10.5281/zenodo.22978364)
 
 See `REPRODUCIBILITY.md`, `CITATION.cff`, and `.zenodo.json`.
 

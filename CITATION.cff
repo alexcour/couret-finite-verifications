@@ -8,6 +8,14 @@ authors:
 license: MIT
 version: 1.0.0
 date-released: 2026-09-21
+doi: 10.5281/zenodo.22978365
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22978365
+    description: "The version DOI for version 1.0.0."
+  - type: doi
+    value: 10.5281/zenodo.22978364
+    description: "The concept DOI representing all versions."
 abstract: >-
   Reproducible finite computations for consecutive-square prime values,
   prime races modulo 30, and finite Fourier and Parseval closure checks.
