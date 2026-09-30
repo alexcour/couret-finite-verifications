@@ -29,6 +29,15 @@ Every verification invoked by `VERIFY_LOCAL.sh` is blocking: a failed assertion 
 non-zero exit code. `03-consecutive-squares/results.csv` is regenerated and CI checks that it
 is byte-for-byte unchanged.
 
+## Research-program context and provenance
+
+This release is intentionally narrow. For the historical and mathematical roots of the included
+objects, see [PROGRAM_CONTEXT.md](PROGRAM_CONTEXT.md). For attribution and claim-provenance rules,
+see [PROVENANCE.md](PROVENANCE.md).
+
+The broader Couret–Unification program contains both surviving results and ideas that were later
+identified as classical, restricted, or false. That history is not converted into a novelty claim here.
+
 ## Deliberately excluded from v1.0.0
 
 The G30 registry/linter project, HOL-01 certificate, and unresolved anteriority items are **not
