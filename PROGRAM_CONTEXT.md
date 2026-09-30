@@ -82,3 +82,28 @@ of the research program.
 The present repository should be read together with `PROVENANCE.md`, which distinguishes
 historical/classical sources, project-specific computations, contemporary reconstruction, and
 AI-assisted drafting or checking.
+
+
+## Potential scientific interest
+
+The potential value of this repository is not a new general theorem. It is the availability of small,
+transparent, versioned computational objects that can be reused for several purposes:
+
+1. **Regression fixtures.** Exact finite outputs can serve as stable tests for later implementations,
+   formalizations, or independent re-computations.
+
+2. **Epistemic calibration.** The repository gives concrete examples where exact finite truth,
+   numerical evidence, conditional asymptotics, and conjectural interpretation must not be conflated.
+
+3. **Teaching and exposition.** Because the examples are elementary enough to inspect yet rich enough
+   to involve genuine analytic or harmonic context, they can be used to demonstrate good practice in
+   computational number theory.
+
+4. **Auditability.** A future researcher can compare a new claim against a frozen executable record,
+   rather than relying only on retrospective prose.
+
+5. **Method transfer.** The release structure itself — claim boundary, prior-art register, deterministic
+   checks, and provenance notes — may be reusable for other small computational-mathematics projects.
+
+These are potential uses, not demonstrated impact claims. The repository makes the artefacts available
+so that such reuse can be tested by others.
