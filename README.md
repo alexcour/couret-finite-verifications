@@ -33,7 +33,8 @@ is byte-for-byte unchanged.
 
 This release is intentionally narrow. For the historical and mathematical roots of the included
 objects, see [PROGRAM_CONTEXT.md](PROGRAM_CONTEXT.md). For attribution and claim-provenance rules,
-see [PROVENANCE.md](PROVENANCE.md).
+see [PROVENANCE.md](PROVENANCE.md). AI-assisted work is disclosed in
+[AI_ASSISTANCE.md](AI_ASSISTANCE.md).
 
 The broader Couret–Unification program contains both surviving results and ideas that were later
 identified as classical, restricted, or false. That history is not converted into a novelty claim here.
