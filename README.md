@@ -42,8 +42,7 @@ identified as classical, restricted, or false. That history is not converted int
 ## Deliberately excluded from v1.0.0
 
 The G30 registry/linter project, HOL-01 certificate, and unresolved anteriority items are **not
-part of this public release**. Their absence is intentional. They require a separate audit and
-publication decision.
+part of this public release**. HOL-01 has since been published separately: [finite certificate v1.1.1](https://github.com/alexcour/hol01-monodromy-p7), DOI [10.5281/zenodo.22978389](https://doi.org/10.5281/zenodo.22978389). The registry/linter and unresolved anteriority work retain separate audit and publication decisions.
 
 ## Reproducibility and citation
 
@@ -56,3 +55,11 @@ See `REPRODUCIBILITY.md`, `CITATION.cff`, and `.zenodo.json`.
 ## Licence
 
 MIT — see `LICENSE`.
+
+## Current publication record
+
+See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for identifiers, dates, archive boundaries and links.
+
+## Consolidated novelty boundary
+
+The mathematical mechanisms are classical. The contribution is a reproducibility package with explicit distinctions between exact, numerical, truncated and conditional calculations. No general arithmetic novelty is claimed.
