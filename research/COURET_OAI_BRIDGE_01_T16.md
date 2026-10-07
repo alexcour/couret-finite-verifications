@@ -208,10 +208,23 @@ for arbitrary families (F).
 - **[D]** nonzero Fourier spectrum.
 - **[D]** preservation of asymptotic Big-O classes under the fixed invertible filter.
 - **[F]** “fixed invertible modulus-30 filter alone produces a new asymptotic exponent”.
-- **[O]** formal Lean compilation of A0–A2.
+- **[D-math]** A0–A2 compiled zero-sorry under Lean 4.34.1 / Mathlib v4.34.1; reference CI run for the complete chain: `bridge01-lean` run `37674743493`.
 - **[O]** analytic closure under conductor-changing / Poisson / theta-type transformations.
 - **[O]** independent novelty and literature audit.
 
 ## Boundary
 
 This note does not claim a proof of the Riemann hypothesis, a new zero-free region, or a reproduction of OpenAI's (7/8) theorem. It records a limitation theorem for the fixed finite modulus-30 layer.
+
+
+## Lean closure update — 2026-10-07
+
+The A0–A2 chain is now mechanically compiled on the research branch.
+
+- A0: generic Big-O invariance under a continuous linear equivalence — **[D-math]**.
+- A1: explicit inverse certificate for the (U(30)) kernel — **[D-math]**.
+- A2: real eight-coordinate realization, coefficient sup norm transported from (U(30)\to\mathbb R), multiplication by (	au) promoted to a continuous linear equivalence, and fixed-modulus no-gain theorem — **[D-math]**.
+- Complete-chain CI: `bridge01-lean` run `37674743493` — **SUCCESS**.
+- No `sorry` is used in A0, A1, or A2.
+
+A2 is deliberately realized over (mathbb R), rather than (mathbb Q), because the Mathlib finite-dimensional continuity promotion used here requires the scalar field to be complete. This changes no finite algebraic identity of the (U(30)) kernel.
