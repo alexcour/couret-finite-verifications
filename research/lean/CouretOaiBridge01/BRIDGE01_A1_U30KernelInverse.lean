@@ -56,7 +56,6 @@ theorem tau_mul_sigma : tau * sigma = 1 := by
   rw [← Nat.cast_smul_eq_nsmul ℚ]
   rw [smul_smul]
   norm_num
-  exact delta_one
 
 theorem sigma_mul_tau : sigma * tau = 1 := by
   rw [mul_comm]
