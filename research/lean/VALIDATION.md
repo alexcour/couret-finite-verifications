@@ -2,8 +2,8 @@
 
 **RESEARCH BRANCH ONLY — NO RH CLAIM — NOT PART OF v1.0.0 — NO NOVELTY CLAIM.**
 
-Local validation: **PASS**. The matching remote CI run is recorded below only after
-readback confirms its result. The formal boundary is the full eight-coordinate
+Local and remote validation: **PASS**. The remote run was read back as
+completed successfully, including the clean-build and axiom-audit step. The formal boundary is the full eight-coordinate
 real state, not an individual projected channel or a varying-modulus family.
 
 ## Checked statements
@@ -82,8 +82,15 @@ the same manifest, and the same verification script.
 
 ## Remote validation
 
-Pending readback of the run for this change. A local pass does not by itself
-declare this new remote revision validated.
+- Source commit: `36206a0484fc97b6fdaeb98f2e0f11cf261040ee`.
+- [bridge01-lean #12 — SUCCESS](https://github.com/alexcour/couret-finite-verifications/actions/runs/37677075770).
+- The clean A0–A2 build and transitive axiom audit step completed successfully.
+- Published proof/configuration bytes were compared with the locally checked files.
+- `main` remained at `d3e085ce04f7506e3e115009bd1e561ab08c8b2b`.
+- [Machine-readable CI receipt](reports/ci-validation.json).
+
+The documentation commit recording this receipt does not change any Lean proof or
+compiler configuration. Source hashes in the evidence identify the checked code.
 
 ## Claim boundary
 

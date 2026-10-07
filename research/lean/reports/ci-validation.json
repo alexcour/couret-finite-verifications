@@ -1,0 +1,20 @@
+{
+  "source_commit": "36206a0484fc97b6fdaeb98f2e0f11cf261040ee",
+  "workflow": "bridge01-lean",
+  "run_id": 37677075770,
+  "run_number": 12,
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/37677075770",
+  "clean_build_and_axiom_audit": "success",
+  "source_byte_readback": "PASS",
+  "public_declarations_audited": 45,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "sorryAx": false,
+  "main_head_observed": "d3e085ce04f7506e3e115009bd1e561ab08c8b2b",
+  "boundary": "NO RH CLAIM / RESEARCH BRANCH ONLY"
+}

@@ -34,7 +34,8 @@ sigma
 rac13
 left(
 delta_1+delta_{11}+delta_{29}-2delta_{19}
-ight).
+
+ight).
 ]
 
 Then
@@ -228,3 +229,22 @@ The A0–A2 chain is now mechanically compiled on the research branch.
 - No `sorry` is used in A0, A1, or A2.
 
 A2 is deliberately realized over (mathbb R), rather than (mathbb Q), because the Mathlib finite-dimensional continuity promotion used here requires the scalar field to be complete. This changes no finite algebraic identity of the (U(30)) kernel.
+
+## Reproducible A0–A2 audit
+
+A0–A2 were rebuilt and each source was re-elaborated under the locked Lean/Mathlib
+environment at source commit `36206a0484fc97b6fdaeb98f2e0f11cf261040ee`.
+[bridge01-lean #12](https://github.com/alexcour/couret-finite-verifications/actions/runs/37677075770)
+completed successfully, including the clean-build and transitive axiom audit.
+
+A2 now derives the real inverse laws from the rational A1 theorems through the
+coefficient ring homomorphism `rationalToReal`. Its coordinate convolution and
+inverse formulas are also checked. The full real coefficient vector carries the
+transported sup norm.
+
+The audit covers 45 public declarations and permits exactly `propext`,
+`Classical.choice` and `Quot.sound`; it reports no `sorryAx` or new axiom.
+Exact source hashes, package commits, imported-module closures and direct constant
+dependencies are recorded in [the validation report](lean/VALIDATION.md) and its
+evidence files. The change remains on the research branch; `main` was not modified.
+**NO RH CLAIM.**
