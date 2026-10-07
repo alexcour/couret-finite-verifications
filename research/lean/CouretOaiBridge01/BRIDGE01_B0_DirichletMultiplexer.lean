@@ -24,7 +24,7 @@ Every weight on the eight units is recovered from its eight Dirichlet-character 
 No analytic continuation or L-function input is used.
 -/
 theorem u30_dirichlet_fourier_inversion (w : U30 → ℂ) (a : U30) :
-    (30.totient : ℂ) * w a =
+    ((30 : ℕ).totient : ℂ) * w a =
       ∑ χ : DC30, u30FourierCoeff w χ * χ (a : ZMod 30) := by
   rw [Finset.sum_mul]
   simp only [u30FourierCoeff]
@@ -40,12 +40,12 @@ theorem u30_dirichlet_fourier_inversion (w : U30 → ℂ) (a : U30) :
               intro χ hχ
               ring
     _ = ∑ b : U30, w b *
-          (if (b : ZMod 30) = (a : ZMod 30) then (30.totient : ℂ) else 0) := by
+          (if (b : ZMod 30) = (a : ZMod 30) then ((30 : ℕ).totient : ℂ) else 0) := by
             apply Finset.sum_congr rfl
             intro b hb
             rw [DirichletCharacter.sum_char_inv_mul_char_eq]
             exact Units.isUnit b
-    _ = (30.totient : ℂ) * w a := by
+    _ = ((30 : ℕ).totient : ℂ) * w a := by
           simp [Units.ext_iff, mul_comm]
 
 end
