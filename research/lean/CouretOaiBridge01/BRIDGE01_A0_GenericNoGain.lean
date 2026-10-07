@@ -44,21 +44,4 @@ theorem isBigO_comp_continuousLinearEquiv_iff
   · intro h
     exact (e.isBigO_comp F l).trans h
 
-/--
-Specialization to polynomial scales on the natural numbers: an invertible continuous
-linear change of coordinates cannot improve or worsen the Big-O exponent of the full state.
--/
-theorem isBigO_rpow_comp_continuousLinearEquiv_iff
-    {𝕜 E : Type*}
-    [NontriviallyNormedField 𝕜]
-    [SeminormedAddCommGroup E]
-    [NormedSpace 𝕜 E]
-    (e : E ≃L[𝕜] E)
-    (F : ℕ → E)
-    (α : ℝ) :
-    (fun n => e (F n)) =O[atTop] (fun n : ℕ => ((n : ℝ) ^ α)) ↔
-      F =O[atTop] (fun n : ℕ => ((n : ℝ) ^ α)) := by
-  exact isBigO_comp_continuousLinearEquiv_iff e F
-    (fun n : ℕ => ((n : ℝ) ^ α)) atTop
-
 end CouretOaiBridge01
