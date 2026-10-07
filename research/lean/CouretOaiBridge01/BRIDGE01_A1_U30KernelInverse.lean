@@ -1,6 +1,14 @@
 import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.Data.ZMod.Units
-import Mathlib.Tactic
+import Mathlib.Tactic.Abel
+import Mathlib.Tactic.NormNum
+
+/-!
+# BRIDGE01 / A1: exact inverse in the rational group algebra of U(30)
+
+RESEARCH BRANCH ONLY — NO RH CLAIM — NO NOVELTY CLAIM.
+The finite identities use kernel `decide`. A2 reuses this certificate.
+-/
 
 namespace CouretOaiBridge01
 
@@ -8,6 +16,8 @@ noncomputable section
 
 abbrev U30 := (ZMod 30)ˣ
 abbrev U30Alg := MonoidAlgebra ℚ U30
+
+theorem card_U30 : Fintype.card U30 = 8 := by decide
 
 def u11 : U30 := ZMod.unitOfCoprime 11 (by decide)
 def u19 : U30 := ZMod.unitOfCoprime 19 (by decide)
@@ -45,7 +55,7 @@ private theorem kernel_product :
     tau * inverseNumerator = delta 1 + delta 1 + delta 1 := by
   simp only [tau, inverseNumerator, mul_sub, mul_add, add_mul, delta_mul]
   simp only [one_mul, mul_one, u11_sq, u29_sq, u11_mul_u29, u29_mul_u11,
-    u11_mul_u19, u19_mul_u11, u29_mul_u19, u19_mul_u29]
+    u11_mul_u19, u29_mul_u19]
   abel
 
 theorem tau_mul_sigma : tau * sigma = 1 := by

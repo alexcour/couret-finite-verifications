@@ -3,6 +3,15 @@ import CouretOaiBridge01.BRIDGE01_A1_U30KernelInverse
 import Mathlib.Analysis.Normed.Module.FiniteDimension
 import Mathlib.LinearAlgebra.Finsupp.Pi
 import Mathlib.RingTheory.Finiteness.Finsupp
+import Mathlib.Tactic.SplitIfs
+
+/-!
+# BRIDGE01 / A2: fixed-modulus no-gain on the full real coefficient vector
+
+RESEARCH BRANCH ONLY — NO RH CLAIM — NO NOVELTY CLAIM.
+The norm is the sup norm transported from all eight coefficient coordinates.
+Completeness is used only for the real scalar field in Mathlib's continuity API.
+-/
 
 open Filter
 open Asymptotics
@@ -24,31 +33,45 @@ def inverseNumeratorR : U30AlgR :=
 def sigmaR : U30AlgR :=
   (1 / 3 : ℝ) • inverseNumeratorR
 
+/-- The existing A1 certificate is extended coefficientwise from ℚ to ℝ. -/
+def rationalToReal : U30Alg →+* U30AlgR :=
+  MonoidAlgebra.mapRingHom U30 (Rat.castHom ℝ)
+
+@[simp] theorem rationalToReal_tau : rationalToReal tau = tauR := by
+  simp [rationalToReal, tau, tauR, delta, deltaR]
+
+@[simp] theorem rationalToReal_sigma : rationalToReal sigma = sigmaR := by
+  ext r
+  simp [rationalToReal, sigma, sigmaR, inverseNumerator, inverseNumeratorR,
+    delta, deltaR, smul_eq_mul, Finsupp.single_apply]
+  split_ifs <;> norm_num
+
 @[simp] theorem deltaR_one : deltaR 1 = 1 := rfl
 
 @[simp] theorem deltaR_mul (u v : U30) :
     deltaR u * deltaR v = deltaR (u * v) := by
   simp [deltaR, MonoidAlgebra.single_mul_single]
 
-private theorem kernel_product_R :
-    tauR * inverseNumeratorR = deltaR 1 + deltaR 1 + deltaR 1 := by
-  simp only [tauR, inverseNumeratorR, mul_sub, mul_add, add_mul, deltaR_mul]
-  simp only [one_mul, mul_one, u11_sq, u29_sq, u11_mul_u29, u29_mul_u11,
-    u11_mul_u19, u19_mul_u11, u29_mul_u19, u19_mul_u29]
-  abel
-
 theorem tauR_mul_sigmaR : tauR * sigmaR = 1 := by
-  rw [sigmaR, mul_smul_comm, kernel_product_R]
-  have hthree : deltaR 1 + deltaR 1 + deltaR 1 = 3 • deltaR 1 := by
-    abel
-  rw [hthree]
-  rw [← Nat.cast_smul_eq_nsmul ℝ]
-  rw [smul_smul]
-  norm_num
+  simpa only [map_mul, rationalToReal_tau, rationalToReal_sigma, map_one] using
+    congrArg rationalToReal tau_mul_sigma
 
 theorem sigmaR_mul_tauR : sigmaR * tauR = 1 := by
-  rw [mul_comm]
-  exact tauR_mul_sigmaR
+  simpa only [map_mul, rationalToReal_tau, rationalToReal_sigma, map_one] using
+    congrArg rationalToReal sigma_mul_tau
+
+/-- This is the usual left convolution by `{1,11,29}` in coefficient coordinates. -/
+theorem tauR_convolution_apply (x : U30AlgR) (r : U30) :
+    (tauR * x).coeff r =
+      x.coeff r + x.coeff (u11⁻¹ * r) + x.coeff (u29⁻¹ * r) := by
+  simp [tauR, deltaR, add_mul]
+
+/-- The inverse convolution is exactly the four-term certificate from A1. -/
+theorem sigmaR_convolution_apply (x : U30AlgR) (r : U30) :
+    (sigmaR * x).coeff r =
+      (1 / 3 : ℝ) * (x.coeff r + x.coeff (u11⁻¹ * r) +
+        x.coeff (u29⁻¹ * r) - 2 * x.coeff (u19⁻¹ * r)) := by
+  simp [sigmaR, inverseNumeratorR, deltaR, sub_mul, add_mul, two_mul]
 
 /-- Coefficient coordinates, identifying the real group algebra with eight real coordinates. -/
 def coeffFunEquivR : U30AlgR ≃ₗ[ℝ] (U30 → ℝ) :=
@@ -68,8 +91,7 @@ def tauRMulLinearEquiv : U30AlgR ≃ₗ[ℝ] U30AlgR where
   toFun x := tauR * x
   invFun x := sigmaR * x
   map_add' x y := by simp [mul_add]
-  map_smul' r x := by
-    simpa using (mul_smul_comm tauR r x)
+  map_smul' r x := mul_smul_comm _ _ _
   left_inv x := by
     change sigmaR * (tauR * x) = x
     rw [← mul_assoc, sigmaR_mul_tauR, one_mul]

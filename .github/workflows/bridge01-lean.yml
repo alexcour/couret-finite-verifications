@@ -11,13 +11,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: leanprover/lean-action@v1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1
         with:
           lake-package-directory: research/lean
           build: true
           test: false
           lint: false
           auto-config: false
+      - name: Clean A0–A2 build and transitive axiom audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash research/lean/verify_bridge01.sh | tee "$RUNNER_TEMP/bridge01-build-and-axioms.log"
