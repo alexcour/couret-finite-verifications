@@ -26,8 +26,8 @@ No analytic continuation or L-function input is used.
 theorem u30_dirichlet_fourier_inversion (w : U30 → ℂ) (a : U30) :
     ((30 : ℕ).totient : ℂ) * w a =
       ∑ χ : DC30, u30FourierCoeff w χ * χ (a : ZMod 30) := by
-  rw [Finset.sum_mul]
   simp only [u30FourierCoeff]
+  simp_rw [Finset.sum_mul]
   rw [Finset.sum_comm]
   calc
     ∑ b : U30, ∑ χ : DC30, w b * χ ((b : ZMod 30)⁻¹) * χ (a : ZMod 30)
