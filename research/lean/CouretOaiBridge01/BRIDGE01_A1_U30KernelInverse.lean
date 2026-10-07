@@ -18,8 +18,11 @@ def delta (u : U30) : U30Alg := MonoidAlgebra.single u 1
 def tau : U30Alg :=
   delta 1 + delta u11 + delta u29
 
+def inverseNumerator : U30Alg :=
+  delta 1 + delta u11 + delta u29 - (delta u19 + delta u19)
+
 def sigma : U30Alg :=
-  (1 / 3 : ℚ) • (delta 1 + delta u11 + delta u29 - 2 • delta u19)
+  (1 / 3 : ℚ) • inverseNumerator
 
 theorem u11_sq : u11 * u11 = 1 := by decide
 theorem u19_sq : u19 * u19 = 1 := by decide
@@ -39,15 +42,21 @@ theorem u19_mul_u29 : u19 * u29 = u11 := by decide
   simp [delta, MonoidAlgebra.single_mul_single]
 
 private theorem kernel_product :
-    tau * (delta 1 + delta u11 + delta u29 - 2 • delta u19) = 3 • delta 1 := by
-  simp only [tau, mul_sub, mul_add, add_mul, mul_nsmul, delta_mul]
+    tau * inverseNumerator = delta 1 + delta 1 + delta 1 := by
+  simp only [tau, inverseNumerator, mul_sub, mul_add, add_mul, delta_mul]
   simp only [one_mul, mul_one, u11_sq, u29_sq, u11_mul_u29, u29_mul_u11,
-    u11_mul_u19, u29_mul_u19]
+    u11_mul_u19, u19_mul_u11, u29_mul_u19, u19_mul_u29]
   abel
 
 theorem tau_mul_sigma : tau * sigma = 1 := by
   rw [sigma, mul_smul_comm, kernel_product]
+  have hthree : delta 1 + delta 1 + delta 1 = 3 • delta 1 := by
+    abel
+  rw [hthree]
+  rw [← Nat.cast_smul_eq_nsmul ℚ]
+  rw [smul_smul]
   norm_num
+  exact delta_one
 
 theorem sigma_mul_tau : sigma * tau = 1 := by
   rw [mul_comm]
