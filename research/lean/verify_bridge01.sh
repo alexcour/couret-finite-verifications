@@ -20,5 +20,6 @@ verify_step BRIDGE01_A0_GenericNoGain
 verify_step BRIDGE01_A1_U30KernelInverse
 verify_step BRIDGE01_A2_FixedModulusNoGain
 verify_step BRIDGE01_B0_DirichletMultiplexer
+verify_step BRIDGE01_B1_WeightedSumMultiplex
 lake --wfail build
 lake env lean Audit.lean
