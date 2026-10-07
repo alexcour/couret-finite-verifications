@@ -4,7 +4,7 @@ import Lean.Util.FoldConsts
 
 /-!
 Reproducible axiom/dependency audit. This is tooling, not a mathematical premise.
-Every public definition and theorem in A0–A2, B0 and B1 is audited. Only the three standard
+Every public definition and theorem in A0–A2 and B0–B2 is audited. Only the three standard
 Lean axioms below are accepted; any other axiom fails this command.
 NO RH CLAIM.
 -/
@@ -32,7 +32,9 @@ run_cmd do
       `CouretOaiBridge01.fixedModulusNoGain,
       `CouretOaiBridge01.tauRMulLinearEquiv,
       `CouretOaiBridge01.u30_dirichlet_fourier_inversion,
-      `CouretOaiBridge01.u30_weighted_sum_multiplex] do
+      `CouretOaiBridge01.u30_weighted_sum_multiplex,
+      `CouretOaiBridge01.tcMultiplier_ne_zero,
+      `CouretOaiBridge01.tcMultiplier_eq_three_or_one_or_neg_one] do
     let info ← getConstInfo name
     let deps := info.getUsedConstantsAsSet.toList.toArray.qsort Name.lt
     logInfo m!"DIRECT_CONSTANT_DEPENDENCIES {name}: {deps.toList}"
