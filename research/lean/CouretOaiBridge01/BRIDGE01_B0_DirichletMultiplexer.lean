@@ -8,32 +8,37 @@ namespace CouretOaiBridge01
 
 noncomputable section
 
-abbrev DC30 := DirichletCharacter ℂ 30
-
 /--
-Finite Fourier coefficient of a weight on U(30), expressed using Dirichlet characters modulo 30.
-The inverse is placed on the residue so that Mathlib's orthogonality theorem applies directly.
+Finite Fourier coefficient of a weight on U(30), expressed through Dirichlet characters.
+The theorem below is purely finite and algebraic.
 -/
-def u30FourierCoeff (w : U30 → ℂ) (χ : DC30) : ℂ :=
+def u30FourierCoeff
+    {R : Type*} [CommRing R]
+    (w : U30 → R) (χ : DirichletCharacter R 30) : R :=
   ∑ b : U30, w b * χ ((b : ZMod 30)⁻¹)
 
 /--
-B0: exact finite multiplexing/inversion on U(30).
+B0: exact finite Dirichlet-character multiplexing/inversion on U(30).
 
-Every weight on the eight units is recovered from its eight Dirichlet-character channels.
-No analytic continuation or L-function input is used.
+The result is stated over any integral domain with enough roots of unity for U(30).
+It contains no L-function, convergence, or analytic-continuation input.
 -/
-theorem u30_dirichlet_fourier_inversion (w : U30 → ℂ) (a : U30) :
-    ((30 : ℕ).totient : ℂ) * w a =
-      ∑ χ : DC30, u30FourierCoeff w χ * χ (a : ZMod 30) := by
+theorem u30_dirichlet_fourier_inversion
+    {R : Type*} [CommRing R] [IsDomain R]
+    [HasEnoughRootsOfUnity R (Monoid.exponent U30)]
+    (w : U30 → R) (a : U30) :
+    ((30 : ℕ).totient : R) * w a =
+      ∑ χ : DirichletCharacter R 30, u30FourierCoeff w χ * χ (a : ZMod 30) := by
   symm
   simp only [u30FourierCoeff]
   simp_rw [Finset.sum_mul]
   rw [Finset.sum_comm]
   calc
-    ∑ b : U30, ∑ χ : DC30, w b * χ ((b : ZMod 30)⁻¹) * χ (a : ZMod 30)
+    ∑ b : U30, ∑ χ : DirichletCharacter R 30,
+        w b * χ ((b : ZMod 30)⁻¹) * χ (a : ZMod 30)
         = ∑ b : U30, w b *
-            (∑ χ : DC30, χ ((b : ZMod 30)⁻¹) * χ (a : ZMod 30)) := by
+            (∑ χ : DirichletCharacter R 30,
+              χ ((b : ZMod 30)⁻¹) * χ (a : ZMod 30)) := by
               apply Finset.sum_congr rfl
               intro b hb
               rw [Finset.mul_sum]
@@ -41,13 +46,23 @@ theorem u30_dirichlet_fourier_inversion (w : U30 → ℂ) (a : U30) :
               intro χ hχ
               ring
     _ = ∑ b : U30, w b *
-          (if (b : ZMod 30) = (a : ZMod 30) then ((30 : ℕ).totient : ℂ) else 0) := by
+          (if (b : ZMod 30) = (a : ZMod 30) then ((30 : ℕ).totient : R) else 0) := by
             apply Finset.sum_congr rfl
             intro b hb
             rw [DirichletCharacter.sum_char_inv_mul_char_eq]
             exact Units.isUnit b
-    _ = ((30 : ℕ).totient : ℂ) * w a := by
-          simp [Units.ext_iff, mul_comm]
+    _ = w a * ((30 : ℕ).totient : R) := by
+          rw [Finset.sum_eq_single a]
+          · simp
+          · intro b hb hba
+            have hcoe : (b : ZMod 30) ≠ (a : ZMod 30) := by
+              intro h
+              apply hba
+              exact Units.ext h
+            simp [hcoe]
+          · simp
+    _ = ((30 : ℕ).totient : R) * w a := by
+          rw [mul_comm]
 
 end
 
