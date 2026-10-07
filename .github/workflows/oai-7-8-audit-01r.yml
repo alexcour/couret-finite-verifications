@@ -1,0 +1,118 @@
+name: oai-7-8-audit-01r
+
+on:
+  push:
+    branches:
+      - research/couret-oai-bridge-01
+    paths:
+      - ".github/workflows/oai-7-8-audit-01r.yml"
+      - "research/OAI_7_8_AUDIT_01R.md"
+      - "research/CLAIM_CONTRACT_REGISTRY_CURRENT.md"
+  workflow_dispatch:
+
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Freeze external snapshot
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone https://github.com/openai/math.git external-math
+          cd external-math
+          git checkout adc7f1241b42e322a6451854ab7e4b4c146bf78a
+          test "$(git rev-parse HEAD)" = "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+
+      - name: Install target Lean toolchain
+        shell: bash
+        run: |
+          set -euxo pipefail
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.1
+
+      - name: Install landrun
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p "$HOME/.local/bin"
+          GOBIN="$HOME/.local/bin" go install github.com/zouuup/landrun/cmd/landrun@latest
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Build lean4export against target Lean
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone https://github.com/leanprover/lean4export.git /tmp/lean4export
+          cd /tmp/lean4export
+          printf '%s\n' 'leanprover/lean4:v4.34.1' > lean-toolchain
+          "$HOME/.elan/bin/lake" update
+          "$HOME/.elan/bin/lake" build
+          cp .lake/build/bin/lean4export "$HOME/.local/bin/lean4export"
+
+      - name: Build Comparator against target Lean
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone https://github.com/leanprover/comparator.git /tmp/comparator
+          cd /tmp/comparator
+          printf '%s\n' 'leanprover/lean4:v4.34.1' > lean-toolchain
+          "$HOME/.elan/bin/lake" update
+          "$HOME/.elan/bin/lake" build
+          cp .lake/build/bin/comparator "$HOME/.local/bin/comparator"
+
+      - name: Prepare OpenAI dependencies
+        shell: bash
+        working-directory: external-math/lean
+        run: |
+          set -euxo pipefail
+          lake update
+          lake exe cache get
+
+      - name: Comparator replay
+        shell: bash
+        working-directory: external-math/lean
+        run: |
+          set -euxo pipefail
+          mkdir -p ../../audit-output
+          lake env comparator ComparatorChallenges/QuasiRiemannHypothesis.json 2>&1 | tee ../../audit-output/comparator.log
+
+      - name: Print theorem axioms
+        shell: bash
+        working-directory: external-math/lean
+        run: |
+          set -euxo pipefail
+          cat > AuditAxioms.lean <<'EOF'
+          import OAI.NumberTheory.DirichletL.Nonvanishing
+          #check OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re
+          #print axioms OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re
+          EOF
+          lake env lean AuditAxioms.lean 2>&1 | tee ../../audit-output/axioms.log
+
+      - name: Static hidden-equivalent scan
+        shell: bash
+        working-directory: external-math/lean
+        run: |
+          set -euxo pipefail
+          {
+            echo "SNAPSHOT=adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+            echo "TOOLCHAIN=$(cat lean-toolchain)"
+            echo
+            grep -R -n --exclude='*.olean' --exclude='AuditAxioms.lean'               'riemannZeta_ne_zero_of_seven_eighths_lt_re'               ComparatorChallenges OAI || true
+          } | tee ../../audit-output/static-scan.log
+
+      - name: Hash audit receipt
+        shell: bash
+        run: |
+          set -euxo pipefail
+          sha256sum audit-output/* | tee audit-output/SHA256SUMS.txt
+
+      - name: Upload audit receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: oai-7-8-audit-01r-receipt
+          path: audit-output/
+          if-no-files-found: error
