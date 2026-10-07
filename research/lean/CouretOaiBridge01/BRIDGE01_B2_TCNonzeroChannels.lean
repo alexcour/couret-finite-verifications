@@ -43,13 +43,13 @@ theorem tcMultiplier_ne_zero (χ : DirichletCharacter ℂ 30) :
     tcMultiplier χ ≠ 0 := by
   rcases char_u11_eq_one_or_neg_one χ with h11 | h11 <;>
     rcases char_u29_eq_one_or_neg_one χ with h29 | h29 <;>
-    simp [tcMultiplier, h11, h29]
+    norm_num [tcMultiplier, h11, h29]
 
 theorem tcMultiplier_eq_three_or_one_or_neg_one (χ : DirichletCharacter ℂ 30) :
     tcMultiplier χ = 3 ∨ tcMultiplier χ = 1 ∨ tcMultiplier χ = -1 := by
   rcases char_u11_eq_one_or_neg_one χ with h11 | h11 <;>
     rcases char_u29_eq_one_or_neg_one χ with h29 | h29 <;>
-    simp [tcMultiplier, h11, h29]
+    norm_num [tcMultiplier, h11, h29]
 
 end
 
