@@ -1,0 +1,23 @@
+name: bridge01-lean
+
+on:
+  push:
+    branches:
+      - research/couret-oai-bridge-01
+    paths:
+      - "research/lean/**"
+      - ".github/workflows/bridge01-lean.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: research/lean
+          build: true
+          test: false
+          lint: false
+          auto-config: false
