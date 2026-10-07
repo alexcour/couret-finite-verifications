@@ -37,11 +37,10 @@ theorem u30_weighted_sum_multiplex
           rw [u30_dirichlet_fourier_inversion]
     _ = ∑ χ : DirichletCharacter R 30,
           u30FourierCoeff w χ * (∑ i : I, c i * χ (r i : ZMod 30)) := by
-          simp_rw only [Finset.mul_sum]
+          simp_rw [Finset.mul_sum]
           rw [Finset.sum_comm]
           apply Finset.sum_congr rfl
           intro χ hχ
-          rw [Finset.mul_sum]
           apply Finset.sum_congr rfl
           intro i hi
           ring
