@@ -21,7 +21,7 @@ jobs:
           test: false
           lint: false
           auto-config: false
-      - name: Clean A0–A2+B0–B1 build and transitive axiom audit
+      - name: Clean A0–A2+B0–B2 build and transitive axiom audit
         shell: bash
         run: |
           set -euo pipefail
