@@ -1,6 +1,5 @@
 import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.Data.ZMod.Units
-import Mathlib.Tactic.NativeDecide
 
 namespace CouretOaiBridge01
 
@@ -20,21 +19,21 @@ def sigma : U30Alg :=
   (1 / 3 : ℚ) • (delta 1 + delta u11 + delta u29 - 2 • delta u19)
 
 theorem u11_sq : u11 * u11 = 1 := by
-  native_decide
+  decide
 
 theorem u19_sq : u19 * u19 = 1 := by
-  native_decide
+  decide
 
 theorem u29_sq : u29 * u29 = 1 := by
-  native_decide
+  decide
 
 theorem u11_mul_u29 : u11 * u29 = u19 := by
-  native_decide
+  decide
 
 theorem tau_mul_sigma : tau * sigma = 1 := by
-  native_decide
+  decide
 
 theorem sigma_mul_tau : sigma * tau = 1 := by
-  native_decide
+  decide
 
 end CouretOaiBridge01
