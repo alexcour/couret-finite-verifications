@@ -1,9 +1,8 @@
-# BRIDGE01 A0–A2: build, axioms and dependency evidence
+# BRIDGE01 A0–A2 + B0–B1: build, axioms and dependency evidence
 
 **RESEARCH BRANCH ONLY — NO RH CLAIM — NOT PART OF v1.0.0 — NO NOVELTY CLAIM.**
 
-Local and remote validation: **PASS**. The remote run was read back as
-completed successfully, including the clean-build and axiom-audit step. The formal boundary is the full eight-coordinate
+Local and remote validation: **PASS**. The A0–A2 baseline and the B0–B1 finite multiplexer extension were read back as completed successfully, including clean-build and axiom-audit steps. The formal boundary is the full eight-coordinate
 real state, not an individual projected channel or a varying-modulus family.
 
 ## Checked statements
@@ -18,6 +17,8 @@ real state, not an individual projected channel or a varying-modulus family.
 | A2 | `tauR_convolution_apply`, `sigmaR_convolution_apply` | Identification with the usual three-term convolution and four-term inverse. |
 | A2 | `tauRMulContinuousLinearEquiv` | Both continuous maps on the full real group algebra with coefficient sup norm. |
 | A2 | `fixedModulusNoGain` | `(fun x => tauR * F x) =O[l] g ↔ F =O[l] g`. |
+| B0 | `u30_dirichlet_fourier_inversion` | Exact recovery of every weight on U(30) from its Dirichlet-character channels over any integral domain with enough roots of unity. |
+| B1 | `u30_weighted_sum_multiplex` | Exact decomposition of any finite weighted residue sum into the same character channels; no analytic input. |
 
 The certificate is exactly
 `sigma = (1/3) • (delta 1 + delta u11 + delta u29 - (delta u19 + delta u19))`,
@@ -33,12 +34,13 @@ lake exe cache get Mathlib.Analysis.Normed.Operator.Asymptotics \
   Mathlib.Algebra.MonoidAlgebra.Basic Mathlib.Data.ZMod.Units \
   Mathlib.Tactic.Abel Mathlib.Tactic.NormNum Mathlib.Tactic.SplitIfs \
   Mathlib.Analysis.Normed.Module.FiniteDimension \
-  Mathlib.LinearAlgebra.Finsupp.Pi Mathlib.RingTheory.Finiteness.Finsupp
+  Mathlib.LinearAlgebra.Finsupp.Pi Mathlib.RingTheory.Finiteness.Finsupp \
+  Mathlib.NumberTheory.DirichletCharacter.Orthogonality Mathlib.Tactic
 bash verify_bridge01.sh
 ```
 
 The script deletes this project's build outputs, disables Lake's artifact cache,
-builds each step with warnings treated as failures, **re-elaborates each source
+builds each step through B1 with warnings treated as failures, **re-elaborates each source
 file directly**, builds the aggregate library and runs `Audit.lean`. Pinned upstream
 dependency outputs may be retained or downloaded from the Mathlib cache.
 It does not run `lake update`, move a branch, or modify `main`.
@@ -51,7 +53,7 @@ dependencies transitively and fails on anything outside this exact allowlist:
 
 `propext`, `Classical.choice`, `Quot.sound`.
 
-The successful audit covers **45 public declarations**. The unit definitions and
+The A0–A2 audit covered 45 public declarations. The extended A0–A2+B0–B1 audit covers **48 public declarations**. The unit definitions and
 their finite multiplication identities use `propext` and `Quot.sound`; the main
 A0/A1/A2 conclusions also use `Classical.choice`. There is no `sorryAx`,
 native-decide axiom, or new mathematical axiom in the checked dependency closures.
@@ -98,3 +100,44 @@ This proves preservation of Big-O classes under the fixed invertible finite
 convolution. It establishes no arithmetic power saving, zero-free region, RH
 claim, sharp Hilbert-space spectral bound, or novelty/independent-review status.
 No merge to `main` and no release promotion is part of this change.
+
+
+## Finite multiplexer extension B0–B1
+
+This layer remains strictly finite.
+
+### B0 — character inversion on U(30)
+
+`u30_dirichlet_fourier_inversion` is proved over an arbitrary commutative integral domain
+`R` satisfying
+`HasEnoughRootsOfUnity R (Monoid.exponent U30)`.
+For every weight `w : U30 → R`, the eight residue values are recovered exactly from the
+Dirichlet-character coefficients
+
+`u30FourierCoeff w χ = ∑ b : U30, w b * χ ((b : ZMod 30)⁻¹)`.
+
+The proof uses Mathlib's exact character orthogonality theorem
+`DirichletCharacter.sum_char_inv_mul_char_eq`.
+There is no Dirichlet series, L-function, limit, or analytic continuation in B0.
+
+### B1 — finite weighted-sum multiplexing
+
+`u30_weighted_sum_multiplex` applies B0 pointwise and finite Fubini rearrangement.
+For every finite index type `I`, coefficients `c : I → R`, residues `r : I → U30`,
+and weight `w`, it proves exactly that the weighted residue sum is the corresponding
+linear combination of the Dirichlet-character channels, up to the factor `φ(30)`.
+
+This is the formal version of the claim that a fixed modulus-30 weight is a finite
+**character multiplexer**. It does not yet identify any channel with `1/L(s, χ)`;
+that is a separate analytic bridge.
+
+### Validation
+
+- B0 mathematical closure commit: `5d5517bafc61f7d4bf6e4ab7d3684b8da36dd268`.
+- B1 mathematical closure commit: `416eeec3bb0035e277de67552c809854e279cc0e`.
+- Extended validation head: `02b8eb1127b0696b30fc75154cbb1d21eec2edec`.
+- `bridge01-lean` run `37684125579` — **SUCCESS**.
+- Both B0 and B1 are directly re-elaborated by `verify_bridge01.sh`.
+- Their axiom sets are exactly `[propext, Classical.choice, Quot.sound]`.
+- Extended audit: **48 public declarations**, no `sorryAx`, no added mathematical axiom.
+- `main` remains `d3e085ce04f7506e3e115009bd1e561ab08c8b2b`.
