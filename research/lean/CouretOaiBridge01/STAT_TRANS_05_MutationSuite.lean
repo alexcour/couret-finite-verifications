@@ -100,16 +100,16 @@ theorem M12_semantic_propagates_A_to_B :
     TypedImpacted edges .semantic semanticAtA .B := by
   have hA : TypedImpacted edges .semantic semanticAtA .A := by
     exact changed_seed_impacted M09_semantic_seed_at_A
-  apply typed_impacted_of_permitted_edge hA
-  · simp [edges, proofAB]
+  apply typed_impacted_of_permitted_edge (e := proofAB) hA
+  · simp [edges]
   · rfl
 
 theorem M13_replay_propagates_A_to_C :
     TypedImpacted edges .replay replayAtA .C := by
   have hA : TypedImpacted edges .replay replayAtA .A := by
     exact changed_seed_impacted M10_replay_seed_at_A
-  apply typed_impacted_of_permitted_edge hA
-  · simp [edges, replayAC]
+  apply typed_impacted_of_permitted_edge (e := replayAC) hA
+  · simp [edges]
   · rfl
 
 /-! ## Multi-hop mutation -/
@@ -119,11 +119,11 @@ theorem M14_novelty_propagates_A_to_D :
   have hA : TypedImpacted edges .novelty noveltyAtA .A := by
     exact changed_seed_impacted M11_novelty_seed_at_A
   have hB : TypedImpacted edges .novelty noveltyAtA .B := by
-    apply typed_impacted_of_permitted_edge hA
-    · simp [edges, proofAB]
+    apply typed_impacted_of_permitted_edge (e := proofAB) hA
+    · simp [edges]
     · rfl
-  apply typed_impacted_of_permitted_edge hB
-  · simp [edges, noveltyBD]
+  apply typed_impacted_of_permitted_edge (e := noveltyBD) hB
+  · simp [edges]
   · rfl
 
 /-! ## Channel-separation mutations -/
