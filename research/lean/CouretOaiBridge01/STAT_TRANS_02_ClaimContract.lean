@@ -134,7 +134,7 @@ theorem dependency_change_requires_witness
         simpa [h] using τ.dependenciesOk
       exact False.elim (hne hs)
   | witnessed receipt =>
-      exact ⟨receipt, h⟩
+      exact ⟨receipt, h.symm⟩
 
 /-- A compact delta used by differential invalidation. -/
 structure Delta where
