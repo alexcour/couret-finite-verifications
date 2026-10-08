@@ -15,8 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
 
+      - name: Verify canonical Drive hashes
+        working-directory: research/g30-gate-b-lean
+        run: sha256sum -c SHA256SUMS.txt
+
       - name: Replay exact Python classification
-        run: python research/g30-gate-b-lean/verify_g30_gate_b.py
+        shell: bash
+        run: |
+          sudo mkdir -p /mnt/data
+          python research/g30-gate-b-lean/verify_g30_gate_b.py
 
       - name: Install elan
         shell: bash
@@ -34,8 +41,7 @@ jobs:
 
       - name: Compile G30 complex spectrum certificate
         working-directory: research/g30-gate-b-lean
-        run: |
-          lake env lean G30ComplexSpectrum.lean
+        run: lake env lean G30ComplexSpectrum.lean
 
       - name: Reject sorry/admit in certificate
         shell: bash
