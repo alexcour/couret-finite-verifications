@@ -1,6 +1,8 @@
-# COURET–OAI–BRIDGE–01 — EXP-02 growing-q shift spectrum
+# COURET–OAI–BRIDGE–01 — EXP-02C confirmatory growing-q shift spectrum
 
-> **PRE-SPECIFIED PROTOCOL — NO RESULTS YET — RESEARCH BRANCH — NO RH CLAIM**
+> **CONFIRMATORY PRE-SPECIFIED PROTOCOL — NO RESULTS YET — RESEARCH BRANCH — NO RH CLAIM**
+>
+> This protocol is distinct from the smaller EXP-02-PILOT already executed on fixed q={7,11,13,17}. It is the confirmatory follow-up and must not inherit or tune parameters from the pilot.
 
 ## Question
 
@@ -89,7 +91,7 @@ p_{\mathrm{emp}}(M5)
 
 ## Primary continuation criterion
 
-EXP-02 is mechanically interesting only if, in the inverse/Möbius case:
+EXP-02C is mechanically interesting only if, in the inverse/Möbius case:
 
 1. (p_{\mathrm{emp}}(M5)\le0.05) in at least 8 of the 12 regimes at alpha=1/2; and
 2. the median of
