@@ -1,0 +1,34 @@
+name: bridge01-exp06
+
+on:
+  push:
+    branches:
+      - research/couret-oai-bridge-01
+    paths:
+      - "research/experiments/bridge_exp06_diag_offdiag.py"
+      - ".github/workflows/bridge01-exp06.yml"
+  workflow_dispatch:
+
+jobs:
+  exp06:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Run EXP-06 full diagonal offdiagonal audit
+        working-directory: research/experiments
+        run: |
+          python bridge_exp06_diag_offdiag.py | tee exp06_stdout.json
+      - name: Verify outputs
+        working-directory: research/experiments
+        run: |
+          python -m json.tool bridge_exp06_results.json >/dev/null
+          test -s bridge_exp06_rows.csv
+          test -s bridge_exp06_contrasts.csv
+          test -s bridge_exp06_summary.csv
+      - name: Record hashes
+        working-directory: research/experiments
+        run: |
+          sha256sum bridge_exp06_diag_offdiag.py bridge_exp06_results.json bridge_exp06_rows.csv bridge_exp06_contrasts.csv bridge_exp06_summary.csv
