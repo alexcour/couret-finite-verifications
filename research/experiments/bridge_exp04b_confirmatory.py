@@ -8,10 +8,12 @@ BOOTSTRAP_REPS = 512
 SEED = 20261008
 FIT_WINDOWS = [400, 800, 1600]
 
+
 def W(t):
     if t < 1.0 or t > 2.0:
         return 0.0
     return max(0.0, 1.0 - 2.0 * abs(t - 1.5))
+
 
 def mobius_sieve(n):
     mu = [0] * (n + 1)
@@ -30,6 +32,7 @@ def mobius_sieve(n):
             mu[i * p] = 0 if p == lp[i] else -mu[i]
     return mu
 
+
 def primes_upto(n):
     sieve = bytearray(b'\x01') * (n + 1)
     if n >= 0: sieve[0] = 0
@@ -38,6 +41,7 @@ def primes_upto(n):
         if sieve[i]:
             sieve[i * i:n + 1:i] = b'\x00' * (((n - i * i) // i) + 1)
     return [i for i in range(2, n + 1) if sieve[i]]
+
 
 def coeff(n, kind, mu):
     if n < 1 or math.gcd(n, 30) != 1:
@@ -49,6 +53,7 @@ def coeff(n, kind, mu):
     if kind == 'inverse':
         return mu[n]
     raise ValueError(kind)
+
 
 def b_sequence(X, p, kind, mu):
     out = defaultdict(float)
@@ -78,6 +83,7 @@ def b_sequence(X, p, kind, mu):
             out[h] += cn * cm * wn * wm
     return {h: v for h, v in out.items() if v != 0.0}
 
+
 def choose_Q_from_X(X):
     href = 2.0 * X / 30.0
     target = math.sqrt(href)
@@ -90,6 +96,7 @@ def choose_Q_from_X(X):
             q += 1
         return q
     return min(candidates, key=lambda q: (abs(q - target), q))
+
 
 def packet_dft_energy(b, q):
     H = [0j] * q
@@ -108,6 +115,7 @@ def packet_dft_energy(b, q):
     if rel > 1e-10:
         raise AssertionError(('parseval', q, lhs, rhs, rel))
     return vals
+
 
 def reduced_freq_energy(b, Q):
     zero = abs(sum(b.values())) ** 2
@@ -129,6 +137,7 @@ def reduced_freq_energy(b, Q):
             count += 1
     return family, family - zero, zero, count
 
+
 def quantile(xs, p):
     ys = sorted(xs)
     if not ys:
@@ -141,12 +150,14 @@ def quantile(xs, p):
         return ys[int(k)]
     return ys[f] * (c - k) + ys[c] * (k - f)
 
+
 def linear_slope(xs, ys):
     mx = sum(xs) / len(xs); my = sum(ys) / len(ys)
     den = sum((x - mx) ** 2 for x in xs)
     if den == 0:
         return 0.0
     return sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / den
+
 
 def tiny_checks(mu):
     X = 180
@@ -159,6 +170,7 @@ def tiny_checks(mu):
                 direct = sum(v * cmath.exp(-2j * math.pi * a * h / q) for h, v in b.items())
                 if abs(direct - vals[a]) > 1e-9:
                     raise AssertionError(('direct-vs-packet', kind, q, a, direct, vals[a]))
+
 
 def summarize_rows(rows):
     summaries = []
@@ -182,6 +194,7 @@ def summarize_rows(rows):
                 })
     return summaries
 
+
 def slope_from_summary(summaries, ratio, kind):
     sub = [s for s in summaries if s['ratio'] == ratio and s['kind'] == kind and s['P'] in FIT_WINDOWS]
     sub.sort(key=lambda x: x['P'])
@@ -189,6 +202,7 @@ def slope_from_summary(summaries, ratio, kind):
     if any(y <= 0 for y in ys):
         return None
     return linear_slope([math.log(s['P']) for s in sub], [math.log(y) for y in ys])
+
 
 def bootstrap_slopes(rows, ratio, kind):
     rng = random.Random(SEED + ratio * 100 + KINDS.index(kind))
@@ -210,6 +224,7 @@ def bootstrap_slopes(rows, ratio, kind):
         if valid:
             slopes.append(linear_slope([math.log(P) for P in FIT_WINDOWS], [math.log(x) for x in means]))
     return {'n': len(slopes), 'p05': quantile(slopes, 0.05), 'p50': quantile(slopes, 0.50), 'p95': quantile(slopes, 0.95)}
+
 
 maxX = max(P_WINDOWS) * max(X_RATIOS)
 maxn = int(2 * maxX + 5000)
@@ -295,14 +310,19 @@ if len(set(signs)) != 1:
 
 out = {
     'protocol': {
-        'P_WINDOWS': P_WINDOWS, 'X_RATIOS': X_RATIOS, 'KINDS': KINDS,
+        'P_WINDOWS': P_WINDOWS,
+        'X_RATIOS': X_RATIOS,
+        'KINDS': KINDS,
         'Q_rule': 'nearest q>=7 coprime to 30 to sqrt(2X/30), ties smaller',
         'Ngeom': 'plain nonzero h support interval length, reused across channels',
-        'FIT_WINDOWS': FIT_WINDOWS, 'BOOTSTRAP_REPS': BOOTSTRAP_REPS, 'SEED': SEED,
+        'FIT_WINDOWS': FIT_WINDOWS,
+        'BOOTSTRAP_REPS': BOOTSTRAP_REPS,
+        'SEED': SEED,
         'strong_decay_rule': 'both ratios: means(400)>means(800)>means(1600), slope<=-0.25, bootstrap p95<0',
         'sign_effect_rule': 'inverse-squarefree same sign and abs diff>=0.01 for P=400,800,1600 at both ratios',
     },
-    'summaries': summaries, 'slopes': slopes,
+    'summaries': summaries,
+    'slopes': slopes,
     'strong_finite_decay_pattern': strong_decay,
     'sign_specific_effect': sign_effect,
     'max_sat_full': max(r['sat_full'] for r in rows),
