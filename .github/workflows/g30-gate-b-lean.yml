@@ -37,6 +37,7 @@ jobs:
         working-directory: research/g30-gate-b-lean
         run: |
           lake update
+          lake exe cache get
           lean --version
           lake --version
 
