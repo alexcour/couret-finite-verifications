@@ -23,6 +23,7 @@ jobs:
         shell: bash
         run: |
           sudo mkdir -p /mnt/data
+          sudo chown "$USER:$USER" /mnt/data
           python research/g30-gate-b-lean/verify_g30_gate_b.py
 
       - name: Install elan
