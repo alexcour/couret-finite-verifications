@@ -1,0 +1,30 @@
+name: interia-sa02-classical-models
+
+on:
+  push:
+    branches:
+      - research/liouville-audit-2026-10-08
+    paths:
+      - "research/experiments/interia_sa02_weyl_certifier.py"
+      - "research/experiments/test_interia_sa02_weyl_certifier.py"
+      - "research/INTERIA_SA_02_PROTOCOL.md"
+      - ".github/workflows/interia-sa02.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Verify Python classical examples and adversarial controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s research/experiments -p 'test_interia_sa02_weyl_certifier.py' -v
+          python3 research/experiments/interia_sa02_weyl_certifier.py --json > /tmp/interia_sa02_certificates.json
+          python3 -c 'import json; x=json.load(open("/tmp/interia_sa02_certificates.json")); assert len(x["certificates"]) == 13'
+          python3 research/experiments/interia_sa02_weyl_certifier.py --model bessel_weight_x --parameter 1 --claim LP LP >/dev/null
+          if python3 research/experiments/interia_sa02_weyl_certifier.py --model bessel_weight_x --parameter 1 --claim LC LP >/dev/null; then
+            echo "ERROR: incorrect classification was accepted"
+            exit 1
+          fi
