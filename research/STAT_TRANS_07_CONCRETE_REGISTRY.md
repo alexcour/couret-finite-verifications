@@ -1,7 +1,7 @@
 # STAT-TRANS-07 — Concrete case registry — CURRENT
 
 Status date: 2026-10-08
-Lifecycle: WORKING / CURRENT-CANDIDATE
+Lifecycle: CURRENT
 Dependency: STAT-TRANS-01..06
 Novelty: NON-AUDITEE
 Claim boundary: this registry binds scientific case labels to concrete artifacts and typed dependency receipts. It does not prove that the external artifact contents are authentic merely because their identifiers are stored here.
@@ -209,11 +209,20 @@ The corresponding Lean layer should use concrete case/claim identifiers and prov
 
 Artifact identifiers are metadata. Lean will certify the graph and propagation policy, not independently authenticate Google Drive or GitHub contents.
 
-## Promotion gate
+## Formal verification status
 
-STAT-TRANS-07 may be promoted to Q-FORMALIZED only after:
-- the Lean concrete-registry layer compiles on a head containing STAT-TRANS-01..06;
-- the current `bridge01-lean` run passes;
-- no new `sorry` is introduced;
-- axiom/dependency audit remains within the declared policy.
+STAT-TRANS-07 is FORMALLY VERIFIED for its declared bounded graph-policy perimeter.
+
+Evidence:
+- Lean layer: `research/lean/CouretOaiBridge01/STAT_TRANS_07_ConcreteRegistry.lean`;
+- exposed by `CouretOaiBridge01.lean`;
+- commit: `a287e7cebeb26f80ab569b61aa28b2f7336b7087`;
+- `bridge01-lean` run #60: SUCCESS;
+- `verify` run #147: SUCCESS;
+- transitive axiom audit: PASSED;
+- reported public declarations: 53;
+- allowed standard axioms observed: `propext`, `Classical.choice`, `Quot.sound`.
+
+Boundary:
+this verifies the typed graph, propagation policy, case-locality, scope firewall, and selected no-cross-case reachability statements. It does not authenticate external files from their string identifiers, close novelty audits, or establish new mathematical links between the four scientific cases.
 
