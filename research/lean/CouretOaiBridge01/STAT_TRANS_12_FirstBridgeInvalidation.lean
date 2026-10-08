@@ -69,17 +69,17 @@ theorem g30_support_loss_impacts_t16_derived_no_gain :
 theorem g30_support_loss_has_no_semantic_seed :
     ∀ x, ¬ V2Seed .semantic g30ProofSupportLoss x := by
   intro x
-  cases x <;> simp [V2Seed, g30ProofSupportLoss, touches]
+  cases x <;> simp [V2Seed, g30ProofSupportLoss, touches, Delta.invalidatesSemantic]
 
 theorem g30_support_loss_has_no_replay_seed :
     ∀ x, ¬ V2Seed .replay g30ProofSupportLoss x := by
   intro x
-  cases x <;> simp [V2Seed, g30ProofSupportLoss, touches]
+  cases x <;> simp [V2Seed, g30ProofSupportLoss, touches, Delta.invalidatesReplay]
 
 theorem g30_support_loss_has_no_novelty_seed :
     ∀ x, ¬ V2Seed .novelty g30ProofSupportLoss x := by
   intro x
-  cases x <;> simp [V2Seed, g30ProofSupportLoss, touches]
+  cases x <;> simp [V2Seed, g30ProofSupportLoss, touches, Delta.invalidatesNovelty]
 
 theorem no_semantic_impact_from_support_only_change (x : ConcreteNode) :
     ¬ ProductionImpacted .semantic g30ProofSupportLoss x := by
