@@ -35,7 +35,7 @@ structure Metadata where
 /-- A semantic claim plus orthogonal metadata and explicit dependencies. -/
 structure ClaimContract (α : Type*) where
   semantic : Claim α
-  meta : Metadata
+  metaInfo : Metadata
   deps : List String
 
 /-- An axis is either unchanged or changed under an explicit witness label. -/
@@ -63,21 +63,21 @@ structure ContractTransport {α : Type*}
   versionChange : AxisChange
   dependencyReceipt : AxisChange
   epistemicOk :
-    AxisJustified source.meta.epistemic target.meta.epistemic epistemicChange
+    AxisJustified source.metaInfo.epistemic target.metaInfo.epistemic epistemicChange
   noveltyOk :
-    AxisJustified source.meta.novelty target.meta.novelty noveltyChange
+    AxisJustified source.metaInfo.novelty target.metaInfo.novelty noveltyChange
   qualityOk :
-    AxisJustified source.meta.quality target.meta.quality qualityChange
+    AxisJustified source.metaInfo.quality target.metaInfo.quality qualityChange
   provenanceOk :
-    AxisJustified source.meta.provenance target.meta.provenance provenanceChange
+    AxisJustified source.metaInfo.provenance target.metaInfo.provenance provenanceChange
   diffusionOk :
-    AxisJustified source.meta.diffusion target.meta.diffusion diffusionChange
+    AxisJustified source.metaInfo.diffusion target.metaInfo.diffusion diffusionChange
   lifecycleOk :
-    AxisJustified source.meta.lifecycle target.meta.lifecycle lifecycleChange
+    AxisJustified source.metaInfo.lifecycle target.metaInfo.lifecycle lifecycleChange
   workflowOk :
-    AxisJustified source.meta.workflow target.meta.workflow workflowChange
+    AxisJustified source.metaInfo.workflow target.metaInfo.workflow workflowChange
   versionOk :
-    AxisJustified source.meta.version target.meta.version versionChange
+    AxisJustified source.metaInfo.version target.metaInfo.version versionChange
   dependenciesOk :
     match dependencyReceipt with
     | .unchanged => source.deps = target.deps
@@ -102,7 +102,7 @@ theorem changed_axis_requires_witness
 theorem epistemic_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
-    (hne : source.meta.epistemic ≠ target.meta.epistemic) :
+    (hne : source.metaInfo.epistemic ≠ target.metaInfo.epistemic) :
     ∃ receipt, τ.epistemicChange = AxisChange.witnessed receipt :=
   changed_axis_requires_witness τ.epistemicOk hne
 
@@ -110,7 +110,7 @@ theorem epistemic_change_requires_witness
 theorem novelty_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
-    (hne : source.meta.novelty ≠ target.meta.novelty) :
+    (hne : source.metaInfo.novelty ≠ target.metaInfo.novelty) :
     ∃ receipt, τ.noveltyChange = AxisChange.witnessed receipt :=
   changed_axis_requires_witness τ.noveltyOk hne
 
@@ -118,7 +118,7 @@ theorem novelty_change_requires_witness
 theorem quality_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
-    (hne : source.meta.quality ≠ target.meta.quality) :
+    (hne : source.metaInfo.quality ≠ target.metaInfo.quality) :
     ∃ receipt, τ.qualityChange = AxisChange.witnessed receipt :=
   changed_axis_requires_witness τ.qualityOk hne
 
