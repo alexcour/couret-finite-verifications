@@ -43,7 +43,7 @@ theorem Transport.holds
 
 /-- Identity transport. -/
 def Transport.refl {α : Type*} (C : Claim α) : Transport C C where
-  scope_le := fun hx => hx
+  scope_le := fun _ hx => hx
   bridge := fun _ _ h => h
 
 /-- Certified transports compose. -/
@@ -51,7 +51,7 @@ def Transport.comp
     {α : Type*} {C₁ C₂ C₃ : Claim α}
     (τ₁₂ : Transport C₁ C₂) (τ₂₃ : Transport C₂ C₃) :
     Transport C₁ C₃ where
-  scope_le := fun hx => τ₁₂.scope_le (τ₂₃.scope_le hx)
+  scope_le := fun _ hx => τ₁₂.scope_le (τ₂₃.scope_le hx)
   bridge := fun x hx h =>
     τ₂₃.bridge x hx (τ₁₂.bridge x (τ₂₃.scope_le hx) h)
 
@@ -68,7 +68,7 @@ def mapPredicate
     {α : Type*} (S : Set α) (P Q : α → Prop)
     (hPQ : ∀ x, x ∈ S → P x → Q x) :
     Transport { scope := S, pred := P } { scope := S, pred := Q } where
-  scope_le := fun hx => hx
+  scope_le := fun _ hx => hx
   bridge := hPQ
 
 /-- Transport across a pointwise equivalence on the same scope. -/
@@ -76,7 +76,7 @@ def ofIff
     {α : Type*} (S : Set α) (P Q : α → Prop)
     (h : ∀ x, x ∈ S → (P x ↔ Q x)) :
     Transport { scope := S, pred := P } { scope := S, pred := Q } where
-  scope_le := fun hx => hx
+  scope_le := fun _ hx => hx
   bridge := fun x hx hp => (h x hx).mp hp
 
 /-- Reverse transport from the same pointwise equivalence. -/
@@ -84,7 +84,7 @@ def ofIffSymm
     {α : Type*} (S : Set α) (P Q : α → Prop)
     (h : ∀ x, x ∈ S → (P x ↔ Q x)) :
     Transport { scope := S, pred := Q } { scope := S, pred := P } where
-  scope_le := fun hx => hx
+  scope_le := fun _ hx => hx
   bridge := fun x hx hq => (h x hx).mpr hq
 
 end StatusTransport
