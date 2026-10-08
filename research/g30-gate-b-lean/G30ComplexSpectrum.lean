@@ -78,6 +78,7 @@ theorem triplet_count : triplets.length = 56 := by native_decide
 @[inline] def charSum (T : List V) (c : CharIdx) : GZ :=
   T.foldl (fun acc i => gAdd acc (evalChar c i)) (0,0)
 
+-- Every Fourier sum of a 3-set lies in [-3,3]^2.
 def gaussianGrid : List GZ :=
   [(-3,-3),(-3,-2),(-3,-1),(-3,0),(-3,1),(-3,2),(-3,3),
    (-2,-3),(-2,-2),(-2,-1),(-2,0),(-2,1),(-2,2),(-2,3),
@@ -105,6 +106,7 @@ def powerCounts (T : List V) : List Nat :=
 
 def samePower (T U : List V) : Bool := powerCounts T == powerCounts U
 
+-- One representative per exact complex spectral class, in lexicographic order.
 def spectralReps : List (List V) :=
   [[0,1,2], [0,1,3], [0,1,4], [0,1,5], [1,2,3],
    [1,2,4], [1,2,5], [1,2,6], [1,2,7], [1,3,5]]
@@ -130,6 +132,7 @@ theorem spectral_class_sizes :
     spectralReps.map spectralClassSize = [8,5,4,4,4,4,8,8,8,3] := by
   native_decide
 
+-- The two old power/energy classes: 32 and 24.
 def powerReps : List (List V) := [[0,1,2], [0,1,3]]
 def powerClassSize (R : List V) : Nat :=
   (triplets.filter (fun T => samePower T R)).length
@@ -147,6 +150,7 @@ theorem tc_fiber_members :
     tcFiber = [[0,1,3], [0,2,5], [0,2,7], [0,4,6], [0,5,7]] := by
   native_decide
 
+-- Group law in C2 x C4, represented with the same coordinates as the legacy file.
 @[inline] def indexFromCoord (a b : Nat) : V :=
   match a % 2, b % 4 with
   | 0,0 => 0 | 0,1 => 1 | 1,2 => 2 | 0,3 => 3
@@ -171,6 +175,7 @@ def graphIsoCert (T U : List V) (p : List V) : Bool :=
   vertices.all (fun x =>
     vertices.all (fun y => edge T x y == edge U (permApply p x) (permApply p y)))
 
+-- Exact witnesses produced independently by verify_g30_gate_b.py.
 def tcTarget0 : List V := [0,1,3]
 def tcTarget1 : List V := [0,2,5]
 def tcTarget2 : List V := [0,2,7]
