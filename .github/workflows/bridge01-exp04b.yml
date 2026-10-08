@@ -1,0 +1,34 @@
+name: bridge01-exp04b
+
+on:
+  push:
+    branches:
+      - research/couret-oai-bridge-01
+    paths:
+      - "research/experiments/bridge_exp04b_confirmatory.py"
+      - ".github/workflows/bridge01-exp04b.yml"
+  workflow_dispatch:
+
+jobs:
+  exp04b:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Run conforming EXP-04B
+        working-directory: research/experiments
+        run: |
+          python bridge_exp04b_confirmatory.py | tee exp04b_stdout.json
+      - name: Verify output files exist and JSON parses
+        working-directory: research/experiments
+        run: |
+          python -m json.tool bridge_exp04b_results.json >/dev/null
+          test -s bridge_exp04b_rows.csv
+          test -s bridge_exp04b_summary.csv
+          test -s exp04b_stdout.json
+      - name: Record hashes
+        working-directory: research/experiments
+        run: |
+          sha256sum bridge_exp04b_confirmatory.py bridge_exp04b_results.json bridge_exp04b_rows.csv bridge_exp04b_summary.csv
