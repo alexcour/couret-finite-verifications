@@ -1,0 +1,10 @@
+{
+  "schema": "stat-trans-mutation-oracles/v1",
+  "axes": [
+    "semantic",
+    "replay",
+    "novelty",
+    "justification"
+  ],
+  "cases": []
+}
