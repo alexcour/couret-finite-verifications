@@ -1,0 +1,26 @@
+{
+  "protocol_commit": "024f17b045b1ac63783a884f031ed3c085ff3adb",
+  "workflow_run": 37832022134,
+  "row_count": 2562,
+  "max_sat_full": 0.42279833719973947,
+  "strong_finite_decay_pattern": false,
+  "sign_specific_effect": true,
+  "slopes": {
+    "ratio8": {
+      "plain": -1.1069664541509237,
+      "squarefree": -0.29437973096657893,
+      "inverse": -0.14528210000752956
+    },
+    "ratio16": {
+      "plain": -1.1568697248031177,
+      "squarefree": -0.2946487244939403,
+      "inverse": -0.09775054552272319
+    }
+  },
+  "hashes": {
+    "script": "d8b38e962790f96c1695f6ddae3240b4737658ab882a03f97d7c989cd7236e3d",
+    "json": "5c1f56582ee17203e983885a73d57d3b5540706a951b15d0986b84ed107a6708",
+    "raw_csv": "75802fffb99e99aed648c9430870428dce2db362658dcba953cf6db5561ab235",
+    "summary_csv": "d7ac9fb63ccadc4749158a70a44adb587efa7b596dae8303d99865dbd73ef28d"
+  }
+}
