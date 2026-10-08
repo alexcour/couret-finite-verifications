@@ -8,3 +8,4 @@ import CouretOaiBridge01.STAT_TRANS_01_StatusTransport
 import CouretOaiBridge01.STAT_TRANS_02_ClaimContract
 import CouretOaiBridge01.STAT_TRANS_03_DependencyGraph
 import CouretOaiBridge01.STAT_TRANS_04_TypedDependencies
+import CouretOaiBridge01.STAT_TRANS_05_MutationSuite
