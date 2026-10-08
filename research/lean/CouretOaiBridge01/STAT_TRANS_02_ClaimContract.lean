@@ -36,7 +36,7 @@ structure Metadata where
 structure ClaimContract (α : Type*) where
   semantic : Claim α
   meta : Metadata
-  dependencies : List String
+  deps : List String
 
 /-- An axis is either unchanged or changed under an explicit witness label. -/
 inductive AxisChange where
@@ -80,7 +80,7 @@ structure ContractTransport {α : Type*}
     AxisJustified source.meta.version target.meta.version versionChange
   dependenciesOk :
     match dependencyReceipt with
-    | .unchanged => source.dependencies = target.dependencies
+    | .unchanged => source.deps = target.deps
     | .witnessed _ => True
 
 /--
@@ -91,7 +91,7 @@ theorem changed_axis_requires_witness
     {source target : String} {ch : AxisChange}
     (h : AxisJustified source target ch)
     (hne : source ≠ target) :
-    ∃ receipt, ch = .witnessed receipt := by
+    ∃ receipt, ch = AxisChange.witnessed receipt := by
   cases ch with
   | unchanged =>
       exact False.elim (hne h)
@@ -103,7 +103,7 @@ theorem epistemic_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
     (hne : source.meta.epistemic ≠ target.meta.epistemic) :
-    ∃ receipt, τ.epistemicChange = .witnessed receipt :=
+    ∃ receipt, τ.epistemicChange = AxisChange.witnessed receipt :=
   changed_axis_requires_witness τ.epistemicOk hne
 
 /-- Novelty cannot silently change under a valid contract transport. -/
@@ -111,7 +111,7 @@ theorem novelty_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
     (hne : source.meta.novelty ≠ target.meta.novelty) :
-    ∃ receipt, τ.noveltyChange = .witnessed receipt :=
+    ∃ receipt, τ.noveltyChange = AxisChange.witnessed receipt :=
   changed_axis_requires_witness τ.noveltyOk hne
 
 /-- Reproducibility / witness quality cannot silently change either. -/
@@ -119,18 +119,18 @@ theorem quality_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
     (hne : source.meta.quality ≠ target.meta.quality) :
-    ∃ receipt, τ.qualityChange = .witnessed receipt :=
+    ∃ receipt, τ.qualityChange = AxisChange.witnessed receipt :=
   changed_axis_requires_witness τ.qualityOk hne
 
 /-- Dependency changes must be explicitly receipted. -/
 theorem dependency_change_requires_witness
     {α : Type*} {source target : ClaimContract α}
     (τ : ContractTransport source target)
-    (hne : source.dependencies ≠ target.dependencies) :
-    ∃ receipt, τ.dependencyReceipt = .witnessed receipt := by
+    (hne : source.deps ≠ target.deps) :
+    ∃ receipt, τ.dependencyReceipt = AxisChange.witnessed receipt := by
   cases h : τ.dependencyReceipt with
   | unchanged =>
-      have hs : source.dependencies = target.dependencies := by
+      have hs : source.deps = target.deps := by
         simpa [h] using τ.dependenciesOk
       exact False.elim (hne hs)
   | witnessed receipt =>
