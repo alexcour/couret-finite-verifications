@@ -1,0 +1,285 @@
+{
+  "schema": "stat-trans-artifact-bindings/v1",
+  "created_on": "2026-10-08",
+  "scope": "External references are observed Git blobs, not kernel-certified imports; Drive document IDs are not cryptographic witnesses.",
+  "claim_boundary": "No RH claim, no general novelty, no peer review promotion, no external replay PASS based on a file pointer.",
+  "repository": "alexcour/couret-finite-verifications",
+  "branch": "research/couret-oai-bridge-01",
+  "nodes": [
+    {
+      "id": "g30Finite",
+      "case": "g30",
+      "claim": "Finite U(30) Couret kernel has explicit inverse (not a global prime assertion)",
+      "assurance": "local_lean_anchor",
+      "source": {
+        "repo": "alexcour/couret-finite-verifications",
+        "ref": "0f1b0e5d9cb6e805d6f9a8caf3cad3147c39a562",
+        "provider": "github_local",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A1_U30KernelInverse.lean",
+        "blob_sha": "40072f43ce3ebac6959fd04e86321818567b1c4c",
+        "lean_declaration": "CouretOaiBridge01.tau_mul_sigma"
+      }
+    },
+    {
+      "id": "g30Local",
+      "case": "g30",
+      "claim": "Unspecified derived local finite result",
+      "assurance": "requires_specific_bridge",
+      "source": {
+        "provider": "google_drive",
+        "file_id": "1BfnMwX8BJYrtGJGx_JY-iT5YfuFYyAwT7MHvKKll27g",
+        "verification": "document_observed_not_cryptographically_pinned"
+      }
+    },
+    {
+      "id": "g30GlobalUnsupported",
+      "case": "g30",
+      "claim": "No general/global promotion",
+      "assurance": "unsupported",
+      "source": {
+        "provider": "none",
+        "reason": "No analytic bridge from finite modulus 30"
+      }
+    },
+    {
+      "id": "g30Documentary",
+      "case": "g30",
+      "claim": "Documentary pointer to G30 boundary",
+      "assurance": "documentary",
+      "source": {
+        "provider": "google_drive",
+        "file_id": "1BfnMwX8BJYrtGJGx_JY-iT5YfuFYyAwT7MHvKKll27g",
+        "verification": "document_observed_not_cryptographically_pinned"
+      }
+    },
+    {
+      "id": "t16Abstract",
+      "case": "t16",
+      "claim": "Big-O invariance under continuous linear equivalence",
+      "assurance": "local_lean_anchor",
+      "source": {
+        "repo": "alexcour/couret-finite-verifications",
+        "ref": "0f1b0e5d9cb6e805d6f9a8caf3cad3147c39a562",
+        "provider": "github_local",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A0_GenericNoGain.lean",
+        "blob_sha": "a93c109b0f3017fea87f0bc272928b57c8068339",
+        "lean_declaration": "CouretOaiBridge01.isBigO_comp_continuousLinearEquiv_iff"
+      }
+    },
+    {
+      "id": "t16FixedModulus",
+      "case": "t16",
+      "claim": "Real 8-coordinate U(30) continuous linear convolution equivalence",
+      "assurance": "local_lean_anchor",
+      "source": {
+        "repo": "alexcour/couret-finite-verifications",
+        "ref": "0f1b0e5d9cb6e805d6f9a8caf3cad3147c39a562",
+        "provider": "github_local",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A2_FixedModulusNoGain.lean",
+        "blob_sha": "f14a47b397de6314e68e0c9e014d15f36eebb799",
+        "lean_declaration": "CouretOaiBridge01.tauRMulContinuousLinearEquiv"
+      }
+    },
+    {
+      "id": "t16DerivedNoGain",
+      "case": "t16",
+      "claim": "Fixed modulus convolution preserves Big-O class of full vector",
+      "assurance": "local_lean_anchor_same_source_as_fixed_modulus",
+      "source": {
+        "repo": "alexcour/couret-finite-verifications",
+        "ref": "0f1b0e5d9cb6e805d6f9a8caf3cad3147c39a562",
+        "provider": "github_local",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A2_FixedModulusNoGain.lean",
+        "blob_sha": "f14a47b397de6314e68e0c9e014d15f36eebb799",
+        "lean_declaration": "CouretOaiBridge01.fixedModulusNoGain"
+      }
+    },
+    {
+      "id": "t16NoveltyAudit",
+      "case": "t16",
+      "claim": "Independent originality assessment remains open",
+      "assurance": "novelty_not_audited",
+      "source": {
+        "provider": "none",
+        "reason": "No completed prior-art certificate"
+      }
+    },
+    {
+      "id": "cayleyPriorArt",
+      "case": "cayley",
+      "claim": "Mönius 2020 explicit overlap for designated cospectral subfamily only",
+      "assurance": "externally_pinned_document_not_lean_proof",
+      "source": {
+        "repo": "alexcour/cayley-prime-translation-cospectrality",
+        "ref": "4219bc0944fb1bd12bf1ec1250ae942cb10019ad",
+        "provider": "github_external",
+        "path": "PRIOR_ART.md",
+        "blob_sha": "2aecad0dca1517bcb322b8a2c3457f68104659b2"
+      }
+    },
+    {
+      "id": "cayleyNoveltyReview",
+      "case": "cayley",
+      "claim": "General novelty remains unaudited",
+      "assurance": "externally_pinned_status",
+      "source": {
+        "repo": "alexcour/cayley-prime-translation-cospectrality",
+        "ref": "4219bc0944fb1bd12bf1ec1250ae942cb10019ad",
+        "provider": "github_external",
+        "path": "PUBLICATION_STATUS.md",
+        "blob_sha": "fe28a3f0c2fdade0f72e2b06e036b06ad74c3eea"
+      }
+    },
+    {
+      "id": "cayleyPublicReview",
+      "case": "cayley",
+      "claim": "Public review version 0.1.x, not peer-reviewed release",
+      "assurance": "public_review_only",
+      "source": {
+        "repo": "alexcour/cayley-prime-translation-cospectrality",
+        "ref": "4219bc0944fb1bd12bf1ec1250ae942cb10019ad",
+        "provider": "github_external",
+        "path": "PUBLICATION_STATUS.md",
+        "blob_sha": "fe28a3f0c2fdade0f72e2b06e036b06ad74c3eea"
+      }
+    },
+    {
+      "id": "cayleyIndependentProof",
+      "case": "cayley",
+      "claim": "Independent mathematical audit of general theorem",
+      "assurance": "independent_review_open",
+      "source": {
+        "provider": "none",
+        "reason": "Internal text proofs exist, but no completed independent verification was found"
+      }
+    },
+    {
+      "id": "oaiVerifier",
+      "case": "oaiSevenEighths",
+      "claim": "Comparator/formalization source snapshot",
+      "assurance": "external_repository_snapshot",
+      "source": {
+        "repo": "openai/math",
+        "ref": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+        "provider": "github_external",
+        "path": "lean/formalization.yaml",
+        "blob_sha": "e0584d4993df01ec08233ab344ebc1b1039bf7f7"
+      }
+    },
+    {
+      "id": "oaiReplay",
+      "case": "oaiSevenEighths",
+      "claim": "Independent replay of seven-eighths theorem",
+      "assurance": "independent_replay_open",
+      "source": {
+        "provider": "none",
+        "reason": "A published formalization is not an independent replay; OAI audit records replay pending"
+      }
+    },
+    {
+      "id": "oaiPublishedNarrative",
+      "case": "oaiSevenEighths",
+      "claim": "Published claim of strict zero-free half-plane Re(s)>7/8 (not RH)",
+      "assurance": "external_repository_snapshot",
+      "source": {
+        "repo": "openai/math",
+        "ref": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+        "provider": "github_external",
+        "path": "lean/OAI/NumberTheory/DirichletL/Nonvanishing.lean",
+        "blob_sha": "46c67f4000906b1391a471d6e6396ac0da3c16a5",
+        "lean_declaration": "OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re"
+      }
+    },
+    {
+      "id": "oaiNoveltyAudit",
+      "case": "oaiSevenEighths",
+      "claim": "Independent novelty review",
+      "assurance": "novelty_not_audited",
+      "source": {
+        "provider": "none",
+        "reason": "Review status unchecked; independent literature audit not recorded"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "g30Finite",
+      "target": "g30Local",
+      "kind": "proof",
+      "verification": "requires_bridge",
+      "note": "Specific derived-statement proof bridge not supplied"
+    },
+    {
+      "source": "g30Local",
+      "target": "g30GlobalUnsupported",
+      "kind": "documentary",
+      "verification": "documentary_only",
+      "note": "Explicitly blocked global extension"
+    },
+    {
+      "source": "g30GlobalUnsupported",
+      "target": "g30Documentary",
+      "kind": "documentary",
+      "verification": "documentary_only",
+      "note": "Citation is not a mathematical bridge"
+    },
+    {
+      "source": "t16Abstract",
+      "target": "t16FixedModulus",
+      "kind": "proof",
+      "verification": "local_lean_anchor",
+      "note": "A2 imports A0 and A1; Lean checks A2"
+    },
+    {
+      "source": "t16FixedModulus",
+      "target": "t16DerivedNoGain",
+      "kind": "proof",
+      "verification": "local_lean_anchor",
+      "note": "A2 fixedModulusNoGain theorem (not independent new proof)"
+    },
+    {
+      "source": "t16DerivedNoGain",
+      "target": "t16NoveltyAudit",
+      "kind": "novelty",
+      "verification": "audit_open",
+      "note": "Novelty requires independent bibliography"
+    },
+    {
+      "source": "cayleyPriorArt",
+      "target": "cayleyNoveltyReview",
+      "kind": "novelty",
+      "verification": "documentary_support_only",
+      "note": "Mönius overlap documented; global novelty open"
+    },
+    {
+      "source": "cayleyNoveltyReview",
+      "target": "cayleyPublicReview",
+      "kind": "documentary",
+      "verification": "documentary_only",
+      "note": "PUBLIC REVIEW does not certify novelty"
+    },
+    {
+      "source": "oaiVerifier",
+      "target": "oaiReplay",
+      "kind": "replay",
+      "verification": "replay_open",
+      "note": "Independent Comparator replay not witnessed"
+    },
+    {
+      "source": "oaiReplay",
+      "target": "oaiPublishedNarrative",
+      "kind": "documentary",
+      "verification": "documentary_only",
+      "note": "Publication does not follow from replay"
+    }
+  ],
+  "local_sha_check": "For provider=github_local, git hash-object must equal blob_sha at checked-out working tree.",
+  "external_sha_check": "Provider=github_external values were read via GitHub connector at pinned commits. Offline CI does not re-fetch or independently authenticate them.",
+  "prohibited_promotions": [
+    "g30GlobalUnsupported",
+    "cayleyIndependentProof",
+    "oaiReplay",
+    "oaiNoveltyAudit",
+    "t16NoveltyAudit"
+  ]
+}
