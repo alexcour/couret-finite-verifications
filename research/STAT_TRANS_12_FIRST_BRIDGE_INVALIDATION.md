@@ -1,8 +1,8 @@
 # STAT-TRANS-12 — Invalidation through the first admitted bridge — CURRENT
 
 Status date: 2026-10-08
-Lifecycle: CURRENT-CANDIDATE
-Formal status: CANDIDATE IN CI
+Lifecycle: CURRENT
+Formal status: D-Lean / bounded formal perimeter
 Novelty: NON-AUDITEE
 Claim boundary: this layer tests invalidation propagation through the first admitted bridge. It does not create a second bridge and does not expand the mathematical scope of G30 or T16.
 
@@ -84,12 +84,21 @@ The finite production oracle checks that:
 - replay does not cross the bridge;
 - novelty does not cross the bridge.
 
-## Promotion gate
+## Formal verification status
 
-STAT-TRANS-12 becomes D-Lean only after:
-- `bridge01-lean` succeeds on a head importing STAT-TRANS-12;
-- `verify` succeeds;
-- no new sorry is introduced;
-- the transitive axiom audit remains inside the declared policy.
+STAT-TRANS-12 is FORMALLY VERIFIED for its declared bounded invalidation perimeter.
 
-Until then, it remains a formal candidate.
+Reference correction commit:
+`70ecd41a1b7ea7bb4933062a84a0d1dddea7f54d`.
+
+Results:
+- `bridge01-lean` #79: SUCCESS;
+- `verify` #211: SUCCESS;
+- full Lean build step: SUCCESS;
+- artifact-binding verification: SUCCESS;
+- transitive A0–A2+B0–B2 audit: SUCCESS.
+
+The earlier failures #77 and #78 were proof-elaboration defects in three finite no-seed lemmas, not changes to the scientific graph or expected propagation policy. The successful correction explicitly unfolds the `Delta.invalidatesSemantic`, `Delta.invalidatesReplay`, and `Delta.invalidatesNovelty` predicates.
+
+Boundary:
+this proves the stated finite propagation behavior of the first admitted justification bridge. It does not mean that T16 becomes false when G30 support changes; it means T16 justification must be reopened. It does not transport semantic truth, replay, novelty, publication, or any global analytic claim.
