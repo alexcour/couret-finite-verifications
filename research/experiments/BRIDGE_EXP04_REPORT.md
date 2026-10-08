@@ -1,8 +1,10 @@
-# COURET–OAI–BRIDGE–01 — EXP-04 critical scaling law
+# COURET–OAI–BRIDGE–01 — EXP-04A exploratory critical scaling (NON-CONFORMING TO FROZEN EXP-04B PROTOCOL)
 
 > **RESEARCH BRANCH — NOT PART OF v1.0.0 — NO RH CLAIM — NOT PEER REVIEWED**
 >
-> EXP-04 tests scaling at approximately fixed lambda = Q^2/N. It is descriptive only: finite-window log-log slopes are not promoted to asymptotic exponents.
+> **STATUS CORRECTION (2026-10-08):** this run is retained as an exploratory result, but it does **not** conform to the earlier frozen `BRIDGE_EXP04_PROTOCOL.md`. Its windows, length ratio, lambda targets, Q rule, support normalization, and control channels differ. It must not be used as the confirmatory verdict for the frozen protocol.
+>
+> The result remains useful as exploratory evidence only. A separate conforming run is required.
 
 ## Frozen protocol
 
