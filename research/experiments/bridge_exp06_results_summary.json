@@ -1,0 +1,40 @@
+{
+  "workflow_run": 37833883793,
+  "row_count": 1824,
+  "contrast_count": 576,
+  "max_energy_identity_relerr": 1.8471452716335826e-14,
+  "max_factorization_relerr": 7.374436617904451e-10,
+  "max_B_identity_relerr": 3.606238320204518e-16,
+  "inverse_delta_M1_all_negative": true,
+  "inverse_diag_amp_ratio_range": [
+    0.16458987456882235,
+    0.19477638791879234
+  ],
+  "inverse_M1_off_range": [
+    0.15335217720359023,
+    0.2663045888205434
+  ],
+  "chi5": {
+    "inverse_M1_off": {
+      "mean_abs": 0.017671292994170335,
+      "top_count": 9,
+      "total": 24,
+      "positive": 10,
+      "negative": 14
+    },
+    "inverse_delta_M1": {
+      "mean_abs": 0.009429365972217342,
+      "top_count": 7,
+      "total": 24,
+      "positive": 10,
+      "negative": 14
+    }
+  },
+  "hashes": {
+    "script": "4c0b10dbe27c31a0e30a8d9c65b455ec5ca8fa4f430bb85a596939445052ccbf",
+    "json": "efc52769eaef4d03af9bebb1b152c418a6179d7544d3e2d1095de571f539d5c6",
+    "rows_csv": "097825885f2e5dea3295519c3ac9cb0c7cae44394a1d6fe44f4056d9bde79fdc",
+    "contrasts_csv": "d4ef1356eee465309de0d255d7c95292dab8566d00ce6ae17d5394f91f6ebd9a",
+    "summary_csv": "a7df97c8a9ce9ee90dee36973a92661e687abbc2600e7fa0fa576a6acd2f36cf"
+  }
+}
