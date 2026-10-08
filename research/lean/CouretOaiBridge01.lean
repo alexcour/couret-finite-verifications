@@ -12,3 +12,4 @@ import CouretOaiBridge01.STAT_TRANS_05_MutationSuite
 import CouretOaiBridge01.STAT_TRANS_06_AdversarialCases
 import CouretOaiBridge01.STAT_TRANS_07_ConcreteRegistry
 import CouretOaiBridge01.STAT_TRANS_07_RefinedPolicy
+import CouretOaiBridge01.STAT_TRANS_08_BridgeReceipts
