@@ -82,10 +82,10 @@ theorem isolated_node_not_impacted
   apply not_impacted_of_unreachable
   intro s hs hreach
   cases hreach with
-  | refl _ =>
+  | refl =>
       exact hseed hs
-  | step hab _ =>
-      exact hin _ hab
+  | step _ hlast =>
+      exact hin _ hlast
 
 /--
 A changed contract carries both its local delta and its location in the
