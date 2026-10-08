@@ -165,7 +165,7 @@ theorem tc_fiber_members :
 @[inline] def edge (T : List V) (x y : V) : Bool :=
   T.any (fun t => mulV x t == y)
 
-def permApply (p : List V) (x : V) : V := (p.get? x.val).getD 0
+def permApply (p : List V) (x : V) : V := (p[x.val]?).getD 0
 
 def isBijection (p : List V) : Bool :=
   p.length == 8 && p.eraseDups.length == 8
