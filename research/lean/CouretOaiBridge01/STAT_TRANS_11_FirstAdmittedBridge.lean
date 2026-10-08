@@ -1,5 +1,7 @@
 import CouretOaiBridge01.STAT_TRANS_10_BridgeReceiptMutationSuite
 
+set_option maxRecDepth 1000000
+
 /-!
 # STAT-TRANS-11 — First admitted bridge
 
