@@ -78,3 +78,7 @@ where K_Q(d) is the reduced-rational Fourier kernel. The next step should derive
 ## Claim boundary
 
 No RH claim, zero-free region, power saving, large-sieve improvement, asymptotic exponent, or Couret-specific advantage follows from EXP-06.
+
+## Independent replay audit and secondary-metric erratum
+
+See [BRIDGE_EXP06_REPLAY_AUDIT.md](BRIDGE_EXP06_REPLAY_AUDIT.md) for byte-identical replay, reconciliation with Drive and a second implementation using exact integer coefficients. All spectral identities and all 576 character contrasts pass. Five plain rows (P=100, ratio=8, q=13; p=127,157,173,191,199) have exactly zero Q_nonzero_full: their secondary relative_L2_change must be null under the frozen protocol, rather than the very large floating values in historical raw rows. Historical outputs are preserved. Primary concentrations and the negative chi5 findings are unchanged. The earlier conformity statement is subject to this numerical erratum.

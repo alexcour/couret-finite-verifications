@@ -1,0 +1,94 @@
+{
+  "identity_checks_status": "PASS",
+  "canonical_runner_imported": false,
+  "counts": {
+    "exact_C_product": 456,
+    "exact_L_direct": 456,
+    "Parseval": 3648,
+    "exact_energy_identity": 1824,
+    "T79_frequencies": 576,
+    "contrasts": 576
+  },
+  "secondary_zero_denominator_discrepancies": [
+    {
+      "P": 100,
+      "ratio": 8,
+      "kind": "plain",
+      "p": 127,
+      "q": 13,
+      "metric": "relative_L2_change",
+      "canonical": "54524337201668.87",
+      "exact": null,
+      "reason": "exact zero denominator; floating Fourier roundoff"
+    },
+    {
+      "P": 100,
+      "ratio": 8,
+      "kind": "plain",
+      "p": 157,
+      "q": 13,
+      "metric": "relative_L2_change",
+      "canonical": "96057642933609.4",
+      "exact": null,
+      "reason": "exact zero denominator; floating Fourier roundoff"
+    },
+    {
+      "P": 100,
+      "ratio": 8,
+      "kind": "plain",
+      "p": 173,
+      "q": 13,
+      "metric": "relative_L2_change",
+      "canonical": "126525555116283.84",
+      "exact": null,
+      "reason": "exact zero denominator; floating Fourier roundoff"
+    },
+    {
+      "P": 100,
+      "ratio": 8,
+      "kind": "plain",
+      "p": 191,
+      "q": 13,
+      "metric": "relative_L2_change",
+      "canonical": "83572642871005.34",
+      "exact": null,
+      "reason": "exact zero denominator; floating Fourier roundoff"
+    },
+    {
+      "P": 100,
+      "ratio": 8,
+      "kind": "plain",
+      "p": 199,
+      "q": 13,
+      "metric": "relative_L2_change",
+      "canonical": "69992810748615.0",
+      "exact": null,
+      "reason": "exact zero denominator; floating Fourier roundoff"
+    }
+  ],
+  "max_scaled_errors": {
+    "B_identity": 2.528730395804847e-15,
+    "Parseval": 2.4989947828007086e-15,
+    "row_L": 6.6021253361424125e-16,
+    "row_Q_nonzero_off": 1.3393295254534274e-13,
+    "row_Q_nonzero_full": 2.0039525594484076e-13,
+    "row_diag_energy_term": 1.5985487550343732e-15,
+    "row_interference_term": 2.295131513609281e-12,
+    "row_diag_amp_ratio": 6.650235917504688e-14,
+    "row_relative_L2_change": 6.672966696888013e-12,
+    "row_M1_off": 4.996003610813204e-16,
+    "row_zero_share_off": 8.326672684688674e-16,
+    "row_M1_full": 5.551115123125783e-16,
+    "row_zero_share_full": 6.661338147750939e-16,
+    "row_delta_M1": 4.440892098500626e-16,
+    "row_chi3": 0.0,
+    "row_chi5": 0.0,
+    "row_chi15": 0.0,
+    "T79": 2.79344470429407e-13,
+    "direct_shift_Fourier": 5.132000148707268e-13,
+    "contrast": 1.7763568394002505e-15
+  },
+  "row_count": 1824,
+  "spectrum_count": 21888,
+  "method": "trial division Mobius, exact integer tent, direct n,m enumeration, exact C/L/packet energy, independent DFT"
+}

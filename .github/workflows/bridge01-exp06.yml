@@ -7,6 +7,7 @@ on:
     paths:
       - "research/experiments/bridge_exp06_diag_offdiag.py"
       - ".github/workflows/bridge01-exp06.yml"
+      - "research/experiments/verify_exp06_independent.py"
   workflow_dispatch:
 
 jobs:
@@ -28,6 +29,10 @@ jobs:
           test -s bridge_exp06_rows.csv
           test -s bridge_exp06_contrasts.csv
           test -s bridge_exp06_summary.csv
+      - name: Independent exact reconstruction and zero-denominator audit
+        working-directory: research/experiments
+        run: |
+          python verify_exp06_independent.py . exp06_independent
       - name: Record hashes
         working-directory: research/experiments
         run: |
