@@ -1,7 +1,5 @@
 import CouretOaiBridge01.STAT_TRANS_10_BridgeReceiptMutationSuite
 
-set_option maxRecDepth 1000000
-
 /-!
 # STAT-TRANS-11 — First admitted bridge
 
@@ -48,9 +46,9 @@ def g30ToT16JustificationReceipt : BridgeReceipt where
     "repo=alexcour/couret-finite-verifications; A1_blob=40072f43ce3ebac6959fd04e86321818567b1c4c; A2_blob=f14a47b397de6314e68e0c9e014d15f36eebb799"
   reopenedAxes := [.justification]
   crossCase := by decide
-  statementNonempty := by decide
-  witnessNonempty := by decide
-  versionNonempty := by decide
+  statementNonempty := by simp
+  witnessNonempty := by simp
+  versionNonempty := by simp
   axisReopened := by simp
   policyOk := by rfl
 
