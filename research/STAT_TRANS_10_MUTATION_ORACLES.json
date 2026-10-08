@@ -6,5 +6,106 @@
     "novelty",
     "justification"
   ],
-  "cases": []
+  "cases": [
+    {
+      "id": "t16_support",
+      "seed": "t16Abstract",
+      "mutation": "proofSupportChanged",
+      "expected_audit": [
+        "t16Abstract",
+        "t16FixedModulus",
+        "t16DerivedNoGain"
+      ],
+      "expected_admission": [
+        "t16Abstract",
+        "t16FixedModulus",
+        "t16DerivedNoGain"
+      ]
+    },
+    {
+      "id": "g30_support",
+      "seed": "g30Finite",
+      "mutation": "proofSupportChanged",
+      "expected_audit": [
+        "g30Finite",
+        "g30Local"
+      ],
+      "expected_admission": [
+        "g30Finite"
+      ]
+    },
+    {
+      "id": "cayley_prior_art",
+      "seed": "cayleyPriorArt",
+      "mutation": "noveltyChanged",
+      "expected_audit": [
+        "cayleyPriorArt",
+        "cayleyNoveltyReview"
+      ],
+      "expected_admission": [
+        "cayleyPriorArt"
+      ]
+    },
+    {
+      "id": "oai_toolchain",
+      "seed": "oaiVerifier",
+      "mutation": "versionChanged",
+      "expected_audit": [
+        "oaiVerifier",
+        "oaiReplay"
+      ],
+      "expected_admission": [
+        "oaiVerifier"
+      ]
+    },
+    {
+      "id": "t16_novelty",
+      "seed": "t16Abstract",
+      "mutation": "noveltyChanged",
+      "expected_audit": [
+        "t16Abstract"
+      ],
+      "expected_admission": [
+        "t16Abstract"
+      ]
+    },
+    {
+      "id": "oai_publication",
+      "seed": "oaiPublishedNarrative",
+      "mutation": "diffusionChanged",
+      "expected_audit": [],
+      "expected_admission": []
+    },
+    {
+      "id": "t16_replay",
+      "seed": "t16FixedModulus",
+      "mutation": "dependenciesChanged",
+      "expected_audit": [
+        "t16FixedModulus",
+        "t16DerivedNoGain"
+      ],
+      "expected_admission": [
+        "t16FixedModulus",
+        "t16DerivedNoGain"
+      ]
+    },
+    {
+      "id": "oai_replay_quality",
+      "seed": "oaiReplay",
+      "mutation": "qualityChanged",
+      "expected_audit": [
+        "oaiReplay"
+      ],
+      "expected_admission": [
+        "oaiReplay"
+      ]
+    },
+    {
+      "id": "g30_provenance",
+      "seed": "g30Documentary",
+      "mutation": "provenanceChanged",
+      "expected_audit": [],
+      "expected_admission": []
+    }
+  ]
 }
