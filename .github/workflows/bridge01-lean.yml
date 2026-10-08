@@ -7,6 +7,8 @@ on:
     paths:
       - "research/lean/**"
       - ".github/workflows/bridge01-lean.yml"
+      - "scripts/verify_stat_trans_bindings.py"
+      - "research/STAT_TRANS_09_ARTIFACT_BINDINGS.json"
   workflow_dispatch:
 
 jobs:
@@ -21,6 +23,9 @@ jobs:
           test: false
           lint: false
           auto-config: false
+      - name: Verify status artifact bindings
+        shell: bash
+        run: python3 scripts/verify_stat_trans_bindings.py
       - name: Clean A0–A2+B0–B2 build and transitive axiom audit
         shell: bash
         run: |
