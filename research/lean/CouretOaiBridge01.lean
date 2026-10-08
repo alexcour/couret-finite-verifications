@@ -4,3 +4,4 @@ import CouretOaiBridge01.BRIDGE01_A2_FixedModulusNoGain
 import CouretOaiBridge01.BRIDGE01_B0_DirichletMultiplexer
 import CouretOaiBridge01.BRIDGE01_B1_WeightedSumMultiplex
 import CouretOaiBridge01.BRIDGE01_B2_TCNonzeroChannels
+import CouretOaiBridge01.STAT_TRANS_01_StatusTransport
