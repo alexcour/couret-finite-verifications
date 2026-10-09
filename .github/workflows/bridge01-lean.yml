@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - research/couret-oai-bridge-01
+      - research/liouville-audit-2026-10-08
     paths:
       - "research/lean/**"
       - ".github/workflows/bridge01-lean.yml"
@@ -25,6 +26,12 @@ jobs:
           test: false
           lint: false
           auto-config: false
+      - name: Check INTERIA-SA-04 analytic power-integrability layer
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd research/lean
+          lake env lean CouretOaiBridge01/INTERIA_SA_04_PowerIntegrability.lean
       - name: Verify status artifact bindings
         shell: bash
         run: |
