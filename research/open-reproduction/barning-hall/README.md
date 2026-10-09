@@ -38,7 +38,7 @@ The Drive research report dated 30 September states that independent frozen chec
 
 The *numerical search source* for 330 is included for transparency, with its weaker status. The 2310 negative checker above shares the positive model construction; a second fully independent model is still an open task.
 
-The source Drive [PUB-03 scientific report](https://docs.google.com/document/d/1ybYHt1vKt3MrXipznOYQu5wGrQc65vO4ZSe40Gl-cpU/edit) provides historical context and known prior art, but Drive sharing status is not asserted here. The [project publication/review registry](../../../../OPEN_REVIEW_PORTFOLIO.md) should track further additions.
+The source Drive [PUB-03 scientific report](https://docs.google.com/document/d/1ybYHt1vKt3MrXipznOYQu5wGrQc65vO4ZSe40Gl-cpU/edit) provides historical context and known prior art, but Drive sharing status is not asserted here. The [project publication/review registry](../../../OPEN_REVIEW_PORTFOLIO.md) should track further additions.
 
 ## Criticism invited
 
