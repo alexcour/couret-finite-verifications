@@ -1,9 +1,9 @@
 {
-  "id": "CU-BRUIT-02-GATE-A-LMFDB-20261009",
+  "id": "CU-BRUIT-02-GATE-A-PARTIAL-EXTERNAL-MATCH-20261009-REV2",
   "scope": "T=25; positive ordinates of primitive L(s,chi) for 7 nontrivial characters of U(30)",
-  "status": "PARTIAL_EXTERNAL_MATCH",
-  "external_published_zeros_matched": 24,
-  "local_candidate_zeros_not_external_checked": 43,
+  "status": "PARTIAL_EXTERNAL_MATCH_30_OF_67",
+  "external_published_zeros_matched": 30,
+  "local_candidate_zeros_not_external_checked": 37,
   "total": 67,
   "corrections": "LMFDB-published ordinates are not independently certified by this comparison. Do not claim rigorous all-zero completeness/GRH.",
   "formula": "chi_(a,b)(n) = chi_(-3)^a(n) * i^(b*log_2(n mod 5)); n coprime to q",
@@ -63,7 +63,7 @@
       "ab": "1,0",
       "conductor": 3,
       "conrey_label": "3.2",
-      "status": "LOCAL_ONLY_PENDING_LMFDB_ZERO_LIST",
+      "status": "NUMBERDB_ORDINATES_MATCHED",
       "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/3/3.2/r1/0/0",
       "positive_zero_ordinates_under_25": [
         8.039737155682,
@@ -72,7 +72,18 @@
         18.261997495693,
         20.455770807743,
         24.059414856492
-      ]
+      ],
+      "reference_source_url": "https://numberdb.org/Zeros_of_Dirichlet_L_functions",
+      "reference_label": "(q,n)=(3,2), positive signed indices k=1..6",
+      "published_zero_ordinates_decimal": [
+        "8.03973715568146668171362321417",
+        "11.24920620777293524970502567886",
+        "15.70461917672162556516555088043",
+        "18.26199749569312756892441409359",
+        "20.45577080774249285344502583131",
+        "24.05941485649345077459305359321"
+      ],
+      "max_absolute_difference_to_local_truncated": 1.4507745930535932e-12
     },
     {
       "ab": "1,1",
@@ -93,7 +104,9 @@
         20.627631775972,
         21.883973024209,
         23.33848001776
-      ]
+      ],
+      "first_local_residual_check": "37 total candidate roots at q=15 checked numerically with mpmath at dps=20, maxima per character b=1:6.23e-12, b=2:3.94e-12, b=3:1.25e-11; NOT externally compared",
+      "conrey_label_status": "provisional_pending_character_value_crosscheck"
     },
     {
       "ab": "1,2",
@@ -115,7 +128,9 @@
         22.176397688215,
         23.367999238675,
         24.903501169044
-      ]
+      ],
+      "first_local_residual_check": "37 total candidate roots at q=15 checked numerically with mpmath at dps=20, maxima per character b=1:6.23e-12, b=2:3.94e-12, b=3:1.25e-11; NOT externally compared",
+      "conrey_label_status": "provisional_pending_character_value_crosscheck"
     },
     {
       "ab": "1,3",
@@ -136,8 +151,10 @@
         21.284643697104,
         23.148945394925,
         24.071858315179
-      ]
+      ],
+      "first_local_residual_check": "37 total candidate roots at q=15 checked numerically with mpmath at dps=20, maxima per character b=1:6.23e-12, b=2:3.94e-12, b=3:1.25e-11; NOT externally compared",
+      "conrey_label_status": "provisional_pending_character_value_crosscheck"
     }
   ],
-  "source_note": "Three q=5 decimal lists obtained from LMFDB published L-function pages; remaining four lists independently computed locally, but inaccessible/unchecked against original LMFDB zero listings as of 2026-10-09. Local q5 max differences below 1.3e-13 using mpmath sign scans."
+  "source_note": "q=5: 24 published LMFDB positive ordinates matched against local numerics; q=3: 6 NumberDB entries (LMFDB character link 3.2) matched to 12-digit local numerics, largest decimal difference ~1.45e-12. q=15: 37 locally computed zeros verified by small L-value residuals, NOT yet checked to independent published positive-zero lists. This is not an interval-certified proof of completeness nor of GRH."
 }
