@@ -32,6 +32,7 @@ theorem besselWeightedSquare_eq_power (ν x : ℝ) (hx : 0 < x) :
     x * (x ^ (-|ν|)) ^ (2 : ℕ) =
         x ^ (1 : ℝ) * x ^ ((-|ν|) * (2 : ℝ)) := by
       rw [Real.rpow_one, ← Real.rpow_mul_natCast (le_of_lt hx) (-|ν|) 2]
+      norm_cast
     _ = x ^ ((1 : ℝ) + (-|ν|) * (2 : ℝ)) :=
       (Real.rpow_add hx 1 ((-|ν|) * 2)).symm
     _ = x ^ (1 - 2 * |ν|) := by congr 1; ring
