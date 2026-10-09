@@ -1,3 +1,11 @@
+> **ROLE CORRECTION (9 Oct 2026): Frédéric is not a mathematician.** He is only the editorial/logistical forwarding contact; the ten technical referee questions target a qualified independent number theorist. The old cover letter in v1 is superseded. Do not present Frédéric as mathematical reviewer or cite his transmission as scientific validation.
+
+**Corrected v2 package:** https://drive.google.com/file/d/1rJ18IJEqllifrwhnDsLfUMG9jeGEzkgW/view
+
+**Accessible guide for Frédéric:** https://drive.google.com/file/d/1x_ROhnPz5PEWrsHzOaruBOtL4_IqGciw/view
+
+**Replacement cover message:** https://drive.google.com/file/d/1EmqW5PoPo3OmJ6FTkFTYzPNQyWWiPTWe/view
+
 # CU-BRUIT: review dossier — 56 triples / 13 mean-spectrum classes
 
 **9 October 2026 — External mathematical review requested, no novelty or priority claimed.**
