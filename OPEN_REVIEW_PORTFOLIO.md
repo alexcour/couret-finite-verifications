@@ -47,3 +47,7 @@ Please include the **exact claim**, source/commit, your reasoning or computation
 GitHub public-review material is preliminary and may change. A Zenodo archive should correspond to a **fixed, traceable set of source files**, with accurate license, citation metadata, checksum manifest and scope label such as *unreviewed computational note / invitation to independent verification*. A new DOI is not a certification. Do not archive incomplete or inaccessible review packages as if independently reproduced. Preserve existing published versions.
 
 **Goal:** make it easy for an outsider to falsify, reproduce, identify antecedents or assess usefulness — *not* to count publications or solicit praise.
+
+## Corrections and refutations — publicly reproducible
+
+[PUBLIC_FALSIFICATIONS.md](PUBLIC_FALSIFICATIONS.md) records falsified numerical observations, withdrawn proof routes and experimental demotions without confusing them with still-open conjectures. The [independent C++17 segmented-sieve code](research/open-reproduction/falsifications/verify_mod30_prime_proportion.cpp) reproduces the F-001 correction at 10^9. **Negative results and broken assertions should be as accessible as positive finite certificates.**
