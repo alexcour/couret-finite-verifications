@@ -15,3 +15,5 @@ import CouretOaiBridge01.STAT_TRANS_07_RefinedPolicy
 import CouretOaiBridge01.STAT_TRANS_08_BridgeReceipts
 import CouretOaiBridge01.STAT_TRANS_10_BridgeReceiptMutationSuite
 import CouretOaiBridge01.STAT_TRANS_11_FirstAdmittedBridge
+
+import CouretOaiBridge01.INTERIA_SA_04_PowerIntegrability
