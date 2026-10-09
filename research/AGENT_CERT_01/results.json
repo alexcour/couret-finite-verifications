@@ -1,0 +1,960 @@
+{
+  "base_cost": 3,
+  "budgets": [
+    0,
+    2,
+    4,
+    6
+  ],
+  "calibration_n": 4096,
+  "calibration_risks": {
+    "1": {
+      "n": 1723,
+      "risk_extra_votes": 0.17933836331979106,
+      "risk_initial": 0.2820661636680209
+    },
+    "3": {
+      "n": 2373,
+      "risk_extra_votes": 0.24104509060261273,
+      "risk_initial": 0.2431521281078803
+    }
+  },
+  "certify_cost": 6,
+  "loss": 30,
+  "panels": {
+    "CORRELATED_SHIFT": {
+      "correlated_truth_count": 1248,
+      "n": 2048,
+      "rows": [
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "NO_EXTRA",
+          "total_J": 41274,
+          "total_budget_cap": 0,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 0,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "UNIFORM",
+          "total_J": 41274,
+          "total_budget_cap": 0,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 0,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "UNCERTAINTY",
+          "total_J": 41274,
+          "total_budget_cap": 0,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 0,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "CERT_VALUE",
+          "total_J": 41274,
+          "total_budget_cap": 0,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 0,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "NO_EXTRA",
+          "total_J": 41274,
+          "total_budget_cap": 4096,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 4096,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1024,
+            "SAMPLE": 1024
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 34500,
+          "extra_cost": 4096,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "UNIFORM",
+          "total_J": 44740,
+          "total_budget_cap": 4096,
+          "trace_sha256": "eeb5c02afecd02fc140cb897cb741fee4436da95e06f58cab41468f51cab5f9e",
+          "unused_allowance": 0,
+          "wrong": 1150
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1652,
+            "SAMPLE": 396
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 34080,
+          "extra_cost": 1584,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "UNCERTAINTY",
+          "total_J": 41808,
+          "total_budget_cap": 4096,
+          "trace_sha256": "cc19fde382711d9394f334adf8c4d6a34d182b358ee5aea3496ff588a58b9d64",
+          "unused_allowance": 2512,
+          "wrong": 1136
+        },
+        {
+          "actions": {
+            "CERTIFY": 682,
+            "NONE": 1366,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 682,
+          "error_loss": 23520,
+          "extra_cost": 4092,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "CERT_VALUE",
+          "total_J": 33756,
+          "total_budget_cap": 4096,
+          "trace_sha256": "e30e0246aa2efe7d9b8c88c92b19e8a0de06e45397aec72cf88179040b73ae3b",
+          "unused_allowance": 4,
+          "wrong": 784
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "NO_EXTRA",
+          "total_J": 41274,
+          "total_budget_cap": 8192,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 8192,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 0,
+            "SAMPLE": 2048
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 34110,
+          "extra_cost": 8192,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "UNIFORM",
+          "total_J": 48446,
+          "total_budget_cap": 8192,
+          "trace_sha256": "2a88ea6af645e4ca626a08725d3eb26b6fe22fd07d51ee2b316dca456cb13a27",
+          "unused_allowance": 0,
+          "wrong": 1137
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1652,
+            "SAMPLE": 396
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 34080,
+          "extra_cost": 1584,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "UNCERTAINTY",
+          "total_J": 41808,
+          "total_budget_cap": 8192,
+          "trace_sha256": "cc19fde382711d9394f334adf8c4d6a34d182b358ee5aea3496ff588a58b9d64",
+          "unused_allowance": 6608,
+          "wrong": 1136
+        },
+        {
+          "actions": {
+            "CERTIFY": 1365,
+            "NONE": 683,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 1365,
+          "error_loss": 11640,
+          "extra_cost": 8190,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "CERT_VALUE",
+          "total_J": 25974,
+          "total_budget_cap": 8192,
+          "trace_sha256": "4e8db5b76adeedc82dc157a4da95059113715b651d0508bab4efeaddf0989c01",
+          "unused_allowance": 2,
+          "wrong": 388
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 35130,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "NO_EXTRA",
+          "total_J": 41274,
+          "total_budget_cap": 12288,
+          "trace_sha256": "5d643cc6cead8b59035bb8bca22fada0a2128b606cafdbf245af80a6500347be",
+          "unused_allowance": 12288,
+          "wrong": 1171
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 0,
+            "SAMPLE": 2048
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 34110,
+          "extra_cost": 8192,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "UNIFORM",
+          "total_J": 48446,
+          "total_budget_cap": 12288,
+          "trace_sha256": "2a88ea6af645e4ca626a08725d3eb26b6fe22fd07d51ee2b316dca456cb13a27",
+          "unused_allowance": 4096,
+          "wrong": 1137
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1652,
+            "SAMPLE": 396
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 34080,
+          "extra_cost": 1584,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "UNCERTAINTY",
+          "total_J": 41808,
+          "total_budget_cap": 12288,
+          "trace_sha256": "cc19fde382711d9394f334adf8c4d6a34d182b358ee5aea3496ff588a58b9d64",
+          "unused_allowance": 10704,
+          "wrong": 1136
+        },
+        {
+          "actions": {
+            "CERTIFY": 2048,
+            "NONE": 0,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 2048,
+          "error_loss": 0,
+          "extra_cost": 12288,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "CERT_VALUE",
+          "total_J": 18432,
+          "total_budget_cap": 12288,
+          "trace_sha256": "0768da44b20a4913bdc53581682aee105a4bf9cd363d06f88779cd14e622ab18",
+          "unused_allowance": 0,
+          "wrong": 0
+        }
+      ]
+    },
+    "IID_CONTROL": {
+      "correlated_truth_count": 0,
+      "n": 2048,
+      "rows": [
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "NO_EXTRA",
+          "total_J": 16014,
+          "total_budget_cap": 0,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 0,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "UNIFORM",
+          "total_J": 16014,
+          "total_budget_cap": 0,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 0,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "UNCERTAINTY",
+          "total_J": 16014,
+          "total_budget_cap": 0,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 0,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "CERT_VALUE",
+          "total_J": 16014,
+          "total_budget_cap": 0,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 0,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "NO_EXTRA",
+          "total_J": 16014,
+          "total_budget_cap": 4096,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 4096,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1024,
+            "SAMPLE": 1024
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 8340,
+          "extra_cost": 4096,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "UNIFORM",
+          "total_J": 18580,
+          "total_budget_cap": 4096,
+          "trace_sha256": "29dadea24419c055dbe16719e1335136db86d93960eb0247bfbafdb0d4c5cdca",
+          "unused_allowance": 0,
+          "wrong": 278
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1086,
+            "SAMPLE": 962
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 7140,
+          "extra_cost": 3848,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "UNCERTAINTY",
+          "total_J": 17132,
+          "total_budget_cap": 4096,
+          "trace_sha256": "53a71fd9c302b436909232c9af67b5728bd7315104a4d9596cbf2c9ee0eb7ca6",
+          "unused_allowance": 248,
+          "wrong": 238
+        },
+        {
+          "actions": {
+            "CERTIFY": 682,
+            "NONE": 1366,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 682,
+          "error_loss": 6810,
+          "extra_cost": 4092,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "CERT_VALUE",
+          "total_J": 17046,
+          "total_budget_cap": 4096,
+          "trace_sha256": "a8dad38c76878709d81b635cea37bc522937836db36dedfe1fc4f03e6879b8b3",
+          "unused_allowance": 4,
+          "wrong": 227
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "NO_EXTRA",
+          "total_J": 16014,
+          "total_budget_cap": 8192,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 8192,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 0,
+            "SAMPLE": 2048
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 6990,
+          "extra_cost": 8192,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "UNIFORM",
+          "total_J": 21326,
+          "total_budget_cap": 8192,
+          "trace_sha256": "5708a1512ae5a12ea2261e73d7cb3850884a981248132fce45d8cb9bbf2bc378",
+          "unused_allowance": 0,
+          "wrong": 233
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1084,
+            "SAMPLE": 964
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 7140,
+          "extra_cost": 3856,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "UNCERTAINTY",
+          "total_J": 17140,
+          "total_budget_cap": 8192,
+          "trace_sha256": "170cf8d84b1e9cf08e0ffbf8c3f3649252eef21748a3f8e04cf8d520b2997138",
+          "unused_allowance": 4336,
+          "wrong": 238
+        },
+        {
+          "actions": {
+            "CERTIFY": 1365,
+            "NONE": 683,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 1365,
+          "error_loss": 3690,
+          "extra_cost": 8190,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "CERT_VALUE",
+          "total_J": 18024,
+          "total_budget_cap": 8192,
+          "trace_sha256": "6bb309e6fedc6558e800f6d8c740daa389ab1df4b9d5af2a65eae44d8dcb79d7",
+          "unused_allowance": 2,
+          "wrong": 123
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 9870,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "NO_EXTRA",
+          "total_J": 16014,
+          "total_budget_cap": 12288,
+          "trace_sha256": "ae10a7940658473eff7f0676c11b869e1b480eab81f1620e81c08d5f302dce8c",
+          "unused_allowance": 12288,
+          "wrong": 329
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 0,
+            "SAMPLE": 2048
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 6990,
+          "extra_cost": 8192,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "UNIFORM",
+          "total_J": 21326,
+          "total_budget_cap": 12288,
+          "trace_sha256": "5708a1512ae5a12ea2261e73d7cb3850884a981248132fce45d8cb9bbf2bc378",
+          "unused_allowance": 4096,
+          "wrong": 233
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1084,
+            "SAMPLE": 964
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 7140,
+          "extra_cost": 3856,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "UNCERTAINTY",
+          "total_J": 17140,
+          "total_budget_cap": 12288,
+          "trace_sha256": "170cf8d84b1e9cf08e0ffbf8c3f3649252eef21748a3f8e04cf8d520b2997138",
+          "unused_allowance": 8432,
+          "wrong": 238
+        },
+        {
+          "actions": {
+            "CERTIFY": 2048,
+            "NONE": 0,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 2048,
+          "error_loss": 0,
+          "extra_cost": 12288,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "CERT_VALUE",
+          "total_J": 18432,
+          "total_budget_cap": 12288,
+          "trace_sha256": "1378aa0d36d5f59e66176bde8dd844a86201b555044b6ff4706f33b99e6e1333",
+          "unused_allowance": 0,
+          "wrong": 0
+        }
+      ]
+    },
+    "STABLE": {
+      "correlated_truth_count": 328,
+      "n": 2048,
+      "rows": [
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "NO_EXTRA",
+          "total_J": 23604,
+          "total_budget_cap": 0,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 0,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "UNIFORM",
+          "total_J": 23604,
+          "total_budget_cap": 0,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 0,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "UNCERTAINTY",
+          "total_J": 23604,
+          "total_budget_cap": 0,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 0,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 0,
+          "policy": "CERT_VALUE",
+          "total_J": 23604,
+          "total_budget_cap": 0,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 0,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "NO_EXTRA",
+          "total_J": 23604,
+          "total_budget_cap": 4096,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 4096,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1024,
+            "SAMPLE": 1024
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 16170,
+          "extra_cost": 4096,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "UNIFORM",
+          "total_J": 26410,
+          "total_budget_cap": 4096,
+          "trace_sha256": "e2f4a22202846289ca17ea60b0eeb42023a8c1e97f47f837296531eb2cfa8d71",
+          "unused_allowance": 0,
+          "wrong": 539
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1186,
+            "SAMPLE": 862
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 14700,
+          "extra_cost": 3448,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "UNCERTAINTY",
+          "total_J": 24292,
+          "total_budget_cap": 4096,
+          "trace_sha256": "52ac496f0a113d94e207efe26bf3e33edcb41f3dd778891e08da5825009e189b",
+          "unused_allowance": 648,
+          "wrong": 490
+        },
+        {
+          "actions": {
+            "CERTIFY": 682,
+            "NONE": 1366,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 682,
+          "error_loss": 11310,
+          "extra_cost": 4092,
+          "n": 2048,
+          "per_task_budget": 2,
+          "policy": "CERT_VALUE",
+          "total_J": 21546,
+          "total_budget_cap": 4096,
+          "trace_sha256": "911eeb788866b2340e314d6ce5f8b4775f59e484927e670cd78bd739ebf532c6",
+          "unused_allowance": 4,
+          "wrong": 377
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "NO_EXTRA",
+          "total_J": 23604,
+          "total_budget_cap": 8192,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 8192,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 0,
+            "SAMPLE": 2048
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 14730,
+          "extra_cost": 8192,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "UNIFORM",
+          "total_J": 29066,
+          "total_budget_cap": 8192,
+          "trace_sha256": "eaf4e62c59ba2e3e91163e95731991cbb7f4d5a532a371e2bf1e5cc5b610971d",
+          "unused_allowance": 0,
+          "wrong": 491
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1184,
+            "SAMPLE": 864
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 14700,
+          "extra_cost": 3456,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "UNCERTAINTY",
+          "total_J": 24300,
+          "total_budget_cap": 8192,
+          "trace_sha256": "86bca71cf495d695a59a18b6874fca9ce57672e466c79973ef38cf2254eb89d4",
+          "unused_allowance": 4736,
+          "wrong": 490
+        },
+        {
+          "actions": {
+            "CERTIFY": 1365,
+            "NONE": 683,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 1365,
+          "error_loss": 5700,
+          "extra_cost": 8190,
+          "n": 2048,
+          "per_task_budget": 4,
+          "policy": "CERT_VALUE",
+          "total_J": 20034,
+          "total_budget_cap": 8192,
+          "trace_sha256": "176e0dfde1fd1f46c21e9b861a3df0199d8a4d1dc3e2cb50c2d3700706432d4c",
+          "unused_allowance": 2,
+          "wrong": 190
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 2048,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 17460,
+          "extra_cost": 0,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "NO_EXTRA",
+          "total_J": 23604,
+          "total_budget_cap": 12288,
+          "trace_sha256": "5b443a25ca21279dd4b072fbb567da8da509efe55e31e59b3aa83f9847d9949c",
+          "unused_allowance": 12288,
+          "wrong": 582
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 0,
+            "SAMPLE": 2048
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 14730,
+          "extra_cost": 8192,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "UNIFORM",
+          "total_J": 29066,
+          "total_budget_cap": 12288,
+          "trace_sha256": "eaf4e62c59ba2e3e91163e95731991cbb7f4d5a532a371e2bf1e5cc5b610971d",
+          "unused_allowance": 4096,
+          "wrong": 491
+        },
+        {
+          "actions": {
+            "CERTIFY": 0,
+            "NONE": 1184,
+            "SAMPLE": 864
+          },
+          "base_cost": 6144,
+          "certified": 0,
+          "error_loss": 14700,
+          "extra_cost": 3456,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "UNCERTAINTY",
+          "total_J": 24300,
+          "total_budget_cap": 12288,
+          "trace_sha256": "86bca71cf495d695a59a18b6874fca9ce57672e466c79973ef38cf2254eb89d4",
+          "unused_allowance": 8832,
+          "wrong": 490
+        },
+        {
+          "actions": {
+            "CERTIFY": 2048,
+            "NONE": 0,
+            "SAMPLE": 0
+          },
+          "base_cost": 6144,
+          "certified": 2048,
+          "error_loss": 0,
+          "extra_cost": 12288,
+          "n": 2048,
+          "per_task_budget": 6,
+          "policy": "CERT_VALUE",
+          "total_J": 18432,
+          "total_budget_cap": 12288,
+          "trace_sha256": "8ac776c806e9cb41cb94811669aae32e01e53ea2e78a16ad168cce87423f09d7",
+          "unused_allowance": 0,
+          "wrong": 0
+        }
+      ]
+    }
+  },
+  "sample_cost": 4,
+  "scope": "toy synthetic deterministic verifier, NOT an LLM or FCI A30/A31 benchmark",
+  "seed": "AGENT-CERT-01-2026-10-09-v1",
+  "study": "AGENT-CERT-01"
+}
