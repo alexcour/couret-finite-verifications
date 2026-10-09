@@ -11,6 +11,7 @@ on:
       - "research/STAT_TRANS_09_ARTIFACT_BINDINGS.json"
       - "research/STAT_TRANS_10_MUTATION_ORACLES.json"
       - "scripts/test_stat_trans_mutations.py"
+      - "scripts/verify_stat_trans_freshness.py"
   workflow_dispatch:
 
 jobs:
@@ -30,8 +31,12 @@ jobs:
         run: |
           python3 scripts/verify_stat_trans_bindings.py
           python3 scripts/test_stat_trans_mutations.py
+          python3 scripts/verify_stat_trans_freshness.py --self-test
       - name: Clean A0–A2+B0–B2 build and transitive axiom audit
         shell: bash
         run: |
           set -euo pipefail
           bash research/lean/verify_bridge01.sh | tee "$RUNNER_TEMP/bridge01-build-and-axioms.log"
+      - name: Attest local versioned bridge after clean Lean and axiom audit
+        shell: bash
+        run: python3 scripts/verify_stat_trans_freshness.py --attest "$RUNNER_TEMP/stat-trans-witness.json"
