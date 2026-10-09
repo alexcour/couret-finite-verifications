@@ -3,11 +3,12 @@
 **Objet :** ouvrir toutes les branches mathématiques transmissibles du programme COURET / Couret–Unification à une évaluation externe. **Ce dossier est un index versionné**, pas une nouvelle publication mathématique ni une preuve d'exhaustivité de tous les fichiers historiques du Drive.
 
 **Point de départ recommandé :**
-1. [Publications et état des dépôts](PUBLICATION_AND_ARCHIVE_REGISTER.md) — identifier les seules versions réellement publiées.
-2. [Inventaire par objet mathématique](MATHEMATICAL_OBJECTS_REGISTER.md) — domaines, témoins, statuts, risques.
-3. [Errata, réfutations, démotions](MANDATORY_ERRATA_AND_CHANGES.md) — lire AVANT les anciennes synthèses.
-4. [Protocole de rejeu, questions aux relecteurs](REVIEW_AND_REPRODUCIBILITY.md) — comment contredire et où rapporter.
-5. Le guide historique V7 de Frédéric est conservé dans Drive ; le **guide de mise à jour CURRENT daté** sur Drive prime pour les références et changements postérieurs.
+1. **[ACTUALISATION — PUBLICATION OUVERTE ET PASSATION](PUBLICATION_OPEN_REVIEW_HANDOFF.md)** — nouvelles mises en ligne effectives, replays, publication passive et points manquants.
+2. [Publications et état des dépôts](PUBLICATION_AND_ARCHIVE_REGISTER.md) — identifier les seules versions réellement publiées.
+3. [Inventaire par objet mathématique](MATHEMATICAL_OBJECTS_REGISTER.md) — domaines, témoins, statuts, risques.
+4. [Errata, réfutations, démotions](MANDATORY_ERRATA_AND_CHANGES.md) — lire AVANT les anciennes synthèses.
+5. [Protocole de rejeu, questions aux relecteurs](REVIEW_AND_REPRODUCIBILITY.md) — comment contredire et où rapporter.
+6. Le guide historique V7 de Frédéric est conservé dans Drive ; le **guide de mise à jour CURRENT daté** sur Drive prime pour les références et changements postérieurs.
 
 ## Principes non négociables
 
