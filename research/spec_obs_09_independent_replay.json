@@ -1,0 +1,165 @@
+{
+  "experiment": "SPEC-OBS-09",
+  "implementation": "fresh-bitset-2026-10-09",
+  "scope": "D9 ONLY",
+  "candidate_supports": 680,
+  "connected_supports": 594,
+  "motifs_per_graph": 3060,
+  "four_motif_classes": 10,
+  "isomorphism_classes": 12,
+  "vf2_comparisons": 663,
+  "class_sizes_sorted": [
+    27,
+    27,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54
+  ],
+  "ambiguous_fibers": [
+    {
+      "fiber_size": 54,
+      "class_sizes": [
+        27,
+        27
+      ],
+      "representatives": [
+        [
+          1,
+          8,
+          9
+        ],
+        [
+          9,
+          10,
+          11
+        ]
+      ]
+    },
+    {
+      "fiber_size": 108,
+      "class_sizes": [
+        54,
+        54
+      ],
+      "representatives": [
+        [
+          1,
+          9,
+          12
+        ],
+        [
+          1,
+          9,
+          13
+        ]
+      ]
+    }
+  ],
+  "witnesses": [
+    {
+      "S": [
+        1,
+        9,
+        12
+      ],
+      "T": [
+        1,
+        9,
+        13
+      ],
+      "same_four_motifs": true,
+      "independent_counts": {
+        "5": [
+          342,
+          360
+        ],
+        "6": [
+          87,
+          129
+        ]
+      },
+      "different_counts": true
+    },
+    {
+      "S": [
+        1,
+        8,
+        9
+      ],
+      "T": [
+        9,
+        10,
+        11
+      ],
+      "same_four_motifs": true,
+      "independent_counts": {
+        "5": [
+          810,
+          810
+        ],
+        "6": [
+          438,
+          438
+        ],
+        "7": [
+          126,
+          126
+        ],
+        "8": [
+          18,
+          18
+        ],
+        "9": [
+          0,
+          2
+        ]
+      },
+      "different_counts": true,
+      "independent_nines_T": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ]
+      ]
+    }
+  ],
+  "untested": [
+    "D10",
+    "D11",
+    "D12",
+    "S4"
+  ],
+  "scientific_scope": "motif-4 insufficiency only, NOT a cospectral pair",
+  "adversarial_checks": [
+    "associativity_5832",
+    "canonicalization_4096",
+    "relabel_invariant",
+    "one_arc_changed_detected"
+  ],
+  "novelty": "NOT AUDITED"
+}
