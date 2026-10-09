@@ -63,3 +63,10 @@ See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for identifiers, dates, archi
 ## Consolidated novelty boundary
 
 The mathematical mechanisms are classical. The contribution is a reproducibility package with explicit distinctions between exact, numerical, truncated and conditional calculations. No general arithmetic novelty is claimed.
+
+## Historical observation withdrawn — F-001
+
+The historical claim that the proportion of primes in `{1,11,29}` mod 30 was measured
+near `0.378` is withdrawn. The corrective report gives `0.3749982` (rounded) at `10^9`.
+See [F001_ERRATUM.md](F001_ERRATUM.md) for the observable, source links and archive boundary.
+This documentary correction is not a new mathematical advance or an independent replay at `10^9`.
