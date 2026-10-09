@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-09",
+  "project": "CU-BRUIT-01 / LIMIT-04",
+  "status": "research_working_instrument_audit_not_certified_L_zero_count",
+  "python": "3.13.5",
+  "inputs": {
+    "cu_bruit_limit02_replay.py": {
+      "sha256": "2d2aff3d0ab06cd2d4a0c283ebf2dee25411c3c79e918897e7a028826b1f32c6",
+      "size": 2573
+    },
+    "cu_bruit_limit02_derive.py": {
+      "sha256": "42d2c0a0456c4718dadd6fb334cecd8483fdf6344e6a374c97259f120bc74a2a",
+      "size": 1876
+    },
+    "cu_bruit_limit03_contour.py": {
+      "sha256": "ddd0b793a54a66ad7d4ade9ff6df399b353336045102dedbcaf353b39a79499f",
+      "size": 3215
+    },
+    "cu_bruit_limit03_verify.py": {
+      "sha256": "343e480bb82f290a0bba25e40bbd0fae26e6f5ca4bedd4852111bbfc21a2da72",
+      "size": 4803
+    },
+    "cu_bruit_limit03_results.json": {
+      "sha256": "a3378fc55426a81a48305d619115956ea6ae755efd6a9615bb176a832a34d2b0",
+      "size": 2364
+    },
+    "cu_bruit_limit03_contour25_fine.json": {
+      "sha256": "b26b9cbcb5c6f396eeb27cdd4e5a77f94f7591f6d11ed23dde236ce6f091e985",
+      "size": 2790
+    },
+    "cu_bruit_limit03_contour40_fine.json": {
+      "sha256": "2a88ca427461308ac3f1a8f8b4cfd8724d69af7c57f6ca2d3c97e2e019523eec",
+      "size": 2859
+    },
+    "cu_bruit_limit02_zeros_25_fine.json": {
+      "sha256": "dba79aacadeea16010277f10ca3c93f2557a541a80cc4eb4db6def2f86b83868",
+      "size": 3102
+    },
+    "cu_bruit_limit02_zeros_40_coarse.json": {
+      "sha256": "39facf64f0bc0bfdea3f01946ea9beb15d691d01d4957da80c0bfa238ce0f39f",
+      "size": 4786
+    },
+    "cu_bruit_limit04_winding_gate.py": {
+      "sha256": "08e45ff2e42bde74dd5a92e67153842bd7845b35f250338562bcb3bf6420df36",
+      "size": 5117
+    },
+    "cu_bruit_limit04_results.json": {
+      "sha256": "a164074580c0de80bba72b8df5704157e7bcae5745b31965206c2e908998a793",
+      "size": 3467
+    },
+    "CU_BRUIT_LIMIT04_CERTIFICATION_GATE_2026-10-09.md": {
+      "sha256": "27e2d871312911b0af5c7f4d03a831e03616156eedd3d06a410b2fc5e787ac7b",
+      "size": 4743
+    }
+  }
+}
