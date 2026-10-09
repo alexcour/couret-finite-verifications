@@ -18,9 +18,22 @@ D9 has 18 elements `a+9b`, where `a mod 9`, `b mod 2`, with product `(a,b)(c,d)=
 
 Adversarial checks: associativity checked on all 18^3 element triples; 4096 directed 4-vertex adjacency patterns canonicalization-idempotent; graph relabeling preserves both invariants; a single-arc mutation changes the 4-motif profile; **a different generator may leave that profile unchanged**, so arbitrary support mutation is not a sound required-failure test.
 
-## Historic GitHub provenance discrepancy
+## Historical GitHub provenance — reconciled (2026-10-09)
 
-The Google Drive report `SPEC-OBS-09 — D9 : contre-exemple motifs 4 sommets — CURRENT` (https://docs.google.com/document/d/1db8ru0PdMv-JRh95uz2CgvcDJufb5sKe9LIREVy1Ze0/edit) says the original files and preregistration live in `research/spec-obs-01-rooted-observations` and draft PR #6 of this repository. On 2026-10-09 these exact references were **not found through the accessible GitHub connection**: the branch was not in branch listings, direct file lookups returned `No commit found for ref`, and PR #6 returned 404. This is a **documentary gap**, not proof of deletion, error in the mathematics, or absence from some other private repository. Do not silently replace the frozen original with this new script.
+**Correction of repository identification:** the original source is **alexcour/cayley-prime-translation-cospectrality**, branch `research/spec-obs-01-rooted-observations`, [draft PR #6](https://github.com/alexcour/cayley-prime-translation-cospectrality/pull/6) (OPEN, DRAFT at audit). It is **not** `alexcour/couret-finite-verifications`; the earlier 404 and branch-not-found were scoped to the wrong repository. Historic PR head audited: `89d2709f03bc003b97ebb36765786935b97de0a3`.
+
+Historical files located by path and blob SHA:
+- `docs/SPEC_OBS_09_PREREG.md` — `812830086e6c6f3abda21d3e74a193c3d0d9526b`.
+- `docs/SPEC_OBS_09.md` — `92b0e795c6f003698f41544f32255d29b77807ea`.
+- `reproducibility/verify_spec_obs_09.py` — `b504087ad2c9b113cfa61804cfc406a5c18ba697`.
+- `reproducibility/results/spec_obs_09_D9_exact_summary.json` — `7390803d6a302cad75483b8af9dd865ac9187505`.
+- **Mandatory scientific erratum:** `docs/SPEC_OBS_09_ERRATUM_2026_10_09.md` — `5850dd455979ccb0703807f6e88a4e8b7fea849f`. The first witness is NOT cospectral; 4-motif equality alone is the certified obstruction. Joint spectrum+4-deck counterexample is not established.
+
+**Actual historical replay:** producer script fetched from the historical branch; its source Git blob hash independently matched `b504087...`. Execution passed 594/10/12/663, two ambiguous fibers, both independent-set certificates. Archived JSON source blob independently matched `7390803...`. Full parsed JSON comparison: after renaming the output key `vf2_checks` to archived `VF2_checks` and adding archived metadata `prereg=docs/SPEC_OBS_09_PREREG.md`, producer output and frozen JSON are exactly equal as data objects. The raw JSON files are not byte-identical; this is a schema/metadata discrepancy, not a mathematical mismatch. Preserve original files unchanged.
+
+**New independent replay, archived separately in this review branch:** `research/spec_obs_09_independent_replay.py` and `research/spec_obs_09_independent_replay.json`. Fresh bitset adjacency implementation gave 680 candidates / 594 generators, 3060 quadruples, 10 motif classes, 12 isomorphism classes, 663 VF2 comparisons, two ambiguous fibers (54 split 27+27 and 108 split 54+54), and both intrinsic non-isomorphism certificates. Adversarial checks cover all 5832 associative triples, 4096 four-vertex masks, a relabeling and one edge mutation. This is a **new verification**, not proof that the earlier unaffixed audit scripts were recovered.
+
+**Residual gaps:** original separate independent-audit program/ZIP and its initial JSON as reportedly available in a prior chat were not located in the audit branch or accessible Drive search; this new independent implementation must not be misidentified as that earlier archive. Historic CI workflow `.github/workflows/verify.yml` does not invoke SPEC-OBS-09; CI #87 success at `ff3be2a...` is NOT evidence of an automated SPEC-OBS-09 replay. Exact novelty and primary prior-art overlaps remain unreviewed; D10/D11/D12/S4 remain INCOMPLETE. Keep draft PR #6, no merge, no stable release; E finite D9, N NOT AUDITED.
 
 ## Prior art and claim boundary
 
