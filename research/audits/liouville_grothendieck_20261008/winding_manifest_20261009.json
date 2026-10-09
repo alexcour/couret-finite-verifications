@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-09",
+  "scope": "seven primitive Dirichlet characters q=3,5,15; 0.001 <= Im(s) <= 25; rectangle -0.25 <= Re(s) <= 1.25",
+  "status": "NUMERICAL_WINDING_ONLY_NOT_CERTIFIED",
+  "counts": {
+    "0,1": 8,
+    "0,2": 8,
+    "0,3": 8,
+    "1,0": 6,
+    "1,1": 12,
+    "1,2": 13,
+    "1,3": 12
+  },
+  "sum": 67,
+  "coarse_step": 0.28,
+  "refined_steps": {
+    "0,1": 0.16,
+    "0,2": 0.16,
+    "0,3": 0.16,
+    "1,0": 0.16,
+    "1,1": 0.16,
+    "1,2": 0.16,
+    "1,3": 0.23
+  },
+  "independent_check": "Hardy sign scans agree for all seven characters",
+  "limitation": "No validated contour enclosure, no interval error, no independently verified LMFDB character-by-character correspondence; no new GRH claim."
+}
