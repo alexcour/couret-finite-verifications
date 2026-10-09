@@ -32,6 +32,12 @@ jobs:
           set -euo pipefail
           cd research/lean
           lake env lean CouretOaiBridge01/INTERIA_SA_04_PowerIntegrability.lean
+      - name: Check INTERIA-SA-05 weighted Bessel modes
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd research/lean
+          lake env lean CouretOaiBridge01/INTERIA_SA_05_BesselWeightedModes.lean
       - name: Verify status artifact bindings
         shell: bash
         run: |
