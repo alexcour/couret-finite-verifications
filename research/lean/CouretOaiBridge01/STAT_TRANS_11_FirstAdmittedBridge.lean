@@ -18,6 +18,11 @@ to A1's `tau_mul_sigma`.
 No RH claim. No novelty claim.
 -/
 
+-- Branch-local elaboration workaround for large nested decidable BridgeReceipt.
+-- The previous CI build hit maximum recursion depth at fields crossCase and statementNonempty.
+-- This option affects elaboration capacity only; it does not add axioms or alter the statements.
+set_option maxRecDepth 4096
+
 namespace CouretOaiBridge01
 namespace StatusTransport
 namespace FirstAdmittedBridge
