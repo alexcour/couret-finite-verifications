@@ -1,0 +1,31 @@
+{
+  "status": "VERIFIED_INDEPENDENTLY",
+  "design": "PROSPECTIVE_AFTER_DRIVE_FREEZE",
+  "projection_theta": 12.448868316043566,
+  "selected": "Bgap16_Rhalf",
+  "beta": 0.5,
+  "pairs": 2785448,
+  "pooled_brier": {
+    "Bgap16": 0.8154492963865483,
+    "Bgap16_Rhalf": 0.8154484293595465,
+    "Bgap16_Rplus": 0.8154497671593214,
+    "mid_111": 0.8154588462058139,
+    "win_111": 0.815462845484661
+  },
+  "primary_gains": [
+    6.256775921809066e-07,
+    5.734768205867269e-07,
+    1.4031160850969115e-06
+  ],
+  "pooled_gain": 8.670270017496762e-07,
+  "descriptive_bootstrap_95": [
+    -2.2621978002953958e-07,
+    2.049952668830336e-06
+  ],
+  "criterion": false,
+  "elapsed_seconds": 5.708958937000034,
+  "independent_bootstrap_95": [
+    -2.262197800225804e-07,
+    2.0499526688592964e-06
+  ]
+}
