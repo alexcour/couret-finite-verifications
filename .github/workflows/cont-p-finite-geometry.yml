@@ -1,4 +1,4 @@
-name: CONT-P synthetic gain geometry
+name: CONT-P finite gain geometry
 on:
   push:
     paths:
@@ -24,3 +24,21 @@ jobs:
       - name: Check exact finite geometry on synthetic inputs
         working-directory: research/cont-p/v1.12.0
         run: python3 verify_gain_geometry.py
+
+  experimental-replay:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install -r research/cont-p/v1.12.0/experimental/requirements.txt
+      - name: Verify experimental source hashes
+        working-directory: research/cont-p/v1.12.0/experimental
+        run: sha256sum -c SHA256SUMS.txt
+      - name: Check exact finite table and rational examples
+        working-directory: research/cont-p/v1.12.0/experimental
+        run: python3 verify_exact.py
+      - name: Reproduce forecasts and analytic derivatives
+        working-directory: research/cont-p/v1.12.0/experimental
+        run: python3 finite_geometry.py
