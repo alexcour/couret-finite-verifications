@@ -12,6 +12,7 @@ on:
       - "research/STAT_TRANS_10_MUTATION_ORACLES.json"
       - "scripts/test_stat_trans_mutations.py"
       - "scripts/verify_stat_trans_freshness.py"
+      - "scripts/gate_stat_trans_admission.py"
   workflow_dispatch:
 
 jobs:
@@ -40,3 +41,20 @@ jobs:
       - name: Attest local versioned bridge after clean Lean and axiom audit
         shell: bash
         run: python3 scripts/verify_stat_trans_freshness.py --attest "$RUNNER_TEMP/stat-trans-witness.json"
+      - name: Test fail-closed admission and consume same-run witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/gate_stat_trans_admission.py --self-test
+          python3 scripts/gate_stat_trans_admission.py \
+            --witness "$RUNNER_TEMP/stat-trans-witness.json" \
+            --decision "$RUNNER_TEMP/stat-trans-admission.json"
+      - name: Preserve witnessed admission decision
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: stat-trans-admission-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/stat-trans-witness.json
+            ${{ runner.temp }}/stat-trans-admission.json
+          if-no-files-found: error
+          retention-days: 90
