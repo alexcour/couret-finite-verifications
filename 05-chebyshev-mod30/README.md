@@ -42,3 +42,11 @@ archived source identifier/page image before they are used as provenance evidenc
 ## File
 
 `verify_chebyshev.py` — blocking assertions. Requires SymPy 1.14.0.
+
+## F-001: distinct observable and withdrawn historical claim
+
+The historical proportion for `{1,11,29}` mod 30, formerly reported near `0.378`,
+is withdrawn; the corrective report gives `0.3749982` (rounded) at `10^9`.
+That proportion is distinct from the `D(X)` above. These finite checks neither
+replay the computation at `10^9` nor validate the withdrawn observation.
+See [the F-001 erratum](../F001_ERRATUM.md) for sources and scope.
