@@ -1,0 +1,32 @@
+name: G30 exact finite replay
+
+on:
+  push:
+    paths:
+      - 'research/open-reproduction/g30/**'
+      - '.github/workflows/g30-open-reproduction.yml'
+  pull_request:
+    paths:
+      - 'research/open-reproduction/g30/**'
+      - '.github/workflows/g30-open-reproduction.yml'
+  workflow_dispatch:
+
+jobs:
+  verify-g30:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Copy frozen source JSON
+        run: cp research/open-reproduction/g30/RESULTS_G30_GATE_B_2026-10-07.json /tmp/g30-archived.json
+      - name: Recompute finite classification
+        working-directory: research/open-reproduction/g30
+        run: python3 verify_g30_gate_b.py
+      - name: Compare against original frozen JSON
+        run: cmp /tmp/g30-archived.json research/open-reproduction/g30/RESULTS_G30_GATE_B_2026-10-07.json
+      - name: Assert claim-boundary counts
+        working-directory: research/open-reproduction/g30
+        run: |
+          python3 -c 'import json; d=json.load(open("RESULTS_G30_GATE_B_2026-10-07.json")); assert d["triplet_count"]==56; assert d["spectral_class_count"]==10; assert d["power_class_sizes"]==[24,32]; assert d["TC_spectral_fiber_size"]==5; assert d["TC_aut_quotient_class_count"]==3; assert d["spectral_partition_equals_digraph_iso_partition"] is True; print("G30 FINITE CHECK: PASS")'
