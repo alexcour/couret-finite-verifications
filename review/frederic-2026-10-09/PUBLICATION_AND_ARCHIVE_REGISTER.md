@@ -14,3 +14,7 @@ Identifiants figurant dans l'index de publication historique : finite-verificati
 Cayley : 10A6/10C3/10B1 restent des **énoncés internes à relire**, N = NON AUDITÉE. GitHub public review 0.1.x n'est PAS v1.0.0. Aucun nouveau DOI ni tag créé pour ce pack.
 
 Les rapports Drive, versions historiques du Guide Frédéric V4..V7 et le nouveau index de relecture ne constituent pas des publications évaluées par des pairs.
+
+## Addendum de bibliographie Cayley (2026-10-09)
+
+Les travaux de Tang–Liu–Lu (2025), DOI [10.3390/math13121903](https://doi.org/10.3390/math13121903), et Ishikawa–Nakano–Sadahiro (2026), DOI [10.37236/14208](https://doi.org/10.37236/14208), diffusé initialement en [arXiv:2408.01666](https://arxiv.org/abs/2408.01666) dès août 2024, sont désormais documentés théorème par théorème dans [l'audit ciblé](CAYLEY_PRIOR_ART_ADDENDUM_2026-10-09.md). Leur ajout ne modifie pas les statuts E/N ni le gate de publication.
