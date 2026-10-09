@@ -8,6 +8,8 @@
 3. [Inventaire par objet mathématique](MATHEMATICAL_OBJECTS_REGISTER.md) — domaines, témoins, statuts, risques.
 4. [Errata, réfutations, démotions](MANDATORY_ERRATA_AND_CHANGES.md) — lire AVANT les anciennes synthèses.
 5. [Protocole de rejeu, questions aux relecteurs](REVIEW_AND_REPRODUCIBILITY.md) — comment contredire et où rapporter.
+
+7. **[Audit Cayley — Tang–Liu–Lu 2025 et Ishikawa–Nakano–Sadahiro 2026](CAYLEY_PRIOR_ART_ADDENDUM_2026-10-09.md)** — comparaison théorème par théorème à 10A6/10C3/10B1 ; distinction spectre et marches ; aucune nouveauté établie.
 6. Le guide historique V7 de Frédéric est conservé dans Drive ; le **guide de mise à jour CURRENT daté** sur Drive prime pour les références et changements postérieurs.
 
 ## Principes non négociables
