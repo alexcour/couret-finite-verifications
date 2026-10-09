@@ -1,0 +1,92 @@
+{
+  "status": "MATHEMATICAL_INSTRUMENT_AUDIT_NOT_L_ZERO_CERTIFICATE",
+  "rigorous_sufficient_condition": "If on each contour edge from z_i to z_(i+1), a certified M_i bounds |f_prime| and a certified m_i <= |f(z_i)| satisfies M_i*edge_length < m_i, then the image stays in a disk avoiding 0 and the principal sampled phase increments are exact.",
+  "counterexample": "f(z)=z^(N-1) sampled at N-th roots of unity has sampled winding -1 but true winding N-1; max observed jump = 2*pi/N.",
+  "adversarial_fixtures": [
+    {
+      "degree": 8,
+      "samples": 9,
+      "true_winding_by_argument_principle": 8,
+      "sampled_winding": -1,
+      "max_sampled_phase_jump": 0.6981317007977357,
+      "bound_proven_by_rational_inequality": false,
+      "certificate_condition": "44*degree < 7*samples",
+      "gated_winding": null,
+      "gate_status": "NOT_CERTIFIED"
+    },
+    {
+      "degree": 100,
+      "samples": 101,
+      "true_winding_by_argument_principle": 100,
+      "sampled_winding": -1,
+      "max_sampled_phase_jump": 0.0622097555166903,
+      "bound_proven_by_rational_inequality": false,
+      "certificate_condition": "44*degree < 7*samples",
+      "gated_winding": null,
+      "gate_status": "NOT_CERTIFIED"
+    },
+    {
+      "degree": 8,
+      "samples": 101,
+      "true_winding_by_argument_principle": 8,
+      "sampled_winding": 8,
+      "max_sampled_phase_jump": 0.4976780441330463,
+      "bound_proven_by_rational_inequality": true,
+      "certificate_condition": "44*degree < 7*samples",
+      "gated_winding": 8,
+      "gate_status": "CERTIFIED_BY_ANALYTIC_DERIVATIVE_BOUND"
+    },
+    {
+      "degree": 100,
+      "samples": 2048,
+      "true_winding_by_argument_principle": 100,
+      "sampled_winding": 100,
+      "max_sampled_phase_jump": 0.30679615757718504,
+      "bound_proven_by_rational_inequality": true,
+      "certificate_condition": "44*degree < 7*samples",
+      "gated_winding": 100,
+      "gate_status": "CERTIFIED_BY_ANALYTIC_DERIVATIVE_BOUND"
+    }
+  ],
+  "previous_L_contour_audit": {
+    "25": {
+      "source_file": "cu_bruit_limit03_contour25_fine.json",
+      "sha256": "b26b9cbcb5c6f396eeb27cdd4e5a77f94f7591f6d11ed23dde236ce6f091e985",
+      "counts_by_character": {
+        "01": 8,
+        "02": 8,
+        "03": 8,
+        "10": 6,
+        "11": 12,
+        "12": 13,
+        "13": 12
+      },
+      "sampled_total": 67,
+      "maximum_observed_phase_increment": 0.8540438900776356,
+      "rigorous_L_derivative_bounds_supplied": false,
+      "certified_zero_count": null,
+      "gate_status": "NOT_CERTIFIED",
+      "reason": "No segment-wise rigorous derivative bound or interval enclosure; sampled increments alone are insufficient"
+    },
+    "40": {
+      "source_file": "cu_bruit_limit03_contour40_fine.json",
+      "sha256": "2a88ca427461308ac3f1a8f8b4cfd8724d69af7c57f6ca2d3c97e2e019523eec",
+      "counts_by_character": {
+        "01": 15,
+        "02": 16,
+        "03": 16,
+        "10": 13,
+        "11": 23,
+        "12": 23,
+        "13": 22
+      },
+      "sampled_total": 128,
+      "maximum_observed_phase_increment": 0.9247037621001227,
+      "rigorous_L_derivative_bounds_supplied": false,
+      "certified_zero_count": null,
+      "gate_status": "NOT_CERTIFIED",
+      "reason": "No segment-wise rigorous derivative bound or interval enclosure; sampled increments alone are insufficient"
+    }
+  },
+  "prohibited_promotion": "Small sampled phase jumps do not imply rigorous zero completeness."
+}
