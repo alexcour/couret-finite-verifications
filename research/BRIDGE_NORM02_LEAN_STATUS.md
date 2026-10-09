@@ -21,3 +21,13 @@ The code DOES NOT formalize T94–T97's external 2026 almost-all-interval theore
 A CI green run must confirm all theorem statements and tactics elaborated; if any error is reported, correct the exact file and rerun. After compilation, build a second zero-sorry layer with explicit finite sets and bad-square count, and separately list the published analytic theorem as an unformalized *external* dependency rather than inventing an axiom. Preserve original T98–T101 / EXP-09 assignments and historical DIAG-02 adverse results.
 
 **Status: [CODE_COMMITTED, CI_PENDING, NO_LEAN_CERTIFICATE].**
+
+
+## Follow-up audit 2026-10-09 — pinned CI and axiom inspection
+- CI workflow updated at commit `d52f2ddd737218c50052eb25e510a9b398721160`; removed the unconditional `lake update` that could modify pinned dependency resolutions; enabled explicit build with `leanprover/lean-action@v1`.
+- Added `research/lean/NORM02_Axioms.lean` at commit `594b424a45685ef1d338b2d18392b3c7372bf85f`: all seven theorem declarations have `#print axioms` diagnostics; CI checks for `sorryAx`.
+- Verified GitHub source and workflow presence. The connected GitHub workflow-runs lookup returned an empty run list for the new commit and commit statuses was also empty. These endpoints do not supply a successful Lean run; **nothing has been kernel-certified in this follow-up**.
+- Local environment: `lean`, `lake`, `elan` not available; network access from the container fails name resolution. Do not claim build PASS.
+- Scope stays restricted to finite arithmetic; no deep 2026 external analytic theorem has been imported or encoded as an axiom.
+
+**Current gate: CODE_COMMITTED / AXIOM_CHECK_CONFIGURED / LEAN_BUILD_UNVERIFIED.** A green GitHub Actions job with logs and the `#print axioms` output is required to upgrade status.
