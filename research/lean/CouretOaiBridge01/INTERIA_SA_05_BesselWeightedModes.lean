@@ -18,10 +18,10 @@ open Set MeasureTheory
 namespace CouretOaiBridge01.InteriaSA05
 
 /-- Singular model mode for Bessel's zero-energy indicial equation. -/
-def besselSingularMode (ν : ℝ) (x : ℝ) : ℝ := x ^ (-|ν|)
+noncomputable def besselSingularMode (ν : ℝ) (x : ℝ) : ℝ := x ^ (-|ν|)
 
 /-- The actual weighted square of the model mode, with radial weight `x`. -/
-def besselWeightedSquare (ν : ℝ) (x : ℝ) : ℝ :=
+noncomputable def besselWeightedSquare (ν : ℝ) (x : ℝ) : ℝ :=
   x * (besselSingularMode ν x) ^ (2 : ℕ)
 
 /-- Exact pointwise radial-weight identity on the positive half-line. -/
@@ -31,7 +31,7 @@ theorem besselWeightedSquare_eq_power (ν x : ℝ) (hx : 0 < x) :
   calc
     x * (x ^ (-|ν|)) ^ (2 : ℕ) =
         x ^ (1 : ℝ) * x ^ ((-|ν|) * (2 : ℝ)) := by
-      rw [Real.rpow_one, Real.rpow_mul_natCast (le_of_lt hx)]
+      rw [Real.rpow_one, ← Real.rpow_mul_natCast (le_of_lt hx) (-|ν|) 2]
     _ = x ^ ((1 : ℝ) + (-|ν|) * (2 : ℝ)) :=
       (Real.rpow_add hx 1 ((-|ν|) * 2)).symm
     _ = x ^ (1 - 2 * |ν|) := by congr 1; ring
@@ -47,7 +47,8 @@ theorem besselWeightedSquareIntegrable_iff (ν : ℝ) :
 /-- The explicit singular power mode has the standard first derivative. -/
 theorem besselSingularMode_deriv (ν x : ℝ) :
     deriv (besselSingularMode ν) x = (-|ν|) * x ^ ((-|ν|) - 1) := by
-  simpa only [besselSingularMode] using (Real.deriv_rpow_const x (-|ν|))
+  change deriv (fun y : ℝ => y ^ (-|ν|)) x = _
+  exact Real.deriv_rpow_const x (-|ν|)
 
 /-- On x>0 the model mode solves the *first-order* Euler equation
 x u' = -|ν| u. This is not yet the second-order Bessel equation. -/
