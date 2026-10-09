@@ -17,3 +17,4 @@ import CouretOaiBridge01.STAT_TRANS_10_BridgeReceiptMutationSuite
 import CouretOaiBridge01.STAT_TRANS_11_FirstAdmittedBridge
 
 import CouretOaiBridge01.INTERIA_SA_04_PowerIntegrability
+import CouretOaiBridge01.INTERIA_SA_05_BesselWeightedModes
