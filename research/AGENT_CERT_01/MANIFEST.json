@@ -1,0 +1,27 @@
+{
+  "title": "AGENT-CERT-01",
+  "date": "2026-10-09",
+  "source_status": "protocol uploaded and GitHub committed before holdout execution",
+  "files": {
+    "PROTOCOL.md": {
+      "sha256": "358f824dac17b8e5a20d7a8a78b6a0dad6afa7668d0ca052f4b41eddd6b9c2fd",
+      "bytes": 5081
+    },
+    "run_agent_cert_01.py": {
+      "sha256": "fa2d5707abe8c52caf49684f4870b7f5341e2150834901808389a9f8fc9a5ed7",
+      "bytes": 7173
+    },
+    "results.json": {
+      "sha256": "6c59841ad36e4ed668868cedc8a36c30b3b25e299da6d1844be1fbd7da35ba3a",
+      "bytes": 27287
+    },
+    "summary.csv": {
+      "sha256": "ce80cce62d82a353809d728f17f1fc148c4d5fcff6743b65955e02492941c9b9",
+      "bytes": 2751
+    },
+    "RESULTS_REPORT.md": {
+      "sha256": "00df8367ff3c1f0bb1f4bc2424026f9364b5d691a8c15341e5bf77b5af20cbfc",
+      "bytes": 5443
+    }
+  }
+}
