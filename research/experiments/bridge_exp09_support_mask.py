@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""EXP-09 support-only rank obstruction: exact integer MÃ¶bius masks.
-No claims about asymptotic MÃ¶bius estimates.
+"""EXP-09 support-only rank obstruction: exact integer Möbius masks.
+No claims about asymptotic Möbius estimates.
 """
 from __future__ import annotations
 import csv, hashlib, json, math, statistics, cmath
