@@ -63,3 +63,15 @@ See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for identifiers, dates, archi
 ## Consolidated novelty boundary
 
 The mathematical mechanisms are classical. The contribution is a reproducibility package with explicit distinctions between exact, numerical, truncated and conditional calculations. No general arithmetic novelty is claimed.
+
+## Open research review packet (09 Oct 2026; public branch, not stable release)
+
+This repository hosts an **unmerged, publicly readable research review packet** on Liouville/Grothendieck claim corrections and CU-BRUIT-02 conditional prime-race computations. It is explicitly *not* part of the stable v1.0.0 claims:
+
+- [Start here: public review, scripts and reproduction](research/audits/liouville_grothendieck_20261008/PUBLIC_REVIEW_START_HERE.md)
+- [Claim status and falsifications](research/audits/liouville_grothendieck_20261008/CLAIMS_AND_FAILURES.md)
+- [Frozen race and conditional density model](research/audits/liouville_grothendieck_20261008/FROZEN_METHOD_AND_DENSITY.md)
+- [Precise challenges for reviewers](research/audits/liouville_grothendieck_20261008/OPEN_REVIEW_QUESTIONS.md)
+- [PR #4 — comment publicly and correct us](https://github.com/alexcour/couret-finite-verifications/pull/4)
+
+The packet intentionally reports **30/67 external decimal ordinate comparisons**, with 37 q=15 still awaiting independent catalogue comparison; no certified zero completeness, no unconditional sign-density, no novelty or RH claim. The historical frozen prime-sieve ZIP is *not* mirrored into this branch. The CI of the existing stable release does not automatically test the new spectral scripts.
