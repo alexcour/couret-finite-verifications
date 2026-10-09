@@ -1,0 +1,143 @@
+{
+  "id": "CU-BRUIT-02-GATE-A-LMFDB-20261009",
+  "scope": "T=25; positive ordinates of primitive L(s,chi) for 7 nontrivial characters of U(30)",
+  "status": "PARTIAL_EXTERNAL_MATCH",
+  "external_published_zeros_matched": 24,
+  "local_candidate_zeros_not_external_checked": 43,
+  "total": 67,
+  "corrections": "LMFDB-published ordinates are not independently certified by this comparison. Do not claim rigorous all-zero completeness/GRH.",
+  "formula": "chi_(a,b)(n) = chi_(-3)^a(n) * i^(b*log_2(n mod 5)); n coprime to q",
+  "entries": [
+    {
+      "ab": "0,1",
+      "conductor": 5,
+      "conrey_label": "5.2",
+      "status": "LMFDB_ORDINATES_MATCHED",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/5/5.2/r1/0/0",
+      "positive_zero_ordinates_under_25": [
+        6.183578195450854,
+        8.45722917442323,
+        12.674946417011355,
+        14.825025570328428,
+        17.33780210685304,
+        18.998588041686144,
+        22.48758458302875,
+        24.365279775402296
+      ]
+    },
+    {
+      "ab": "0,2",
+      "conductor": 5,
+      "conrey_label": "5.4",
+      "status": "LMFDB_ORDINATES_MATCHED",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/5/5.4/r0/0/0",
+      "positive_zero_ordinates_under_25": [
+        6.648453344727715,
+        9.83144443288667,
+        11.958845626083516,
+        16.033821128384236,
+        17.566994292325553,
+        19.54073262278475,
+        22.22740545445941,
+        24.588466217408197
+      ]
+    },
+    {
+      "ab": "0,3",
+      "conductor": 5,
+      "conrey_label": "5.3",
+      "status": "LMFDB_ORDINATES_MATCHED",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/5/5.3/r1/0/0",
+      "positive_zero_ordinates_under_25": [
+        4.132903705212852,
+        9.44293112972851,
+        11.2828964415816,
+        14.115464266569646,
+        16.995903942590285,
+        19.729054786311625,
+        21.28304715777787,
+        22.96557643479148
+      ]
+    },
+    {
+      "ab": "1,0",
+      "conductor": 3,
+      "conrey_label": "3.2",
+      "status": "LOCAL_ONLY_PENDING_LMFDB_ZERO_LIST",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/3/3.2/r1/0/0",
+      "positive_zero_ordinates_under_25": [
+        8.039737155682,
+        11.249206207773,
+        15.704619176722,
+        18.261997495693,
+        20.455770807743,
+        24.059414856492
+      ]
+    },
+    {
+      "ab": "1,1",
+      "conductor": 15,
+      "conrey_label": "15.2",
+      "status": "LOCAL_ONLY_PENDING_LMFDB_ZERO_LIST",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/15/15.2/r0/0/0",
+      "positive_zero_ordinates_under_25": [
+        2.734603709119,
+        5.243010492754,
+        8.414685249805,
+        10.187602727645,
+        11.907372476547,
+        13.337395855416,
+        15.366139576498,
+        17.772390249217,
+        18.976999650088,
+        20.627631775972,
+        21.883973024209,
+        23.33848001776
+      ]
+    },
+    {
+      "ab": "1,2",
+      "conductor": 15,
+      "conrey_label": "15.14",
+      "status": "LOCAL_ONLY_PENDING_LMFDB_ZERO_LIST",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/15/15.14/r1/0/0",
+      "positive_zero_ordinates_under_25": [
+        3.057018209809,
+        5.34319209368,
+        7.267630598267,
+        10.133748155228,
+        12.159698533811,
+        13.489384573155,
+        15.240408529039,
+        16.633558416186,
+        19.103497185255,
+        20.66236305141,
+        22.176397688215,
+        23.367999238675,
+        24.903501169044
+      ]
+    },
+    {
+      "ab": "1,3",
+      "conductor": 15,
+      "conrey_label": "15.8",
+      "status": "LOCAL_ONLY_PENDING_LMFDB_ZERO_LIST",
+      "lmfdb_lfunction_url": "https://www.lmfdb.org/L/1/15/15.8/r0/0/0",
+      "positive_zero_ordinates_under_25": [
+        4.406700239804,
+        6.590782670215,
+        8.264501653903,
+        10.326204250315,
+        13.028956273992,
+        14.464461134466,
+        16.17189288499,
+        17.444764266096,
+        19.137842424193,
+        21.284643697104,
+        23.148945394925,
+        24.071858315179
+      ]
+    }
+  ],
+  "source_note": "Three q=5 decimal lists obtained from LMFDB published L-function pages; remaining four lists independently computed locally, but inaccessible/unchecked against original LMFDB zero listings as of 2026-10-09. Local q5 max differences below 1.3e-13 using mpmath sign scans."
+}
