@@ -5,6 +5,7 @@ on:
       - research/couret-norm02-lean-2026-10-09
     paths:
       - "research/lean/CouretOaiBridge01/NORM02_FiniteArithmetic.lean"
+      - "research/lean/NORM02_Axioms.lean"
       - ".github/workflows/norm02-lean.yml"
   workflow_dispatch:
 
@@ -16,19 +17,24 @@ jobs:
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: research/lean
-          build: false
+          build: true
           test: false
           lint: false
-          auto-config: false
-      - name: Build and elaborate NORM-02
+          auto-config: true
+      - name: Elaborate and inspect NORM-02 axioms
         working-directory: research/lean
         shell: bash
         run: |
           set -euo pipefail
-          lake update
-          lake exe cache get
+          lean --version
+          lake --version
           lake --wfail build CouretOaiBridge01.NORM02_FiniteArithmetic
           lake env lean CouretOaiBridge01/NORM02_FiniteArithmetic.lean
+          lake env lean NORM02_Axioms.lean | tee "$RUNNER_TEMP/norm02-axioms.log"
+          if grep -Eq 'sorryAx|unknown constant|declaration uses .+axiom' "$RUNNER_TEMP/norm02-axioms.log"; then
+            echo "::error::Untrusted axiom or sorry in NORM02"
+            exit 1
+          fi
       - name: Reject placeholders and custom axioms
         shell: bash
         run: |
