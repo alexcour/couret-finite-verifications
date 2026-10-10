@@ -15,6 +15,12 @@ jobs:
         run: bash VERIFY_LOCAL.sh
       - name: Review packet stdlib arithmetic and archive consistency only
         run: python research/audits/liouville_grothendieck_20261008/REVIEW_SELF_CHECK.py
+      - name: CU-BRUIT B1 exact Fourier and prime-square sanity (not spectral proof)
+        run: python research/audits/liouville_grothendieck_20261008/gate_b1_independent_check_20261010.py
+      - name: CU-BRUIT A3 pending-source status must remain 0/37
+        run: |
+          python research/audits/liouville_grothendieck_20261008/gate_q15_external_compare_20261010.py --out /tmp/cu_bruit_a3_pending.json
+          python -c "import json; d=json.load(open('/tmp/cu_bruit_a3_pending.json')); assert d['q15_external_decimal_matches']==0 and d['status']=='NO_EXTERNAL_SOURCE_37_PENDING' and d['completeness_proved_by_this_script'] is False"
       - name: Generated results are stable
         run: git diff --exit-code -- 03-consecutive-squares/results.csv
 
