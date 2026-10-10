@@ -397,7 +397,8 @@
       "zero_allowed": true,
       "supports": 2024,
       "square_equal_unordered_pairs": 1060,
-      "half_turn_pairs": 1012,      "exceptional_non_half_turn_pairs": 48,
+      "half_turn_pairs": 1012,
+      "exceptional_non_half_turn_pairs": 48,
       "partner_sets_match": true
     },
     {
@@ -796,7 +797,8 @@
       "exceptional_non_half_turn_pairs": 0,
       "partner_sets_match": true
     },
-    {      "n": 47,
+    {
+      "n": 47,
       "zero_allowed": false,
       "supports": 15180,
       "square_equal_unordered_pairs": 0,
@@ -1195,7 +1197,8 @@
     },
     {
       "n": 20,
-      "square_equal_pairs": 1628,      "half_turn_pairs": 1512,
+      "square_equal_pairs": 1628,
+      "half_turn_pairs": 1512,
       "not_half_turn_pairs": 116,
       "first_non_half_turn": {
         "S": [
