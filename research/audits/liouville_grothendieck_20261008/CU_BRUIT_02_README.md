@@ -32,3 +32,11 @@ GitHub scripts were transcribed and saved for external replay; no GitHub CI PASS
 4. independent review + bibliography before any promotion, merge or release.
 
 **N=ANTERIEUR for the general mechanism. D=STAGING. PR remains DRAFT.**
+
+
+## Update 10 Oct 2026 — Gate A3 (still unresolved) and Gate B1 (independent replay)
+
+- [Detailed source search and 37-row signed-ordinate audit](GATE_A3_PRIMARY_SOURCES_20261010.md). Bennett–Martin–O'Bryant–Rechnitzer (2021) provide a published rigorous-zero result covering q=15 and T=25, but their signed-zero data archive has **not been downloaded/compared** here. A targeted request was sent to a coauthor; awaiting any archive response. Counts **30/67 prior externally matched decimals, 37/67 q15 still local**.
+- [Fail-closed q15 comparison script](gate_q15_external_compare_20261010.py): requires explicit independent source provenance, archived original-file SHA256, Conrey labels, coverage claim and bounded decimal error. Refuses missing source and incomplete data. Even full decimal compatibility is NOT mathematical certification; explicit review of source proof/coverage remains mandatory.
+- [Gate B1 independent mathematical control](GATE_B1_INDEPENDENT_REVIEW_20261010.md) and [B1 replay script](gate_b1_independent_check_20261010.py): finite exact U(30) Fourier coefficients + square-bias yield mu=-1 and Parseval=960. An independent symmetric numerical difference for L'(1)/L(1) reproduces the older variance to ~9e-9 but is NOT interval arithmetic. The seven-character sign-density formula, signed zero multiplicities and complete Gaussian-tail error still need independent review.
+- No numerical CI run of the new scripts has been confirmed. A local analogous replay and synthetic comparator tests passed. Stable main unchanged; PR #4 intentionally **DRAFT**; no theorem of density/GRH, no priority claim, no release.
