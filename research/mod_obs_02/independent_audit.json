@@ -1,0 +1,270 @@
+{
+  "scopes": {
+    "12": {
+      "fibers": 101,
+      "n": 12,
+      "regimes": {
+        "U_b0": {
+          "closed_walk_length_3": {
+            "0": 91,
+            "1": 10
+          },
+          "connected": {
+            "0": 101
+          },
+          "contains_1": {
+            "0": 72,
+            "1": 29
+          },
+          "contains_halfturn": {
+            "0": 101
+          },
+          "majority_lower_half": {
+            "0": 44,
+            "1": 57
+          },
+          "reconstruction": {
+            "0": 43,
+            "1": 55,
+            "2": 3
+          },
+          "symmetric": {
+            "0": 101
+          }
+        },
+        "U_b1": {
+          "closed_walk_length_3": {
+            "0": 91,
+            "3": 10
+          },
+          "connected": {
+            "0": 101
+          },
+          "contains_1": {
+            "0": 72,
+            "3": 29
+          },
+          "contains_halfturn": {
+            "0": 101
+          },
+          "majority_lower_half": {
+            "0": 44,
+            "3": 57
+          },
+          "reconstruction": {
+            "0": 43,
+            "3": 55,
+            "5": 3
+          },
+          "symmetric": {
+            "0": 101
+          }
+        }
+      }
+    },
+    "18": {
+      "fibers": 393,
+      "n": 18,
+      "regimes": {
+        "U_b0": {
+          "closed_walk_length_3": {
+            "0": 211,
+            "1": 182
+          },
+          "connected": {
+            "0": 337,
+            "1": 56
+          },
+          "contains_1": {
+            "0": 301,
+            "1": 92
+          },
+          "contains_halfturn": {
+            "0": 393
+          },
+          "majority_lower_half": {
+            "0": 119,
+            "1": 274
+          },
+          "reconstruction": {
+            "0": 118,
+            "1": 269,
+            "2": 6
+          },
+          "symmetric": {
+            "0": 393
+          }
+        },
+        "U_b1": {
+          "closed_walk_length_3": {
+            "0": 211,
+            "3": 182
+          },
+          "connected": {
+            "0": 337,
+            "3": 56
+          },
+          "contains_1": {
+            "0": 301,
+            "3": 92
+          },
+          "contains_halfturn": {
+            "0": 393
+          },
+          "majority_lower_half": {
+            "0": 119,
+            "3": 274
+          },
+          "reconstruction": {
+            "0": 118,
+            "3": 269,
+            "5": 6
+          },
+          "symmetric": {
+            "0": 393
+          }
+        },
+        "W_b0": {
+          "closed_walk_length_3": {
+            "0": 211,
+            "1": 108,
+            "2": 73,
+            "3": 1
+          },
+          "connected": {
+            "0": 337,
+            "1": 36,
+            "2": 19,
+            "3": 1
+          },
+          "contains_1": {
+            "0": 301,
+            "1": 44,
+            "2": 48
+          },
+          "contains_halfturn": {
+            "0": 393
+          },
+          "majority_lower_half": {
+            "0": 119,
+            "1": 158,
+            "2": 94,
+            "3": 22
+          },
+          "reconstruction": {
+            "0": 118,
+            "1": 159,
+            "2": 91,
+            "3": 19,
+            "4": 3,
+            "6": 3
+          },
+          "symmetric": {
+            "0": 393
+          }
+        },
+        "W_b1": {
+          "closed_walk_length_3": {
+            "0": 211,
+            "3": 108,
+            "6": 73,
+            "9": 1
+          },
+          "connected": {
+            "0": 337,
+            "3": 36,
+            "6": 19,
+            "9": 1
+          },
+          "contains_1": {
+            "0": 301,
+            "3": 44,
+            "6": 48
+          },
+          "contains_halfturn": {
+            "0": 393
+          },
+          "majority_lower_half": {
+            "0": 119,
+            "3": 158,
+            "6": 94,
+            "9": 22
+          },
+          "reconstruction": {
+            "0": 118,
+            "10": 3,
+            "15": 3,
+            "3": 159,
+            "6": 91,
+            "9": 19
+          },
+          "symmetric": {
+            "0": 393
+          }
+        }
+      }
+    },
+    "24": {
+      "fibers": 991,
+      "n": 24,
+      "regimes": {
+        "U_b0": {
+          "closed_walk_length_3": {
+            "0": 601,
+            "1": 390
+          },
+          "connected": {
+            "0": 991
+          },
+          "contains_1": {
+            "0": 800,
+            "1": 191
+          },
+          "contains_halfturn": {
+            "0": 991
+          },
+          "majority_lower_half": {
+            "0": 230,
+            "1": 761
+          },
+          "reconstruction": {
+            "0": 229,
+            "1": 753,
+            "2": 9
+          },
+          "symmetric": {
+            "0": 991
+          }
+        },
+        "U_b1": {
+          "closed_walk_length_3": {
+            "0": 601,
+            "3": 390
+          },
+          "connected": {
+            "0": 991
+          },
+          "contains_1": {
+            "0": 800,
+            "3": 191
+          },
+          "contains_halfturn": {
+            "0": 991
+          },
+          "majority_lower_half": {
+            "0": 230,
+            "3": 761
+          },
+          "reconstruction": {
+            "0": 229,
+            "3": 753,
+            "5": 9
+          },
+          "symmetric": {
+            "0": 991
+          }
+        }
+      }
+    }
+  }
+}
