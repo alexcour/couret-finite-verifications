@@ -74,4 +74,8 @@ if __name__ == '__main__':
     assert G == (1, 7, 11, 13, 17, 19, 23, 29)
     check({1, 11, 29}, {3:2, 1:4, -1:2}, 2, 8, 8)
     check({7, 11, 13}, {3:1, 1:3, -1:3, -3:1}, 1, 0, 12)
+    f08 = ((1,7,13), (1,11,19), (1,11,29), (1,17,23), (1,19,29))
+    coefficients = [charpoly(adjacency(set(T))) for T in f08]
+    assert len(set(coefficients)) == 1, 'F-08 witnesses not all isospectral'
+    print('F-08: five supports have the same characteristic polynomial.')
     print('PASS: same Parseval total, distinct spectra, disconnected versus connected.')
