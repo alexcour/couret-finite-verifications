@@ -1,0 +1,14 @@
+n=6 supports=10 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=8 supports=35 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=10 supports=84 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=12 supports=165 max_fibre=4 e1_adaptive=5 e1_fixed=6 e2_adaptive=8 e2_fixed=10
+n=14 supports=286 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=16 supports=455 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=18 supports=680 max_fibre=4 e1_adaptive=5 e1_fixed=6 e2_adaptive=8 e2_fixed=10
+n=20 supports=969 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=22 supports=1330 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=24 supports=1771 max_fibre=4 e1_adaptive=5 e1_fixed=6 e2_adaptive=8 e2_fixed=10
+n=26 supports=2300 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=28 supports=2925 max_fibre=2 e1_adaptive=3 e1_fixed=3 e2_adaptive=5 e2_fixed=5
+n=30 supports=3654 max_fibre=4 e1_adaptive=5 e1_fixed=6 e2_adaptive=8 e2_fixed=10
+OUTPUT MOD_OBS_04_RESULTS.json
