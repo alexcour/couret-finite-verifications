@@ -1,0 +1,706 @@
+{
+  "experiment": "MOD-OBS-03 / 2026-10-11",
+  "protocol_sha256": "d9c0c9c8df8e766de26f56bd3b0fb57f1c7a726fd29c72a028147ae0141f51fd",
+  "scope": "finite four-support n=18 Cayley fiber; risk model, not real source calibration",
+  "fiber": {
+    "11": [
+      1,
+      4,
+      13
+    ],
+    "10": [
+      1,
+      7,
+      16
+    ],
+    "01": [
+      4,
+      10,
+      13
+    ],
+    "00": [
+      7,
+      10,
+      16
+    ]
+  },
+  "common_square_convolution": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2
+  ],
+  "assumptions": {
+    "A2": "exact and free in conditional problem",
+    "allowed_questions": "q1 and q4 only; repeated with positive unit cost",
+    "noise_risk": "conditional error probability <= declared p_max at every query",
+    "noise_expected_cost": "IID Bernoulli errors at declared p_max",
+    "risk_target": "1/20",
+    "no_deterministic_horizon": true
+  },
+  "policies": {
+    "target_delta": {
+      "fraction": "1/20",
+      "decimal": 0.05
+    },
+    "property_contains_1": {
+      "question": "q1",
+      "element": 1,
+      "error_parameter": {
+        "fraction": "1/10",
+        "decimal": 0.1
+      },
+      "cost_per_query": {
+        "fraction": "2",
+        "decimal": 2.0
+      },
+      "likelihood_ratio_threshold": {
+        "fraction": "20",
+        "decimal": 20.0
+      },
+      "net_votes_threshold": 2,
+      "exact_error_probability_iid": {
+        "fraction": "1/82",
+        "decimal": 0.012195121951219513
+      },
+      "expected_queries_iid": {
+        "fraction": "100/41",
+        "decimal": 2.4390243902439024
+      },
+      "expected_cost_iid": {
+        "fraction": "200/41",
+        "decimal": 4.878048780487805
+      }
+    },
+    "property_contains_4": {
+      "question": "q4",
+      "element": 4,
+      "error_parameter": {
+        "fraction": "1/5",
+        "decimal": 0.2
+      },
+      "cost_per_query": {
+        "fraction": "1",
+        "decimal": 1.0
+      },
+      "likelihood_ratio_threshold": {
+        "fraction": "20",
+        "decimal": 20.0
+      },
+      "net_votes_threshold": 3,
+      "exact_error_probability_iid": {
+        "fraction": "1/65",
+        "decimal": 0.015384615384615385
+      },
+      "expected_queries_iid": {
+        "fraction": "63/13",
+        "decimal": 4.846153846153846
+      },
+      "expected_cost_iid": {
+        "fraction": "63/13",
+        "decimal": 4.846153846153846
+      }
+    },
+    "reconstruction": {
+      "first": {
+        "question": "q1",
+        "element": 1,
+        "error_parameter": {
+          "fraction": "1/10",
+          "decimal": 0.1
+        },
+        "cost_per_query": {
+          "fraction": "2",
+          "decimal": 2.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "40",
+          "decimal": 40.0
+        },
+        "net_votes_threshold": 2,
+        "exact_error_probability_iid": {
+          "fraction": "1/82",
+          "decimal": 0.012195121951219513
+        },
+        "expected_queries_iid": {
+          "fraction": "100/41",
+          "decimal": 2.4390243902439024
+        },
+        "expected_cost_iid": {
+          "fraction": "200/41",
+          "decimal": 4.878048780487805
+        }
+      },
+      "second": {
+        "question": "q4",
+        "element": 4,
+        "error_parameter": {
+          "fraction": "1/5",
+          "decimal": 0.2
+        },
+        "cost_per_query": {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "40",
+          "decimal": 40.0
+        },
+        "net_votes_threshold": 3,
+        "exact_error_probability_iid": {
+          "fraction": "1/65",
+          "decimal": 0.015384615384615385
+        },
+        "expected_queries_iid": {
+          "fraction": "63/13",
+          "decimal": 4.846153846153846
+        },
+        "expected_cost_iid": {
+          "fraction": "63/13",
+          "decimal": 4.846153846153846
+        }
+      },
+      "exact_error_probability_iid": {
+        "fraction": "73/2665",
+        "decimal": 0.027392120075046905
+      },
+      "expected_queries_iid": {
+        "fraction": "3883/533",
+        "decimal": 7.285178236397749
+      },
+      "expected_cost_iid": {
+        "fraction": "5183/533",
+        "decimal": 9.72420262664165
+      },
+      "uniform_risk_bound_robust": {
+        "fraction": "1/20",
+        "decimal": 0.05
+      }
+    }
+  },
+  "universal_reconstruction_lower_bound": {
+    "data_processing_kl_bound_nats": 2.6499950812497963,
+    "per_probe_information_kl_nats": {
+      "q1": 1.7577796618689758,
+      "q4": 0.8317766166719344
+    },
+    "reconstruction_minimax_expected_cost_lower_bound": 6.20110747673486,
+    "property_contains_1_valid_strategy_expected_cost_upper_bound": 4.878048780487805,
+    "lower_bound_minus_property_upper_bound": 1.3230586962470552,
+    "strict_optimal_cost_separation_certified": true
+  },
+  "negative_controls": {
+    "latent_persistent_flip_per_channel": {
+      "description": "one Bernoulli flip per channel, held fixed for all repeats; marginals match the declared rates but conditional bound fails",
+      "property_contains_1_actual_error": {
+        "fraction": "1/10",
+        "decimal": 0.1
+      },
+      "reconstruction_actual_error": {
+        "fraction": "7/25",
+        "decimal": 0.28
+      }
+    },
+    "iid_miscalibration": {
+      "actual_p1": {
+        "fraction": "1/4",
+        "decimal": 0.25
+      },
+      "actual_p4": {
+        "fraction": "7/20",
+        "decimal": 0.35
+      },
+      "property_contains_1_actual_error": {
+        "fraction": "1/10",
+        "decimal": 0.1
+      },
+      "reconstruction_actual_error": {
+        "fraction": "5627/25400",
+        "decimal": 0.22153543307086615
+      }
+    }
+  },
+  "certificate_examples": {
+    "property_correct": {
+      "accepted": true,
+      "risk_model_threshold": "20",
+      "net_votes": 2,
+      "net_votes_threshold": 2,
+      "computed_verdict": 1,
+      "evidence_ratio": "81",
+      "query_cost": "8"
+    },
+    "property_premature": {
+      "accepted": false,
+      "risk_model_threshold": "20",
+      "net_votes": 1,
+      "net_votes_threshold": 2,
+      "computed_verdict": null,
+      "evidence_ratio": "9",
+      "query_cost": "2"
+    },
+    "property_wrong_claim": {
+      "accepted": false,
+      "risk_model_threshold": "20",
+      "net_votes": 2,
+      "net_votes_threshold": 2,
+      "computed_verdict": 1,
+      "evidence_ratio": "81",
+      "query_cost": "8"
+    },
+    "full_first_bit": {
+      "accepted": true,
+      "risk_model_threshold": "40",
+      "net_votes": 2,
+      "net_votes_threshold": 2,
+      "computed_verdict": 1,
+      "evidence_ratio": "81",
+      "query_cost": "4"
+    },
+    "full_second_bit": {
+      "accepted": true,
+      "risk_model_threshold": "40",
+      "net_votes": -3,
+      "net_votes_threshold": 3,
+      "computed_verdict": 0,
+      "evidence_ratio": "64",
+      "query_cost": "3"
+    }
+  },
+  "sensitivity": [
+    {
+      "target_delta": {
+        "fraction": "1/10",
+        "decimal": 0.1
+      },
+      "property_contains_1": {
+        "question": "q1",
+        "element": 1,
+        "error_parameter": {
+          "fraction": "1/10",
+          "decimal": 0.1
+        },
+        "cost_per_query": {
+          "fraction": "2",
+          "decimal": 2.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "10",
+          "decimal": 10.0
+        },
+        "net_votes_threshold": 2,
+        "exact_error_probability_iid": {
+          "fraction": "1/82",
+          "decimal": 0.012195121951219513
+        },
+        "expected_queries_iid": {
+          "fraction": "100/41",
+          "decimal": 2.4390243902439024
+        },
+        "expected_cost_iid": {
+          "fraction": "200/41",
+          "decimal": 4.878048780487805
+        }
+      },
+      "property_contains_4": {
+        "question": "q4",
+        "element": 4,
+        "error_parameter": {
+          "fraction": "1/5",
+          "decimal": 0.2
+        },
+        "cost_per_query": {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "10",
+          "decimal": 10.0
+        },
+        "net_votes_threshold": 2,
+        "exact_error_probability_iid": {
+          "fraction": "1/17",
+          "decimal": 0.058823529411764705
+        },
+        "expected_queries_iid": {
+          "fraction": "50/17",
+          "decimal": 2.9411764705882355
+        },
+        "expected_cost_iid": {
+          "fraction": "50/17",
+          "decimal": 2.9411764705882355
+        }
+      },
+      "reconstruction": {
+        "first": {
+          "question": "q1",
+          "element": 1,
+          "error_parameter": {
+            "fraction": "1/10",
+            "decimal": 0.1
+          },
+          "cost_per_query": {
+            "fraction": "2",
+            "decimal": 2.0
+          },
+          "likelihood_ratio_threshold": {
+            "fraction": "20",
+            "decimal": 20.0
+          },
+          "net_votes_threshold": 2,
+          "exact_error_probability_iid": {
+            "fraction": "1/82",
+            "decimal": 0.012195121951219513
+          },
+          "expected_queries_iid": {
+            "fraction": "100/41",
+            "decimal": 2.4390243902439024
+          },
+          "expected_cost_iid": {
+            "fraction": "200/41",
+            "decimal": 4.878048780487805
+          }
+        },
+        "second": {
+          "question": "q4",
+          "element": 4,
+          "error_parameter": {
+            "fraction": "1/5",
+            "decimal": 0.2
+          },
+          "cost_per_query": {
+            "fraction": "1",
+            "decimal": 1.0
+          },
+          "likelihood_ratio_threshold": {
+            "fraction": "20",
+            "decimal": 20.0
+          },
+          "net_votes_threshold": 3,
+          "exact_error_probability_iid": {
+            "fraction": "1/65",
+            "decimal": 0.015384615384615385
+          },
+          "expected_queries_iid": {
+            "fraction": "63/13",
+            "decimal": 4.846153846153846
+          },
+          "expected_cost_iid": {
+            "fraction": "63/13",
+            "decimal": 4.846153846153846
+          }
+        },
+        "exact_error_probability_iid": {
+          "fraction": "73/2665",
+          "decimal": 0.027392120075046905
+        },
+        "expected_queries_iid": {
+          "fraction": "3883/533",
+          "decimal": 7.285178236397749
+        },
+        "expected_cost_iid": {
+          "fraction": "5183/533",
+          "decimal": 9.72420262664165
+        },
+        "uniform_risk_bound_robust": {
+          "fraction": "1/10",
+          "decimal": 0.1
+        }
+      }
+    },
+    {
+      "target_delta": {
+        "fraction": "1/20",
+        "decimal": 0.05
+      },
+      "property_contains_1": {
+        "question": "q1",
+        "element": 1,
+        "error_parameter": {
+          "fraction": "1/10",
+          "decimal": 0.1
+        },
+        "cost_per_query": {
+          "fraction": "2",
+          "decimal": 2.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "20",
+          "decimal": 20.0
+        },
+        "net_votes_threshold": 2,
+        "exact_error_probability_iid": {
+          "fraction": "1/82",
+          "decimal": 0.012195121951219513
+        },
+        "expected_queries_iid": {
+          "fraction": "100/41",
+          "decimal": 2.4390243902439024
+        },
+        "expected_cost_iid": {
+          "fraction": "200/41",
+          "decimal": 4.878048780487805
+        }
+      },
+      "property_contains_4": {
+        "question": "q4",
+        "element": 4,
+        "error_parameter": {
+          "fraction": "1/5",
+          "decimal": 0.2
+        },
+        "cost_per_query": {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "20",
+          "decimal": 20.0
+        },
+        "net_votes_threshold": 3,
+        "exact_error_probability_iid": {
+          "fraction": "1/65",
+          "decimal": 0.015384615384615385
+        },
+        "expected_queries_iid": {
+          "fraction": "63/13",
+          "decimal": 4.846153846153846
+        },
+        "expected_cost_iid": {
+          "fraction": "63/13",
+          "decimal": 4.846153846153846
+        }
+      },
+      "reconstruction": {
+        "first": {
+          "question": "q1",
+          "element": 1,
+          "error_parameter": {
+            "fraction": "1/10",
+            "decimal": 0.1
+          },
+          "cost_per_query": {
+            "fraction": "2",
+            "decimal": 2.0
+          },
+          "likelihood_ratio_threshold": {
+            "fraction": "40",
+            "decimal": 40.0
+          },
+          "net_votes_threshold": 2,
+          "exact_error_probability_iid": {
+            "fraction": "1/82",
+            "decimal": 0.012195121951219513
+          },
+          "expected_queries_iid": {
+            "fraction": "100/41",
+            "decimal": 2.4390243902439024
+          },
+          "expected_cost_iid": {
+            "fraction": "200/41",
+            "decimal": 4.878048780487805
+          }
+        },
+        "second": {
+          "question": "q4",
+          "element": 4,
+          "error_parameter": {
+            "fraction": "1/5",
+            "decimal": 0.2
+          },
+          "cost_per_query": {
+            "fraction": "1",
+            "decimal": 1.0
+          },
+          "likelihood_ratio_threshold": {
+            "fraction": "40",
+            "decimal": 40.0
+          },
+          "net_votes_threshold": 3,
+          "exact_error_probability_iid": {
+            "fraction": "1/65",
+            "decimal": 0.015384615384615385
+          },
+          "expected_queries_iid": {
+            "fraction": "63/13",
+            "decimal": 4.846153846153846
+          },
+          "expected_cost_iid": {
+            "fraction": "63/13",
+            "decimal": 4.846153846153846
+          }
+        },
+        "exact_error_probability_iid": {
+          "fraction": "73/2665",
+          "decimal": 0.027392120075046905
+        },
+        "expected_queries_iid": {
+          "fraction": "3883/533",
+          "decimal": 7.285178236397749
+        },
+        "expected_cost_iid": {
+          "fraction": "5183/533",
+          "decimal": 9.72420262664165
+        },
+        "uniform_risk_bound_robust": {
+          "fraction": "1/20",
+          "decimal": 0.05
+        }
+      }
+    },
+    {
+      "target_delta": {
+        "fraction": "1/100",
+        "decimal": 0.01
+      },
+      "property_contains_1": {
+        "question": "q1",
+        "element": 1,
+        "error_parameter": {
+          "fraction": "1/10",
+          "decimal": 0.1
+        },
+        "cost_per_query": {
+          "fraction": "2",
+          "decimal": 2.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "100",
+          "decimal": 100.0
+        },
+        "net_votes_threshold": 3,
+        "exact_error_probability_iid": {
+          "fraction": "1/730",
+          "decimal": 0.0013698630136986301
+        },
+        "expected_queries_iid": {
+          "fraction": "273/73",
+          "decimal": 3.73972602739726
+        },
+        "expected_cost_iid": {
+          "fraction": "546/73",
+          "decimal": 7.47945205479452
+        }
+      },
+      "property_contains_4": {
+        "question": "q4",
+        "element": 4,
+        "error_parameter": {
+          "fraction": "1/5",
+          "decimal": 0.2
+        },
+        "cost_per_query": {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        "likelihood_ratio_threshold": {
+          "fraction": "100",
+          "decimal": 100.0
+        },
+        "net_votes_threshold": 4,
+        "exact_error_probability_iid": {
+          "fraction": "1/257",
+          "decimal": 0.0038910505836575876
+        },
+        "expected_queries_iid": {
+          "fraction": "1700/257",
+          "decimal": 6.614785992217898
+        },
+        "expected_cost_iid": {
+          "fraction": "1700/257",
+          "decimal": 6.614785992217898
+        }
+      },
+      "reconstruction": {
+        "first": {
+          "question": "q1",
+          "element": 1,
+          "error_parameter": {
+            "fraction": "1/10",
+            "decimal": 0.1
+          },
+          "cost_per_query": {
+            "fraction": "2",
+            "decimal": 2.0
+          },
+          "likelihood_ratio_threshold": {
+            "fraction": "200",
+            "decimal": 200.0
+          },
+          "net_votes_threshold": 3,
+          "exact_error_probability_iid": {
+            "fraction": "1/730",
+            "decimal": 0.0013698630136986301
+          },
+          "expected_queries_iid": {
+            "fraction": "273/73",
+            "decimal": 3.73972602739726
+          },
+          "expected_cost_iid": {
+            "fraction": "546/73",
+            "decimal": 7.47945205479452
+          }
+        },
+        "second": {
+          "question": "q4",
+          "element": 4,
+          "error_parameter": {
+            "fraction": "1/5",
+            "decimal": 0.2
+          },
+          "cost_per_query": {
+            "fraction": "1",
+            "decimal": 1.0
+          },
+          "likelihood_ratio_threshold": {
+            "fraction": "200",
+            "decimal": 200.0
+          },
+          "net_votes_threshold": 4,
+          "exact_error_probability_iid": {
+            "fraction": "1/257",
+            "decimal": 0.0038910505836575876
+          },
+          "expected_queries_iid": {
+            "fraction": "1700/257",
+            "decimal": 6.614785992217898
+          },
+          "expected_cost_iid": {
+            "fraction": "1700/257",
+            "decimal": 6.614785992217898
+          }
+        },
+        "exact_error_probability_iid": {
+          "fraction": "493/93805",
+          "decimal": 0.005255583391077234
+        },
+        "expected_queries_iid": {
+          "fraction": "194261/18761",
+          "decimal": 10.354512019615159
+        },
+        "expected_cost_iid": {
+          "fraction": "264422/18761",
+          "decimal": 14.09423804701242
+        },
+        "uniform_risk_bound_robust": {
+          "fraction": "1/100",
+          "decimal": 0.01
+        }
+      }
+    }
+  ]
+}
