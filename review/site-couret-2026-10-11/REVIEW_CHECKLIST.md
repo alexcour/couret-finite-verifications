@@ -12,7 +12,7 @@
 ## Priorité haute : vérifications avant toute réécriture
 1. Inspecter et corriger les avertissements PHP de WordPress sur les pages publiques ; masquer les détails serveur aux visiteurs après correction de la cause.
 2. Confronter l'emploi du mot « équivalent » pour RH aux deux implications réellement documentées.
-3. F-08 : conserver les égalités spectrales précises mais ne pas déduire l'identité du spectre du seul cardinal ; contrôler le contre-exemple.
+3. PARSEVAL (distinct de F-08) : la même énergie totale n'implique pas l'identité des spectres. F-08 est déjà corrigé sur la page « Le (S)enseur » : non-unicité de T_C parmi au moins cinq triplets isospectraux. Contrôler séparément toute assertion incorrecte restée ailleurs.
 4. H1 : contrôler symétrie, domaine, formes fermées et borne relative avant d'invoquer KLMN.
 5. Fiche Cayley : graphe déconnecté => ne pas inférer un mélange global ; vérifier convention de boucles et compte d'arêtes.
 6. F-001 : retirer les usages CURRENT du ratio 0,378 et afficher l'erratum public (environ 0,3749982 à x=10^9, limite classique 3/8).
@@ -51,7 +51,7 @@ Audit documentaire fondé sur le projet Google Docs du 11 octobre, le guide maî
 
 **P0-02 — Prétendue équivalence avec RH.** État : FORMULATION HISTORIQUEMENT OBSERVÉE sur une version indexée de la page Contact ; présence actuelle NON CERTIFIÉE. Texte public de remplacement : « Certains travaux historiques de ce programme étudient des questions reliées au contexte de l'hypothèse de Riemann. Aucun résultat présenté ici ne démontre cette hypothèse ni une équivalence nouvelle avec elle. Les implications éventuellement étudiées sont indiquées avec leurs hypothèses et leurs limites dans les documents sources. » Ne rétablir le mot « équivalent » que si un énoncé précis de type P ⇔ RH possède des démonstrations des deux sens, examinées indépendamment.
 
-**P0-03 — F-08 / Parseval.** État : RISQUE MATHÉMATIQUE AVÉRÉ, localisation exacte sur la production NON CONFIRMÉE. Texte public de remplacement : « Pour une fonction f sur un groupe abélien fini G, l'identité de Plancherel–Parseval relie l'énergie totale à la somme des carrés des coefficients de Fourier, avec la normalisation choisie. Pour l'indicatrice d'un support S, cela ne détermine pas à lui seul le multiensemble des valeurs propres de la convolution associée. Un même cardinal de support impose la même somme des carrés des modules des coefficients, non l'égalité de tous les coefficients ou des spectres. »
+**P0-03 — Parseval, à ne pas confondre avec l'erratum historique F-08.** État : RISQUE MATHÉMATIQUE AVÉRÉ, localisation exacte sur la production NON CONFIRMÉE. Texte public de remplacement : « Pour une fonction f sur un groupe abélien fini G, l'identité de Plancherel–Parseval relie l'énergie totale à la somme des carrés des coefficients de Fourier, avec la normalisation choisie. Pour l'indicatrice d'un support S, cela ne détermine pas à lui seul le multiensemble des valeurs propres de la convolution associée. Un même cardinal de support impose la même somme des carrés des modules des coefficients, non l'égalité de tous les coefficients ou des spectres. »
 
 Contre-vérification reproductible : sur U(30), S={1,11,29} et T={7,11,13}, tous deux de cardinal trois, les matrices de convolution symétriques ont la même somme de carrés des valeurs propres (=24), mais des spectres différents : S : 3 (multiplicité 2), 1 (4), −1 (2) ; T : 3 (1), 1 (3), −1 (3), −3 (1). Les deux matrices sont contrôlées par `review/site-couret-2026-10-11/verify_site_cayley_g30.py` avec arithmétique rationnelle exacte. Conventions : matrices 8×8 indexées par U(30), A[a,b]=1 si a b⁻¹∈support, boucles conservées.
 
@@ -80,3 +80,48 @@ Contre-vérification reproductible : sur U(30), S={1,11,29} et T={7,11,13}, tous
 Conserver PR #9 en brouillon, ne pas fusionner et ne pas déployer. Obtenir les captures horodatées de la production, vérifier chaque texte corrigé et les redirections, vérifier liens et statuts exacts. Ne pas copier de pièces privées, dossiers FCI/CONT-P/TRUST-LIFE/COSTGATE, de documents de brevet ou du corpus OBS-SEQ ; aucun document Drive privé ne doit être rendu public par commodité. Appliquer le guide maître du 9 octobre et demander l'avis écrit du conseil compétent avant toute communication relevant du périmètre protégé. Le 26 décembre 2026 n'est pas une autorisation de diffusion automatique.
 
 **GATE : DRAFT — NO DEPLOY. Les erreurs mathématiques de portée générale ont été établies/corrigées dans cette annexe, pas l'état complet de production WordPress.**
+
+
+---
+## DEUXIÈME PASSE — CARTOGRAPHIE DES PAGES INDEXÉES — 11 OCTOBRE 2026
+
+### Méthode / niveau de preuve
+Sources : versions textuelles publiques accessibles via moteur d'indexation ou cache HTTP le 11 octobre 2026. Les dates de collecte déclarées par les outils vont de « hier » à environ 3 mois ; il ne s'agit **pas** d'une capture de la base WordPress à l'instant T. Le contrôle HTTP direct et les journaux serveur n'étaient pas disponibles dans cette passe. Le statut « observé » désigne donc une **version indexée**, jamais un certificat de production actuelle. Les pages liées qui renvoient une erreur de récupération restent INCONNUES, non déclarées absentes ou en panne.
+
+### Matrice page → texte observé → action exacte
+
+| Surface | Observation textuelle vérifiable (cache/index) | Statut de la correction | Action à réaliser après capture WordPress |
+|---|---|---|---|
+| [Accueil](https://www.couretunification.fr/) | L'identité « COURET — ART · MATHÉMATIQUES · MÉMOIRE » et l'erratum F-001 (0,3749982) figurent dans un résultat indexé récemment ; une autre section du même index présente encore un point ouvert comme « équivalent à l'hypothèse de Riemann » ; une version HTML plus ancienne affiche la borne HS « ⇒ auto-adjonction unique ». | **PARTIELLEMENT CORRIGÉ DANS LES VERSIONS INDEXÉES** ; RH/H1 à traiter, version exacte et date du serveur non certifiées. | Ne pas refaire l'identité ni retirer l'erratum correct. Contrôler séparément RH et H1 dans la page publiée, avec textes ci-dessous. |
+| [Contact](https://www.couretunification.fr/contact/) | « Nous présentons un unique point ouvert comme équivalent à l'hypothèse de Riemann. » | **FORMULATION PROBLÉMATIQUE CONSTATÉE dans index**, diffusion actuelle non certifiée. | Retirer cette phrase, utiliser le remplacement RH ci-dessous ; ne pas laisser la même phrase dans un bloc de footer réutilisé. |
+| [Résultats minimaux](https://www.couretunification.fr/resultats-minimaux/) | Le même paragraphe « équivalent à RH » apparaît dans la copie indexée. | **CONSTAT INDEXÉ**, état live non contrôlé. | Détecter s'il s'agit d'un composant commun et corriger une seule fois à la source, puis retester ces pages. |
+| [Recherches](https://www.couretunification.fr/recherches/) | « H1 — l'auto-adjonction, fermée par une borne » est affiché avec [D]/[P], tandis que « Borne KLMN » est [C]/[O] ; un item « Cay(G₃₀,T_C) — Ramanujan finie » est présent. | **DIVERGENCE ÉPISTÉMIQUE OBSERVÉE dans index**, formulation mathématique à borner. | Aligner H1 et KLMN sur la preuve effectivement apportée ; pour Cayley, afficher les composantes et préciser la convention de boucles et l'usage du terme « Ramanujan ». |
+| [Registre F0](https://www.couretunification.fr/registre-f0/) | La ligne « Borne KLMN — H1 fermée » est [D], mais signalée « claim > support », preuve écrite et Lean à publier. | **PREUVE PUBLIQUE MANQUANTE RECONNUE PAR LA PAGE**. | Conserver l'indicateur « claim > support » et rétrograder toute formulation de clôture non appuyée par une preuve complète contrôlable. |
+| [Le (S)enseur](https://www.couretunification.fr/le-senseur/) | F-08 retire déjà l'unicité spectrale de T_C et cite cinq supports isospectraux. F-05 limite déjà l'invariant Parseval de la tour primorielle ; F-01 corrige déjà le spectre négatif. | **CORRECTIONS HISTORIQUES APPLIQUÉES dans la page indexée**. | Ne pas écraser ces errata ni redéclarer F-08 comme une faute non corrigée ; renvoyer vers eux lors d'autres corrections. |
+| [La fabrique des machines](https://www.couretunification.fr/la-fabrique-des-machines/) et [Accueil](https://www.couretunification.fr/) | Une copie de l'accueil dit « couches actives : 11 sorry » ; « La fabrique » mentionne « 18 sorrys ». | **INCOHÉRENCE DE VERSIONS INDEXÉES**, valeur actuelle non auditée. | Afficher le nombre par dépôt/commit/branche ou éviter un chiffre transitoire non daté ; ne pas extrapoler « zero-sorry » à l'ensemble du projet. |
+| [Publications et dépôts](https://www.couretunification.fr/publications-et-depots/) | Récupération directe de la page non aboutie dans l'outil, sans code HTTP fiable. | **IMPOSSIBLE À VÉRIFIER**. | Ouvrir dans un navigateur standard, conserver statut HTTP, redirections, liens DOI et capture. Ne pas écrire « page supprimée » ou « 404 » sans contrôle. |
+| PHP/WordPress | Aucun message d'erreur PHP attribuable au site n'a été reproduit de façon fiable dans cette passe. | **NON VÉRIFIÉ**. | Contrôler sans être connecté : source HTML et rendu, journaux PHP/WP autorisés, puis preuve de correction de la cause. |
+
+### Correction formelle de nomenclature (important)
+- **F-08 sur le site** = retrait de l'affirmation que T_C serait l'unique triplet distingué par le spectre. **Ce n'est pas** la généralisation abusive de Parseval. Cinq exemples affichés sur « Le (S)enseur » ont été recalculés indépendamment sur U(30) à partir des traces d'A, A², ..., A⁸ : S={1,7,13}, {1,11,19}, {1,11,29}, {1,17,23}, {1,19,29} ; mêmes traces (8,24,56,168,488,1464,4376,13128), donc même polynôme caractéristique en dimension 8. Le calcul indépendant confirme ces cinq témoins, **pas l'exhaustivité du recensement**.
+- **L'abus de Parseval** est un risque distinct : tous les supports de cardinal 3 ont le même second moment de Fourier (=24 avec les conventions du cas) mais pas nécessairement le même spectre. Le support {7,11,13} partage ce second moment avec T_C, sans en partager le spectre : traces impaires différentes.
+- **F-008 dans le registre GitHub** est encore une autre entrée : une interprétation cohomologique invalidée. Ne jamais confondre F-08 (numérotation du site), F-008 (registre GitHub) et le point algébrique Parseval.
+
+### Formulations publiques prêtes à appliquer, sans expertise mathématique de l'intégrateur
+**Bloc RH (remplacer chaque occurrence en page active)** :
+> « Notre programme examine des propriétés mathématiques finies et des questions historiques pouvant évoquer l'hypothèse de Riemann. Aucun énoncé présenté ici n'est établi comme équivalent à cette hypothèse, sauf présentation explicite et démonstration vérifiée des deux implications. Aucune preuve de l'hypothèse de Riemann n'est revendiquée. »
+
+**Bloc H1 / KLMN** :
+> « Une borne de norme Hilbert–Schmidt peut établir la bornitude d'un opérateur. Elle ne constitue pas, à elle seule, une preuve de l'auto-adjonction de l'opérateur H1 étudié. Deux voies doivent être distinguées : (i) pour un opérateur de base déjà auto-adjoint, une perturbation bornée symétrique relève du théorème des perturbations bornées ; (ii) pour les formes, KLMN requiert une forme de base dense, fermée et semi-bornée et une perturbation de forme symétrique de borne relative strictement inférieure à 1. L'opérateur associé à la somme de formes est alors auto-adjoint. Aucune clôture de H1 n'est affirmée sans vérifier les domaines et hypothèses exacts. »
+
+**Bloc Cayley / Ramanujan** :
+> « Le graphe de Cayley sur U(30) associé au support {1,11,29} comporte deux composantes de quatre sommets : {1,11,19,29} et {7,13,17,23}. Avec la convention d'adjacence qui conserve l'identité 1, il possède huit boucles et huit arêtes ordinaires, et son spectre est {3 (×2), 1 (×4), −1 (×2)}. Il ne constitue pas un graphe connexe ni un mélangeur global. Les propriétés spectrales doivent être interprétées composante par composante ; le qualificatif Ramanujan exige une définition explicitée et ne doit pas suggérer une expansion globale. »
+
+**Bloc F-08 déjà rectifié** :
+> « L'ancienne revendication d'unicité spectrale du triplet {1,11,29} a été retirée. Plusieurs triplets distincts sur U(30) partagent son spectre ; les témoins et l'erratum figurent dans Le (S)enseur. Cette égalité particulière de spectre ne découle pas de Parseval seul. »
+
+### Limites documentaires et recette de clôture
+- Toute citation de la production doit être appuyée par capture datée sans connexion et idéalement réponse HTTP/version de page, non par le seul cache d'un moteur.
+- Garder les corrections historiquement visibles : F-001, F-01, F-05, F-08. Ne pas réécrire les archives anciennes ; afficher des errata et liens CURRENT.
+- Le site doit distinguer le statut d'une preuve, l'audit d'antériorité, la vérification CI et la mise en ligne effective. Les copies de versions indexées ne permettent pas de certifier l'état au 11 octobre de toutes les URL.
+- Rien dans cette annexe ne contient de matériaux réservés FCI/CONT-P/TRUST-LIFE/COSTGATE/OBS-SEQ ou d'archives Drive privées. **Aucun déploiement ni fusion n'est autorisé ; PR #9 demeure un brouillon.**
