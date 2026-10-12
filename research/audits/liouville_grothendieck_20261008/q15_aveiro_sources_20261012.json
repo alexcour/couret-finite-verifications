@@ -1,0 +1,76 @@
+{
+  "schema": "cu-bruit-q15-aveiro-numerical-v1",
+  "source_author": "Tomás Oliveira e Silva, Universidade de Aveiro",
+  "source_index_url": "https://sweet.ua.pt/tos/zeta.html",
+  "source_disclaimer_url": "https://sweet.ua.pt/tos/hobbies.html",
+  "access_date": "2026-10-12",
+  "retrieved_at_utc": "2026-10-12T15:47:23.974942+00:00",
+  "source_table_last_update": "2007-08-07",
+  "source_stated_refinement": "20 digits after the decimal point using PARI/GP after initial Michael Rubinstein approximations",
+  "source_math_certificate_verified": false,
+  "source_claim_of_first_10000_is_not_a_completeness_certificate": true,
+  "source_rights_note": "Original gzip files retain the source author copyright notices. No explicit data licence was identified; the repository software licence is not asserted for the third-party source archives.",
+  "source_disclaimer_summary": "The author warns that some results have not been double-checked and that screening tests can miss incorrect results.",
+  "sources": [
+    {
+      "filename": "zeros_015_001.txt.gz",
+      "url": "https://sweet.ua.pt/tos/zeta/zeros_015_001.txt.gz",
+      "final_url": "https://sweet.ua.pt/tos/zeta/zeros_015_001.txt.gz",
+      "http_status_observed": 200,
+      "size_bytes": 127427,
+      "sha256": "4adef8ad90837262a444c76c27ac3524861bba6e09d290adb39f37fd64cb7945",
+      "conrey_label": "15.14",
+      "header_phases": {
+        "1": "0",
+        "2": "0",
+        "4": "0",
+        "7": "1/2",
+        "8": "0",
+        "11": "1/2",
+        "13": "1/2",
+        "14": "1/2"
+      },
+      "source_positive_rows": 10000
+    },
+    {
+      "filename": "zeros_015_003.txt.gz",
+      "url": "https://sweet.ua.pt/tos/zeta/zeros_015_003.txt.gz",
+      "final_url": "https://sweet.ua.pt/tos/zeta/zeros_015_003.txt.gz",
+      "http_status_observed": 200,
+      "size_bytes": 127295,
+      "sha256": "f0db916172402b60a9106d258b6e8652e87b28ddea3bc978f466c0800a7dbb19",
+      "conrey_label": "15.8",
+      "header_phases": {
+        "1": "0",
+        "2": "1/4",
+        "4": "1/2",
+        "7": "-1/4",
+        "8": "-1/4",
+        "11": "1/2",
+        "13": "1/4",
+        "14": "0"
+      },
+      "source_positive_rows": 10000
+    },
+    {
+      "filename": "zeros_015_006.txt.gz",
+      "url": "https://sweet.ua.pt/tos/zeta/zeros_015_006.txt.gz",
+      "final_url": "https://sweet.ua.pt/tos/zeta/zeros_015_006.txt.gz",
+      "http_status_observed": 200,
+      "size_bytes": 127559,
+      "sha256": "afde2304ca168cd2bb1908719b9d4d17e4feaf03905d49788a5716c5552441f7",
+      "conrey_label": "15.2",
+      "header_phases": {
+        "1": "0",
+        "2": "-1/4",
+        "4": "1/2",
+        "7": "1/4",
+        "8": "1/4",
+        "11": "1/2",
+        "13": "-1/4",
+        "14": "0"
+      },
+      "source_positive_rows": 10000
+    }
+  ]
+}

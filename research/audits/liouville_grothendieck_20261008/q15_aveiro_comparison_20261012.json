@@ -1,0 +1,359 @@
+{
+  "id": "CU-BRUIT-02-Q15-AVEIRO-20261012",
+  "status": "37_EXTERNAL_NUMERICAL_MATCHES_COMPLETENESS_UNCERTIFIED",
+  "access_date": "2026-10-12",
+  "source_author": "Tomás Oliveira e Silva, Universidade de Aveiro",
+  "q15_local_count": 37,
+  "q15_external_decimal_matches": 37,
+  "prior_q3_q5_external_matches_recorded_not_rerun": 30,
+  "cumulative_recorded_decimal_matches": 67,
+  "local_catalogue_sha256_verified": "a71da95c1d29452651734b53c5830098d67a9abc7b062a8f18623f46ff7aa3b2",
+  "raw_archive_hashes_verified": true,
+  "character_identity_checked_from_all_unit_phases": true,
+  "external_display_decimal_places": 20,
+  "comparison_threshold_not_certified_error_bound": "5E-21",
+  "all_local_candidates_round_to_external_display": true,
+  "max_abs_difference": "4.7183320934829E-21",
+  "source_math_certificate_verified": false,
+  "local_root_intervals_certified": false,
+  "completeness_proved_by_this_script": false,
+  "GRH_or_LI_proved": false,
+  "prime_race_density_certified": false,
+  "external_human_mathematical_review_claimed": false,
+  "by_character": [
+    {
+      "filename": "zeros_015_001.txt.gz",
+      "source_url": "https://sweet.ua.pt/tos/zeta/zeros_015_001.txt.gz",
+      "conrey_label": "15.14",
+      "raw_sha256_verified": "4adef8ad90837262a444c76c27ac3524861bba6e09d290adb39f37fd64cb7945",
+      "header_phases": {
+        "1": "0",
+        "2": "0",
+        "4": "0",
+        "7": "1/2",
+        "8": "0",
+        "11": "1/2",
+        "13": "1/2",
+        "14": "1/2"
+      },
+      "source_positive_rows_parsed": 10000,
+      "source_rows_below_25": 13,
+      "local_rows_below_25": 13,
+      "decimal_matches": 13,
+      "unmatched_local_in_supplied_table": 0,
+      "extra_external_in_supplied_table_below_25": 0,
+      "first_supplied_ordinate_above_25": "26.31976601519719112857",
+      "max_abs_difference": "4.15506904708829E-21"
+    },
+    {
+      "filename": "zeros_015_006.txt.gz",
+      "source_url": "https://sweet.ua.pt/tos/zeta/zeros_015_006.txt.gz",
+      "conrey_label": "15.2",
+      "raw_sha256_verified": "afde2304ca168cd2bb1908719b9d4d17e4feaf03905d49788a5716c5552441f7",
+      "header_phases": {
+        "1": "0",
+        "2": "-1/4",
+        "4": "1/2",
+        "7": "1/4",
+        "8": "1/4",
+        "11": "1/2",
+        "13": "-1/4",
+        "14": "0"
+      },
+      "source_positive_rows_parsed": 10000,
+      "source_rows_below_25": 12,
+      "local_rows_below_25": 12,
+      "decimal_matches": 12,
+      "unmatched_local_in_supplied_table": 0,
+      "extra_external_in_supplied_table_below_25": 0,
+      "first_supplied_ordinate_above_25": "25.38802788017747656542",
+      "max_abs_difference": "4.7183320934829E-21"
+    },
+    {
+      "filename": "zeros_015_003.txt.gz",
+      "source_url": "https://sweet.ua.pt/tos/zeta/zeros_015_003.txt.gz",
+      "conrey_label": "15.8",
+      "raw_sha256_verified": "f0db916172402b60a9106d258b6e8652e87b28ddea3bc978f466c0800a7dbb19",
+      "header_phases": {
+        "1": "0",
+        "2": "1/4",
+        "4": "1/2",
+        "7": "-1/4",
+        "8": "-1/4",
+        "11": "1/2",
+        "13": "1/4",
+        "14": "0"
+      },
+      "source_positive_rows_parsed": 10000,
+      "source_rows_below_25": 12,
+      "local_rows_below_25": 12,
+      "decimal_matches": 12,
+      "unmatched_local_in_supplied_table": 0,
+      "extra_external_in_supplied_table_below_25": 0,
+      "first_supplied_ordinate_above_25": "25.89258884644111217224",
+      "max_abs_difference": "4.1259741175657E-21"
+    }
+  ],
+  "matched_rows": [
+    {
+      "character": "15.14",
+      "index_1based": 1,
+      "external": "3.05701820980868915287",
+      "local": "3.05701820980868915287415506904708829",
+      "abs_difference": "4.15506904708829E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 2,
+      "external": "5.34319209367996891782",
+      "local": "5.34319209367996891782367161036914649",
+      "abs_difference": "3.67161036914649E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 3,
+      "external": "7.26763059826680725286",
+      "local": "7.26763059826680725286077767720710152",
+      "abs_difference": "7.7767720710152E-22"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 4,
+      "external": "10.13374815522837579726",
+      "local": "10.1337481552283757972592006003482581",
+      "abs_difference": "7.993996517419E-22"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 5,
+      "external": "12.15969853381077081792",
+      "local": "12.1596985338107708179232438174534441",
+      "abs_difference": "3.2438174534441E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 6,
+      "external": "13.48938457315531804053",
+      "local": "13.4893845731553180405332225553316328",
+      "abs_difference": "3.2225553316328E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 7,
+      "external": "15.24040852903903316688",
+      "local": "15.2404085290390331668778881598505608",
+      "abs_difference": "2.1118401494392E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 8,
+      "external": "16.63355841618558638159",
+      "local": "16.6335584161855863815882344250819375",
+      "abs_difference": "1.7655749180625E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 9,
+      "external": "19.10349718525469465744",
+      "local": "19.1034971852546946574430563193662774",
+      "abs_difference": "3.0563193662774E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 10,
+      "external": "20.66236305141030677304",
+      "local": "20.662363051410306773038882163646401",
+      "abs_difference": "1.117836353599E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 11,
+      "external": "22.17639768821376108756",
+      "local": "22.1763976882137610875602048530011719",
+      "abs_difference": "2.048530011719E-22"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 12,
+      "external": "23.36799923867493537660",
+      "local": "23.3679992386749353766036263213775203",
+      "abs_difference": "3.6263213775203E-21"
+    },
+    {
+      "character": "15.14",
+      "index_1based": 13,
+      "external": "24.90350116904296767595",
+      "local": "24.9035011690429676759519645233408587",
+      "abs_difference": "1.9645233408587E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 1,
+      "external": "2.73460370911883725527",
+      "local": "2.73460370911883725526846548734412216",
+      "abs_difference": "1.53451265587784E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 2,
+      "external": "5.24301049275448939296",
+      "local": "5.24301049275448939295780629412083942",
+      "abs_difference": "2.19370587916058E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 3,
+      "external": "8.41468524980489927126",
+      "local": "8.41468524980489927126454193275339625",
+      "abs_difference": "4.54193275339625E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 4,
+      "external": "10.18760272764530244104",
+      "local": "10.1876027276453024410392281737734211",
+      "abs_difference": "7.718262265789E-22"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 5,
+      "external": "11.90737247654667032067",
+      "local": "11.9073724765466703206668691610290188",
+      "abs_difference": "3.1308389709812E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 6,
+      "external": "13.33739585541558924039",
+      "local": "13.3373958554155892403877849438430742",
+      "abs_difference": "2.2150561569258E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 7,
+      "external": "15.36613957649778231479",
+      "local": "15.3661395764977823147947183320934829",
+      "abs_difference": "4.7183320934829E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 8,
+      "external": "17.77239024921666406085",
+      "local": "17.7723902492166640608502314259928581",
+      "abs_difference": "2.314259928581E-22"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 9,
+      "external": "18.97699965008825353453",
+      "local": "18.9769996500882535345336185036068452",
+      "abs_difference": "3.6185036068452E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 10,
+      "external": "20.62763177596965030615",
+      "local": "20.6276317759696503061509492892928215",
+      "abs_difference": "9.492892928215E-22"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 11,
+      "external": "21.88397302420891165032",
+      "local": "21.883973024208911650321337567140856",
+      "abs_difference": "1.337567140856E-21"
+    },
+    {
+      "character": "15.2",
+      "index_1based": 12,
+      "external": "23.33848001775987766144",
+      "local": "23.3384800177598776614370034132301448",
+      "abs_difference": "2.9965867698552E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 1,
+      "external": "4.40670023980367373720",
+      "local": "4.40670023980367373719937803757298205",
+      "abs_difference": "6.2196242701795E-22"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 2,
+      "external": "6.59078267021547088948",
+      "local": "6.59078267021547088948133257241464069",
+      "abs_difference": "1.33257241464069E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 3,
+      "external": "8.26450165390342495596",
+      "local": "8.2645016539034249559622725883592349",
+      "abs_difference": "2.2725883592349E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 4,
+      "external": "10.32620425031494125044",
+      "local": "10.3262042503149412504441259741175657",
+      "abs_difference": "4.1259741175657E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 5,
+      "external": "13.02895627399163930053",
+      "local": "13.0289562739916393005292866125075241",
+      "abs_difference": "7.133874924759E-22"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 6,
+      "external": "14.46446113446334317877",
+      "local": "14.4644611344633431787718406511262041",
+      "abs_difference": "1.8406511262041E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 7,
+      "external": "16.17189288498984240742",
+      "local": "16.1718928849898424074159070632160022",
+      "abs_difference": "4.0929367839978E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 8,
+      "external": "17.44476426609567023348",
+      "local": "17.4447642660956702334834408678860314",
+      "abs_difference": "3.4408678860314E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 9,
+      "external": "19.13784242419278062326",
+      "local": "19.1378424241927806232584172227031588",
+      "abs_difference": "1.5827772968412E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 10,
+      "external": "21.28464369710184872706",
+      "local": "21.2846436971018487270595972736621467",
+      "abs_difference": "4.027263378533E-22"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 11,
+      "external": "23.14894539492477018901",
+      "local": "23.1489453949247701890128702116736991",
+      "abs_difference": "2.8702116736991E-21"
+    },
+    {
+      "character": "15.8",
+      "index_1based": 12,
+      "external": "24.07185831517868257833",
+      "local": "24.0718583151786825783290611481884112",
+      "abs_difference": "9.388518115888E-22"
+    }
+  ],
+  "limitation": "Agreement of displayed approximate decimals is not an error enclosure, a complete-zero count, a proof of GRH/LI or a certified prime-race density."
+}
