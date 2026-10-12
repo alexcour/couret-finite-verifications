@@ -213,4 +213,99 @@ theorem exceptional_reflection_same_square
     rw [hflip']
     omega
 
+
+/-! ## Algebraic prerequisites for the necessary direction -/
+
+/--
+The direction of a two-point H-pair is intrinsic: two equal unordered pairs
+{x,x+d} and {y,y+e}, with d,e nonzero and d of order two, have e=d.
+This is the elementary reduction needed before matching double-fibre terms.
+-/
+theorem two_point_pair_direction
+    (x y d e : G) (hd : d + d = 0)
+    (hd0 : d ≠ 0) (he0 : e ≠ 0)
+    (hpairs : ({x, x + d} : Finset G) = ({y, y + e} : Finset G)) :
+    e = d := by
+  have hy : y = x ∨ y = x + d := by
+    have hm : y ∈ ({x, x + d} : Finset G) := by
+      rw [hpairs]
+      simp
+    simpa using hm
+  have hye : y + e = x ∨ y + e = x + d := by
+    have hm : y + e ∈ ({x, x + d} : Finset G) := by
+      rw [hpairs]
+      simp
+    simpa using hm
+  rcases hy with hy | hy
+  · rcases hye with hye | hye
+    · have hz : e = 0 := by
+        have hh : x + e = x + 0 := by simpa [hy] using hye
+        exact add_left_cancel hh
+      exact (he0 hz).elim
+    · have hh : x + e = x + d := by simpa [hy] using hye
+      exact add_left_cancel hh
+  · rcases hye with hye | hye
+    · have h : (x + d) + e = x := by simpa [hy] using hye
+      have hde : d + e = 0 := by
+        have hh : x + (d + e) = x + 0 := by
+          calc
+            x + (d + e) = (x + d) + e := by abel
+            _ = x := h
+            _ = x + 0 := by simp
+        exact add_left_cancel hh
+      have heqd : e = -d := by
+        calc
+          e = (d + e) - d := by abel
+          _ = -d := by rw [hde]; simp
+      have hdneg : -d = d := by
+        calc
+          -d = d - (d + d) := by abel
+          _ = d := by rw [hd]; simp
+      exact heqd.trans hdneg
+    · have hz : e = 0 := by
+        have hh : (x + d) + e = (x + d) + 0 := by
+          simpa [hy] using hye
+        exact add_left_cancel hh
+      exact (he0 hz).elim
+
+/--
+If the off-diagonal H-pair of a candidate partner is matched across the
+original double-pair, its base has the form 2b-a plus two-torsion toggles.
+If its doubled base matches the other original H-pair, the exceptional
+condition 3(b-a) in {0,d} is NECESSARY.
+
+The assumptions describe an algebraic cross-matching; deriving them from
+arbitrary equal convolution squares is a separate pending theorem.
+-/
+theorem cross_matching_forces_exception
+    (a b c d u : G) (hd : d + d = 0) (hu : u + u = 0)
+    (hbase : c = (b + b - a) + u ∨ c = ((b + b - a) + u) + d)
+    (hsquare : c + c = a + b ∨ c + c = (a + b) + d) :
+    ((b - a) + (b - a)) + (b - a) = 0 ∨
+    ((b - a) + (b - a)) + (b - a) = d := by
+  have hcc : c + c = (b + b - a) + (b + b - a) := by
+    rcases hbase with hc | hc
+    · rw [hc]
+      calc
+        ((b + b - a) + u) + ((b + b - a) + u) =
+            ((b + b - a) + (b + b - a)) + (u + u) := by abel
+        _ = (b + b - a) + (b + b - a) := by simp [hu]
+    · rw [hc]
+      calc
+        (((b + b - a) + u) + d) + (((b + b - a) + u) + d) =
+            ((b + b - a) + (b + b - a)) + ((u + u) + (d + d)) := by abel
+        _ = (b + b - a) + (b + b - a) := by simp [hu, hd]
+  have hkey : ((b - a) + (b - a)) + (b - a) = (c + c) - (a + b) := by
+    rw [hcc]
+    abel
+  rcases hsquare with hsquare | hsquare
+  · left
+    calc
+      ((b - a) + (b - a)) + (b - a) = (c + c) - (a + b) := hkey
+      _ = 0 := by rw [hsquare]; simp
+  · right
+    calc
+      ((b - a) + (b - a)) + (b - a) = (c + c) - (a + b) := hkey
+      _ = d := by rw [hsquare]; abel
+
 end Couret.STROBO2TORS
