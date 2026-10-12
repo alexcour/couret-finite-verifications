@@ -27,9 +27,13 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/verify_phase_law_identities.py --check
       - name: CU-BRUIT rigorous analytic constant enclosures (GRH and density not certified)
         run: python research/audits/liouville_grothendieck_20261008/certify_spectral_constants.py --check
+      - name: CU-BRUIT exact q15 receipt aggregation (zero enclosures replayed in separate workflow)
+        run: python research/audits/liouville_grothendieck_20261008/verify_q15_tail_bounds.py --check
+      - name: CU-BRUIT signed tail weights and rational-bound controls
+        run: python research/audits/liouville_grothendieck_20261008/test_q15_tail_bounds.py
       - name: CU-BRUIT B1 character labels and signed-conjugate metadata (not zero certification)
         run: python research/audits/liouville_grothendieck_20261008/verify_signed_character_conventions.py --check-local-metadata
-      - name: CU-BRUIT A3 pending-source status must remain 0/37
+      - name: CU-BRUIT empty-source invocation must refuse absent comparison input
         run: |
           python research/audits/liouville_grothendieck_20261008/gate_q15_external_compare_20261010.py --out /tmp/cu_bruit_a3_pending.json
           python -c "import json; d=json.load(open('/tmp/cu_bruit_a3_pending.json')); assert d['q15_external_decimal_matches']==0 and d['status']=='NO_EXTERNAL_SOURCE_37_PENDING' and d['completeness_proved_by_this_script'] is False"

@@ -12,6 +12,14 @@ The [integer dyadic certificate](spectral_constants_certificate_20261012.json) u
 
 Drive worklog: https://docs.google.com/document/d/1gzH_yp1lUV_BZP4l6ErginfNVKYyEzNBM8I_wiWGBPY/edit
 
+## q15 zero certificate and tail comparison — continuation 12 Oct 2026
+
+[Written tail proof](Q15_TAIL_BOUNDS_20261012.md) combines the analytic K intervals with the [finite q15 certificate from PR #28](https://github.com/alexcour/couret-finite-verifications/pull/28), pinned at `04fbd2f56de679bb1b8d5c7dc56354b20d3c9ccd`. Its unmodified root verifier, receipt and controls are included here for replay. The 37 simple roots and 12/13/12 positive counts up to 25 are certified internally with Arb, subject to the stated trust base and independent review. PR #28 separately records 37/37 external approximate decimal matches; these do not certify the third-party decimals. Earlier 0/37 statements below are dated observations or an empty-input rejection test.
+
+Without GRH, the positive Hadamard residuals beyond |Im(s)|=25 lie in [0.062912,0.067673] for the quartic pair and [0.061899,0.067092] for the real character. Under GRH and independent phases, replacing only the q15 tail by a matched-variance Gaussian changes any threshold probability by at most **0.000589** for Q5/Q3/C5, **0.001524** for Q15 and **0.000880** for C15. The proof uses Taylor replacement, a global Bessel envelope and exact integrals, with no numerical quadrature. [Rational checker](verify_q15_tail_bounds.py), [receipt](q15_tail_bounds_20261012.json) and [ten controls](test_q15_tail_bounds.py).
+
+These are partial replacement-error bounds, not an error bar on the old full Gaussian-tail density estimate. The q3/q5 root isolation/counts, their Gaussian replacement, numerical density evaluation, global GRH/LI and identification with a prime race remain open. CI separately replays the q15 interval certificate before checking the tail aggregation. No human review, originality or merge is claimed for this research continuation.
+
 **Scope**: frozen CU-BRUIT-01 weights `S={1,11,29}`, `D=5A-3B`, `E_D=(log x/sqrt x)D`; no modification of the first-run protocol or prime counts.
 
 ## Finite structural classification — 12 Oct 2026

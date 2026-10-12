@@ -10,11 +10,13 @@
 
 1. Read [claims and falsification register](CLAIMS_AND_FAILURES.md), with what was disproved, what is classical and what remains undecided.
 2. Inspect the [frozen experiment and precise equations](FROZEN_METHOD_AND_DENSITY.md).
-3. Browse the [recorded low-zero catalogue](lmfdb_zero_comparison_20261009.json) and [37 locally refined q=15 roots](q15_roots_refined_20261009.json). **Only 30/67 ordinates have been compared against published decimal lists**; q=15 zero lists have NOT.
+3. Browse the [recorded low-zero catalogue](lmfdb_zero_comparison_20261009.json) and [37 locally refined q=15 roots](q15_roots_refined_20261009.json). **12 Oct update:** [PR #28](https://github.com/alexcour/couret-finite-verifications/pull/28) adds 37/37 external decimal matches and an internal Arb certificate of 37 simple roots and finite completeness up to 25. The older 30 q3/q5 decimal matches are not equivalent to root-isolation/count certificates.
 4. Audit the source: [exact checks](REVIEW_SELF_CHECK.py), [spectral calculation](verify.py), [initial zero scan](rs_density_exploratory.py), [numerical argument-principle cross-check](winding_zero_count.py), [q=5 published comparison](verify_lmfdb_q5.py), [q=3 decimal consistency](verify_published_zero_matches.py), [q=15 high-precision root replay](verify_q15_catalog_20261009.py), [truncation envelope](rs_density_tail_envelope.py) and [quasi-Monte Carlo numerical comparison](qmc_density_replay_20261009.py).
 5. Please challenge the **four open gates** in [open review questions](OPEN_REVIEW_QUESTIONS.md).
 
 ## Scientific boundary
+
+**12 Oct q15 tail comparison:** [autonomous tail proof](Q15_TAIL_BOUNDS_20261012.md) derives strictly positive Hadamard residuals without GRH from the pinned q15 finite certificate and analytic K bounds. Under GRH and independent uniform phases, a rigorously bounded Gaussian replacement of only the q15 tail changes every threshold probability by at most 0.000589 (Q5/Q3/C5), 0.001524 (Q15) or 0.000880 (C15). No numerical quadrature is used. The [exact aggregation checker](verify_q15_tail_bounds.py) consumes receipts; the separate `q15-root-intervals` workflow reexecutes their Arb and analytic prerequisites. This does not certify a prime-race density or the q3/q5 Gaussian replacements. Independent mathematical review remains open.
 
 **12 Oct model continuation:** [independent-phase law classification](PHASE_LAW_CLASSIFICATION_20261012.md) separates finite support invariants from a defined stochastic model and its conditional prime-race interpretation. It proves a complete amplitude-multiset criterion for model-law equality, derives five signed variance formulas and a sufficient criterion for thirteen distinct model laws, and gives exact counterexamples. [Rational replay](verify_phase_law_identities.py) checks finite identities only. No actual zero list, prime law, originality or numerical sign-density certification is added.
 
@@ -26,7 +28,7 @@
 - **Finite data:** prior RUN-01 to 10^9 reports A=19,067,732; B=31,779,799; D=−737; finite positive log-occupation ≈0.20764. The 10^9 sieve/first-run zip is referred to in the frozen Drive protocol and is **NOT included in this GitHub packet**, therefore these values are quoted from prior work, not independently rerun by this packet.
 - **Conditional classical model:** under GRH and suitable linear independence of Dirichlet zero ordinates, the relevant Rubinstein–Sarnak law has modeled mean −1 and variance ≈3.20300708.
 - **Exploratory numerical estimates:** χ5 accounts for ≈43.9903% of modeled variance, not a probability of winning. Numerical P(X>0)≈0.2894 after truncating at positive ordinate T=25 and replacing higher zeros with an independent Gaussian matching the residual variance. Not rigorously certified.
-- **Zero evidence:** numerical line scan and numerical contour winding both give 67 roots (8,8,8,6,12,13,12); 30 ordinates were compared with published decimals, 37 conductor-15 entries remain locally computed only.
+- **Zero evidence, 12 Oct update:** prior scans give 67 candidates (8,8,8,6,12,13,12). PR #28 adds 37 q15 external decimal matches and internal interval isolations/counts 12/13/12 up to 25; these two evidence layers are distinct. The old 30 q3/q5 decimal matches still lack an analogous rigorous isolation/count replay here. No global GRH/LI or independent human review follows.
 - **Originality:** no priority claim; general Galois/Dirichlet and Rubinstein–Sarnak mechanism is classical. Whether any atomically stated new subresult is original has not been established.
 
 ## Reproduction without Google Drive

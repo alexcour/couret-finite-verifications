@@ -279,9 +279,12 @@ Le théorème conditionnel classique de Rubinstein–Sarnak est le contexte,
 pas un résultat nouveau de cette note. Le théorème C est un résultat
 autonome **une fois le modèle à phases indépendantes posé** ; toute
 application à une course réelle est un corollaire conditionnel de
-l'identification correcte de ce modèle. Les comparaisons des 37
-ordonnées q=15, la certification des queues et de la densité historique,
-la relecture humaine et l'antériorité restent ouvertes.
+l'identification correcte de ce modèle. Un [complément q15](Q15_TAIL_BOUNDS_20261012.md)
+relie maintenant le certificat fini des 37 racines de la PR #28 aux
+constantes K, puis borne le remplacement gaussien de cette queue seule.
+La certification des 30 ordonnées q3/q5 et de leurs queues, la
+certification de la densité historique, la relecture humaine et
+l'antériorité restent ouvertes.
 
 Plus précisément, si les mesures logarithmiques de la course réelle
 

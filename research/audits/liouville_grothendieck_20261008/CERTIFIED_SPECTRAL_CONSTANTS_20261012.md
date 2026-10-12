@@ -237,9 +237,16 @@ ou une formalisation Lean.
 **Nouveaux points établis :** cinq K séparés par bornes rigoureuses ;
 exclusion des zéros réels non triviaux par l'identité classique ;
 corollaire de treize lois distinctes sous le modèle spectral déclaré.
+**Mise à jour du 12 octobre 2026 :** la [PR #28](https://github.com/alexcour/couret-finite-verifications/pull/28)
+apporte les 37 comparaisons externes de décimales q15 et un certificat
+interne Arb des 37 racines simples et des comptes jusqu'à 25. Ce sont
+deux couches distinctes, encore proposées à la relecture. Le [complément
+de queue q15](Q15_TAIL_BOUNDS_20261012.md) utilise le certificat fini pour
+borner les restes de Hadamard et, sous GRH et phases indépendantes,
+l'erreur de remplacement gaussien partiel sans quadrature.
 **Toujours ouverts :** GRH/LI, identification analytique à la course réelle,
-les 37 comparaisons indépendantes q=15, la complétude du catalogue,
-la quadrature/queue pour δ, la relecture externe et l'antériorité.
+certification analogue q3/q5 et des remplacements de leurs queues,
+évaluation contrôlée de δ, relecture externe et antériorité.
 La preuve générale sur un modèle synthétique arbitraire et son
 contre-exemple à cinq lois restent valables : les paramètres spectraux
 de fonctions L sont une restriction supplémentaire.
