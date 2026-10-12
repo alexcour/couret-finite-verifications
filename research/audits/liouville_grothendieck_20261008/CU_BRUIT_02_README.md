@@ -1,5 +1,13 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+**Current integration:** PR #4 merged into main on 12 Oct 2026, commit 3b6d6e75; its post-merge CI passed. Earlier DRAFT/branch-only annotations below are historical, as explained by [the integration decision](INTEGRATION_DECISION_20261012.md). Analytic and independent-review gates remain open.
+
+## Independent-phase law classification — continuation 12 Oct 2026
+
+[Autonomous model theorem and full proof](PHASE_LAW_CLASSIFICATION_20261012.md): for square-summable independent circular amplitudes, the law determines exactly its mean and its multiset of nonzero amplitudes. Equal finite (bias,labelled profile) gives equal laws in a fixed independent-phase model; thirteen categories give at most thirteen laws. Five distinct signed variance constants suffice to separate all thirteen; their distinctness is not certified here. The proof includes a qualitative sign rule, exact failures of variance-only reconstruction and correlated-phase invariance, and a synthetic model in which the thirteen categories collapse to five laws.
+
+[Exact rational checks](verify_phase_law_identities.py) verify Bessel logarithm coefficients through order 32, independent moments, finite Newton reconstruction and signed-conjugate variance aggregation; compare all 56 existing census rows with `--check`. [Local receipt](phase_law_identities_20261012.json). No zero data, GRH/LI, actual prime limiting law or sign-density value is certified. This continuation is proposed in a new research PR.
+
 Drive worklog: https://docs.google.com/document/d/1gzH_yp1lUV_BZP4l6ErginfNVKYyEzNBM8I_wiWGBPY/edit
 
 **Scope**: frozen CU-BRUIT-01 weights `S={1,11,29}`, `D=5A-3B`, `E_D=(log x/sqrt x)D`; no modification of the first-run protocol or prime counts.
