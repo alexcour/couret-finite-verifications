@@ -114,6 +114,8 @@ theorem triple_translation_free
     exact hbc (add_right_cancel h)
   have hsum : (a + u) + (b + u) + (c + u) = a + b + c := by
     have hs := congrArg (fun s : Finset G => s.sum id) heq
+    change ({a + u, b + u, c + u} : Finset G).sum id =
+      ({a, b, c} : Finset G).sum id at hs
     rw [sum_three (a + u) (b + u) (c + u) habu hacu hbcu,
         sum_three a b c hab hac hbc] at hs
     exact hs
