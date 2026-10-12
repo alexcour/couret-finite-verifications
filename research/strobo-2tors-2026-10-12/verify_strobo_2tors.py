@@ -6,6 +6,9 @@ from math import comb
 
 GROUPS=[(2,2,3),(2,2,5),(2,2,9),(2,2,3,3),(2,2,2,2),(2,2,2,3),(2,2,2,3,3),(4,4),(4,4,3),(4,2,3),(8,2,3),(2,2,2,2,3),(6,2),(4,2,5)]
 
+EXTRA_GROUPS=[(3,), (5,), (3,3), (3,3,3), (2,2), (2,2,2), (2,2,2,2,2), (4,), (8,), (2,3), (2,5), (2,9), (6,), (12,), (18,), (4,2), (8,2), (4,3), (6,3), (2,3,3), (4,2,2), (8,2,2), (12,2), (2,2,7), (2,2,2,7), (4,4,4), (4,4,2), (6,2,2), (2,2,2,5)]
+GROUPS += EXTRA_GROUPS
+
 def check(mods):
     G=list(product(*(range(m) for m in mods)))
     def add(a,b): return tuple((x+y)%m for x,y,m in zip(a,b,mods))
@@ -38,9 +41,23 @@ def check(mods):
         S=next(iter(f))
         assert f==predicts(S),(mods,S,len(f),len(predicts(S)))
         assert all(square(T)==sq for T in f)
+    # Independently count pairs that are NOT H-translates, with and without 0.
+    nontrans = 0
+    nontrans_nozero = 0
+    for fib in fs.values():
+        if len(fib) <= h:
+            continue
+        for S, T in combinations(fib, 2):
+            orbit = {norm(add(s, u) for s in S) for u in H}
+            if T not in orbit:
+                nontrans += 1
+                if z not in S and z not in T:
+                    nontrans_nozero += 1
+    assert nontrans == q*h*h*(h-1)*r3, (mods, nontrans, q*h*h*(h-1)*r3)
+    assert nontrans_nozero == (h-1)*r3*(q*h*h - 6*h + 1), (mods, nontrans_nozero)
     actual=Counter(map(len,fs.values()))
     exp={h:comb(len(G),3)//h-2*q*(h-1)*r3}
-    if r3: exp[2*h]=q*(h-1)*r3
+    if r3 and h > 1: exp[2*h]=q*(h-1)*r3
     assert dict(actual)==exp,(mods,actual,exp)
     nozero=Counter(sum(z not in S for S in f) for f in fs.values())
     del nozero[0]
