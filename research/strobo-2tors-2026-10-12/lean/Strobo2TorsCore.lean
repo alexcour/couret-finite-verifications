@@ -345,6 +345,8 @@ theorem singleton_doubles_equal_of_square_eq
         tripleSquareCoeff t c (c + e) z) :
     a + a = t + t := by
   have hp := congrArg (fun n : ℕ => n % 2) (hsq (a + a))
+  change tripleSquareCoeff a b (b + d) (a + a) % 2 =
+    tripleSquareCoeff t c (c + e) (a + a) % 2 at hp
   rw [paired_square_parity a b d (a + a) hd,
       paired_square_parity t c e (a + a) he] at hp
   by_contra hne
