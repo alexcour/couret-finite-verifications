@@ -308,4 +308,110 @@ theorem cross_matching_forces_exception
       ((b - a) + (b - a)) + (b - a) = (c + c) - (a + b) := hkey
       _ = d := by rw [hsquare]; abel
 
+
+/-! ## From arbitrary equal squares to the singleton and residual identities -/
+
+/-- An explicit indicator encoding the four even-multiplicity sums of a paired triple. -/
+def residualCoeff (a b d z : G) : ℕ :=
+  (if b + b = z then 1 else 0) +
+  (if b + b + d = z then 1 else 0) +
+  (if a + b = z then 1 else 0) +
+  (if a + b + d = z then 1 else 0)
+
+theorem paired_expansion_residual (a b d z : G) (hd : d + d = 0) :
+    tripleSquareCoeff a b (b + d) z =
+      (if a + a = z then 1 else 0) + 2 * residualCoeff a b d z := by
+  simpa only [residualCoeff] using paired_expansion a b d z hd
+
+/-- The full paired square has exactly the parity of its singleton diagonal. -/
+theorem paired_square_parity (a b d z : G) (hd : d + d = 0) :
+    tripleSquareCoeff a b (b + d) z % 2 =
+      (if a + a = z then 1 else 0) := by
+  rw [paired_expansion_residual a b d z hd]
+  by_cases h : a + a = z
+  · simp only [if_pos h]
+    omega
+  · simp only [if_neg h]
+    omega
+
+/--
+Any equality of two labelled paired-triple convolution squares forces equality
+of their singleton doubling values. This is NOT an assumption of a cross match.
+-/
+theorem singleton_doubles_equal_of_square_eq
+    (a b t c d e : G) (hd : d + d = 0) (he : e + e = 0)
+    (hsq : ∀ z : G,
+      tripleSquareCoeff a b (b + d) z =
+        tripleSquareCoeff t c (c + e) z) :
+    a + a = t + t := by
+  have hp := congrArg (fun n : ℕ => n % 2) (hsq (a + a))
+  rw [paired_square_parity a b d (a + a) hd,
+      paired_square_parity t c e (a + a) he] at hp
+  by_contra hne
+  have ht : t + t ≠ a + a := Ne.symm hne
+  simp [ht] at hp
+
+/--
+Every paired-profile collision can be translated by a 2-torsion element
+to have the SAME singleton a. The remaining comparison is then between two
+four-term residual coefficients.
+-/
+theorem normalize_paired_square_singleton
+    (a b t c d e : G) (hd : d + d = 0) (he : e + e = 0)
+    (hsq : ∀ z : G,
+      tripleSquareCoeff a b (b + d) z =
+        tripleSquareCoeff t c (c + e) z) :
+    ∃ u : G, u + u = 0 ∧ t + u = a ∧
+      (∀ z : G,
+        tripleSquareCoeff a b (b + d) z =
+          tripleSquareCoeff a (c + u) ((c + u) + e) z) := by
+  have hdouble : t + t = a + a :=
+    (singleton_doubles_equal_of_square_eq a b t c d e hd he hsq).symm
+  let u : G := a - t
+  have hu : u + u = 0 := by
+    change (a - t) + (a - t) = 0
+    exact (double_eq_iff_two_torsion t a).mp hdouble
+  have htu : t + u = a := by
+    dsimp [u]
+    abel
+  refine ⟨u, hu, htu, ?_⟩
+  intro z
+  calc
+    tripleSquareCoeff a b (b + d) z =
+        tripleSquareCoeff t c (c + e) z := hsq z
+    _ = tripleSquareCoeff (t + u) (c + u) ((c + e) + u) z :=
+      (tripleSquareCoeff_translate t c (c + e) u z hu).symm
+    _ = tripleSquareCoeff a (c + u) ((c + u) + e) z := by
+      have hc : (c + e) + u = (c + u) + e := by abel
+      rw [htu, hc]
+
+/-- After aligning singletons, equality of squares cancels to four-term equality. -/
+theorem residual_eq_of_square_eq_same_singleton
+    (a b c d e : G) (hd : d + d = 0) (he : e + e = 0)
+    (hsq : ∀ z : G,
+      tripleSquareCoeff a b (b + d) z =
+        tripleSquareCoeff a c (c + e) z) :
+    ∀ z : G, residualCoeff a b d z = residualCoeff a c e z := by
+  intro z
+  have h := hsq z
+  rw [paired_expansion_residual a b d z hd,
+      paired_expansion_residual a c e z he] at h
+  omega
+
+/--
+Together these lemmas reduce the arbitrary paired-profile collision problem
+to equality of explicit four-term integer-valued functions, without any
+postulated matching. Pair matching/exhaustiveness is the NEXT proof obligation.
+-/
+theorem normalized_residuals_of_square_eq
+    (a b t c d e : G) (hd : d + d = 0) (he : e + e = 0)
+    (hsq : ∀ z : G,
+      tripleSquareCoeff a b (b + d) z =
+        tripleSquareCoeff t c (c + e) z) :
+    ∃ u : G, u + u = 0 ∧ t + u = a ∧
+      (∀ z : G, residualCoeff a b d z = residualCoeff a (c + u) e z) := by
+  obtain ⟨u, hu, htu, hs⟩ :=
+    normalize_paired_square_singleton a b t c d e hd he hsq
+  exact ⟨u, hu, htu, residual_eq_of_square_eq_same_singleton a b (c + u) d e hd he hs⟩
+
 end Couret.STROBO2TORS
