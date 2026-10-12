@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — GATE B1: independent Fourier and variance cross-check (10 October 2026)
 
+> **Current repository status — 12 October 2026:** PR #4 was merged into `main` at 16:13:05 Europe/Paris. [The integration record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifies the merge commit and successful CI. DRAFT, branch-only, no-merge and earlier CI statements retained below are dated historical observations, superseded for repository workflow only. External mathematical review remains outstanding; 0/37 q15 external comparisons, GRH/LI, zero completeness and rigorous density/tail certification remain open or conditional. No release or DOI change.
+
 **R-RECHERCHE; E-EXACT for finite character arithmetic only; E-NUMERICAL for derivative-based B(chi) and variance; E-CONDITIONAL for Rubinstein–Sarnak law under GRH and suitable LI. N-ANTERIEUR for general mechanism; review only, not new theorem or density.**
 
 Frozen observable is unchanged: G = U(30) = {1,7,11,13,17,19,23,29}; S = {1,11,29}; c(a)=5 on S, -3 otherwise; D(x)=5A(x)-3B(x), E_D(x)=(log(x)/sqrt(x))*D(x). The historical 10^9 sieve was NOT rerun.
@@ -53,3 +55,4 @@ Run with `python gate_b1_independent_check_20261010.py` (stdlib-only exact asser
 - Inverse Fourier/Bessel integration + 67 local candidates and an independently Gaussian-modeled spectral tail yields ~0.28944; repeated Sobol phases use the SAME input model. Neither establishes the true conditional density with rigorous numerical error. Establish validated zero list, interval quadrature and effective *tail* bounds before a density interval can be proposed.
 
 **Decision:** no alteration of original protocol; no claim of novelty; PR #4 remains DRAFT, non-merge.
+

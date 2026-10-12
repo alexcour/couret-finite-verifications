@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — GATE A3 : recherche d'ordonnées q=15 indépendantes (12 octobre 2026)
 
+> **Statut du dépôt au 12 octobre 2026 :** la PR #4 a été fusionnée dans `main` à 16 h 13 min 05 s (heure de Paris). Le [constat de fusion](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifie le commit intégré et les CI réussies. Les mentions conservées ci-dessous « brouillon », « DRAFT », « sans fusion » ou relatives aux anciennes CI sont historiques ; seul le statut du dépôt est actualisé. Relecture mathématique externe toujours attendue, 0/37 comparaisons externes q15, hypothèses GRH/LI et certification des zéros, queues et densités toujours ouvertes ou conditionnelles. Aucune nouvelle release ni modification de DOI.
+
 **ÉTAT : RECHERCHE DOCUMENTAIRE AVANCÉE ; CORPUS AVEIRO IDENTIFIÉ MAIS NON TÉLÉCHARGÉ ; 0/37 NOUVELLES COMPARAISONS EXTERNES ; GATE A3 HOLD.** Ce relevé est un audit de sources, pas un certificat des racines locales. PR #4 à maintenir en DRAFT, sans merge/release ni promotion de la densité numérique.
 
 ## 1. Corpus numérique indépendant nouvellement identifié
@@ -69,3 +71,4 @@ Les 30 anciennes comparaisons externes de décimales q3/q5 restent inchangées :
 **Pas de nouveau courriel à Greg Martin ; pas de fusion de PR #4 ; pas de release/Zenodo ; aucune promotion de statut.**
 
 Documents connexes : [GATE A3 du 10 octobre](GATE_A3_PRIMARY_SOURCES_20261010.md), [comparateur fail-closed](gate_q15_external_compare_20261010.py), [PR #4](https://github.com/alexcour/couret-finite-verifications/pull/4).
+

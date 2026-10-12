@@ -1,5 +1,7 @@
 # Liouville–Grothendieck cross-audit — 2026-10-08
 
+> **Current repository status — 12 October 2026:** PR #4 was merged into `main` at 16:13:05 Europe/Paris. [The integration record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifies the merge commit and successful CI. DRAFT, branch-only, no-merge and earlier CI statements retained below are dated historical observations, superseded for repository workflow only. External mathematical review remains outstanding; 0/37 q15 external comparisons, GRH/LI, zero completeness and rigorous density/tail certification remain open or conditional. No release or DOI change.
+
 **R-RECHERCHE / R-JOURNAL; D-STAGING (branch only); no novelty or stable release.**
 
 Full Drive audit: https://docs.google.com/document/d/1xWBJaWDHXCL7Q9MyXtNFwuKgTz4zF5LEJiiAG6YNOsU/edit
@@ -43,3 +45,4 @@ No fresh 10^9 prime run was performed here. The frozen report quotes finite occu
 4. No release / DOI / claim of Riemann progress or new priority without independent review.
 
 Source documentation and method are separate from implementation; this branch is deliberately not merged into the public release without review.
+

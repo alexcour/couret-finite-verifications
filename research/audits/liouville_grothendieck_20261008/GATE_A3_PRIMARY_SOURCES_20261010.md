@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — GATE A3 : audit des sources primaires, conducteur 15 (10 octobre 2026)
 
+> **Statut du dépôt au 12 octobre 2026 :** la PR #4 a été fusionnée dans `main` à 16 h 13 min 05 s (heure de Paris). Le [constat de fusion](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifie le commit intégré et les CI réussies. Les mentions conservées ci-dessous « brouillon », « DRAFT », « sans fusion » ou relatives aux anciennes CI sont historiques ; seul le statut du dépôt est actualisé. Relecture mathématique externe toujours attendue, 0/37 comparaisons externes q15, hypothèses GRH/LI et certification des zéros, queues et densités toujours ouvertes ou conditionnelles. Aucune nouvelle release ni modification de DOI.
+
 **STATUT : SOURCE CERTIFIANTE PUBLIÉE IDENTIFIÉE ; FICHIERS D'ORDONNÉES NON RÉCUPÉRÉS ; 0/37 comparaisons externes nouvelles ; 30/67 inchangé.**
 
 Dossier de recherche / relecture, non une certification interne, non un article, non une revendication d'originalité. PR #4 maintenue en **DRAFT** ; pas de merge, release, Zenodo, théorème de densité, ni assertion de RH/GRH générale.
@@ -108,3 +110,4 @@ Un petit résidu numérique de L et 40 chiffres *de travail* ne donnent ni un in
 - Vérification parallèle des identités Fourier, moyenne et variance : [rapport B1](GATE_B1_INDEPENDENT_REVIEW_20261010.md). Seules les identités de groupe/caractères/Parseval/biais sont exactes ; la contre-vérification de variance utilise une dérivée numérique (sans intervalles).
 
 **Décision maintenue : A3 BLOQUÉ / zéro source primaire individuelle q=15 vérifiée / PR en brouillon / aucune fusion ou revendication de nouveauté.**
+
