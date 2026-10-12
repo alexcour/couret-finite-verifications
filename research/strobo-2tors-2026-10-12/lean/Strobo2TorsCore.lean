@@ -448,13 +448,15 @@ theorem residual_positive_cases (a b d z : G)
 theorem residual_double_base_positive (a c e : G) :
     0 < residualCoeff a c e (c + c) := by
   unfold residualCoeff
-  simp only [if_pos rfl]
+  have h : c + c = c + c := rfl
+  simp only [if_pos h]
   omega
 
 theorem residual_mixed_base_positive (a c e : G) :
     0 < residualCoeff a c e (a + c) := by
   unfold residualCoeff
-  simp only [if_pos rfl]
+  have h : a + c = a + c := rfl
+  simp only [if_pos h]
   omega
 
 /-- Equal residual functions place each candidate base among four source sums. -/
