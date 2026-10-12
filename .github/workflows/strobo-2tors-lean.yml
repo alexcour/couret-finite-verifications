@@ -16,22 +16,24 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7.0.1
-      - name: Reject proof placeholders
+      - name: Reject placeholders in theorem files
         shell: bash
         run: |
           set -euo pipefail
           if grep -RnE '(^|[[:space:]])(sorry|admit)([[:space:]]|$)|^[[:space:]]*axiom[[:space:]]' research/STROBO_2TORS_01/lean/STROBO2Tors; then
             exit 1
           fi
-      - uses: leanprover/lean-action@v1
+      - name: Install Lean and compile pinned package
+        uses: leanprover/lean-action@v1
         with:
           lake-package-directory: research/STROBO_2TORS_01/lean
           build: true
           test: false
           lint: false
           auto-config: true
-      - name: Elaborate exact model
+      - name: Elaborate rectangle and model
         working-directory: research/STROBO_2TORS_01/lean
         run: |
           set -euo pipefail
           lake env lean STROBO2Tors/Prelude.lean
+          lake env lean STROBO2Tors/Rectangle.lean
