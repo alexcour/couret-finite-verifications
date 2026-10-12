@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — 37 ordonnées q15 comparées à une source externe
 
+> **Complément de certification interne — 12 octobre 2026 :** le [certificat par intervalles](Q15_CERTIFICAT_INTERVALLES_20261012.md) isole désormais les 37 racines et obtient les comptes 12/13/12 jusqu’à 25, dans sa région déclarée et sous sa base de confiance Arb. Le texte ci-dessous conserve le résultat de la seule comparaison numérique d’Aveiro ; celle-ci ne certifie pas la source tierce. Relecture externe, GRH/LI globales et densités restent ouvertes.
+
 12 octobre 2026. **37/37 concordances numériques externes ; complétude et certification mathématique toujours non établies par ce dossier.** Les trois fichiers originaux de Tomás Oliveira e Silva, Universidade de Aveiro, ont été récupérés en octets, identifiés par leurs en-têtes et rapprochés du catalogue local inchangé. Ce résultat remplace, pour cette nouvelle comparaison, l'ancienne observation « aucune des 37 valeurs q15 comparée ». Il ne transforme pas une table approximative en certificat.
 
 ## Résultat effectivement obtenu
