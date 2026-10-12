@@ -233,6 +233,8 @@ Les anciens nombres approchés ne constituent pas ces intervalles.
 Si deux variances coïncident, le théorème B fournit le critère complet
 par les multisets Λ, ou par toutes leurs sommes de puissances.
 
+**Complément certifié du 12 octobre 2026 :** [cinq encadrements analytiques disjoints](CERTIFIED_SPECTRAL_CONSTANTS_20261012.md) sont maintenant obtenus par sommes périodiques, bornes de queue et arrondis dyadiques dirigés. Sous GRH, ces constantes Kχ s'identifient aux Bχ signés ; le critère D établit donc treize lois distinctes du modèle spectral à phases indépendantes. Le même complément exclut les zéros réels non triviaux de ces sept caractères via Kχ<4 et l'identité classique de Hadamard. L'identification à une course réelle et une valeur numérique de densité restent conditionnelles/non certifiées.
+
 ## 5. Contre-exemples exacts aux affirmations plus fortes
 
 1. **Même variance ⇒ même loi : faux.** Avec des phases indépendantes,
@@ -270,6 +272,8 @@ pas prouvés ici. Un zéro central peut modifier le terme déterministe ;
 le biais fini μ(T) ne doit alors pas être pris automatiquement pour
 la moyenne complète. La seule symétrie de conjugaison ne donne pas
 l'indépendance des phases.
+
+Pour les sept caractères primitifs concernés ici, l'absence de zéros centraux est désormais déduite sans GRH dans le [complément analytique certifié](CERTIFIED_SPECTRAL_CONSTANTS_20261012.md). Cette précision concerne cette famille, tandis que les avertissements précédents restent applicables à un modèle général.
 
 Le théorème conditionnel classique de Rubinstein–Sarnak est le contexte,
 pas un résultat nouveau de cette note. Le théorème C est un résultat

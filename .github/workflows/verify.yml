@@ -25,6 +25,8 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/verify_triplet_structure_crosscheck.py --check
       - name: CU-BRUIT independent-phase moment identities (no prime law or zero certificate)
         run: python research/audits/liouville_grothendieck_20261008/verify_phase_law_identities.py --check
+      - name: CU-BRUIT rigorous analytic constant enclosures (GRH and density not certified)
+        run: python research/audits/liouville_grothendieck_20261008/certify_spectral_constants.py --check
       - name: CU-BRUIT B1 character labels and signed-conjugate metadata (not zero certification)
         run: python research/audits/liouville_grothendieck_20261008/verify_signed_character_conventions.py --check-local-metadata
       - name: CU-BRUIT A3 pending-source status must remain 0/37
