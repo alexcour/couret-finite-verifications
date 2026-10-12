@@ -1,0 +1,41 @@
+name: strobo-2tors-lean
+on:
+  push:
+    branches:
+      - research/strobo-2tors-global-classification-2026-10-12
+  pull_request:
+    paths:
+      - "research/strobo-2tors-2026-10-12/**"
+      - ".github/workflows/strobo-2tors-lean.yml"
+  workflow_dispatch:
+
+jobs:
+  core-and-exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Replay exact triple-square tests
+        run: python research/strobo-2tors-2026-10-12/verify_strobo_2tors.py
+      - name: Reject placeholders and custom axioms in candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean; then
+            echo "::error::Proof placeholder or axiom found"
+            exit 1
+          fi
+      - name: Install elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve Lean and mathlib
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: |
+          lake update
+          lake exe cache get
+          lean --version
+      - name: Compile preliminary algebraic lemmas
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: lake env lean Strobo2TorsCore.lean
