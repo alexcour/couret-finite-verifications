@@ -18,3 +18,5 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/certify_q15_root_intervals.py --check
       - name: Refuse wrong roots, insufficient precision, boundary zeros and modified receipts
         run: python research/audits/liouville_grothendieck_20261008/test_q15_root_intervals.py
+      - name: Replay internal adversarial audit at 320 bits and on alternative contours
+        run: python research/audits/liouville_grothendieck_20261008/audit_q15_interval_certificate.py --check

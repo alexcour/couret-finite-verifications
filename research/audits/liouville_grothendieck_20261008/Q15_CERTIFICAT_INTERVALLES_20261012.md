@@ -93,6 +93,10 @@ Les huit contrôles incluent : réussite sur une racine connue du catalogue ; re
 
 La base de confiance comprend le contrat d'inclusion d'Arb, ses évaluations L/Γ/Z et séries, leur implémentation dans FLINT 3.6.0 et ce code Python. Le certificat ne formalise pas ces dépendances dans Lean et reste soumis à relecture contradictoire. Les méthodes sont classiques ; aucune originalité n'est établie.
 
+## Audit interne complémentaire
+
+Un [audit contradictoire interne](Q15_AUDIT_CONTRADICTOIRE_INTERNE_20261012.md) rejoue le reçu original, les isolations à 320 bits et six comptages sur des rectangles différents. Il ajoute des contrôles d’orientation, de pôles et de subdivision indécidable. Cet audit réutilise le même instrument et Arb : il ne remplit pas la demande de relecture humaine indépendante et ne constitue pas une seconde implémentation de preuve. Les octets du programme et du reçu original restent conservés.
+
 ## 7. Changement de statut et limites restantes
 
 La [comparaison d'Aveiro](Q15_AVEIRO_COMPARAISON_NUMERIQUE_20261012.md) reste une concordance externe de décimales approximatives. Le présent certificat est une **voie interne distincte** d'isolation et de comptage rigoureux, indépendante de la précision annoncée par Aveiro. Il ne transforme pas rétrospectivement cette table tierce en source à intervalles certifiés.
