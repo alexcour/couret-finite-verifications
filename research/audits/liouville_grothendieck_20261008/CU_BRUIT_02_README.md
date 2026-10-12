@@ -10,6 +10,8 @@ Drive worklog: https://docs.google.com/document/d/1gzH_yp1lUV_BZP4l6ErginfNVKYyE
 
 This finite proof does not establish distinctness of thirteen prime limiting laws, certify zeros or promote analytic gates. It awaits independent human review; no Lean formalization or novelty claim. PR #4 remains DRAFT.
 
+An additional [integer/autocorrelation cross-check](verify_triplet_structure_crosscheck.py) agrees with every field of all 56 CSV rows, tests the C5/C15 bias-preserving automorphism, fixed subsets under 19, and 560 finite 30→15 reduction cases. See [proof section 8](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md) and [local output](triplet_structure_crosscheck_20261012.json). CI [38249227759](https://github.com/alexcour/couret-finite-verifications/actions/runs/38249227759) passed for the prior structural-proof commit 07b7a22; the complementary checker requires its own run. Local checks are algorithmically separate, not an external review.
+
 - Under GRH and suitable LI, standard Rubinstein–Sarnak limiting law has mean **-1**, variance **3.203007082327546** and Bessel-product characteristic function
   `exp(-i t)*prod_{chi != chi0,gamma>0} J0(2*abs(c_chi)*t/sqrt(.25+gamma^2))`.
 - Numerical fraction of variance attributable to quadratic chi5: **0.4399030503937205**. It is *not* a sign density.

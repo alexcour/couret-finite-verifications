@@ -16,6 +16,10 @@ Local exact checks agree on all 56 CSV rows. This is a written mathematical proo
 
 ## Reproduction
 
+Additional algorithmic cross-check: [integer autocorrelation, fibre decisions and finite exceptions](verify_triplet_structure_crosscheck.py), with [recorded local result](triplet_structure_crosscheck_20261012.json). It compares all 56 rows, checks the bias-preserving automorphism swapping C5/C15, fixed subsets of every size under 19, and the exact 30→15 correction at ten thresholds. The [proof's section 8](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md#8-contrôle-complémentaire-et-autres-identités-finies) supplies the identities separately from these computational checks. Run it with `--check`.
+
+CI update: [run 38249227759](https://github.com/alexcour/couret-finite-verifications/actions/runs/38249227759), head 07b7a22b3bf035a411adfc071e0354c76878924e, succeeded including the first structural checker. It predates this additional cross-check. Neither run is external mathematical review or analytic certification.
+
 From the repo root, with Python 3.12 standard library only:
 
 ```bash

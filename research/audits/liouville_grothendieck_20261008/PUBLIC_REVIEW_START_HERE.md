@@ -14,6 +14,8 @@
 
 ## Scientific boundary
 
+**12 Oct finite classification:** [autonomous proof of 56/5/13/28](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md), with the complete bias/profile table and negative examples. The proof uses G/G² ≅ C2², character cancellation, Parseval and group actions. [Structural exact replay](verify_triplet_structure.py) agrees with the original [56-row fixture](census_56.csv); [complementary integer/autocorrelation check](verify_triplet_structure_crosscheck.py) and [local output](triplet_structure_crosscheck_20261012.json). External peer review is not claimed. Five amplitude profiles are also five orbits under translations and inversion, whereas translations alone give seven orbits. Thirteen finite invariant classes are not thirteen independently established prime-race laws.
+
 - **Exact elementary facts:** U(30) ≅ C2×C4; G²={1,19}; G[2]={1,11,19,29}; Fourier amplitudes 24 and 8; Parseval 960; frozen D(x)=5A(x)−3B(x).
 - **Finite data:** prior RUN-01 to 10^9 reports A=19,067,732; B=31,779,799; D=−737; finite positive log-occupation ≈0.20764. The 10^9 sieve/first-run zip is referred to in the frozen Drive protocol and is **NOT included in this GitHub packet**, therefore these values are quoted from prior work, not independently rerun by this packet.
 - **Conditional classical model:** under GRH and suitable linear independence of Dirichlet zero ordinates, the relevant Rubinstein–Sarnak law has modeled mean −1 and variance ≈3.20300708.
@@ -27,6 +29,9 @@ Requires Python 3.12, SymPy 1.14, mpmath 1.3, SciPy 1.17 and NumPy 2.x for the r
 
 ```bash
 python research/audits/liouville_grothendieck_20261008/REVIEW_SELF_CHECK.py
+python research/audits/liouville_grothendieck_20261008/verify_triplet_census.py --check
+python research/audits/liouville_grothendieck_20261008/verify_triplet_structure.py --check
+python research/audits/liouville_grothendieck_20261008/verify_triplet_structure_crosscheck.py --check
 ```
 
 Then optionally install into a virtual environment (not the stable release environment):

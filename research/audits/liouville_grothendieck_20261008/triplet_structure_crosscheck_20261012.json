@@ -1,0 +1,55 @@
+{
+  "C2_cubed_labelled_profiles": 7,
+  "D_19_original_and_partner": [
+    -7,
+    1
+  ],
+  "bias_profile_classes": 13,
+  "counts": {
+    "mu=-1,profile=C15": 12,
+    "mu=-1,profile=C5": 12,
+    "mu=-1,profile=Q15": 2,
+    "mu=-1,profile=Q3": 2,
+    "mu=-1,profile=Q5": 2,
+    "mu=-5,profile=Q15": 2,
+    "mu=-5,profile=Q3": 2,
+    "mu=-5,profile=Q5": 2,
+    "mu=3,profile=C15": 4,
+    "mu=3,profile=C5": 4,
+    "mu=3,profile=Q15": 4,
+    "mu=3,profile=Q3": 4,
+    "mu=3,profile=Q5": 4
+  },
+  "csv_rows_compared": 56,
+  "external_peer_review": false,
+  "fibre_shapes": {
+    "1+1+1": 32,
+    "2+1": 24
+  },
+  "finite_prime_reduction_checks": 560,
+  "labelled_profiles": 5,
+  "not_established": [
+    "GRH",
+    "LI",
+    "Dirichlet zero completeness",
+    "sign density",
+    "novelty"
+  ],
+  "pairs_times_19": 28,
+  "same_invariants_nontranslation_pair": [
+    [
+      1,
+      7,
+      11
+    ],
+    [
+      1,
+      11,
+      13
+    ]
+  ],
+  "status": "PASS_EXACT_FINITE_STRUCTURE",
+  "translation_and_inversion_orbits": 5,
+  "translation_orbits": 7,
+  "triplets": 56
+}

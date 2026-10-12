@@ -21,6 +21,8 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/verify_triplet_census.py --check
       - name: CU-BRUIT structural quotient classification and counterexamples (finite only)
         run: python research/audits/liouville_grothendieck_20261008/verify_triplet_structure.py --check
+      - name: CU-BRUIT independent autocorrelation and finite invariance cross-check
+        run: python research/audits/liouville_grothendieck_20261008/verify_triplet_structure_crosscheck.py --check
       - name: CU-BRUIT B1 character labels and signed-conjugate metadata (not zero certification)
         run: python research/audits/liouville_grothendieck_20261008/verify_signed_character_conventions.py --check-local-metadata
       - name: CU-BRUIT A3 pending-source status must remain 0/37

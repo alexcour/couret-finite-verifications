@@ -16,6 +16,10 @@ v_{a,b}(T)=|h_{a,b}(T)|^2,\qquad
 \mu(T)=3-4|T\cap Q|.
 \]
 
+Ici le « profil spectral » est le vecteur des modules carrés de Fourier,
+avec caractères étiquetés ; il ne désigne pas des valeurs propres signées
+d'un graphe de Cayley.
+
 Le CRT donne G ≃ C₂ × C₄. Nous prenons les générateurs 11 et 7 :
 un élément de coordonnées (x,y) est 11ˣ7ʸ modulo 30, avec x modulo 2,
 y modulo 4. Les caractères sont χ_{a,b}(x,y) = (−1)^{ax} i^{by}.
@@ -262,3 +266,68 @@ certifie ni sa validité mathématique ni les affirmations analytiques.
 Sources internes : [conventions et frontière analytique](FINITE_CENSUS_SIGNED_ZERO_CONVENTIONS_20261012.md),
 [census existant](census_56.csv), [verificateur existant](verify_triplet_census.py).
 Pas de fusion, de release, d'envoi à des chercheurs ou de revendication de priorité.
+
+## 8. Contrôle complémentaire et autres identités finies
+
+Le [troisième contrôle exact](verify_triplet_structure_crosscheck.py), sans
+import des deux vérificateurs précédents, construit les coordonnées par les
+générateurs, décide le profil par les fibres du quotient, calcule les sommes
+dans Z[i] et leur autocorrélation, puis compare **tous les champs des 56 lignes**.
+Son [rapport local](triplet_structure_crosscheck_20261012.json) retrouve les
+effectifs, les sept orbites de translation et les cinq orbites avec inversion.
+Deux fixtures volontairement altérés (une amplitude, une ligne supprimée)
+ont été rejetés. Il s'agit de contrôles algorithmiques, pas de relecture externe.
+
+Une autre démonstration courte de l'exhaustivité utilise Parseval.
+Une somme de trois unités de Gauss a un module carré positif, égal à 1,5 ou 9.
+Pour un caractère quartique, 9 imposerait trois valeurs égales, ce qui est
+impossible car son noyau n'a que deux points. Pour un caractère réel, seuls
+1 et 9 sont possibles. Si une composante réelle vaut 9, les six autres
+composantes valent au moins 1 et leur somme totale est 15 : elles valent
+toutes 1. Sinon les trois réelles valent 1 ; les paires quartiques donnent
+3+2A+2B=15, avec A,B dans {1,5}, donc (A,B)=(5,1) ou (1,5).
+
+L'automorphisme φ(x,y)=(x,y+2x) fixe Q point par point et les trois
+caractères réels, et échange les deux paires quartiques. Il échange donc
+C5 et C15 à biais constant. Les effectifs totaux par k=|T∩Q| sont
+binom(2,k)·binom(6,3−k), soit 20,30,6. Après soustraction des trois
+lignes Q, la bijection φ redonne 4,12,0 pour chaque ligne C.
+
+L'action de 19 a quatre cycles de taille deux. Pour tout m entre 0 et 8,
+le nombre de supports de taille m qu'elle fixe est binom(4,m/2) si m est
+pair et zéro sinon. En particulier {1,19} est fixé : la condition de
+cardinal impair ne peut pas être supprimée.
+
+La réduction G→U(15) est un isomorphisme. Pour les mêmes poids sur les
+classes images, l'identité exacte de comptage est
+
+\[
+D_{T,30}(x)=D_{T,15}(x)
++\bigl(3-8\mathbf1_{17\in T}\bigr)\mathbf1_{x\ge2}.
+\]
+
+Le seul nombre premier supplémentaire modulo 15 est 2, dans la classe
+image de 17 ; 3 et 5 sont exclus des deux groupes. La formule est valable
+pour tout réel x≥0, et la correction est nulle pour x<2. Le contrôle
+complémentaire vérifie 560 cas finis (56 supports, 10 seuils) de cette
+identité, dont la preuve ne dépend pas de ces tests. Pour la paire
+{1,11,29} et {11,19,29}, il vérifie aussi D(19)=−7 et 1.
+
+Enfin, les automorphismes ne préservent pas nécessairement les labels :
+φ({1,7,11})={1,7,29} passe de C5 à C15, avec le même biais −1.
+Le groupe C₈ fournit un autre témoin contre une généralisation à tout
+groupe abélien d'ordre 8 : pour T={0,1,2} et χ(j)=exp(2πij/8),
+|hχ(T)|²=3+2√2. Ces identités finies ne certifient aucune loi de nombres
+premiers. Dans un modèle de phases circulaires indépendantes, l'égalité
+de (μ,v) donne l'égalité des lois du modèle par invariance de Haar ;
+l'identification de ce modèle à une course réelle reste un problème
+analytique distinct, et la distinction mutuelle des treize lois reste ouverte.
+
+```bash
+python research/audits/liouville_grothendieck_20261008/verify_triplet_structure_crosscheck.py --check
+```
+
+La CI [38249227759](https://github.com/alexcour/couret-finite-verifications/actions/runs/38249227759)
+du commit 07b7a22b3bf035a411adfc071e0354c76878924e a réussi et inclut
+le premier contrôle structurel. Elle précède le contrôle complémentaire
+de cette section ; le statut de celui-ci doit être suivi au commit qui l'ajoute.
