@@ -1,0 +1,48 @@
+{
+  "analytic_claims": "none; no GRH/LI, zero or sign-density certification",
+  "counterexamples": {
+    "C2^3_bias_profile_classes": 14,
+    "C2^3_profiles": 7,
+    "C2_x_C8_witness_quadratic_norms": [
+      9,
+      9,
+      9
+    ]
+  },
+  "counts": {
+    "mu=-1,profile=C15": 12,
+    "mu=-1,profile=C5": 12,
+    "mu=-1,profile=Q15": 2,
+    "mu=-1,profile=Q3": 2,
+    "mu=-1,profile=Q5": 2,
+    "mu=-5,profile=Q15": 2,
+    "mu=-5,profile=Q3": 2,
+    "mu=-5,profile=Q5": 2,
+    "mu=3,profile=C15": 4,
+    "mu=3,profile=C5": 4,
+    "mu=3,profile=Q15": 4,
+    "mu=3,profile=Q3": 4,
+    "mu=3,profile=Q5": 4
+  },
+  "csv_semantic_comparison": "PASS 56 rows",
+  "labelled_profiles": 5,
+  "multipliers_preserving_bias_for_every_triple": [
+    1,
+    19
+  ],
+  "nonempty_bias_profile_classes": 13,
+  "pairs_times_19": 28,
+  "proof_status": "written quotient proof; no independent human review or Lean formalization",
+  "same_profile_iff_translate_or_translate_of_inverse": "PASS finite check",
+  "schema": "CU-BRUIT-02 structural quotient audit v1",
+  "translation_orbits": 7,
+  "translation_orbits_per_profile": {
+    "C15": 2,
+    "C5": 2,
+    "Q15": 1,
+    "Q3": 1,
+    "Q5": 1
+  },
+  "triplets": 56,
+  "unlabelled_profiles": 2
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-09",
+  "method": "scrambled Sobol quasi-Monte-Carlo independent of Gil-Pelaez quadrature",
+  "model": "67 positive critical-line zeros from current partly externally checked catalogue, remaining variance modeled Gaussian",
+  "power": 18,
+  "n_per_replica": 262144,
+  "replicas": 8,
+  "seed_sequence": "4242+replica_index",
+  "estimates": [
+    0.289558411,
+    0.289024353,
+    0.289951324,
+    0.288562775,
+    0.289253235,
+    0.289161682,
+    0.289993286,
+    0.288726807
+  ],
+  "mean": 0.289278984,
+  "std_across_replicates": 0.000526099,
+  "variance_total": 3.203007082328,
+  "variance_low_zeros": 2.412114529678,
+  "variance_gaussian_tail": 0.79089255265,
+  "previous_fourier_integral_estimate": 0.2894388784,
+  "external_ordinates_matched": 30,
+  "pending_q15_external_ordinates": 37,
+  "status": "NUMERICAL_CONSISTENCY_ONLY",
+  "caveats": [
+    "QMC variation is not a rigorous error bound",
+    "37 conductor-15 zeros remain unverified against independent published zero lists",
+    "normal-tail approximation is a modeling step, not an exact replacement",
+    "GRH and LI are assumptions, not proved",
+    "no CI PASS asserted; keep PR draft and frozen protocol unchanged"
+  ]
+}
