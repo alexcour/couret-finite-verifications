@@ -416,4 +416,118 @@ theorem normalized_residuals_of_square_eq
     normalize_paired_square_singleton a b t c d e hd he hsq
   exact ⟨u, hu, htu, residual_eq_of_square_eq_same_singleton a b (c + u) d e hd he hs⟩
 
+
+/-! ## Exhaustiveness of the two residual pair-coset matchings -/
+
+/-- Two points of the form x and x+d, with 2d=0, have the same double. -/
+theorem double_of_pair_member (x d z : G) (hd : d + d = 0)
+    (hz : z = x ∨ z = x + d) : z + z = x + x := by
+  rcases hz with hz | hz
+  · simpa [hz]
+  · rw [hz]
+    calc
+      (x + d) + (x + d) = (x + x) + (d + d) := by abel
+      _ = x + x := by simp [hd]
+
+/-- Any positive residual coefficient comes from one of the four displayed sums. -/
+theorem residual_positive_cases (a b d z : G)
+    (hp : 0 < residualCoeff a b d z) :
+    z = b + b ∨ z = b + b + d ∨ z = a + b ∨ z = a + b + d := by
+  by_contra hn
+  have h1 : b + b ≠ z := by
+    intro h; exact hn (Or.inl h.symm)
+  have h2 : b + b + d ≠ z := by
+    intro h; exact hn (Or.inr (Or.inl h.symm))
+  have h3 : a + b ≠ z := by
+    intro h; exact hn (Or.inr (Or.inr (Or.inl h.symm)))
+  have h4 : a + b + d ≠ z := by
+    intro h; exact hn (Or.inr (Or.inr (Or.inr h.symm)))
+  simp [residualCoeff, h1, h2, h3, h4] at hp
+
+/-- The two distinguished bases of a residual pair-profile have positive coefficients. -/
+theorem residual_double_base_positive (a c e : G) :
+    0 < residualCoeff a c e (c + c) := by
+  unfold residualCoeff
+  simp only [if_pos rfl]
+  omega
+
+theorem residual_mixed_base_positive (a c e : G) :
+    0 < residualCoeff a c e (a + c) := by
+  unfold residualCoeff
+  simp only [if_pos rfl]
+  omega
+
+/-- Equal residual functions place each candidate base among four source sums. -/
+theorem residual_partner_base_in_four
+    (a b c d e z : G)
+    (hres : ∀ w : G, residualCoeff a b d w = residualCoeff a c e w)
+    (hz : z = c + c ∨ z = a + c) :
+    z = b + b ∨ z = b + b + d ∨ z = a + b ∨ z = a + b + d := by
+  have hpos : 0 < residualCoeff a c e z := by
+    rcases hz with hz | hz
+    · simpa [hz] using residual_double_base_positive a c e
+    · simpa [hz] using residual_mixed_base_positive a c e
+  apply residual_positive_cases a b d z
+  rw [hres z]
+  exact hpos
+
+/--
+If two bases have equal doubles, the singleton and doublet lie in the
+same doubling fibre. This is prohibited in a genuine (1,2) profile.
+-/
+theorem bases_cannot_share_double_pair
+    (a c x d : G) (hd : d + d = 0)
+    (hac : a + a ≠ c + c)
+    (hp : c + c = x ∨ c + c = x + d)
+    (hq : a + c = x ∨ a + c = x + d) : False := by
+  have hp2 := double_of_pair_member x d (c + c) hd hp
+  have hq2 := double_of_pair_member x d (a + c) hd hq
+  have h : (c + c) + (c + c) = (a + c) + (a + c) :=
+    hp2.trans hq2.symm
+  have hz : (a + a) - (c + c) = 0 := by
+    calc
+      (a + a) - (c + c) =
+        ((a + c) + (a + c)) - ((c + c) + (c + c)) := by abel
+      _ = 0 := by rw [← h]; simp
+  exact hac (sub_eq_zero.mp hz)
+
+/--
+This is the EXHAUSTIVE direct/cross matching of the *two base cosets*
+of four residual contributions. It follows from equality of residual
+coefficients and a genuine (1,2) profile, with no matching assumed.
+To classify the individual lifts we still need to show e=d and align
+each two-point H-pair.
+-/
+theorem residual_base_matching_dichotomy
+    (a b c d e : G) (hd : d + d = 0)
+    (hac : a + a ≠ c + c)
+    (hres : ∀ z : G, residualCoeff a b d z = residualCoeff a c e z) :
+    (((c + c = b + b ∨ c + c = b + b + d) ∧
+      (a + c = a + b ∨ a + c = a + b + d)) ∨
+     ((c + c = a + b ∨ c + c = a + b + d) ∧
+      (a + c = b + b ∨ a + c = b + b + d))) := by
+  have hc := residual_partner_base_in_four a b c d e (c + c) hres (Or.inl rfl)
+  have ha := residual_partner_base_in_four a b c d e (a + c) hres (Or.inr rfl)
+  have hcg : (c + c = b + b ∨ c + c = b + b + d) ∨
+      (c + c = a + b ∨ c + c = a + b + d) := by
+    rcases hc with h | h | h | h
+    · exact Or.inl (Or.inl h)
+    · exact Or.inl (Or.inr h)
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr h)
+  have hag : (a + c = b + b ∨ a + c = b + b + d) ∨
+      (a + c = a + b ∨ a + c = a + b + d) := by
+    rcases ha with h | h | h | h
+    · exact Or.inl (Or.inl h)
+    · exact Or.inl (Or.inr h)
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr h)
+  rcases hcg with hb | hab
+  · rcases hag with hbc | hacb
+    · exact False.elim (bases_cannot_share_double_pair a c (b + b) d hd hac hb hbc)
+    · exact Or.inl ⟨hb, hacb⟩
+  · rcases hag with hbc | hacb
+    · exact Or.inr ⟨hab, hbc⟩
+    · exact False.elim (bases_cannot_share_double_pair a c (a + b) d hd hac hab hacb)
+
 end Couret.STROBO2TORS
