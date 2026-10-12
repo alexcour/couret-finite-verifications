@@ -447,17 +447,11 @@ theorem residual_positive_cases (a b d z : G)
 /-- The two distinguished bases of a residual pair-profile have positive coefficients. -/
 theorem residual_double_base_positive (a c e : G) :
     0 < residualCoeff a c e (c + c) := by
-  unfold residualCoeff
-  have h : c + c = c + c := rfl
-  simp only [if_pos h]
-  omega
+  simp [residualCoeff] <;> omega
 
 theorem residual_mixed_base_positive (a c e : G) :
     0 < residualCoeff a c e (a + c) := by
-  unfold residualCoeff
-  have h : a + c = a + c := rfl
-  simp only [if_pos h]
-  omega
+  simp [residualCoeff] <;> omega
 
 /-- Equal residual functions place each candidate base among four source sums. -/
 theorem residual_partner_base_in_four
