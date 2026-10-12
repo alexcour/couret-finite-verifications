@@ -17,6 +17,10 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/REVIEW_SELF_CHECK.py
       - name: CU-BRUIT B1 exact Fourier and prime-square sanity (not spectral proof)
         run: python research/audits/liouville_grothendieck_20261008/gate_b1_independent_check_20261010.py
+      - name: CU-BRUIT B2 BMOR variance lower bound under GRH
+        run: python research/audits/liouville_grothendieck_20261008/verify_bmor_variance_lower_20261012.py
+      - name: CU-BRUIT B2 sixteen-factor rational implication (unverified source enclosures)
+        run: python research/audits/liouville_grothendieck_20261008/verify_q5_bessel_error_20261012.py
       - name: CU-BRUIT B2 exact rational conditional criterion (not certified inputs)
         run: python research/audits/liouville_grothendieck_20261008/verify_bessel_rational_criterion.py --check
       - name: CU-BRUIT public 56-triplet exact finite census (not prime-density proof)
