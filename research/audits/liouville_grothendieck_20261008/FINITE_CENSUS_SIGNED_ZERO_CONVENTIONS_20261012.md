@@ -2,6 +2,18 @@
 
 This is a **standalone public arithmetic check**, not a prime-density result or an assertion of novelty. This note does not modify the frozen prime experiment.
 
+## Structural proof added 12 Oct 2026
+
+The counts 56/5/13 now also have a [complete written quotient proof](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md), independent of CSV enumeration. Using G/Q = F2^2 with Q={1,19}, quadratic-coset triples give three profiles of eight supports, and triples lifting three distinct quotient cosets give two profiles of sixteen supports. The proof derives every bias/profile count and the two empty (-5,C) categories. It also identifies seven translation orbits, paired by inversion in the quartic cases, and gives counterexamples to stronger invariance/prime-count claims and other-group generalizations.
+
+Run the independent coordinate/quotient check with:
+
+```bash
+python research/audits/liouville_grothendieck_20261008/verify_triplet_structure.py --check
+```
+
+Local exact checks agree on all 56 CSV rows. This is a written mathematical proof proposed for independent review, not a Lean certificate or an independently reviewed prime-race theorem. The earlier head b8cc8fab0d6bf422c1d499e3f81385234fcecf7f has a successful [CI run 38240941193](https://github.com/alexcour/couret-finite-verifications/actions/runs/38240941193); that run predates this structural check.
+
 ## Reproduction
 
 From the repo root, with Python 3.12 standard library only:
@@ -26,7 +38,7 @@ Before relying on a random-phase product or a variance decomposition, derive the
 
 ## External scientific questions and release boundary
 
-1. Can independent review reproduce the exact finite census from the CSV and script, and find a shorter non-enumerative derivation?
+1. Can independent review audit the new quotient proof, its orbit corollary, and the exact CSV comparison?
 2. Under what explicit GRH and suitable LI hypotheses do equal labelled (mu,|h_chi|^2) give the same Rubinstein–Sarnak limiting law? Distinctness of the 13 class laws is **not** asserted.
 3. What certified signed-zero data and tail estimates are sufficient for a rigorous numerical probability of sign, in place of the present Bessel/Gaussian approximation?
 

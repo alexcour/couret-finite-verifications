@@ -4,6 +4,12 @@ Drive worklog: https://docs.google.com/document/d/1gzH_yp1lUV_BZP4l6ErginfNVKYyE
 
 **Scope**: frozen CU-BRUIT-01 weights `S={1,11,29}`, `D=5A-3B`, `E_D=(log x/sqrt x)D`; no modification of the first-run protocol or prime counts.
 
+## Finite structural classification — 12 Oct 2026
+
+[Written proof of the five labelled profiles and thirteen bias/profile categories](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md): the quotient G/G² ≃ F2² separates 24 quadratic-coset triples from 32 transversals. Profile sizes are 8,8,8,16,16; the joint-count table and 28 partner pairs are proved, along with seven translation orbits and the role of inversion. The [independent exact checker](verify_triplet_structure.py) agrees with all 56 committed CSV rows and tests false stronger generalizations. Run it with `--check`.
+
+This finite proof does not establish distinctness of thirteen prime limiting laws, certify zeros or promote analytic gates. It awaits independent human review; no Lean formalization or novelty claim. PR #4 remains DRAFT.
+
 - Under GRH and suitable LI, standard Rubinstein–Sarnak limiting law has mean **-1**, variance **3.203007082327546** and Bessel-product characteristic function
   `exp(-i t)*prod_{chi != chi0,gamma>0} J0(2*abs(c_chi)*t/sqrt(.25+gamma^2))`.
 - Numerical fraction of variance attributable to quadratic chi5: **0.4399030503937205**. It is *not* a sign density.
