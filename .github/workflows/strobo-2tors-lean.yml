@@ -38,3 +38,4 @@ jobs:
           lake env lean STROBO2Tors/Prelude.lean
           lake env lean STROBO2Tors/Rectangle.lean
           lake env lean STROBO2Tors/RectangleFibres.lean
+          lake env lean STROBO2Tors/RectangleMatching.lean
