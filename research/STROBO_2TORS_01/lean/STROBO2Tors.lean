@@ -2,3 +2,4 @@ import STROBO2Tors.Prelude
 import STROBO2Tors.Rectangle
 import STROBO2Tors.RectangleFibres
 import STROBO2Tors.RectangleMatching
+import STROBO2Tors.CrossedOrderThree
