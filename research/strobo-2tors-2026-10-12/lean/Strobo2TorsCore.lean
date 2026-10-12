@@ -145,4 +145,72 @@ theorem three_doubling_profiles (a b c : G) :
       · exact Or.inr (Or.inr (Or.inr (Or.inl ⟨hab, hac, hbc⟩)))
       · exact Or.inr (Or.inr (Or.inr (Or.inr ⟨hab, hac, hbc⟩)))
 
+
+/-! ## Exceptional cross-matching: constructive ("if") direction -/
+
+/--
+For a doublet differing by a two-torsion element, the nine ordered sums
+collapse to one diagonal term and four terms of multiplicity two.
+No distinctness hypotheses are needed for the explicit coefficient function.
+-/
+theorem paired_expansion (a b d z : G) (hd : d + d = 0) :
+    tripleSquareCoeff a b (b + d) z =
+      (if a + a = z then 1 else 0) +
+      2 * ((if b + b = z then 1 else 0) +
+           (if b + b + d = z then 1 else 0) +
+           (if a + b = z then 1 else 0) +
+           (if a + b + d = z then 1 else 0)) := by
+  have hdouble : (b + d) + (b + d) = b + b := by
+    calc
+      (b + d) + (b + d) = (b + b) + (d + d) := by abel
+      _ = b + b := by simp [hd]
+  have hsingle : a + (b + d) = a + b + d := by abel
+  have hpaired : b + (b + d) = b + b + d := by abel
+  simp only [tripleSquareCoeff, diagCoeff, offCoeff,
+    hdouble, hsingle, hpaired]
+  omega
+
+/--
+The exceptional partner reflects the doublet about the singleton.
+This establishes the SUFFICIENT condition for equal labelled squares;
+it does NOT assert the necessity or the complete fibre classification.
+The condition 3(b-a)=d permits order-six differences, not merely order three.
+-/
+theorem exceptional_reflection_same_square
+    (a b d z : G) (hd : d + d = 0)
+    (h3 : ((b - a) + (b - a)) + (b - a) = 0 ∨
+          ((b - a) + (b - a)) + (b - a) = d) :
+    tripleSquareCoeff a b (b + d) z =
+      tripleSquareCoeff a (b + b - a) ((b + b - a) + d) z := by
+  let e : G := b + b - a
+  have hae : a + e = b + b := by dsimp [e]; abel
+  have hee : e + e =
+      (a + b) + (((b - a) + (b - a)) + (b - a)) := by
+    dsimp [e]
+    abel
+  change tripleSquareCoeff a b (b + d) z =
+    tripleSquareCoeff a e (e + d) z
+  rcases h3 with hzero | hdifference
+  · have hee0 : e + e = a + b := by
+      rw [hee, hzero]
+      simp
+    rw [paired_expansion a b d z hd, paired_expansion a e d z hd]
+    rw [hee0, hae]
+    omega
+  · have heed : e + e = a + b + d := by
+      rw [hee, hdifference]
+    have hflip : (e + e) + d = a + b := by
+      calc
+        (e + e) + d = (a + b + d) + d := by rw [heed]
+        _ = (a + b) + (d + d) := by abel
+        _ = a + b := by simp [hd]
+    rw [paired_expansion a b d z hd, paired_expansion a e d z hd]
+    rw [heed, hae]
+    have hflip' : (a + b + d) + d = a + b := by
+      calc
+        (a + b + d) + d = (a + b) + (d + d) := by abel
+        _ = a + b := by simp [hd]
+    rw [hflip']
+    omega
+
 end Couret.STROBO2TORS
