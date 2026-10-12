@@ -1,5 +1,7 @@
 # Open review / Relecture publique — Couret–Unification (9 October 2026)
 
+**Current integration decision — 12 October 2026:** the maintainer authorized merging PR #4 into main. See [integration status and remaining scientific gates](INTEGRATION_DECISION_20261012.md). Earlier draft/unmerged/no-merge annotations below are historical workflow status; external mathematical review, originality and analytic certification remain outstanding.
+
 **Your disagreement is welcome.** This is a public *research record*, not a refereed paper, proof of the Riemann hypothesis, or a claim of mathematical priority.
 
 **GitHub is the complete public entry point for this review packet.** Some linked Google Drive originals are still private and may return "Access denied". All essential claims, equations, data snapshots, limitations and runnable source files used in this specific audit have GitHub equivalents. If an essential dependency is missing, please report it: absence is a reproducibility failure.

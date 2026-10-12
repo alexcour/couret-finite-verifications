@@ -33,3 +33,7 @@ Site: https://www.couretunification.fr/publications-et-depots/
 ## Maintenance
 
 Preserve published tags and existing DOI identifiers. A documentation update on main does not retroactively alter a cited archive. If changed files must be deposited as an archive, publish a new version after checks and record its actually assigned DOI; never relabel an existing DOI as the identifier of new bytes.
+
+## Research packet integration decision — 12 October 2026
+
+The maintainer authorized integration of PR #4 into main: the Liouville/Grothendieck corrective research record and CU-BRUIT-02 finite triplet classification, scripts and data. See [the integration decision](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) for current status and the superseded historical draft/no-merge annotations. This does not change the published v1.0.0 tag or its DOI, create a new release, certify analytic zero/density claims, or establish originality or external peer review.

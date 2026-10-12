@@ -1,0 +1,32 @@
+name: Barning-Hall finite 2310 exact certificates
+
+on:
+  push:
+    paths:
+      - 'research/open-reproduction/barning-hall/**'
+      - '.github/workflows/barning-hall-open-reproduction.yml'
+  pull_request:
+    paths:
+      - 'research/open-reproduction/barning-hall/**'
+      - '.github/workflows/barning-hall-open-reproduction.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-2310:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Check frozen witness hashes
+        working-directory: research/open-reproduction/barning-hall
+        run: |
+          echo 'ae3c5dfc7c6a3515af537e6ce232de7be37d3bde58ccc2562407c4f6c6f79d69  rayleigh_vector_2310.tsv' | sha256sum -c -
+          echo 'bc8d425d255c8de5e929b4a791e5ec182d0d78f9aed6042ea4980c89e871264e  rayleigh_vector_2310_negatif.tsv' | sha256sum -c -
+      - name: Replay positive exact certificate
+        working-directory: research/open-reproduction/barning-hall
+        run: python3 verify_bh2310_certificate.py
+      - name: Replay negative exact certificate
+        working-directory: research/open-reproduction/barning-hall
+        run: python3 verify_bh2310_negative_archived.py

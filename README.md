@@ -64,9 +64,16 @@ See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for identifiers, dates, archi
 
 The mathematical mechanisms are classical. The contribution is a reproducibility package with explicit distinctions between exact, numerical, truncated and conditional calculations. No general arithmetic novelty is claimed.
 
-## Open research review packet (09 Oct 2026; public branch, not stable release)
+## Historical observation withdrawn — F-001
 
-This repository hosts an **unmerged, publicly readable research review packet** on Liouville/Grothendieck claim corrections and CU-BRUIT-02 conditional prime-race computations. It is explicitly *not* part of the stable v1.0.0 claims:
+The historical claim that the proportion of primes in `{1,11,29}` mod 30 was measured
+near `0.378` is withdrawn. The corrective report gives `0.3749982` (rounded) at `10^9`.
+See [F001_ERRATUM.md](F001_ERRATUM.md) for the observable, source links and archive boundary.
+This documentary correction is not a new mathematical advance or an independent replay at `10^9`.
+
+## Research review packet — integration decision of 12 October 2026
+
+This repository hosts a **publicly readable research review packet** on Liouville/Grothendieck claim corrections and CU-BRUIT-02 conditional prime-race computations. It is explicitly *not* part of the stable v1.0.0 claims:
 
 - [Start here: public review, scripts and reproduction](research/audits/liouville_grothendieck_20261008/PUBLIC_REVIEW_START_HERE.md)
 - [Claim status and falsifications](research/audits/liouville_grothendieck_20261008/CLAIMS_AND_FAILURES.md)
@@ -74,4 +81,6 @@ This repository hosts an **unmerged, publicly readable research review packet** 
 - [Precise challenges for reviewers](research/audits/liouville_grothendieck_20261008/OPEN_REVIEW_QUESTIONS.md)
 - [PR #4 — comment publicly and correct us](https://github.com/alexcour/couret-finite-verifications/pull/4)
 
-The packet intentionally reports **30/67 external decimal ordinate comparisons**, with 37 q=15 still awaiting independent catalogue comparison; no certified zero completeness, no unconditional sign-density, no novelty or RH claim. The historical frozen prime-sieve ZIP is *not* mirrored into this branch. The CI of the existing stable release does not automatically test the new spectral scripts.
+The packet intentionally reports **30/67 external decimal ordinate comparisons**, with 37 q=15 still awaiting independent catalogue comparison; no certified zero completeness, no unconditional sign-density, no novelty or RH claim. The historical frozen prime-sieve ZIP is *not* mirrored here. CI tests the exact finite checks, the 56-triplet census and two structural verifiers; it does not certify the exploratory analytic or zero-finding programs.
+
+The maintainer authorized integration through PR #4 on 12 October 2026. The [integration decision and remaining scientific gates](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) supersede the packet's earlier draft/no-merge annotations. The finite classification proof establishes five labelled profiles and thirteen nonempty bias/profile classes; it awaits external mathematical review. Published v1.0.0 tags and DOI records retain their original scope.
