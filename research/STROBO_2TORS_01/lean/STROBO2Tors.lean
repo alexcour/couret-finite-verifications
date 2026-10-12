@@ -1,2 +1,3 @@
 import STROBO2Tors.Prelude
 import STROBO2Tors.Rectangle
+import STROBO2Tors.RectangleFibres
