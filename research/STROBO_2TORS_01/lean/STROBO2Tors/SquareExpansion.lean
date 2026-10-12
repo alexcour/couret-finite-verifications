@@ -24,7 +24,8 @@ theorem orderedRep_three (a c b w : G)
   have hca : c ≠ a := Ne.symm hac
   have hba : b ≠ a := Ne.symm hab
   have hbc : b ≠ c := Ne.symm hcb
-  simp [orderedRep, Finset.product, hac, hab, hcb, hca, hba, hbc,
-    add_comm, add_left_comm, add_assoc] <;> omega
+  unfold orderedRep
+  rw [Finset.card_filter, Finset.sum_product]
+  simp [hac, hab, hcb, hca, hba, hbc, add_comm, add_left_comm, add_assoc] <;> omega
 
 end Couret.Strobo2Tors
