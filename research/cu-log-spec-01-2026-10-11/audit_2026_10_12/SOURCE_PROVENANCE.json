@@ -1,0 +1,24 @@
+{
+  "parent_commit": "a39bee37187d71d0f5007d5bf6225217683d52b3",
+  "report_url": "https://docs.google.com/document/d/1bAvpjEbsrNbFwDyAWHinkayTsfza6HvH5koO3iQq-Vw/edit",
+  "pr_url": "https://github.com/alexcour/couret-finite-verifications/pull/10",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "source_sha256": {
+    "audit_2026_10_11/chi5_kurtosis_audit.py": "634ab7f9bd6309d042703e12a7e7efb23249cb270f4d2f7307d27f167ddfb2c8",
+    "audit_2026_10_11/test_window_covariance_classical.py": "4ae4321ba996dd900efed59dacdfc6afa9714592ad3db652385566479cb34764",
+    "audit_2026_10_11/window_covariance_classical.py": "ca64212eae84cd9151896ce9c940b19d16c64552189899de05c74762a0c0ee98"
+  },
+  "tests": {
+    "new_model": 12,
+    "prior_covariance": 3,
+    "passed": true
+  },
+  "no_prime_sieve_executed": true,
+  "no_reserved_counts_accessed": true,
+  "root_interval_certification_added": false,
+  "new_joint_rejection_threshold_set": false
+}
