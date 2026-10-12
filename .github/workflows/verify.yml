@@ -17,6 +17,8 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/REVIEW_SELF_CHECK.py
       - name: CU-BRUIT B1 exact Fourier and prime-square sanity (not spectral proof)
         run: python research/audits/liouville_grothendieck_20261008/gate_b1_independent_check_20261010.py
+      - name: CU-BRUIT public 56-triplet exact finite census (not prime-density proof)
+        run: python research/audits/liouville_grothendieck_20261008/verify_triplet_census.py --check
       - name: CU-BRUIT A3 pending-source status must remain 0/37
         run: |
           python research/audits/liouville_grothendieck_20261008/gate_q15_external_compare_20261010.py --out /tmp/cu_bruit_a3_pending.json
