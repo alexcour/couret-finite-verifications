@@ -4,6 +4,7 @@ This working packet deepens three mechanisms suggested by a bibliographic study:
 quantitative convergence, local cyclotomic integrality, and graph certificates.
 
 - [Mathematical note and references](MATHEMATICAL_NOTES.md)
+- [Current validation priorities and cross-PR boundaries](VALIDATION_PRIORITIES_20261013.md)
 - [Local CRT data](local_crt_results.json), [CSV](local_crt_results.csv)
 - [Exact Fourier and graph data](bridges_results.json)
 
