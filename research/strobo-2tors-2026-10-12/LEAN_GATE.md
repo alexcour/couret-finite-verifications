@@ -1,6 +1,6 @@
 # STROBO-2TORS — Lean boundary, 13 October 2026
 
-PR #25 remains DRAFT. No merge, independent-audit or novelty claim. The exact support-classification equivalence, h/2h fibre-size theorem, h−j orbit restriction and global numbers of ordinary/exceptional fibres with zero allowed are compiled; their scopes are below. Aggregate zero-free histograms and sharp attainment criteria are not yet Lean certificates.
+PR #25 remains DRAFT. No merge, independent-audit or novelty claim. The exact support classification, h/2h fibre sizes, h−j orbit restriction, global numbers of ordinary/exceptional fibres with zero allowed, and the exceptional contribution to the zero-free histogram are compiled; their scopes are below. The ordinary zero-free histogram, combined aggregation and full sharp-maximum table are not yet Lean certificates.
 
 ## Verified baseline
 
@@ -13,6 +13,8 @@ Commit 3d4823fa13ea8ee53b2d06f20f4cb90523cd05c7: `strobo-2tors-lean` 38418394568
 Commit 392a5ed3dd0b6e91ac970f9c58030120dd27350a: `strobo-2tors-lean` 38427342870 and `verify` 38427342883 both SUCCESS. This completed the actual-Finset classification assembly. Those runs do not cover the subsequent cardinality module.
 
 Commit 2372564c78e131a12b58e73fa1069163911ac506: `strobo-2tors-lean` 38434239616 and `verify` 38434239620 both SUCCESS. This completed the finite-cardinality module. Those runs do not cover the subsequent global-enumeration module.
+
+Commit 1c1306a4b4a0cad20d0cb0bfe9b2f80b913b1949: `strobo-2tors-lean` 38439925243 and `verify` 38439925264 both SUCCESS. This completed the global-enumeration module with zero allowed. Those runs do not cover the subsequent exceptional zero-free module.
 
 `Strobo2TorsCore.lean` compiles with Lean 4 / mathlib v4.29.1 on 13 October 2026, including the assembled theorem over Finsets. No proof placeholders or custom proof assumptions were introduced. The manifest locks mathlib and all transitive dependency commits. `#print axioms` exposes the standard kernel dependencies of the profile lemmas, the actual coefficient bridge, the exhaustive shape theorem, the final classification and the exceptional non-translation theorem. The local managed host required an executable-path compatibility shim; GitHub CI uses the ordinary Lean installation and must separately confirm the pushed commit.
 
@@ -73,16 +75,36 @@ Eight `#print axioms` checks in this module expose only propext, Classical.choic
 | `tripleSupports_weighted_card` | C(n,3)=h(O+2E), with O the actual number of ordinary fibres |
 | `ordinaryFibres_card`, `ordinaryFibres_card_numeric` | O=C(n,3)/h−2E and the full numeric formula |
 
-Ten new `#print axioms` checks expose only propext, Classical.choice and Quot.sound. `GLOBAL_ENUMERATION_20261013.md` provides the written proof and exact boundary. Lean counts doubling images and nonzero sign pairs; it proves the numeric n/h and (t−1)/2 factors, rather than constructing a quotient-group type or an order-three-subgroup type. The default `lake build` and CI now scan/build all three modules.
+Ten `#print axioms` checks expose only propext, Classical.choice and Quot.sound. `GLOBAL_ENUMERATION_20261013.md` provides the written proof and exact boundary. Lean counts doubling images and nonzero sign pairs; it proves the numeric n/h and (t−1)/2 factors, rather than constructing a quotient-group type or an order-three-subgroup type.
+
+## Exceptional zero-free enumeration
+
+`Strobo2TorsZeroFree.lean` imports the enumeration module and retains the same finite-group assumptions. It compiles locally in the locked environment; the pushed commit must receive its own remote build. The scope is the exceptional contribution, including h=2, rather than the complete ordinary-plus-exceptional histogram.
+
+| Declaration | Exact boundary |
+|---|---|
+| `zeroFreeSquareFibre_param_card` | Exact 2h−2 or 2h restriction, according to whether a, a+v or a−v lies in H |
+| `exceptionalFibres_zeroContaining_card` | Every exceptional fibre contains 0 or 2 supports containing zero |
+| `zeroContainingExceptionalSupports_card` | 3(h−1)(|G[3]|−1) such supports |
+| `zeroContainingExceptionalSupports_preimage` | Actual preimage over F equals its supports containing zero |
+| `zeroHitExceptionalFibres_card` | 3(h−1)r3 exceptional fibres affected by removing zero |
+| `zeroMissingExceptionalFibres_card` | (q−3)(h−1)r3 exceptional fibres unaffected |
+| `exceptionalFibres_withoutZero_card_ge_two` | Every exceptional restriction has at least two members |
+| `withoutZero_injective_on_exceptionalFibres` | Distinct exceptional fibres remain distinct after restriction |
+| `zeroFreeExceptionalFibres_reduced_card`, `zeroFreeExceptionalFibres_full_card` | Counts of actual distinct restrictions of sizes 2h−2 and 2h |
+| `zeroFreeExceptionalFibres_full_nonempty_iff` | A full-size exceptional restriction exists iff q>3, h>1 and |G[3]|>1 |
+| `zeroFreeExceptionalFibres_all_reduced_of_q_le_three` | All exceptional restrictions have size 2h−2 when q≤3 |
+
+Ten new `#print axioms` checks expose only propext, Classical.choice and Quot.sound. `EXCEPTIONAL_ZERO_FREE_20261013.md` gives the written proof and boundaries. `lake build` and CI now scan/build all FOUR modules. For h=2, an ordinary restriction and an exceptional restriction can both have size 2; the classifications cannot be inferred from restricted size alone.
 
 ## Still open in Lean
 
 1. Prove the separately aggregated profile fibre counts. Global E and O with zero allowed are now compiled as stated above.
-2. Prove aggregated zero-free histograms and sharp attainment criteria. The per-orbit h−j restriction and the sum of restricted exceptional orbit sizes are already compiled.
+2. Prove the ordinary zero-free histogram, its combination with the exceptional contribution, nontranslation-pair counts and the full sharp-maximum table. The exceptional zero-free histogram and its full-size attainment criterion are now compiled, as are the per-orbit restrictions.
 3. Independently audit the mathematical proof, definitions, exceptional parametrization and literature. Compilation or a second internal verifier is not an independent mathematical audit.
 
 ## Finite replay
 
-Both Python scripts pass on 43 groups / 252,084 supports. The separate profile replay checks 172,912 reconstruction comparisons, counterexamples, profile preservation, all-G translation separation of exceptional orbit representatives, zero-free histograms including h=1,2, and 42,648 direct h−j orbit restrictions. It independently enumerates 8,664 raw exceptional parameters and compares their distinct supports and all preimages with the 708 actual exceptional fibres from direct square grouping. The deterministic JSON is checked for drift in CI. These are bounded internal checks, distinct from the compiled general statements and independent mathematical validation.
+Both Python scripts pass on 43 groups / 252,084 supports. The separate profile replay checks 172,912 reconstruction comparisons, counterexamples, profile preservation, all-G translation separation of exceptional orbit representatives, zero-free histograms including h=1,2, and 42,648 direct h−j orbit restrictions. It separately enumerates 8,664 raw exceptional parameters and compares their distinct supports and all preimages with the 708 actual exceptional fibres from direct square grouping. Its 708 new exceptional restriction checks find 624 supports containing zero, 312 reduced fibres and 396 unaffected fibres; no empty restrictions or identifications occur. A new Z/12Z witness refutes classification by restricted size alone when h=2. The deterministic JSON is checked for drift in CI. These are bounded internal checks, distinct from the compiled general statements and independent mathematical validation.
 
 New remote CI status must be read for the actual pushed commit. Historical successful runs do not cover later source edits. Existing PR #23 remains separate and DRAFT.

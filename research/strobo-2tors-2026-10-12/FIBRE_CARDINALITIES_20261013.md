@@ -2,7 +2,7 @@
 
 13 octobre 2026. Preuves rédigées en interne et compilation locale Lean/mathlib 4.29.1. Le résultat CI du commit contenant ce document doit être lu séparément. Aucune relecture mathématique indépendante, nouveauté ou priorité revendiquée. PR #25 en DRAFT, sans fusion.
 
-Complément ultérieur du même jour : `GLOBAL_ENUMERATION_20261013.md` et `Strobo2TorsEnumeration.lean` clôturent aussi les nombres globaux de fibres ordinaires et exceptionnelles avec zéro autorisé. Les résultats de cardinalité ci-dessous restent leur point de départ.
+Compléments ultérieurs du même jour : `GLOBAL_ENUMERATION_20261013.md` clôt les nombres globaux de fibres avec zéro autorisé ; `EXCEPTIONAL_ZERO_FREE_20261013.md` clôt la contribution exceptionnelle à l'histogramme sans zéro et son critère d'atteinte de 2h. Les résultats de cardinalité ci-dessous restent leur point de départ.
 
 ## Définitions et hypothèses exactes
 
@@ -48,7 +48,7 @@ Les tailles h ou 2h et la borne 2h sont ainsi des théorèmes de cardinalité, e
 
 ## Rejeu fini et compilation
 
-Le build par défaut `lake build` compile les modules de classification et de cardinalité, ainsi que le complément ultérieur de dénombrement global, via une bibliothèque Lake déclarée dans `lakefile.lean`. Le workflow rejoue les deux scripts Python, vérifie la stabilité du JSON, scanne les trois sources pour les trous de preuve et déclarations personnalisées, puis construit les trois modules dans l'environnement verrouillé.
+Le build par défaut `lake build` compile les modules de classification, cardinalité, dénombrement global et restrictions exceptionnelles sans zéro via une bibliothèque Lake déclarée dans `lakefile.lean`. Le workflow rejoue les deux scripts Python, vérifie la stabilité du JSON, scanne les quatre sources pour les trous de preuve et déclarations personnalisées, puis construit les quatre modules dans l'environnement verrouillé.
 
 Les huit contrôles `#print axioms` du module de cardinalité ne montrent que `propext`, `Classical.choice`, `Quot.sound`. Aucun trou de preuve ni hypothèse de preuve personnalisée n'est introduit.
 
@@ -71,7 +71,7 @@ python research/strobo-2tors-2026-10-12/verify_remaining_profiles_20261013.py
 
 ## Ce qui reste ouvert
 
-Les nombres GLOBAUX de fibres avec zéro autorisé, F_{2h}=q(h−1)r₃ et F_h=C(|G|,3)/h−2q(h−1)r₃, sont désormais compilés dans le complément `GLOBAL_ENUMERATION_20261013.md`. La preuve compte des paramètres bruts uniques, puis les préimages des fibres réelles ; elle identifie numériquement q=n/h et r₃=(|G[3]|−1)/2. Restent les dénombrements séparés par profil, les histogrammes globaux sans zéro et les critères d'atteinte du maximum. La formule sans zéro par deux orbites ne certifie pas, à elle seule, toutes les formules agrégées déjà rédigées.
+Les nombres GLOBAUX de fibres avec zéro autorisé sont compilés dans `GLOBAL_ENUMERATION_20261013.md`, et la contribution exceptionnelle à l'histogramme sans zéro dans `EXCEPTIONAL_ZERO_FREE_20261013.md`. Restent les comptes séparés par profil/paires, les histogrammes ordinaires sans zéro, l'agrégation complète et le tableau complet des maxima.
 
 La validation mathématique indépendante et l'audit de nouveauté restent également ouverts. Aucune fusion ni publication stable n'est autorisée par cette progression.
 

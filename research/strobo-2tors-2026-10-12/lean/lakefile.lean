@@ -8,4 +8,4 @@ require mathlib from git
 
 @[default_target]
 lean_lib Strobo2Tors where
-  roots := #[`Strobo2TorsCore, `Strobo2TorsCardinality, `Strobo2TorsEnumeration]
+  roots := #[`Strobo2TorsCore, `Strobo2TorsCardinality, `Strobo2TorsEnumeration, `Strobo2TorsZeroFree]

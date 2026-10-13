@@ -105,6 +105,26 @@ def check(mods):
     assert len(doubling_images)*h == n
     assert 2*len(sign_pairs) == len(K3)
     assert len(param_fibres) == len(doubling_images)*(h-1)*len(sign_pairs)
+    # Count actual exceptional restrictions, including h=2, before combining sizes.
+    exceptional_nozero = Counter()
+    reduced_fibres = set()
+    exceptional_zero_supports = 0
+    for sq in exceptional_keys:
+        members = fibres[sq]
+        removed = sum(zero in S for S in members)
+        assert removed in (0, 2), (mods, sq, removed)
+        remaining = tuple(S for S in members if zero not in S)
+        assert len(remaining) >= 2
+        assert remaining not in reduced_fibres
+        reduced_fibres.add(remaining)
+        exceptional_nozero[len(remaining)] += 1
+        exceptional_zero_supports += removed
+    assert exceptional_zero_supports == 3*(h-1)*len(K3)
+    assert exceptional_zero_supports == sum(zero in S for S in param_supports)
+    expected_exceptional_nozero = Counter()
+    expected_exceptional_nozero[2*h-2] += 3*(h-1)*len(sign_pairs)
+    expected_exceptional_nozero[2*h] += max(q-3, 0)*(h-1)*len(sign_pairs)
+    assert +exceptional_nozero == +expected_exceptional_nozero
     E = q*(h-1)*r3
     expected = {
         (1, 1, 1): Counter({h: h*h*choose(q, 3)}),
@@ -135,7 +155,9 @@ def check(mods):
             "reconstruction_comparisons": sum(comparisons.values()),
             "orbit_restriction_checks": orbit_restriction_checks,
             "exceptional_parameters": len(param_supports),
-            "parametrized_exceptional_fibres": len(param_fibres)}
+            "parametrized_exceptional_fibres": len(param_fibres),
+            "zero_containing_exceptional_supports": exceptional_zero_supports,
+            "zero_free_exceptional_fibre_histogram": dict(+exceptional_nozero)}
 
 
 def counterexamples():
@@ -163,6 +185,19 @@ def counterexamples():
     assert { (a,(b+1)%3) for a,b in S } == S
     result.append({"group":(2,3),"S":sorted(S),"translation":(0,1),
                    "refutes":"every translation preserving a triple belongs to G[2]"})
+    # For h=2, an ordinary and an exceptional restriction can both have size 2.
+    mods = (12,)
+    G = [(a,) for a in range(12)]
+    ordinary = ((1,), (2,), (3,))
+    exceptional = ((4,), (6,), (10,))
+    def fibre(S):
+        return [T for T in combinations(G, 3) if inv(mods, T)[1] == inv(mods, S)[1]]
+    O, E = fibre(ordinary), fibre(exceptional)
+    assert len(O) == 2 and len(E) == 4
+    assert sum((0,) not in T for T in O) == sum((0,) not in T for T in E) == 2
+    result.append({"group":mods,"ordinary_support":ordinary,"exceptional_support":exceptional,
+                   "full_fibre_sizes":(2,4),"zero_free_fibre_sizes":(2,2),
+                   "refutes":"restricted size alone distinguishes ordinary and exceptional fibres when h=2"})
     return result
 
 
@@ -174,6 +209,8 @@ if __name__ == "__main__":
               "orbit_restriction_checks":sum(r["orbit_restriction_checks"] for r in rows),
               "exceptional_parameters":sum(r["exceptional_parameters"] for r in rows),
               "parametrized_exceptional_fibres":sum(r["parametrized_exceptional_fibres"] for r in rows),
+              "zero_containing_exceptional_supports":sum(r["zero_containing_exceptional_supports"] for r in rows),
+              "exceptional_zero_restriction_checks":sum(r["parametrized_exceptional_fibres"] for r in rows),
               "counterexamples":counterexamples(), "results":rows}
     path=Path(__file__).with_name("remaining_profiles_results_20261013.json")
     path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")

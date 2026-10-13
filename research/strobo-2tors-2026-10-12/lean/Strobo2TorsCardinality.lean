@@ -432,10 +432,10 @@ theorem paired_zeroFreeSquareFibre_card (a b d : G)
 
 /-! ## Exceptional offsets for a fixed nonzero 2-torsion direction
 
-The next counting problem is global enumeration of exceptional fibres.
-This module first identifies and counts possible DIFFERENCES b-a for a
-fixed direction d. The resulting cardinality is not yet a count of fibres:
-parameter redundancies from translations and reflection remain to quotient.
+This section identifies and counts possible DIFFERENCES b-a for a fixed
+direction d. These offset counts are separate from the global fibre counts
+proved in Strobo2TorsEnumeration and the exceptional zero-free counts proved
+in Strobo2TorsZeroFree. An offset count alone is not a count of fibres.
 -/
 
 def offsetThreeTorsion : Finset G :=

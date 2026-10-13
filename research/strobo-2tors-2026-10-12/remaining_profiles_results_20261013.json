@@ -7,6 +7,8 @@
   "orbit_restriction_checks": 42648,
   "exceptional_parameters": 8664,
   "parametrized_exceptional_fibres": 708,
+  "zero_containing_exceptional_supports": 624,
+  "exceptional_zero_restriction_checks": 708,
   "counterexamples": [
     {
       "group": [
@@ -144,6 +146,42 @@
         1
       ],
       "refutes": "every translation preserving a triple belongs to G[2]"
+    },
+    {
+      "group": [
+        12
+      ],
+      "ordinary_support": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "exceptional_support": [
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          10
+        ]
+      ],
+      "full_fibre_sizes": [
+        2,
+        4
+      ],
+      "zero_free_fibre_sizes": [
+        2,
+        2
+      ],
+      "refutes": "restricted size alone distinguishes ordinary and exceptional fibres when h=2"
     }
   ],
   "results": [
@@ -184,7 +222,11 @@
       "reconstruction_comparisons": 76,
       "orbit_restriction_checks": 55,
       "exceptional_parameters": 72,
-      "parametrized_exceptional_fibres": 9
+      "parametrized_exceptional_fibres": 9,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "6": 9
+      }
     },
     {
       "group": [
@@ -221,7 +263,9 @@
       "reconstruction_comparisons": 660,
       "orbit_restriction_checks": 285,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -261,7 +305,12 @@
       "reconstruction_comparisons": 5412,
       "orbit_restriction_checks": 1785,
       "exceptional_parameters": 216,
-      "parametrized_exceptional_fibres": 27
+      "parametrized_exceptional_fibres": 27,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "6": 9,
+        "8": 18
+      }
     },
     {
       "group": [
@@ -302,7 +351,12 @@
       "reconstruction_comparisons": 5412,
       "orbit_restriction_checks": 1785,
       "exceptional_parameters": 864,
-      "parametrized_exceptional_fibres": 108
+      "parametrized_exceptional_fibres": 108,
+      "zero_containing_exceptional_supports": 72,
+      "zero_free_exceptional_fibre_histogram": {
+        "8": 72,
+        "6": 36
+      }
     },
     {
       "group": [
@@ -333,7 +387,9 @@
       "reconstruction_comparisons": 560,
       "orbit_restriction_checks": 35,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -373,7 +429,11 @@
       "reconstruction_comparisons": 680,
       "orbit_restriction_checks": 253,
       "exceptional_parameters": 336,
-      "parametrized_exceptional_fibres": 21
+      "parametrized_exceptional_fibres": 21,
+      "zero_containing_exceptional_supports": 42,
+      "zero_free_exceptional_fibre_histogram": {
+        "14": 21
+      }
     },
     {
       "group": [
@@ -415,7 +475,12 @@
       "reconstruction_comparisons": 43512,
       "orbit_restriction_checks": 7455,
       "exceptional_parameters": 4032,
-      "parametrized_exceptional_fibres": 252
+      "parametrized_exceptional_fibres": 252,
+      "zero_containing_exceptional_supports": 168,
+      "zero_free_exceptional_fibre_histogram": {
+        "16": 168,
+        "14": 84
+      }
     },
     {
       "group": [
@@ -451,7 +516,9 @@
       "reconstruction_comparisons": 272,
       "orbit_restriction_checks": 140,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -491,7 +558,12 @@
       "reconstruction_comparisons": 14128,
       "orbit_restriction_checks": 4324,
       "exceptional_parameters": 288,
-      "parametrized_exceptional_fibres": 36
+      "parametrized_exceptional_fibres": 36,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "8": 27,
+        "6": 9
+      }
     },
     {
       "group": [
@@ -531,7 +603,12 @@
       "reconstruction_comparisons": 1304,
       "orbit_restriction_checks": 506,
       "exceptional_parameters": 144,
-      "parametrized_exceptional_fibres": 18
+      "parametrized_exceptional_fibres": 18,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "8": 9,
+        "6": 9
+      }
     },
     {
       "group": [
@@ -571,7 +648,12 @@
       "reconstruction_comparisons": 14128,
       "orbit_restriction_checks": 4324,
       "exceptional_parameters": 288,
-      "parametrized_exceptional_fibres": 36
+      "parametrized_exceptional_fibres": 36,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "8": 27,
+        "6": 9
+      }
     },
     {
       "group": [
@@ -612,7 +694,11 @@
       "reconstruction_comparisons": 5776,
       "orbit_restriction_checks": 1081,
       "exceptional_parameters": 1440,
-      "parametrized_exceptional_fibres": 45
+      "parametrized_exceptional_fibres": 45,
+      "zero_containing_exceptional_supports": 90,
+      "zero_free_exceptional_fibre_histogram": {
+        "30": 45
+      }
     },
     {
       "group": [
@@ -650,7 +736,11 @@
       "reconstruction_comparisons": 76,
       "orbit_restriction_checks": 55,
       "exceptional_parameters": 72,
-      "parametrized_exceptional_fibres": 9
+      "parametrized_exceptional_fibres": 9,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "6": 9
+      }
     },
     {
       "group": [
@@ -687,7 +777,9 @@
       "reconstruction_comparisons": 7720,
       "orbit_restriction_checks": 2470,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -713,7 +805,9 @@
       "reconstruction_comparisons": 1,
       "orbit_restriction_checks": 1,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -741,7 +835,9 @@
       "reconstruction_comparisons": 10,
       "orbit_restriction_checks": 10,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -770,7 +866,9 @@
       "reconstruction_comparisons": 84,
       "orbit_restriction_checks": 84,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -800,7 +898,9 @@
       "reconstruction_comparisons": 2925,
       "orbit_restriction_checks": 2925,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -829,7 +929,9 @@
       "reconstruction_comparisons": 4,
       "orbit_restriction_checks": 1,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -859,7 +961,9 @@
       "reconstruction_comparisons": 56,
       "orbit_restriction_checks": 7,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -891,7 +995,9 @@
       "reconstruction_comparisons": 4960,
       "orbit_restriction_checks": 155,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -919,7 +1025,9 @@
       "reconstruction_comparisons": 0,
       "orbit_restriction_checks": 2,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -950,7 +1058,9 @@
       "reconstruction_comparisons": 32,
       "orbit_restriction_checks": 28,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -982,7 +1092,11 @@
       "reconstruction_comparisons": 8,
       "orbit_restriction_checks": 10,
       "exceptional_parameters": 12,
-      "parametrized_exceptional_fibres": 3
+      "parametrized_exceptional_fibres": 3,
+      "zero_containing_exceptional_supports": 6,
+      "zero_free_exceptional_fibre_histogram": {
+        "2": 3
+      }
     },
     {
       "group": [
@@ -1014,7 +1128,9 @@
       "reconstruction_comparisons": 80,
       "orbit_restriction_checks": 60,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1048,7 +1164,12 @@
       "reconstruction_comparisons": 672,
       "orbit_restriction_checks": 408,
       "exceptional_parameters": 36,
-      "parametrized_exceptional_fibres": 9
+      "parametrized_exceptional_fibres": 9,
+      "zero_containing_exceptional_supports": 6,
+      "zero_free_exceptional_fibre_histogram": {
+        "4": 6,
+        "2": 3
+      }
     },
     {
       "group": [
@@ -1079,7 +1200,11 @@
       "reconstruction_comparisons": 8,
       "orbit_restriction_checks": 10,
       "exceptional_parameters": 12,
-      "parametrized_exceptional_fibres": 3
+      "parametrized_exceptional_fibres": 3,
+      "zero_containing_exceptional_supports": 6,
+      "zero_free_exceptional_fibre_histogram": {
+        "2": 3
+      }
     },
     {
       "group": [
@@ -1112,7 +1237,12 @@
       "reconstruction_comparisons": 160,
       "orbit_restriction_checks": 110,
       "exceptional_parameters": 24,
-      "parametrized_exceptional_fibres": 6
+      "parametrized_exceptional_fibres": 6,
+      "zero_containing_exceptional_supports": 6,
+      "zero_free_exceptional_fibre_histogram": {
+        "2": 3,
+        "4": 3
+      }
     },
     {
       "group": [
@@ -1145,7 +1275,12 @@
       "reconstruction_comparisons": 672,
       "orbit_restriction_checks": 408,
       "exceptional_parameters": 36,
-      "parametrized_exceptional_fibres": 9
+      "parametrized_exceptional_fibres": 9,
+      "zero_containing_exceptional_supports": 6,
+      "zero_free_exceptional_fibre_histogram": {
+        "4": 6,
+        "2": 3
+      }
     },
     {
       "group": [
@@ -1179,7 +1314,9 @@
       "reconstruction_comparisons": 8,
       "orbit_restriction_checks": 14,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1215,7 +1352,9 @@
       "reconstruction_comparisons": 272,
       "orbit_restriction_checks": 140,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1249,7 +1388,12 @@
       "reconstruction_comparisons": 160,
       "orbit_restriction_checks": 110,
       "exceptional_parameters": 24,
-      "parametrized_exceptional_fibres": 6
+      "parametrized_exceptional_fibres": 6,
+      "zero_containing_exceptional_supports": 6,
+      "zero_free_exceptional_fibre_histogram": {
+        "2": 3,
+        "4": 3
+      }
     },
     {
       "group": [
@@ -1282,7 +1426,12 @@
       "reconstruction_comparisons": 672,
       "orbit_restriction_checks": 408,
       "exceptional_parameters": 144,
-      "parametrized_exceptional_fibres": 36
+      "parametrized_exceptional_fibres": 36,
+      "zero_containing_exceptional_supports": 24,
+      "zero_free_exceptional_fibre_histogram": {
+        "4": 24,
+        "2": 12
+      }
     },
     {
       "group": [
@@ -1316,7 +1465,12 @@
       "reconstruction_comparisons": 672,
       "orbit_restriction_checks": 408,
       "exceptional_parameters": 144,
-      "parametrized_exceptional_fibres": 36
+      "parametrized_exceptional_fibres": 36,
+      "zero_containing_exceptional_supports": 24,
+      "zero_free_exceptional_fibre_histogram": {
+        "4": 24,
+        "2": 12
+      }
     },
     {
       "group": [
@@ -1351,7 +1505,9 @@
       "reconstruction_comparisons": 112,
       "orbit_restriction_checks": 70,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1388,7 +1544,9 @@
       "reconstruction_comparisons": 2272,
       "orbit_restriction_checks": 620,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1427,7 +1585,12 @@
       "reconstruction_comparisons": 1304,
       "orbit_restriction_checks": 506,
       "exceptional_parameters": 144,
-      "parametrized_exceptional_fibres": 18
+      "parametrized_exceptional_fibres": 18,
+      "zero_containing_exceptional_supports": 18,
+      "zero_free_exceptional_fibre_histogram": {
+        "6": 9,
+        "8": 9
+      }
     },
     {
       "group": [
@@ -1464,7 +1627,9 @@
       "reconstruction_comparisons": 2268,
       "orbit_restriction_checks": 819,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1502,7 +1667,9 @@
       "reconstruction_comparisons": 18312,
       "orbit_restriction_checks": 3465,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1539,7 +1706,9 @@
       "reconstruction_comparisons": 29120,
       "orbit_restriction_checks": 5208,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1576,7 +1745,9 @@
       "reconstruction_comparisons": 2272,
       "orbit_restriction_checks": 620,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     },
     {
       "group": [
@@ -1615,7 +1786,11 @@
       "reconstruction_comparisons": 680,
       "orbit_restriction_checks": 253,
       "exceptional_parameters": 336,
-      "parametrized_exceptional_fibres": 21
+      "parametrized_exceptional_fibres": 21,
+      "zero_containing_exceptional_supports": 42,
+      "zero_free_exceptional_fibre_histogram": {
+        "14": 21
+      }
     },
     {
       "group": [
@@ -1653,7 +1828,9 @@
       "reconstruction_comparisons": 5400,
       "orbit_restriction_checks": 1235,
       "exceptional_parameters": 0,
-      "parametrized_exceptional_fibres": 0
+      "parametrized_exceptional_fibres": 0,
+      "zero_containing_exceptional_supports": 0,
+      "zero_free_exceptional_fibre_histogram": {}
     }
   ]
 }

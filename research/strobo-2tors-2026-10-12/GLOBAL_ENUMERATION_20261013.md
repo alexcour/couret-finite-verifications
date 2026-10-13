@@ -2,6 +2,8 @@
 
 13 octobre 2026. Démonstration rédigée en interne et compilation locale dans Lean/mathlib v4.29.1. Le commit contenant ce document doit recevoir ses propres résultats CI. Aucune validation mathématique indépendante ni revendication de nouveauté. PR #25 maintenue en DRAFT, sans fusion.
 
+Complément ultérieur : `EXCEPTIONAL_ZERO_FREE_20261013.md` compile aussi les nombres de restrictions exceptionnelles de tailles 2h−2 et 2h, leur non-vacuité, l'injectivité de la restriction et le critère d'atteinte de 2h dans cette classe. Les histogrammes ordinaires sans zéro et l'agrégation complète restent ouverts.
+
 ## Hypothèses et objets réellement comptés
 
 G est un groupe abélien fini, avec `AddCommGroup G`, `DecidableEq G`, `Fintype G`. Les supports sont tous les Finsets de cardinal exactement trois, y compris ceux contenant zéro. Leur invariant est le carré de convolution ordonnée ÉTIQUETÉ, défini par les neuf paires ordonnées, diagonales incluses. Il ne s'agit pas d'un carré modulo translation ou automorphisme.
@@ -89,7 +91,7 @@ python research/strobo-2tors-2026-10-12/verify_remaining_profiles_20261013.py
 
 ## Obligations restantes
 
-Les histogrammes AGRÉGÉS sans zéro et les critères d'atteinte des maxima restent des déductions rédigées, non des théorèmes Lean. Les restrictions par orbite h−j et l'addition des deux restrictions exceptionnelles sont déjà compilées ; elles ne constituent pas encore une preuve de toutes les formules agrégées. Les dénombrements séparés par profil restent également à formaliser. La présente formule globale compte tous les supports avec zéro autorisé.
+Le complément ultérieur `EXCEPTIONAL_ZERO_FREE_20261013.md` compile la contribution exceptionnelle à l'histogramme sans zéro et son critère d'atteinte de 2h. Les histogrammes ordinaires sans zéro, leur agrégation avec cette contribution, le tableau complet des maxima et les comptes séparés par profil/paires restent à formaliser. La présente formule globale compte tous les supports avec zéro autorisé.
 
 La relecture mathématique indépendante, l'audit des définitions et de la littérature restent ouverts. La compilation et les vérificateurs internes ne remplacent pas cette relecture. Aucune fusion ni publication stable.
 
