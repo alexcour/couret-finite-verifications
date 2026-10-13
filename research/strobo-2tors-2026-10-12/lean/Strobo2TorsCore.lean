@@ -633,4 +633,63 @@ theorem residual_directions_equal
       · exact Or.inr h
     exact direction_of_two_matched_endpoints (a + b) (c + c) d e hd he0 hq heq
 
+
+/-! ## Necessary classification in the normalized genuine (1,2) case -/
+
+/--
+For two normalized three-point supports with singleton a outside the
+doubling fibre of either doublet, equality of their nine ordered-sum
+coefficients forces identical nonzero two-torsion directions and either
+identical doublets or the exceptional cross-match with 3(b-a) in {0,d}.
+
+This theorem treats only the genuine (1,2) profile. It does NOT establish
+universal triple-support classification or fibre counting.
+-/
+theorem paired_square_classification_same_singleton
+    (a b c d e : G)
+    (hd : d + d = 0) (he : e + e = 0) (he0 : e ≠ 0)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c)
+    (hsq : ∀ z : G,
+      tripleSquareCoeff a b (b + d) z =
+        tripleSquareCoeff a c (c + e) z) :
+    e = d ∧
+      ((c = b ∨ c = b + d) ∨
+       ((c = (b + b - a) ∨ c = (b + b - a) + d) ∧
+        (((b - a) + (b - a)) + (b - a) = 0 ∨
+         ((b - a) + (b - a)) + (b - a) = d))) := by
+  have hres := residual_eq_of_square_eq_same_singleton a b c d e hd he hsq
+  have hed : e = d := residual_directions_equal a b c d e hd he he0 hab hres
+  refine ⟨hed, ?_⟩
+  rcases residual_base_matching_dichotomy a b c d e hd hac hres with
+      hdirect | hcross
+  · rcases hdirect with ⟨_, hmix⟩
+    left
+    rcases hmix with h | h
+    · exact Or.inl (add_left_cancel h)
+    · right
+      have h' : a + c = a + (b + d) := by
+        calc
+          a + c = a + b + d := h
+          _ = a + (b + d) := by abel
+      exact add_left_cancel h'
+  · right
+    rcases hcross with ⟨hsquare, hmix⟩
+    have hbase : c = b + b - a ∨ c = (b + b - a) + d := by
+      rcases hmix with h | h
+      · left
+        calc
+          c = (a + c) - a := by abel
+          _ = (b + b) - a := by rw [h]
+      · right
+        calc
+          c = (a + c) - a := by abel
+          _ = (b + b + d) - a := by rw [h]
+          _ = (b + b - a) + d := by abel
+    refine ⟨hbase, ?_⟩
+    have hzero : (0 : G) + (0 : G) = 0 := by simp
+    have hbase0 : c = (b + b - a) + (0 : G) ∨
+        c = ((b + b - a) + (0 : G)) + d := by
+      simpa using hbase
+    exact cross_matching_forces_exception a b c d 0 hd hzero hbase0 hsquare
+
 end Couret.STROBO2TORS
