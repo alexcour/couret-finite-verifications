@@ -117,7 +117,8 @@ def outward(x,up=False,digits=6):
 
 def compute(ordinates, wlo, whi, eps):
     """ordinates: 67 tuples (label, rank, exact center, Fourier-square v)."""
-    need(len(ordinates)==67 and 0<WMIN<=wlo<=whi<1,'invalid full-tail variance')
+    need(len(ordinates)==67,'invalid 67-root catalogue')
+    need(0<WMIN<=wlo<=whi<1,'invalid full-tail variance')
     need(eps>=0 and eps<=F(1714,10**6),'Gaussian error certificate not in scope')
     need(N%2==0 and N>=2,'Simpson partition invalid')
     need(S*(32**(JTERMS+1))*2<factorial(JTERMS+1)**2,'J0 remainder too large')
