@@ -1,0 +1,66 @@
+{
+  "arithmetic_prime_race_density_proved": false,
+  "direct_haar_grid": {
+    "amplitude_integer_intervals": [
+      [
+        "64565326482730995091022103120887410177",
+        "64565326482730995091022103120928550348"
+      ],
+      [
+        "71944040486855447050704174451938717811",
+        "71944040486855447050704174451989633179"
+      ]
+    ],
+    "cosine_chebyshev_c_error_integer": 1,
+    "grid": 8192,
+    "nonpositive_cells": 60950630,
+    "positive_cells": 6152557,
+    "precision_scale": "100000000000000000000000000000000000000",
+    "root_labels": [
+      [
+        "15.14",
+        1
+      ],
+      [
+        "15.2",
+        1
+      ]
+    ],
+    "unresolved_cells": 5677,
+    "unresolved_fraction_exact": "5677/67108864"
+  },
+  "external_independent_review_completed": false,
+  "finite_mode_gap_4_64_proved_elsewhere_not_used": true,
+  "finite_time_minus_haar_sign_probability_exact": [
+    "4198656835024889539397962159667826207678504332711/100000000000000000000000000000000000000000000000000",
+    "2104771650857394075156883919889223988378152834153/50000000000000000000000000000000000000000000000000"
+  ],
+  "finite_time_minus_haar_sign_probability_outer": [
+    "0.041986",
+    "0.042096"
+  ],
+  "finite_time_positive_probability_exact": [
+    "13375140585368212293304212159667826207678504332711/100000000000000000000000000000000000000000000000000",
+    "6688783831424181794883446419889223988378152834153/50000000000000000000000000000000000000000000000000"
+  ],
+  "finite_time_positive_probability_outer": [
+    "0.133751",
+    "0.133776"
+  ],
+  "full_67_phase_probability_approximated_by_this_proof": false,
+  "global_GRH_LI_ELI_or_effective_67_phase_mixing_proved": false,
+  "height_cutoff": 4,
+  "id": "CU-BRUIT-T4-DIRECT-HAAR-SIGN-MIXING-20261013",
+  "method": "rational Chebyshev grid on Haar T2 and pinned finite-time sign cover",
+  "number_of_phases": 2,
+  "positive_haar_probability_exact": [
+    "6152557/67108864",
+    "3079117/33554432"
+  ],
+  "positive_haar_probability_outer": [
+    "0.091680",
+    "0.091765"
+  ],
+  "root_enclosures_and_finite_sign_receipt_trusted": true,
+  "uniform_in_horizon_rate_proved": false
+}
