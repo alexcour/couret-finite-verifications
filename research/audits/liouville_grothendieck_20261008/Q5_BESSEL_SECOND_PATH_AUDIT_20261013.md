@@ -21,3 +21,13 @@ La borne de queue des fonctions caractéristiques est héritée du certificat pr
 ## Validation
 
 Workflow scientifique prévu : `.github/workflows/q15-root-intervals.yml`, étape `Cross-audit Q5 Bessel envelope using independent argument-cell rational arithmetic`. Ne promouvoir le résultat d'audit qu'après lecture des logs correspondant au commit de la branche, et si le job est `SUCCESS`.
+
+## Clôture de la vérification interne — 13 octobre 2026
+
+Au commit `625f7c7e6cfc0c90ec1b612cb754fa7d1b093b05`, [zero-intervals-and-tail-bounds 38418035208](https://github.com/alexcour/couret-finite-verifications/actions/runs/38418035208) et [verify 38418035292](https://github.com/alexcour/couret-finite-verifications/actions/runs/38418035292) ont conclu SUCCESS. Le sous-contrôle rationnel de 2 400 cellules a émis **une borne extérieure <=0.000173887** (première méthode <=0.000175363). Il conclut `independently_reproduces_first_0_000175363_bound=true`. Les deux méthodes partagent cependant les mêmes reçus d'ordonnées et l'hypothèse spectrale P2 ; ce n'est pas une validation indépendante de ces prémisses ni de l'inversion de Fourier.
+
+Le [reçu JSON](q5_bessel_second_path_audit_20261013.json), extrait des journaux de cette CI, est maintenant archivé. Le mode `--check` du second vérificateur le compare octet par octet avec le calcul, refusant une dérive numérique. **Aucune nouvelle borne de probabilité totale n'est revendiquée par ce sous-contrôle** ; l'intervalle Q5 [0.289262,0.289616] demeure le dernier intervalle complet publiquement documenté dans la PR.
+
+## Suite quantitative : problème de mélange
+
+Pour `B=65536`, le certificat de comparaison des signes arithmétique/spectral borne uniquement `|F_B-F_[T,X]|` à T=25. Une estimation de `|F_[T,X]-p_T|` doit maintenant utiliser des non-résonances effectivement certifiées et une borne d'équidistribution de la trajectoire finie. L'extension directe de `Delta(4,64)>0.011839` aux 67 fréquences n'est pas autorisée ; le contrôle des intervalles des 67 racines montre une obstruction de précision pour certaines familles de modes. La queue `|p_T-delta|` exige séparément un couplage de queue brute, pas la seule erreur de substitution gaussienne.
