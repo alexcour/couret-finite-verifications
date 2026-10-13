@@ -526,4 +526,111 @@ theorem residual_base_matching_dichotomy
     · exact Or.inr ⟨hab, hbc⟩
     · exact False.elim (bases_cannot_share_double_pair a c (a + b) d hd hac hab hacb)
 
+
+/-! ## Lifting residual base matching to the two-torsion direction -/
+
+/-- Two distinct members of a two-torsion pair determine its direction. -/
+theorem direction_of_two_matched_endpoints
+    (x y d e : G) (hd : d + d = 0) (he0 : e ≠ 0)
+    (hy : y = x ∨ y = x + d)
+    (hye : y + e = x ∨ y + e = x + d) : e = d := by
+  rcases hy with hy | hy
+  · rcases hye with hye | hye
+    · exfalso
+      apply he0
+      have h : x + e = x + 0 := by simpa [hy] using hye
+      exact add_left_cancel h
+    · have h : x + e = x + d := by simpa [hy] using hye
+      exact add_left_cancel h
+  · rcases hye with hye | hye
+    · have hde : d + e = 0 := by
+        have h : x + (d + e) = x + 0 := by
+          calc
+            x + (d + e) = (x + d) + e := by abel
+            _ = x := by simpa [hy] using hye
+            _ = x + 0 := by simp
+        exact add_left_cancel h
+      calc
+        e = e + (d + d) := by simp [hd]
+        _ = (d + e) + d := by abel
+        _ = d := by rw [hde]; simp
+    · exfalso
+      apply he0
+      have h : (x + d) + e = (x + d) + 0 := by simpa [hy] using hye
+      exact add_left_cancel h
+
+/-- Distinct doubling fibres yield distinct doubles of the residual bases. -/
+theorem residual_base_doubles_distinct
+    (a b : G) (hab : a + a ≠ b + b) :
+    (b + b) + (b + b) ≠ (a + b) + (a + b) := by
+  intro h
+  apply hab
+  have hz : (a + a) - (b + b) = 0 := by
+    calc
+      (a + a) - (b + b) =
+          ((a + b) + (a + b)) - ((b + b) + (b + b)) := by abel
+      _ = 0 := by rw [← h]; simp
+  exact sub_eq_zero.mp hz
+
+/--
+Equality of the four residual coefficients forces equality of the
+nonzero two-torsion directions. This is an additional NECESSARY lemma,
+not a proof of the complete three-profile classification.
+-/
+theorem residual_directions_equal
+    (a b c d e : G)
+    (hd : d + d = 0) (he : e + e = 0) (he0 : e ≠ 0)
+    (hab : a + a ≠ b + b)
+    (hres : ∀ z : G, residualCoeff a b d z = residualCoeff a c e z) :
+    e = d := by
+  have hbase :=
+    residual_partner_base_in_four a b c d e (c + c) hres (Or.inl rfl)
+  have hpos : 0 < residualCoeff a c e ((c + c) + e) := by
+    simp [residualCoeff] <;> omega
+  have hend :
+      (c + c) + e = b + b ∨ (c + c) + e = b + b + d ∨
+      (c + c) + e = a + b ∨ (c + c) + e = a + b + d := by
+    apply residual_positive_cases a b d
+    rw [hres]
+    exact hpos
+  have hsame :
+      (c + c) + (c + c) = ((c + c) + e) + ((c + c) + e) :=
+    (pair_sum_translate (c + c) (c + c) e he).symm
+  have hseparate := residual_base_doubles_distinct a b hab
+  have hclass :
+      (c + c = b + b ∨ c + c = b + b + d) ∨
+      (c + c = a + b ∨ c + c = a + b + d) := by
+    rcases hbase with h | h | h | h
+    · exact Or.inl (Or.inl h)
+    · exact Or.inl (Or.inr h)
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr h)
+  rcases hclass with hp | hq
+  · have hbp := double_of_pair_member (b + b) d (c + c) hd hp
+    have hep :
+        (c + c) + e = b + b ∨ (c + c) + e = b + b + d := by
+      rcases hend with h | h | h | h
+      · exact Or.inl h
+      · exact Or.inr h
+      · have hc := double_of_pair_member (a + b) d ((c + c) + e) hd
+          (Or.inl h)
+        exact False.elim (hseparate (hbp.symm.trans (hsame.trans hc)))
+      · have hc := double_of_pair_member (a + b) d ((c + c) + e) hd
+          (Or.inr h)
+        exact False.elim (hseparate (hbp.symm.trans (hsame.trans hc)))
+    exact direction_of_two_matched_endpoints (b + b) (c + c) d e hd he0 hp hep
+  · have hbq := double_of_pair_member (a + b) d (c + c) hd hq
+    have heq :
+        (c + c) + e = a + b ∨ (c + c) + e = a + b + d := by
+      rcases hend with h | h | h | h
+      · have hc := double_of_pair_member (b + b) d ((c + c) + e) hd
+          (Or.inl h)
+        exact False.elim (hseparate (hc.symm.trans (hsame.symm.trans hbq)))
+      · have hc := double_of_pair_member (b + b) d ((c + c) + e) hd
+          (Or.inr h)
+        exact False.elim (hseparate (hc.symm.trans (hsame.symm.trans hbq)))
+      · exact Or.inl h
+      · exact Or.inr h
+    exact direction_of_two_matched_endpoints (a + b) (c + c) d e hd he0 hq heq
+
 end Couret.STROBO2TORS
