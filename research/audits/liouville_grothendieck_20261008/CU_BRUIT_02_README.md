@@ -1,5 +1,13 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Full zero and tail continuation — 13 Oct 2026
+
+[Full proof and commands](ALL_TAIL_BOUNDS_20261013.md): the thirty q3/q5 candidates now have internal Arb isolations and finite counts 6/8/8/8. Together with the unchanged q15 certificate, all **67** positive roots below 25 are isolated as simple critical-line roots and matched by completed-L contour counts, under the trusted backend and written argument. The q3/q5 recalculation at 320 bits agrees with the 256-bit intervals/signs/counts. [New root instrument](certify_q3_q5_root_intervals.py), [receipt](q3_q5_root_interval_certificate_20261013.json), [controls](test_q3_q5_root_intervals.py). Old decimals are search seeds; Newton iterates are not proofs.
+
+The [full-tail exact checker](verify_all_tail_bounds.py) and [receipt](all_tail_bounds_20261013.json) enclose five positive Hadamard residuals without GRH. Under GRH and independent uniform phases, replacing **all** seven-character phases above ordinate 25 with a matched-variance Gaussian changes any threshold probability by at most **0.001714 (Q5), 0.001998 (Q3), 0.000915 (Q15), 0.000933 (C5), 0.000556 (C15)**. These are exact rational witness bounds using a global Bessel envelope and no numerical quadrature. They apply to all thirteen bias/profile categories in that model. The Q5 tail variance lower bound is >29/40.
+
+The dedicated `zero-intervals-and-tail-bounds` workflow replays all root and K prerequisites before aggregation. The model's Gaussian-replaced probability and its variance uncertainty still need interval quadrature and an integral-tail bound; 0.2894389 remains an exploratory estimate. Global GRH/LI, identification with the actual prime race, independent human review and originality remain open. Earlier dated q3/q5-pending statements below describe their former scope, now superseded by this finite continuation. PR #27 remains a research draft.
+
 **Current integration:** PR #4 merged into main on 12 Oct 2026, commit 3b6d6e75; its post-merge CI passed. Earlier DRAFT/branch-only annotations below are historical, as explained by [the integration decision](INTEGRATION_DECISION_20261012.md). Analytic and independent-review gates remain open.
 
 ## Independent-phase law classification — continuation 12 Oct 2026

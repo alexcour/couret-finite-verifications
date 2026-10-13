@@ -66,20 +66,21 @@ def sqrt_bound(x, upper=False):
     return result
 
 
-def validate_roots(c):
+def validate_roots(c, labels=LABELS, total=37,
+                   completeness_key='finite_positive_q15_catalogue_complete_within_declared_region'):
     require(c['global_GRH_or_LI_proved'] is False and
             c['prime_race_density_certified'] is False, 'false global promotion')
-    require(c['finite_positive_q15_catalogue_complete_within_declared_region'] is True,
+    require(c[completeness_key] is True,
             'finite completeness absent')
     require(c['contour_vertices_exact'] ==
             [['-1/8','0'], ['9/8','0'], ['9/8','25'], ['-1/8','25'], ['-1/8','0']],
             'cutoff contour changed')
-    require(c['isolated_simple_critical_line_roots'] == 37 and
-            c['total_nontrivial_positive_zeros_counted'] == 37, 'total count changed')
-    require(len(c['by_character']) == 3, 'character count changed')
+    require(c['isolated_simple_critical_line_roots'] == total and
+            c['total_nontrivial_positive_zeros_counted'] == total, 'total count changed')
+    require(len(c['by_character']) == len(labels), 'character count changed')
     counts = {row['character']: row for row in c['by_character']}
-    require(set(counts) == set(LABELS), 'character labels changed')
-    roots = {label: [] for label in LABELS}
+    require(set(counts) == set(labels), 'character labels changed')
+    roots = {label: [] for label in labels}
     for row in c['root_intervals']:
         label = row['character']
         require(label in roots, 'unknown root character')
@@ -102,7 +103,7 @@ def validate_roots(c):
         require(row['index_1based'] == len(roots[label])+1, 'root rank changed')
         require(not roots[label] or roots[label][-1][1] < a, 'root intervals overlap')
         roots[label].append((a,b))
-    for label, number in LABELS.items():
+    for label, number in labels.items():
         row = counts[label]
         require(len(roots[label]) == number == row['isolated_simple_roots'] ==
                 row['zero_count_with_multiplicity'], 'isolated/count mismatch')
@@ -128,13 +129,15 @@ def low_mass(roots, labels, factor):
                  for label in labels for a,b in roots[label]), Q(0)))
 
 
-def sign_envelope(roots, vq, vr, p2):
-    amplitudes = sorted([(4*(vr if label == '15.14' else vq)/(Q(1,4)+b*b),
+def sign_envelope_for_weights(roots, weights, p2, characteristic_coefficient=Q(3,64)):
+    require(set(roots)==set(weights) and all(v>0 for v in weights.values()),
+            'missing/nonpositive phase weight')
+    amplitudes = sorted([(4*weights[label]/(Q(1,4)+b*b),
                           label, rank)
                          for label in roots for rank,(a,b) in enumerate(roots[label],1)],
                         reverse=True)
     choices = []
-    for number in range(10,37,2):
+    for number in range(10,len(amplitudes)//2*2+1,2):
         selected = amplitudes[:number]
         m = number//2
         lowers = [sqrt_bound(x[0]) for x in selected]
@@ -143,7 +146,9 @@ def sign_envelope(roots, vq, vr, p2):
         candidates = [(Q(j,100)**4/4 + C*Q(j,100)**(4-m)/(m-4), Q(j,100))
                       for j in range(1,1001)]
         integral, tau = min(candidates)
-        choices.append((p2*integral/64, number, tau, C, integral, selected, lowers))
+        require(characteristic_coefficient>0, 'nonpositive characteristic error coefficient')
+        choices.append((characteristic_coefficient*p2*integral/3,
+                        number, tau, C, integral, selected, lowers))
     error, number, tau, C, integral, selected, lowers = min(choices, key=lambda x:x[0])
     return {'uniform_threshold_probability_error_upper': upper_bound(error),
             'selected_independent_low_phases': number, 'split_t_exact': str(tau),
@@ -152,6 +157,11 @@ def sign_envelope(roots, vq, vr, p2):
             'selected_phase_witnesses': [dict(character=x[1], index_1based=x[2],
                                             amplitude_lower_exact=str(r))
                                          for x,r in zip(selected,lowers)]}
+
+
+def sign_envelope(roots, vq, vr, p2):
+    return sign_envelope_for_weights(roots,{label:vr if label=='15.14' else vq
+                                            for label in roots},p2)
 
 
 def aggregate(c, k):

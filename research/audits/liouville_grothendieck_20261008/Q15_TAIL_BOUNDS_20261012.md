@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — masse de queue q15 et erreur de remplacement gaussien
 
+> **Suite du 13 octobre 2026 :** le [complément des 67 racines et de la queue complète](ALL_TAIL_BOUNDS_20261013.md) ajoute les isolations/comptes q3/q5 et une borne uniforme du remplacement de toutes les queues. La présente preuve q15, ses bornes et son reçu restent valides dans leur portée partielle. Les mentions de q3/q5 encore à certifier ci-dessous décrivent l'état du 12 octobre.
+
 12 octobre 2026. Ce complément relie les constantes analytiques de la
 [PR #27](https://github.com/alexcour/couret-finite-verifications/pull/27)
 au certificat fini de la [PR #28](https://github.com/alexcour/couret-finite-verifications/pull/28),

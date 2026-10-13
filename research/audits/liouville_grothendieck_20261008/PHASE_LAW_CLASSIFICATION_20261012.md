@@ -282,9 +282,11 @@ application à une course réelle est un corollaire conditionnel de
 l'identification correcte de ce modèle. Un [complément q15](Q15_TAIL_BOUNDS_20261012.md)
 relie maintenant le certificat fini des 37 racines de la PR #28 aux
 constantes K, puis borne le remplacement gaussien de cette queue seule.
-La certification des 30 ordonnées q3/q5 et de leurs queues, la
-certification de la densité historique, la relecture humaine et
-l'antériorité restent ouvertes.
+**Mise à jour du 13 octobre :** le [complément complet](ALL_TAIL_BOUNDS_20261013.md)
+ajoute les isolations et comptes des 30 ordonnées q3/q5, puis une borne
+du remplacement gaussien de toutes les queues dans le modèle déclaré.
+L'évaluation numérique contrôlée de la densité historique, GRH/LI
+globales, la relecture humaine et l'antériorité restent ouvertes.
 
 Plus précisément, si les mesures logarithmiques de la course réelle
 

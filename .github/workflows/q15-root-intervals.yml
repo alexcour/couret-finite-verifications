@@ -1,11 +1,11 @@
-name: q15-root-intervals
+name: zero-intervals-and-tail-bounds
 on: [push, pull_request, workflow_dispatch]
 
 permissions:
   contents: read
 
 jobs:
-  finite-q15-and-conditional-tail-bounds:
+  finite-67-roots-and-conditional-tail-bounds:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7.0.1
@@ -18,9 +18,17 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/certify_q15_root_intervals.py --check
       - name: Reject unresolved signs, wrong roots, boundary zeros and altered receipts
         run: python research/audits/liouville_grothendieck_20261008/test_q15_root_intervals.py
+      - name: Replay thirty q3/q5 isolations and finite counts up to 25
+        run: python research/audits/liouville_grothendieck_20261008/certify_q3_q5_root_intervals.py --check
+      - name: Recompute at 320 bits and reject wrong labels, bad seeds and reversed-count misuse
+        run: python research/audits/liouville_grothendieck_20261008/test_q3_q5_root_intervals.py
       - name: Replay analytic K enclosures independently of ordinate data
         run: python research/audits/liouville_grothendieck_20261008/certify_spectral_constants.py --check
       - name: Verify exact tail aggregation and conditional Gaussian comparison bounds
         run: python research/audits/liouville_grothendieck_20261008/verify_q15_tail_bounds.py --check
       - name: Check signed weights, rational rounding and refusal controls
         run: python research/audits/liouville_grothendieck_20261008/test_q15_tail_bounds.py
+      - name: Verify full seven-character Gaussian tail replacement bounds
+        run: python research/audits/liouville_grothendieck_20261008/verify_all_tail_bounds.py --check
+      - name: Verify full-tail witnesses and reject incomplete or uncertain inputs
+        run: python research/audits/liouville_grothendieck_20261008/test_all_tail_bounds.py

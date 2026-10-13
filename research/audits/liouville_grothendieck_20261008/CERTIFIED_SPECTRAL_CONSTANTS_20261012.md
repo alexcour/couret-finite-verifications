@@ -244,8 +244,10 @@ deux couches distinctes, encore proposées à la relecture. Le [complément
 de queue q15](Q15_TAIL_BOUNDS_20261012.md) utilise le certificat fini pour
 borner les restes de Hadamard et, sous GRH et phases indépendantes,
 l'erreur de remplacement gaussien partiel sans quadrature.
+**Mise à jour du 13 octobre :** le [complément complet](ALL_TAIL_BOUNDS_20261013.md)
+apporte le certificat analogue q3/q5 et les bornes du remplacement de
+toutes les queues dans le modèle GRH à phases indépendantes.
 **Toujours ouverts :** GRH/LI, identification analytique à la course réelle,
-certification analogue q3/q5 et des remplacements de leurs queues,
 évaluation contrôlée de δ, relecture externe et antériorité.
 La preuve générale sur un modèle synthétique arbitraire et son
 contre-exemple à cinq lois restent valables : les paramètres spectraux
