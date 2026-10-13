@@ -233,3 +233,264 @@ theorem no_conjugacy_when_periods_differ {Q R : Type*}
 #print axioms Couret.CayleyDoublet.no_conjugacy_when_periods_differ
 
 end Couret.CayleyDoublet
+
+/-!
+CAYLEY-DOUBLET-ARITHMETIC (13 October 2026).
+
+The finite cyclic uniqueness criterion is treated separately: the
+necessary difference-rigidity hypothesis is explicit here. This file
+does NOT identify that hypothesis with the modular arithmetic condition
+for every exceptional support. The common-successor quotient projection
+and its translation permutation are formalised below.
+-/
+
+namespace Couret.CayleyDoublet
+
+section Arithmetic
+
+variable {G : Type*} [AddCommGroup G]
+
+/-- Arc x -> x+s for an increment in a finite support. -/
+def CayleyArc (S : Finset G) (x y : G) : Prop :=
+  ∃ s ∈ S, y = x + s
+
+/-- A repeated nonzero difference from different source increments can
+only equal h. This is an explicit, checkable combinatorial hypothesis. -/
+def DifferenceRigid (S : Finset G) (h : G) : Prop :=
+  ∀ u v u' v' : G,
+    u ∈ S → v ∈ S → u' ∈ S → v' ∈ S →
+    u ≠ u' → u ≠ v → u - v = u' - v' → u - v = h
+
+/-- Difference rigidity forces the mate, if it exists, to be x+h. -/
+theorem isMate_eq_halfTurn_of_rigid
+    (S : Finset G) (h : G) (hRigid : DifferenceRigid S h)
+    (x y : G) (hm : IsMate (CayleyArc S) x y) :
+    y = x + h := by
+  rcases hm with ⟨hxy, htwo⟩
+  rcases htwo with ⟨p, q, hpq, hxp, hyp, hxq, hyq⟩
+  rcases hxp with ⟨u, hu, hpu⟩
+  rcases hyp with ⟨v, hv, hpv⟩
+  rcases hxq with ⟨u', hu', hqu⟩
+  rcases hyq with ⟨v', hv', hqv⟩
+  have he : x + u = y + v := hpu.symm.trans hpv
+  have he' : x + u' = y + v' := hqu.symm.trans hqv
+  have hd : y - x = u - v := by
+    calc
+      y - x = (y + v) - (x + v) := by abel
+      _ = (x + u) - (x + v) := by rw [← he]
+      _ = u - v := by abel
+  have hd' : y - x = u' - v' := by
+    calc
+      y - x = (y + v') - (x + v') := by abel
+      _ = (x + u') - (x + v') := by rw [← he']
+      _ = u' - v' := by abel
+  have hu_ne_u' : u ≠ u' := by
+    intro huu
+    apply hpq
+    calc
+      p = x + u := hpu
+      _ = x + u' := by rw [huu]
+      _ = q := hqu.symm
+  have hu_ne_v : u ≠ v := by
+    intro huv
+    apply hxy
+    calc
+      x = (x + u) - u := by abel
+      _ = (y + v) - u := by rw [he]
+      _ = y := by rw [← huv]; abel
+  have hdiff : u - v = u' - v' := hd.symm.trans hd'
+  have hrig : u - v = h :=
+    hRigid u v u' v' hu hv hu' hv' hu_ne_u' hu_ne_v hdiff
+  calc
+    y = (y - x) + x := by abel
+    _ = (u - v) + x := by rw [hd]
+    _ = h + x := by rw [hrig]
+    _ = x + h := by abel
+
+/-- The exceptional three-element support, before imposing 3(b-a)=0. -/
+def TripleSupport [DecidableEq G] (a b h : G) : Finset G :=
+  {a, b, b + h}
+
+/-- The half-turn x+h always shares the two successors x+b and x+b+h. -/
+theorem halfTurn_isMate
+    [DecidableEq G] (a b h : G) (hhalf : h + h = 0)
+    (hne : h ≠ 0) (x : G) :
+    IsMate (CayleyArc (TripleSupport a b h)) x (x + h) := by
+  refine ⟨?_, ?_⟩
+  · intro hx
+    have hz : (0 : G) = h :=
+      add_left_cancel (show x + 0 = x + h by simpa using hx)
+    exact hne hz.symm
+  · refine ⟨x + b, x + (b + h), ?_, ?_, ?_, ?_, ?_⟩
+    · intro hpq
+      have hb : b = b + h := add_left_cancel hpq
+      have hz : (0 : G) = h :=
+        add_left_cancel (show b + 0 = b + h by simpa using hb)
+      exact hne hz.symm
+    · exact ⟨b, by simp [TripleSupport], rfl⟩
+    · refine ⟨b + h, by simp [TripleSupport], ?_⟩
+      calc
+        x + b = (x + b) + (h + h) := by simp [hhalf]
+        _ = (x + h) + (b + h) := by abel
+    · exact ⟨b + h, by simp [TripleSupport], rfl⟩
+    · exact ⟨b, by simp [TripleSupport], by abel⟩
+
+/-- Under a combinatorial rigidity certificate, the half-turn is the unique mate. -/
+theorem halfTurn_unique_of_rigid
+    [DecidableEq G] (a b h : G) (hhalf : h + h = 0)
+    (hne : h ≠ 0)
+    (hRigid : DifferenceRigid (TripleSupport a b h) h)
+    (x y : G) :
+    IsMate (CayleyArc (TripleSupport a b h)) x y ↔ y = x + h := by
+  constructor
+  · exact isMate_eq_halfTurn_of_rigid (TripleSupport a b h) h hRigid x y
+  · intro hy
+    subst y
+    exact halfTurn_isMate a b h hhalf hne x
+
+/-- Unfold the three generators without losing their additive structure. -/
+theorem tripleArc_iff
+    [DecidableEq G] (a b h x y : G) :
+    CayleyArc (TripleSupport a b h) x y ↔
+      y = x + a ∨ y = x + b ∨ y = x + (b + h) := by
+  unfold CayleyArc TripleSupport
+  simp only [Finset.mem_insert, Finset.mem_singleton]
+  constructor
+  · rintro ⟨s, hs, heq⟩
+    rcases hs with hs | hs | hs
+    · subst s
+      exact Or.inl heq
+    · subst s
+      exact Or.inr (Or.inl heq)
+    · subst s
+      exact Or.inr (Or.inr heq)
+  · intro hy
+    rcases hy with ha | hb | hc
+    · exact ⟨a, Or.inl rfl, ha⟩
+    · exact ⟨b, Or.inr (Or.inl rfl), hb⟩
+    · exact ⟨b + h, Or.inr (Or.inr rfl), hc⟩
+
+/-- The singleton successor x+a cannot be shared with x+h if it lies
+in a different half-turn pair from b. -/
+theorem singleton_not_common
+    [DecidableEq G] (a b h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hab : a ≠ b) (habh : a ≠ b + h) (x : G) :
+    ¬ CayleyArc (TripleSupport a b h) (x + h) (x + a) := by
+  intro hy
+  rcases (tripleArc_iff a b h (x + h) (x + a)).mp hy with h1 | h2 | h3
+  · have hx : x = x + h := add_right_cancel h1
+    have hz : (0 : G) = h :=
+      add_left_cancel (show x + 0 = x + h by simpa using hx)
+    exact hne hz.symm
+  · have he : x + a = x + (b + h) := by
+      calc
+        x + a = (x + h) + b := h2
+        _ = x + (b + h) := by abel
+    exact habh (add_left_cancel he)
+  · have he : x + a = x + b := by
+      calc
+        x + a = (x + h) + (b + h) := h3
+        _ = (x + b) + (h + h) := by abel
+        _ = x + b := by simp [hhalf]
+    exact hab (add_left_cancel he)
+
+/-- Marked arcs to common successors are exactly the complete half-turn pair
+x+b and x+b+h; no uniqueness hypothesis for other mates is used. -/
+theorem markedArc_iff_pair
+    [DecidableEq G] (a b h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hab : a ≠ b) (habh : a ≠ b + h) (x y : G) :
+    DoubletArc (CayleyArc (TripleSupport a b h)) (fun z => z + h) x y ↔
+      y = x + b ∨ y = x + (b + h) := by
+  change (CayleyArc (TripleSupport a b h) x y ∧
+    CayleyArc (TripleSupport a b h) (x + h) y) ↔ _
+  constructor
+  · rintro ⟨hx, hy⟩
+    rcases (tripleArc_iff a b h x y).mp hx with ha | hb | hc
+    · rw [ha] at hy
+      exact False.elim ((singleton_not_common a b h hhalf hne hab habh x) hy)
+    · exact Or.inl hb
+    · exact Or.inr hc
+  · intro hy
+    rcases hy with hb | hc
+    · constructor
+      · exact (tripleArc_iff a b h x y).mpr (Or.inr (Or.inl hb))
+      · apply (tripleArc_iff a b h (x + h) y).mpr
+        right
+        right
+        calc
+          y = x + b := hb
+          _ = (x + b) + (h + h) := by simp [hhalf]
+          _ = (x + h) + (b + h) := by abel
+    · constructor
+      · exact (tripleArc_iff a b h x y).mpr (Or.inr (Or.inr hc))
+      · apply (tripleArc_iff a b h (x + h) y).mpr
+        right
+        left
+        calc
+          y = x + (b + h) := hc
+          _ = (x + h) + b := by abel
+
+/-- Any additive quotient that kills h sends both marked successors
+to exactly one vertex: pi(x)+pi(b). -/
+theorem markedArc_quotient_formula
+    [DecidableEq G] {Q : Type*} [AddCommGroup Q]
+    (pi : G →+ Q) (a b h : G) (hpi : pi h = 0)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hab : a ≠ b) (habh : a ≠ b + h) (x y : G)
+    (harc : DoubletArc (CayleyArc (TripleSupport a b h))
+      (fun z => z + h) x y) :
+    pi y = pi x + pi b := by
+  rcases (markedArc_iff_pair a b h hhalf hne hab habh x y).mp harc with hb | hc
+  · simp [hb, map_add]
+  · simp [hc, map_add, hpi]
+
+end Arithmetic
+
+section ShiftOnQuotient
+
+variable {Q : Type*} [AddCommGroup Q]
+
+/-- Translation by b is an explicit permutation on every additive quotient. -/
+def quotientShift (b : Q) : Q ≃ Q where
+  toFun x := x + b
+  invFun x := x - b
+  left_inv x := by simp
+  right_inv x := by simp [sub_eq_add_neg, add_assoc, add_left_comm, add_comm]
+
+/-- Recursion for successive quotient steps. -/
+def shiftSteps (b : Q) : Nat → Q → Q
+  | 0, x => x
+  | k + 1, x => shiftSteps b k x + b
+
+/-- The k-th step is addition by k*b. -/
+theorem shiftSteps_eq (b : Q) (k : Nat) (x : Q) :
+    shiftSteps b k x = x + k • b := by
+  induction k with
+  | zero => simp [shiftSteps]
+  | succ k ih =>
+    simp only [shiftSteps, ih, succ_nsmul]
+    abel
+
+/-- Fixed points of the k-th step are independent of the starting class.
+This is the algebraic source of the equal cycle lengths. -/
+theorem shiftSteps_fixed_iff (b : Q) (k : Nat) (x : Q) :
+    shiftSteps b k x = x ↔ k • b = 0 := by
+  rw [shiftSteps_eq]
+  constructor
+  · intro he
+    have he' : x + k • b = x + 0 := by simpa using he
+    exact add_left_cancel he'
+  · intro hk
+    simp [hk]
+
+end ShiftOnQuotient
+
+#print axioms Couret.CayleyDoublet.isMate_eq_halfTurn_of_rigid
+#print axioms Couret.CayleyDoublet.halfTurn_isMate
+#print axioms Couret.CayleyDoublet.halfTurn_unique_of_rigid
+#print axioms Couret.CayleyDoublet.markedArc_quotient_formula
+#print axioms Couret.CayleyDoublet.shiftSteps_fixed_iff
+
+end Couret.CayleyDoublet
