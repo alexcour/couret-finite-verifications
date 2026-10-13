@@ -65,7 +65,7 @@ def sinc_bounded(t):
 
 
 def exp_bounded(y):
-    need(0<=y<=60,'exponential argument outside proof')
+    need(0<=y<=62,'exponential argument outside proof')
     # exp(-y) = exp(-y/128)^128; round y down to a fixed-point.
     y0=F(y.numerator*S//y.denominator,S)
     a,b=bounds_of_alternating(y0/128,lambda k:k,ETERMS)
@@ -133,19 +133,24 @@ def compute(ordinates, wlo, whi, eps):
     need(vlo+whi+F(1,10**20)<4,'sixth-moment variance budget failed')
     w0=(wlo+whi)/2
     h=T/N
-    sflo=sfhi=sglo=sghi=0
+    sums=[[0,0] for _ in range(3)]  # at Wlo, Wmid, Whi
+    sglo=sghi=0
     for i in range(N+1):
         t=h*i
         product=(S,S)
         for _,_,center,v in ordinates:
             product=multiply(product,j0_bounded(t,v,center))
         ss=sinc_bounded(t)
-        gauss=exp_bounded(w0*t*t/2)
-        f=multiply(multiply((-ss[1],-ss[0]),product),gauss)
-        g=mul_rational(f,-t*t/2)
+        base=multiply((-ss[1],-ss[0]),product)
         weight=1 if i==0 or i==N else (4 if i%2 else 2)
-        sflo+=weight*f[0];sfhi+=weight*f[1]
-        sglo+=weight*g[0];sghi+=weight*g[1]
+        for j,W in enumerate((wlo,w0,whi)):
+            gauss=exp_bounded(W*t*t/2)
+            f=multiply(base,gauss)
+            sums[j][0]+=weight*f[0]
+            sums[j][1]+=weight*f[1]
+            if j==1:
+                g=mul_rational(f,-t*t/2)
+                sglo+=weight*g[0];sghi+=weight*g[1]
     # f(t)=E[sin(tX)/t]; X=-1+67 independent phases+Gaussian.
     # E X^4 <= 1+6*4+3*4^2=73;
     # E X^6 <= 1+15*4+45*4^2+15*4^3=1741.
@@ -160,29 +165,34 @@ def compute(ordinates, wlo, whi, eps):
     # This follows from e>8/3 and 3^50<2^80.
     tf=F(1,2**70)/(WMIN*T*T)
     tg=F(1,2**70)/(2*WMIN)
-    farea=(F(sflo)*h/(3*S)-ef-tf,F(sfhi)*h/(3*S)+ef+tf)
-    garea=(F(sglo)*h/(3*S)-eg-tg,F(sghi)*h/(3*S)+eg+tg)
     pl,ph=pi_enclosure()
-    p0a,p0b=over_pi(*farea,pl,ph)
-    p0a+=F(1,2);p0b+=F(1,2)
+    probability_ranges=[]
+    for sflo,sfhi in sums:
+        farea=(F(sflo)*h/(3*S)-ef-tf,F(sfhi)*h/(3*S)+ef+tf)
+        pa,pb=over_pi(*farea,pl,ph)
+        probability_ranges.append((pa+F(1,2),pb+F(1,2)))
+    garea=(F(sglo)*h/(3*S)-eg-tg,F(sghi)*h/(3*S)+eg+tg)
     da,db=over_pi(*garea,pl,ph)
-    dmax=max(abs(da),abs(db))
     dw=(whi-wlo)/2
-    # |P''(W)| <= 1/(2*pi*WMIN^2), hence Taylor error
-    # <= dw^2/(4*pi*WMIN^2) < dw^2/(12*WMIN^2).
-    curvature=dw*dw/(12*WMIN*WMIN)
-    low=p0a-dw*dmax-curvature-eps
-    high=p0b+dw*dmax+curvature+eps
+    # |P''(W)| <=1/(2*pi*WMIN^2) <1/(6*WMIN^2).
+    # A positive derivative on the whole variance interval follows
+    # from the certified derivative at midpoint plus the global bound.
+    derivative_drift=dw/(6*WMIN*WMIN)
+    need(da>derivative_drift,'monotonicity of Q5 sign probability not certified')
+    low=probability_ranges[0][0]-eps
+    high=probability_ranges[2][1]+eps
     need(F(0)<low<high<F(1),'Q5 enclosure not a valid probability range')
     return {
       'status':'CONDITIONAL_ON_PINNED_INTERNAL_CERTIFICATES',
       'low_phases':67,'mu':'-1', 'cutoff':'25','simpson_intervals':N,
       'W_bounds':[str(wlo),str(whi)],'W_mid':str(w0),
-      'p_at_Wmid_outer':[outward(p0a),outward(p0b,True)],
+      'p_gaussian_at_Wlo_outer':[outward(probability_ranges[0][0]),outward(probability_ranges[0][1],True)],
+      'p_gaussian_at_Wmid_outer':[outward(probability_ranges[1][0]),outward(probability_ranges[1][1],True)],
+      'p_gaussian_at_Whi_outer':[outward(probability_ranges[2][0]),outward(probability_ranges[2][1],True)],
       'dp_dW_at_Wmid_outer':[outward(da),outward(db,True)],
+      'derivative_drift_bound':str(derivative_drift),
       'quadrature_integral_errors':[str(ef),str(eg)],
       'integral_tail_errors':[str(tf),str(tg)],
-      'variance_taylor_error':str(curvature),
       'gaussian_replacement_error':str(eps),
       'p_conditional_outer':[outward(low),outward(high,True)],
       'p_conditional_exact':[str(low),str(high)],
@@ -236,7 +246,7 @@ def main():
          F(recorded['upper_exact'])<=coarse_hi,'displayed variance bounds not outward')
     out=compute(ords,coarse_lo,coarse_hi,epsilon)
     a,b=map(F,out['p_conditional_exact'])
-    need(F('0.286080')<=a<b<=F('0.293040'),
+    need(F('0.286450')<=a<b<=F('0.292650'),
          'probability did not fit review interval')
     print(json.dumps({k:v for k,v in out.items() if k!='p_conditional_exact'},
                      indent=2,sort_keys=True))
