@@ -30,3 +30,13 @@ Cette approche **calcule directement le défaut de mélange de l'indicatrice du 
 python -S research/audits/liouville_grothendieck_20261008/certify_t4_haar_sign_20261013.py
 ```
 L'option `--check` ne sera activée qu'après archivage du reçu canonique issu d'une exécution CI terminée avec succès, et relecture de sa cohérence. Pas de fusion de la PR ni de publication avant cette étape.
+
+## Résultat de certification interne et reçu canonique
+
+Au commit `bf1f98d1c2f4f1dd4f420141c1fe45f9cb667dcb`, les workflows [zero-intervals-and-tail-bounds 38433234928](https://github.com/alexcour/couret-finite-verifications/actions/runs/38433234928) et [verify 38433234960](https://github.com/alexcour/couret-finite-verifications/actions/runs/38433234960) ont conclu SUCCESS. L'exécution Python rapporte, sur une grille `8192²`, **5677 cellules de signe indéterminé**, chargées entièrement dans l'intervalle extérieur.
+
+- Probabilité de signe positive sous Haar (deux phases) : **[0.091680,0.091765]**.
+- Occupation temporelle signée du même signal, entre log 2 et log 65536 : **[0.133751,0.133776]**.
+- Écart signé temps moins Haar, à ce seul horizon : **[0.041986,0.042096]**.
+
+Le [reçu numérique canonique](t4_haar_sign_discrepancy_20261013.json), conservé dans GitHub, est celui extrait de l'exécution réussie ; le mode `--check` reconstitue ce reçu en fractions rationnelles et le compare octet par octet. Ces deux enclosures supposent la validité des reçus internes de racines et de la classification temporelle. Elles ne démontrent ni mélange uniforme quand l'horizon croît, ni hypothèse globale LI/GRH, ni densité arithmétique, ni validation mathématique externe.
