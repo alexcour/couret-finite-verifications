@@ -97,7 +97,11 @@ def lower_bound():
           "per_character_tail_lower":float(per_character)
         }
     assert total>F(63,100),float(total)
-    return {"strict_rational_lower":str(total),
+    # Exact floor at six decimals: compact, reproducible witness without
+    # converting a giant Fraction numerator/denominator to a string.
+    floor_6dp = (total.numerator * 1000000) // total.denominator
+    assert floor_6dp > 630000
+    return {"strict_rational_lower_6dp":f"{floor_6dp}/1000000",
             "float_for_display_only":float(total),
             "proved_implication":"GRH for seven primitive Dirichlet characters => V_25 > 63/100",
             "relies_on":"BMOR Theorem 1.1 counting all signed ordinates in strip",
