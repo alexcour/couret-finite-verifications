@@ -1,5 +1,22 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Direct finite arithmetic truncation — 13 Oct 2026
+
+[Finite-horizon proof](FINITE_ARITHMETIC_TRUNCATION_20261013.md),
+[integer interval instrument](certify_finite_arithmetic_truncation_20261013.py),
+[receipt](finite_arithmetic_truncation_20261013.json) and
+[fourteen controls](test_finite_arithmetic_truncation_20261013.py) add a
+**direct arithmetic calculation through B=65,536**. The positive logarithmic
+occupation lies in **[0.167988,0.167989]**, without GRH or LI. Conditional
+on the pinned low-zero enclosures, whole-cell integration gives
+**A(4,log B) in [1.375161,1.554206]** and
+**A(25,log B) in [0.749592,1.140467]**. These are finite-signal truncation
+errors, not global convergence rates or limiting densities. The current
+coupling-and-smoothing budget is trivial at this horizon; the exact finite
+arithmetic term alone explains why it cannot close. No previous receipt
+is replaced. New checks are integrated into both workflows.
+
+
 ## Quantitative convergence audit — 13 Oct 2026
 
 [Quantitative specialization and proof boundaries](WASSERSTEIN_SPECIALIZATION_20261013.md),
