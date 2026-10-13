@@ -58,3 +58,5 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/refine_q5_probability_20261013.py
       - name: Rigorous full 67-Bessel factor envelope and improved conditional Q5 bound
         run: python research/audits/liouville_grothendieck_20261008/certify_q5_full_bessel_envelope_20261013.py
+      - name: Cross-audit Q5 Bessel envelope using independent argument-cell rational arithmetic
+        run: python -S research/audits/liouville_grothendieck_20261008/audit_q5_bessel_second_path_20261013.py --check
