@@ -34,6 +34,7 @@ def check(mods):
     def off(S):
         return Counter(add(a, b) for a, b in combinations(S, 2))
     H = [g for g in G if mul(2, g) == zero]
+    H_set = set(H)
     h, n = len(H), len(G)
     q = n // h
     r3 = (sum(mul(3, g) == zero for g in G)-1)//2
@@ -43,6 +44,7 @@ def check(mods):
     counts, nozero = defaultdict(Counter), Counter()
     profile_supports, comparisons = Counter(), Counter()
     nontranslations = nontranslations_nozero = 0
+    orbit_restriction_checks = 0
     for sq, members in fibres.items():
         S = members[0]
         p = profile(S)
@@ -52,6 +54,9 @@ def check(mods):
         nozero[sum(zero not in T for T in members)] += 1
         H_orbit = {translated(S, u) for u in H}
         assert len(H_orbit) == h
+        j = sum(s in H_set for s in S)
+        assert sum(zero not in X for X in H_orbit) == h-j
+        orbit_restriction_checks += 1
         if p in [(1, 1, 1), (3,)]:
             assert set(members) == H_orbit
             for T in members:
@@ -65,6 +70,10 @@ def check(mods):
                 T = next(T for T in members if T not in H_orbit)
                 assert all(translated(S, g) != T for g in G)
                 second = {translated(T, u) for u in H}
+                j2 = sum(t in H_set for t in T)
+                assert len(second) == h
+                assert sum(zero not in X for X in second) == h-j2
+                orbit_restriction_checks += 1
                 assert not H_orbit & second
                 assert set(members) == H_orbit | second
                 nontranslations += h*h
@@ -98,7 +107,8 @@ def check(mods):
             "profile_supports": {str(p): profile_supports[p] for p in expected},
             "profile_fibres": {str(p): dict(+counts[p]) for p in expected},
             "zero_free_fibre_histogram": dict(+nozero),
-            "reconstruction_comparisons": sum(comparisons.values())}
+            "reconstruction_comparisons": sum(comparisons.values()),
+            "orbit_restriction_checks": orbit_restriction_checks}
 
 
 def counterexamples():
@@ -134,6 +144,7 @@ if __name__ == "__main__":
     report = {"status":"PASS", "scope":"bounded exact internal replay; not a universal or independently audited certificate",
               "groups":len(rows), "triple_supports":sum(r["triple_supports"] for r in rows),
               "reconstruction_comparisons":sum(r["reconstruction_comparisons"] for r in rows),
+              "orbit_restriction_checks":sum(r["orbit_restriction_checks"] for r in rows),
               "counterexamples":counterexamples(), "results":rows}
     path=Path(__file__).with_name("remaining_profiles_results_20261013.json")
     path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
