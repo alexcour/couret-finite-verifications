@@ -1,5 +1,24 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Direct finite sign comparison — 13 Oct 2026
+
+[Sign-level proof](FINITE_SIGN_TRANSPORT_20261013.md),
+[adaptive interval instrument](certify_finite_sign_transport_20261013.py),
+[receipt](finite_sign_transport_20261013.json) and
+[twelve controls](test_finite_sign_transport_20261013.py) compare the
+**arithmetic and signed spectral trajectories on the same finite time interval**
+through B=65,536. At T=25, the spectral positive occupation is in
+**[0.276064,0.276715]**, its excess over the arithmetic occupation is in
+**[0.108075,0.108726]**, and their signs disagree on a logarithmic fraction in
+**[0.163790,0.164442]**. All unresolved cells are charged to the bounds.
+This gives a nontrivial finite first-stage sign comparison under the pinned
+root/interval trust boundary, without GRH/LI/ELI for these finite functions.
+Effective mixing to independent phases and comparison with the full phase
+law remain separate. The earlier **0.001714 Gaussian-tail replacement**
+bound does not bound omission of the raw tail. No limiting arithmetic
+density or uniform rate follows. Previous dated statements and receipts
+are retained; both workflows add replay and controls.
+
 ## Direct finite arithmetic truncation — 13 Oct 2026
 
 [Finite-horizon proof](FINITE_ARITHMETIC_TRUNCATION_20261013.md),

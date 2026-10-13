@@ -44,6 +44,10 @@ jobs:
         run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_arithmetic_truncation_20261013.py --check
       - name: Trial division and elementary-interval refusal controls
         run: python -S research/audits/liouville_grothendieck_20261008/test_finite_arithmetic_truncation_20261013.py
+      - name: Direct finite sign comparison through 65536 (not independent-phase mixing)
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_sign_transport_20261013.py --check
+      - name: Adaptive sign-cover and unresolved-mass refusal controls
+        run: python -S research/audits/liouville_grothendieck_20261008/test_finite_sign_transport_20261013.py
       - name: Replay refined K for independently storable deterministic receipt
         run: |
           python research/audits/liouville_grothendieck_20261008/certify_refined_K_20261013.py > /tmp/cu_refined_K.json

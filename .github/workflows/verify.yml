@@ -47,6 +47,10 @@ jobs:
         run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_arithmetic_truncation_20261013.py --check
       - name: Trial division and elementary-interval refusal controls
         run: python -S research/audits/liouville_grothendieck_20261008/test_finite_arithmetic_truncation_20261013.py
+      - name: Direct finite sign comparison through 65536 (not independent-phase mixing)
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_sign_transport_20261013.py --check
+      - name: Adaptive sign-cover and unresolved-mass refusal controls
+        run: python -S research/audits/liouville_grothendieck_20261008/test_finite_sign_transport_20261013.py
       - name: CU-BRUIT B1 character labels and signed-conjugate metadata (not zero certification)
         run: python research/audits/liouville_grothendieck_20261008/verify_signed_character_conventions.py --check-local-metadata
       - name: CU-BRUIT empty-source invocation must refuse absent comparison input
