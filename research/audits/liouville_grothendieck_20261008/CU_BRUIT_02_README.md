@@ -1,5 +1,23 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Quantitative convergence audit — 13 Oct 2026
+
+[Quantitative specialization and proof boundaries](WASSERSTEIN_SPECIALIZATION_20261013.md),
+[stdlib verifier](verify_quantitative_specialization_20261013.py),
+[exact receipt](quantitative_specialization_20261013.json) and
+[eleven adversarial controls](test_quantitative_specialization_20261013.py)
+add **H<0.553** for the independent-phase Q5 density and a finite certificate
+**Delta(4,64)>0.011839**, covering all **16,640** modes of the two-frequency
+height-4 truncation. They also establish why the existing width-2e-30
+root boxes cannot certify every mode for **Delta(25,67)** by direct
+interval propagation: a centre combination must have magnitude <1.88e-118.
+The hypotheses and constants of Bailleul–Hayani–Untrau 5.13/5.17 are
+specialized explicitly. **No finite-horizon arithmetic error is certified**;
+GRH/LI/ELI remain hypotheses. The original Q5 probability interval and
+pinned inputs are preserved. New arithmetic checks are added to both
+workflows; execution status must be read from the corresponding CI runs.
+
+
 ## Refined analytic K bounds — 13 Oct 2026 (experimental, source branch)
 
 [New exact double-Abel instrument](certify_refined_K_20261013.py) uses the
