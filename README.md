@@ -1,3 +1,5 @@
+> **PUBLIC SCIENTIFIC CORRECTION — 13 October 2026.** The historical [T1′–T4 Riemann-hypothesis proof chain](https://github.com/couret-interia/rh-analytic-framework-t1t4) is **invalid as a proof**. Its published T2 argument omits the nonzero diagonal of the Gram-matrix error, and T3 asserts an incompatible wave-packet normalization. Read the [explicit mathematical erratum](ERRATUM_RH_T1T4_2026-10-13.md). The original archive is preserved for historical accountability; do **not** cite it as a valid RH proof or a journal-ready proof framework. This correction does not disqualify unrelated finite checks, which have separate review limits.
+
 # Couret — finite verifications (public release v1.0.0)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22978365.svg)](https://doi.org/10.5281/zenodo.22978365)
