@@ -150,3 +150,13 @@ P2 / PHILOSOPHIE : la notion de "continuite" reste un cadre d'interpretation : e
 - GitHub PR #28 : https://github.com/alexcour/couret-finite-verifications/pull/28
 
 **Publication boundary :** document de travail d'etat de l'art, sans attribution de priorite a nos formulations, sans demonstration d'une conjecture globale, sans annonce de DOI, sans diffusion de donnees industrielles privees. La bibliographie a ete controle e au niveau des pages primaires et, pour Casper–Orozco, du texte HTML ; cette note ne vaut PAS relecture complete des preuves de toutes les sources.
+
+## Approfondissement méthodologique — 13 octobre 2026
+
+Le [paquet de méthodes et contrôles exacts](../correspondent_methods_20261013/README.md) transforme les rapprochements bibliographiques en trois livrables :
+
+- Récursion CRT 2-locale, suivant les indications d'Oleksiy Babanskyy et le cadre Mahatab–Sampath : concordance avec les sommes de Ramanujan sur 38 272 tuples de signes, puis 622 440 triplets examinés directement et 3 648 comparaisons supplémentaires. Huit modules, n=24,40,48,56,72,80,96,120. Le test local reste distinct de l'intégralité globale ; à n=120, 128 survivants locaux deviennent 2 supports entiers.
+- Spécialisation exacte du poids de U(30) aux paramètres de Bailleul–Hayani–Untrau : λ(t)=9, λ(t*)=5, sept caractères actifs, k(t)^7=3^4·5^6. Le budget temporel, les combinaisons de fréquences, l'anti-concentration et la quadrature restent à certifier ; aucune densité nouvelle n'est fournie.
+- Deux paires de Cayley orientés modulo 12 et 24 : même carré étiqueté et même polynôme caractéristique, mais multisets distincts de retours en trois pas sur les arcs. Deux certificats courts de non-isomorphisme, sans prétendue canonicalisation d'un corpus par nauty.
+
+Les résultats JSON/CSV, les deux vérificateurs Python standard-library et un workflow de replay avec contrôle de dérive sont joints. Les preuves écrites sont internes et non formalisées en Lean dans ce paquet. Aucun statut universel STROBO, certificat de zéros, hypothèse GRH/LI, archive DOI ou revendication d'originalité n'est promu. Les correspondances personnelles ne sont pas publiées.
