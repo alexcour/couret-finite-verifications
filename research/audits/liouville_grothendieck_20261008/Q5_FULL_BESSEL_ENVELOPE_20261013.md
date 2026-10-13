@@ -31,3 +31,11 @@ Les entrées restent les reçus q15 et q3/q5 à 67 racines, le certificat analyt
 Pas de GRH globale, pas de preuve LI, pas d'affirmation inconditionnelle sur les nombres premiers et pas de relecture indépendante. Le programme réutilise les fonctions numériques rationnelles et les reçus du même laboratoire : réussite CI = reproduction interne, non arbitrage mathématique externe.
 
 Le certificat historique [Q5](Q5_CONDITIONAL_PROBABILITY_20261013.md), la [borne de queue](ALL_TAIL_BOUNDS_20261013.md) et le [raffinement K](Q5_REFINED_K_RESULT_20261013.md) restent inchangés.
+
+## Vérification CI et nouvelle borne (13 octobre 2026)
+
+Run [38406208951](https://github.com/alexcour/couret-finite-verifications/actions/runs/38406208951), commit `5cbc697ee9b5c8897faf011bad1a89f3c91d91f5` : job `finite-67-roots-and-conditional-tail-bounds` SUCCESS, étape « Rigorous full 67-Bessel factor envelope and improved conditional Q5 bound » SUCCESS.
+
+Le reçu affiché dans le journal donne : `P2_upper=0.056303`, `new_replacement_error_upper=0.000175363`, ancien `0.001596446`, variance extérieure `[0.790890,0.790898]`. La probabilité conditionnelle Q5 est contenue dans **[0.289262,0.289616]**, par arrondi extérieur des fractions exactes. Le résultat garde les erreurs de Simpson et de troncature intégrale de l'inversion initiale ; la nouvelle erreur de remplacement est substituée à l'ancienne, non additionnée. Aucun certificat historique n'est écrasé.
+
+Il reste à vérifier contradictoirement la preuve ensembliste de la borne `J0`, la borne de dérivée sur toutes les cellules, les rayons d'ordonnées, la justification de l'enveloppe analytique à grande fréquence, et la base FLINT/Arb. L'exécution CI valide le rejeu interne et les critères codés, **pas** ces hypothèses par une expertise indépendante. GRH, indépendance des phases et transfert à la densité arithmétique restent des questions séparées.
