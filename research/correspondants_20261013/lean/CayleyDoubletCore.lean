@@ -118,3 +118,118 @@ theorem doubletArc_iff
 #print axioms Couret.CayleyDoublet.doubletArc_iff
 
 end Couret.CayleyDoublet
+
+
+/-!
+CAYLEY-DOUBLET-QUOTIENT-PERIOD (13 October 2026).
+
+Abstract quotient-period transport, building on the compiled intrinsic-mate
+and marked-arc lemmas above. A quotient projection and its deterministic
+marked successor are EXPLICIT INPUTS. This does not assume or claim that
+a specific cyclic Cayley graph satisfies the quotient hypotheses.
+
+The arithmetic specialization S = {a,b,b+m}, the exceptional order-four
+degeneracy, and the gcd cycle counts remain independent obligations.
+-/
+
+namespace Couret.CayleyDoublet
+
+/-- Iterate an intrinsic quotient successor map exactly n times. -/
+def iterateMap {Q : Type*} (P : Q → Q) : Nat → Q → Q
+  | 0, x => x
+  | n + 1, x => P (iterateMap P n x)
+
+/-- A conjugacy of successor maps also conjugates all of their iterates. -/
+theorem iterateMap_conjugate {Q R : Type*}
+    (g : Q ≃ R) (P : Q → Q) (Qp : R → R)
+    (hComm : ∀ x, g (P x) = Qp (g x))
+    (n : Nat) (x : Q) :
+    g (iterateMap P n x) = iterateMap Qp n (g x) := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      change g (P (iterateMap P n x)) = Qp (iterateMap Qp n (g x))
+      rw [hComm (iterateMap P n x), ih]
+
+/-- The periodic-point predicate is preserved under quotient conjugacy. -/
+theorem iterateMap_period_iff {Q R : Type*}
+    (g : Q ≃ R) (P : Q → Q) (Qp : R → R)
+    (hComm : ∀ x, g (P x) = Qp (g x))
+    (n : Nat) (x : Q) :
+    iterateMap P n x = x ↔ iterateMap Qp n (g x) = g x := by
+  constructor
+  · intro hx
+    calc
+      iterateMap Qp n (g x) = g (iterateMap P n x) :=
+        (iterateMap_conjugate g P Qp hComm n x).symm
+      _ = g x := congrArg g hx
+  · intro hy
+    apply g.injective
+    calc
+      g (iterateMap P n x) = iterateMap Qp n (g x) :=
+        iterateMap_conjugate g P Qp hComm n x
+      _ = g x := hy
+
+/-- Existence of a point fixed by the n-th iterate is an isomorphism invariant. -/
+theorem iterateMap_period_exists_iff {Q R : Type*}
+    (g : Q ≃ R) (P : Q → Q) (Qp : R → R)
+    (hComm : ∀ x, g (P x) = Qp (g x))
+    (n : Nat) :
+    (∃ x : Q, iterateMap P n x = x) ↔
+    (∃ y : R, iterateMap Qp n y = y) := by
+  constructor
+  · rintro ⟨x, hx⟩
+    exact ⟨g x, (iterateMap_period_iff g P Qp hComm n x).mp hx⟩
+  · rintro ⟨y, hy⟩
+    refine ⟨g.symm y, ?_⟩
+    apply (iterateMap_period_iff g P Qp hComm n (g.symm y)).mpr
+    simpa using hy
+
+/--
+Transport of a marked quotient successor across a directed graph isomorphism.
+The projection maps are surjective, correspond along f, and have well-defined
+successors on the pairs of common out-neighbors. No affineness of f is assumed.
+-/
+theorem markedQuotient_natural
+    {V W Q R : Type*}
+    (f : V ≃ W) (g : Q ≃ R)
+    (E : V → V → Prop) (F : W → W → Prop)
+    (hE : ∀ x y, E x y ↔ F (f x) (f y))
+    (mateV : V → V) (mateW : W → W)
+    (hMateV : ∀ x, IsMate E x (mateV x))
+    (hUniqueW : ∀ x y, IsMate F x y → y = mateW x)
+    (πV : V → Q) (πW : W → R)
+    (hπ : ∀ x, g (πV x) = πW (f x))
+    (hπsurj : Function.Surjective πV)
+    (P : Q → Q) (Qp : R → R)
+    (hArcV : ∀ x, ∃ y, DoubletArc E mateV x y)
+    (hPV : ∀ x y, DoubletArc E mateV x y → P (πV x) = πV y)
+    (hPW : ∀ x y, DoubletArc F mateW x y → Qp (πW x) = πW y) :
+    ∀ z : Q, g (P z) = Qp (g z) := by
+  intro z
+  rcases hπsurj z with ⟨x, rfl⟩
+  rcases hArcV x with ⟨y, hy⟩
+  have hfArc : DoubletArc F mateW (f x) (f y) :=
+    (doubletArc_iff f E F hE mateV mateW hMateV hUniqueW x y).mp hy
+  calc
+    g (P (πV x)) = g (πV y) := by rw [hPV x y hy]
+    _ = πW (f y) := hπ y
+    _ = Qp (πW (f x)) := (hPW (f x) (f y) hfArc).symm
+    _ = Qp (g (πV x)) := by rw [hπ x]
+
+/-- A periodic-point mismatch on conjugate quotients is impossible. -/
+theorem no_conjugacy_when_periods_differ {Q R : Type*}
+    (g : Q ≃ R) (P : Q → Q) (Qp : R → R)
+    (hComm : ∀ x, g (P x) = Qp (g x))
+    (n : Nat)
+    (hExists : ∃ x : Q, iterateMap P n x = x)
+    (hAbsent : ∀ y : R, iterateMap Qp n y ≠ y) : False := by
+  rcases hExists with ⟨x, hx⟩
+  exact hAbsent (g x) ((iterateMap_period_iff g P Qp hComm n x).mp hx)
+
+#print axioms Couret.CayleyDoublet.iterateMap_conjugate
+#print axioms Couret.CayleyDoublet.iterateMap_period_iff
+#print axioms Couret.CayleyDoublet.markedQuotient_natural
+#print axioms Couret.CayleyDoublet.no_conjugacy_when_periods_differ
+
+end Couret.CayleyDoublet
