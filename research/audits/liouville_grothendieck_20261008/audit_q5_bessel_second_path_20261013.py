@@ -228,6 +228,9 @@ def main():
     result=report(args.cells)
     if args.check:
         check(result["cells"]==2400,"non-standard grid in pinned check")
+        expected=(HERE/"q5_bessel_second_path_audit_20261013.json").read_text()
+        check(expected==json.dumps(result,indent=2,sort_keys=True)+"\n",
+              "second-path receipt differs from rational recomputation")
     print(json.dumps(result,indent=2,sort_keys=True))
 
 
