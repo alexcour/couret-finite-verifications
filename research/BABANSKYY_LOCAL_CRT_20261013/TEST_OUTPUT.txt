@@ -1,0 +1,23 @@
+Execution locale - 13 octobre 2026
+Python 3.12.14
+
+Commande: python -m unittest discover -s research/BABANSKYY_LOCAL_CRT_20261013 -p test_*.py -v
+
+test_arbitrary_integer_sources_and_zero_blocks (test_local_crt.LocalCRTTests.test_arbitrary_integer_sources_and_zero_blocks) ... ok
+test_babanskyy_n24_conditions (test_local_crt.LocalCRTTests.test_babanskyy_n24_conditions) ... ok
+test_deeper_ladders (test_local_crt.LocalCRTTests.test_deeper_ladders) ... ok
+test_elementary_lift_and_reduction (test_local_crt.LocalCRTTests.test_elementary_lift_and_reduction) ... ok
+test_exhaustive_small_supports (test_local_crt.LocalCRTTests.test_exhaustive_small_supports) ... ok
+test_higher_divisibility_cannot_be_discarded (test_local_crt.LocalCRTTests.test_higher_divisibility_cannot_be_discarded) ... ok
+test_invalid_inputs (test_local_crt.LocalCRTTests.test_invalid_inputs) ... ok
+test_translation_and_all_signed_cyclotomic_remainders (test_local_crt.LocalCRTTests.test_translation_and_all_signed_cyclotomic_remainders) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 10.413s
+
+OK
+{"exhaustive_supports": 2338, "sign_choices_checked": 58304}
+
+Commande: python research/BABANSKYY_LOCAL_CRT_20261013/compare.py
+
+{"status": "PASS", "targets": [{"n": 24, "a": 3, "p": 3, "support": [1, 5, 17], "sign_choices": 128, "at_2": 8, "at_p": 64, "integral": 4, "2_only": 4, "p_only": 60, "neither": 60, "p_free_levels": [0, 1, 2], "distinct_integral_supports": [[1, 5, 17], [1, 9, 21], [5, 13, 17], [9, 13, 21]], "disagreements": 0}, {"n": 40, "a": 3, "p": 5, "support": [1, 5, 17], "sign_choices": 128, "at_2": 8, "at_p": 8, "integral": 2, "2_only": 6, "p_only": 6, "neither": 114, "p_free_levels": [], "distinct_integral_supports": [[1, 5, 17], [21, 25, 37]], "disagreements": 0}, {"n": 48, "a": 4, "p": 3, "support": [1, 5, 17], "sign_choices": 512, "at_2": 8, "at_p": 128, "integral": 2, "2_only": 6, "p_only": 126, "neither": 378, "p_free_levels": [0, 1, 2], "distinct_integral_supports": [[1, 5, 17], [25, 29, 41]], "disagreements": 0}], "family_cases": 21, "total_sign_choices": 14992, "disagreements": 0}

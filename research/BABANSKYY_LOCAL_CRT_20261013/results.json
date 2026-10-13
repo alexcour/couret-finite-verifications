@@ -1,0 +1,1018 @@
+{
+  "status": "PASS",
+  "arithmetic": "integers and exact rational fractions",
+  "construction_attribution": "Oleksiy Babanskyy, correspondence 2026-10-13 09:35:31 Europe/Paris",
+  "targets": [
+    {
+      "n": 24,
+      "a": 3,
+      "p": 3,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 64,
+      "integral": 4,
+      "2_only": 4,
+      "p_only": 60,
+      "neither": 60,
+      "p_free_levels": [
+        0,
+        1,
+        2
+      ],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          1,
+          9,
+          21
+        ],
+        [
+          5,
+          13,
+          17
+        ],
+        [
+          9,
+          13,
+          21
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 40,
+      "a": 3,
+      "p": 5,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 8,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 6,
+      "neither": 114,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          21,
+          25,
+          37
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 48,
+      "a": 4,
+      "p": 3,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 128,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 126,
+      "neither": 378,
+      "p_free_levels": [
+        0,
+        1,
+        2
+      ],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          25,
+          29,
+          41
+        ]
+      ],
+      "disagreements": 0
+    }
+  ],
+  "family": [
+    {
+      "n": 22,
+      "a": 1,
+      "p": 11,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 8,
+      "at_2": 8,
+      "at_p": 2,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 0,
+      "neither": 0,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          6,
+          12,
+          16
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 26,
+      "a": 1,
+      "p": 13,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 8,
+      "at_2": 8,
+      "at_p": 2,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 0,
+      "neither": 0,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          4,
+          14,
+          18
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 20,
+      "a": 2,
+      "p": 5,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 32,
+      "at_2": 8,
+      "at_p": 4,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 2,
+      "neither": 22,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          7,
+          11,
+          15
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 28,
+      "a": 2,
+      "p": 7,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 32,
+      "at_2": 8,
+      "at_p": 4,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 2,
+      "neither": 22,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          3,
+          15,
+          19
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 44,
+      "a": 2,
+      "p": 11,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 32,
+      "at_2": 8,
+      "at_p": 4,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 2,
+      "neither": 22,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          23,
+          27,
+          39
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 52,
+      "a": 2,
+      "p": 13,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 32,
+      "at_2": 8,
+      "at_p": 4,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 2,
+      "neither": 22,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          27,
+          31,
+          43
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 24,
+      "a": 3,
+      "p": 3,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 64,
+      "integral": 4,
+      "2_only": 4,
+      "p_only": 60,
+      "neither": 60,
+      "p_free_levels": [
+        0,
+        1,
+        2
+      ],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          1,
+          9,
+          21
+        ],
+        [
+          5,
+          13,
+          17
+        ],
+        [
+          9,
+          13,
+          21
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 40,
+      "a": 3,
+      "p": 5,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 8,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 6,
+      "neither": 114,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          21,
+          25,
+          37
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 56,
+      "a": 3,
+      "p": 7,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 8,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 6,
+      "neither": 114,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          29,
+          33,
+          45
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 88,
+      "a": 3,
+      "p": 11,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 8,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 6,
+      "neither": 114,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          45,
+          49,
+          61
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 104,
+      "a": 3,
+      "p": 13,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 8,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 6,
+      "neither": 114,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          53,
+          57,
+          69
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 48,
+      "a": 4,
+      "p": 3,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 128,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 126,
+      "neither": 378,
+      "p_free_levels": [
+        0,
+        1,
+        2
+      ],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          25,
+          29,
+          41
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 80,
+      "a": 4,
+      "p": 5,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 16,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 14,
+      "neither": 490,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          41,
+          45,
+          57
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 112,
+      "a": 4,
+      "p": 7,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 16,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 14,
+      "neither": 490,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          57,
+          61,
+          73
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 176,
+      "a": 4,
+      "p": 11,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 16,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 14,
+      "neither": 490,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          89,
+          93,
+          105
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 208,
+      "a": 4,
+      "p": 13,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 16,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 14,
+      "neither": 490,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          105,
+          109,
+          121
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 96,
+      "a": 5,
+      "p": 3,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 2048,
+      "at_2": 8,
+      "at_p": 256,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 254,
+      "neither": 1786,
+      "p_free_levels": [
+        0,
+        1,
+        2
+      ],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          49,
+          53,
+          65
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 160,
+      "a": 5,
+      "p": 5,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 2048,
+      "at_2": 8,
+      "at_p": 32,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 30,
+      "neither": 2010,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          81,
+          85,
+          97
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 224,
+      "a": 5,
+      "p": 7,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 2048,
+      "at_2": 8,
+      "at_p": 32,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 30,
+      "neither": 2010,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          113,
+          117,
+          129
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 352,
+      "a": 5,
+      "p": 11,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 2048,
+      "at_2": 8,
+      "at_p": 32,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 30,
+      "neither": 2010,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          177,
+          181,
+          193
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 416,
+      "a": 5,
+      "p": 13,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_choices": 2048,
+      "at_2": 8,
+      "at_p": 32,
+      "integral": 2,
+      "2_only": 6,
+      "p_only": 30,
+      "neither": 2010,
+      "p_free_levels": [],
+      "distinct_integral_supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          209,
+          213,
+          225
+        ]
+      ],
+      "disagreements": 0
+    }
+  ],
+  "direct_convolution": [
+    {
+      "n": 24,
+      "triples_examined": 2024,
+      "supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          1,
+          9,
+          21
+        ],
+        [
+          5,
+          13,
+          17
+        ],
+        [
+          9,
+          13,
+          21
+        ]
+      ]
+    },
+    {
+      "n": 40,
+      "triples_examined": 9880,
+      "supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          21,
+          25,
+          37
+        ]
+      ]
+    },
+    {
+      "n": 48,
+      "triples_examined": 17296,
+      "supports": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          25,
+          29,
+          41
+        ]
+      ]
+    }
+  ],
+  "full_triple_census": [
+    {
+      "n": 24,
+      "all_triples": 2024,
+      "fibre_count_by_size": {
+        "2": 988,
+        "4": 12
+      },
+      "exceptional_witness": [
+        [
+          0,
+          4,
+          12
+        ],
+        [
+          0,
+          12,
+          16
+        ],
+        [
+          4,
+          8,
+          20
+        ],
+        [
+          8,
+          16,
+          20
+        ]
+      ]
+    },
+    {
+      "n": 40,
+      "all_triples": 9880,
+      "fibre_count_by_size": {
+        "2": 4940
+      },
+      "exceptional_witness": null
+    },
+    {
+      "n": 48,
+      "all_triples": 17296,
+      "fibre_count_by_size": {
+        "2": 8600,
+        "4": 24
+      },
+      "exceptional_witness": [
+        [
+          0,
+          8,
+          24
+        ],
+        [
+          0,
+          24,
+          32
+        ],
+        [
+          8,
+          16,
+          40
+        ],
+        [
+          16,
+          32,
+          40
+        ]
+      ]
+    }
+  ],
+  "boundary_witnesses": [
+    {
+      "n": 24,
+      "a": 3,
+      "p": 3,
+      "support": [
+        0,
+        4,
+        12
+      ],
+      "sign_choices": 128,
+      "at_2": 8,
+      "at_p": 64,
+      "integral": 4,
+      "2_only": 4,
+      "p_only": 60,
+      "neither": 60,
+      "p_free_levels": [
+        0,
+        1,
+        2
+      ],
+      "distinct_integral_supports": [
+        [
+          0,
+          4,
+          12
+        ],
+        [
+          0,
+          12,
+          16
+        ],
+        [
+          4,
+          8,
+          20
+        ],
+        [
+          8,
+          16,
+          20
+        ]
+      ],
+      "disagreements": 0
+    },
+    {
+      "n": 48,
+      "a": 4,
+      "p": 3,
+      "support": [
+        0,
+        8,
+        24
+      ],
+      "sign_choices": 512,
+      "at_2": 8,
+      "at_p": 256,
+      "integral": 4,
+      "2_only": 4,
+      "p_only": 252,
+      "neither": 252,
+      "p_free_levels": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "distinct_integral_supports": [
+        [
+          0,
+          8,
+          24
+        ],
+        [
+          0,
+          24,
+          32
+        ],
+        [
+          8,
+          16,
+          40
+        ],
+        [
+          16,
+          32,
+          40
+        ]
+      ],
+      "disagreements": 0
+    }
+  ],
+  "total_sign_choices": 14992,
+  "disagreements": 0
+}

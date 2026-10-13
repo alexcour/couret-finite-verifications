@@ -1,0 +1,25 @@
+name: Babanskyy local cyclotomic CRT - exact finite audit
+on:
+  push:
+    branches: [research/babanskyy-local-crt-2026-10-13]
+    paths:
+      - 'research/BABANSKYY_LOCAL_CRT_20261013/**'
+      - '.github/workflows/babanskyy-local-crt.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-local-crt:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Exact local, global and adversarial tests
+        run: python -m unittest discover -s research/BABANSKYY_LOCAL_CRT_20261013 -p 'test_*.py' -v
+      - name: Recompute every stored sign tuple and bounded family
+        run: python research/BABANSKYY_LOCAL_CRT_20261013/compare.py --check
+      - name: Check audit packet hashes
+        working-directory: research/BABANSKYY_LOCAL_CRT_20261013
+        run: sha256sum --check SHA256SUMS.txt
