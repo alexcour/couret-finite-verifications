@@ -32,3 +32,7 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/verify_all_tail_bounds.py --check
       - name: Verify full-tail witnesses and reject incomplete or uncertain inputs
         run: python research/audits/liouville_grothendieck_20261008/test_all_tail_bounds.py
+      - name: Enclose Q5 conditional sign probability with rational Fourier/Simpson errors
+        run: python research/audits/liouville_grothendieck_20261008/certify_q5_probability.py --check
+      - name: Reject invalid Q5 inversion parameters and preserve conditional scope
+        run: python research/audits/liouville_grothendieck_20261008/test_certify_q5_probability.py
