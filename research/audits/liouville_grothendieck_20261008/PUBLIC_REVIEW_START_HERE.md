@@ -16,6 +16,23 @@
 
 ## Scientific boundary
 
+**13 Oct Q5 probability inversion — internal conditional bound:** The
+[Q5 rational Fourier/Simpson proof](Q5_CONDITIONAL_PROBABILITY_20261013.md),
+[standalone fraction-only checker](certify_q5_probability.py) and
+[seven fail-closed controls](test_certify_q5_probability.py) bound the
+sign probability of the specified GRH/independent-phase Q5 model by
+**[0.286450, 0.292650]**, conditional on the pinned 67-root, analytic-K
+and full-tail certificates and their written arguments. The whole
+interval of Gaussian-tail variance is covered through a rigorously
+positive probability derivative; numerical Fourier nodes, Simpson error,
+integral truncation and root enclosures are explicitly bounded.
+[Dedicated replay](https://github.com/alexcour/couret-finite-verifications/actions/runs/38355681524)
+and [general checks](https://github.com/alexcour/couret-finite-verifications/actions/runs/38355681498)
+passed at `456ff042`. This is **not an unconditional prime-race
+density, a global GRH/LI verification, an independent root computation,
+or external mathematical review**. The former wording that inversion
+remained outstanding described the preceding dated stage.
+
 **13 Oct full 67-root and tail continuation:** [proof](ALL_TAIL_BOUNDS_20261013.md), [q3/q5 root instrument](certify_q3_q5_root_intervals.py) and [receipt](q3_q5_root_interval_certificate_20261013.json) add the remaining thirty isolations and counts, including a 320-bit check. Together with the preserved q15 instrument there are 67 simple roots and matching counts within the finite region up to 25. Under GRH and independent uniform phases, [full-tail aggregation](verify_all_tail_bounds.py) bounds any threshold-probability change from replacing all high phases by a Gaussian by <0.002 for all five profiles, hence all thirteen categories. These trusted-backend computations are not global GRH, independent peer review or a numerical prime-density certificate. The Gaussian-replaced probability still needs interval quadrature.
 
 **12 Oct q15 tail comparison:** [autonomous tail proof](Q15_TAIL_BOUNDS_20261012.md) derives strictly positive Hadamard residuals without GRH from the pinned q15 finite certificate and analytic K bounds. Under GRH and independent uniform phases, a rigorously bounded Gaussian replacement of only the q15 tail changes every threshold probability by at most 0.000589 (Q5/Q3/C5), 0.001524 (Q15) or 0.000880 (C15). No numerical quadrature is used. The [exact aggregation checker](verify_q15_tail_bounds.py) consumes receipts; the separate `q15-root-intervals` workflow reexecutes their Arb and analytic prerequisites. This does not certify a prime-race density or the q3/q5 Gaussian replacements. Independent mathematical review remains open.
