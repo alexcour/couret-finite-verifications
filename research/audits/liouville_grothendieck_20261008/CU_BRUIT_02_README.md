@@ -1,5 +1,23 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Refined analytic K bounds — 13 Oct 2026 (experimental, source branch)
+
+[New exact double-Abel instrument](certify_refined_K_20261013.py) uses the
+periodic character's first and second partial sums for the tails of
+L(1,chi) and L'(1,chi), plus elementary convexity bounds on Euler's
+constant. It **preserves** the original pinned analytic-K receipt and,
+for each of the five K constants, computes an enclosure strictly
+contained in the existing one with >100x smaller width. The dedicated
+[CI workflow 38388561716](https://github.com/alexcour/couret-finite-verifications/actions/runs/38388561716)
+executed this new checker and its input-sha safeguards successfully.
+**No tightened Q5 probability interval is claimed yet.** The new
+intervals have not been substituted into the full-tail replacement bound
+or into Q5 Fourier inversion. The script relies on the old dyadic
+interval/log arithmetic; it is not a backend-independent review.
+GRH/LI, the true prime density, human review and priority remain open.
+[Drive research note](https://docs.google.com/document/d/1FKwUK02YAK4pRgGCAuTKQ0pmUn0HdhQUdQNhrsaShQs/edit)
+records the model interval and continuation. The PR stays draft.
+
 ## Q5 conditional sign probability — 13 Oct 2026 (internal interval replay)
 
 [Full rational Fourier/Simpson argument and error budget](Q5_CONDITIONAL_PROBABILITY_20261013.md),
