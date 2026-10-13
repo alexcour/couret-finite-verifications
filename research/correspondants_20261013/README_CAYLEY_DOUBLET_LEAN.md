@@ -47,3 +47,7 @@ Sous le critère d'unicité, le quotient canonique par les paires `{x,x+m}` adme
 **Contre-exemples minimaux :** `m=2, a=1, b=0` : trois compagnons par sommet ; `m=3, a=1, b=0` : un unique compagnon. Vérification indépendante en arithmétique entière : 39 800 jeux de paramètres normalisés (2 <= m <= 200, tous a non nuls modulo m, b=0) ; dont 200 dégénérés et 39 600 à compagnon unique. Les résultats sont une vérification finie interne, distincte des certificats propres à n=48 de `verify_cayley_n48.py`; le script de test est conservé dans le dossier de travail avant intégration versionnée.
 
 **Porte de publication :** PR #30 reste DRAFT, pas de fusion, pas de priorité ou audit indépendant revendiqué. Ne pas y inclure les correspondances privées, ni aucune formulation FCI sous embargo.
+
+## Vérification CI constatée (13 octobre 2026)
+
+Au commit `2b48be3b89ef0eec952aed454f077cad5811621f`, `cayley-doublet-lean` run **38446948174** a terminé **SUCCESS**. Les workflows `cayley-triple-square-exact` run **38446947920** et `verify` run **38446947776** ont aussi terminé **SUCCESS**. Ce succès valide la compilation de l'extension **abstraite et conditionnelle** ; il ne couvre pas une preuve Lean de l'unicité arithmétique du compagnon `x+m`, ni une preuve Lean de la formule `gcd(m,b)`.
