@@ -42,3 +42,5 @@ jobs:
           echo REFINED_K_JSON_BEGIN
           cat /tmp/cu_refined_K.json
           echo REFINED_K_JSON_END
+      - name: Recalculate Q5 probability with refined K and preserve old certified enclosure
+        run: python research/audits/liouville_grothendieck_20261008/refine_q5_probability_20261013.py
