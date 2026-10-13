@@ -20,6 +20,10 @@ jobs:
         run: python -m unittest discover -s research/BABANSKYY_LOCAL_CRT_20261013 -p 'test_*.py' -v
       - name: Recompute every stored sign tuple and bounded family
         run: python research/BABANSKYY_LOCAL_CRT_20261013/compare.py --check
+      - name: Prime-power tensor CRT tests and separate local conditions
+        run: python -m unittest discover -s research/BABANSKYY_LOCAL_CRT_20261013/general -p 'test_*.py' -v
+      - name: Recompute bounded general-modulus comparisons
+        run: python research/BABANSKYY_LOCAL_CRT_20261013/general/compare_general.py --check
       - name: Check audit packet hashes
         working-directory: research/BABANSKYY_LOCAL_CRT_20261013
         run: sha256sum --check SHA256SUMS.txt

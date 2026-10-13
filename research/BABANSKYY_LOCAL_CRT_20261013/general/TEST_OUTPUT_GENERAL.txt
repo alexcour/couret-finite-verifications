@@ -1,0 +1,21 @@
+Execution locale - 13 octobre 2026
+Python 3.12.14
+
+Nouvelle suite: python -m unittest discover -s research/BABANSKYY_LOCAL_CRT_20261013/general -p test_*.py -v
+
+test_agreement_with_previous_special_implementation (test_tensor_crt.TensorCRTTests.test_agreement_with_previous_special_implementation) ... ok
+test_higher_q_power_divisibility (test_tensor_crt.TensorCRTTests.test_higher_q_power_divisibility) ... ok
+test_qary_block_inverse (test_tensor_crt.TensorCRTTests.test_qary_block_inverse) ... ok
+test_reconstruct_prescribed_remainders_and_axis_order (test_tensor_crt.TensorCRTTests.test_reconstruct_prescribed_remainders_and_axis_order) ... ok
+test_small_supports_exhaustively (test_tensor_crt.TensorCRTTests.test_small_supports_exhaustively) ... ok
+test_validation (test_tensor_crt.TensorCRTTests.test_validation) ... ok
+test_zero_full_and_signed_sources (test_tensor_crt.TensorCRTTests.test_zero_full_and_signed_sources) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 12.968s
+
+OK
+
+Pilote: python research/BABANSKYY_LOCAL_CRT_20261013/general/compare_general.py
+
+{"status": "PASS", "total_tested_signs": 47808, "complete_cases": 14, "sampled_cases": 5, "disagreements": 0}

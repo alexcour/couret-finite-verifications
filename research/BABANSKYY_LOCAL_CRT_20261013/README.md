@@ -2,6 +2,12 @@
 
 Date: 13 October 2026. Scientific working branch, not a release or submission.
 
+**Continuation:** the prime-power tensor extension in
+[`general/README.md`](general/README.md) now handles arbitrary positive cyclic
+moduli, with a separate ladder for every prime. The first implementation and
+its original results below are retained. The earlier restriction to 2^a p
+describes `local_crt.py`, not the added `general/tensor_crt.py` module.
+
 The recursive construction and its local interpretation were supplied by
 **Oleksiy Babanskyy**, in correspondence received on 13 October 2026 at
 09:35:31 Europe/Paris. This packet implements that construction independently
