@@ -438,11 +438,11 @@ fixed direction d. The resulting cardinality is not yet a count of fibres:
 parameter redundancies from translations and reflection remain to quotient.
 -/
 
-def threeTorsion : Finset G :=
+def offsetThreeTorsion : Finset G :=
   Finset.univ.filter (fun w => (w + w) + w = 0)
 
 def nonzeroThreeTorsion : Finset G :=
-  (threeTorsion : Finset G).erase 0
+  (offsetThreeTorsion : Finset G).erase 0
 
 def exceptionalOffsets (d : G) : Finset G :=
   (nonzeroThreeTorsion : Finset G) ∪
@@ -451,7 +451,7 @@ def exceptionalOffsets (d : G) : Finset G :=
 theorem mem_nonzeroThreeTorsion (w : G) :
     w ∈ (nonzeroThreeTorsion : Finset G) ↔
       (w + w) + w = 0 ∧ w ≠ 0 := by
-  simp [nonzeroThreeTorsion, threeTorsion, and_comm]
+  simp [nonzeroThreeTorsion, offsetThreeTorsion, and_comm]
 
 theorem triple_sum_two_torsion_shift (w d : G) (hd : d + d = 0) :
     ((w + d) + (w + d)) + (w + d) = ((w + w) + w) + d := by
