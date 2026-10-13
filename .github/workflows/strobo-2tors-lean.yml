@@ -15,7 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - name: Replay exact triple-square tests
-        run: python research/strobo-2tors-2026-10-12/verify_strobo_2tors.py
+        run: |
+          python research/strobo-2tors-2026-10-12/verify_strobo_2tors.py
+          python research/strobo-2tors-2026-10-12/verify_remaining_profiles_20261013.py
+          git diff --exit-code -- research/strobo-2tors-2026-10-12/remaining_profiles_results_20261013.json
       - name: Reject placeholders and custom axioms in candidate
         shell: bash
         run: |
@@ -33,9 +36,9 @@ jobs:
       - name: Resolve Lean and mathlib
         working-directory: research/strobo-2tors-2026-10-12/lean
         run: |
-          lake update
+          lake resolve-deps
           lake exe cache get
           lean --version
-      - name: Compile preliminary algebraic lemmas
+      - name: Compile profile reconstruction and separation lemmas
         working-directory: research/strobo-2tors-2026-10-12/lean
         run: lake env lean Strobo2TorsCore.lean

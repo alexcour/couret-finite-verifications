@@ -1,13 +1,18 @@
-import Mathlib.Tactic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Tactic.Abel
+import Mathlib.Tactic.Tauto
+import Lean.Elab.Tactic.Omega
+import Aesop
 
 set_option autoImplicit false
 
 /-!
-STROBO-2TORS: deliberately narrow first proof layer.
+STROBO-2TORS: profile reconstruction and algebraic proof layer.
 
-This file establishes algebraic prerequisites for the proposed triple-support
-classification. It does NOT claim to establish the complete fibre bound or the
-classification/counting theorem.
+This file establishes reconstruction within profiles (1,1,1) and (3), their
+separation, and normalized/unnormalized necessary paired-profile lemmas.
+It does NOT establish the assembled Finset/convolution theorem, the complete
+fibre bound as a cardinality theorem, or the classification/counting theorem.
 
 The coefficient below is the explicit nine-ordered-pair expansion of the
 convolution square of a three-element support {a,b,c}, when its entries are
@@ -692,4 +697,284 @@ theorem paired_square_classification_same_singleton
       simpa using hbase
     exact cross_matching_forces_exception a b c d 0 hd hzero hbase0 hsquare
 
+/-! ## Reconstruction from the three off-diagonal sums -/
+
+theorem offCoeff_positive_iff (a b c z : G) :
+    0 < offCoeff a b c z ↔ z = a + b ∨ z = a + c ∨ z = b + c := by
+  unfold offCoeff
+  split_ifs <;> aesop
+
+/-- The three labelled edge sums determine a distinct triple up to G[2]. -/
+theorem offCoeff_reconstructs_support
+    (a b c t v w : G)
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (htv : t ≠ v) (htw : t ≠ w) (hvw : v ≠ w)
+    (hoff : ∀ z : G, offCoeff a b c z = offCoeff t v w z) :
+    ∃ u : G, u + u = 0 ∧
+      ({t, v, w} : Finset G) = {a + u, b + u, c + u} := by
+  have he : ({a + b, a + c, b + c} : Finset G) =
+      {t + v, t + w, v + w} := by
+    ext z
+    have hp : (0 < offCoeff a b c z) ↔ (0 < offCoeff t v w z) := by
+      rw [hoff z]
+    simpa only [offCoeff_positive_iff, Finset.mem_insert,
+      Finset.mem_singleton] using hp
+  have habac : a + b ≠ a + c := fun h => hbc (add_left_cancel h)
+  have habbc : a + b ≠ b + c := by
+    intro h
+    have h' : b + a = b + c := by simpa [add_comm] using h
+    exact hac (add_left_cancel h')
+  have hacbc : a + c ≠ b + c := fun h => hab (add_right_cancel h)
+  have htvw : t + v ≠ t + w := fun h => hvw (add_left_cancel h)
+  have htvm : t + v ≠ v + w := by
+    intro h
+    have h' : v + t = v + w := by simpa [add_comm] using h
+    exact htw (add_left_cancel h')
+  have htwm : t + w ≠ v + w := fun h => htv (add_right_cancel h)
+  have hs := congrArg (fun s : Finset G => s.sum id) he
+  change ({a + b, a + c, b + c} : Finset G).sum id =
+    ({t + v, t + w, v + w} : Finset G).sum id at hs
+  rw [sum_three (a + b) (a + c) (b + c) habac habbc hacbc,
+      sum_three (t + v) (t + w) (v + w) htvw htvm htwm] at hs
+  let u : G := (t + v + w) - (a + b + c)
+  have hu : u + u = 0 := by
+    dsimp [u]
+    calc
+      ((t + v + w) - (a + b + c)) +
+          ((t + v + w) - (a + b + c)) =
+        ((t + v) + (t + w) + (v + w)) -
+          ((a + b) + (a + c) + (b + c)) := by abel
+      _ = 0 := by rw [hs]; simp
+  have h1 : (t + v + w) - (a + b) = c + u := by dsimp [u]; abel
+  have h2 : (t + v + w) - (a + c) = b + u := by dsimp [u]; abel
+  have h3 : (t + v + w) - (b + c) = a + u := by dsimp [u]; abel
+  have h4 : (t + v + w) - (t + v) = w := by abel
+  have h5 : (t + v + w) - (t + w) = v := by abel
+  have h6 : (t + v + w) - (v + w) = t := by abel
+  have hi := congrArg (fun s : Finset G => s.image (fun x => (t + v + w) - x)) he
+  change ({a + b, a + c, b + c} : Finset G).image (fun x => (t + v + w) - x) =
+    ({t + v, t + w, v + w} : Finset G).image (fun x => (t + v + w) - x) at hi
+  simp only [Finset.image_insert, Finset.image_singleton, h1, h2, h3, h4, h5, h6] at hi
+  refine ⟨u, hu, ?_⟩
+  have hleft : ({c + u, b + u, a + u} : Finset G) = {a + u, b + u, c + u} := by
+    ext x; simp only [Finset.mem_insert, Finset.mem_singleton]; tauto
+  have hright : ({w, v, t} : Finset G) = {t, v, w} := by
+    ext x; simp only [Finset.mem_insert, Finset.mem_singleton]; tauto
+  rw [hleft, hright] at hi
+  exact hi.symm
+
+/-! ## Profile (1,1,1): parity recovers all diagonals -/
+
+theorem diagCoeff_le_one_distinct_doubles (a b c z : G)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c)
+    (hbc : b + b ≠ c + c) : diagCoeff a b c z ≤ 1 := by
+  unfold diagCoeff
+  split_ifs <;> simp_all
+
+theorem distinct_doubles_square_recovers_diagonals
+    (a b c t v w : G)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c) (hbc : b + b ≠ c + c)
+    (htv : t + t ≠ v + v) (htw : t + t ≠ w + w) (hvw : v + v ≠ w + w)
+    (hsq : ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v w z) :
+    ∀ z : G, diagCoeff a b c z = diagCoeff t v w z := by
+  intro z
+  have hp := congrArg (fun n : ℕ => n % 2) (hsq z)
+  change tripleSquareCoeff a b c z % 2 = tripleSquareCoeff t v w z % 2 at hp
+  rw [tripleSquareCoeff_mod_two, tripleSquareCoeff_mod_two] at hp
+  have h1 := diagCoeff_le_one_distinct_doubles a b c z hab hac hbc
+  have h2 := diagCoeff_le_one_distinct_doubles t v w z htv htw hvw
+  omega
+
+theorem distinct_doubles_square_classification
+    (a b c t v w : G)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c) (hbc : b + b ≠ c + c)
+    (htv : t + t ≠ v + v) (htw : t + t ≠ w + w) (hvw : v + v ≠ w + w)
+    (hsq : ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v w z) :
+    ∃ u : G, u + u = 0 ∧
+      ({t, v, w} : Finset G) = {a + u, b + u, c + u} := by
+  have hd := distinct_doubles_square_recovers_diagonals a b c t v w
+    hab hac hbc htv htw hvw hsq
+  have hoff : ∀ z : G, offCoeff a b c z = offCoeff t v w z := by
+    intro z
+    have h := hsq z
+    unfold tripleSquareCoeff at h
+    rw [hd z] at h
+    omega
+  have hab' : a ≠ b := fun h => hab (by rw [h])
+  have hac' : a ≠ c := fun h => hac (by rw [h])
+  have hbc' : b ≠ c := fun h => hbc (by rw [h])
+  have htv' : t ≠ v := fun h => htv (by rw [h])
+  have htw' : t ≠ w := fun h => htw (by rw [h])
+  have hvw' : v ≠ w := fun h => hvw (by rw [h])
+  exact offCoeff_reconstructs_support a b c t v w hab' hac' hbc' htv' htw' hvw' hoff
+
+/-! ## Profile (3): the unique odd diagonal has multiplicity three -/
+
+theorem same_doubles_diagCoeff (a b c z : G)
+    (hab : a + a = b + b) (hac : a + a = c + c) :
+    diagCoeff a b c z = 3 * (if a + a = z then 1 else 0) := by
+  simp only [diagCoeff, ← hab, ← hac]
+  omega
+
+theorem same_doubles_square_parity (a b c z : G)
+    (hab : a + a = b + b) (hac : a + a = c + c) :
+    tripleSquareCoeff a b c z % 2 = (if a + a = z then 1 else 0) := by
+  rw [tripleSquareCoeff_mod_two, same_doubles_diagCoeff a b c z hab hac]
+  split_ifs <;> omega
+
+theorem same_doubles_square_classification
+    (a b c t v w : G)
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (htv : t ≠ v) (htw : t ≠ w) (hvw : v ≠ w)
+    (hab2 : a + a = b + b) (hac2 : a + a = c + c)
+    (htv2 : t + t = v + v) (htw2 : t + t = w + w)
+    (hsq : ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v w z) :
+    ∃ u : G, u + u = 0 ∧
+      ({t, v, w} : Finset G) = {a + u, b + u, c + u} := by
+  have hp := congrArg (fun n : ℕ => n % 2) (hsq (a + a))
+  change tripleSquareCoeff a b c (a + a) % 2 = tripleSquareCoeff t v w (a + a) % 2 at hp
+  rw [same_doubles_square_parity a b c (a + a) hab2 hac2,
+      same_doubles_square_parity t v w (a + a) htv2 htw2] at hp
+  have hat : a + a = t + t := by
+    by_contra h
+    simp [Ne.symm h] at hp
+  have hd : ∀ z : G, diagCoeff a b c z = diagCoeff t v w z := by
+    intro z
+    rw [same_doubles_diagCoeff a b c z hab2 hac2,
+        same_doubles_diagCoeff t v w z htv2 htw2, hat]
+  have hoff : ∀ z : G, offCoeff a b c z = offCoeff t v w z := by
+    intro z
+    have h := hsq z
+    unfold tripleSquareCoeff at h
+    rw [hd z] at h
+    omega
+  exact offCoeff_reconstructs_support a b c t v w hab hac hbc htv htw hvw hoff
+
+/-! ## Separation of the three profiles -/
+
+theorem distinct_doubles_not_single_odd
+    (a b c x : G)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c) (hbc : b + b ≠ c + c)
+    (hpar : ∀ z : G, tripleSquareCoeff a b c z % 2 = (if x = z then 1 else 0)) :
+    False := by
+  have hpa := hpar (a + a)
+  have hpb := hpar (b + b)
+  rw [tripleSquareCoeff_mod_two] at hpa hpb
+  have hda : diagCoeff a b c (a + a) = 1 := by
+    simp [diagCoeff, Ne.symm hab, Ne.symm hac]
+  have hdb : diagCoeff a b c (b + b) = 1 := by
+    simp [diagCoeff, hab, Ne.symm hbc]
+  rw [hda] at hpa
+  rw [hdb] at hpb
+  have hxa : x = a + a := by
+    by_contra h; simp [h] at hpa
+  have hxb : x = b + b := by
+    by_contra h; simp [h] at hpb
+  exact hab (hxa.symm.trans hxb)
+
+theorem distinct_doubles_not_paired_square
+    (a b c t v d : G)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c) (hbc : b + b ≠ c + c)
+    (hd : d + d = 0)
+    (hsq : ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v (v + d) z) :
+    False := by
+  apply distinct_doubles_not_single_odd a b c (t + t) hab hac hbc
+  intro z
+  rw [hsq z, paired_square_parity t v d z hd]
+
+theorem distinct_doubles_not_same_doubles_square
+    (a b c t v w : G)
+    (hab : a + a ≠ b + b) (hac : a + a ≠ c + c) (hbc : b + b ≠ c + c)
+    (htv : t + t = v + v) (htw : t + t = w + w)
+    (hsq : ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v w z) :
+    False := by
+  apply distinct_doubles_not_single_odd a b c (t + t) hab hac hbc
+  intro z
+  rw [hsq z, same_doubles_square_parity t v w z htv htw]
+
+theorem square_positive_cases (a b c z : G)
+    (hp : 0 < tripleSquareCoeff a b c z) :
+    z = a + a ∨ z = b + b ∨ z = c + c ∨
+    z = a + b ∨ z = a + c ∨ z = b + c := by
+  by_contra hn
+  have h1 : a + a ≠ z := fun h => hn (Or.inl h.symm)
+  have h2 : b + b ≠ z := fun h => hn (Or.inr (Or.inl h.symm))
+  have h3 : c + c ≠ z := fun h => hn (Or.inr (Or.inr (Or.inl h.symm)))
+  have h4 : a + b ≠ z := fun h => hn (Or.inr (Or.inr (Or.inr (Or.inl h.symm))))
+  have h5 : a + c ≠ z := fun h => hn (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h.symm)))))
+  have h6 : b + c ≠ z := fun h => hn (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h.symm)))))
+  simp [tripleSquareCoeff, diagCoeff, offCoeff, h1, h2, h3, h4, h5, h6] at hp
+
+/-- A profile-(3) square is supported in one coset of G[2]. -/
+theorem same_doubles_positive_double (a b c z : G)
+    (hab : a + a = b + b) (hac : a + a = c + c)
+    (hp : 0 < tripleSquareCoeff a b c z) :
+    z + z = (a + a) + (a + a) := by
+  rcases square_positive_cases a b c z hp with h | h | h | h | h | h
+  · rw [h]
+  · rw [h, ← hab]
+  · rw [h, ← hac]
+  · rw [h]
+    calc
+      (a + b) + (a + b) = (a + a) + (b + b) := by abel
+      _ = (a + a) + (a + a) := by rw [← hab]
+  · rw [h]
+    calc
+      (a + c) + (a + c) = (a + a) + (c + c) := by abel
+      _ = (a + a) + (a + a) := by rw [← hac]
+  · rw [h]
+    calc
+      (b + c) + (b + c) = (b + b) + (c + c) := by abel
+      _ = (a + a) + (a + a) := by rw [← hab, ← hac]
+
+theorem same_doubles_not_genuine_paired_square
+    (a b c t v d : G)
+    (hab : a + a = b + b) (hac : a + a = c + c)
+    (hd : d + d = 0) (htv : t + t ≠ v + v)
+    (hsq : ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v (v + d) z) :
+    False := by
+  have hp : 0 < tripleSquareCoeff t v (v + d) (v + v) := by
+    rw [paired_expansion_residual t v d (v + v) hd]
+    have h := residual_double_base_positive t v d
+    omega
+  have hq : 0 < tripleSquareCoeff t v (v + d) (t + v) := by
+    rw [paired_expansion_residual t v d (t + v) hd]
+    have h := residual_mixed_base_positive t v d
+    omega
+  rw [← hsq] at hp hq
+  have hp2 := same_doubles_positive_double a b c (v + v) hab hac hp
+  have hq2 := same_doubles_positive_double a b c (t + v) hab hac hq
+  exact residual_base_doubles_distinct t v htv (hp2.trans hq2.symm)
+
+/-! ## Raccordement: unnormalized genuine paired triples -/
+
+theorem paired_square_classification_after_normalization
+    (a b t c d e : G)
+    (hd : d + d = 0) (he : e + e = 0) (he0 : e ≠ 0)
+    (hab : a + a ≠ b + b) (htc : t + t ≠ c + c)
+    (hsq : ∀ z : G, tripleSquareCoeff a b (b + d) z =
+      tripleSquareCoeff t c (c + e) z) :
+    ∃ u : G, u + u = 0 ∧ t + u = a ∧ e = d ∧
+      ((c + u = b ∨ c + u = b + d) ∨
+       ((c + u = b + b - a ∨ c + u = (b + b - a) + d) ∧
+        (((b - a) + (b - a)) + (b - a) = 0 ∨
+         ((b - a) + (b - a)) + (b - a) = d))) := by
+  obtain ⟨u, hu, htu, hs⟩ := normalize_paired_square_singleton a b t c d e hd he hsq
+  have hdouble : a + a = t + t := singleton_doubles_equal_of_square_eq a b t c d e hd he hsq
+  have hc : (c + u) + (c + u) = c + c := pair_sum_translate c c u hu
+  have hac : a + a ≠ (c + u) + (c + u) := by
+    rw [hdouble, hc]
+    exact htc
+  obtain ⟨hed, hcases⟩ := paired_square_classification_same_singleton a b (c + u) d e
+    hd he he0 hab hac hs
+  exact ⟨u, hu, htu, hed, hcases⟩
+
 end Couret.STROBO2TORS
+
+#print axioms Couret.STROBO2TORS.offCoeff_reconstructs_support
+#print axioms Couret.STROBO2TORS.distinct_doubles_square_classification
+#print axioms Couret.STROBO2TORS.same_doubles_square_classification
+#print axioms Couret.STROBO2TORS.distinct_doubles_not_paired_square
+#print axioms Couret.STROBO2TORS.distinct_doubles_not_same_doubles_square
+#print axioms Couret.STROBO2TORS.same_doubles_not_genuine_paired_square
+#print axioms Couret.STROBO2TORS.paired_square_classification_after_normalization

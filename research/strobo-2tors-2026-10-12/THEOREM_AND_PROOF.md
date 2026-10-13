@@ -1,12 +1,12 @@
 # STROBO-2TORS — Classification of ordered triple-convolution squares
 
-12 October 2026. INTERNAL WRITTEN PROOF; NOT REFEREED. NO COMPILED LEAN CERTIFICATE. NOVELTY NOT ESTABLISHED. Keep this branch/PR in DRAFT and do not merge.
+12 October 2026; status reconciled 13 October 2026. INTERNAL WRITTEN PROOF; NOT REFEREED. Compiled algebraic/profile lemmas only, not an assembled universal Lean classification or counting certificate. NOVELTY NOT ESTABLISHED. Keep this branch/PR in DRAFT and do not merge. The exact proof and experiment boundaries are recorded in `LEAN_GATE.md` and `REMAINING_PROFILES_20261013.md`.
 
 ## Definitions
 
 Let G be a finite abelian group, H=G[2]={u:2u=0}, h=|H|, Q=G/H, q=|Q|, n=|G|, and r3=(|Q[3]|-1)/2=(|G[3]|-1)/2. For a set S of exactly three distinct elements, set f_S=sum_{s in S}[s] in Z[G]; write R_S=f_S*f_S. The coefficient of [z] is the number of all **ordered** pairs (s,t) in S^2 with s+t=z, including diagonals. Equality of R means equality as labelled integer-valued functions, not graph isomorphism.
 
-## Theorem: complete fibre classification (proof below)
+## Candidate global theorem: internal written classification (proof below)
 
 R_S=R_T iff (A) T=S+u for some u in H, or (B) there are a,v in G, d in H\{0} and u in H with v notin H, 3v in {0,d}, such that
 
@@ -54,6 +54,6 @@ A translation t of G sending S to an exceptional partner would have to fix the u
 * Presence of large H alone does not yield nontranslation collisions: C2^2 x C5 (h=4) has none.
 * When q=3, the zero-free exceptional maximum is 2h-2, not 2h.
 
-Proof status: INTERNAL WRITTEN PROOF (not externally audited); exact script/tests (14 groups, 142,436 three-element supports) are independently reproducible but NOT a universal proof; Lean 4 NOT compiled; no novelty or priority claim. For comparison, a nearby subset-sum reconstruction invariant appears in A. Ciprietti & F. Glaudo, *On the determination of sets by their subset sums* (2025), DOI:10.5070/C65365553, but it is not the labelled square-convolution invariant here. Literature audit remains open.
+Proof status: INTERNAL WRITTEN PROOF (not externally audited). The current exact script passes 43 groups / 252,084 three-element supports; the original 14-group / 142,436-support scope is historical. These finite checks are reproducible but NOT a universal proof. Lean compiles the declarations listed in `LEAN_GATE.md`, not this global cardinality/counting statement. No novelty or priority claim. For comparison, a nearby subset-sum reconstruction invariant appears in A. Ciprietti & F. Glaudo, *On the determination of sets by their subset sums* (2025), DOI:10.5070/C65365553, but it is not the labelled square-convolution invariant here. Literature audit remains open.
 
 Source documents: https://docs.google.com/document/d/1V5MjN4vRx_nuUUEj0Y3V4QrHSKatS8BoYp1nzOTZFaI/edit and https://docs.google.com/document/d/15jv68eSZ--P29Jw2dNMuIGkv950ahU4KKXCFl_Ydu3M/edit . Existing unique-involution PR #23 stays untouched and DRAFT.
