@@ -36,3 +36,5 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/certify_q5_probability.py --check
       - name: Reject invalid Q5 inversion parameters and preserve conditional scope
         run: python research/audits/liouville_grothendieck_20261008/test_certify_q5_probability.py
+      - name: Audit proposed double-Abel spectral K refinements without replacing pinned K
+        run: python research/audits/liouville_grothendieck_20261008/certify_refined_K_20261013.py > /tmp/cu_refined_K.json
