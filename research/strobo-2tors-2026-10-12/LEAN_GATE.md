@@ -1,6 +1,6 @@
 # STROBO-2TORS — Lean boundary, 13 October 2026
 
-PR #25 remains DRAFT. No merge, global enumeration certificate, independent-audit or novelty claim. The exact support-classification equivalence, h/2h fibre-size theorem and h−j orbit restriction are compiled; their scopes are below.
+PR #25 remains DRAFT. No merge, independent-audit or novelty claim. The exact support-classification equivalence, h/2h fibre-size theorem, h−j orbit restriction and global numbers of ordinary/exceptional fibres with zero allowed are compiled; their scopes are below. Aggregate zero-free histograms and sharp attainment criteria are not yet Lean certificates.
 
 ## Verified baseline
 
@@ -11,6 +11,8 @@ Commit 8de834ed099ea8315e446ede91cd2ab389b7ee61: `strobo-2tors-lean` run 3839255
 Commit 3d4823fa13ea8ee53b2d06f20f4cb90523cd05c7: `strobo-2tors-lean` 38418394568 and `verify` 38418394579 both SUCCESS. This completed the profile-level reconstruction and separation milestone. Those runs do not cover the subsequent assembly.
 
 Commit 392a5ed3dd0b6e91ac970f9c58030120dd27350a: `strobo-2tors-lean` 38427342870 and `verify` 38427342883 both SUCCESS. This completed the actual-Finset classification assembly. Those runs do not cover the subsequent cardinality module.
+
+Commit 2372564c78e131a12b58e73fa1069163911ac506: `strobo-2tors-lean` 38434239616 and `verify` 38434239620 both SUCCESS. This completed the finite-cardinality module. Those runs do not cover the subsequent global-enumeration module.
 
 `Strobo2TorsCore.lean` compiles with Lean 4 / mathlib v4.29.1 on 13 October 2026, including the assembled theorem over Finsets. No proof placeholders or custom proof assumptions were introduced. The manifest locks mathlib and all transitive dependency commits. `#print axioms` exposes the standard kernel dependencies of the profile lemmas, the actual coefficient bridge, the exhaustive shape theorem, the final classification and the exceptional non-translation theorem. The local managed host required an executable-path compatibility shim; GitHub CI uses the ordinary Lean installation and must separately confirm the pushed commit.
 
@@ -51,16 +53,36 @@ The classification works in arbitrary abelian groups with decidable equality; am
 | `zeroFreeSquareFibre_card_of_no_exception` | Same size formula for ordinary fibres |
 | `paired_zeroFreeSquareFibre_card` | Exact sum of the two restricted orbit sizes for an exceptional fibre |
 
-Eight `#print axioms` checks in this module expose only propext, Classical.choice and Quot.sound. `FIBRE_CARDINALITIES_20261013.md` states the proof, actual finite definitions and remaining enumeration boundary. The default `lake build` now compiles both modules through a declared Lean library; CI scans both sources and builds that library.
+Eight `#print axioms` checks in this module expose only propext, Classical.choice and Quot.sound. `FIBRE_CARDINALITIES_20261013.md` states the proof and actual finite definitions.
+
+## Global-enumeration module, with zero allowed
+
+`Strobo2TorsEnumeration.lean` imports the cardinality module, with the same finite-group instances. It compiles locally in the locked environment. The pushed commit must receive its own remote build. Let n=|G|, h=|G[2]|, t=|G[3]|, q=cardinality of the actual doubling image and r3=cardinality of the nonzero sign-pair image {v,−v}.
+
+| Declaration | Exact boundary |
+|---|---|
+| `exceptional_difference_normalization` | Converts 3(b−a) in {0,d} to nonzero v in G[3], preserving the support and all order-six cases |
+| `paramSupport_parameters_unique` | Unique raw parameters a,d,v for {a,a+v,a+v+d}, with nonzero d in G[2] and nonzero v in G[3] |
+| `exceptionalSupports_eq_params_image` | Exact image equality with the actual supports whose square fibre has size 2h |
+| `exceptionalSupports_card` | n(h−1)(t−1) exceptional supports |
+| `exceptionalFibres_preimage` | The support-to-fibre map has preimage exactly that exceptional fibre |
+| `exceptionalFibres_weighted_card` | 2hE=n(h−1)(t−1) for the actual number E of exceptional fibres |
+| `group_card_eq_h_mul_doublingImages` | n=hq |
+| `threeTorsion_nonzero_card_eq_two_pairs` | t−1=2r3 |
+| `exceptionalFibres_card_product`, `exceptionalFibres_card_numeric` | E=q(h−1)r3=(n/h)(h−1)((t−1)/2) |
+| `tripleSupports_weighted_card` | C(n,3)=h(O+2E), with O the actual number of ordinary fibres |
+| `ordinaryFibres_card`, `ordinaryFibres_card_numeric` | O=C(n,3)/h−2E and the full numeric formula |
+
+Ten new `#print axioms` checks expose only propext, Classical.choice and Quot.sound. `GLOBAL_ENUMERATION_20261013.md` provides the written proof and exact boundary. Lean counts doubling images and nonzero sign pairs; it proves the numeric n/h and (t−1)/2 factors, rather than constructing a quotient-group type or an order-three-subgroup type. The default `lake build` and CI now scan/build all three modules.
 
 ## Still open in Lean
 
-1. Prove the global parametrization and enumeration of exceptional fibres, including F_{2h}=q(h−1)r3 and the aggregated profile fibre counts.
+1. Prove the separately aggregated profile fibre counts. Global E and O with zero allowed are now compiled as stated above.
 2. Prove aggregated zero-free histograms and sharp attainment criteria. The per-orbit h−j restriction and the sum of restricted exceptional orbit sizes are already compiled.
 3. Independently audit the mathematical proof, definitions, exceptional parametrization and literature. Compilation or a second internal verifier is not an independent mathematical audit.
 
 ## Finite replay
 
-Both Python scripts pass on 43 groups / 252,084 supports. The separate profile replay checks 172,912 reconstruction comparisons, counterexamples, profile preservation, all-G translation separation of exceptional orbit representatives, zero-free histograms including h=1,2, and 42,648 direct h−j orbit restrictions. The deterministic JSON is checked for drift in CI. These are bounded internal checks, distinct from the compiled general statements and independent mathematical validation.
+Both Python scripts pass on 43 groups / 252,084 supports. The separate profile replay checks 172,912 reconstruction comparisons, counterexamples, profile preservation, all-G translation separation of exceptional orbit representatives, zero-free histograms including h=1,2, and 42,648 direct h−j orbit restrictions. It independently enumerates 8,664 raw exceptional parameters and compares their distinct supports and all preimages with the 708 actual exceptional fibres from direct square grouping. The deterministic JSON is checked for drift in CI. These are bounded internal checks, distinct from the compiled general statements and independent mathematical validation.
 
 New remote CI status must be read for the actual pushed commit. Historical successful runs do not cover later source edits. Existing PR #23 remains separate and DRAFT.

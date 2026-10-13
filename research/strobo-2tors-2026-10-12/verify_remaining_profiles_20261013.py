@@ -80,6 +80,31 @@ def check(mods):
                 nontranslations_nozero += sum(zero not in X for X in H_orbit)*sum(zero not in X for X in second)
             else:
                 assert set(members) == H_orbit
+    # Enumerate raw canonical parameters independently of the square grouping.
+    K3 = [g for g in G if mul(3, g) == zero and g != zero]
+    directions = [d for d in H if d != zero]
+    param_supports = {}
+    param_fibres = defaultdict(list)
+    for a in G:
+        for d in directions:
+            for v in K3:
+                S = tuple(sorted((a, add(a, v), add(add(a, v), d))))
+                assert len(set(S)) == 3
+                assert S not in param_supports, (mods, S, param_supports.get(S), (a, d, v))
+                param_supports[S] = (a, d, v)
+                param_fibres[square(S)].append(S)
+    exceptional_keys = {sq for sq, members in fibres.items() if len(members) == 2*h}
+    exceptional_supports = {S for sq in exceptional_keys for S in fibres[sq]}
+    assert set(param_supports) == exceptional_supports
+    assert set(param_fibres) == exceptional_keys
+    assert all(set(param_fibres[sq]) == set(fibres[sq]) for sq in exceptional_keys)
+    assert len(param_supports) == n*(h-1)*len(K3)
+    assert 2*h*len(param_fibres) == len(param_supports)
+    doubling_images = {mul(2, g) for g in G}
+    sign_pairs = {tuple(sorted((v, mul(-1, v)))) for v in K3}
+    assert len(doubling_images)*h == n
+    assert 2*len(sign_pairs) == len(K3)
+    assert len(param_fibres) == len(doubling_images)*(h-1)*len(sign_pairs)
     E = q*(h-1)*r3
     expected = {
         (1, 1, 1): Counter({h: h*h*choose(q, 3)}),
@@ -108,7 +133,9 @@ def check(mods):
             "profile_fibres": {str(p): dict(+counts[p]) for p in expected},
             "zero_free_fibre_histogram": dict(+nozero),
             "reconstruction_comparisons": sum(comparisons.values()),
-            "orbit_restriction_checks": orbit_restriction_checks}
+            "orbit_restriction_checks": orbit_restriction_checks,
+            "exceptional_parameters": len(param_supports),
+            "parametrized_exceptional_fibres": len(param_fibres)}
 
 
 def counterexamples():
@@ -145,6 +172,8 @@ if __name__ == "__main__":
               "groups":len(rows), "triple_supports":sum(r["triple_supports"] for r in rows),
               "reconstruction_comparisons":sum(r["reconstruction_comparisons"] for r in rows),
               "orbit_restriction_checks":sum(r["orbit_restriction_checks"] for r in rows),
+              "exceptional_parameters":sum(r["exceptional_parameters"] for r in rows),
+              "parametrized_exceptional_fibres":sum(r["parametrized_exceptional_fibres"] for r in rows),
               "counterexamples":counterexamples(), "results":rows}
     path=Path(__file__).with_name("remaining_profiles_results_20261013.json")
     path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")

@@ -2,7 +2,7 @@
 
 Historical profile milestone, superseded in one respect by the subsequent `FINSET_CLASSIFICATION_20261013.md`: the final Finset/actual ordered-square classification has now been assembled and compiled. Statements below identifying that assembly as a separate future obligation describe the earlier milestone. Cardinality/counting proofs and independent validation remain open.
 
-Subsequent finite-cardinality milestone: `FIBRE_CARDINALITIES_20261013.md` now compiles orbit size h, square-fibre size h or 2h, the bound 2h and the zero-free per-orbit size h−j. Only global enumeration, aggregate histograms, sharp attainment criteria and independent validation remain open.
+Subsequent milestones: `FIBRE_CARDINALITIES_20261013.md` compiles orbit size h, square-fibre size h or 2h, the bound 2h and the zero-free per-orbit size h−j. `GLOBAL_ENUMERATION_20261013.md` also compiles the global ordinary/exceptional fibre counts with zero allowed. Separate profile counts, aggregate zero-free histograms, sharp attainment criteria and independent validation remain open.
 
 13 October 2026. Internal mathematical proof and bounded exact replay. No independent expert validation or novelty claim. PR #25 remains DRAFT and must not be merged. Consult `LEAN_GATE.md` for the exact compilation boundary; formulas and the universal Finset/convolution theorem are not certified by Lean merely because profile lemmas compile.
 

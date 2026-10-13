@@ -1,6 +1,6 @@
 # STROBO — Assemblage sur les supports de cardinal trois
 
-Jalon historique d'assemblage. Le complément ultérieur `FIBRE_CARDINALITIES_20261013.md` clôt également les cardinalités d'orbites, les tailles h/2h, la borne 2h et la restriction par orbite h−j. Les obligations ci-dessous désignant ces résultats comme futurs décrivent ce jalon antérieur ; l'énumération globale et la validation indépendante restent ouvertes.
+Jalon historique d'assemblage. Les compléments ultérieurs `FIBRE_CARDINALITIES_20261013.md` et `GLOBAL_ENUMERATION_20261013.md` clôturent également les cardinalités d'orbites, les tailles h/2h, la borne 2h, la restriction par orbite h−j et les nombres globaux de fibres ordinaires/exceptionnelles avec zéro autorisé. Les obligations ci-dessous désignant ces résultats comme futurs décrivent ce jalon antérieur ; les histogrammes agrégés sans zéro et la validation indépendante restent ouverts.
 
 13 octobre 2026. Preuve rédigée en interne ; théorèmes Lean compilés localement avec Lean/mathlib 4.29.1. Le succès CI doit être vérifié sur le commit contenant ce fichier. Aucune relecture mathématique indépendante ni revendication de nouveauté. PR #25 conservée en DRAFT, sans fusion.
 

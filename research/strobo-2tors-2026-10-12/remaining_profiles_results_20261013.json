@@ -5,6 +5,8 @@
   "triple_supports": 252084,
   "reconstruction_comparisons": 172912,
   "orbit_restriction_checks": 42648,
+  "exceptional_parameters": 8664,
+  "parametrized_exceptional_fibres": 708,
   "counterexamples": [
     {
       "group": [
@@ -180,7 +182,9 @@
         "4": 8
       },
       "reconstruction_comparisons": 76,
-      "orbit_restriction_checks": 55
+      "orbit_restriction_checks": 55,
+      "exceptional_parameters": 72,
+      "parametrized_exceptional_fibres": 9
     },
     {
       "group": [
@@ -215,7 +219,9 @@
         "4": 140
       },
       "reconstruction_comparisons": 660,
-      "orbit_restriction_checks": 285
+      "orbit_restriction_checks": 285,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -253,7 +259,9 @@
         "8": 18
       },
       "reconstruction_comparisons": 5412,
-      "orbit_restriction_checks": 1785
+      "orbit_restriction_checks": 1785,
+      "exceptional_parameters": 216,
+      "parametrized_exceptional_fibres": 27
     },
     {
       "group": [
@@ -292,7 +300,9 @@
         "8": 72
       },
       "reconstruction_comparisons": 5412,
-      "orbit_restriction_checks": 1785
+      "orbit_restriction_checks": 1785,
+      "exceptional_parameters": 864,
+      "parametrized_exceptional_fibres": 108
     },
     {
       "group": [
@@ -321,7 +331,9 @@
         "13": 35
       },
       "reconstruction_comparisons": 560,
-      "orbit_restriction_checks": 35
+      "orbit_restriction_checks": 35,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -359,7 +371,9 @@
         "8": 56
       },
       "reconstruction_comparisons": 680,
-      "orbit_restriction_checks": 253
+      "orbit_restriction_checks": 253,
+      "exceptional_parameters": 336,
+      "parametrized_exceptional_fibres": 21
     },
     {
       "group": [
@@ -399,7 +413,9 @@
         "16": 168
       },
       "reconstruction_comparisons": 43512,
-      "orbit_restriction_checks": 7455
+      "orbit_restriction_checks": 7455,
+      "exceptional_parameters": 4032,
+      "parametrized_exceptional_fibres": 252
     },
     {
       "group": [
@@ -433,7 +449,9 @@
         "4": 55
       },
       "reconstruction_comparisons": 272,
-      "orbit_restriction_checks": 140
+      "orbit_restriction_checks": 140,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -471,7 +489,9 @@
         "8": 27
       },
       "reconstruction_comparisons": 14128,
-      "orbit_restriction_checks": 4324
+      "orbit_restriction_checks": 4324,
+      "exceptional_parameters": 288,
+      "parametrized_exceptional_fibres": 36
     },
     {
       "group": [
@@ -509,7 +529,9 @@
         "8": 9
       },
       "reconstruction_comparisons": 1304,
-      "orbit_restriction_checks": 506
+      "orbit_restriction_checks": 506,
+      "exceptional_parameters": 144,
+      "parametrized_exceptional_fibres": 18
     },
     {
       "group": [
@@ -547,7 +569,9 @@
         "8": 27
       },
       "reconstruction_comparisons": 14128,
-      "orbit_restriction_checks": 4324
+      "orbit_restriction_checks": 4324,
+      "exceptional_parameters": 288,
+      "parametrized_exceptional_fibres": 36
     },
     {
       "group": [
@@ -586,7 +610,9 @@
         "16": 280
       },
       "reconstruction_comparisons": 5776,
-      "orbit_restriction_checks": 1081
+      "orbit_restriction_checks": 1081,
+      "exceptional_parameters": 1440,
+      "parametrized_exceptional_fibres": 45
     },
     {
       "group": [
@@ -622,7 +648,9 @@
         "4": 8
       },
       "reconstruction_comparisons": 76,
-      "orbit_restriction_checks": 55
+      "orbit_restriction_checks": 55,
+      "exceptional_parameters": 72,
+      "parametrized_exceptional_fibres": 9
     },
     {
       "group": [
@@ -657,7 +685,9 @@
         "4": 1785
       },
       "reconstruction_comparisons": 7720,
-      "orbit_restriction_checks": 2470
+      "orbit_restriction_checks": 2470,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -681,7 +711,9 @@
       },
       "zero_free_fibre_histogram": {},
       "reconstruction_comparisons": 1,
-      "orbit_restriction_checks": 1
+      "orbit_restriction_checks": 1,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -707,7 +739,9 @@
         "1": 4
       },
       "reconstruction_comparisons": 10,
-      "orbit_restriction_checks": 10
+      "orbit_restriction_checks": 10,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -734,7 +768,9 @@
         "1": 56
       },
       "reconstruction_comparisons": 84,
-      "orbit_restriction_checks": 84
+      "orbit_restriction_checks": 84,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -762,7 +798,9 @@
         "1": 2600
       },
       "reconstruction_comparisons": 2925,
-      "orbit_restriction_checks": 2925
+      "orbit_restriction_checks": 2925,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -789,7 +827,9 @@
         "1": 1
       },
       "reconstruction_comparisons": 4,
-      "orbit_restriction_checks": 1
+      "orbit_restriction_checks": 1,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -817,7 +857,9 @@
         "5": 7
       },
       "reconstruction_comparisons": 56,
-      "orbit_restriction_checks": 7
+      "orbit_restriction_checks": 7,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -847,7 +889,9 @@
         "29": 155
       },
       "reconstruction_comparisons": 4960,
-      "orbit_restriction_checks": 155
+      "orbit_restriction_checks": 155,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -873,7 +917,9 @@
         "1": 1
       },
       "reconstruction_comparisons": 0,
-      "orbit_restriction_checks": 2
+      "orbit_restriction_checks": 2,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -902,7 +948,9 @@
         "2": 10
       },
       "reconstruction_comparisons": 32,
-      "orbit_restriction_checks": 28
+      "orbit_restriction_checks": 28,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -932,7 +980,9 @@
         "2": 3
       },
       "reconstruction_comparisons": 8,
-      "orbit_restriction_checks": 10
+      "orbit_restriction_checks": 10,
+      "exceptional_parameters": 12,
+      "parametrized_exceptional_fibres": 3
     },
     {
       "group": [
@@ -962,7 +1012,9 @@
         "2": 28
       },
       "reconstruction_comparisons": 80,
-      "orbit_restriction_checks": 60
+      "orbit_restriction_checks": 60,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -994,7 +1046,9 @@
         "4": 6
       },
       "reconstruction_comparisons": 672,
-      "orbit_restriction_checks": 408
+      "orbit_restriction_checks": 408,
+      "exceptional_parameters": 36,
+      "parametrized_exceptional_fibres": 9
     },
     {
       "group": [
@@ -1023,7 +1077,9 @@
         "2": 3
       },
       "reconstruction_comparisons": 8,
-      "orbit_restriction_checks": 10
+      "orbit_restriction_checks": 10,
+      "exceptional_parameters": 12,
+      "parametrized_exceptional_fibres": 3
     },
     {
       "group": [
@@ -1054,7 +1110,9 @@
         "4": 3
       },
       "reconstruction_comparisons": 160,
-      "orbit_restriction_checks": 110
+      "orbit_restriction_checks": 110,
+      "exceptional_parameters": 24,
+      "parametrized_exceptional_fibres": 6
     },
     {
       "group": [
@@ -1085,7 +1143,9 @@
         "4": 6
       },
       "reconstruction_comparisons": 672,
-      "orbit_restriction_checks": 408
+      "orbit_restriction_checks": 408,
+      "exceptional_parameters": 36,
+      "parametrized_exceptional_fibres": 9
     },
     {
       "group": [
@@ -1117,7 +1177,9 @@
         "4": 1
       },
       "reconstruction_comparisons": 8,
-      "orbit_restriction_checks": 14
+      "orbit_restriction_checks": 14,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1151,7 +1213,9 @@
         "4": 55
       },
       "reconstruction_comparisons": 272,
-      "orbit_restriction_checks": 140
+      "orbit_restriction_checks": 140,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1183,7 +1247,9 @@
         "4": 3
       },
       "reconstruction_comparisons": 160,
-      "orbit_restriction_checks": 110
+      "orbit_restriction_checks": 110,
+      "exceptional_parameters": 24,
+      "parametrized_exceptional_fibres": 6
     },
     {
       "group": [
@@ -1214,7 +1280,9 @@
         "4": 24
       },
       "reconstruction_comparisons": 672,
-      "orbit_restriction_checks": 408
+      "orbit_restriction_checks": 408,
+      "exceptional_parameters": 144,
+      "parametrized_exceptional_fibres": 36
     },
     {
       "group": [
@@ -1246,7 +1314,9 @@
         "4": 24
       },
       "reconstruction_comparisons": 672,
-      "orbit_restriction_checks": 408
+      "orbit_restriction_checks": 408,
+      "exceptional_parameters": 144,
+      "parametrized_exceptional_fibres": 36
     },
     {
       "group": [
@@ -1279,7 +1349,9 @@
         "8": 7
       },
       "reconstruction_comparisons": 112,
-      "orbit_restriction_checks": 70
+      "orbit_restriction_checks": 70,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1314,7 +1386,9 @@
         "8": 253
       },
       "reconstruction_comparisons": 2272,
-      "orbit_restriction_checks": 620
+      "orbit_restriction_checks": 620,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1351,7 +1425,9 @@
         "8": 9
       },
       "reconstruction_comparisons": 1304,
-      "orbit_restriction_checks": 506
+      "orbit_restriction_checks": 506,
+      "exceptional_parameters": 144,
+      "parametrized_exceptional_fibres": 18
     },
     {
       "group": [
@@ -1386,7 +1462,9 @@
         "4": 506
       },
       "reconstruction_comparisons": 2268,
-      "orbit_restriction_checks": 819
+      "orbit_restriction_checks": 819,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1422,7 +1500,9 @@
         "8": 2162
       },
       "reconstruction_comparisons": 18312,
-      "orbit_restriction_checks": 3465
+      "orbit_restriction_checks": 3465,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1457,7 +1537,9 @@
         "8": 3465
       },
       "reconstruction_comparisons": 29120,
-      "orbit_restriction_checks": 5208
+      "orbit_restriction_checks": 5208,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1492,7 +1574,9 @@
         "8": 253
       },
       "reconstruction_comparisons": 2272,
-      "orbit_restriction_checks": 620
+      "orbit_restriction_checks": 620,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     },
     {
       "group": [
@@ -1529,7 +1613,9 @@
         "8": 56
       },
       "reconstruction_comparisons": 680,
-      "orbit_restriction_checks": 253
+      "orbit_restriction_checks": 253,
+      "exceptional_parameters": 336,
+      "parametrized_exceptional_fibres": 21
     },
     {
       "group": [
@@ -1565,7 +1651,9 @@
         "8": 620
       },
       "reconstruction_comparisons": 5400,
-      "orbit_restriction_checks": 1235
+      "orbit_restriction_checks": 1235,
+      "exceptional_parameters": 0,
+      "parametrized_exceptional_fibres": 0
     }
   ]
 }
