@@ -1,5 +1,21 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Q5 improved 67-factor Bessel Gaussian replacement — 13 October 2026
+
+The [rational whole-product proof and CI receipt](Q5_FULL_BESSEL_ENVELOPE_20261013.md)
+and [verifier](certify_q5_full_bessel_envelope_20261013.py) replace the former
+12-witness integral estimate with cell bounds on all **67 low Bessel phases**.
+[CI run 38406208951](https://github.com/alexcour/couret-finite-verifications/actions/runs/38406208951)
+passed and reports a **conditional uniform Gaussian-replacement error ≤0.000175363**
+(former refined-K bound ≤0.001596446). The resulting **Q5 independent-phase
+model sign probability is enclosed in [0.289262,0.289616]**, including variance,
+quadrature, integral truncation and Gaussian replacement errors. These are
+outward numerical bounds *under GRH, independent uniform phases and the trusted
+internal zero/analytic certificates*. The genuine arithmetic prime-race density,
+LI assumptions needed for its identification, Arb soundness and external
+mathematical review are not certified here. Historical receipts remain intact;
+PR #27 stays open as DRAFT without merge or release.
+
 ## Direct finite sign comparison — 13 Oct 2026
 
 [Sign-level proof](FINITE_SIGN_TRANSPORT_20261013.md),
