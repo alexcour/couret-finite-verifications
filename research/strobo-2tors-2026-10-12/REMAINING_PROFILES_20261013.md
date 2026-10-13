@@ -1,5 +1,7 @@
 # STROBO — Profiles (1,1,1) and (3), reconstruction and counting
 
+Historical profile milestone, superseded in one respect by the subsequent `FINSET_CLASSIFICATION_20261013.md`: the final Finset/actual ordered-square classification has now been assembled and compiled. Statements below identifying that assembly as a separate future obligation describe the earlier milestone. Cardinality/counting proofs and independent validation remain open.
+
 13 October 2026. Internal mathematical proof and bounded exact replay. No independent expert validation or novelty claim. PR #25 remains DRAFT and must not be merged. Consult `LEAN_GATE.md` for the exact compilation boundary; formulas and the universal Finset/convolution theorem are not certified by Lean merely because profile lemmas compile.
 
 ## 1. Objects and reconstruction invariant

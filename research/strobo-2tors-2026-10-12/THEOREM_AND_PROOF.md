@@ -1,6 +1,6 @@
 # STROBO-2TORS — Classification of ordered triple-convolution squares
 
-12 October 2026; status reconciled 13 October 2026. INTERNAL WRITTEN PROOF; NOT REFEREED. Compiled algebraic/profile lemmas only, not an assembled universal Lean classification or counting certificate. NOVELTY NOT ESTABLISHED. Keep this branch/PR in DRAFT and do not merge. The exact proof and experiment boundaries are recorded in `LEAN_GATE.md` and `REMAINING_PROFILES_20261013.md`.
+12 October 2026; status reconciled 13 October 2026. INTERNAL WRITTEN PROOF; NOT REFEREED. The support-classification equivalence is now assembled in Lean for arbitrary cardinality-three Finsets, including actual ordered squares and all profiles. Cardinality/counting statements below remain written deductions, not a Lean counting certificate. NOVELTY NOT ESTABLISHED. Keep this branch/PR in DRAFT and do not merge. Exact boundaries: `LEAN_GATE.md`, `FINSET_CLASSIFICATION_20261013.md` and `REMAINING_PROFILES_20261013.md`.
 
 ## Definitions
 

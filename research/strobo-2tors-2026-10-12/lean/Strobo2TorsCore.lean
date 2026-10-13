@@ -7,12 +7,13 @@ import Aesop
 set_option autoImplicit false
 
 /-!
-STROBO-2TORS: profile reconstruction and algebraic proof layer.
+STROBO-2TORS: ordered-square classification of three-element finite supports.
 
-This file establishes reconstruction within profiles (1,1,1) and (3), their
-separation, and normalized/unnormalized necessary paired-profile lemmas.
-It does NOT establish the assembled Finset/convolution theorem, the complete
-fibre bound as a cardinality theorem, or the classification/counting theorem.
+This file establishes an assembled equivalence for the actual ordered-square
+coefficient of cardinality-three Finsets, with every doubling profile and
+relabelling handled internally. Exceptional partners are not related by any
+ambient-group translation. It does NOT establish formal cardinality/counting
+theorems, independent mathematical validation, or a novelty claim.
 
 The coefficient below is the explicit nine-ordered-pair expansion of the
 convolution square of a three-element support {a,b,c}, when its entries are
@@ -969,6 +970,377 @@ theorem paired_square_classification_after_normalization
     hd he he0 hab hac hs
   exact ⟨u, hu, htu, hed, hcases⟩
 
+/-! ## Actual ordered square of finite supports -/
+
+/-- Counts all ordered pairs of support elements, including the diagonal. -/
+def orderedSquare (S : Finset G) (z : G) : ℕ :=
+  S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
+
+def translateSupport (S : Finset G) (u : G) : Finset G :=
+  S.image (fun x => x + u)
+
+theorem orderedSquare_three (a b c z : G)
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c) :
+    orderedSquare ({a, b, c} : Finset G) z = tripleSquareCoeff a b c z := by
+  simp [orderedSquare, tripleSquareCoeff, diagCoeff, offCoeff,
+    hab, hac, hbc, add_comm]
+  omega
+
+theorem translateSupport_three (a b c u : G) :
+    translateSupport ({a, b, c} : Finset G) u = {a + u, b + u, c + u} := by
+  simp [translateSupport]
+
+theorem translateSupport_twice (S : Finset G) (u : G) (hu : u + u = 0) :
+    translateSupport (translateSupport S u) u = S := by
+  have h : (fun x : G => (x + u) + u) = id := by
+    funext x
+    simp [add_assoc, hu]
+  simp only [translateSupport, Finset.image_image, Function.comp_def, h, Finset.image_id]
+
+theorem translateSupport_eq_of_reverse (S T : Finset G) (u : G)
+    (hu : u + u = 0) (h : translateSupport T u = S) :
+    T = translateSupport S u := by
+  have hh := congrArg (fun X => translateSupport X u) h
+  change translateSupport (translateSupport T u) u = translateSupport S u at hh
+  rw [translateSupport_twice T u hu] at hh
+  exact hh
+
+theorem displayed_three_distinct (a b c : G)
+    (hcard : ({a, b, c} : Finset G).card = 3) :
+    a ≠ b ∧ a ≠ c ∧ b ≠ c := by
+  constructor
+  · intro h
+    rw [h] at hcard
+    by_cases hc : b = c <;> simp [hc] at hcard
+  constructor
+  · intro h
+    rw [h] at hcard
+    by_cases hb : b = c <;> simp [hb] at hcard
+  · intro h
+    rw [h] at hcard
+    by_cases ha : a = c <;> simp [ha] at hcard
+
+theorem paired_entries_distinct (a b d : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0) (hab : a + a ≠ b + b) :
+    a ≠ b ∧ a ≠ b + d ∧ b ≠ b + d := by
+  constructor
+  · intro h; exact hab (by rw [h])
+  constructor
+  · intro h
+    apply hab
+    rw [h]
+    exact pair_sum_translate b b d hd
+  · intro h
+    have h' : b + 0 = b + d := by simpa using h
+    exact hd0 (add_left_cancel h').symm
+
+theorem orderedSquare_paired (a b d z : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0) (hab : a + a ≠ b + b) :
+    orderedSquare ({a, b, b + d} : Finset G) z = tripleSquareCoeff a b (b + d) z := by
+  obtain ⟨h1, h2, h3⟩ := paired_entries_distinct a b d hd hd0 hab
+  exact orderedSquare_three a b (b + d) z h1 h2 h3
+
+def OrdinaryPartner (S T : Finset G) : Prop :=
+  ∃ u : G, u + u = 0 ∧ T = translateSupport S u
+
+def ExceptionalPartner (S T : Finset G) : Prop :=
+  ∃ a b d u : G, d + d = 0 ∧ d ≠ 0 ∧ a + a ≠ b + b ∧ u + u = 0 ∧
+    ((((b - a) + (b - a)) + (b - a) = 0) ∨
+      (((b - a) + (b - a)) + (b - a) = d)) ∧
+    S = {a, b, b + d} ∧
+    T = translateSupport ({a, b + b - a, (b + b - a) + d} : Finset G) u
+
+theorem support_swap_last (a b c : G) :
+    ({a, b, c} : Finset G) = {a, c, b} := by
+  ext x
+  simp only [Finset.mem_insert, Finset.mem_singleton]
+  tauto
+
+theorem support_rotate (a b c : G) :
+    ({a, b, c} : Finset G) = {b, c, a} := by
+  ext x
+  simp only [Finset.mem_insert, Finset.mem_singleton]
+  tauto
+
+theorem paired_shape_from_equal_doubles (a b c : G)
+    (hab : a ≠ b) (hab2 : a + a = b + b) (hca2 : c + c ≠ a + a) :
+    ∃ d : G, d + d = 0 ∧ d ≠ 0 ∧ c + c ≠ a + a ∧
+      ({a, b, c} : Finset G) = {c, a, a + d} := by
+  let d := b - a
+  have hd : d + d = 0 := (double_eq_iff_two_torsion a b).mp hab2
+  have hd0 : d ≠ 0 := by
+    intro h
+    have hba : b = a := sub_eq_zero.mp h
+    exact hab hba.symm
+  have had : a + d = b := by dsimp [d]; abel
+  refine ⟨d, hd, hd0, hca2, ?_⟩
+  rw [had]
+  exact (support_rotate c a b).symm
+
+/-- Every cardinality-three finite support has one of the three exact shapes. -/
+theorem card_three_doubling_shapes (S : Finset G) (hS : S.card = 3) :
+    (∃ a b c : G, S = {a, b, c} ∧
+      a + a ≠ b + b ∧ a + a ≠ c + c ∧ b + b ≠ c + c) ∨
+    (∃ a b c : G, S = {a, b, c} ∧
+      a + a = b + b ∧ a + a = c + c) ∨
+    (∃ a b d : G, d + d = 0 ∧ d ≠ 0 ∧ a + a ≠ b + b ∧ S = {a, b, b + d}) := by
+  obtain ⟨a, b, c, hab, hac, hbc, rfl⟩ := Finset.card_eq_three.mp hS
+  rcases three_doubling_profiles a b c with h | h | h | h | h
+  · exact Or.inr (Or.inl ⟨a, b, c, rfl, h.1, h.1.trans h.2⟩)
+  · obtain ⟨d, hd, hd0, hca, hs⟩ :=
+      paired_shape_from_equal_doubles a b c hab h.1 (by rw [h.1]; exact Ne.symm h.2)
+    exact Or.inr (Or.inr ⟨c, a, d, hd, hd0, hca, hs⟩)
+  · obtain ⟨d, hd, hd0, hba, hs⟩ :=
+      paired_shape_from_equal_doubles a c b hac h.2 (Ne.symm h.1)
+    exact Or.inr (Or.inr ⟨b, a, d, hd, hd0, hba, (support_swap_last a b c).trans hs⟩)
+  · obtain ⟨d, hd, hd0, hab2, hs⟩ :=
+      paired_shape_from_equal_doubles b c a hbc h.2.2 h.1
+    exact Or.inr (Or.inr ⟨a, b, d, hd, hd0, hab2, (support_rotate a b c).trans hs⟩)
+  · exact Or.inl ⟨a, b, c, rfl, h⟩
+
+/-- Converts equality of actual squares to equality of the explicit expansions. -/
+theorem explicit_square_eq_of_orderedSquare_eq
+    (S T : Finset G) (a b c t v w : G)
+    (hS : S.card = 3) (hT : T.card = 3)
+    (hsa : S = {a, b, c}) (htt : T = {t, v, w})
+    (hsq : ∀ z : G, orderedSquare S z = orderedSquare T z) :
+    ∀ z : G, tripleSquareCoeff a b c z = tripleSquareCoeff t v w z := by
+  have hs3 : ({a, b, c} : Finset G).card = 3 := by rw [← hsa]; exact hS
+  have ht3 : ({t, v, w} : Finset G).card = 3 := by rw [← htt]; exact hT
+  obtain ⟨h1, h2, h3⟩ := displayed_three_distinct a b c hs3
+  obtain ⟨h4, h5, h6⟩ := displayed_three_distinct t v w ht3
+  intro z
+  have h := hsq z
+  rw [hsa, htt, orderedSquare_three a b c z h1 h2 h3,
+      orderedSquare_three t v w z h4 h5 h6] at h
+  exact h
+
+theorem ordinaryPartner_of_explicit_translation (S T : Finset G)
+    (a b c t v w u : G) (hu : u + u = 0)
+    (hS : S = {a, b, c}) (hT : T = {t, v, w})
+    (heq : ({t, v, w} : Finset G) = {a + u, b + u, c + u}) :
+    OrdinaryPartner S T := by
+  refine ⟨u, hu, ?_⟩
+  rw [hS, hT, translateSupport_three]
+  exact heq
+
+/-- Derives the support alternative for arbitrary singleton locations in paired shapes. -/
+theorem paired_orderedSquare_partner (S T : Finset G)
+    (a b t c d e : G) (hS : S.card = 3) (hT : T.card = 3)
+    (hd : d + d = 0) (he : e + e = 0) (hd0 : d ≠ 0) (he0 : e ≠ 0)
+    (hab : a + a ≠ b + b) (htc : t + t ≠ c + c)
+    (hsa : S = {a, b, b + d}) (htt : T = {t, c, c + e})
+    (hsq : ∀ z : G, orderedSquare S z = orderedSquare T z) :
+    OrdinaryPartner S T ∨ ExceptionalPartner S T := by
+  have hexp := explicit_square_eq_of_orderedSquare_eq S T a b (b + d) t c (c + e)
+    hS hT hsa htt hsq
+  obtain ⟨u, hu, htu, hed, hcases⟩ :=
+    paired_square_classification_after_normalization a b t c d e hd he he0 hab htc hexp
+  have hlast : (c + e) + u = (c + u) + e := by abel
+  have hnorm : translateSupport T u = ({a, c + u, (c + u) + d} : Finset G) := by
+    rw [htt, translateSupport_three, htu, hlast, hed]
+  have hflip : (b + d) + d = b := by simp [add_assoc, hd]
+  rcases hcases with hdirect | ⟨hcross, h3⟩
+  · left
+    have hTS : translateSupport T u = S := by
+      rw [hnorm, hsa]
+      rcases hdirect with h | h
+      · rw [h]
+      · rw [h, hflip]
+        exact support_swap_last a (b + d) b
+    exact ⟨u, hu, translateSupport_eq_of_reverse S T u hu hTS⟩
+  · right
+    have hTR : translateSupport T u =
+        ({a, b + b - a, (b + b - a) + d} : Finset G) := by
+      rw [hnorm]
+      rcases hcross with h | h
+      · rw [h]
+      · rw [h]
+        have hf : ((b + b - a) + d) + d = b + b - a := by simp [add_assoc, hd]
+        rw [hf]
+        exact support_swap_last a ((b + b - a) + d) (b + b - a)
+    exact ⟨a, b, d, u, hd, hd0, hab, hu, h3, hsa,
+      translateSupport_eq_of_reverse _ T u hu hTR⟩
+
+/-- Exhaustive necessary classification of actual squares of three-element supports. -/
+theorem orderedSquare_classification_necessary (S T : Finset G)
+    (hS : S.card = 3) (hT : T.card = 3)
+    (hsq : ∀ z : G, orderedSquare S z = orderedSquare T z) :
+    OrdinaryPartner S T ∨ ExceptionalPartner S T := by
+  rcases card_three_doubling_shapes S hS with
+    ⟨a, b, c, hsa, hab, hac, hbc⟩ | ⟨a, b, c, hsa, hab, hac⟩ |
+      ⟨a, b, d, hd, hd0, hab, hsa⟩
+  · rcases card_three_doubling_shapes T hT with
+      ⟨t, v, w, htt, htv, htw, hvw⟩ | ⟨t, v, w, htt, htv, htw⟩ |
+        ⟨t, v, e, he, he0, htv, htt⟩
+    · have he := explicit_square_eq_of_orderedSquare_eq S T a b c t v w hS hT hsa htt hsq
+      obtain ⟨u, hu, heq⟩ := distinct_doubles_square_classification a b c t v w
+        hab hac hbc htv htw hvw he
+      exact Or.inl (ordinaryPartner_of_explicit_translation S T a b c t v w u hu hsa htt heq)
+    · have he := explicit_square_eq_of_orderedSquare_eq S T a b c t v w hS hT hsa htt hsq
+      exact (distinct_doubles_not_same_doubles_square a b c t v w hab hac hbc htv htw he).elim
+    · have hexp := explicit_square_eq_of_orderedSquare_eq S T a b c t v (v + e) hS hT hsa htt hsq
+      exact (distinct_doubles_not_paired_square a b c t v e hab hac hbc he hexp).elim
+  · rcases card_three_doubling_shapes T hT with
+      ⟨t, v, w, htt, htv, htw, hvw⟩ | ⟨t, v, w, htt, htv, htw⟩ |
+        ⟨t, v, e, he, he0, htv, htt⟩
+    · have he := explicit_square_eq_of_orderedSquare_eq S T a b c t v w hS hT hsa htt hsq
+      exact (distinct_doubles_not_same_doubles_square t v w a b c htv htw hvw hab hac
+        (fun z => (he z).symm)).elim
+    · have hs3 : ({a, b, c} : Finset G).card = 3 := by rw [← hsa]; exact hS
+      have ht3 : ({t, v, w} : Finset G).card = 3 := by rw [← htt]; exact hT
+      obtain ⟨h1, h2, h3⟩ := displayed_three_distinct a b c hs3
+      obtain ⟨h4, h5, h6⟩ := displayed_three_distinct t v w ht3
+      have he := explicit_square_eq_of_orderedSquare_eq S T a b c t v w hS hT hsa htt hsq
+      obtain ⟨u, hu, heq⟩ := same_doubles_square_classification a b c t v w
+        h1 h2 h3 h4 h5 h6 hab hac htv htw he
+      exact Or.inl (ordinaryPartner_of_explicit_translation S T a b c t v w u hu hsa htt heq)
+    · have hexp := explicit_square_eq_of_orderedSquare_eq S T a b c t v (v + e) hS hT hsa htt hsq
+      exact (same_doubles_not_genuine_paired_square a b c t v e hab hac he htv hexp).elim
+  · rcases card_three_doubling_shapes T hT with
+      ⟨t, v, w, htt, htv, htw, hvw⟩ | ⟨t, v, w, htt, htv, htw⟩ |
+        ⟨t, v, e, he, he0, htv, htt⟩
+    · have hexp := explicit_square_eq_of_orderedSquare_eq S T a b (b + d) t v w hS hT hsa htt hsq
+      exact (distinct_doubles_not_paired_square t v w a b d htv htw hvw hd
+        (fun z => (hexp z).symm)).elim
+    · have hexp := explicit_square_eq_of_orderedSquare_eq S T a b (b + d) t v w hS hT hsa htt hsq
+      exact (same_doubles_not_genuine_paired_square t v w a b d htv htw hd hab
+        (fun z => (hexp z).symm)).elim
+    · exact paired_orderedSquare_partner S T a b t v d e hS hT
+        hd he hd0 he0 hab htv hsa htt hsq
+
+theorem orderedSquare_translate_of_card_three (S : Finset G)
+    (hS : S.card = 3) (u z : G) (hu : u + u = 0) :
+    orderedSquare (translateSupport S u) z = orderedSquare S z := by
+  obtain ⟨a, b, c, hab, hac, hbc, rfl⟩ := Finset.card_eq_three.mp hS
+  have habu : a + u ≠ b + u := fun h => hab (add_right_cancel h)
+  have hacu : a + u ≠ c + u := fun h => hac (add_right_cancel h)
+  have hbcu : b + u ≠ c + u := fun h => hbc (add_right_cancel h)
+  rw [translateSupport_three, orderedSquare_three (a + u) (b + u) (c + u) z habu hacu hbcu,
+      orderedSquare_three a b c z hab hac hbc]
+  exact tripleSquareCoeff_translate a b c u z hu
+
+theorem orderedSquare_eq_of_ordinaryPartner (S T : Finset G)
+    (hS : S.card = 3) (h : OrdinaryPartner S T) :
+    ∀ z : G, orderedSquare S z = orderedSquare T z := by
+  obtain ⟨u, hu, ht⟩ := h
+  intro z
+  rw [ht, orderedSquare_translate_of_card_three S hS u z hu]
+
+theorem orderedSquare_eq_of_exceptionalPartner (S T : Finset G)
+    (hT : T.card = 3) (h : ExceptionalPartner S T) :
+    ∀ z : G, orderedSquare S z = orderedSquare T z := by
+  obtain ⟨a, b, d, u, hd, hd0, hab, hu, h3, hs, ht⟩ := h
+  let f := b + b - a
+  have ht' : T = ({a + u, f + u, (f + d) + u} : Finset G) := by
+    rw [ht, translateSupport_three]
+  have hcard : ({a + u, f + u, (f + d) + u} : Finset G).card = 3 := by
+    rw [← ht']; exact hT
+  obtain ⟨h1, h2, h4⟩ := displayed_three_distinct (a + u) (f + u) ((f + d) + u) hcard
+  intro z
+  rw [hs, ht', orderedSquare_paired a b d z hd hd0 hab,
+      orderedSquare_three (a + u) (f + u) ((f + d) + u) z h1 h2 h4]
+  calc
+    tripleSquareCoeff a b (b + d) z = tripleSquareCoeff a f (f + d) z :=
+      exceptional_reflection_same_square a b d z hd h3
+    _ = tripleSquareCoeff (a + u) (f + u) ((f + d) + u) z :=
+      (tripleSquareCoeff_translate a f (f + d) u z hu).symm
+
+/--
+Exact classification for cardinality-three finite supports in any abelian group.
+The square counts labelled ordered sums including diagonal contributions.
+No doubling profile, enumeration, or singleton alignment is assumed.
+This theorem does not assert any cardinality/counting or independent audit result.
+-/
+theorem orderedSquare_classification_iff (S T : Finset G)
+    (hS : S.card = 3) (hT : T.card = 3) :
+    (∀ z : G, orderedSquare S z = orderedSquare T z) ↔
+      OrdinaryPartner S T ∨ ExceptionalPartner S T := by
+  constructor
+  · exact orderedSquare_classification_necessary S T hS hT
+  · intro h
+    rcases h with h | h
+    · exact orderedSquare_eq_of_ordinaryPartner S T hS h
+    · exact orderedSquare_eq_of_exceptionalPartner S T hT h
+
+theorem translateSupport_add (S : Finset G) (u v : G) :
+    translateSupport (translateSupport S u) v = translateSupport S (u + v) := by
+  have h : (fun x : G => (x + u) + v) = (fun x => x + (u + v)) := by
+    funext x; abel
+  simp only [translateSupport, Finset.image_image, Function.comp_def, h]
+
+theorem paired_reflection_not_two_torsion_translate (a b d u : G)
+    (hd : d + d = 0) (hu : u + u = 0) (hab : a + a ≠ b + b) :
+    translateSupport ({a, b, b + d} : Finset G) u ≠
+      {a, b + b - a, (b + b - a) + d} := by
+  intro heq
+  have hm : b + u ∈ translateSupport ({a, b, b + d} : Finset G) u := by
+    rw [translateSupport_three]; simp
+  rw [heq] at hm
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+  have hbu : (b + u) + (b + u) = b + b := pair_sum_translate b b u hu
+  rcases hm with hm | hm | hm
+  · have hba : b + b = a + a := by rw [← hbu, hm]
+    exact hab hba.symm
+  · have hbf : b + b = (b + b - a) + (b + b - a) := by
+      calc
+        b + b = (b + u) + (b + u) := hbu.symm
+        _ = (b + b - a) + (b + b - a) := congrArg (fun x => x + x) hm
+    apply hab
+    apply sub_eq_zero.mp
+    calc
+      (a + a) - (b + b) = (b + b) - ((b + b - a) + (b + b - a)) := by abel
+      _ = (b + b) - (b + b) := congrArg (fun x => (b + b) - x) hbf.symm
+      _ = 0 := by simp
+  · have hbf : b + b = (b + b - a) + (b + b - a) := by
+      calc
+        b + b = (b + u) + (b + u) := hbu.symm
+        _ = ((b + b - a) + d) + ((b + b - a) + d) := congrArg (fun x => x + x) hm
+        _ = (b + b - a) + (b + b - a) := pair_sum_translate (b + b - a) (b + b - a) d hd
+    apply hab
+    apply sub_eq_zero.mp
+    calc
+      (a + a) - (b + b) = (b + b) - ((b + b - a) + (b + b - a)) := by abel
+      _ = (b + b) - (b + b) := congrArg (fun x => (b + b) - x) hbf.symm
+      _ = 0 := by simp
+
+theorem exceptionalPartner_not_ordinaryPartner (S T : Finset G)
+    (he : ExceptionalPartner S T) : ¬ OrdinaryPartner S T := by
+  obtain ⟨a, b, d, u, hd, _, hab, hu, _, hs, ht⟩ := he
+  rintro ⟨v, hv, ht2⟩
+  have huv : (v + u) + (v + u) = 0 := by
+    calc
+      (v + u) + (v + u) = (v + v) + (u + u) := by abel
+      _ = 0 := by simp [hv, hu]
+  have hTS : translateSupport T u = translateSupport S (v + u) := by
+    rw [ht2, translateSupport_add]
+  have hTR : translateSupport T u =
+      ({a, b + b - a, (b + b - a) + d} : Finset G) := by
+    rw [ht, translateSupport_twice _ u hu]
+  have heq : translateSupport ({a, b, b + d} : Finset G) (v + u) =
+      {a, b + b - a, (b + b - a) + d} := by
+    rw [← hs, ← hTS, hTR]
+  exact paired_reflection_not_two_torsion_translate a b d (v + u) hd huv hab heq
+
+/-- An exceptional partner is not a translate by any element of the ambient group. -/
+theorem exceptionalPartner_not_any_translation (S T : Finset G)
+    (hS : S.card = 3) (hT : T.card = 3) (he : ExceptionalPartner S T) :
+    ¬ ∃ v : G, T = translateSupport S v := by
+  have hsq := orderedSquare_eq_of_exceptionalPartner S T hT he
+  have hnot := exceptionalPartner_not_ordinaryPartner S T he
+  obtain ⟨a, b, d, u, hd, hd0, hab, hu, h3, hs, ht⟩ := he
+  rintro ⟨v, hv⟩
+  have hc : (b + d) + v = (b + v) + d := by abel
+  have hvT : T = ({a + v, b + v, (b + v) + d} : Finset G) := by
+    rw [hv, hs, translateSupport_three, hc]
+  have hexp := explicit_square_eq_of_orderedSquare_eq S T a b (b + d)
+    (a + v) (b + v) ((b + v) + d) hS hT hs hvT hsq
+  have haa := singleton_doubles_equal_of_square_eq a b (a + v) (b + v) d d hd hd hexp
+  have hv2 : v + v = 0 := by
+    have h := (double_eq_iff_two_torsion a (a + v)).mp haa
+    simpa using h
+  exact hnot ⟨v, hv2, hv⟩
+
 end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.offCoeff_reconstructs_support
@@ -978,3 +1350,8 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.distinct_doubles_not_same_doubles_square
 #print axioms Couret.STROBO2TORS.same_doubles_not_genuine_paired_square
 #print axioms Couret.STROBO2TORS.paired_square_classification_after_normalization
+#print axioms Couret.STROBO2TORS.orderedSquare_three
+#print axioms Couret.STROBO2TORS.card_three_doubling_shapes
+#print axioms Couret.STROBO2TORS.orderedSquare_classification_necessary
+#print axioms Couret.STROBO2TORS.orderedSquare_classification_iff
+#print axioms Couret.STROBO2TORS.exceptionalPartner_not_any_translation

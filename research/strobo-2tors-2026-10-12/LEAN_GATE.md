@@ -1,14 +1,16 @@
 # STROBO-2TORS — Lean boundary, 13 October 2026
 
-PR #25 remains DRAFT. No merge, universal Lean classification, independent-audit or novelty claim.
+PR #25 remains DRAFT. No merge, formal counting certificate, independent-audit or novelty claim. The exact support-classification equivalence has now been assembled; its scope is below.
 
 ## Verified baseline
 
 Commit 8de834ed099ea8315e446ede91cd2ab389b7ee61: `strobo-2tors-lean` run 38392551679 and `verify` run 38392551712 both SUCCESS. This includes `paired_square_classification_same_singleton` and its prerequisite lemmas; it does not certify the global theorem or counts.
 
-## New local compilation
+## Profile milestone and current assembly
 
-`Strobo2TorsCore.lean` compiles with Lean 4 / mathlib v4.29.1 on 13 October 2026. No proof placeholders or custom proof assumptions were introduced. The manifest locks mathlib and all transitive dependency commits. `#print axioms` exposes the standard kernel dependencies of the seven principal new lemmas. The local managed host required an executable-path compatibility shim; GitHub CI uses the ordinary Lean installation and must separately confirm the pushed commit.
+Commit 3d4823fa13ea8ee53b2d06f20f4cb90523cd05c7: `strobo-2tors-lean` 38418394568 and `verify` 38418394579 both SUCCESS. This completed the profile-level reconstruction and separation milestone. Those runs do not cover the subsequent assembly.
+
+`Strobo2TorsCore.lean` compiles with Lean 4 / mathlib v4.29.1 on 13 October 2026, including the assembled theorem over Finsets. No proof placeholders or custom proof assumptions were introduced. The manifest locks mathlib and all transitive dependency commits. `#print axioms` exposes the standard kernel dependencies of the profile lemmas, the actual coefficient bridge, the exhaustive shape theorem, the final classification and the exceptional non-translation theorem. The local managed host required an executable-path compatibility shim; GitHub CI uses the ordinary Lean installation and must separately confirm the pushed commit.
 
 | Declaration | Exact boundary |
 |---|---|
@@ -21,15 +23,20 @@ Commit 8de834ed099ea8315e446ede91cd2ab389b7ee61: `strobo-2tors-lean` run 3839255
 | `same_doubles_positive_double` | Every positive coefficient of profile (3) lies in one G[2]-coset |
 | `same_doubles_not_genuine_paired_square` | Separates (3) from a genuine paired profile; the different doubling fibres are essential |
 | `paired_square_classification_after_normalization` | Genuine paired profiles, nonzero candidate direction; derives singleton normalization and the existing direct/exceptional alternatives |
+| `orderedSquare_three` | Actual double finite sum counting all ordered pairs equals the explicit nine-pair expansion for distinct vertices |
+| `card_three_doubling_shapes` | Cardinality-three Finset; derives every profile and the required relabelling/paired normalization |
+| `orderedSquare_classification_necessary` | Two Finsets of cardinal three with identical actual ordered squares; derives an ordinary or exceptional partner, without profile assumptions |
+| `orderedSquare_classification_iff` | Same cardinality hypotheses; complete equivalence between equality of actual labelled squares and the two explicit partner predicates |
+| `exceptionalPartner_not_ordinaryPartner` | Exceptional and ordinary partner predicates are disjoint |
+| `exceptionalPartner_not_any_translation` | Cardinality-three supports; an exceptional partner is not any ambient-group translate |
 
-The reconstruction proofs work in arbitrary abelian groups; finite cardinality is not assumed by these declarations. `tripleSquareCoeff` is the explicit nine-pair expansion, with pairwise distinctness needed when interpreting it as a three-element support.
+The classification works in arbitrary abelian groups with decidable equality; ambient-group finiteness is not assumed. Support cardinality three is essential. `orderedSquare` is the actual labelled ordered-pair coefficient, not an assumed matching or a profile-dependent surrogate. `FINSET_CLASSIFICATION_20261013.md` states all hypotheses and the exact predicates.
 
 ## Still open in Lean
 
-1. Assemble a final theorem for arbitrary cardinality-three Finsets, connecting actual ordered convolution to the explicit coefficient function and carrying out all relabelling/normalization cases.
-2. Prove cardinality of each G[2]-orbit and the global h/2h fibre-size statement as formal cardinality theorems.
-3. Prove the profile count formulas and exceptional counts, and all zero-free restrictions and histograms.
-4. Independently audit the mathematical proof, definitions, exceptional parametrization and literature. Compilation or a second internal verifier is not an independent mathematical audit.
+1. Prove cardinality of each G[2]-orbit and the global h/2h fibre-size statement as formal cardinality theorems.
+2. Prove uniqueness and parametrization of exceptional fibres for counting, the profile count formulas and exceptional counts, and all zero-free restrictions and histograms.
+3. Independently audit the mathematical proof, definitions, exceptional parametrization and literature. Compilation or a second internal verifier is not an independent mathematical audit.
 
 ## Finite replay
 
