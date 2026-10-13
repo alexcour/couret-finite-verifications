@@ -429,6 +429,152 @@ theorem paired_zeroFreeSquareFibre_card (a b d : G)
       zeroFreeOrbit_card _ (reflected_support_card_three a b d hd hd0 hab h3)]
   · exact zeroFreeOrbit_card _ (paired_support_card_three a b d hd hd0 hab)
 
+
+/-! ## Exceptional offsets for a fixed nonzero 2-torsion direction
+
+The next counting problem is global enumeration of exceptional fibres.
+This module first identifies and counts possible DIFFERENCES b-a for a
+fixed direction d. The resulting cardinality is not yet a count of fibres:
+parameter redundancies from translations and reflection remain to quotient.
+-/
+
+def threeTorsion : Finset G :=
+  Finset.univ.filter (fun w => (w + w) + w = 0)
+
+def nonzeroThreeTorsion : Finset G :=
+  (threeTorsion : Finset G).erase 0
+
+def exceptionalOffsets (d : G) : Finset G :=
+  (nonzeroThreeTorsion : Finset G) ∪
+    (nonzeroThreeTorsion : Finset G).image (fun w => w + d)
+
+theorem mem_nonzeroThreeTorsion (w : G) :
+    w ∈ (nonzeroThreeTorsion : Finset G) ↔
+      (w + w) + w = 0 ∧ w ≠ 0 := by
+  simp [nonzeroThreeTorsion, threeTorsion, and_comm]
+
+theorem triple_sum_two_torsion_shift (w d : G) (hd : d + d = 0) :
+    ((w + d) + (w + d)) + (w + d) = ((w + w) + w) + d := by
+  calc
+    ((w + d) + (w + d)) + (w + d) =
+        ((w + w) + w) + ((d + d) + d) := by abel
+    _ = ((w + w) + w) + d := by rw [hd]; simp
+
+/-- The exceptional difference condition is a translated 3-torsion condition. -/
+theorem exceptional_triple_condition_iff (v d : G) (hd : d + d = 0) :
+    (((v + v) + v = 0) ∨ ((v + v) + v = d)) ↔
+      ∃ w : G, (w + w) + w = 0 ∧ (v = w ∨ v = w + d) := by
+  constructor
+  · intro h
+    rcases h with hzero | hdir
+    · exact ⟨v, hzero, Or.inl rfl⟩
+    · refine ⟨v - d, ?_, Or.inr ?_⟩
+      · calc
+          (((v - d) + (v - d)) + (v - d)) =
+              ((v + v) + v) - ((d + d) + d) := by abel
+          _ = d - d := by rw [hdir, hd]; simp
+          _ = 0 := sub_self d
+      · abel
+  · rintro ⟨w, hw, h | h⟩
+    · left; rw [h]; exact hw
+    · right
+      rw [h, triple_sum_two_torsion_shift w d hd, hw]
+      simp
+
+theorem mem_exceptionalOffsets (v d : G) :
+    v ∈ exceptionalOffsets d ↔
+      ∃ w : G, (w + w) + w = 0 ∧ w ≠ 0 ∧
+        (v = w ∨ v = w + d) := by
+  rw [exceptionalOffsets, Finset.mem_union]
+  constructor
+  · rintro (h | h)
+    · obtain ⟨hw, hw0⟩ := (mem_nonzeroThreeTorsion v).mp h
+      exact ⟨v, hw, hw0, Or.inl rfl⟩
+    · obtain ⟨w, hw, hwv⟩ := Finset.mem_image.mp h
+      obtain ⟨hw3, hw0⟩ := (mem_nonzeroThreeTorsion w).mp hw
+      exact ⟨w, hw3, hw0, Or.inr hwv.symm⟩
+  · rintro ⟨w, hw3, hw0, hv | hv⟩
+    · apply Or.inl
+      rw [hv]
+      exact (mem_nonzeroThreeTorsion w).mpr ⟨hw3, hw0⟩
+    · apply Or.inr
+      exact Finset.mem_image.mpr
+        ⟨w, (mem_nonzeroThreeTorsion w).mpr ⟨hw3, hw0⟩, hv.symm⟩
+
+theorem nonzero_three_torsion_double_ne_zero (w : G)
+    (hw : (w + w) + w = 0) (hw0 : w ≠ 0) : w + w ≠ 0 := by
+  intro h2
+  have hz : w = 0 := by
+    calc
+      w = ((w + w) + w) - (w + w) := by abel
+      _ = 0 := by rw [hw, h2]; simp
+  exact hw0 hz
+
+/-- Exact offset predicate: genuine doubled difference and exceptional triple sum. -/
+theorem mem_exceptionalOffsets_iff (v d : G) (hd : d + d = 0) :
+    v ∈ exceptionalOffsets d ↔
+      (v + v ≠ 0 ∧ (((v + v) + v = 0) ∨ ((v + v) + v = d))) := by
+  constructor
+  · intro hv
+    obtain ⟨w, hw3, hw0, hvw⟩ := (mem_exceptionalOffsets v d).mp hv
+    rcases hvw with h | h
+    · subst v
+      exact ⟨nonzero_three_torsion_double_ne_zero w hw3 hw0, Or.inl hw3⟩
+    · subst v
+      constructor
+      · rw [pair_sum_translate w w d hd]
+        exact nonzero_three_torsion_double_ne_zero w hw3 hw0
+      · right
+        rw [triple_sum_two_torsion_shift w d hd, hw3]
+        simp
+  · rintro ⟨hv2, h3⟩
+    obtain ⟨w, hw3, hwv⟩ := (exceptional_triple_condition_iff v d hd).mp h3
+    have hw2 : w + w ≠ 0 := by
+      rcases hwv with h | h
+      · subst v; exact hv2
+      · intro hz
+        apply hv2
+        rw [h, pair_sum_translate w w d hd]
+        exact hz
+    have hw0 : w ≠ 0 := by
+      intro hz; apply hw2; simp [hz]
+    exact (mem_exceptionalOffsets v d).mpr ⟨w, hw3, hw0, hwv⟩
+
+theorem exceptionalOffsets_disjoint (d : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0) :
+    Disjoint (nonzeroThreeTorsion : Finset G)
+      ((nonzeroThreeTorsion : Finset G).image (fun w => w + d)) := by
+  apply Finset.disjoint_left.mpr
+  intro v hv hshift
+  obtain ⟨w, hw, hwv⟩ := Finset.mem_image.mp hshift
+  have hv3 := ((mem_nonzeroThreeTorsion v).mp hv).1
+  have hw3 := ((mem_nonzeroThreeTorsion w).mp hw).1
+  have hdz : d = 0 := by
+    calc
+      d = ((w + w) + w) + d := by simp [hw3]
+      _ = ((w + d) + (w + d)) + (w + d) :=
+        (triple_sum_two_torsion_shift w d hd).symm
+      _ = ((v + v) + v) := by rw [hwv]
+      _ = 0 := hv3
+  exact hd0 hdz
+
+/-- There are twice as many exceptional offsets as nonzero 3-torsion
+elements, for each fixed nonzero direction d of order two. This is NOT
+yet a formula for the number of exceptional square fibres. -/
+theorem exceptionalOffsets_card (d : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0) :
+    (exceptionalOffsets d).card =
+      2 * (nonzeroThreeTorsion : Finset G).card := by
+  unfold exceptionalOffsets
+  rw [Finset.card_union_of_disjoint (exceptionalOffsets_disjoint d hd hd0)]
+  have hi : ((nonzeroThreeTorsion : Finset G).image (fun w => w + d)).card =
+      (nonzeroThreeTorsion : Finset G).card := by
+    apply Finset.card_image_iff.mpr
+    intro u hu v hv h
+    exact add_right_cancel h
+  rw [hi]
+  omega
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -440,3 +586,6 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.squareFibre_card_two_h_iff_exception
 #print axioms Couret.STROBO2TORS.zeroFreeOrbit_card
 #print axioms Couret.STROBO2TORS.paired_zeroFreeSquareFibre_card
+
+#print axioms Couret.STROBO2TORS.mem_exceptionalOffsets_iff
+#print axioms Couret.STROBO2TORS.exceptionalOffsets_card
