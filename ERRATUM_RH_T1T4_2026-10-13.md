@@ -58,7 +58,7 @@ De plus, à A fixé, `Xi_A` est **fini** : une somme sur ses points ne devient p
 
 Cet erratum invalide **la chaîne T1′–T4 comme preuve**, sans transformer automatiquement en faux les calculs finis d'autres dépôts. Ces autres résultats exigent séparément : (E) vérification de la preuve, (Q) reproductibilité, (N) comparaison aux antériorités, (R) relecture indépendante. Une CI verte ou un DOI ne valident ni E ni N ni R.
 
-Le retrait historique `lambda ≈ 0,378` est documenté séparément dans [F-001](../../../F001_ERRATUM.md) ; la fréquence asymptotique classique des classes `{1,11,29}` modulo 30 parmi les huit classes inversibles est `3/8`, par Dirichlet.
+Le retrait historique `lambda ≈ 0,378` est documenté séparément dans [F-001](F001_ERRATUM.md) ; la fréquence asymptotique classique des classes `{1,11,29}` modulo 30 parmi les huit classes inversibles est `3/8`, par Dirichlet.
 
 ## 4. Corrections publiques encore nécessaires
 
