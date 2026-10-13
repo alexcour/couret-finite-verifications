@@ -206,7 +206,7 @@ def compute(ordinates, wlo, whi, eps):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check',action='store_true',help='replay a conservative audited interval')
-    parser.parse_args()
+    args=parser.parse_args()
     from verify_all_tail_bounds import (HERE, pinned_inputs,all_roots,SIGNED,MULTIPLICITY,
                                         LABEL_TO_AB,PROFILE_BOOSTS)
     need(PROFILE_BOOSTS['Q5']==('0,2',9) and LABEL_TO_AB['5.4']=='0,2',
@@ -249,8 +249,13 @@ def main():
     a,b=map(F,out['p_conditional_exact'])
     need(F('0.286450')<=a<b<=F('0.292650'),
          'probability did not fit review interval')
-    print(json.dumps({k:v for k,v in out.items() if k!='p_conditional_exact'},
-                     indent=2,sort_keys=True))
+    rendered=json.dumps({k:v for k,v in out.items() if k!='p_conditional_exact'},
+                        indent=2,sort_keys=True)+'\n'
+    receipt=HERE/'q5_conditional_probability_20261013.json'
+    if args.check:
+        need(receipt.read_bytes()==rendered.encode('utf-8'),
+             'pinned Q5 probability receipt changed')
+    print(rendered,end='')
 
 
 if __name__=='__main__':
