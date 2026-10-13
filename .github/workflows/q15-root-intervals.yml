@@ -56,3 +56,5 @@ jobs:
           echo REFINED_K_JSON_END
       - name: Recalculate Q5 probability with refined K and preserve old certified enclosure
         run: python research/audits/liouville_grothendieck_20261008/refine_q5_probability_20261013.py
+      - name: Rigorous full 67-Bessel factor envelope and improved conditional Q5 bound
+        run: python research/audits/liouville_grothendieck_20261008/certify_q5_full_bessel_envelope_20261013.py
