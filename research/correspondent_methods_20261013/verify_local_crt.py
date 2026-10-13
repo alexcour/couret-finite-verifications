@@ -233,7 +233,7 @@ def main():
     (out / 'local_crt_results.json').write_text(json.dumps(result, indent=2) + '\n')
     cols = ['n', 'sign_patterns', 'local2', 'integral_patterns', 'distinct_solutions', 'brute_supports_examined']
     with (out / 'local_crt_results.csv').open('w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=cols)
+        w = csv.DictWriter(f, fieldnames=cols, lineterminator='\n')
         w.writeheader()
         w.writerows({k: row[k] for k in cols} for row in rows)
     print(json.dumps(result, indent=2))
