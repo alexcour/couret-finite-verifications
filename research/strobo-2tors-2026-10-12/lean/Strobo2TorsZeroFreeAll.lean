@@ -235,8 +235,9 @@ theorem zeroFreeExceptionalFibres_histogram_formula (k : ℕ) :
           ((zeroFreeExceptionalFibres : Finset (Finset (Finset G))).filter
             (fun R => R.card = k)).card = 0 := by
         apply Finset.card_eq_zero.mpr
-        apply Finset.eq_empty_iff_forall_not_mem.mpr
-        intro R hR
+        ext R
+        simp only [Finset.not_mem_empty, iff_false]
+        intro hR
         obtain ⟨hE, hRK⟩ := Finset.mem_filter.mp hR
         rcases zeroFreeExceptionalFibres_only_two_sizes R hE with hs | hs
         · exact hr (hRK.symm.trans hs)
@@ -268,8 +269,9 @@ theorem zeroFreeFullFibres_histogram_zero :
     ((zeroFreeFullFibres : Finset (Finset (Finset G))).filter
       (fun R => R.card = 0)).card = 0 := by
   apply Finset.card_eq_zero.mpr
-  apply Finset.eq_empty_iff_forall_not_mem.mpr
-  intro R hR
+  ext R
+  simp only [Finset.not_mem_empty, iff_false]
+  intro hR
   obtain ⟨hF, h0⟩ := Finset.mem_filter.mp hR
   obtain ⟨F, hF', hFR⟩ := Finset.mem_image.mp hF
   have hne : (withoutZero F).Nonempty := (Finset.mem_filter.mp hF').2
