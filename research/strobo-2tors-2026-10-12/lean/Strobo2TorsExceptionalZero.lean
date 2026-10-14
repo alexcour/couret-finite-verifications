@@ -110,7 +110,7 @@ private theorem sub_double_mul (n h a b : ℕ) :
     _ = n * (a * b) - (2 * h) * (a * b) :=
       Nat.sub_mul n (2 * h) (a * b)
     _ = n * a * b - (h * a * b + h * a * b) := by
-      congr 1 <;> ring
+      simp only [mul_assoc, two_mul, add_mul]
 
 /-- Closed count X0 of exceptional SUPPORTS avoiding G[2]. The derivation
 uses the proved X1=X2 bijection and the disjoint profile partition. -/
