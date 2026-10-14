@@ -1,3 +1,17 @@
+# STROBO-2TORS — Lean proof gate (CURRENT, 14 October 2026)
+
+## VERIFIED HEAD SNAPSHOT — 8ffb480f997eeb4b9ef1c485adcff221312bc7b8
+
+- Pull request: [#25](https://github.com/alexcour/couret-finite-verifications/pull/25), **OPEN / DRAFT / NOT MERGED**.
+- Verified GitHub Actions on this exact scientific HEAD: [strobo-2tors-lean #38574411690](https://github.com/alexcour/couret-finite-verifications/actions/runs/38574411690) **SUCCESS** (785 build jobs); [verify #38574411697](https://github.com/alexcour/couret-finite-verifications/actions/runs/38574411697) **SUCCESS**.
+- Lean 4 and mathlib are locked to **v4.29.1**; the workflow scans for `sorry`, `admit` and local `axiom`, executes three bounded Python replays, and compiles all **FIVE** source modules: `Strobo2TorsCore`, `Strobo2TorsCardinality`, `Strobo2TorsEnumeration`, `Strobo2TorsZeroFree`, `Strobo2TorsZeroFreeAll`. Inspected `#print axioms` output on the verified job contains only `propext`, `Classical.choice`, `Quot.sound` where present, **no `sorryAx`**.
+- **Compiled mathematical scope:** complete exact equality classification for **three-element supports** in abelian groups (no ambient finiteness requirement in the classification); for finite abelian groups, cardinalities `h` or `2h`, global counts **with zero admitted**, orbit-level restrictions, exceptional zero-free histogram; for the full nonempty zero-free fibres, injectivity of restriction, ordinary/exceptional disjoint partition, exact additive histogram identity, a **semi-numeric** aggregation using actual ordinary-fibre filters, positive-size/empty-size guards, and torsion-translation invariance of the profile `|S∩G[2]|`.
+- **NOT compiled as closed formulas:** universal binomial enumeration of ordinary zero-free fibres by profile `j` (`T_j` and `E_j` to `O_j`), the resulting completely evaluated ordinary+exceptional histogram, independent full counts of nontranslation pairs, and a general sharp maximum table. The symbolic/semi-numeric aggregation is **not** the completed binomial theorem.
+- **Boundary:** `1_S*1_S = 1_T*1_T` implies equality of labelled squared Cayley adjacency operators, but **does not generally imply cospectrality of the original adjacency matrices**. No external mathematician has audited the proof; external novelty/priority remains **UNDETERMINED** (notably compare Lev 2004 and Chen–Yan 2021, theorem to theorem). **No merge, stable release, DOI, HAL/arXiv submission or priority claim.**
+- Version discipline: this status is certified for `8ffb480f997eeb4b9ef1c485adcff221312bc7b8` only. Later source/document commits require fresh HEAD-aware CI; do not transfer old CI success to a modified HEAD.
+
+## HISTORICAL TECHNICAL GATE (13 October 2026; retained for provenance, not current status)
+
 # STROBO-2TORS — Lean boundary, 13 October 2026
 
 PR #25 remains DRAFT. No merge, independent-audit or novelty claim. The exact support classification, h/2h fibre sizes, h−j orbit restriction, global numbers of ordinary/exceptional fibres with zero allowed, and the exceptional contribution to the zero-free histogram are compiled; their scopes are below. The ordinary zero-free histogram, combined aggregation and full sharp-maximum table are not yet Lean certificates.
