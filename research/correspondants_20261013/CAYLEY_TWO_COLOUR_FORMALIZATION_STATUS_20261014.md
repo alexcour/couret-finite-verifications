@@ -33,3 +33,6 @@ lake env lean CayleyTwoColourFamily.lean
 Run `python3 research/correspondants_20261013/verify_two_colour_quotient.py` for finite checks. The dedicated workflow `cayley-two-colour-family-lean` is responsible for certifying the NEW Lean candidate. CI failure, skip or no run is NOT success.
 
 **Release gate: DRAFT / NO-GO.** No private correspondence or embargoed material.
+
+## ZMod instantiation follow-up — 2026-10-14
+The NEW `CayleyTwoColourZMod.lean` is an unverified proof candidate. The exact CI run `38606121260` failed at commit `1a1e7c9c93a03200883ff7892298e9c43fc289b2` on Lean arithmetic/cast obligations; this does NOT invalidate the previously compiled conditional obstruction at `3b2cbb9ea7d1015518b6c8fb72e92fe890e8afd2`. Commit `248fe7d6736ac6fd0ee79349cceb884a744a6b37` applies a first correction, whose Lean CI success has NOT been observed. The dedicated workflow must pass at this or a later exact SHA before the universal ZMod theorem is described as formalized. Keep draft and no-go for release.
