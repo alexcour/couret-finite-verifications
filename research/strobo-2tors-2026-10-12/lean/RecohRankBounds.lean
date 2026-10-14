@@ -9,7 +9,7 @@ All statements in this module are unconditional Lean theorems, but
 they DO NOT yet constitute B(G) = r+s for arbitrary finite abelian G.
 
 We distinguish elementary pigeonhole bounds (arbitrary functions) from the
-stronger common 2-/3-torsion character-mask construction still outstanding.
+stronger common two- and three-torsion character-mask construction still outstanding.
 -/
 
 namespace Couret.STROBO2TORS
