@@ -123,7 +123,7 @@ theorem ordinarySupportsProfile_card_eq_mul (j : ℕ) :
         apply Finset.sum_congr rfl
         intro F hF
         exact (Finset.mem_filter.mp (Finset.mem_filter.mp hF).1).2
-    _ = _ := by simp only [Finset.sum_const, Nat.nsmul_eq_mul]; omega
+    _ = _ := by simp only [Finset.sum_const, Nat.nsmul_eq_mul]; ac_rfl
 
 /-- The profile supports split into those with ordinary and exceptional
 complete fibres, regardless of whether the zero-free restriction is empty. -/
