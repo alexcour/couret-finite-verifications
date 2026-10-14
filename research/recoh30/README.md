@@ -69,3 +69,20 @@ python3 research/recoh30/verify_recoh24.py
 Both scripts use only the standard Python library. They write local deterministic JSON certificates and exit nonzero on any failed assertion. This tests exactly the declared finite models; it is **not** an external mathematical review, Lean formalization, or analytic limit theorem.
 
 **Counter-claim protection:** No repair of the older analytic C-031, C-037, or T2 claims is implied. No transfer to zeta, prime distributions, physical systems, or any broader theory is made. Prior-art review is still pending.
+
+
+## Journal F bridge: labelled convolution, bias and probe cost (14 October 2026)
+
+**Research draft / finite exact only.** The false identification U(30) ≅ C2^3 (F-006) is replaced by U(30) ≅ C2 × C4. Let H=G[2]={1,11,19,29} and K=G²={1,19}. On the 56 three-element supports T of G, the **labelled** convolution square R_T=1_T*1_T has exactly 14 fibres of size four, each an H-translation orbit. This relies on exact labelled coefficients, not just an unlabelled adjacency spectrum.
+
+Define c_T(g)=8·1_T(g)−3 and the purely algebraic square-root correction
+
+μ_alg(T)=−(1/8) Σ_(g∈G) c_T(g)(#{a∈G:a²=g}−1)=3−4|T∩K|.
+
+It is **not** a proved mean of a prime-race limiting law without the relevant analytic hypotheses. The triples B={1,11,29} and C={1,11,19} have R_B=R_C but μ_alg(B)=−1 and μ_alg(C)=−5. Thus the algebraic correction does not factor through R_T. The augmented observable (R_T,μ_alg(T)) has 23 states: 18 fibres of size 2 and 5 of size 4; it does not by itself reconstruct T.
+
+**New precise probe budget.** A probe reads one individually *labelled* character sum Σ_(t∈T)χ(t); it is not an arbitrary measurement. Given (R_T,μ_alg(T)), targeted isolation needs one additional character for 36 of the 56 triplets and two for the remaining 20. A common bank of two characters identifies every triplet, with exactly **12** separating pairs among the 21 pairs of seven nontrivial characters. A pair works iff its restrictions to H are nonzero and distinct (linearly independent in the dual of H ≅ C2²). No single character separates the 4-element unsplit H-orbits. Given R_T alone, targeted isolation needs two probes for all 56 triplets, and the universal bank size is also two.
+
+**Falsifying controls:** (1) 7²=19≠1 rejects the old C2³ model; (2) equal R does not determine μ_alg; (3) an equal unlabelled Cayley spectrum need not determine R; (4) in U(24)≅C2³, the 21 identity-containing triplets all have the same μ_alg=−5, so this auxiliary observable is not a universal repair.
+
+**Verification:** run \`python3 research/recoh30/verify_bias_refinement.py\`; the script uses only the standard Python library, re-derives the finite assertions, asserts the negative fixtures and generates \`recoh_bias_refinement_certificate.json\` locally. The CI workflow \`.github/workflows/recoh-finite.yml\` is wired to the same script. A green CI alone is not mathematical peer review. No Lean proof, novelty or analytic claim follows. F-001 and F-007–F-009 remain demoted; C-031/C-037/T2 are **not reopened**. Internal Journal F documentation stays in the private Drive; no embargoed architecture or unpublished process details are included here. **Do not merge or release before the existing scientific publication gate.**
