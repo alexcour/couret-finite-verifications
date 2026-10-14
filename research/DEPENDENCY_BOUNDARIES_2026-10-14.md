@@ -31,3 +31,14 @@ Current publication state: no merge, stable release, DOI or public novelty promo
 
 Canonical pilot: https://docs.google.com/spreadsheets/d/1Ix4BTo9Am_4IpDfTWmnTxiVPtd5rrxgHq50Vauu_MHE/edit
 STROBO draft: https://github.com/alexcour/couret-finite-verifications/pull/25
+## Cross-cutting audit — later 14 October 2026
+
+Six private pilot obstacles were indexed by stable `OBS-20261014-01` to `OBS-20261014-06` identifiers: (1) ordinary zero-free orbit formula, (2) false general STROBO-to-Cayley implication, (3) distinct finite-to-global obligations, (4) external review/novelty gates, (5) SHA-specific CI, and (6) historical falsification boundaries.
+
+**New certified commit (scope-limited):** STROBO SHA `131733ed0675a545789d82cf4a32b6795b8f854a` passed `strobo-2tors-lean` run `38572972302` and `verify` run `38572972355`. The fifth Lean module establishes positive-size aggregation for actual observed ordinary and exceptional zero-free fibres. It does NOT compile the explicit binomial ordinary-orbit counts `O_j`, their closed-form combined `F_k`, separate pair/profile totals or complete sharp maxima. Do not transfer those CI results automatically to a later head.
+
+**Counterexample in Z/6Z (exactly checked):** support `{1,2,4}` and `{1,4,5}` share ordered-square coefficients `(2,0,2,2,1,2)` but their directed Cayley three-step closed-walk counts are respectively `5` and `4`. Equal labelled ordered convolution squares alone therefore do not entail Cayley cospectrality. This does not refute restricted families requiring extra hypotheses.
+
+**Math versus method:** CRT local-to-global integrality, rigor of finite Q5 zero isolations, and quantitative asymptotic transport have different missing proof obligations. Their common governance pattern is methodological only, with NO inferred cross-branch theorem.
+
+All gates unchanged: PR #25 DRAFT, PR #35 DRAFT, novelty unreviewed, Cayley Gate Z HOLD; no release, merge or DOI authorized.
