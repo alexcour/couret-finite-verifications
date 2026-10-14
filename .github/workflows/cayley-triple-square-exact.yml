@@ -34,3 +34,5 @@ jobs:
           python3 verify_triple_square_cyclic.py > "$RUNNER_TEMP/triple_square_replay.json"
           cmp "$RUNNER_TEMP/triple_square_replay.json" TRIPLE_SQUARE_CYCLIC_RESULTS.json
           sha256sum -c SHA256SUMS_TRIPLE_SQUARE.txt
+          python3 verify_two_colour_quotient.py > "$RUNNER_TEMP/two_colour_replay.json"
+          grep -q '"test_status": "PASS"' "$RUNNER_TEMP/two_colour_replay.json"
