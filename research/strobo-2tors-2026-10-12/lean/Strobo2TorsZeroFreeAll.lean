@@ -284,6 +284,78 @@ theorem zeroFreeFullFibres_histogram_zero :
   · intro h
     simp at h
 
+/-! ## Profile invariance under two-torsion translation
+
+These statements are prerequisites for counting the ordinary fibres by
+their number j of support elements in the two-torsion subgroup. They do
+not by themselves prove the closed binomial formula. -/
+
+/-- Membership in G[2] is unchanged by translation through G[2]. -/
+theorem twoTorsion_add_mem_iff (x u : G)
+    (hu : u ∈ (twoTorsion : Finset G)) :
+    x + u ∈ (twoTorsion : Finset G) ↔ x ∈ (twoTorsion : Finset G) := by
+  have hu' : u + u = 0 := (mem_twoTorsion u).mp hu
+  have h : (x + u) + (x + u) = (x + x) + (u + u) := by abel
+  rw [mem_twoTorsion, mem_twoTorsion, h, hu', add_zero]
+
+/-- Translation of a support commutes with intersection with G[2]. -/
+theorem translateSupport_inter_twoTorsion_eq_image (S : Finset G) (u : G)
+    (hu : u ∈ (twoTorsion : Finset G)) :
+    translateSupport S u ∩ (twoTorsion : Finset G) =
+      (S ∩ (twoTorsion : Finset G)).image (fun x => x + u) := by
+  ext x
+  constructor
+  · intro hx
+    obtain ⟨hxS, hxH⟩ := Finset.mem_inter.mp hx
+    obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hxS
+    exact Finset.mem_image.mpr
+      ⟨a, Finset.mem_inter.mpr ⟨ha, (twoTorsion_add_mem_iff a u hu).mp hxH⟩, rfl⟩
+  · intro hx
+    obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hx
+    obtain ⟨haS, haH⟩ := Finset.mem_inter.mp ha
+    exact Finset.mem_inter.mpr
+      ⟨Finset.mem_image.mpr ⟨a, haS, rfl⟩,
+       (twoTorsion_add_mem_iff a u hu).mpr haH⟩
+
+/-- The profile j=|S ∩ G[2]| is invariant under any G[2]-translation. -/
+theorem translateSupport_inter_twoTorsion_card (S : Finset G) (u : G)
+    (hu : u ∈ (twoTorsion : Finset G)) :
+    (translateSupport S u ∩ (twoTorsion : Finset G)).card =
+      (S ∩ (twoTorsion : Finset G)).card := by
+  rw [translateSupport_inter_twoTorsion_eq_image S u hu]
+  apply Finset.card_image_iff.mpr
+  intro a ha b hb hab
+  exact add_right_cancel hab
+
+/-- Every member of a two-torsion orbit has the same profile. -/
+theorem torsionOrbit_profile_constant (S T : Finset G)
+    (hT : T ∈ torsionOrbit S) :
+    (T ∩ (twoTorsion : Finset G)).card =
+      (S ∩ (twoTorsion : Finset G)).card := by
+  obtain ⟨u, hu, hTu⟩ := (mem_torsionOrbit S T).mp hT
+  rw [hTu]
+  exact translateSupport_inter_twoTorsion_card S u
+    ((mem_twoTorsion u).mpr hu)
+
+/-- Actual supports of cardinal three with exactly j members in G[2]. -/
+def tripleSupportsProfile (j : ℕ) : Finset (Finset G) :=
+  (tripleSupports : Finset (Finset G)).filter
+    (fun S => (S ∩ (twoTorsion : Finset G)).card = j)
+
+theorem mem_tripleSupportsProfile (S : Finset G) (j : ℕ) :
+    S ∈ tripleSupportsProfile j ↔
+      S.card = 3 ∧ (S ∩ (twoTorsion : Finset G)).card = j := by
+  simp only [tripleSupportsProfile, Finset.mem_filter, mem_tripleSupports]
+
+/-- G[2] translation preserves each actual profile-support family. -/
+theorem translateSupport_mem_tripleSupportsProfile_iff
+    (S : Finset G) (j : ℕ) (u : G)
+    (hu : u ∈ (twoTorsion : Finset G)) :
+    translateSupport S u ∈ tripleSupportsProfile j ↔
+      S ∈ tripleSupportsProfile j := by
+  rw [mem_tripleSupportsProfile, mem_tripleSupportsProfile,
+    translateSupport_card, translateSupport_inter_twoTorsion_card S u hu]
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -299,3 +371,8 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.zeroFreeExceptionalFibres_histogram_formula
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_semi_numeric
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_zero
+
+#print axioms Couret.STROBO2TORS.twoTorsion_add_mem_iff
+#print axioms Couret.STROBO2TORS.translateSupport_inter_twoTorsion_card
+#print axioms Couret.STROBO2TORS.torsionOrbit_profile_constant
+#print axioms Couret.STROBO2TORS.translateSupport_mem_tripleSupportsProfile_iff
