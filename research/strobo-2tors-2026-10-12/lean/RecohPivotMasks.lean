@@ -22,7 +22,7 @@ on which all pivot coordinates equal one. As long as k < r+s, fewer
 than s of the k coordinates can vanish on this input.
 
 This is the mixed-rank counting step; surjectivity is an explicit
-hypothesis, not a hidden character-existence axiom. -/
+hypothesis, not a hidden character-existence assumption. -/
 theorem recoh_surjective_binary_pivots_leave_short_mask
     {H : Type*} [AddCommGroup H]
     (r s k : ℕ) (hk : k < r + s)
