@@ -82,3 +82,19 @@ Ces effectifs sont ceux documentés dans le registre public et son programme C++
 **Confidentialité et PI.** Le présent fichier ne reproduit aucun matériau technique FCI/CONT-P/TRUST-LIFE/COSTGATE, aucune archive OBS-SEQ et aucune donnée privée. Ne rien extraire automatiquement des documents Drive réservés vers la branche GitHub ou WordPress. Respecter le document maître du 9 octobre et obtenir l'autorisation juridique écrite requise pour le périmètre brevet-sensible. Aucune date calendaire ne vaut permission automatique.
 
 **ÉTAT FINAL : RECETTE DOCUMENTAIRE PRÊTE ; RECETTE DE PRODUCTION NON EFFECTUÉE ; VALIDATION ET DÉPLOIEMENT NON AUTORISÉS.**
+
+
+---
+
+## AVENANT DE RECETTE — 14 OCTOBRE 2026 (NON DÉPLOYÉ)
+
+La proposition de page [RECHERCHE_ACTUELLE_DRAFT.md](RECHERCHE_ACTUELLE_DRAFT.md) remplace la hiérarchie de six recherches contemporaines du 11 octobre par **deux branches CURRENT : STROBO et Cayley**. Ce changement ne modifie pas les constats historiques de cette recette et n'atteste pas la présence des anciennes formulations sur le site publié.
+
+**Points à contrôler sur les URL réelles et captures horodatées avant tout GO :**
+- La page « Recherche » et les blocs d'accueil placent STROBO puis Cayley comme deux entrées principales. Les intitulés « HOL », « CU-BRUIT », « vérifications finies », « journal humain–IA » relèvent d'une section historique/exploratoire/méthodologique séparée, sans suppression d'archives ni lien cassé.
+- STROBO : R_S compte les paires **ordonnées**, avec diagonales et multiplicités ; six modules compilés au **commit 310fcaf3** de PR #25 et non cinq comme dans le statut antérieur ; distinguer la condition h≥4 pour la formule numérique des fibres complètes sans zéro des problèmes d'histogramme ordinaire encore ouverts.
+- Cayley : ne pas confondre spectre, égalité des carrés des matrices, non-isomorphisme et graphes simples/orientés ; recouvrements connus, état **PUBLIC REVIEW 0.1.x** et antériorité **NON AUDITÉE**.
+- Lien de cohérence externe : [PR #34](https://github.com/alexcour/couret-finite-verifications/pull/34), toujours DRAFT ; les deux PR sont complémentaires, ni fusionnées ni déployées.
+- Réviser l'anglais, les notations et statuts E/N/Q/D, comparer le contenu WordPress effectivement servi au texte draft, puis préserver un état avant/après avec URL, date, éditeur, validation mathématique et accord juridique/éditorial.
+
+**Aucune correction en production certifiée. Aucun GO.** Le guide de protection du 9 octobre demeure obligatoire ; ne jamais intégrer des fichiers privés Drive ou des matériaux brevet-sensibles dans les pages ou dépôts publics. 
