@@ -108,3 +108,6 @@ La proposition de page [RECHERCHE_ACTUELLE_DRAFT.md](RECHERCHE_ACTUELLE_DRAFT.md
 - Réviser l'anglais, les notations et statuts E/N/Q/D, comparer le contenu WordPress effectivement servi au texte draft, puis préserver un état avant/après avec URL, date, éditeur, validation mathématique et accord juridique/éditorial.
 
 **Aucune correction en production certifiée. Aucun GO.** Le guide de protection du 9 octobre demeure obligatoire ; ne jamais intégrer des fichiers privés Drive ou des matériaux brevet-sensibles dans les pages ou dépôts publics. 
+
+
+**Integration status:** corrected content is committed and retains DRAFT status. Default-branch merge approval remains pending; WordPress application requires authenticated CMS access. No merged or deployed correction is claimed.

@@ -1,6 +1,6 @@
 # Couret — corrections publiques approuvées, 14 octobre 2026
 
-**Décision éditoriale : application des corrections préparées approuvée par l’auteur le 14 octobre 2026.** L’intégration de ces textes dans GitHub est autorisée. Leur application WordPress attend un accès CMS authentifié et doit être contrôlée sur les URL exactes. Cette approbation ne constitue ni relecture mathématique externe ni preuve d’originalité ; elle ne crée aucune release scientifique ou DOI et n’autorise aucun dossier confidentiel.
+**Décision éditoriale : application des corrections préparées approuvée par l’auteur le 14 octobre 2026.** Ces textes corrigés sont enregistrés dans la branche éditoriale GitHub. La fusion dans la branche principale attend une autorisation explicite. Leur application WordPress attend un accès CMS authentifié et doit être contrôlée sur les URL exactes. Cette approbation ne constitue ni relecture mathématique externe ni preuve d’originalité ; elle ne crée aucune release scientifique ou DOI et n’autorise aucun dossier confidentiel.
 
 ## État réellement constaté
 
@@ -125,3 +125,6 @@ Les empreintes concernent les réponses servies au contrôle, pas la base WordPr
 5. Conserver les limites E/N/Q : aucune priorité générale, relecture indépendante ou complétude Lean non démontrée. Aucun portail privé, annexe, correspondance ou matériau brevet-sensible n’est partagé. Aucun nouvel envoi à Frédéric.
 
 **État de production au contrôle : corrections WordPress restantes ; accès CMS non connecté.**
+
+
+**Integration status:** corrected content is committed and retains DRAFT status. Default-branch merge approval remains pending; WordPress application requires authenticated CMS access. No merged or deployed correction is claimed.

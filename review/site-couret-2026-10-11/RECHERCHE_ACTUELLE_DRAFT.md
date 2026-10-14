@@ -74,3 +74,6 @@ Pour chaque résultat : **énoncé exact et hypothèses ; E** (ce qui est démon
 ## Décision éditoriale courante — 14 octobre 2026
 
 L’auteur a approuvé l’application des corrections publiques déjà préparées. Ce texte et [les remplacements par URL](SITE_CORRECTIONS_APPROVED_2026-10-14.md) peuvent être intégrés au dépôt pour corriger le cadrage éditorial. L’application WordPress exige l’accès CMS et un contrôle après mise à jour. Les PR scientifiques #25/#30 restent des brouillons ; relecture indépendante, priorité et autorisations des matériaux confidentiels restent distinctes. Aucun changement des tags ou DOI historiques.
+
+
+**Integration status:** corrected content is committed and retains DRAFT status. Default-branch merge approval remains pending; WordPress application requires authenticated CMS access. No merged or deployed correction is claimed.
