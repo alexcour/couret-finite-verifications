@@ -1254,3 +1254,98 @@ theorem halfTurn_unique_of_order_three
 
 end ExceptionalTripleRigidity
 end Couret.CayleyDoublet
+
+
+/-!
+CAYLEY-TWO-COLOUR-ARITHMETIC-ASSEMBLY (14 October 2026).
+
+This section completes two reusable links:
+(1) instantiate the proved exceptional rigid triple with both intrinsic
+    quotient colours +a and +b in any additive quotient killing h;
+(2) show that two such shift colours cannot be simultaneously conjugate
+    if the first marked step is a k-th unshared step in the source
+    but not in the target.
+
+The existence of a concrete induced quotient equivalence for an
+arbitrary digraph isomorphism, and ZMod (12*r) arithmetic for every r,
+are still separate formalization obligations.
+-/
+
+namespace Couret.CayleyDoublet
+
+section ExceptionalTwoColourPackage
+
+variable {G Q : Type*} [AddCommGroup G] [DecidableEq G] [AddCommGroup Q]
+
+/-- Rigid exceptional support: unique mate plus formulas for both
+intrinsic successor colours on any additive quotient killing h. -/
+theorem exceptionalTriple_mate_and_two_colours
+    (pi : G →+ Q) (a b h : G)
+    (hpi : pi h = 0) (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hd0 : a - b ≠ 0) (hdh : a - b ≠ h)
+    (hthree : (a - b) + (a - b) + (a - b) = 0 ∨
+      (a - b) + (a - b) + (a - b) = h)
+    (x y : G) :
+    (IsMate (CayleyArc (TripleSupport a b h)) x y ↔ y = x + h) ∧
+    (DoubletArc (CayleyArc (TripleSupport a b h))
+      (fun z => z + h) x y → pi y = pi x + pi b) ∧
+    (SingletonArc (CayleyArc (TripleSupport a b h))
+      (fun z => z + h) x y → pi y = pi x + pi a) := by
+  have hab : a ≠ b := by
+    intro he
+    apply hd0
+    rw [he]
+    simp
+  have habh : a ≠ b + h := by
+    intro he
+    apply hdh
+    calc
+      a - b = (b + h) - b := by rw [he]
+      _ = h := by abel
+  have hm := halfTurn_unique_of_order_three
+    a b h hhalf hne hd0 hdh hthree x y
+  have hc := bothColours_quotient_formulas
+    pi a b h hpi hhalf hne hab habh x y
+  exact ⟨hm, hc.1, hc.2⟩
+
+#print axioms Couret.CayleyDoublet.exceptionalTriple_mate_and_two_colours
+
+end ExceptionalTwoColourPackage
+
+section TwoShiftObstruction
+
+variable {Q R : Type*} [AddCommGroup Q] [AddCommGroup R]
+
+/-- Iterating a pure translation is exactly natural-number scaling. -/
+theorem iterateMap_add_shift (a : Q) (k : Nat) (x : Q) :
+    iterateMap (fun z : Q => z + a) k x = x + k • a := by
+  induction k with
+  | zero => simp [iterateMap]
+  | succ k ih =>
+      simp only [iterateMap, ih, succ_nsmul]
+      abel
+
+/-- A pair of coloured translations is not simultaneously conjugate
+when the source relative offset differs from the target offset. -/
+theorem distinct_relative_shifts_no_conjugacy
+    (g : Q ≃ R) (a b : Q) (a' b' : R) (k : Nat)
+    (hSource : b = k • a) (hTarget : b' ≠ k • a')
+    (hP : ∀ x, g (x + b) = g x + b')
+    (hQ : ∀ x, g (x + a) = g x + a') : False := by
+  have hMark : ∀ x : Q,
+      x + b = iterateMap (fun z : Q => z + a) k x := by
+    intro x
+    rw [iterateMap_add_shift, hSource]
+  have hMismatch :
+      (0 : R) + b' ≠ iterateMap (fun z : R => z + a') k (0 : R) := by
+    simpa [iterateMap_add_shift] using hTarget
+  exact noTwoColourConjugacy g
+    (fun z : Q => z + b) (fun z : Q => z + a)
+    (fun z : R => z + b') (fun z : R => z + a')
+    hP hQ k hMark (0 : R) hMismatch
+
+#print axioms Couret.CayleyDoublet.iterateMap_add_shift
+#print axioms Couret.CayleyDoublet.distinct_relative_shifts_no_conjugacy
+
+end TwoShiftObstruction
+end Couret.CayleyDoublet
