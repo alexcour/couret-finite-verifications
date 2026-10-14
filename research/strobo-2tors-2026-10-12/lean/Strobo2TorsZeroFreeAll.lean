@@ -236,12 +236,14 @@ theorem zeroFreeExceptionalFibres_histogram_formula (k : ℕ) :
             (fun R => R.card = k)).card = 0 := by
         apply Finset.card_eq_zero.mpr
         ext R
-        simp only [Finset.not_mem_empty, iff_false]
-        intro hR
-        obtain ⟨hE, hRK⟩ := Finset.mem_filter.mp hR
-        rcases zeroFreeExceptionalFibres_only_two_sizes R hE with hs | hs
-        · exact hr (hRK.symm.trans hs)
-        · exact hf (hRK.symm.trans hs)
+        constructor
+        · intro hR
+          obtain ⟨hE, hRK⟩ := Finset.mem_filter.mp hR
+          rcases zeroFreeExceptionalFibres_only_two_sizes R hE with hs | hs
+          · exact (hr (hRK.symm.trans hs)).elim
+          · exact (hf (hRK.symm.trans hs)).elim
+        · intro h
+          simp at h
       simpa [hr, hf] using hzero
 
 /-- Exact aggregation for every positive size. The ordinary term is still a
@@ -270,15 +272,17 @@ theorem zeroFreeFullFibres_histogram_zero :
       (fun R => R.card = 0)).card = 0 := by
   apply Finset.card_eq_zero.mpr
   ext R
-  simp only [Finset.not_mem_empty, iff_false]
-  intro hR
-  obtain ⟨hF, h0⟩ := Finset.mem_filter.mp hR
-  obtain ⟨F, hF', hFR⟩ := Finset.mem_image.mp hF
-  have hne : (withoutZero F).Nonempty := (Finset.mem_filter.mp hF').2
-  have hp : 0 < R.card := by
-    rw [← hFR]
-    exact Finset.card_pos.mpr hne
-  omega
+  constructor
+  · intro hR
+    obtain ⟨hF, h0⟩ := Finset.mem_filter.mp hR
+    obtain ⟨F, hF', hFR⟩ := Finset.mem_image.mp hF
+    have hne : (withoutZero F).Nonempty := (Finset.mem_filter.mp hF').2
+    have hp : 0 < R.card := by
+      rw [← hFR]
+      exact Finset.card_pos.mpr hne
+    omega
+  · intro h
+    simp at h
 
 end Finite
 end Couret.STROBO2TORS
