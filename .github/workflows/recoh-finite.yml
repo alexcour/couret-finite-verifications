@@ -27,3 +27,5 @@ jobs:
         run: python3 research/recoh30/verify_bias_refinement.py
       - name: Verify cross-group bias factorization and probes
         run: python3 research/recoh30/verify_recoh_general.py
+      - name: Verify STROBO exceptional fibres and exact Fourier probe banks
+        run: python3 research/recoh30/verify_strobo_probe_bank_20261014.py
