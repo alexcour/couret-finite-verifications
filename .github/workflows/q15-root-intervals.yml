@@ -64,3 +64,5 @@ jobs:
         run: python -S research/audits/liouville_grothendieck_20261008/certify_t4_haar_sign_20261013.py
       - name: Cross-check T4 Haar sign with independent rational Taylor threshold grid
         run: python -S research/audits/liouville_grothendieck_20261008/crosscheck_t4_haar_threshold_20261013.py
+      - name: Compare four T4 finite horizons without asserting an asymptotic mixing rate
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_t4_four_horizons_20261014.py
