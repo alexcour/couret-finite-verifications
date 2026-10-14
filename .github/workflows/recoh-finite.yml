@@ -1,0 +1,25 @@
+name: RECOH finite character checks
+on:
+  push:
+    branches:
+      - research/recoh30-probe-budget-2026-10-14
+    paths:
+      - 'research/recoh30/**'
+      - '.github/workflows/recoh-finite.yml'
+  pull_request:
+    paths:
+      - 'research/recoh30/**'
+      - '.github/workflows/recoh-finite.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-exact:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - name: Verify U30 and U210 finite probes
+        run: python3 research/recoh30/verify_recoh30.py
+      - name: Verify U24 finite probes and constructive obstructions
+        run: python3 research/recoh30/verify_recoh24.py
