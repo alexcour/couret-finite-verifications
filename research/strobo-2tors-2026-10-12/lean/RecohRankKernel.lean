@@ -35,7 +35,7 @@ theorem recoh_nonzero_kernel_of_small_codomain
     by_contra hxy
     have hne : x - y ≠ (0 : A) := sub_ne_zero.mpr hxy
     have hker : f (x - y) = 0 := by
-      rw [map_sub, heq, sub_self]
+      simpa only [map_sub, sub_self] using congrArg (fun z : B => z - f y) heq
     exact hnone ⟨x - y, hne, hker⟩
   exact (Fintype.not_injective_of_card_lt (fun a : A => f a) hsmall) hinj
 
