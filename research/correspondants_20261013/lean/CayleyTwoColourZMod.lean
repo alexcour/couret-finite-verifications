@@ -51,7 +51,10 @@ theorem cayley_twelve_mul_nonisomorphic
   have hhalf : h + h = 0 := by
     change ((6 * r : ℕ) : G) + ((6 * r : ℕ) : G) = 0
     calc
-      _ = ((12 * r : ℕ) : G) := by simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_one, Nat.cast_ofNat]; ring
+      _ = ((12 * r : ℕ) : G) := by
+        have hn : 6 * r + 6 * r = 12 * r := by omega
+        simpa only [Nat.cast_add] using
+          (congrArg (fun t : ℕ => (t : G)) hn)
       _ = 0 := ZMod.natCast_self (12 * r)
 
   have hne : h ≠ 0 := by
@@ -117,8 +120,18 @@ theorem cayley_twelve_mul_nonisomorphic
       ((1 : G) - ((1 + 4 * r : ℕ) : G)) +
       ((1 : G) - ((1 + 4 * r : ℕ) : G)) +
       ((1 : G) - ((1 + 4 * r : ℕ) : G)) = 0
+    have hn : 4 * r + 4 * r + 4 * r = 12 * r := by omega
+    have hcast :
+        ((4 * r : ℕ) : G) + ((4 * r : ℕ) : G) + ((4 * r : ℕ) : G) =
+          ((12 * r : ℕ) : G) := by
+      simpa only [Nat.cast_add] using
+        (congrArg (fun t : ℕ => (t : G)) hn)
     calc
-      _ = -((12 * r : ℕ) : G) := by simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_one, Nat.cast_ofNat]; ring
+      _ = -(((4 * r : ℕ) : G) + ((4 * r : ℕ) : G) +
+            ((4 * r : ℕ) : G)) := by
+        simp only [Nat.cast_add, Nat.cast_one]
+        abel
+      _ = -((12 * r : ℕ) : G) := by rw [hcast]
       _ = 0 := by rw [ZMod.natCast_self]; simp
 
   have hbk : b = (1 + 2 * r) • a := by
