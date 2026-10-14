@@ -25,3 +25,5 @@ jobs:
         run: python3 research/recoh30/verify_recoh24.py
       - name: Verify convolution-bias obstruction and minimal Fourier probe budgets
         run: python3 research/recoh30/verify_bias_refinement.py
+      - name: Verify cross-group bias factorization and probes
+        run: python3 research/recoh30/verify_recoh_general.py
