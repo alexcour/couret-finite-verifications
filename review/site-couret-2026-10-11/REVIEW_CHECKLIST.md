@@ -165,4 +165,4 @@ Sources : versions textuelles publiques accessibles via moteur d'indexation ou c
 - **Confidentialité et décision** : ne copier aucun dossier Drive privé, contenu sous embargo ou matériau brevet-sensible vers GitHub/WordPress. PR #9 et #34 toujours DRAFT. Pas de merge, release, dépôt, publication ou modification des accès sans approbation explicite.
 
 
-**Integration status:** corrected content is committed and retains DRAFT status. Default-branch merge approval remains pending; WordPress application requires authenticated CMS access. No merged or deployed correction is claimed.
+**Integration status:** editorial PRs #34 and #9 were explicitly approved on 14 October 2026 at 21:31 Europe/Paris and are merged into main (d137f119 and 3d2e7067). WordPress application still requires authenticated CMS access. These merges do not establish independent scientific review or a stable research release; historical draft statuses above are dated archives.
