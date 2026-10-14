@@ -1,0 +1,98 @@
+{
+  "schema": "RECOH-PUBLIC-CLAIM-HISTORY-v1",
+  "record_date": "2026-10-14",
+  "scope": "Finite arithmetic only; research review, not part of the stable release",
+  "access_boundary": "Public-safe excerpt. Detailed failure histories and source documents stay in private Drive; their content is not copied here.",
+  "claims": [
+    {
+      "id": "RECOH-U30-SPECTRAL-FIBER",
+      "statement": "For the specified five-element unlabeled Fourier spectral fiber in U(30), two individual labeled character probes isolate the fixed T_C, while three are needed for universal identification.",
+      "universe": "five three-element subsets of U(30) with Fourier multiset (3,3,1,1,1,1,-1,-1)",
+      "probe_model": "one labeled Fourier character coefficient per probe",
+      "E": "finite_proved",
+      "Q": "exact_script_ci",
+      "N": "not_audited",
+      "proof_witness": "research/recoh30/verify_recoh30.py",
+      "independent_review": false,
+      "formalized_lean": false,
+      "history": [
+        {
+          "date": "2026-09-20",
+          "event": "Earlier internal note records the five-element fiber and targeted two-character isolation; no priority asserted."
+        },
+        {
+          "date": "2026-10-14",
+          "event": "Review script enumerates all 56 triples and all character-probe pairs/triples; three global, two targeted."
+        },
+        {
+          "date": "2026-10-14",
+          "event": "GitHub Actions RECOH finite character checks passed (run 38528397254); CI does not establish novelty."
+        }
+      ],
+      "exclusions": [
+        "No theorem for all subsets of arbitrary groups",
+        "No proof of analytic estimates or conjectures"
+      ]
+    },
+    {
+      "id": "RECOH-U24-SPECTRAL-FIBER",
+      "statement": "For the 21-element Fourier spectral fiber in U(24), two labeled character probes isolate any specified triple; six of the seven nontrivial characters are required for universal identification.",
+      "universe": "21 three-element supports {1,a,b} of U(24) isomorphic to C2^3",
+      "probe_model": "one labeled Fourier character coefficient per probe",
+      "E": "finite_proved",
+      "Q": "exact_script_ci",
+      "N": "not_audited",
+      "proof_witness": "research/recoh30/verify_recoh24.py",
+      "independent_review": false,
+      "formalized_lean": false,
+      "history": [
+        {
+          "date": "2026-09-20",
+          "event": "Internal note records the 21-member fiber but not the later universal budget calculation."
+        },
+        {
+          "date": "2026-10-14",
+          "event": "Direct Fourier argument and exhaustive counterexamples show targeted two versus universal six."
+        },
+        {
+          "date": "2026-10-14",
+          "event": "GitHub Actions exact finite check passed (run 38528397254); no external audit."
+        }
+      ],
+      "exclusions": [
+        "No uniqueness claim for arbitrary measurement models",
+        "No transfer from U(24) to unrelated groups"
+      ]
+    },
+    {
+      "id": "RECOH-U210-ORIENTED-OPERATORS",
+      "statement": "Six lifts of 11 from U(30) to U(210) induce five signed operators; all annihilate pullbacks from U(30), and two complex fiber-character eigenvalue probes distinguish the five operators.",
+      "universe": "six lifts of 11 modulo 30 in U(210), with five distinct signed D_a operators",
+      "probe_model": "one eigenvalue on one U(7)-fiber character per probe",
+      "E": "finite_proved",
+      "Q": "exact_script_ci",
+      "N": "not_audited",
+      "proof_witness": "research/recoh30/verify_recoh30.py",
+      "independent_review": false,
+      "formalized_lean": false,
+      "history": [
+        {
+          "date": "2026-10-06",
+          "event": "Earlier internal projection note states pullback invisibility and rank/nucleus results."
+        },
+        {
+          "date": "2026-10-07",
+          "event": "An earlier note uses two pointwise probes; a different measurement model."
+        },
+        {
+          "date": "2026-10-14",
+          "event": "Two fiber-character probes are checked, and GitHub CI passes (run 38528397254)."
+        }
+      ],
+      "exclusions": [
+        "The two coincident zero operators are not distinguished as origin lifts",
+        "The fiber character probe is not automatically a canonical arithmetic observable"
+      ]
+    }
+  ]
+}
