@@ -1,5 +1,5 @@
 # COURET — Recherche actuelle
-> **Projet de présentation publique — 14 octobre 2026 — DRAFT / NO DEPLOY.** Texte en révision éditoriale, non publié sur le site. Les résultats ci-dessous ne bénéficient d'aucune validation mathématique humaine indépendante ni d'une attestation de priorité.
+> **Texte corrigé — 14 octobre 2026 — application éditoriale approuvée par l’auteur.** L’état effectivement déployé doit être contrôlé sur WordPress. Les résultats ci-dessous ne bénéficient d’aucune validation mathématique humaine indépendante ni d’une attestation de priorité.
 
 **COURET — Art · Mathématiques · Mémoire**  
 *Voir les nombres. Éprouver les énoncés. Conserver les traces.*
@@ -68,4 +68,9 @@ Pour chaque résultat : **énoncé exact et hypothèses ; E** (ce qui est démon
 
 ---
 
-**ÉTAT ÉDITORIAL — DRAFT / NO DEPLOY.** Ce fichier contient une proposition de texte fondée sur des sources GitHub déjà publiques, non une autorisation de publication. Rien ici ne fusionne la PR #9 ou la PR #34, ne modifie la release historique v1.0.0, ne valide une preuve par expertise, ne crée de DOI, ni n'autorise la mise en ligne WordPress. Les dossiers Drive privés, pièces de correspondance et matériaux protégés restent exclus. Vérification des droits, revue scientifique et validation éditoriale restent préalables.
+**ARCHIVE DE LA DÉCISION ANTÉRIEURE — DRAFT / NO DEPLOY, AVANT L’APPROBATION DU 14 OCTOBRE.** Ce fichier contient une proposition de texte fondée sur des sources GitHub déjà publiques, non une autorisation de publication. Rien ici ne fusionne la PR #9 ou la PR #34, ne modifie la release historique v1.0.0, ne valide une preuve par expertise, ne crée de DOI, ni n'autorise la mise en ligne WordPress. Les dossiers Drive privés, pièces de correspondance et matériaux protégés restent exclus. Vérification des droits, revue scientifique et validation éditoriale restent préalables.
+
+
+## Décision éditoriale courante — 14 octobre 2026
+
+L’auteur a approuvé l’application des corrections publiques déjà préparées. Ce texte et [les remplacements par URL](SITE_CORRECTIONS_APPROVED_2026-10-14.md) peuvent être intégrés au dépôt pour corriger le cadrage éditorial. L’application WordPress exige l’accès CMS et un contrôle après mise à jour. Les PR scientifiques #25/#30 restent des brouillons ; relecture indépendante, priorité et autorisations des matériaux confidentiels restent distinctes. Aucun changement des tags ou DOI historiques.

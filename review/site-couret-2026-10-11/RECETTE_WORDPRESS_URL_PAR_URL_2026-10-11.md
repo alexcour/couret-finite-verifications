@@ -1,3 +1,13 @@
+# Mise à jour éditoriale du 14 octobre 2026
+
+Les corrections publiques préparées ont été approuvées pour application par l’auteur. Voir [la matrice et les textes corrigés](SITE_CORRECTIONS_APPROVED_2026-10-14.md). Les lectures HTTP directes de ce jour remplacent les seuls constats indexés de l’ancienne recette : 21 pages répondent HTTP 200, et les erreurs RH/H1/Parseval/mélange restent constatées sur les URL identifiées. Contact n’affiche plus la phrase RH signalée dans une ancienne indexation.
+
+L’approbation concerne l’intégration éditoriale et les corrections publiques précises. Elle ne constitue ni relecture scientifique indépendante, ni priorité, ni fusion des PR de recherche #25/#30, ni release/DOI, ni diffusion de documents confidentiels. L’accès d’édition WordPress est encore nécessaire ; aucune application CMS n’est attestée. Les anciens états DRAFT/NO DEPLOY ci-dessous restent des archives décisionnelles datées et sont remplacés, pour ce seul périmètre éditorial, par la décision du 14 octobre.
+
+---
+
+## Archive de la recette et des contrôles antérieurs — conservée pour traçabilité
+
 # COURET — Recette WordPress URL par URL
 **11 octobre 2026 — document de travail / PR #9 / PAS DE DÉPLOIEMENT**
 
