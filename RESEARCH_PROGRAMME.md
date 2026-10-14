@@ -5,7 +5,7 @@
 
 ## Présentation française
 
-**Couret — Reconstruction additive et spectrale** est un programme de recherche indépendant, mené avec des assistants d'intelligence artificielle et contrôlé par vérification formelle (Lean 4), calcul exhaustif et relecture mathématique.
+**Couret — Reconstruction additive et spectrale** est un programme de recherche indépendant mené avec des assistants d'intelligence artificielle. Il associe preuves mathématiques écrites, vérification formelle des théorèmes Lean 4 effectivement compilés et calcul exhaustif sur des domaines finis bornés. La relecture mathématique humaine indépendante reste attendue.
 
 Il étudie des problèmes de reconstruction en **combinatoire additive** et en **théorie spectrale des graphes** : quand un objet est-il déterminé par une observation partielle, telle que les sommes de ses éléments prises deux à deux (avec multiplicité et répétitions autorisées) ou le spectre d'un graphe de Cayley ? Quelles ambiguïtés subsistent exactement ?
 
@@ -13,7 +13,7 @@ Il étudie des problèmes de reconstruction en **combinatoire additive** et en *
 
 ## English presentation
 
-**Couret — Additive and Spectral Reconstruction** is an independent research programme carried out with AI assistants and checked through formal verification (Lean 4), exhaustive computation, and mathematical review.
+**Couret — Additive and Spectral Reconstruction** is an independent research programme carried out with AI assistants. It combines written mathematical proofs, formal checking of the Lean 4 theorems actually compiled, and bounded exhaustive finite computation. Independent expert mathematical review is still pending.
 
 It investigates reconstruction problems in **additive combinatorics** and **spectral graph theory**: when is an object determined by a partial observation, such as its pairwise sums (ordered, counted with multiplicity, and allowing equal summands) or the spectrum of a Cayley graph? Exactly which ambiguities remain?
 
@@ -41,7 +41,7 @@ The open-ended question is to classify pairs of supports `S,T` with `R_S = R_T`.
 
 **Cayley:** [draft PR #30](https://github.com/alexcour/couret-finite-verifications/pull/30) at `3b2cbb9ea7d1015518b6c8fb72e92fe890e8afd2` passed [two-colour candidate Lean #38605250938](https://github.com/alexcour/couret-finite-verifications/actions/runs/38605250938), [doublet Lean #38605250885](https://github.com/alexcour/couret-finite-verifications/actions/runs/38605250885), finite square replay #38605250877 and general verify #38605250932. The written two-colour argument establishes an internal non-isomorphism claim for oriented digraphs at all `r>=1`, using explicit bipartition to infer cospectrality from squared adjacency equality. **The concrete universal ZMod family instantiation is not yet a Lean-certified theorem.** No generic undirected cospectrality or novelty follows. The independent public-review `H x C_p` family remains under [its own claim boundary](https://github.com/alexcour/cayley-prime-translation-cospectrality/blob/main/CLAIM_BOUNDARY.md).
 
-**Gates / Portes :** E = explicit internal proof/compiled scope; N = prior art still not fully audited; Q = CI and internal replays, independent human expert review pending; D = editorial DRAFT, no merge, no WordPress deploy, no release or new DOI. Historical `v1.0.0` claims remain unchanged. Preserve older statuses as dated snapshots, not current assertions.
+**Gates / Portes :** E = explicit internal proof/compiled scope; N = prior art still not fully audited; Q = CI and internal replays, independent human expert review pending; D = editorial corrections approved by the author on 14 October 2026; integration of this public programme statement is authorised. WordPress deployment requires authenticated site access and separate readback. Research PRs #25 and #30 retain their own draft status; no stable research release or new DOI. Historical `v1.0.0` claims remain unchanged. Preserve older statuses as dated snapshots, not current assertions.
 
 **Primary literature:** Vsevolod F. Lev, “Reconstructing Integer Sets From Their Representation Functions”, *Electronic Journal of Combinatorics* **11** (2004), #R78, **Problem 2**, p. 5; [DOI 10.37236/1831](https://doi.org/10.37236/1831).
 
@@ -51,4 +51,4 @@ AI assistants contribute exploratory hypotheses, proofs and code drafts, literat
 
 **Status (14 October 2026):** structural STROBO classification internally proved and compiled in the specific Lean modules identified in PR #25; additional formal counts remain open; independent expert review **pending**; novelty/priority **not established**. The spectral Cayley branch carries its **own** status and claims.
 
-**Publication boundary:** documentation for review only. No merge, tag, DOI, HAL/arXiv deposit, stable scientific release, publication of private correspondence, or disclosure of unrelated confidential research is authorised by adding this file. The historical name “Couret–Unification” is retained only where needed for accurate provenance and archives.
+**Publication boundary:** the author approved application of the prepared public editorial corrections on 14 October 2026. This permits integration of this programme statement and the site-correction packet. It does not establish independent scientific review or priority, authorise a stable scientific release, tag, new DOI, HAL/arXiv submission, publication of private correspondence, or disclosure of confidential research. Research PRs #25 and #30 remain separate drafts. The historical name “Couret–Unification” is retained where needed for accurate provenance and archives.
