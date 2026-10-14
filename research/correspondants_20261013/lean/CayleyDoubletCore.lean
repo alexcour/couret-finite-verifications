@@ -910,21 +910,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : ((a - b) + (a - b)) - (0) = 0 := by
             calc
               ((a - b) + (a - b)) - (0) = ((a - b) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2zero (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - b) - (b - b) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = ((a - b) - (b - b)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - b) - (b - (b + h)) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = ((a - b) - (b - (b + h)))- (h + h) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
       · subst u'
         rcases hv' with h0 | h1 | h2
@@ -933,21 +933,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : ((a - b) + (a - b)) - (h) = 0 := by
             calc
               ((a - b) + (a - b)) - (h) = ((a - b) - ((b + h) - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2half (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - b) - ((b + h) - b) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = ((a - b) - ((b + h) - b)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - b) - ((b + h) - (b + h)) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = ((a - b) - ((b + h) - (b + h))) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
     · subst v
       rcases hu' with h0 | h1 | h2
@@ -966,21 +966,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : ((a - b) + (a - b)) - (h) = 0 := by
             calc
               ((a - b) + (a - b)) - (h) = ((a - (b + h)) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2half (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - (b + h)) - (b - b) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = ((a - (b + h)) - (b - b)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - (b + h)) - (b - (b + h)) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = ((a - (b + h)) - (b - (b + h))) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
       · subst u'
         rcases hv' with h0 | h1 | h2
@@ -989,21 +989,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : ((a - b) + (a - b)) - (0) = 0 := by
             calc
               ((a - b) + (a - b)) - (0) = ((a - (b + h)) - ((b + h) - a)) + (h + h) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2zero (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - (b + h)) - ((b + h) - b) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = ((a - (b + h)) - ((b + h) - b)) + (h + h) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - (b + h)) - ((b + h) - (b + h)) = 0 := sub_eq_zero.mpr heq
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = ((a - (b + h)) - ((b + h) - (b + h))) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
   · subst u
     rcases hv with h0 | h1 | h2
@@ -1016,21 +1016,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = ((a - a) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - b) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : ((a - b) + (a - b)) - (0) = 0 := by
             calc
               ((a - b) + (a - b)) - (0) = ((a - b) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2zero (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - (b + h)) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : ((a - b) + (a - b)) - (h) = 0 := by
             calc
               ((a - b) + (a - b)) - (h) = ((a - (b + h)) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2half (sub_eq_zero.mp bad))
       · subst u'
         rcases hv' with h0 | h1 | h2
@@ -1047,21 +1047,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : (h) - (0) = 0 := by
             calc
               (h) - (0) = (((b + h) - a) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hne (sub_eq_zero.mp bad))
         · subst v'
           have hz : ((b + h) - b) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = (((b + h) - b) - (b - a))- (h + h) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
         · subst v'
           have hz : ((b + h) - (b + h)) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = (((b + h) - (b + h)) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
     · subst v
       rcases hu' with h0 | h1 | h2
@@ -1138,21 +1138,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = ((a - a) - ((b + h) - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - b) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : ((a - b) + (a - b)) - (h) = 0 := by
             calc
               ((a - b) + (a - b)) - (h) = ((a - b) - ((b + h) - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2half (sub_eq_zero.mp bad))
         · subst v'
           have hz : (a - (b + h)) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : ((a - b) + (a - b)) - (0) = 0 := by
             calc
               ((a - b) + (a - b)) - (0) = ((a - (b + h)) - ((b + h) - a)) + (h + h) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (h2zero (sub_eq_zero.mp bad))
       · subst u'
         rcases hv' with h0 | h1 | h2
@@ -1161,21 +1161,21 @@ theorem tripleSupport_differenceRigid_of_order_three
           have bad : (h) - (0) = 0 := by
             calc
               (h) - (0) = (((b + h) - a) - (b - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hne (sub_eq_zero.mp bad))
         · subst v'
           have hz : (b - b) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : (a - b) - (h) = 0 := by
             calc
               (a - b) - (h) = ((b - b) - ((b + h) - a)) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hdh (sub_eq_zero.mp bad))
         · subst v'
           have hz : (b - (b + h)) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
           have bad : (a - b) - (0) = 0 := by
             calc
               (a - b) - (0) = ((b - (b + h)) - ((b + h) - a)) + (h + h) := by abel
-              _ = 0 := by simp [hz, hhalf]
+              _ = 0 := by rw [hz] <;> simp [hhalf]
           exact False.elim (hd0 (sub_eq_zero.mp bad))
       · subst u'
         rcases hv' with h0 | h1 | h2
@@ -1190,19 +1190,19 @@ theorem tripleSupport_differenceRigid_of_order_three
       · subst u'
         rcases hv' with h0 | h1 | h2
         · subst v'
-          show (b + h) - b = h from by abel
+          abel
         · subst v'
-          show (b + h) - b = h from by abel
+          abel
         · subst v'
-          show (b + h) - b = h from by abel
+          abel
       · subst u'
         rcases hv' with h0 | h1 | h2
         · subst v'
-          show (b + h) - b = h from by abel
+          abel
         · subst v'
-          show (b + h) - b = h from by abel
+          abel
         · subst v'
-          show (b + h) - b = h from by abel
+          abel
       · subst u'
         rcases hv' with h0 | h1 | h2
         · subst v'
