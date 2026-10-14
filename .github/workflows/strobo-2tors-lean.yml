@@ -18,6 +18,7 @@ jobs:
         run: |
           python research/strobo-2tors-2026-10-12/verify_strobo_2tors.py
           python research/strobo-2tors-2026-10-12/verify_remaining_profiles_20261013.py
+          python research/strobo-2tors-2026-10-12/audit_zero_free_histogram_20261014.py
           git diff --exit-code -- research/strobo-2tors-2026-10-12/remaining_profiles_results_20261013.json
       - name: Reject placeholders and custom axioms in proof modules
         shell: bash
