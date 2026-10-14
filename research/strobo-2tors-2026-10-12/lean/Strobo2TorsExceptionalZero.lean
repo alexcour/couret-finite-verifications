@@ -128,6 +128,20 @@ theorem exceptionalSupportsProfile_zero_card :
     ((threeTorsion : Finset G).card - 1)
   omega
 
+/-- Closed numerical count of ordinary full square fibres with no points
+in G[2]. This concerns complete fibres; zero-free size aggregation is
+a distinct subsequent step. -/
+theorem ordinaryFibresProfile_card_zero_numeric :
+    (ordinaryFibresProfile (G := G) 0).card =
+      (((twoTorsion : Finset G).card.choose 0) *
+          ((Fintype.card G - (twoTorsion : Finset G).card).choose 3) -
+        ((Fintype.card G - 2 * (twoTorsion : Finset G).card) *
+          ((twoTorsion : Finset G).card - 1) *
+          ((threeTorsion : Finset G).card - 1))) /
+        (twoTorsion : Finset G).card := by
+  rw [ordinaryFibresProfile_card_sub_div 0 (by omega),
+    exceptionalSupportsProfile_zero_card]
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -136,3 +150,5 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.exceptionalSupports_eq_three_profile_union
 #print axioms Couret.STROBO2TORS.exceptionalSupports_card_profile_partition
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_zero_card
+
+#print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_zero_numeric
