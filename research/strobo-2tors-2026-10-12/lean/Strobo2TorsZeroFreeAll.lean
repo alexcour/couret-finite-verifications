@@ -179,6 +179,105 @@ theorem zeroFreeOrdinaryFibres_filter_card (k : ℕ) :
     exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mp hK).1)
   exact withoutZero_injective_on_nonemptyFullFibres hf hk heq
 
+/-- A positive restriction size automatically rules out empty ordinary fibres.
+This lets the ordinary histogram be counted on the original complete fibres. -/
+theorem zeroFreeOrdinaryFibres_filter_card_pos (k : ℕ) (hk : 0 < k) :
+    ((zeroFreeOrdinaryFibres : Finset (Finset (Finset G))).filter
+      (fun R => R.card = k)).card =
+    ((ordinaryFibres : Finset (Finset (Finset G))).filter
+      (fun F => (withoutZero F).card = k)).card := by
+  rw [zeroFreeOrdinaryFibres_filter_card]
+  congr 1
+  ext F
+  simp only [ordinaryNonemptyFibres, Finset.mem_filter]
+  constructor
+  · intro h
+    exact ⟨h.1.1, h.2⟩
+  · rintro ⟨hF, hK⟩
+    exact ⟨⟨hF, Finset.card_pos.mp (by omega)⟩, hK⟩
+
+/-- Every exceptional zero-free fibre has one of the two certified sizes.
+This is a statement about actual images, not a classification by size. -/
+theorem zeroFreeExceptionalFibres_only_two_sizes (R : Finset (Finset G))
+    (hR : R ∈ (zeroFreeExceptionalFibres : Finset (Finset (Finset G)))) :
+    R.card = 2 * (twoTorsion : Finset G).card - 2 ∨
+      R.card = 2 * (twoTorsion : Finset G).card := by
+  obtain ⟨F, hF, hFR⟩ := Finset.mem_image.mp hR
+  rcases exceptionalFibres_zeroFree_card F hF with hr | hf
+  · left
+    rw [← hFR]
+    exact hr
+  · right
+    rw [← hFR]
+    exact hf
+
+/-- Complete exceptional contribution at every cardinality k: two point
+masses, including zero-valued cases. The cases never overlap. -/
+theorem zeroFreeExceptionalFibres_histogram_formula (k : ℕ) :
+    ((zeroFreeExceptionalFibres : Finset (Finset (Finset G))).filter
+      (fun R => R.card = k)).card =
+    (if k = 2 * (twoTorsion : Finset G).card - 2 then
+      3 * ((twoTorsion : Finset G).card - 1) *
+        (threeSignPairs : Finset (Finset G)).card else 0) +
+    (if k = 2 * (twoTorsion : Finset G).card then
+      ((doublingImages : Finset G).card - 3) *
+        ((twoTorsion : Finset G).card - 1) *
+        (threeSignPairs : Finset (Finset G)).card else 0) := by
+  have hp := twoTorsion_card_pos (G := G)
+  by_cases hr : k = 2 * (twoTorsion : Finset G).card - 2
+  · have hf : k ≠ 2 * (twoTorsion : Finset G).card := by omega
+    rw [if_pos hr, if_neg hf, add_zero, hr]
+    exact zeroFreeExceptionalFibres_reduced_card
+  · by_cases hf : k = 2 * (twoTorsion : Finset G).card
+    · rw [if_neg hr, zero_add, if_pos hf, hf]
+      exact zeroFreeExceptionalFibres_full_card
+    · have hzero :
+          ((zeroFreeExceptionalFibres : Finset (Finset (Finset G))).filter
+            (fun R => R.card = k)).card = 0 := by
+        apply Finset.card_eq_zero.mpr
+        apply Finset.eq_empty_iff_forall_not_mem.mpr
+        intro R hR
+        obtain ⟨hE, hRK⟩ := Finset.mem_filter.mp hR
+        rcases zeroFreeExceptionalFibres_only_two_sizes R hE with hs | hs
+        · exact hr (hRK.symm.trans hs)
+        · exact hf (hRK.symm.trans hs)
+      simpa [hr, hf] using hzero
+
+/-- Exact aggregation for every positive size. The ordinary term is still a
+genuine finite-fibre count: this does NOT certify its binomial closed form. -/
+theorem zeroFreeFullFibres_histogram_semi_numeric (k : ℕ) (hk : 0 < k) :
+    ((zeroFreeFullFibres : Finset (Finset (Finset G))).filter
+      (fun R => R.card = k)).card =
+    ((ordinaryFibres : Finset (Finset (Finset G))).filter
+      (fun F => (withoutZero F).card = k)).card +
+    (if k = 2 * (twoTorsion : Finset G).card - 2 then
+      3 * ((twoTorsion : Finset G).card - 1) *
+        (threeSignPairs : Finset (Finset G)).card else 0) +
+    (if k = 2 * (twoTorsion : Finset G).card then
+      ((doublingImages : Finset G).card - 3) *
+        ((twoTorsion : Finset G).card - 1) *
+        (threeSignPairs : Finset (Finset G)).card else 0) := by
+  rw [zeroFreeFullFibres_histogram_partition,
+    zeroFreeOrdinaryFibres_filter_card_pos k hk,
+    zeroFreeExceptionalFibres_histogram_formula]
+  omega
+
+/-- Empty ordinary restrictions are deliberately excluded from the histogram.
+In particular, the displayed histogram has no size-zero entry. -/
+theorem zeroFreeFullFibres_histogram_zero :
+    ((zeroFreeFullFibres : Finset (Finset (Finset G))).filter
+      (fun R => R.card = 0)).card = 0 := by
+  apply Finset.card_eq_zero.mpr
+  apply Finset.eq_empty_iff_forall_not_mem.mpr
+  intro R hR
+  obtain ⟨hF, h0⟩ := Finset.mem_filter.mp hR
+  obtain ⟨F, hF', hFR⟩ := Finset.mem_image.mp hF
+  have hne : (withoutZero F).Nonempty := (Finset.mem_filter.mp hF').2
+  have hp : 0 < R.card := by
+    rw [← hFR]
+    exact Finset.card_pos.mpr hne
+  omega
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -189,3 +288,8 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.zeroFree_ordinary_exceptional_disjoint
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_partition
 #print axioms Couret.STROBO2TORS.zeroFreeOrdinaryFibres_filter_card
+
+#print axioms Couret.STROBO2TORS.zeroFreeOrdinaryFibres_filter_card_pos
+#print axioms Couret.STROBO2TORS.zeroFreeExceptionalFibres_histogram_formula
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_semi_numeric
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_zero
