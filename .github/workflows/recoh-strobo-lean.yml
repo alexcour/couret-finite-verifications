@@ -1,0 +1,41 @@
+name: RECOH STROBO Lean bridge
+on:
+  push:
+    branches:
+      - research/recoh-strobo-fourier-lean-2026-10-14
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-strobo-lean.yml'
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-strobo-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bridge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Reject proof placeholders and custom axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean; then
+            echo "::error::Unexpected proof placeholder or axiom"
+            exit 1
+          fi
+      - name: Install elan
+        shell: bash
+        run: |
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore mathlib and build bridge with existing STROBO modules
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: |
+          lake resolve-deps
+          lake exe cache get
+          lean --version
+          lake build RecohFourierBridge
