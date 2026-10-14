@@ -77,7 +77,7 @@ theorem recoh_three_torsion_probe_equal_iff_trivial
     rw [hv] at hinv
     calc
       chi v = 1 := hv
-      _ = chi (-v) := hinv.symm
+      _ = chi (-v) := by simpa only [one_mul] using hinv.symm
 
 /-- The previous collision mask is exactly a pair of sign/triviality
 constraints on H=G[2] and V=G[3]. -/
