@@ -366,6 +366,102 @@ theorem exceptionalSupportsProfile_one_card :
   rw [Finset.product_eq_sprod, Finset.card_product]
   rw [Finset.card_erase_of_mem hH, Finset.card_erase_of_mem hT]
 
+
+/-! ## Second exceptional support profile via an involution on raw parameters -/
+
+/-- Exchange the singleton and paired two-torsion cosets and reverse the
+three-torsion direction. The parameter involution does not identify
+distinct exceptional supports. -/
+private def exceptionalParamFlip (p : (G × G) × G) : (G × G) × G :=
+  ((p.1.1 + p.2, p.1.2), -p.2)
+
+private theorem exceptionalParamFlip_involutive (p : (G × G) × G) :
+    exceptionalParamFlip (exceptionalParamFlip p) = p := by
+  rcases p with ⟨⟨a, d⟩, v⟩
+  simp [exceptionalParamFlip, add_assoc]
+
+private theorem exceptionalParamFlip_two_to_one (p : (G × G) × G)
+    (hp : p ∈ (exceptionalParamsProfile (G := G) 2)) :
+    exceptionalParamFlip p ∈ (exceptionalParamsProfile (G := G) 1) := by
+  rcases p with ⟨⟨a, d⟩, v⟩
+  obtain ⟨hPar, hTwo⟩ := Finset.mem_filter.mp hp
+  obtain ⟨hd, hd0, hv, hv0⟩ := (mem_exceptionalParams a d v).mp hPar
+  have hvNeg : ((-v) + (-v)) + (-v) = 0 := by
+    calc
+      ((-v) + (-v)) + (-v) = -((v + v) + v) := by abel
+      _ = 0 := by rw [hv]; simp
+  have hvNeg0 : -v ≠ 0 := neg_ne_zero.mpr hv0
+  change (((a + v, d), -v) : (G × G) × G) ∈
+    (exceptionalParamsProfile (G := G) 1)
+  apply Finset.mem_filter.mpr
+  constructor
+  · exact (mem_exceptionalParams (a + v) d (-v)).mpr ⟨hd, hd0, hvNeg, hvNeg0⟩
+  · exact (paramSupport_profile_one_iff (a + v) d (-v)
+      hd hd0 hvNeg hvNeg0).mpr
+      ((paramSupport_profile_two_iff a d v hd hd0 hv hv0).mp hTwo)
+
+private theorem exceptionalParamFlip_one_to_two (p : (G × G) × G)
+    (hp : p ∈ (exceptionalParamsProfile (G := G) 1)) :
+    exceptionalParamFlip p ∈ (exceptionalParamsProfile (G := G) 2) := by
+  rcases p with ⟨⟨a, d⟩, v⟩
+  obtain ⟨hPar, hOne⟩ := Finset.mem_filter.mp hp
+  obtain ⟨hd, hd0, hv, hv0⟩ := (mem_exceptionalParams a d v).mp hPar
+  have hvNeg : ((-v) + (-v)) + (-v) = 0 := by
+    calc
+      ((-v) + (-v)) + (-v) = -((v + v) + v) := by abel
+      _ = 0 := by rw [hv]; simp
+  have hvNeg0 : -v ≠ 0 := neg_ne_zero.mpr hv0
+  have ha : a ∈ (twoTorsion : Finset G) :=
+    (paramSupport_profile_one_iff a d v hd hd0 hv hv0).mp hOne
+  change (((a + v, d), -v) : (G × G) × G) ∈
+    (exceptionalParamsProfile (G := G) 2)
+  apply Finset.mem_filter.mpr
+  constructor
+  · exact (mem_exceptionalParams (a + v) d (-v)).mpr ⟨hd, hd0, hvNeg, hvNeg0⟩
+  · apply (paramSupport_profile_two_iff (a + v) d (-v)
+      hd hd0 hvNeg hvNeg0).mpr
+    simpa [add_assoc] using ha
+
+private theorem exceptionalParamsProfile_two_flip_eq_one :
+    ((exceptionalParamsProfile (G := G) 2).image exceptionalParamFlip) =
+      exceptionalParamsProfile (G := G) 1 := by
+  ext p
+  constructor
+  · intro hp
+    obtain ⟨q, hq, hqp⟩ := Finset.mem_image.mp hp
+    rw [← hqp]
+    exact exceptionalParamFlip_two_to_one q hq
+  · intro hp
+    exact Finset.mem_image.mpr ⟨exceptionalParamFlip p,
+      exceptionalParamFlip_one_to_two p hp,
+      exceptionalParamFlip_involutive p⟩
+
+/-- The second exceptional-profile support count equals the first one.
+This is a count of supports, not fibres. -/
+theorem exceptionalSupportsProfile_two_card :
+    (exceptionalSupportsProfile (G := G) 2).card =
+      (twoTorsion : Finset G).card *
+        ((twoTorsion : Finset G).card - 1) *
+        ((threeTorsion : Finset G).card - 1) := by
+  have hImageCard :
+      ((exceptionalParamsProfile (G := G) 2).image exceptionalParamFlip).card =
+        (exceptionalParamsProfile (G := G) 2).card := by
+    apply Finset.card_image_iff.mpr
+    intro p hp q hq hpq
+    have hh := congrArg exceptionalParamFlip hpq
+    simpa only [exceptionalParamFlip_involutive] using hh
+  calc
+    (exceptionalSupportsProfile (G := G) 2).card =
+        (exceptionalParamsProfile (G := G) 2).card :=
+          exceptionalSupportsProfile_card_eq_params 2
+    _ = ((exceptionalParamsProfile (G := G) 2).image exceptionalParamFlip).card :=
+      hImageCard.symm
+    _ = (exceptionalParamsProfile (G := G) 1).card :=
+      congrArg Finset.card exceptionalParamsProfile_two_flip_eq_one
+    _ = (exceptionalSupportsProfile (G := G) 1).card :=
+      (exceptionalSupportsProfile_card_eq_params 1).symm
+    _ = _ := exceptionalSupportsProfile_one_card
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -391,3 +487,4 @@ end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.exceptionalParamsProfile_one_eq
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_one_card
+#print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_two_card
