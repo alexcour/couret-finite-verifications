@@ -462,6 +462,132 @@ theorem exceptionalSupportsProfile_two_card :
       (exceptionalSupportsProfile_card_eq_params 1).symm
     _ = _ := exceptionalSupportsProfile_one_card
 
+
+/-! ## The final exceptional support profile from the exhaustive parameter partition -/
+
+/-- Every exceptional parameter has one of the three possible intersection
+sizes. The three fibres of the profile map exhaust the parameter space.
+This proof uses the already compiled exact normal-form cardinal lemma. -/
+private theorem exceptionalParamsProfile_partition :
+    (exceptionalParams : Finset ((G × G) × G)) =
+      (exceptionalParamsProfile (G := G) 0) ∪
+        ((exceptionalParamsProfile (G := G) 1) ∪
+          (exceptionalParamsProfile (G := G) 2)) := by
+  ext p
+  constructor
+  · intro hp
+    rcases p with ⟨⟨a, d⟩, v⟩
+    obtain ⟨hd, hd0, hv, hv0⟩ := (mem_exceptionalParams a d v).mp hp
+    have hs := paramSupport_inter_twoTorsion_card a d v hd hd0 hv hv0
+    have hcases :
+        (paramSupport ((a, d), v) ∩ (twoTorsion : Finset G)).card = 0 ∨
+        (paramSupport ((a, d), v) ∩ (twoTorsion : Finset G)).card = 1 ∨
+        (paramSupport ((a, d), v) ∩ (twoTorsion : Finset G)).card = 2 := by
+      rw [hs]
+      split_ifs <;> omega
+    rcases hcases with h0 | h1 | h2
+    · exact Finset.mem_union.mpr
+        (Or.inl (Finset.mem_filter.mpr ⟨hp, h0⟩))
+    · exact Finset.mem_union.mpr
+        (Or.inr (Finset.mem_union.mpr
+          (Or.inl (Finset.mem_filter.mpr ⟨hp, h1⟩))))
+    · exact Finset.mem_union.mpr
+        (Or.inr (Finset.mem_union.mpr
+          (Or.inr (Finset.mem_filter.mpr ⟨hp, h2⟩))))
+  · intro hp
+    rcases Finset.mem_union.mp hp with h0 | h12
+    · exact (Finset.mem_filter.mp h0).1
+    · rcases Finset.mem_union.mp h12 with h1 | h2
+      · exact (Finset.mem_filter.mp h1).1
+      · exact (Finset.mem_filter.mp h2).1
+
+private theorem exceptionalParamsProfile_one_two_disjoint :
+    Disjoint (exceptionalParamsProfile (G := G) 1)
+      (exceptionalParamsProfile (G := G) 2) := by
+  apply Finset.disjoint_left.mpr
+  intro p h1 h2
+  have hv1 := (Finset.mem_filter.mp h1).2
+  have hv2 := (Finset.mem_filter.mp h2).2
+  omega
+
+private theorem exceptionalParamsProfile_zero_rest_disjoint :
+    Disjoint (exceptionalParamsProfile (G := G) 0)
+      ((exceptionalParamsProfile (G := G) 1) ∪
+        (exceptionalParamsProfile (G := G) 2)) := by
+  apply Finset.disjoint_left.mpr
+  intro p h0 hr
+  have hv0 := (Finset.mem_filter.mp h0).2
+  rcases Finset.mem_union.mp hr with h1 | h2
+  · have hv1 := (Finset.mem_filter.mp h1).2
+    omega
+  · have hv2 := (Finset.mem_filter.mp h2).2
+    omega
+
+/-- Exact partition of exceptional parameters into profile 0, 1 and 2. -/
+theorem exceptionalParamsProfile_card_sum :
+    (exceptionalParams : Finset ((G × G) × G)).card =
+      (exceptionalParamsProfile (G := G) 0).card +
+      (exceptionalParamsProfile (G := G) 1).card +
+      (exceptionalParamsProfile (G := G) 2).card := by
+  calc
+    (exceptionalParams : Finset ((G × G) × G)).card =
+        ((exceptionalParamsProfile (G := G) 0) ∪
+          ((exceptionalParamsProfile (G := G) 1) ∪
+            (exceptionalParamsProfile (G := G) 2))).card :=
+      congrArg Finset.card exceptionalParamsProfile_partition
+    _ = _ := by
+      rw [Finset.card_union_of_disjoint exceptionalParamsProfile_zero_rest_disjoint,
+        Finset.card_union_of_disjoint exceptionalParamsProfile_one_two_disjoint]
+      omega
+
+/-- Numerical count of exceptional supports containing no element of G[2].
+Unlike a count of exceptional fibres, each actual three-point support is
+counted once through the unique parameter map. -/
+theorem exceptionalSupportsProfile_zero_card :
+    (exceptionalSupportsProfile (G := G) 0).card =
+      (Fintype.card G - 2 * (twoTorsion : Finset G).card) *
+        ((twoTorsion : Finset G).card - 1) *
+        ((threeTorsion : Finset G).card - 1) := by
+  let h : ℕ := (twoTorsion : Finset G).card
+  let t : ℕ := (threeTorsion : Finset G).card
+  let n : ℕ := Fintype.card G
+  let c : ℕ := (h - 1) * (t - 1)
+  have htotal : (exceptionalParams : Finset ((G × G) × G)).card = n * c := by
+    simpa [n, c, h, t, mul_assoc] using (exceptionalParams_card (G := G))
+  have hOne : (exceptionalParamsProfile (G := G) 1).card = h * c := by
+    have hx := exceptionalSupportsProfile_one_card (G := G)
+    rw [exceptionalSupportsProfile_card_eq_params (G := G) 1] at hx
+    simpa [h, t, c, mul_assoc] using hx
+  have hTwo : (exceptionalParamsProfile (G := G) 2).card = h * c := by
+    have hx := exceptionalSupportsProfile_two_card (G := G)
+    rw [exceptionalSupportsProfile_card_eq_params (G := G) 2] at hx
+    simpa [h, t, c, mul_assoc] using hx
+  have hsum :
+      (exceptionalParamsProfile (G := G) 0).card + h * c + h * c = n * c := by
+    calc
+      (exceptionalParamsProfile (G := G) 0).card + h * c + h * c =
+          (exceptionalParamsProfile (G := G) 0).card +
+          (exceptionalParamsProfile (G := G) 1).card +
+          (exceptionalParamsProfile (G := G) 2).card := by rw [hOne, hTwo]
+      _ = (exceptionalParams : Finset ((G × G) × G)).card :=
+        exceptionalParamsProfile_card_sum.symm
+      _ = n * c := htotal
+  have hTwice : h * c + h * c = (2 * h) * c := by ring
+  have hZero :
+      (exceptionalParamsProfile (G := G) 0).card =
+        n * c - (2 * h) * c := by
+    omega
+  have hSub : (n - 2 * h) * (h - 1) * (t - 1) =
+      n * c - (2 * h) * c := by
+    dsimp [c]
+    rw [Nat.sub_mul, Nat.sub_mul]
+    simp only [mul_assoc]
+  change (exceptionalSupportsProfile (G := G) 0).card =
+    (n - 2 * h) * (h - 1) * (t - 1)
+  rw [exceptionalSupportsProfile_card_eq_params (G := G) 0]
+  exact hZero.trans hSub.symm
+
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -488,3 +614,5 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.exceptionalParamsProfile_one_eq
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_one_card
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_two_card
+
+#print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_zero_card
