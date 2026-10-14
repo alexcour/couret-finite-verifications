@@ -110,4 +110,4 @@ La proposition de page [RECHERCHE_ACTUELLE_DRAFT.md](RECHERCHE_ACTUELLE_DRAFT.md
 **Aucune correction en production certifiée. Aucun GO.** Le guide de protection du 9 octobre demeure obligatoire ; ne jamais intégrer des fichiers privés Drive ou des matériaux brevet-sensibles dans les pages ou dépôts publics. 
 
 
-**Integration status:** corrected content is committed and retains DRAFT status. Default-branch merge approval remains pending; WordPress application requires authenticated CMS access. No merged or deployed correction is claimed.
+**Integration status:** editorial PRs #34 and #9 were explicitly approved on 14 October 2026 at 21:31 Europe/Paris and are merged into main (d137f119 and 3d2e7067). WordPress application still requires authenticated CMS access. These merges do not establish independent scientific review or a stable research release; historical draft statuses above are dated archives.
