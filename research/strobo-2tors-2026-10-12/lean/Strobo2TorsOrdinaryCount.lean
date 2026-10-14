@@ -318,6 +318,53 @@ theorem paramSupport_profile_zero_iff (a d v : G)
     by_cases hb : (a + v) + (a + v) = 0 <;>
     simp [ha, hb]
 
+/-! ## First explicit exceptional parameter count (one two-torsion vertex) -/
+
+/-- The profile-one exceptional parameters are exactly the direct product
+of a in H, d in H\{0}, and v in G[3]\{0}. -/
+theorem exceptionalParamsProfile_one_eq :
+    (exceptionalParamsProfile (G := G) 1) =
+      (((twoTorsion : Finset G).product ((twoTorsion : Finset G).erase 0)).product
+        ((threeTorsion : Finset G).erase 0)) := by
+  ext p
+  rcases p with ⟨⟨a, d⟩, v⟩
+  constructor
+  · intro hp
+    obtain ⟨hParams, hOne⟩ := Finset.mem_filter.mp hp
+    obtain ⟨hd, hd0, hv, hv0⟩ := (mem_exceptionalParams a d v).mp hParams
+    apply Finset.mem_product.mpr
+    constructor
+    · apply Finset.mem_product.mpr
+      exact ⟨(paramSupport_profile_one_iff a d v hd hd0 hv hv0).mp hOne,
+        Finset.mem_erase.mpr ⟨hd0, (mem_twoTorsion d).mpr hd⟩⟩
+    · exact Finset.mem_erase.mpr ⟨hv0, (mem_threeTorsion v).mpr hv⟩
+  · intro hp
+    obtain ⟨hpAD, hvMem⟩ := Finset.mem_product.mp hp
+    obtain ⟨ha, hdMem⟩ := Finset.mem_product.mp hpAD
+    obtain ⟨hd0, hd⟩ := Finset.mem_erase.mp hdMem
+    obtain ⟨hv0, hv⟩ := Finset.mem_erase.mp hvMem
+    have hD : d + d = 0 := (mem_twoTorsion d).mp hd
+    have hV : (v + v) + v = 0 := (mem_threeTorsion v).mp hv
+    exact Finset.mem_filter.mpr
+      ⟨(mem_exceptionalParams a d v).mpr ⟨hD, hd0, hV, hv0⟩,
+        (paramSupport_profile_one_iff a d v hD hd0 hV hv0).mpr ha⟩
+
+/-- Numerical number of exceptional *supports* with exactly one vertex
+in G[2]. It is not the number of exceptional fibres. -/
+theorem exceptionalSupportsProfile_one_card :
+    (exceptionalSupportsProfile (G := G) 1).card =
+      (twoTorsion : Finset G).card *
+        ((twoTorsion : Finset G).card - 1) *
+        ((threeTorsion : Finset G).card - 1) := by
+  have hH : (0 : G) ∈ (twoTorsion : Finset G) :=
+    (mem_twoTorsion 0).mpr (by simp)
+  have hT : (0 : G) ∈ (threeTorsion : Finset G) :=
+    (mem_threeTorsion 0).mpr (by simp)
+  rw [exceptionalSupportsProfile_card_eq_params,
+      exceptionalParamsProfile_one_eq]
+  rw [Finset.card_product, Finset.card_product]
+  rw [Finset.card_erase_of_mem hH, Finset.card_erase_of_mem hT]
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -340,3 +387,6 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.paramSupport_profile_one_iff
 #print axioms Couret.STROBO2TORS.paramSupport_profile_two_iff
 #print axioms Couret.STROBO2TORS.paramSupport_profile_zero_iff
+
+#print axioms Couret.STROBO2TORS.exceptionalParamsProfile_one_eq
+#print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_one_card
