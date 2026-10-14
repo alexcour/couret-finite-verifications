@@ -362,7 +362,8 @@ theorem exceptionalSupportsProfile_one_card :
     (mem_threeTorsion 0).mpr (by simp)
   rw [exceptionalSupportsProfile_card_eq_params,
       exceptionalParamsProfile_one_eq]
-  rw [Finset.card_product, Finset.card_product]
+  rw [Finset.product_eq_sprod, Finset.card_product]
+  rw [Finset.product_eq_sprod, Finset.card_product]
   rw [Finset.card_erase_of_mem hH, Finset.card_erase_of_mem hT]
 
 end Finite
