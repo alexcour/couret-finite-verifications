@@ -837,3 +837,420 @@ theorem signed_cross_differences_distinct_of_order_three
 
 end SignedCrossDifferences
 end Couret.CayleyDoublet
+
+
+/-!
+CAYLEY-TRIPLE-RIGIDITY (14 October 2026).
+Enumerate all ordered differences of {a,b,b+h}; under exceptional
+order-three arithmetic the only repeated nonzero difference is h.
+This is a finite exhaustive symbolic case proof, kernel checked by Lean.
+-/
+namespace Couret.CayleyDoublet
+section ExceptionalTripleRigidity
+variable {G : Type*} [AddCommGroup G] [DecidableEq G]
+
+/-- The complete pair-difference rigidity needed to reconstruct mates. -/
+theorem tripleSupport_differenceRigid_of_order_three
+    (a b h : G) (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hd0 : a - b ≠ 0) (hdh : a - b ≠ h)
+    (hthree : (a - b) + (a - b) + (a - b) = 0 ∨
+      (a - b) + (a - b) + (a - b) = h) :
+    DifferenceRigid (TripleSupport a b h) h := by
+  have ⟨h2zero,h2half⟩ :=
+    no_cross_collision_of_order_three (a-b) h hhalf hd0 hdh hthree
+  have hneg : -h = h := by
+    calc
+      -h = -h + (h + h) := by simp [hhalf]
+      _ = h := by abel
+  intro u v u' v' hu hv hu' hv' huneq hunev heq
+  simp only [TripleSupport, Finset.mem_insert, Finset.mem_singleton] at hu hv hu' hv'
+  rcases hu with hu0 | hu1 | hu2
+  · subst u
+    rcases hv with h0 | h1 | h2
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : (a - b) - (b - a) = 0 := sub_eq_zero.mpr heq
+          have bad : ((a - b) + (a - b)) - (0) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (0) = ((a - b) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2zero (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - b) - (b - b) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = ((a - b) - (b - b)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - b) - (b - (b + h)) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = ((a - b) - (b - (b + h)))- (h + h) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : (a - b) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq
+          have bad : ((a - b) + (a - b)) - (h) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (h) = ((a - b) - ((b + h) - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2half (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - b) - ((b + h) - b) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = ((a - b) - ((b + h) - b)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - b) - ((b + h) - (b + h)) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = ((a - b) - ((b + h) - (b + h))) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : (a - (b + h)) - (b - a) = 0 := sub_eq_zero.mpr heq
+          have bad : ((a - b) + (a - b)) - (h) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (h) = ((a - (b + h)) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2half (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - (b + h)) - (b - b) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = ((a - (b + h)) - (b - b)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - (b + h)) - (b - (b + h)) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = ((a - (b + h)) - (b - (b + h))) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : (a - (b + h)) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq
+          have bad : ((a - b) + (a - b)) - (0) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (0) = ((a - (b + h)) - ((b + h) - a)) + (h + h) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2zero (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - (b + h)) - ((b + h) - b) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = ((a - (b + h)) - ((b + h) - b)) + (h + h) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - (b + h)) - ((b + h) - (b + h)) = 0 := sub_eq_zero.mpr heq
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = ((a - (b + h)) - ((b + h) - (b + h))) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+  · subst u
+    rcases hv with h0 | h1 | h2
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : (a - a) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = ((a - a) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - b) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : ((a - b) + (a - b)) - (0) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (0) = ((a - b) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2zero (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - (b + h)) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : ((a - b) + (a - b)) - (h) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (h) = ((a - (b + h)) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2half (sub_eq_zero.mp bad))
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : ((b + h) - a) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (h) - (0) = 0 := by
+            calc
+              (h) - (0) = (((b + h) - a) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hne (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : ((b + h) - b) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = (((b + h) - b) - (b - a))- (h + h) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : ((b + h) - (b + h)) - (b - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = (((b + h) - (b + h)) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          calc
+            b - (b + h) = -h := by abel
+            _ = h := hneg
+        · subst v'
+          calc
+            b - (b + h) = -h := by abel
+            _ = h := hneg
+        · subst v'
+          calc
+            b - (b + h) = -h := by abel
+            _ = h := hneg
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          calc
+            b - (b + h) = -h := by abel
+            _ = h := hneg
+        · subst v'
+          calc
+            b - (b + h) = -h := by abel
+            _ = h := hneg
+        · subst v'
+          calc
+            b - (b + h) = -h := by abel
+            _ = h := hneg
+  · subst u
+    rcases hv with h0 | h1 | h2
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : (a - a) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = ((a - a) - ((b + h) - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - b) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : ((a - b) + (a - b)) - (h) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (h) = ((a - b) - ((b + h) - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2half (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (a - (b + h)) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : ((a - b) + (a - b)) - (0) = 0 := by
+            calc
+              ((a - b) + (a - b)) - (0) = ((a - (b + h)) - ((b + h) - a)) + (h + h) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (h2zero (sub_eq_zero.mp bad))
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          have hz : ((b + h) - a) - (b - a) = 0 := sub_eq_zero.mpr heq
+          have bad : (h) - (0) = 0 := by
+            calc
+              (h) - (0) = (((b + h) - a) - (b - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hne (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (b - b) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (a - b) - (h) = 0 := by
+            calc
+              (a - b) - (h) = ((b - b) - ((b + h) - a)) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hdh (sub_eq_zero.mp bad))
+        · subst v'
+          have hz : (b - (b + h)) - ((b + h) - a) = 0 := sub_eq_zero.mpr heq.symm
+          have bad : (a - b) - (0) = 0 := by
+            calc
+              (a - b) - (0) = ((b - (b + h)) - ((b + h) - a)) + (h + h) := by abel
+              _ = 0 := by simp [hz, hhalf]
+          exact False.elim (hd0 (sub_eq_zero.mp bad))
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          show (b + h) - b = h from by abel
+        · subst v'
+          show (b + h) - b = h from by abel
+        · subst v'
+          show (b + h) - b = h from by abel
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          show (b + h) - b = h from by abel
+        · subst v'
+          show (b + h) - b = h from by abel
+        · subst v'
+          show (b + h) - b = h from by abel
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+        · subst v'
+          exact False.elim (huneq rfl)
+    · subst v
+      rcases hu' with h0 | h1 | h2
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+      · subst u'
+        rcases hv' with h0 | h1 | h2
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+        · subst v'
+          exact False.elim (hunev rfl)
+
+/-- Exceptional arithmetic identifies the unique mate of every vertex. -/
+theorem halfTurn_unique_of_order_three
+    (a b h : G) (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hd0 : a - b ≠ 0) (hdh : a - b ≠ h)
+    (hthree : (a - b) + (a - b) + (a - b) = 0 ∨
+      (a - b) + (a - b) + (a - b) = h)
+    (x y : G) :
+    IsMate (CayleyArc (TripleSupport a b h)) x y ↔ y = x + h := by
+  exact halfTurn_unique_of_rigid a b h hhalf hne
+    (tripleSupport_differenceRigid_of_order_three a b h hhalf hne hd0 hdh hthree) x y
+
+#print axioms Couret.CayleyDoublet.tripleSupport_differenceRigid_of_order_three
+#print axioms Couret.CayleyDoublet.halfTurn_unique_of_order_three
+
+end ExceptionalTripleRigidity
+end Couret.CayleyDoublet
