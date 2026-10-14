@@ -1,0 +1,187 @@
+import Strobo2TorsOrdinaryProfiles
+
+set_option autoImplicit false
+
+namespace Couret.STROBO2TORS
+
+variable {G : Type*} [AddCommGroup G] [DecidableEq G]
+
+section Finite
+
+variable [Fintype G]
+
+/-- Ordinary triples with exactly j vertices in H=G[2]. Unlike the
+ordinary-fibre stratum, these are individual supports, not H-orbits. -/
+def ordinarySupportsProfile (j : ℕ) : Finset (Finset G) :=
+  (tripleSupportsProfile (G := G) j).filter
+    (fun S => (squareFibre S).card = (twoTorsion : Finset G).card)
+
+/-- Exceptional triples with exactly j vertices in H=G[2]. -/
+def exceptionalSupportsProfile (j : ℕ) : Finset (Finset G) :=
+  (tripleSupportsProfile (G := G) j).filter
+    (fun S => (squareFibre S).card = 2 * (twoTorsion : Finset G).card)
+
+/-- Mapping each ordinary support to its labelled-square fibre gives exactly
+the ordinary fibres carrying that profile. -/
+theorem ordinarySupportsProfile_image (j : ℕ) :
+    (ordinarySupportsProfile (G := G) j).image squareFibre =
+      ordinaryFibresProfile j := by
+  ext F
+  constructor
+  · intro hF
+    obtain ⟨S, hS, hSF⟩ := Finset.mem_image.mp hF
+    obtain ⟨hProfile, hCard⟩ := Finset.mem_filter.mp hS
+    obtain ⟨hS3, hj⟩ := (mem_tripleSupportsProfile S j).mp hProfile
+    have hAll : squareFibre S ∈ (allSquareFibres : Finset (Finset (Finset G))) :=
+      Finset.mem_image.mpr ⟨S, (mem_tripleSupports S).mpr hS3, rfl⟩
+    have hOrd : F ∈ (ordinaryFibres : Finset (Finset (Finset G))) := by
+      rw [← hSF]
+      exact Finset.mem_filter.mpr ⟨hAll, hCard⟩
+    have hSelf : S ∈ F := by
+      rw [← hSF]
+      exact (mem_squareFibre S S).mpr ⟨hS3, fun _ => rfl⟩
+    exact Finset.mem_filter.mpr ⟨hOrd, S, hSelf, hj⟩
+  · intro hF
+    obtain ⟨hOrd, S, hSF, hj⟩ := Finset.mem_filter.mp hF
+    have hAll : F ∈ (allSquareFibres : Finset (Finset (Finset G))) :=
+      (Finset.mem_filter.mp hOrd).1
+    have hEq : squareFibre S = F :=
+      allSquareFibres_squareFibre_member F hAll S hSF
+    obtain ⟨T, hT, hTF⟩ := Finset.mem_image.mp hAll
+    have hS3 : S.card = 3 := by
+      have hIn : S ∈ squareFibre T := by
+        rw [hTF]
+        exact hSF
+      exact ((mem_squareFibre T S).mp hIn).1
+    have hProfile : S ∈ tripleSupportsProfile j :=
+      (mem_tripleSupportsProfile S j).mpr ⟨hS3, hj⟩
+    have hCard : (squareFibre S).card = (twoTorsion : Finset G).card := by
+      rw [hEq]
+      exact (Finset.mem_filter.mp hOrd).2
+    exact Finset.mem_image.mpr
+      ⟨S, Finset.mem_filter.mpr ⟨hProfile, hCard⟩, hEq⟩
+
+/-- The inverse-image of an ordinary profile fibre contains exactly all its
+h support triples; it cannot lose or gain supports of a different profile. -/
+theorem ordinarySupportsProfile_preimage (j : ℕ) (F : Finset (Finset G))
+    (hF : F ∈ (ordinaryFibresProfile j : Finset (Finset (Finset G)))) :
+    (ordinarySupportsProfile (G := G) j).filter
+      (fun S => squareFibre S = F) = F := by
+  obtain ⟨hOrd, T, hT, hj⟩ := Finset.mem_filter.mp hF
+  have hAll : F ∈ (allSquareFibres : Finset (Finset (Finset G))) :=
+    (Finset.mem_filter.mp hOrd).1
+  have hCard : F.card = (twoTorsion : Finset G).card :=
+    (Finset.mem_filter.mp hOrd).2
+  ext S
+  constructor
+  · intro hS
+    obtain ⟨hProfileSupp, hEq⟩ := Finset.mem_filter.mp hS
+    obtain ⟨hProfile, _⟩ := Finset.mem_filter.mp hProfileSupp
+    have hS3 := ((mem_tripleSupportsProfile S j).mp hProfile).1
+    rw [← hEq]
+    exact (mem_squareFibre S S).mpr ⟨hS3, fun _ => rfl⟩
+  · intro hS
+    obtain ⟨R, hR, hRF⟩ := Finset.mem_image.mp hAll
+    have hS3 : S.card = 3 := by
+      have hIn : S ∈ squareFibre R := by
+        rw [hRF]
+        exact hS
+      exact ((mem_squareFibre R S).mp hIn).1
+    have hSame := ordinaryFibre_inter_twoTorsion_card_constant
+      F hOrd S T hS hT
+    have hJ : (S ∩ (twoTorsion : Finset G)).card = j :=
+      hSame.trans hj
+    have hSF : squareFibre S = F :=
+      allSquareFibres_squareFibre_member F hAll S hS
+    apply Finset.mem_filter.mpr
+    constructor
+    · apply Finset.mem_filter.mpr
+      refine ⟨(mem_tripleSupportsProfile S j).mpr ⟨hS3, hJ⟩, ?_⟩
+      rw [hSF]
+      exact hCard
+    · exact hSF
+
+/-- Uniform orbit size h gives the exact support-to-fibre factor. -/
+theorem ordinarySupportsProfile_card_eq_mul (j : ℕ) :
+    (ordinarySupportsProfile (G := G) j).card =
+      (twoTorsion : Finset G).card *
+        (ordinaryFibresProfile (G := G) j).card := by
+  calc
+    (ordinarySupportsProfile (G := G) j).card =
+        ∑ F ∈ ((ordinarySupportsProfile (G := G) j).image squareFibre),
+          ((ordinarySupportsProfile (G := G) j).filter
+            (fun S => squareFibre S = F)).card :=
+      Finset.card_eq_sum_card_image squareFibre (ordinarySupportsProfile (G := G) j)
+    _ = ∑ F ∈ (ordinaryFibresProfile (G := G) j),
+          F.card := by
+        rw [ordinarySupportsProfile_image]
+        apply Finset.sum_congr rfl
+        intro F hF
+        exact congrArg Finset.card (ordinarySupportsProfile_preimage j F hF)
+    _ = ∑ _F ∈ (ordinaryFibresProfile (G := G) j),
+          (twoTorsion : Finset G).card := by
+        apply Finset.sum_congr rfl
+        intro F hF
+        exact (Finset.mem_filter.mp (Finset.mem_filter.mp hF).1).2
+    _ = _ := by simp only [Finset.sum_const, Nat.nsmul_eq_mul]; omega
+
+/-- The profile supports split into those with ordinary and exceptional
+complete fibres, regardless of whether the zero-free restriction is empty. -/
+theorem tripleSupportsProfile_ordinary_exceptional (j : ℕ) :
+    (tripleSupportsProfile (G := G) j) =
+      ordinarySupportsProfile j ∪ exceptionalSupportsProfile j := by
+  ext S
+  constructor
+  · intro hS
+    have hS3 := ((mem_tripleSupportsProfile S j).mp hS).1
+    rcases squareFibre_card_h_or_two_h S hS3 with h | h
+    · exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mpr ⟨hS, h⟩))
+    · exact Finset.mem_union.mpr (Or.inr (Finset.mem_filter.mpr ⟨hS, h⟩))
+  · intro hS
+    rcases Finset.mem_union.mp hS with h | h
+    · exact (Finset.mem_filter.mp h).1
+    · exact (Finset.mem_filter.mp h).1
+
+theorem ordinary_exceptionalSupportsProfile_disjoint (j : ℕ) :
+    Disjoint (ordinarySupportsProfile (G := G) j)
+      (exceptionalSupportsProfile (G := G) j) := by
+  apply Finset.disjoint_left.mpr
+  intro S hO hE
+  have h := (Finset.mem_filter.mp hO).2
+  have he := (Finset.mem_filter.mp hE).2
+  have hp := twoTorsion_card_pos (G := G)
+  omega
+
+/-- Key balance: profile supports = h * ordinary profile fibres +
+exceptional supports. The exceptional term is a SUPPORT count, i.e. it
+accounts automatically for the two H-orbits in every exceptional fibre. -/
+theorem ordinaryProfile_card_balance (j : ℕ) :
+    (tripleSupportsProfile (G := G) j).card =
+      (twoTorsion : Finset G).card *
+        (ordinaryFibresProfile (G := G) j).card +
+        (exceptionalSupportsProfile (G := G) j).card := by
+  rw [tripleSupportsProfile_ordinary_exceptional,
+    Finset.card_union_of_disjoint (ordinary_exceptionalSupportsProfile_disjoint j),
+    ordinarySupportsProfile_card_eq_mul]
+
+/-- The ordinary-profile count is now reduced to a single concrete
+exceptional-support stratum count, with no additional orbit ambiguity. -/
+theorem ordinaryProfile_binomial_balance (j : ℕ) (hj : j ≤ 3) :
+    (twoTorsion : Finset G).card *
+        (ordinaryFibresProfile (G := G) j).card +
+        (exceptionalSupportsProfile (G := G) j).card =
+      ((twoTorsion : Finset G).card.choose j) *
+        ((Fintype.card G - (twoTorsion : Finset G).card).choose (3 - j)) := by
+  rw [← ordinaryProfile_card_balance j]
+  exact tripleSupportsProfile_card j hj
+
+end Finite
+end Couret.STROBO2TORS
+
+#print axioms Couret.STROBO2TORS.ordinarySupportsProfile_image
+#print axioms Couret.STROBO2TORS.ordinarySupportsProfile_preimage
+#print axioms Couret.STROBO2TORS.ordinarySupportsProfile_card_eq_mul
+#print axioms Couret.STROBO2TORS.tripleSupportsProfile_ordinary_exceptional
+#print axioms Couret.STROBO2TORS.ordinary_exceptionalSupportsProfile_disjoint
+#print axioms Couret.STROBO2TORS.ordinaryProfile_card_balance
+#print axioms Couret.STROBO2TORS.ordinaryProfile_binomial_balance
