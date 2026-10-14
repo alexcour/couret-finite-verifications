@@ -175,6 +175,31 @@ theorem ordinaryProfile_binomial_balance (j : ℕ) (hj : j ≤ 3) :
   rw [← ordinaryProfile_card_balance j]
   exact tripleSupportsProfile_card j hj
 
+/-- An exact ordinary-fibre count in terms of the still-uncounted
+exceptional support stratum. Dividing occurs ONLY after subtracting
+the exceptional SUPPORT count, not the exceptional fibre count. -/
+theorem ordinaryFibresProfile_card_sub_div (j : ℕ) (hj : j ≤ 3) :
+    (ordinaryFibresProfile (G := G) j).card =
+      (((twoTorsion : Finset G).card.choose j) *
+        ((Fintype.card G - (twoTorsion : Finset G).card).choose (3 - j)) -
+        (exceptionalSupportsProfile (G := G) j).card) /
+        (twoTorsion : Finset G).card := by
+  have hbal := ordinaryProfile_binomial_balance (G := G) j hj
+  calc
+    (ordinaryFibresProfile (G := G) j).card =
+        ((twoTorsion : Finset G).card *
+          (ordinaryFibresProfile (G := G) j).card) /
+          (twoTorsion : Finset G).card := by
+            exact (Nat.mul_div_cancel_left _
+              (twoTorsion_card_pos (G := G))).symm
+    _ = (((twoTorsion : Finset G).card.choose j) *
+          ((Fintype.card G - (twoTorsion : Finset G).card).choose (3 - j)) -
+          (exceptionalSupportsProfile (G := G) j).card) /
+          (twoTorsion : Finset G).card := by
+            rw [← hbal]
+            congr 1
+            omega
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -185,3 +210,5 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.ordinary_exceptionalSupportsProfile_disjoint
 #print axioms Couret.STROBO2TORS.ordinaryProfile_card_balance
 #print axioms Couret.STROBO2TORS.ordinaryProfile_binomial_balance
+
+#print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_sub_div
