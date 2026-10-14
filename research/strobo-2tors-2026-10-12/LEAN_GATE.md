@@ -1,3 +1,19 @@
+# STROBO-2TORS — CURRENT SCIENTIFIC CI GATE / 14 OCTOBER 2026
+
+**PROOF-COMPILE RECEIPT:** source HEAD `310fcaf3c65c36eaed85149d4748bf9a6454ab47`. [Lean CI #38582324811](https://github.com/alexcour/couret-finite-verifications/actions/runs/38582324811): SUCCESS. [General verify #38582324737](https://github.com/alexcour/couret-finite-verifications/actions/runs/38582324737): SUCCESS. This HEAD compiles **SIX** Lean modules (v4.29.1) including the newly added `Strobo2TorsSurvivalCounts.lean`. Job logs directly checked: no `sorryAx` among `#print axioms` dependencies, only standard `propext`, `Classical.choice`, `Quot.sound`; no compiler errors. This is a verified internal Lean compilation, **not an external peer review**.
+
+**New compiled scope (finite abelian G, h=|G[2]|≥4):** no ordinary or exceptional full square-convolution fibre vanishes when zero-containing triple supports are excluded; the nonempty restriction map is injective on full fibres. The exact **total number** of zero-free nonempty fibres is
+`(card G).choose 3 / h - (card G / h) * (h-1) * ((|G[3]|-1)/2)`
+as stated in `zeroFreeFullFibres_card_numeric_of_four` using natural-number divisions. This is a total fibre count, **not** the closed histogram by individual sizes. The preceding classification, full-fibre counts, exceptional zero-free sizes and symbolic/semianalytic aggregation remain compiled as scoped in the earlier proof gate.
+
+**STILL NOT FORMALLY CLOSED:** explicit ordinary no-zero size-by-size binomial histogram `T_j,E_j,O_j`, full combined size-by-size counts, unrestricted sharp maximum table and separately derived nontranslation-pair counts. For `h<4`, do not apply the new survival theorem; cases `h=1,2` require their own accounting. Compilation alone does not show mathematical novelty, and the general “same squares ⇒ same adjacency spectra” statement is false without additional hypotheses. The PR remains **OPEN/DRAFT**, no merge/release/publication/DOI or novelty claim.
+
+**Source of truth:** https://github.com/alexcour/couret-finite-verifications/pull/25 ; `Strobo2TorsSurvivalCounts.lean` ; `lakefile.lean`. New documentation-only commits need their own CI check before labelling the new GitHub branch HEAD verified.
+
+---
+
+## PREVIOUS VERIFIED GATES AND HISTORICAL RECORD
+
 # STROBO-2TORS — Lean proof gate (CURRENT, 14 October 2026)
 
 ## VERIFIED HEAD SNAPSHOT — 8ffb480f997eeb4b9ef1c485adcff221312bc7b8
