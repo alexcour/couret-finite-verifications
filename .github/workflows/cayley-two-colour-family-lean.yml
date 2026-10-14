@@ -44,5 +44,6 @@ jobs:
           lake exe cache get
           lean --version
           lake env lean CayleyDoubletCore.lean
-          lake env lean -o CayleyDoubletCore.olean CayleyDoubletCore.lean
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean
           lake env lean CayleyTwoColourFamily.lean
