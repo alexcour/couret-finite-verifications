@@ -95,8 +95,69 @@ theorem recoh_order_three_reflection_same_square
     (Or.inl hthree) z
   simpa only [hneg] using h
 
+
+/-- Multiplicativity turns a common translation into a common scalar factor
+in a three-term character probe. -/
+theorem recoh_triple_probe_translate
+    {R : Type*} [CommRing R]
+    (chi : G → R)
+    (hadd : ∀ x y : G, chi (x + y) = chi x * chi y)
+    (a b c u : G) :
+    recohTripleProbe chi (a + u) (b + u) (c + u) =
+      chi u * recohTripleProbe chi a b c := by
+  unfold recohTripleProbe
+  rw [hadd a u, hadd b u, hadd c u]
+  ring
+
+/-- The order-three reflection produces two actually different supports,
+not only the same nine labelled convolution coefficients. -/
+theorem recoh_reflection_supports_distinct
+    (v d : G) (hv0 : v ≠ 0)
+    (hv3 : (v + v) + v = 0)
+    (hd2 : d + d = 0) :
+    ({0, v, v + d} : Finset G) ≠ {0, -v, -v + d} := by
+  have hv2 : v + v ≠ 0 := by
+    intro hv2
+    have hz : v = 0 := by
+      simpa [hv2] using hv3
+    exact hv0 hz
+  have hab : (0 : G) + 0 ≠ v + v := by simpa using hv2.symm
+  have hneg : v + v - (0 : G) = -v := by
+    calc
+      v + v - (0 : G) = v + v := by simp
+      _ = ((v + v) + v) - v := by abel
+      _ = 0 - v := by rw [hv3]
+      _ = -v := by simp
+  have hnot := paired_reflection_not_two_torsion_translate
+    (0 : G) v d 0 hd2 (by simp) hab
+  simpa [translateSupport, hneg] using hnot
+
+/-- Explicit non-identifiability of a true two-support collision for an
+arbitrary finite list of homomorphic probes satisfying the mask.
+The existence of a mask for fewer than r+s probes is a SEPARATE theorem. -/
+theorem recoh_masked_bank_collision
+    {R : Type*} [CommRing R]
+    (bank : List (G → R))
+    (hadd : ∀ chi ∈ bank, ∀ x y : G, chi (x + y) = chi x * chi y)
+    (v d : G) (hv0 : v ≠ 0)
+    (hv3 : (v + v) + v = 0)
+    (hd0 : d ≠ 0) (hd2 : d + d = 0)
+    (hmask : ∀ chi ∈ bank, chi d = -1 ∨ chi v = chi (-v)) :
+    (({0, v, v + d} : Finset G) ≠ {0, -v, -v + d}) ∧
+      (∀ z : G, orderedSquare ({0, v, v + d} : Finset G) z =
+        orderedSquare ({0, -v, -v + d} : Finset G) z) ∧
+      (∀ chi ∈ bank, recohTripleProbe chi 0 v (v + d) =
+        recohTripleProbe chi 0 (-v) (-v + d)) := by
+  refine ⟨recoh_reflection_supports_distinct v d hv0 hv3 hd2,
+    recoh_order_three_reflection_same_square v d hv0 hv3 hd0 hd2, ?_⟩
+  intro chi hchi
+  exact recoh_probe_reflection_of_cancel chi (hadd chi hchi) v d (hmask chi hchi)
+
 end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.recoh_probe_reflection_of_cancel
 #print axioms Couret.STROBO2TORS.recoh_probe_reflection_of_trivial_three
 #print axioms Couret.STROBO2TORS.recoh_order_three_reflection_same_square
+#print axioms Couret.STROBO2TORS.recoh_triple_probe_translate
+#print axioms Couret.STROBO2TORS.recoh_reflection_supports_distinct
+#print axioms Couret.STROBO2TORS.recoh_masked_bank_collision
