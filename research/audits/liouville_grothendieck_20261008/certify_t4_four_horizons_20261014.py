@@ -88,7 +88,10 @@ def positive_occupation(e,phases,derivative):
     require(previous==2**e and
             covered.lo<=normalizer.hi and covered.hi>=normalizer.lo,
             "terminal cells do not cover the requested log interval")
-    pos=I(max(0,known.lo),min(SCALE,known.hi+unknown.hi))/normalizer
+    # The raw masses are log-lengths, not probabilities: normalize FIRST.
+    # Clipping before division erroneously caps lengths to 1.
+    raw=I(known.lo,known.hi+unknown.hi)/normalizer
+    pos=I(max(0,raw.lo),min(SCALE,raw.hi))
     uncertain=unknown/normalizer
     require(0<=pos.lo<=pos.hi<=SCALE,
             "positive occupation not a probability")
