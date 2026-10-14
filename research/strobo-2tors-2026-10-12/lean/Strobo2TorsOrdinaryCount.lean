@@ -572,7 +572,8 @@ theorem exceptionalSupportsProfile_zero_card :
       _ = (exceptionalParams : Finset ((G × G) × G)).card :=
         exceptionalParamsProfile_card_sum.symm
       _ = n * c := htotal
-  have hTwice : h * c + h * c = (2 * h) * c := by ring
+  have hTwice : h * c + h * c = (2 * h) * c := by
+    simp only [two_mul, add_mul]
   have hZero :
       (exceptionalParamsProfile (G := G) 0).card =
         n * c - (2 * h) * c := by
