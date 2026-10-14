@@ -785,3 +785,55 @@ theorem cross_difference_disjoint_of_order_three
 
 end OrderThreeBridge
 end Couret.CayleyDoublet
+
+
+/-!
+CAYLEY-ORDER-THREE-SIGNED-DIFFERENCES (14 October 2026).
+The four cross differences of {a,b,b+h}, written as
+d, d+h, -d, -d+h (where d=a-b), are pairwise distinct
+whenever d is nontrivial modulo {0,h} and 3*d = 0 or h.
+This is a reusable group-level piece of DifferenceRigid.
+-/
+namespace Couret.CayleyDoublet
+
+section SignedCrossDifferences
+
+variable {G : Type*} [AddCommGroup G]
+
+/-- Nontrivial order-three differences separate all four signed cross values. -/
+theorem signed_cross_differences_distinct_of_order_three
+    (d h : G) (hhalf : h + h = 0)
+    (hd0 : d ≠ 0) (hdh : d ≠ h)
+    (hthree : d + d + d = 0 ∨ d + d + d = h) :
+    d ≠ -d ∧ d ≠ -d + h ∧
+      d + h ≠ -d ∧ d + h ≠ -d + h := by
+  obtain ⟨h2zero, h2h⟩ :=
+    no_cross_collision_of_order_three d h hhalf hd0 hdh hthree
+  have hneg : d ≠ -d := by
+    intro he
+    apply h2zero
+    calc
+      d + d = d + (-d) := congrArg (fun z : G => d + z) he
+      _ = 0 := add_neg_cancel d
+  have hnegHalf : d ≠ -d + h := by
+    intro he
+    apply h2h
+    calc
+      d + d = d + (-d + h) := congrArg (fun z : G => d + z) he
+      _ = h := by abel
+  have hhalfNeg : d + h ≠ -d := by
+    intro he
+    apply hnegHalf
+    calc
+      d = d + (h + h) := by simp [hhalf]
+      _ = (d + h) + h := by abel
+      _ = -d + h := by rw [he]
+  have hhalfHalfNeg : d + h ≠ -d + h := by
+    intro he
+    exact hneg (add_right_cancel he)
+  exact ⟨hneg, hnegHalf, hhalfNeg, hhalfHalfNeg⟩
+
+#print axioms Couret.CayleyDoublet.signed_cross_differences_distinct_of_order_three
+
+end SignedCrossDifferences
+end Couret.CayleyDoublet
