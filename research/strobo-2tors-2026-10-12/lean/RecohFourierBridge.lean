@@ -23,7 +23,7 @@ namespace Couret.STROBO2TORS
 variable {G : Type*} [AddCommGroup G] [DecidableEq G]
 
 /-- The three individual character values, with multiplicities of a triple. -/
-def recohTripleProbe {R : Type*} [AddCommRing R]
+def recohTripleProbe {R : Type*} [CommRing R]
     (chi : G → R) (a b c : G) : R :=
   chi a + chi b + chi c
 
