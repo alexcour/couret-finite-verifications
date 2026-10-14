@@ -51,18 +51,20 @@ theorem cayley_twelve_mul_nonisomorphic
   have hhalf : h + h = 0 := by
     change ((6 * r : ℕ) : G) + ((6 * r : ℕ) : G) = 0
     calc
-      _ = ((12 * r : ℕ) : G) := by push_cast; ring
+      _ = ((12 * r : ℕ) : G) := by simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_one, Nat.cast_ofNat]; ring
       _ = 0 := ZMod.natCast_self (12 * r)
 
   have hne : h ≠ 0 := by
     change ((6 * r : ℕ) : G) ≠ (0 : G)
-    exact distinct_casts_below (12 * r) (6 * r) 0
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) (6 * r) 0
+      (by omega) (by omega) (by omega))
 
   have hab : a ≠ b := by
     change (1 : G) ≠ ((1 + 2 * r : ℕ) : G)
-    exact distinct_casts_below (12 * r) 1 (1 + 2 * r)
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) 1 (1 + 2 * r)
+      (by omega) (by omega) (by omega))
 
   have hbph : b + h = ((1 + 8 * r : ℕ) : G) := by
     dsimp [b, h]
@@ -71,13 +73,15 @@ theorem cayley_twelve_mul_nonisomorphic
   have habh : a ≠ b + h := by
     rw [hbph]
     change (1 : G) ≠ ((1 + 8 * r : ℕ) : G)
-    exact distinct_casts_below (12 * r) 1 (1 + 8 * r)
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) 1 (1 + 8 * r)
+      (by omega) (by omega) (by omega))
 
   have hac : a ≠ c := by
     change (1 : G) ≠ ((1 + 4 * r : ℕ) : G)
-    exact distinct_casts_below (12 * r) 1 (1 + 4 * r)
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) 1 (1 + 4 * r)
+      (by omega) (by omega) (by omega))
 
   have hcph : c + h = ((1 + 10 * r : ℕ) : G) := by
     dsimp [c, h]
@@ -86,19 +90,22 @@ theorem cayley_twelve_mul_nonisomorphic
   have hach : a ≠ c + h := by
     rw [hcph]
     change (1 : G) ≠ ((1 + 10 * r : ℕ) : G)
-    exact distinct_casts_below (12 * r) 1 (1 + 10 * r)
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) 1 (1 + 10 * r)
+      (by omega) (by omega) (by omega))
 
   have hbc : b ≠ c := by
     change ((1 + 2 * r : ℕ) : G) ≠ ((1 + 4 * r : ℕ) : G)
-    exact distinct_casts_below (12 * r) (1 + 2 * r) (1 + 4 * r)
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) (1 + 2 * r) (1 + 4 * r)
+      (by omega) (by omega) (by omega))
 
   have hbch : b ≠ c + h := by
     rw [hcph]
     change ((1 + 2 * r : ℕ) : G) ≠ ((1 + 10 * r : ℕ) : G)
-    exact distinct_casts_below (12 * r) (1 + 2 * r) (1 + 10 * r)
-      (by omega) (by omega) (by omega)
+    simpa only [Nat.cast_zero, Nat.cast_one] using
+      (distinct_casts_below (12 * r) (1 + 2 * r) (1 + 10 * r)
+      (by omega) (by omega) (by omega))
 
   have hthreeT :
       (a - c) + (a - c) + (a - c) = 0 ∨
@@ -109,7 +116,7 @@ theorem cayley_twelve_mul_nonisomorphic
       ((1 : G) - ((1 + 4 * r : ℕ) : G)) +
       ((1 : G) - ((1 + 4 * r : ℕ) : G)) = 0
     calc
-      _ = -((12 * r : ℕ) : G) := by push_cast; ring
+      _ = -((12 * r : ℕ) : G) := by simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_one, Nat.cast_ofNat]; ring
       _ = 0 := by rw [ZMod.natCast_self]; simp
 
   have hbk : b = (1 + 2 * r) • a := by
