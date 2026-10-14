@@ -24,7 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/Strobo2Tors{Core,Cardinality,Enumeration,ZeroFree,ZeroFreeAll,SurvivalCounts,OrdinaryProfiles}.lean; then
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/Strobo2Tors{Core,Cardinality,Enumeration,ZeroFree,ZeroFreeAll,SurvivalCounts,OrdinaryProfiles,ProfilePartition}.lean; then
             echo "::error::Proof placeholder or axiom found"
             exit 1
           fi
