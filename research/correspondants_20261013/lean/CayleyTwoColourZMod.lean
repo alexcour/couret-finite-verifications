@@ -68,8 +68,9 @@ theorem cayley_twelve_mul_nonisomorphic
 
   have hbph : b + h = ((1 + 8 * r : ℕ) : G) := by
     dsimp [b, h]
-    push_cast
-    ring
+    have hn : 1 + 2 * r + 6 * r = 1 + 8 * r := by omega
+    simpa only [Nat.cast_add] using
+      (congrArg (fun t : ℕ => (t : G)) hn)
   have habh : a ≠ b + h := by
     rw [hbph]
     change (1 : G) ≠ ((1 + 8 * r : ℕ) : G)
@@ -85,8 +86,9 @@ theorem cayley_twelve_mul_nonisomorphic
 
   have hcph : c + h = ((1 + 10 * r : ℕ) : G) := by
     dsimp [c, h]
-    push_cast
-    ring
+    have hn : 1 + 4 * r + 6 * r = 1 + 10 * r := by omega
+    simpa only [Nat.cast_add] using
+      (congrArg (fun t : ℕ => (t : G)) hn)
   have hach : a ≠ c + h := by
     rw [hcph]
     change (1 : G) ≠ ((1 + 10 * r : ℕ) : G)
