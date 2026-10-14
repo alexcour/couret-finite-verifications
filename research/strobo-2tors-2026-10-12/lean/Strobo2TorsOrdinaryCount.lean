@@ -200,6 +200,35 @@ theorem ordinaryFibresProfile_card_sub_div (j : ℕ) (hj : j ≤ 3) :
             congr 1
             omega
 
+/-- The exceptional support normal form has either zero, one or two
+vertices in the two-torsion subgroup, never three. -/
+theorem exceptionalSupportsProfile_three_eq_empty :
+    (exceptionalSupportsProfile (G := G) 3) = ∅ := by
+  ext S
+  constructor
+  · intro hS
+    obtain ⟨hProfile, hCard⟩ := Finset.mem_filter.mp hS
+    obtain ⟨hS3, hSJ⟩ := (mem_tripleSupportsProfile S 3).mp hProfile
+    have hExceptional : S ∈ (exceptionalSupports : Finset (Finset G)) :=
+      (mem_exceptionalSupports_card S).mpr ⟨hS3, hCard⟩
+    rw [exceptionalSupports_eq_params_image] at hExceptional
+    obtain ⟨⟨⟨a, d⟩, v⟩, hp, hs⟩ := Finset.mem_image.mp hExceptional
+    obtain ⟨hd, hd0, hv, hv0⟩ := (mem_exceptionalParams a d v).mp hp
+    have hsize := paramSupport_inter_twoTorsion_card a d v hd hd0 hv hv0
+    rw [hs, hSJ] at hsize
+    split_ifs at hsize <;> omega
+  · intro h
+    simp at h
+
+/-- A completely explicit ordinary profile: there are no exceptional
+supports with three points in G[2]. -/
+theorem ordinaryFibresProfile_card_three :
+    (ordinaryFibresProfile (G := G) 3).card =
+      ((twoTorsion : Finset G).card.choose 3) /
+        (twoTorsion : Finset G).card := by
+  simpa [exceptionalSupportsProfile_three_eq_empty] using
+    (ordinaryFibresProfile_card_sub_div (G := G) 3 (by omega))
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -212,3 +241,6 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.ordinaryProfile_binomial_balance
 
 #print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_sub_div
+
+#print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_three_eq_empty
+#print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_three
