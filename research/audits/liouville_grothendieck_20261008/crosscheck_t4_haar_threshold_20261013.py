@@ -187,8 +187,12 @@ def direct_conditional_grid(n):
         "positive_certain_cells":lower_cells,
         "positive_possible_cells":upper_cells,
         "haar_probability_exact_outer":[str(lower),str(upper)],
-        "haar_probability_decimal_outer":[str(lower.numerator*10**6//lower.denominator/10**6),
-            str(-((-upper.numerator*10**6)//upper.denominator)/10**6)],
+        "haar_probability_decimal_outer":[
+            "{:d}.{:06d}".format((lower.numerator*10**6//lower.denominator)//10**6,
+                                 (lower.numerator*10**6//lower.denominator)%10**6),
+            "{:d}.{:06d}".format(
+                (-((-upper.numerator*10**6)//upper.denominator))//10**6,
+                (-((-upper.numerator*10**6)//upper.denominator))%10**6)],
         "encloses_primary_Haar_certificate":True,
         "roots_independently_recertified":False,
         "finite_trajectory_independently_recertified":False,
