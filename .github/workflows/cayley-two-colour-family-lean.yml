@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/correspondants_20261013/lean/CayleyTwoColourFamily.lean; then
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/correspondants_20261013/lean/CayleyTwoColourFamily.lean research/correspondants_20261013/lean/CayleyTwoColourZMod.lean; then
             exit 1
           fi
       - name: Install Lean
@@ -46,4 +46,5 @@ jobs:
           lake env lean CayleyDoubletCore.lean
           mkdir -p .lake/build/lib/lean
           lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean
-          lake env lean CayleyTwoColourFamily.lean
+          lake env lean -o .lake/build/lib/lean/CayleyTwoColourFamily.olean CayleyTwoColourFamily.lean
+          lake env lean CayleyTwoColourZMod.lean
