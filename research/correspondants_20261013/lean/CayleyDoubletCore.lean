@@ -494,3 +494,129 @@ end ShiftOnQuotient
 #print axioms Couret.CayleyDoublet.shiftSteps_fixed_iff
 
 end Couret.CayleyDoublet
+
+
+/-!
+CAYLEY-DOUBLET-TWO-COLOUR (13 October 2026).
+
+The successor shared by x and its intrinsic mate and the unique successor
+not shared by that mate provide two different marked relations. The
+second marked relation is transported by graph isomorphisms just as the
+first one is. On induced quotients, the relative iterate of the shared
+successor with respect to the nonshared successor is an isomorphism
+invariant. Here quotient projections, successor existence and uniqueness
+remain explicit hypotheses. No cyclic arithmetic has been imported.
+-/
+
+namespace Couret.CayleyDoublet
+
+variable {V W : Type*}
+
+/-- An outgoing arc not shared by the intrinsic mate. -/
+def SingletonArc (E : V → V → Prop) (mate : V → V) (x y : V) : Prop :=
+  E x y ∧ ¬ E (mate x) y
+
+/-- The other edge colour is also invariant under directed isomorphisms. -/
+theorem singletonArc_iff
+    (f : V ≃ W) (E : V → V → Prop) (F : W → W → Prop)
+    (hE : ∀ x y, E x y ↔ F (f x) (f y))
+    (mateV : V → V) (mateW : W → W)
+    (hMateV : ∀ x, IsMate E x (mateV x))
+    (hUniqueW : ∀ x y, IsMate F x y → y = mateW x)
+    (x y : V) :
+    SingletonArc E mateV x y ↔ SingletonArc F mateW (f x) (f y) := by
+  have hm : f (mateV x) = mateW (f x) :=
+    uniqueMate_natural f E F hE mateV mateW hMateV hUniqueW x
+  constructor
+  · rintro ⟨hxy, hn⟩
+    refine ⟨(hE x y).mp hxy, ?_⟩
+    intro hh
+    have hh' : F (f (mateV x)) (f y) := by
+      rw [hm]
+      exact hh
+    exact hn ((hE (mateV x) y).mpr hh')
+  · rintro ⟨hxy, hn⟩
+    refine ⟨(hE x y).mpr hxy, ?_⟩
+    intro hh
+    have hh' : F (f (mateV x)) (f y) :=
+      (hE (mateV x) y).mp hh
+    rw [hm] at hh'
+    exact hn hh'
+
+/-- The nonshared successor relation defines a natural quotient map
+whenever it is well-defined on the stipulated projections. -/
+theorem singletonQuotient_natural
+    {Q R : Type*}
+    (f : V ≃ W) (g : Q ≃ R)
+    (E : V → V → Prop) (F : W → W → Prop)
+    (hE : ∀ x y, E x y ↔ F (f x) (f y))
+    (mateV : V → V) (mateW : W → W)
+    (hMateV : ∀ x, IsMate E x (mateV x))
+    (hUniqueW : ∀ x y, IsMate F x y → y = mateW x)
+    (πV : V → Q) (πW : W → R)
+    (hπ : ∀ x, g (πV x) = πW (f x))
+    (hπsurj : Function.Surjective πV)
+    (P : Q → Q) (Qp : R → R)
+    (hArcV : ∀ x, ∃ y, SingletonArc E mateV x y)
+    (hPV : ∀ x y, SingletonArc E mateV x y → P (πV x) = πV y)
+    (hPW : ∀ x y, SingletonArc F mateW x y → Qp (πW x) = πW y) :
+    ∀ z : Q, g (P z) = Qp (g z) := by
+  intro z
+  rcases hπsurj z with ⟨x, rfl⟩
+  rcases hArcV x with ⟨y, hy⟩
+  have hfArc : SingletonArc F mateW (f x) (f y) :=
+    (singletonArc_iff f E F hE mateV mateW hMateV hUniqueW x y).mp hy
+  calc
+    g (P (πV x)) = g (πV y) := by rw [hPV x y hy]
+    _ = πW (f y) := hπ y
+    _ = Qp (πW (f x)) := (hPW (f x) (f y) hfArc).symm
+    _ = Qp (g (πV x)) := by rw [hπ x]
+
+/-- The relative displacement of the marked successor as an iterate
+of the nonshared successor is a genuine two-colour conjugacy invariant. -/
+theorem relativeOffset_iff {Q R : Type*}
+    (g : Q ≃ R)
+    (markedQ singleQ : Q → Q)
+    (markedR singleR : R → R)
+    (hMarked : ∀ x, g (markedQ x) = markedR (g x))
+    (hSingle : ∀ x, g (singleQ x) = singleR (g x))
+    (k : Nat) :
+    (∀ x : Q, markedQ x = iterateMap singleQ k x) ↔
+    (∀ y : R, markedR y = iterateMap singleR k y) := by
+  constructor
+  · intro h y
+    rcases g.surjective y with ⟨x, rfl⟩
+    calc
+      markedR (g x) = g (markedQ x) := (hMarked x).symm
+      _ = g (iterateMap singleQ k x) := by rw [h x]
+      _ = iterateMap singleR k (g x) :=
+        iterateMap_conjugate g singleQ singleR hSingle k x
+  · intro h x
+    apply g.injective
+    calc
+      g (markedQ x) = markedR (g x) := hMarked x
+      _ = iterateMap singleR k (g x) := h (g x)
+      _ = g (iterateMap singleQ k x) :=
+        (iterateMap_conjugate g singleQ singleR hSingle k x).symm
+
+/-- A different relative iterate at even one target quotient vertex
+rules out any simultaneous conjugacy of both intrinsically coloured arcs. -/
+theorem noTwoColourConjugacy {Q R : Type*}
+    (g : Q ≃ R)
+    (markedQ singleQ : Q → Q)
+    (markedR singleR : R → R)
+    (hMarked : ∀ x, g (markedQ x) = markedR (g x))
+    (hSingle : ∀ x, g (singleQ x) = singleR (g x))
+    (k : Nat)
+    (hSource : ∀ x : Q, markedQ x = iterateMap singleQ k x)
+    (y : R)
+    (hNot : markedR y ≠ iterateMap singleR k y) : False := by
+  exact hNot ((relativeOffset_iff g markedQ singleQ markedR singleR
+    hMarked hSingle k).mp hSource y)
+
+#print axioms Couret.CayleyDoublet.singletonArc_iff
+#print axioms Couret.CayleyDoublet.singletonQuotient_natural
+#print axioms Couret.CayleyDoublet.relativeOffset_iff
+#print axioms Couret.CayleyDoublet.noTwoColourConjugacy
+
+end Couret.CayleyDoublet
