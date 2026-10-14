@@ -730,3 +730,58 @@ theorem bothColours_quotient_formulas
 
 end SingletonSpecialization
 end Couret.CayleyDoublet
+
+
+/-!
+CAYLEY-ORDER-THREE-BRIDGE (14 October 2026).
+
+Suppose h has order dividing two and a difference d is nonzero
+modulo the subgroup {0,h}, with 3*d equal to 0 or h.
+Then the extra order-four collision 2*d ∈ {0,h} is impossible.
+
+This is the arithmetic no-degeneracy lemma needed by the
+six-difference classification for {a,b,b+h}. It is NOT YET
+the complete proof of DifferenceRigid for that Finset.
+-/
+
+namespace Couret.CayleyDoublet
+
+section OrderThreeBridge
+
+variable {G : Type*} [AddCommGroup G]
+
+/-- The order-three quotient condition excludes an order-four collision. -/
+theorem no_cross_collision_of_order_three
+    (d h : G) (hhalf : h + h = 0)
+    (hd0 : d ≠ 0) (hdh : d ≠ h)
+    (hthree : d + d + d = 0 ∨ d + d + d = h) :
+    d + d ≠ 0 ∧ d + d ≠ h := by
+  constructor
+  · intro hdd
+    rcases hthree with htriple | htriple
+    · apply hd0
+      simpa [hdd] using htriple
+    · apply hdh
+      simpa [hdd] using htriple
+  · intro hdd
+    rcases hthree with htriple | htriple
+    · apply hdh
+      have he : h + d = 0 := by simpa only [hdd] using htriple
+      exact add_left_cancel (he.trans hhalf.symm)
+    · apply hd0
+      have he : h + d = h := by simpa only [hdd] using htriple
+      have he' : h + d = h + 0 := by simpa using he
+      exact add_left_cancel he'
+
+/-- The two cross-difference classes cannot meet after a half-turn. -/
+theorem cross_difference_disjoint_of_order_three
+    (d h : G) (hhalf : h + h = 0)
+    (hd0 : d ≠ 0) (hdh : d ≠ h)
+    (hthree : d + d + d = 0 ∨ d + d + d = h) :
+    d + d ≠ 0 ∧ d + d ≠ h := by
+  exact no_cross_collision_of_order_three d h hhalf hd0 hdh hthree
+
+#print axioms Couret.CayleyDoublet.no_cross_collision_of_order_three
+
+end OrderThreeBridge
+end Couret.CayleyDoublet
