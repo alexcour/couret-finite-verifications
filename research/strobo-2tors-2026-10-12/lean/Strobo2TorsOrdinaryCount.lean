@@ -229,6 +229,52 @@ theorem ordinaryFibresProfile_card_three :
   simpa [exceptionalSupportsProfile_three_eq_empty] using
     (ordinaryFibresProfile_card_sub_div (G := G) 3 (by omega))
 
+/-! ## Exceptional-support strata through their unique parameters -/
+
+/-- Exceptional parameter triples with exactly j support points in G[2]. -/
+def exceptionalParamsProfile (j : ℕ) : Finset ((G × G) × G) :=
+  (exceptionalParams : Finset ((G × G) × G)).filter
+    (fun p => (paramSupport p ∩ (twoTorsion : Finset G)).card = j)
+
+/-- The exceptional-support stratum is precisely the image of its unique
+parameter stratum. This does not yet evaluate its numerical cardinality. -/
+theorem exceptionalSupportsProfile_eq_params_image (j : ℕ) :
+    (exceptionalSupportsProfile (G := G) j) =
+      (exceptionalParamsProfile (G := G) j).image paramSupport := by
+  ext S
+  constructor
+  · intro hS
+    obtain ⟨hProfile, hCard⟩ := Finset.mem_filter.mp hS
+    obtain ⟨hS3, hj⟩ := (mem_tripleSupportsProfile S j).mp hProfile
+    have hExceptional : S ∈ (exceptionalSupports : Finset (Finset G)) :=
+      (mem_exceptionalSupports_card S).mpr ⟨hS3, hCard⟩
+    rw [exceptionalSupports_eq_params_image] at hExceptional
+    obtain ⟨p, hp, hpS⟩ := Finset.mem_image.mp hExceptional
+    apply Finset.mem_image.mpr
+    refine ⟨p, Finset.mem_filter.mpr ⟨hp, ?_⟩, hpS⟩
+    simpa [hpS] using hj
+  · intro hS
+    obtain ⟨p, hp, hpS⟩ := Finset.mem_image.mp hS
+    obtain ⟨hParam, hj⟩ := Finset.mem_filter.mp hp
+    have hExceptional : S ∈ (exceptionalSupports : Finset (Finset G)) := by
+      rw [exceptionalSupports_eq_params_image]
+      exact Finset.mem_image.mpr ⟨p, hParam, hpS⟩
+    obtain ⟨hS3, hCard⟩ := (mem_exceptionalSupports_card S).mp hExceptional
+    apply Finset.mem_filter.mpr
+    refine ⟨(mem_tripleSupportsProfile S j).mpr ⟨hS3, ?_⟩, hCard⟩
+    simpa [hpS] using hj
+
+/-- No raw exceptional parameter is repeated: profile counts can be
+computed as *parameter* counts without counting an orbit or fibre twice. -/
+theorem exceptionalSupportsProfile_card_eq_params (j : ℕ) :
+    (exceptionalSupportsProfile (G := G) j).card =
+      (exceptionalParamsProfile (G := G) j).card := by
+  rw [exceptionalSupportsProfile_eq_params_image]
+  apply Finset.card_image_iff.mpr
+  intro p hp q hq heq
+  exact paramSupport_injective_on_exceptionalParams
+    (Finset.mem_filter.mp hp).1 (Finset.mem_filter.mp hq).1 heq
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -244,3 +290,6 @@ end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_three_eq_empty
 #print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_three
+
+#print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_eq_params_image
+#print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_card_eq_params
