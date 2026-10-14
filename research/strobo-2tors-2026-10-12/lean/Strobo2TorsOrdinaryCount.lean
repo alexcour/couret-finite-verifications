@@ -275,6 +275,49 @@ theorem exceptionalSupportsProfile_card_eq_params (j : ℕ) :
   exact paramSupport_injective_on_exceptionalParams
     (Finset.mem_filter.mp hp).1 (Finset.mem_filter.mp hq).1 heq
 
+/-! ## Arithmetic classification of each exceptional parameter profile -/
+
+/-- In the exceptional normal form, precisely the singleton lies in G[2]
+if and only if the parameter a itself has order dividing two. -/
+theorem paramSupport_profile_one_iff (a d v : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0)
+    (hv : (v + v) + v = 0) (hv0 : v ≠ 0) :
+    (paramSupport ((a, d), v) ∩ (twoTorsion : Finset G)).card = 1 ↔
+      a ∈ (twoTorsion : Finset G) := by
+  rw [paramSupport_inter_twoTorsion_card a d v hd hd0 hv hv0, mem_twoTorsion]
+  by_cases ha : a + a = 0
+  · simp [ha]
+  · by_cases hb : (a + v) + (a + v) = 0
+    · simp [ha, hb]
+    · simp [ha, hb]
+
+/-- Exactly two support vertices belong to G[2] if and only if a+v does. -/
+theorem paramSupport_profile_two_iff (a d v : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0)
+    (hv : (v + v) + v = 0) (hv0 : v ≠ 0) :
+    (paramSupport ((a, d), v) ∩ (twoTorsion : Finset G)).card = 2 ↔
+      a + v ∈ (twoTorsion : Finset G) := by
+  rw [paramSupport_inter_twoTorsion_card a d v hd hd0 hv hv0, mem_twoTorsion]
+  have hdiff := exceptional_param_genuine a v hv hv0
+  by_cases ha : a + a = 0
+  · have hb : (a + v) + (a + v) ≠ 0 :=
+      fun h => hdiff (ha.trans h.symm)
+    simp [ha, hb]
+  · by_cases hb : (a + v) + (a + v) = 0
+    · simp [ha, hb]
+    · simp [ha, hb]
+
+/-- The remaining exceptional supports are disjoint from G[2]. -/
+theorem paramSupport_profile_zero_iff (a d v : G)
+    (hd : d + d = 0) (hd0 : d ≠ 0)
+    (hv : (v + v) + v = 0) (hv0 : v ≠ 0) :
+    (paramSupport ((a, d), v) ∩ (twoTorsion : Finset G)).card = 0 ↔
+      a + a ≠ 0 ∧ (a + v) + (a + v) ≠ 0 := by
+  rw [paramSupport_inter_twoTorsion_card a d v hd hd0 hv hv0]
+  by_cases ha : a + a = 0 <;>
+    by_cases hb : (a + v) + (a + v) = 0 <;>
+    simp [ha, hb]
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -293,3 +336,7 @@ end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_eq_params_image
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_card_eq_params
+
+#print axioms Couret.STROBO2TORS.paramSupport_profile_one_iff
+#print axioms Couret.STROBO2TORS.paramSupport_profile_two_iff
+#print axioms Couret.STROBO2TORS.paramSupport_profile_zero_iff
