@@ -406,7 +406,8 @@ private theorem profilePairs_image_eq (j : ℕ) (hj : j ≤ 3) :
       tripleSupportsProfile (G := G) j := by
   ext S
   constructor
-  · rintro ⟨p, hp, rfl⟩
+  · intro h
+    obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp h
     obtain ⟨hpa, hpb⟩ := Finset.mem_product.mp hp
     obtain ⟨haSub, haCard⟩ := Finset.mem_powersetCard.mp hpa
     obtain ⟨hbSub, hbCard⟩ := Finset.mem_powersetCard.mp hpb
@@ -453,6 +454,7 @@ private theorem profilePairs_union_injective (j : ℕ) :
   intro p hp q hq heq
   rcases p with ⟨A, B⟩
   rcases q with ⟨C, D⟩
+  change A ∪ B = C ∪ D at heq
   obtain ⟨ha, hb⟩ := Finset.mem_product.mp hp
   obtain ⟨hc, hd⟩ := Finset.mem_product.mp hq
   have haSub := (Finset.mem_powersetCard.mp ha).1
@@ -482,7 +484,9 @@ theorem tripleSupportsProfile_card (j : ℕ) (hj : j ≤ 3) :
   have hcount : (profilePairs (G := G) j).card =
       (twoTorsion : Finset G).card.choose j *
       ((Fintype.card G - (twoTorsion : Finset G).card).choose (3 - j)) := by
-    simp only [profilePairs, Finset.card_product, Finset.card_powersetCard]
+    unfold profilePairs
+    rw [Finset.card_product]
+    rw [Finset.card_powersetCard, Finset.card_powersetCard]
     rw [Finset.card_sdiff_of_subset (Finset.subset_univ (twoTorsion : Finset G))]
     simp
   calc
