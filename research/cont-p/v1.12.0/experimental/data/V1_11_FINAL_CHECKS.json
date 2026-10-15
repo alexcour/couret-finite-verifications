@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "new_pair_tables": "EXACT_MATCH",
+  "pairs_by_window": {
+    "2380000000": 4626979,
+    "2540000000": 4613982,
+    "2700000000": 4600065
+  },
+  "frozen_hashes_unchanged": true,
+  "max_forecast_error": 7.494005416219807e-16,
+  "max_mean_score_error": 4.440892098500626e-16,
+  "bootstrap_error": 1.8849447691723573e-17,
+  "bootstrap_error_5M": 3.7489890003712147e-17,
+  "scientific_criterion": true,
+  "sensitivity_5M_positive": true
+}
