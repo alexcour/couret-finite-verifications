@@ -75,6 +75,8 @@ def read_page(page, timeout):
         "truncated": False,
         "matched_markers": [],
         "unmatched_markers": [],
+        "marker_contexts": {},
+        "visible_text_sha256": None,
         "error": None
     }
     try:
@@ -104,10 +106,27 @@ def read_page(page, timeout):
             return receipt
         surface = Surface()
         surface.feed(body.decode("utf-8", errors="replace"))
-        normalized = compact(" ".join(surface.body)).casefold()
+        visible = compact(" ".join(surface.body))
+        normalized = visible.casefold()
         markers = page["markers_to_locate"]
         receipt["matched_markers"] = [m for m in markers if compact(m).casefold() in normalized]
         receipt["unmatched_markers"] = [m for m in markers if compact(m).casefold() not in normalized]
+        # Capture at most two short excerpts per marker, not the full public page.
+        # A lexical hit can be a historical erratum, not a current false claim.
+        for marker in receipt["matched_markers"]:
+            needle = compact(marker).casefold()
+            snippets = []
+            offset = 0
+            while len(snippets) < 2:
+                at = normalized.find(needle, offset)
+                if at < 0:
+                    break
+                start = max(0, at - 100)
+                end = min(len(visible), at + len(needle) + 140)
+                snippets.append(visible[start:end])
+                offset = at + len(needle)
+            receipt["marker_contexts"][marker] = snippets
+        receipt["visible_text_sha256"] = hashlib.sha256(visible.encode("utf-8")).hexdigest()
         receipt["sha256"] = hashlib.sha256(body).hexdigest()
         receipt["title"] = compact(" ".join(surface.title))[:160]
         receipt["status"] = "HTTP_OK"
@@ -154,7 +173,10 @@ def self_test(pages):
     assert compact(" ".join(p.title)) == "Test"
     assert "STROBO Cayley" in compact(" ".join(p.body))
     assert "secret" not in " ".join(p.body)
-    print("self-test: OK (16 entries; HTML parser)")
+    example = compact(" ".join(p.body))
+    assert example.casefold().find("strobo") >= 0
+    assert hashlib.sha256(example.encode("utf-8")).hexdigest()
+    print("self-test: OK (16 entries; HTML parser; text digest)")
 
 
 def main():
