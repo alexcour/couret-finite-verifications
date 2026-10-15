@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - research/strobo-2tors-global-classification-2026-10-12
+      - research/strobo-zero-free-histogram-20261015
   pull_request:
     paths:
       - "research/strobo-2tors-2026-10-12/**"
