@@ -91,9 +91,13 @@ theorem ordinaryFibresProfile_size_filter_card (j k : ℕ) :
     have heq : ((ordinaryFibresProfile (G := G) j).filter
         (fun F => (withoutZero F).card = k)) = ∅ := by
       ext F
-      simp only [Finset.mem_filter, Finset.not_mem_empty, iff_false]
-      rintro ⟨hProf, hSize⟩
-      exact hk ((ordinaryFibresProfile_zeroFree_card j F hProf).symm.trans hSize)
+      constructor
+      · intro hF
+        obtain ⟨hProf, hSize⟩ := Finset.mem_filter.mp hF
+        exact False.elim
+          (hk ((ordinaryFibresProfile_zeroFree_card j F hProf).symm.trans hSize))
+      · intro hEmpty
+        simp at hEmpty
     rw [heq, Finset.card_empty]
 
 private theorem ordinaryProfile_size_filter_disjoint (j l k : ℕ)
