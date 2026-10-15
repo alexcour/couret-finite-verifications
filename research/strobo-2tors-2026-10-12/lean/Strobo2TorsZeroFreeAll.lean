@@ -485,7 +485,7 @@ theorem tripleSupportsProfile_card (j : ℕ) (hj : j ≤ 3) :
       (twoTorsion : Finset G).card.choose j *
       ((Fintype.card G - (twoTorsion : Finset G).card).choose (3 - j)) := by
     unfold profilePairs
-    rw [Finset.card_product]
+    rw [Finset.product_eq_sprod, Finset.card_product]
     rw [Finset.card_powersetCard, Finset.card_powersetCard]
     rw [Finset.card_sdiff_of_subset (Finset.subset_univ (twoTorsion : Finset G))]
     simp
