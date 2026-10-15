@@ -1,6 +1,6 @@
 import RecohKernelCollisions
 import Mathlib.Data.Finset.Card
-import Mathlib.Tactic.Omega
+import Mathlib.Tactic
 
 set_option autoImplicit false
 
