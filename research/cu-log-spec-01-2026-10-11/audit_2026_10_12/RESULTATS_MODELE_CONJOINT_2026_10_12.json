@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-12",
+  "parent_commit": "a39bee37187d71d0f5007d5bf6225217683d52b3",
+  "status": "first conditional joint model; NO full numerical forecast",
+  "prime_counts_computed": false,
+  "reserved_window_examined": false,
+  "statistics": [
+    "F15",
+    "F21",
+    "F35",
+    "Gchi5"
+  ],
+  "characters": 47,
+  "real_modes": 7,
+  "complex_pairs": 20,
+  "independent_character_blocks_under_LI": 27,
+  "conductor_dimensions": {
+    "3": 1,
+    "5": 3,
+    "7": 5,
+    "15": 3,
+    "21": 5,
+    "35": 15,
+    "105": 15
+  },
+  "numerical_not_interval_certified": {
+    "formal_trace_variance": 62.743969262140034,
+    "catalogued_positive_zeros": 25,
+    "catalogued_characters": 1,
+    "captured_trace_variance": 0.12445937436645142,
+    "uncaptured_trace_variance": 62.61950988777358,
+    "uncaptured_fraction": 0.9980163930361742,
+    "chi5_uncaptured_variance": 0.03158459360897527,
+    "chi5_excess_kurtosis_outer_bounds": [
+      -0.2118630577087618,
+      -0.15040938046893151
+    ],
+    "max_known_subset_cf_drop_error": 0.013487550537588433,
+    "max_known_subset_cf_gaussian_error": 0.022911871575363146,
+    "finite_identity_r_at_300M": 0.6117835297956867,
+    "asymptotic_r": 0.5773502691896257,
+    "near_resonance_beating_average_abs": 0.9999999991666667,
+    "synthetic_conjugacy_correct_energy": 0.046503835895027885,
+    "synthetic_conjugacy_wrong_cosine_energy": 0.09300767179005577
+  },
+  "exact_negative_controls": {
+    "resonant_cov_cos1_cos2": "0",
+    "resonant_E_cos1_squared_cos2": "1/4",
+    "resonant_E_cos1_squared_cos2_squared": "1/4",
+    "resonant_cov_cos1_cos3": "0",
+    "resonant_E_cos1_cubed_cos3": "1/8",
+    "near_zero_absolute_error_norm": "1/1000000000000",
+    "near_zero_ratio_change": "1/2",
+    "equal_radius_dependent_and_independent_four_ratios": "identical; energies cannot recover phase dependence"
+  },
+  "catalog_certification": "25 decimal ordinates transcribed from prior audit. No interval recertification or completeness proof in this work. No other character zero data.",
+  "analytic_height_bound_float_evaluations": {
+    "100": 2.8956018994121493,
+    "1000": 0.3565720913895852,
+    "10000": 0.04402905206936375,
+    "100000": 0.005257873439819167,
+    "1000000": 0.0006114727807884843
+  },
+  "height_bound_scope": "Hypothetical complete truncation of all 47 primitive modes at T. Published BMOR bound and analytic integration; float evaluations only, no corresponding complete catalogues available here.",
+  "test_gate": "NOT READY: other character zero catalogues, interval root/weight bounds, ratio small-ball control and finite-scale calibration missing"
+}
