@@ -1,0 +1,2988 @@
+{
+  "box_result": {
+    "all_integer_times_and_any_adaptive_strategy": true,
+    "conditional_on_family_label_known": true,
+    "families": {
+      "A": {
+        "all_time_common_observation": "center trajectory",
+        "full_parameter_linf_minimax_exact": "1/1000",
+        "node_shift_all_time_upper": "1/1498",
+        "nodes_only_linf_minimax_exact": "1/1000",
+        "upper_estimator": "known family box center, zero measurements",
+        "weight_shift_all_time_upper": "1/1000",
+        "witness_node": "q0 +/- 1/1000",
+        "witness_weight": "w0 +/- 1/1000"
+      },
+      "B": {
+        "all_time_common_observation": "center trajectory",
+        "full_parameter_linf_minimax_exact": "1/1000",
+        "node_shift_all_time_upper": "13/24474",
+        "nodes_only_linf_minimax_exact": "1/1000",
+        "upper_estimator": "known family box center, zero measurements",
+        "weight_shift_all_time_upper": "1/1000",
+        "witness_node": "q0 +/- 1/1000",
+        "witness_weight": "w0 +/- 1/1000"
+      },
+      "C": {
+        "all_time_common_observation": "center trajectory",
+        "full_parameter_linf_minimax_exact": "1/1000",
+        "node_shift_all_time_upper": "275/102492",
+        "nodes_only_linf_minimax_exact": "1/1000",
+        "upper_estimator": "known family box center, zero measurements",
+        "weight_shift_all_time_upper": "1/1000",
+        "witness_node": "q0 +/- 1/1000",
+        "witness_weight": "w0 +/- 1/1000"
+      },
+      "D": {
+        "all_time_common_observation": "center trajectory",
+        "full_parameter_linf_minimax_exact": "1/1000",
+        "node_shift_all_time_upper": "5/1798",
+        "nodes_only_linf_minimax_exact": "1/1000",
+        "upper_estimator": "known family box center, zero measurements",
+        "weight_shift_all_time_upper": "1/1000",
+        "witness_node": "q0 +/- 1/1000",
+        "witness_weight": "w0 +/- 1/1000"
+      }
+    },
+    "noise": "1/100",
+    "radius": "1/1000"
+  },
+  "date": "2026-10-11",
+  "external_review": "OPEN",
+  "novelty": "NO CLAIM",
+  "project": "NTK-OBS-05",
+  "scope": "deterministic L-infinity minimax for known boxes; independent one-dimensional positive 2-atom slice",
+  "slow_slice": {
+    "certified_dominance": "for all k>=12, gap(k,d)<=gap(11,d) for every d in [0,b-a]",
+    "fixed_other_q": "1/4",
+    "fixed_other_weight": "1",
+    "high_q": "91/100",
+    "low_q": "89/100",
+    "noise_cases": {
+      "1/100": {
+        "all_time_minimax_risk_certified_interval": [
+          "550676937/200000000000",
+          "5506769371/2000000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 2,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              2
+            ],
+            "horizon": 2,
+            "minimax_diameter_lower": "697869467/62500000000",
+            "minimax_diameter_upper": "11165911473/1000000000000",
+            "minimax_risk_lower": "697869467/125000000000",
+            "minimax_risk_upper": "11165911473/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 3,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              3
+            ],
+            "horizon": 3,
+            "minimax_diameter_lower": "8338085307/1000000000000",
+            "minimax_diameter_upper": "2084521327/250000000000",
+            "minimax_risk_lower": "8338085307/2000000000000",
+            "minimax_risk_upper": "2084521327/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 4,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              4
+            ],
+            "horizon": 4,
+            "minimax_diameter_lower": "7009271661/1000000000000",
+            "minimax_diameter_upper": "3504635831/500000000000",
+            "minimax_risk_lower": "7009271661/2000000000000",
+            "minimax_risk_upper": "3504635831/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 5,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              5
+            ],
+            "horizon": 5,
+            "minimax_diameter_lower": "3142934799/500000000000",
+            "minimax_diameter_upper": "6285869599/1000000000000",
+            "minimax_risk_lower": "3142934799/1000000000000",
+            "minimax_risk_upper": "6285869599/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 6,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              6
+            ],
+            "horizon": 6,
+            "minimax_diameter_lower": "1467918151/250000000000",
+            "minimax_diameter_upper": "1174334521/200000000000",
+            "minimax_risk_lower": "1467918151/500000000000",
+            "minimax_risk_upper": "1174334521/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 7,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              7
+            ],
+            "horizon": 7,
+            "minimax_diameter_lower": "1128121651/200000000000",
+            "minimax_diameter_upper": "11016813/1953125000",
+            "minimax_risk_lower": "1128121651/400000000000",
+            "minimax_risk_upper": "11016813/3906250000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "5530319353/1000000000000",
+            "minimax_diameter_upper": "2765159677/500000000000",
+            "minimax_risk_lower": "5530319353/2000000000000",
+            "minimax_risk_upper": "2765159677/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "550676937/100000000000",
+            "minimax_diameter_upper": "5506769371/1000000000000",
+            "minimax_risk_lower": "550676937/200000000000",
+            "minimax_risk_upper": "5506769371/2000000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": "7/4",
+            "first_time": 3,
+            "horizon": 3,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/200"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/1000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/2000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/4000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 9,
+        "unrestricted_time_same_as_h11": true
+      },
+      "1/1000": {
+        "all_time_minimax_risk_certified_interval": [
+          "281538727/1000000000000",
+          "112615491/400000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 1,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              1
+            ],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/500",
+            "minimax_diameter_upper": "2000000001/1000000000000",
+            "minimax_risk_lower": "1/1000",
+            "minimax_risk_upper": "2000000001/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 2,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              2
+            ],
+            "horizon": 2,
+            "minimax_diameter_lower": "280721787/250000000000",
+            "minimax_diameter_upper": "1122887149/1000000000000",
+            "minimax_risk_lower": "280721787/500000000000",
+            "minimax_risk_upper": "1122887149/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 3,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              3
+            ],
+            "horizon": 3,
+            "minimax_diameter_lower": "840849909/1000000000000",
+            "minimax_diameter_upper": "84084991/100000000000",
+            "minimax_risk_lower": "840849909/2000000000000",
+            "minimax_risk_upper": "84084991/200000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 4,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              4
+            ],
+            "horizon": 4,
+            "minimax_diameter_lower": "354202401/500000000000",
+            "minimax_diameter_upper": "708404803/1000000000000",
+            "minimax_risk_lower": "354202401/1000000000000",
+            "minimax_risk_upper": "708404803/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 5,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              5
+            ],
+            "horizon": 5,
+            "minimax_diameter_lower": "636617631/1000000000000",
+            "minimax_diameter_upper": "19894301/31250000000",
+            "minimax_risk_lower": "636617631/2000000000000",
+            "minimax_risk_upper": "19894301/62500000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 6,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              6
+            ],
+            "horizon": 6,
+            "minimax_diameter_lower": "595938809/1000000000000",
+            "minimax_diameter_upper": "59593881/100000000000",
+            "minimax_risk_lower": "595938809/2000000000000",
+            "minimax_risk_upper": "59593881/200000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 7,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              7
+            ],
+            "horizon": 7,
+            "minimax_diameter_lower": "573788511/1000000000000",
+            "minimax_diameter_upper": "17930891/31250000000",
+            "minimax_risk_lower": "573788511/2000000000000",
+            "minimax_risk_upper": "17930891/62500000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "8811841/15625000000",
+            "minimax_diameter_upper": "22558313/40000000000",
+            "minimax_risk_lower": "8811841/31250000000",
+            "minimax_risk_upper": "22558313/80000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "281538727/500000000000",
+            "minimax_diameter_upper": "112615491/200000000000",
+            "minimax_risk_lower": "281538727/1000000000000",
+            "minimax_risk_upper": "112615491/400000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/200"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/1000"
+          },
+          {
+            "cost": "7/4",
+            "first_time": 3,
+            "horizon": 3,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/2000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/4000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 9,
+        "unrestricted_time_same_as_h11": true
+      },
+      "1/10000": {
+        "all_time_minimax_risk_certified_interval": [
+          "7054517/250000000000",
+          "56436137/2000000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 1,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              1
+            ],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/5000",
+            "minimax_diameter_upper": "200000001/1000000000000",
+            "minimax_risk_lower": "1/10000",
+            "minimax_risk_upper": "200000001/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 2,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              2
+            ],
+            "horizon": 2,
+            "minimax_diameter_lower": "56176229/500000000000",
+            "minimax_diameter_upper": "112352459/1000000000000",
+            "minimax_risk_lower": "56176229/1000000000000",
+            "minimax_risk_upper": "112352459/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 3,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              3
+            ],
+            "horizon": 3,
+            "minimax_diameter_lower": "84156499/1000000000000",
+            "minimax_diameter_upper": "168313/2000000000",
+            "minimax_risk_lower": "84156499/2000000000000",
+            "minimax_risk_upper": "168313/4000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 4,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              4
+            ],
+            "horizon": 4,
+            "minimax_diameter_lower": "70916627/1000000000000",
+            "minimax_diameter_upper": "17729157/250000000000",
+            "minimax_risk_lower": "70916627/2000000000000",
+            "minimax_risk_upper": "17729157/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 5,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              5
+            ],
+            "horizon": 5,
+            "minimax_diameter_lower": "63743771/1000000000000",
+            "minimax_diameter_upper": "15935943/250000000000",
+            "minimax_risk_lower": "63743771/2000000000000",
+            "minimax_risk_upper": "15935943/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 6,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              6
+            ],
+            "horizon": 6,
+            "minimax_diameter_lower": "29841861/500000000000",
+            "minimax_diameter_upper": "59683723/1000000000000",
+            "minimax_risk_lower": "29841861/1000000000000",
+            "minimax_risk_upper": "59683723/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 7,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              7
+            ],
+            "horizon": 7,
+            "minimax_diameter_lower": "5747881/100000000000",
+            "minimax_diameter_upper": "57478811/1000000000000",
+            "minimax_risk_lower": "5747881/200000000000",
+            "minimax_risk_upper": "57478811/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "56508457/1000000000000",
+            "minimax_diameter_upper": "28254229/500000000000",
+            "minimax_risk_lower": "56508457/2000000000000",
+            "minimax_risk_upper": "28254229/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "7054517/125000000000",
+            "minimax_diameter_upper": "56436137/1000000000000",
+            "minimax_risk_lower": "7054517/250000000000",
+            "minimax_risk_upper": "56436137/2000000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/200"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/1000"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/2000"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/4000"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 9,
+        "unrestricted_time_same_as_h11": true
+      },
+      "1/100000": {
+        "all_time_minimax_risk_certified_interval": [
+          "2822451/1000000000000",
+          "5644903/2000000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 1,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              1
+            ],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/50000",
+            "minimax_diameter_upper": "20000001/1000000000000",
+            "minimax_risk_lower": "1/100000",
+            "minimax_risk_upper": "20000001/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 2,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              2
+            ],
+            "horizon": 2,
+            "minimax_diameter_lower": "2808971/250000000000",
+            "minimax_diameter_upper": "2247177/200000000000",
+            "minimax_risk_lower": "2808971/500000000000",
+            "minimax_risk_upper": "2247177/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 3,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              3
+            ],
+            "horizon": 3,
+            "minimax_diameter_lower": "4208183/500000000000",
+            "minimax_diameter_upper": "8416367/1000000000000",
+            "minimax_risk_lower": "4208183/1000000000000",
+            "minimax_risk_upper": "8416367/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 4,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              4
+            ],
+            "horizon": 4,
+            "minimax_diameter_lower": "283697/40000000000",
+            "minimax_diameter_upper": "3546213/500000000000",
+            "minimax_risk_lower": "283697/80000000000",
+            "minimax_risk_upper": "3546213/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 5,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              5
+            ],
+            "horizon": 5,
+            "minimax_diameter_lower": "3187599/500000000000",
+            "minimax_diameter_upper": "6375199/1000000000000",
+            "minimax_risk_lower": "3187599/1000000000000",
+            "minimax_risk_upper": "6375199/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 6,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              6
+            ],
+            "horizon": 6,
+            "minimax_diameter_lower": "746159/125000000000",
+            "minimax_diameter_upper": "5969273/1000000000000",
+            "minimax_risk_lower": "746159/250000000000",
+            "minimax_risk_upper": "5969273/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 7,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              7
+            ],
+            "horizon": 7,
+            "minimax_diameter_lower": "5748883/1000000000000",
+            "minimax_diameter_upper": "1437221/250000000000",
+            "minimax_risk_lower": "5748883/2000000000000",
+            "minimax_risk_upper": "1437221/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "706497/125000000000",
+            "minimax_diameter_upper": "5651977/1000000000000",
+            "minimax_risk_lower": "706497/250000000000",
+            "minimax_risk_upper": "5651977/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "2822451/500000000000",
+            "minimax_diameter_upper": "5644903/1000000000000",
+            "minimax_risk_lower": "2822451/1000000000000",
+            "minimax_risk_upper": "5644903/2000000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/200"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/1000"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/2000"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/4000"
+          },
+          {
+            "cost": "5/4",
+            "first_time": 1,
+            "horizon": 1,
+            "queries": 1,
+            "status": "ONE_QUERY_MINIMAX_COST",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 9,
+        "unrestricted_time_same_as_h11": true
+      },
+      "1/25": {
+        "all_time_minimax_risk_certified_interval": [
+          "1/100",
+          "1/100"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 2,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 3,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 4,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 5,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 6,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 7,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 8,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 9,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 10,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 11,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 12,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 13,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 14,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 15,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 16,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 17,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 18,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 19,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 20,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 21,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 22,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 23,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 24,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/200"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/1000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/2000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/4000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": null,
+        "unrestricted_time_same_as_h11": true
+      },
+      "19/500": {
+        "all_time_minimax_risk_certified_interval": [
+          "19625667387/2000000000000",
+          "4906416847/500000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 2,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 3,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 4,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 5,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 6,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 7,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "9928161283/500000000000",
+            "minimax_diameter_upper": "19856322567/1000000000000",
+            "minimax_risk_lower": "9928161283/1000000000000",
+            "minimax_risk_upper": "19856322567/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "19627629503/1000000000000",
+            "minimax_diameter_upper": "306681711/15625000000",
+            "minimax_risk_lower": "19627629503/2000000000000",
+            "minimax_risk_upper": "306681711/31250000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 10,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              10
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "19625667387/1000000000000",
+            "minimax_diameter_upper": "4906416847/250000000000",
+            "minimax_risk_lower": "19625667387/2000000000000",
+            "minimax_risk_upper": "4906416847/500000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/200"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/1000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/2000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/4000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 10,
+        "unrestricted_time_same_as_h11": true
+      },
+      "3/100": {
+        "all_time_minimax_risk_certified_interval": [
+          "15769959257/2000000000000",
+          "7884979629/1000000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 2,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 3,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 4,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 5,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              5
+            ],
+            "horizon": 5,
+            "minimax_diameter_lower": "9176579813/500000000000",
+            "minimax_diameter_upper": "18353159627/1000000000000",
+            "minimax_risk_lower": "9176579813/1000000000000",
+            "minimax_risk_upper": "18353159627/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 6,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              6
+            ],
+            "horizon": 6,
+            "minimax_diameter_lower": "17068533187/1000000000000",
+            "minimax_diameter_upper": "4267133297/250000000000",
+            "minimax_risk_lower": "17068533187/2000000000000",
+            "minimax_risk_upper": "4267133297/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 7,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              7
+            ],
+            "horizon": 7,
+            "minimax_diameter_lower": "16321124873/1000000000000",
+            "minimax_diameter_upper": "8160562437/500000000000",
+            "minimax_risk_lower": "16321124873/2000000000000",
+            "minimax_risk_upper": "8160562437/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "15922773107/1000000000000",
+            "minimax_diameter_upper": "3980693277/250000000000",
+            "minimax_risk_lower": "15922773107/2000000000000",
+            "minimax_risk_upper": "3980693277/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "15769959257/1000000000000",
+            "minimax_diameter_upper": "7884979629/500000000000",
+            "minimax_risk_lower": "15769959257/2000000000000",
+            "minimax_risk_upper": "7884979629/1000000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/200"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/1000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/2000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/4000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 9,
+        "unrestricted_time_same_as_h11": true
+      },
+      "7/200": {
+        "all_time_minimax_risk_certified_interval": [
+          "4549081599/500000000000",
+          "18196326397/2000000000000"
+        ],
+        "horizons": [
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 0,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 1,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 2,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 3,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 4,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": null,
+            "exact_prior_saturation": true,
+            "grid_ties": [],
+            "horizon": 5,
+            "minimax_diameter_lower": "1/50",
+            "minimax_diameter_upper": "1/50",
+            "minimax_risk_lower": "1/100",
+            "minimax_risk_upper": "1/100",
+            "unique_best_time_certified": false
+          },
+          {
+            "best_single_time": 6,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              6
+            ],
+            "horizon": 6,
+            "minimax_diameter_lower": "9881344231/500000000000",
+            "minimax_diameter_upper": "19762688463/1000000000000",
+            "minimax_risk_lower": "9881344231/1000000000000",
+            "minimax_risk_upper": "19762688463/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 7,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              7
+            ],
+            "horizon": 7,
+            "minimax_diameter_lower": "18876963771/1000000000000",
+            "minimax_diameter_upper": "4719240943/250000000000",
+            "minimax_risk_lower": "18876963771/2000000000000",
+            "minimax_risk_upper": "4719240943/500000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 8,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              8
+            ],
+            "horizon": 8,
+            "minimax_diameter_lower": "9197591707/500000000000",
+            "minimax_diameter_upper": "3679036683/200000000000",
+            "minimax_risk_lower": "9197591707/1000000000000",
+            "minimax_risk_upper": "3679036683/400000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 9,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 10,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 11,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 12,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 13,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 14,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 15,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 16,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 17,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 18,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 19,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 20,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 21,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 22,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 23,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          },
+          {
+            "best_single_time": 9,
+            "exact_prior_saturation": false,
+            "grid_ties": [
+              9
+            ],
+            "horizon": 24,
+            "minimax_diameter_lower": "4549081599/250000000000",
+            "minimax_diameter_upper": "18196326397/1000000000000",
+            "minimax_risk_lower": "4549081599/500000000000",
+            "minimax_risk_upper": "18196326397/2000000000000",
+            "unique_best_time_certified": true
+          }
+        ],
+        "target_costs": [
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/200"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/1000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/2000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/4000"
+          },
+          {
+            "cost": null,
+            "first_time": null,
+            "horizon": null,
+            "queries": null,
+            "status": "IMPOSSIBLE_AT_ANY_INTEGER_HORIZON",
+            "target": "1/10000"
+          }
+        ],
+        "time_at_h11": 9,
+        "unrestricted_time_same_as_h11": true
+      }
+    },
+    "noise_type": "independently BOUNDED per time (not probabilistically independent)",
+    "parameter": "higher node q only, other three parameters KNOWN",
+    "risk_grid_denominator": 1000000000000,
+    "variable_weight": "1"
+  },
+  "theorem_status": "local proofs included; independent external verification open",
+  "warning": "time t=0 is uninformative on slow slice; prior midpoint costs zero if target >= 1/100; no claim of globally optimal 4-parameter strategy"
+}
