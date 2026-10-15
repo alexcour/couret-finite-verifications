@@ -68,6 +68,12 @@ theorem recoh_surjective_binary_pivots_leave_short_mask
         ((Finset.univ : Finset (Fin k)) \ pivots).card :=
           Finset.card_le_card hsubset
       _ = k - r := hrem
+  have hrk : r ≤ k := by
+    calc
+      r = pivots.card := hpivotcard.symm
+      _ ≤ (Finset.univ : Finset (Fin k)).card :=
+        Finset.card_le_card (Finset.subset_univ _)
+      _ = k := by simp
   refine ⟨d, hp, ?_⟩
   change zeroSet.card < s
   omega
