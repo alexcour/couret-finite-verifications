@@ -1,0 +1,33 @@
+name: RECOH mixed-rank finite replay
+
+on:
+  push:
+    branches:
+      - research/recoh-strobo-fourier-lean-2026-10-14
+    paths:
+      - 'research/strobo-2tors-2026-10-12/verify_recoh_mixed_rank_20261015.py'
+      - '.github/workflows/recoh-mixed-rank-finite.yml'
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/verify_recoh_mixed_rank_20261015.py'
+      - '.github/workflows/recoh-mixed-rank-finite.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-mixed-rank:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Exact finite replay and frozen output checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONOPTIMIZE=0
+          python3 research/strobo-2tors-2026-10-12/verify_recoh_mixed_rank_20261015.py --mixed-tests 10000 > /tmp/recoh-mixed.json
+          python3 -c 'import json; d=json.load(open("/tmp/recoh-mixed.json")); assert d["status"]=="PASS"; assert d["binary_banks"]=={"cases":117540,"families":14,"reflection":52072,"translation":65468}; assert d["mixed_banks"]=={"cases":10000,"no_three_support":415,"reflection":2164,"translation":7421}; print("RECOH bounded finite replay PASS")'
