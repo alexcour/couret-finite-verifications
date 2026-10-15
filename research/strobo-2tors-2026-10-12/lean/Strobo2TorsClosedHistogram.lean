@@ -91,7 +91,7 @@ theorem ordinaryFibresProfile_size_filter_card (j k : ℕ) :
     have heq : ((ordinaryFibresProfile (G := G) j).filter
         (fun F => (withoutZero F).card = k)) = ∅ := by
       ext F
-      simp only [Finset.mem_filter, Finset.mem_empty, iff_false]
+      simp only [Finset.mem_filter, Finset.not_mem_empty, iff_false]
       rintro ⟨hProf, hSize⟩
       exact hk ((ordinaryFibresProfile_zeroFree_card j F hProf).symm.trans hSize)
     rw [heq, Finset.card_empty]
