@@ -462,6 +462,34 @@ theorem exceptionalSupportsProfile_two_card :
       (exceptionalSupportsProfile_card_eq_params 1).symm
     _ = _ := exceptionalSupportsProfile_one_card
 
+/-! ## Closed numerical counts of ordinary profile-one and profile-two fibres -/
+
+/-- Profile-one full ordinary fibres: subtract exceptional SUPPORTS before
+dividing by the free H-translation orbit size h. -/
+theorem ordinaryFibresProfile_card_one_numeric :
+    (ordinaryFibresProfile (G := G) 1).card =
+      ((twoTorsion : Finset G).card.choose 1 *
+        ((Fintype.card G - (twoTorsion : Finset G).card).choose 2) -
+        ((twoTorsion : Finset G).card *
+          ((twoTorsion : Finset G).card - 1) *
+          ((threeTorsion : Finset G).card - 1))) /
+        (twoTorsion : Finset G).card := by
+  rw [ordinaryFibresProfile_card_sub_div 1 (by omega),
+    exceptionalSupportsProfile_one_card]
+
+/-- Profile-two full ordinary fibres, including groups with small H.
+This is not yet an aggregate zero-free histogram theorem. -/
+theorem ordinaryFibresProfile_card_two_numeric :
+    (ordinaryFibresProfile (G := G) 2).card =
+      ((twoTorsion : Finset G).card.choose 2 *
+        ((Fintype.card G - (twoTorsion : Finset G).card).choose 1) -
+        ((twoTorsion : Finset G).card *
+          ((twoTorsion : Finset G).card - 1) *
+          ((threeTorsion : Finset G).card - 1))) /
+        (twoTorsion : Finset G).card := by
+  rw [ordinaryFibresProfile_card_sub_div 2 (by omega),
+    exceptionalSupportsProfile_two_card]
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -488,3 +516,5 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.exceptionalParamsProfile_one_eq
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_one_card
 #print axioms Couret.STROBO2TORS.exceptionalSupportsProfile_two_card
+#print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_one_numeric
+#print axioms Couret.STROBO2TORS.ordinaryFibresProfile_card_two_numeric
