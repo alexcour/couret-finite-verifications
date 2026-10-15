@@ -1,0 +1,2 @@
+# Higher two-torsion boundary
+For G with more than one nonzero involution, the two-point fibre argument does not apply. Exact finite scans show nontranslation collisions in C2 x C2 x C3, and fibres larger than four. Elementary abelian two-groups have only translation collisions for triple supports; square fibre sizes are |G| with zero and |G|-3 without zero. Internal proof and tests, no external review.
