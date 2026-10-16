@@ -1,0 +1,35 @@
+name: RECOH upper-bank sign gate
+on:
+  push:
+    branches: [research/recoh-upper-primary-gate-20261016]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sign-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Reject proof placeholders
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/RecohUpperSignGate.lean; then exit 1; fi
+      - name: Install Lean
+        shell: bash
+        run: |
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile sign gate and print axioms
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake resolve-deps
+          lake exe cache get
+          lake build RecohRankBounds
+          lake env lean RecohUpperSignGate.lean | tee /tmp/sign-gate.log
+          if grep -q 'sorryAx' /tmp/sign-gate.log; then exit 1; fi
