@@ -19,9 +19,10 @@ theorem nontranslatedNeighbours_symm
   rintro ⟨v, hv⟩
   apply hNo
   refine ⟨-v, ?_⟩
-  have hh := congrArg (fun X : Finset G => translateSupport X (-v)) hv
-  rw [translateSupport_add] at hh
-  simpa using hh.symm
+  have hBack : translateSupport S (-v) = T := by
+    rw [hv, translateSupport_add]
+    simp [translateSupport]
+  exact hBack.symm
 
 /-- No support is its own nontranslated collision partner. -/
 theorem nontranslatedNeighbours_irrefl (S : Finset G)
