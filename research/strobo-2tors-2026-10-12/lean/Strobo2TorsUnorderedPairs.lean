@@ -45,11 +45,6 @@ noncomputable instance nontranslationGraphNeighborFintype (S : Finset G) :
     Fintype ((nontranslationPairGraph (G := G)).neighborSet S) :=
   Fintype.ofFinite _
 
-/-- The symmetric, loopless edge set is finite for any finite G. -/
-noncomputable instance nontranslationGraphEdgeFintype :
-    Fintype ((nontranslationPairGraph (G := G)).edgeSet) :=
-  Fintype.ofFinite _
-
 /-- A graph edge is exactly an unordered pair of nontranslated supports,
 as specified by the original labelled ordered-square observable. -/
 theorem nontranslationPairGraph_adj_iff (S T : Finset G) :
