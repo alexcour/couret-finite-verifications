@@ -1,0 +1,24 @@
+name: Correspondent methods exact replay
+on:
+  pull_request:
+    paths:
+      - 'research/correspondent_methods_20261013/**'
+      - '.github/workflows/correspondent-methods.yml'
+  push:
+    paths:
+      - 'research/correspondent_methods_20261013/**'
+      - '.github/workflows/correspondent-methods.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Replay local CRT, Fourier data and graph certificates
+        run: |
+          python3 research/correspondent_methods_20261013/verify_local_crt.py
+          python3 research/correspondent_methods_20261013/verify_bridges.py
+          git diff --exit-code -- research/correspondent_methods_20261013/local_crt_results.json research/correspondent_methods_20261013/local_crt_results.csv research/correspondent_methods_20261013/bridges_results.json
