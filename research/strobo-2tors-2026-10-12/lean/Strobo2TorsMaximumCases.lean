@@ -139,6 +139,62 @@ theorem zeroFreeFullFibres_card_le_one_of_h_one
   have hBound := zeroFreeOrdinaryFibres_card_le_twoTorsion F hOrd
   omega
 
+/-- Every zero-free fibre listed by zeroFreeFullFibres is genuinely nonempty. -/
+theorem zeroFreeFullFibres_member_nonempty
+    (F : Finset (Finset G))
+    (hF : F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G)))) :
+    F.Nonempty := by
+  change F ∈ (nonemptyFullFibres : Finset (Finset (Finset G))).image withoutZero at hF
+  obtain ⟨K, hK, hKF⟩ := Finset.mem_image.mp hF
+  have hKN : (withoutZero K).Nonempty := (Finset.mem_filter.mp hK).2
+  rw [hKF] at hKN
+  exact hKN
+
+/-- There is at least one zero-free triple-square fibre in every group
+having at least four elements, with no restriction on its torsion. -/
+theorem zeroFreeFullFibres_nonempty_of_card_ge_four
+    (hn : 4 ≤ Fintype.card G) :
+    (zeroFreeFullFibres : Finset (Finset (Finset G))).Nonempty := by
+  have hcard : ((Finset.univ : Finset G).erase (0 : G)).card =
+      Fintype.card G - 1 := by simp
+  have hle : 3 ≤ ((Finset.univ : Finset G).erase (0 : G)).card := by
+    omega
+  obtain ⟨S, hSsub, hS3⟩ := Finset.exists_subset_card_eq hle
+  have hSno : (0 : G) ∉ S := by
+    intro h0
+    have h0' := hSsub h0
+    exact (Finset.mem_erase.mp h0').1 rfl
+  have hSF : S ∈ squareFibre S := (mem_squareFibre S S).mpr
+    ⟨hS3, fun _ => rfl⟩
+  have hNZ : S ∈ withoutZero (squareFibre S) :=
+    Finset.mem_filter.mpr ⟨hSF, hSno⟩
+  have hAll : squareFibre S ∈ (allSquareFibres : Finset (Finset (Finset G))) :=
+    Finset.mem_image.mpr ⟨S, (mem_tripleSupports S).mpr hS3, rfl⟩
+  have hNon : squareFibre S ∈
+      (nonemptyFullFibres : Finset (Finset (Finset G))) :=
+    Finset.mem_filter.mpr ⟨hAll, ⟨S, hNZ⟩⟩
+  exact ⟨withoutZero (squareFibre S), Finset.mem_image.mpr ⟨squareFibre S, hNon, rfl⟩⟩
+
+/-- The h=1 branch of the zero-free sharp-maximum table:
+the maximum is exactly one as soon as any triple can avoid zero. -/
+theorem zeroFreeFullFibres_max_one_sharp_of_h_one
+    (hh : (twoTorsion : Finset G).card = 1)
+    (hn : 4 ≤ Fintype.card G) :
+    (∃ F : Finset (Finset G),
+      F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) ∧ F.card = 1) ∧
+    (∀ F : Finset (Finset G),
+      F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) →
+      F.card ≤ 1) := by
+  obtain ⟨F, hF⟩ := zeroFreeFullFibres_nonempty_of_card_ge_four hn
+  constructor
+  · refine ⟨F, hF, ?_⟩
+    have hpos : 0 < F.card := Finset.card_pos.mpr
+      (zeroFreeFullFibres_member_nonempty F hF)
+    have hle : F.card ≤ 1 := zeroFreeFullFibres_card_le_one_of_h_one hh F hF
+    omega
+  · intro K hK
+    exact zeroFreeFullFibres_card_le_one_of_h_one hh K hK
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -151,3 +207,7 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_full_sharp
 #print axioms Couret.STROBO2TORS.zeroFreeExceptionalFibres_eq_empty_of_h_one
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_card_le_one_of_h_one
+
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_member_nonempty
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_nonempty_of_card_ge_four
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_one_sharp_of_h_one
