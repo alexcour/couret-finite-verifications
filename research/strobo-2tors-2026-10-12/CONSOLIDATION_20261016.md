@@ -52,7 +52,7 @@ module is not a root and is not included in the certificate.
 
 check_consolidation.py checks that the default roots and aggregate imports
 agree, scans every root for proof placeholders, custom axioms and native
-decision procedures, and verifies every requested axiom trace against the
+decision procedures, and requests axiom traces for all 324 public theorems. It checks every trace against the
 build log. Only propext, Classical.choice and Quot.sound are allowed.
 The workflow preserves the build log as an artifact named by its commit SHA.
 
