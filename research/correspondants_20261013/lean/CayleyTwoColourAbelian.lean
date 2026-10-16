@@ -549,7 +549,10 @@ theorem abelianThreeReflection_of_character_arc_iff
 
 theorem abelianZModThree_cases (t : ZMod 3) :
     t = 0 ∨ t = 1 ∨ t = 2 := by
-  fin_cases t <;> decide
+  fin_cases t
+  · exact Or.inl rfl
+  · exact Or.inr (Or.inl rfl)
+  · exact Or.inr (Or.inr rfl)
 
 /-- Elementary normal forms construct the missing character from generation.
 No quotient group or internal direct-sum API is used. -/
