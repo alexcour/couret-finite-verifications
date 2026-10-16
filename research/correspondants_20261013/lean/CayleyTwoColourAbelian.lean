@@ -129,6 +129,139 @@ theorem noIso_of_two_colours_mod_halfTurn
     exact noIso_of_two_colours a (b + h) c h hhalf hne
       hab' habh' hac hach hthreeT k hbk hbc' hbch' f hf'
 
+
+/-!
+COU-20: ordered-square algebra ported from the STROBO proof (PR #25,
+Strobo2TorsCore.lean at d4a1f9718).  This internal dependency is intentionally
+copied with provenance rather than merging separate research branches.
+-/
+
+def abelianDiagCoeff (a b c z : G) : ℕ :=
+  (if a + a = z then 1 else 0) +
+  (if b + b = z then 1 else 0) +
+  (if c + c = z then 1 else 0)
+
+/-- The three unordered off-diagonal pairs. -/
+def abelianOffCoeff (a b c z : G) : ℕ :=
+  (if a + b = z then 1 else 0) +
+  (if a + c = z then 1 else 0) +
+  (if b + c = z then 1 else 0)
+
+/-- The explicit nine-ordered-pair coefficient; valid for distinct a,b,c. -/
+def abelianTripleSquareCoeff (a b c z : G) : ℕ :=
+  abelianDiagCoeff a b c z + 2 * abelianOffCoeff a b c z
+
+
+theorem abelian_paired_expansion (a b d z : G) (hd : d + d = 0) :
+    abelianTripleSquareCoeff a b (b + d) z =
+      (if a + a = z then 1 else 0) +
+      2 * ((if b + b = z then 1 else 0) +
+           (if b + b + d = z then 1 else 0) +
+           (if a + b = z then 1 else 0) +
+           (if a + b + d = z then 1 else 0)) := by
+  have hdouble : (b + d) + (b + d) = b + b := by
+    calc
+      (b + d) + (b + d) = (b + b) + (d + d) := by abel
+      _ = b + b := by simp [hd]
+  have hsingle : a + (b + d) = a + b + d := by abel
+  have hpaired : b + (b + d) = b + b + d := by abel
+  simp only [abelianTripleSquareCoeff, abelianDiagCoeff, abelianOffCoeff,
+    hdouble, hsingle, hpaired]
+  omega
+
+/--
+The exceptional partner reflects the doublet about the singleton.
+This establishes the SUFFICIENT condition for equal labelled squares;
+it does NOT assert the necessity or the complete fibre classification.
+The condition 3(b-a)=d permits order-six differences, not merely order three.
+-/
+theorem abelian_exceptional_reflection_same_square
+    (a b d z : G) (hd : d + d = 0)
+    (h3 : ((b - a) + (b - a)) + (b - a) = 0 ∨
+          ((b - a) + (b - a)) + (b - a) = d) :
+    abelianTripleSquareCoeff a b (b + d) z =
+      abelianTripleSquareCoeff a (b + b - a) ((b + b - a) + d) z := by
+  let e : G := b + b - a
+  have hae : a + e = b + b := by dsimp [e]; abel
+  have hee : e + e =
+      (a + b) + (((b - a) + (b - a)) + (b - a)) := by
+    dsimp [e]
+    abel
+  change abelianTripleSquareCoeff a b (b + d) z =
+    abelianTripleSquareCoeff a e (e + d) z
+  rcases h3 with hzero | hdifference
+  · have hee0 : e + e = a + b := by
+      rw [hee, hzero]
+      simp
+    rw [abelian_paired_expansion a b d z hd, abelian_paired_expansion a e d z hd]
+    rw [hee0, hae]
+    omega
+  · have heed : e + e = a + b + d := by
+      rw [hee, hdifference]
+    have hflip : (e + e) + d = a + b := by
+      calc
+        (e + e) + d = (a + b + d) + d := by rw [heed]
+        _ = (a + b) + (d + d) := by abel
+        _ = a + b := by simp [hd]
+    rw [abelian_paired_expansion a b d z hd, abelian_paired_expansion a e d z hd]
+    rw [heed, hae]
+    have hflip' : (a + b + d) + d = a + b := by
+      calc
+        (a + b + d) + d = (a + b) + (d + d) := by abel
+        _ = a + b := by simp [hd]
+    rw [hflip']
+    omega
+
+
+
+
+/-- Swapping the two members of a doublet leaves its nine-sum polynomial. -/
+theorem abelianTripleSquareCoeff_swap (a b c z : G) :
+    abelianTripleSquareCoeff a b c z =
+      abelianTripleSquareCoeff a c b z := by
+  unfold abelianTripleSquareCoeff abelianDiagCoeff abelianOffCoeff
+  rw [add_comm b c]
+  omega
+
+/-- The exceptional source/target have identical ordered nine-pair
+coefficient functions in every additive commutative group.
+
+Distinct support elements are needed when interpreting this expression as
+the actual ordered convolution square of three-element Finsets.
+Here, no cyclicity or finiteness hypothesis is required. -/
+theorem abelianTripleSquareCoeff_source_target
+    (a d h z : G) (hh : h + h = 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h) :
+    abelianTripleSquareCoeff a (a + d) ((a + d) + h) z =
+    abelianTripleSquareCoeff a (a - d) ((a - d) + h) z := by
+  have hdelta : (a + d) - a = d := by abel
+  have hthree' :
+      (((a + d) - a) + ((a + d) - a)) + ((a + d) - a) = 0 ∨
+      (((a + d) - a) + ((a + d) - a)) + ((a + d) - a) = h := by
+    simpa only [hdelta] using hthree
+  have href :=
+    abelian_exceptional_reflection_same_square
+      a (a + d) h z hh hthree'
+  rcases hthree with hzero | hturn
+  · have heq : (a + d) + (a + d) - a = a - d := by
+      calc
+        (a + d) + (a + d) - a = (a - d) + ((d + d) + d) := by abel
+        _ = a - d := by rw [hzero]; simp
+    simpa only [heq] using href
+  · have heq : (a + d) + (a + d) - a = (a - d) + h := by
+      calc
+        (a + d) + (a + d) - a = (a - d) + ((d + d) + d) := by abel
+        _ = (a - d) + h := by rw [hturn]
+    have htwice : ((a - d) + h) + h = a - d := by
+      calc
+        ((a - d) + h) + h = (a - d) + (h + h) := by abel
+        _ = a - d := by rw [hh]; simp
+    rw [heq, htwice] at href
+    exact href.trans
+      (abelianTripleSquareCoeff_swap a ((a - d) + h) (a - d) z)
+
+#print axioms Couret.CayleyDoublet.abelianTripleSquareCoeff_source_target
+
 #print axioms Couret.CayleyDoublet.noIso_of_two_colours_mod_halfTurn
 
 #print axioms Couret.CayleyDoublet.abelianSource_singleton_iff
