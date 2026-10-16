@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — B1 signed-zero and characteristic-function audit (12 Oct 2026)
 
+> **Current repository status — 12 October 2026:** PR #4 was merged into `main` at 16:13:05 Europe/Paris. [The integration record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifies the merge commit and successful CI. DRAFT, branch-only, no-merge and earlier CI statements retained below are dated historical observations, superseded for repository workflow only. External mathematical review remains outstanding; 0/37 q15 external comparisons, GRH/LI, zero completeness and rigorous density/tail certification remain open or conditional. No release or DOI change.
+
 **Status:** exact algebraic convention checked; model derivation documented **conditional** on GRH and an appropriately specified LI hypothesis. No independent external q15 ordinates have been compared (30/67 remains). This note does not promote B1 or B2.
 
 ## 1. Character conventions
@@ -33,3 +35,4 @@ The frozen numerical variance 3.2030070823 and P(X>0)~0.2894 remain exploratory.
 **Two targeted questions to external mathematicians:** (i) Does this indexing of positive zeros of each character and B(chi)'s signed-zero sum correctly reproduce the standard prime-race model, including the complex conjugate pair? (ii) Is there an effective, explicitly stated approximation bound for the Gaussian surrogate tail in the characteristic-function inversion suitable for this weighted race?
 
 Source files: `FROZEN_METHOD_AND_DENSITY.md`, `GATE_B1_INDEPENDENT_REVIEW_20261010.md`, `FINITE_CENSUS_SIGNED_ZERO_CONVENTIONS_20261012.md`, `q15_roots_refined_20261009.json`. Keep PR #4 DRAFT, do not merge or claim endorsement.
+

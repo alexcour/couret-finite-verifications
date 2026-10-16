@@ -6,14 +6,14 @@
 <!-- /research-vision-20261016 -->
 
 **Status: open call for criticism, counterexamples, prior art and replication.**  
-**Updated: 9 October 2026.**  
+**Updated: 12 October 2026.**  
 Author: Alexandre Couret (independent researcher, France).
 
 > **FR — Objet de cette page :** solliciter des objections vérifiables, y compris des contre-exemples et des antériorités qui invalident les revendications. Aucun résultat ci-dessous n'est présenté comme une découverte reconnue. La critique négative et les corrections publiques sont recherchées.
 
 This page is a **review-routing index**, not a new release of the [v1.0.0 finite-verifications archive](README.md). It deliberately separates already public material from *prospective* review packages. No repository, CI pass or DOI is evidence of independent mathematical peer review or novelty. The absence of a prior-art hit is not evidence of priority.
 
-## Four narrowly scoped mathematical objects
+## Four narrowly scoped mathematical objects — 9 October evidence snapshot
 
 | Work | Precise review target | Public evidence at this point | Unresolved gate |
 | --- | --- | --- | --- |
@@ -21,6 +21,14 @@ This page is a **review-routing index**, not a new release of the [v1.0.0 finite
 | **Barning–Hall finite spectral certificates (17 / 330 / 2310)** | Independently reconstruct a precisely defined compressed operator and check rational/integer Rayleigh threshold witnesses, including positive and negative witnesses at 2310; test whether these finite instances are already in the literature. | **Public 2310 positive and negative exact witnesses now available:** [standalone Barning–Hall packet](research/open-reproduction/barning-hall/README.md), two frozen TSV vectors, integer verifiers, original generator scripts, and [CI replay workflow](.github/workflows/barning-hall-open-reproduction.yml). Their SHA-256 fingerprints match the source Drive vectors; positive and negative integer checks were replayed locally on 9 October 2026. **Only the 2310 witnesses are complete here; public independent frozen files for 17 and 330 have not yet been located.** | Public finite 2310 replay exists. Find and publish independent 17/330 frozen witnesses, obtain an observed GitHub CI pass, verify independent model implementation for the negative side, and audit operator-specific prior art. No general Ramanujan, property-(τ), or Hecke claim. |
 | **C4×C2 ≅ U(30) three-subset classification (56 cases)** | Independently enumerate all 56 three-element supports and their complex unlabelled spectra; check the reported ten spectral classes, the 24/32 power-spectrum partition and the five-element spectral fibre of `{1,11,29}`. Determine if these instance tables are known or immediate from classical results. | **Public exact reproducer and frozen source outputs now available:** [G30 open reproduction package](research/open-reproduction/g30/README.md), [Python verifier](research/open-reproduction/g30/verify_g30_gate_b.py), [exact archived JSON](research/open-reproduction/g30/RESULTS_G30_GATE_B_2026-10-07.json), and [new CI replay workflow](.github/workflows/g30-open-reproduction.yml). The source Python was locally replayed with byte-identical JSON on 9 October 2026. The newly added GitHub CI job is not yet represented as independently passed. These are finite computations, not a new general theory of Cayley graphs. | Frozen Python enumerator and JSON are public. Independent review of the source conventions and claims, comparison with prior work and an observed CI pass remain pending. |
 | **SPEC-OBS-08 — directed Cayley graph motifs** | Check the reported finite corpus of 1,068 connected loopless three-generator Cayley digraphs on specified small nonabelian groups; in particular reproduce the pair with identical spectral/walk/three-vertex motif invariants but 30 vs 33 independent four-vertex subsets. | **Public code and data LOCATED and verified on the separate Cayley repository:** [SPEC-OBS PR #6](https://github.com/alexcour/cayley-prime-translation-cospectrality/pull/6) · [specific open criticism issue #8](https://github.com/alexcour/cayley-prime-translation-cospectrality/issues/8), [SPEC-OBS-08 Python verifier](https://github.com/alexcour/cayley-prime-translation-cospectrality/blob/research/spec-obs-01-rooted-observations/reproducibility/verify_spec_obs_08.py), [frozen JSON](https://github.com/alexcour/cayley-prime-translation-cospectrality/blob/research/spec-obs-01-rooted-observations/reproducibility/results/spec_obs_08_exact_summary.json), [precise note](https://github.com/alexcour/cayley-prime-translation-cospectrality/blob/research/spec-obs-01-rooted-observations/docs/SPEC_OBS_08.md). **The branch is public but unmerged and not covered by main's routine exact-check job.** External review is outstanding. | Canonical script, conventions and JSON have been located on the Cayley research branch; still needed: observed independent replay, focused CI, external mathematical review and prior-art comparison before claims of verified novelty. |
+
+## 12 October update — CU-BRUIT-02 finite classification integrated
+
+[PR #4](https://github.com/alexcour/couret-finite-verifications/pull/4) is merged into `main` as [commit `3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e`](https://github.com/alexcour/couret-finite-verifications/commit/3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e); [post-merge CI 38261302155](https://github.com/alexcour/couret-finite-verifications/actions/runs/38261302155) passed. The [structural proof](research/audits/liouville_grothendieck_20261008/STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md) and three exact census/structural checks cover **56 supports, five labelled squared Fourier profiles, thirteen nonempty bias/profile classes and 28 partner pairs under multiplication by 19**, with seven translation orbits.
+
+This labelled Fourier-amplitude classification is a separate observable from the older unlabelled Cayley-spectrum table in the 9 October snapshot above; their class counts must not be conflated. Please review the quotient proof, group-action argument, count table, counterexamples and prior art. A CI replay is algorithmic verification, not independent human mathematical review.
+
+The [integration record and open gates](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) retain **0/37 q15 external comparisons**, GRH/LI conditions, zero-completeness and density/tail limits. Distinctness of thirteen possible limiting laws is not established. The published `v1.0.0` archive and existing DOI identifiers remain unchanged; no new release or archive was created.
 
 ### Review checklist (every item)
 
@@ -56,3 +64,4 @@ GitHub public-review material is preliminary and may change. A Zenodo archive sh
 ## Corrections and refutations — publicly reproducible
 
 [PUBLIC_FALSIFICATIONS.md](PUBLIC_FALSIFICATIONS.md) records falsified numerical observations, withdrawn proof routes and experimental demotions without confusing them with still-open conjectures. The [independent C++17 segmented-sieve code](research/open-reproduction/falsifications/verify_mod30_prime_proportion.cpp) reproduces the F-001 correction at 10^9. **Negative results and broken assertions should be as accessible as positive finite certificates.**
+

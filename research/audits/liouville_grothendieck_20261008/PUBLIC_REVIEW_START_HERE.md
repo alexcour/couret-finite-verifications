@@ -1,6 +1,6 @@
 # Open review / Relecture publique — Couret–Unification (9 October 2026)
 
-**Current integration decision — 12 October 2026:** the maintainer authorized merging PR #4 into main. See [integration status and remaining scientific gates](INTEGRATION_DECISION_20261012.md). Earlier draft/unmerged/no-merge annotations below are historical workflow status; external mathematical review, originality and analytic certification remain outstanding.
+**Current integration status — 12 October 2026:** PR #4 was merged into `main` at 16:13:05 Europe/Paris as commit `3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e`. [The verified integration record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifies successful pre-merge and post-merge CI. Earlier draft/unmerged/no-merge annotations below are historical workflow status; external mathematical review, originality and analytic certification remain outstanding.
 
 **Your disagreement is welcome.** This is a public *research record*, not a refereed paper, proof of the Riemann hypothesis, or a claim of mathematical priority.
 
@@ -47,10 +47,13 @@ python research/audits/liouville_grothendieck_20261008/verify_published_zero_mat
 python research/audits/liouville_grothendieck_20261008/verify_q15_catalog_20261009.py
 ```
 
-The longer zero-scan and simulated-density scripts are exploratory, not release-gating; may require substantial compute. Some historic outputs are not byte-identical to transcribed GitHub scripts, as disclosed in [CU_BRUIT_02_README.md](CU_BRUIT_02_README.md). The existing repository-wide CI is for the **public v1.0.0 finite release**; it does not run the spectrum programs above. A green CI badge cannot be cited as a certification of this packet.
+The longer zero-scan and simulated-density scripts are exploratory, not release-gating; may require substantial compute. Some historic outputs are not byte-identical to transcribed GitHub scripts, as disclosed in [CU_BRUIT_02_README.md](CU_BRUIT_02_README.md). The current `verify` CI runs the release checks plus the packet's stdlib arithmetic, 56-row census, both structural checkers, character-convention checks and q15 missing-source guard. It does not run or certify the exploratory zero scans, numerical derivative/variance replay, contour computations or simulated densities. The named post-merge run passed on `3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e`; its green status cannot be cited as independent scientific certification.
 
 ## How to criticize
 
 Open a GitHub issue or comment on [research PR #4](https://github.com/alexcour/couret-finite-verifications/pull/4). An ideal counterexample names the exact file/path/line, claim and convention, provides inputs, outputs, and the smallest reproducer. Positive comments and negative tests are treated symmetrically. Corrections will be preserved with the original error and dated replacement, not silently edited away.
 
-**Do not infer that submitting, starring, commenting, or a Zenodo DOI means endorsement or peer review.** The reviewed research branch is publicly readable and the PR remains DRAFT; publication of a stable release is on hold.
+**Do not infer that submitting, starring, commenting, or a Zenodo DOI means endorsement or peer review.** No new stable release has been created.
+
+**Historical workflow annotation (9 October 2026; superseded for integration by the record above):** The reviewed research branch is publicly readable and the PR remains DRAFT; publication of a stable release is on hold.
+

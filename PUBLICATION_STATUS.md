@@ -37,3 +37,10 @@ Preserve published tags and existing DOI identifiers. A documentation update on 
 ## Research packet integration decision — 12 October 2026
 
 The maintainer authorized integration of PR #4 into main: the Liouville/Grothendieck corrective research record and CU-BRUIT-02 finite triplet classification, scripts and data. See [the integration decision](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) for current status and the superseded historical draft/no-merge annotations. This does not change the published v1.0.0 tag or its DOI, create a new release, certify analytic zero/density claims, or establish originality or external peer review.
+
+
+## Verified PR #4 integration — 12 October 2026
+
+PR #4 was merged into `main` at **2026-10-12T14:13:05Z** (16:13:05 Europe/Paris), as [commit `3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e`](https://github.com/alexcour/couret-finite-verifications/commit/3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e). Final source head `fd99acea789c2676bb840ce92ac731c46e43be74` passed [CI 38261062008](https://github.com/alexcour/couret-finite-verifications/actions/runs/38261062008); the merge commit passed [CI 38261302155](https://github.com/alexcour/couret-finite-verifications/actions/runs/38261302155). The integrated tree has no file difference from the tested source head.
+
+The [detailed integration record](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) records the preserved tag and unchanged publication metadata. The version/concept DOIs and HAL record above retain their scope. No new release or archive was created. Finite CI success is not independent mathematical validation: 0/37 q15 external comparisons, GRH/LI conditions, zero completeness and rigorous density/tail certification remain outstanding.

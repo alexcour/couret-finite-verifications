@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — exact finite census and signed-zero audit boundary (12 Oct 2026)
 
+> **Current repository status — 12 October 2026:** PR #4 was merged into `main` at 16:13:05 Europe/Paris. [The integration record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifies the merge commit and successful CI. DRAFT, branch-only, no-merge and earlier CI statements retained below are dated historical observations, superseded for repository workflow only. External mathematical review remains outstanding; 0/37 q15 external comparisons, GRH/LI, zero completeness and rigorous density/tail certification remain open or conditional. No release or DOI change.
+
 This is a **standalone public arithmetic check**, not a prime-density result or an assertion of novelty. This note does not modify the frozen prime experiment.
 
 ## Structural proof added 12 Oct 2026
@@ -47,3 +49,4 @@ Before relying on a random-phase product or a variance decomposition, derive the
 3. What certified signed-zero data and tail estimates are sufficient for a rigorous numerical probability of sign, in place of the present Bessel/Gaussian approximation?
 
 Review source: [GATE B1](GATE_B1_INDEPENDENT_REVIEW_20261010.md), [GATE A3](GATE_A3_PRIMARY_SOURCES_20261010.md), [frozen observable](FROZEN_METHOD_AND_DENSITY.md). This is public review material in **DRAFT PR #4**. Nothing here certifies GRH/LI, the 37 q15 ordinates, zero completeness, a numerical sign density, or novelty; no merge/release.
+

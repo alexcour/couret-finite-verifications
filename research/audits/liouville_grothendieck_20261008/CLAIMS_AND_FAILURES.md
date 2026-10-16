@@ -1,10 +1,11 @@
 # Claim boundaries and falsifications / Frontières et falsifications
 
-Date: 2026-10-09. This page is the current **public** review index for the Liouville–Grothendieck–CU-BRUIT-02 mini-corpus, not the entire historic Couret–Unification project. Tags: E = epistemic status, N = novelty/prior art, Q = witness quality. A proof does not establish novelty; an archived calculation does not establish correctness.
+Historical register dated 2026-10-09; finite-classification entry added 2026-10-12. This page is the current **public** review index for the Liouville–Grothendieck–CU-BRUIT-02 mini-corpus, not the entire historic Couret–Unification project. Tags: E = epistemic status, N = novelty/prior art, Q = witness quality. A proof does not establish novelty; an archived calculation does not establish correctness.
 
 | Atomically stated claim | E / scope | N | Evidence / unresolved issue |
 | --- | --- | --- | --- |
 | U(30) ≅ C2 × C4, G²={1,19}, G[2]={1,11,19,29} | exact finite | anteriority classical | REVIEW_SELF_CHECK.py; no research novelty |
+| Three-element supports in U(30): 56 supports, five labelled squared Fourier profiles, thirteen nonempty bias/profile classes, 28 partner pairs under multiplication by 19 | finite written proof + exact computational replays; external human review outstanding | NOT AUDITED; no priority claim | [Structural proof](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md), census and two structural checkers; [merged-commit CI record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026). This does not establish thirteen distinct limiting laws or certify zeros/densities. |
 | D(x)=5A(x)−3B(x), c=5 on {1,11,29} and −3 otherwise, Fourier amplitudes 24 for χ5 and 8 for six others | exact finite | classical | REVIEW_SELF_CHECK.py |
 | Prime density of S among the eight reduced classes tends to 3/8 | classical theorem | anteriority | Dirichlet on progressions; NOT an empirical 0.378 |
 | “0.378 observed at x=10^9” | REFUTED historic measurement | N/A | corrected prior finite table states 0.374998188... |
@@ -30,3 +31,4 @@ The relevant internal Journal F already contains historic F-001 through F-009 am
 ## Prior art to check
 
 Rubinstein & Sarnak, “Chebyshev's Bias”, *Experimental Mathematics* (1994); Fiorilli & Martin, “Inequities in the Shanks–Rényi Prime Number Race” (2013); standard Dirichlet/Artin/Chebotarev theory; Weyl limit-point/limit-circle theory. **These references are a starting list**, not a complete novelty audit.
+
