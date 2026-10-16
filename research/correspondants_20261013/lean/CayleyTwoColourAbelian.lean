@@ -260,6 +260,46 @@ theorem abelianTripleSquareCoeff_source_target
     exact href.trans
       (abelianTripleSquareCoeff_swap a ((a - d) + h) (a - d) z)
 
+
+
+/-- Count ordered pairs in a *finite support* with prescribed sum.
+Unlike the nine-term expression, duplicates in a Finset are removed. -/
+def abelianOrderedSquare (S : Finset G) (z : G) : ℕ :=
+  S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
+
+/-- For genuinely distinct vertices the actual Finset convolution-square
+coefficient expands to precisely the nine ordered sums. -/
+theorem abelianOrderedSquare_triple
+    (a b c z : G) (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c) :
+    abelianOrderedSquare ({a, b, c} : Finset G) z =
+      abelianTripleSquareCoeff a b c z := by
+  simp [abelianOrderedSquare, abelianTripleSquareCoeff,
+    abelianDiagCoeff, abelianOffCoeff, hab, hac, hbc,
+    add_comm, add_left_comm, add_assoc]
+  omega
+
+/-- Under explicit three-distinct-generator premises, the two finite supports
+have *equal labelled ordered convolution squares*, coefficient by coefficient.
+The proof does not assume finite G or cyclic G. -/
+theorem abelianOrderedSquare_source_target
+    (a d h z : G) (hh : h + h = 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h)
+    (hs1 : a ≠ a + d)
+    (hs2 : a ≠ (a + d) + h)
+    (hs3 : a + d ≠ (a + d) + h)
+    (ht1 : a ≠ a - d)
+    (ht2 : a ≠ (a - d) + h)
+    (ht3 : a - d ≠ (a - d) + h) :
+    abelianOrderedSquare (AbelianSource a d h) z =
+      abelianOrderedSquare (AbelianTarget a d h) z := by
+  change abelianOrderedSquare ({a, a + d, (a + d) + h} : Finset G) z =
+    abelianOrderedSquare ({a, a - d, (a - d) + h} : Finset G) z
+  rw [abelianOrderedSquare_triple a (a + d) ((a + d) + h) z hs1 hs2 hs3,
+      abelianOrderedSquare_triple a (a - d) ((a - d) + h) z ht1 ht2 ht3]
+  exact abelianTripleSquareCoeff_source_target a d h z hh hthree
+
+#print axioms Couret.CayleyDoublet.abelianOrderedSquare_source_target
+
 #print axioms Couret.CayleyDoublet.abelianTripleSquareCoeff_source_target
 
 #print axioms Couret.CayleyDoublet.noIso_of_two_colours_mod_halfTurn
