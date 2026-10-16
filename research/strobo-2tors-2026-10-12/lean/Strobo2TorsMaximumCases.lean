@@ -91,6 +91,54 @@ theorem zeroFreeFullFibres_max_reduced_sharp
   · intro F hF
     exact zeroFreeFullFibres_card_le_reduced_of_q_le_three hq (by omega) F hF
 
+/-- The upper bound 2h is attained exactly in the full exceptional regime.
+This complements the sharp reduced-size theorem for q≤3. -/
+theorem zeroFreeFullFibres_max_full_sharp
+    (hq : 3 < (doublingImages : Finset G).card)
+    (hh : 1 < (twoTorsion : Finset G).card)
+    (ht : 1 < (threeTorsion : Finset G).card) :
+    (∃ F : Finset (Finset G),
+      F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) ∧
+      F.card = 2 * (twoTorsion : Finset G).card) ∧
+    (∀ F : Finset (Finset G),
+      F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) →
+      F.card ≤ 2 * (twoTorsion : Finset G).card) := by
+  constructor
+  · have hPos :
+        ((zeroFreeFullFibres : Finset (Finset (Finset G))).filter
+          (fun R => R.card = 2 * (twoTorsion : Finset G).card)).Nonempty :=
+      (zeroFreeFullFibres_top_size_nonempty_iff (G := G)).mpr ⟨hq, hh, ht⟩
+    obtain ⟨F, hF⟩ := hPos
+    obtain ⟨hFull, hCard⟩ := Finset.mem_filter.mp hF
+    exact ⟨F, hFull, hCard⟩
+  · intro F hF
+    exact zeroFreeFullFibres_card_le_two_torsion F hF
+
+/-- Trivial two-torsion forbids all exceptional convolution-square fibres. -/
+theorem zeroFreeExceptionalFibres_eq_empty_of_h_one
+    (hh : (twoTorsion : Finset G).card = 1) :
+    (zeroFreeExceptionalFibres : Finset (Finset (Finset G))) = ∅ := by
+  have hZero : (exceptionalFibres : Finset (Finset (Finset G))).card = 0 := by
+    rw [exceptionalFibres_card_numeric]
+    simp [hh]
+  have hEmpty : (exceptionalFibres : Finset (Finset (Finset G))) = ∅ :=
+    Finset.card_eq_zero.mp hZero
+  simp [zeroFreeExceptionalFibres, hEmpty]
+
+/-- When h=1 every observed nonempty zero-free fibre has size at most 1,
+regardless of the amount of three-torsion. -/
+theorem zeroFreeFullFibres_card_le_one_of_h_one
+    (hh : (twoTorsion : Finset G).card = 1)
+    (F : Finset (Finset G))
+    (hF : F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G)))) :
+    F.card ≤ 1 := by
+  rw [zeroFreeFullFibres_eq_union,
+    zeroFreeExceptionalFibres_eq_empty_of_h_one hh] at hF
+  have hOrd : F ∈ (zeroFreeOrdinaryFibres : Finset (Finset (Finset G))) := by
+    simpa using hF
+  have hBound := zeroFreeOrdinaryFibres_card_le_twoTorsion F hOrd
+  omega
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -99,3 +147,7 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_card_le_reduced_of_q_le_three
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_reduced_size_exists
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_reduced_sharp
+
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_full_sharp
+#print axioms Couret.STROBO2TORS.zeroFreeExceptionalFibres_eq_empty_of_h_one
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_card_le_one_of_h_one
