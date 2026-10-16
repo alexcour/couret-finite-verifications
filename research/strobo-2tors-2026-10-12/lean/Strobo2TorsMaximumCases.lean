@@ -195,6 +195,75 @@ theorem zeroFreeFullFibres_max_one_sharp_of_h_one
   · intro K hK
     exact zeroFreeFullFibres_card_le_one_of_h_one hh K hK
 
+/-- Every actual observed zero-free fibre consists of three-element
+supports, each of which avoids zero. -/
+theorem zeroFreeFullFibres_support_card_and_zero
+    (F : Finset (Finset G))
+    (hF : F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))))
+    (S : Finset G) (hS : S ∈ F) :
+    S.card = 3 ∧ 0 ∉ S := by
+  change F ∈ (nonemptyFullFibres : Finset (Finset (Finset G))).image withoutZero at hF
+  obtain ⟨K, hK, hKF⟩ := Finset.mem_image.mp hF
+  rw [← hKF] at hS
+  obtain ⟨hSK, hZero⟩ := Finset.mem_filter.mp hS
+  have hAll : K ∈ (allSquareFibres : Finset (Finset (Finset G))) :=
+    (Finset.mem_filter.mp hK).1
+  obtain ⟨T, _, hTK⟩ := Finset.mem_image.mp hAll
+  have hSsq : S ∈ squareFibre T := by
+    rw [hTK]
+    exact hSK
+  exact ⟨((mem_squareFibre T S).mp hSsq).1, hZero⟩
+
+/-- No three-element support can avoid zero in groups of order at most 3. -/
+theorem zeroFreeFullFibres_eq_empty_of_card_le_three
+    (hn : Fintype.card G ≤ 3) :
+    (zeroFreeFullFibres : Finset (Finset (Finset G))) = ∅ := by
+  apply Finset.eq_empty_iff_forall_not_mem.mpr
+  intro F hF
+  obtain ⟨S, hS⟩ := zeroFreeFullFibres_member_nonempty F hF
+  obtain ⟨hCard, hZero⟩ :=
+    zeroFreeFullFibres_support_card_and_zero F hF S hS
+  have hSub : S ⊆ (Finset.univ : Finset G).erase (0 : G) := by
+    intro x hx
+    apply Finset.mem_erase.mpr
+    exact ⟨(fun hx0 => hZero (hx0 ▸ hx)), Finset.mem_univ x⟩
+  have hErase : ((Finset.univ : Finset G).erase (0 : G)).card =
+      Fintype.card G - 1 := by simp
+  have hLe := Finset.card_le_card hSub
+  omega
+
+/-- At order four there is only one triple avoiding zero, hence every
+nonempty square-convolution fibre contains precisely that one triple. -/
+theorem zeroFreeFullFibres_card_eq_one_of_card_four
+    (hn : Fintype.card G = 4)
+    (F : Finset (Finset G))
+    (hF : F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G)))) :
+    F.card = 1 := by
+  have hUnique : ∀ S : Finset G, S.card = 3 → 0 ∉ S →
+      S = (Finset.univ : Finset G).erase (0 : G) := by
+    intro S hCard hZero
+    have hSub : S ⊆ (Finset.univ : Finset G).erase (0 : G) := by
+      intro x hx
+      exact Finset.mem_erase.mpr
+        ⟨(fun hx0 => hZero (hx0 ▸ hx)), Finset.mem_univ x⟩
+    have hErase : ((Finset.univ : Finset G).erase (0 : G)).card = 3 := by
+      simp [hn]
+    exact Finset.eq_of_subset_of_card_le hSub (by omega)
+  have hSub : F ⊆ ({(Finset.univ : Finset G).erase (0 : G)} :
+      Finset (Finset G)) := by
+    intro S hSF
+    obtain ⟨hCard, hZero⟩ :=
+      zeroFreeFullFibres_support_card_and_zero F hF S hSF
+    simp [hUnique S hCard hZero]
+  have hLe : F.card ≤ 1 := by
+    calc
+      F.card ≤ ({(Finset.univ : Finset G).erase (0 : G)} :
+          Finset (Finset G)).card := Finset.card_le_card hSub
+      _ = 1 := by simp
+  have hPos : 0 < F.card :=
+    Finset.card_pos.mpr (zeroFreeFullFibres_member_nonempty F hF)
+  omega
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -211,3 +280,7 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_member_nonempty
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_nonempty_of_card_ge_four
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_one_sharp_of_h_one
+
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_support_card_and_zero
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_eq_empty_of_card_le_three
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_card_eq_one_of_card_four
