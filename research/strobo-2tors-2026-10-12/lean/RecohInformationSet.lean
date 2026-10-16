@@ -19,6 +19,8 @@ to linear forms is a separate interface.
 
 namespace Couret.STROBO2TORS
 
+universe u
+
 /-- A family of coordinate forms and any subfamily generating the same
 span have the same ability to distinguish vectors. -/
 theorem recoh_spanning_subbank_preserves_injectivity
@@ -56,10 +58,10 @@ observations without losing global injectivity. -/
 theorem recoh_exists_independent_injective_subbank
     {K : Type*} [Field K]
     {V : Type*} [AddCommGroup V] [Module K V]
-    {ι : Type*}
+    {ι : Type u}
     (bank : ι → Module.Dual K V)
     (hinj : Function.Injective (fun x : V => fun i : ι => bank i x)) :
-    ∃ (κ : Type) (selected : κ → ι),
+    ∃ (κ : Type u) (selected : κ → ι),
       Function.Injective selected ∧
       LinearIndependent K (bank ∘ selected) ∧
       Function.Injective (fun x : V => fun j : κ => bank (selected j) x) := by
