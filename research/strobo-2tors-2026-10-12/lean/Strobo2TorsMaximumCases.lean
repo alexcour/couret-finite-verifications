@@ -219,20 +219,21 @@ theorem zeroFreeFullFibres_eq_empty_of_card_le_three
     (hn : Fintype.card G ≤ 3) :
     (zeroFreeFullFibres : Finset (Finset (Finset G))) = ∅ := by
   ext F
-  simp only [Finset.not_mem_empty, iff_false]
-  intro hF
-  obtain ⟨S, hS⟩ := zeroFreeFullFibres_member_nonempty F hF
-  obtain ⟨hCard, hZero⟩ :=
-    zeroFreeFullFibres_support_card_and_zero F hF S hS
-  have hSub : S ⊆ (Finset.univ : Finset G).erase (0 : G) := by
-    intro x hx
-    apply Finset.mem_erase.mpr
-    exact ⟨(fun hx0 => hZero (hx0 ▸ hx)), Finset.mem_univ x⟩
-  have hErase : ((Finset.univ : Finset G).erase (0 : G)).card =
-      Fintype.card G - 1 := by simp
-  have hLe := Finset.card_le_card hSub
-  omega
-
+  constructor
+  · intro hF
+    obtain ⟨S, hS⟩ := zeroFreeFullFibres_member_nonempty F hF
+    obtain ⟨hCard, hZero⟩ :=
+      zeroFreeFullFibres_support_card_and_zero F hF S hS
+    have hSub : S ⊆ (Finset.univ : Finset G).erase (0 : G) := by
+      intro x hx
+      apply Finset.mem_erase.mpr
+      exact ⟨(fun hx0 => hZero (hx0 ▸ hx)), Finset.mem_univ x⟩
+    have hErase : ((Finset.univ : Finset G).erase (0 : G)).card =
+        Fintype.card G - 1 := by simp
+    have hLe := Finset.card_le_card hSub
+    omega
+  · intro hF
+    simp at hF
 /-- At order four there is only one triple avoiding zero, hence every
 nonempty square-convolution fibre contains precisely that one triple. -/
 theorem zeroFreeFullFibres_card_eq_one_of_card_four
