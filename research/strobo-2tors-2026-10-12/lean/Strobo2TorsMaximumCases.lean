@@ -91,6 +91,79 @@ theorem zeroFreeFullFibres_max_reduced_sharp
   · intro F hF
     exact zeroFreeFullFibres_card_le_reduced_of_q_le_three hq (by omega) F hF
 
+
+/-! ## The residual h = 1 regime: every surviving fibre is a singleton. -/
+
+/-- Trivial two-torsion rules out all exceptional square fibres. -/
+theorem zeroFreeExceptionalFibres_eq_empty_of_h_one
+    (hh : (twoTorsion : Finset G).card = 1) :
+    (zeroFreeExceptionalFibres : Finset (Finset (Finset G))) = ∅ := by
+  have hz : (exceptionalFibres : Finset (Finset (Finset G))).card = 0 := by
+    rw [exceptionalFibres_card_numeric]
+    simp [hh]
+  have he : (exceptionalFibres : Finset (Finset (Finset G))) = ∅ :=
+    Finset.card_eq_zero.mp hz
+  simp [zeroFreeExceptionalFibres, he]
+
+/-- With |G[2]| = 1, every observed nonempty zero-free fibre has size one. -/
+theorem zeroFreeFullFibres_card_eq_one_of_h_one
+    (hh : (twoTorsion : Finset G).card = 1)
+    (R : Finset (Finset G))
+    (hR : R ∈ (zeroFreeFullFibres : Finset (Finset (Finset G)))) :
+    R.card = 1 := by
+  have hOrig := hR
+  rw [zeroFreeFullFibres_eq_union,
+      zeroFreeExceptionalFibres_eq_empty_of_h_one hh] at hR
+  have hOrd : R ∈ (zeroFreeOrdinaryFibres : Finset (Finset (Finset G))) := by
+    simpa using hR
+  have hb := zeroFreeOrdinaryFibres_card_le_twoTorsion R hOrd
+  have hpos : 0 < R.card := by
+    change R ∈ (nonemptyFullFibres : Finset (Finset (Finset G))).image
+      withoutZero at hOrig
+    obtain ⟨F, hF, hEq⟩ := Finset.mem_image.mp hOrig
+    have hNonempty : (withoutZero F).Nonempty := (Finset.mem_filter.mp hF).2
+    rw [← hEq]
+    exact Finset.card_pos.mpr hNonempty
+  omega
+
+/-- Construct a surviving fibre from any three-element support avoiding zero. -/
+theorem zeroFreeFullFibres_contains_zero_free_support
+    (S : Finset G) (hS : S.card = 3) (hz : (0 : G) ∉ S) :
+    ∃ R : Finset (Finset G),
+      R ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) ∧ S ∈ R := by
+  have hAll : squareFibre S ∈ (allSquareFibres : Finset (Finset (Finset G))) := by
+    change squareFibre S ∈ (tripleSupports : Finset (Finset G)).image squareFibre
+    exact Finset.mem_image.mpr ⟨S, (mem_tripleSupports S).mpr hS, rfl⟩
+  have hSS : S ∈ squareFibre S :=
+    (mem_squareFibre S S).mpr ⟨hS, fun _ => rfl⟩
+  have hSNonzero : S ∈ withoutZero (squareFibre S) :=
+    Finset.mem_filter.mpr ⟨hSS, hz⟩
+  have hSurvives : squareFibre S ∈
+      (nonemptyFullFibres : Finset (Finset (Finset G))) :=
+    Finset.mem_filter.mpr ⟨hAll, ⟨S, hSNonzero⟩⟩
+  refine ⟨withoutZero (squareFibre S), ?_, hSNonzero⟩
+  change withoutZero (squareFibre S) ∈
+    (nonemptyFullFibres : Finset (Finset (Finset G))).image withoutZero
+  exact Finset.mem_image.mpr ⟨squareFibre S, hSurvives, rfl⟩
+
+/-- Exact maximum one in the h=1 regime, conditional only on a zero-free
+three-element support; a separate elementary size lemma supplies it for n≥4. -/
+theorem zeroFreeFullFibres_max_one_of_h_one_of_support
+    (hh : (twoTorsion : Finset G).card = 1)
+    (S : Finset G) (hS : S.card = 3) (hz : (0 : G) ∉ S) :
+    (∃ R : Finset (Finset G),
+      R ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) ∧ R.card = 1) ∧
+    (∀ R : Finset (Finset G),
+      R ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) →
+      R.card ≤ 1) := by
+  constructor
+  · obtain ⟨R, hR, _⟩ := zeroFreeFullFibres_contains_zero_free_support S hS hz
+    exact ⟨R, hR, zeroFreeFullFibres_card_eq_one_of_h_one hh R hR⟩
+  · intro R hR
+    have hc := zeroFreeFullFibres_card_eq_one_of_h_one hh R hR
+    omega
+
+
 end Finite
 end Couret.STROBO2TORS
 
@@ -99,3 +172,8 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_card_le_reduced_of_q_le_three
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_reduced_size_exists
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_reduced_sharp
+
+#print axioms Couret.STROBO2TORS.zeroFreeExceptionalFibres_eq_empty_of_h_one
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_card_eq_one_of_h_one
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_contains_zero_free_support
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_max_one_of_h_one_of_support
