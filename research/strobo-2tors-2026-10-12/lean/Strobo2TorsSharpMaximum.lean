@@ -249,6 +249,72 @@ theorem maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion
   · exact zeroFreeFullFibres_size_h_exists_of_no_three_torsion ht hOutside
 
 
+
+/-- If the doubling image has just one class, every group element is
+two-torsion. For |G|>=4 the exact largest observed zero-free fibre has
+h-3 supports: three translations of any triple hit the origin. -/
+theorem maxObservedZeroFreeFibreSize_eq_h_sub_three_of_q_one
+    (hq : (doublingImages : Finset G).card = 1)
+    (hn : 4 ≤ Fintype.card G) :
+    maxObservedZeroFreeFibreSize (G := G) =
+      (twoTorsion : Finset G).card - 3 := by
+  have hCount : Fintype.card G = (twoTorsion : Finset G).card := by
+    simpa [hq] using (group_card_eq_h_mul_doublingImages (G := G))
+  have hFull : (twoTorsion : Finset G) = Finset.univ := by
+    apply Finset.eq_of_subset_of_card_le (Finset.subset_univ _)
+    simp [hCount]
+  have hThree : (threeTorsion : Finset G) = {0} := by
+    ext v
+    rw [mem_threeTorsion]
+    simp only [Finset.mem_singleton]
+    constructor
+    · intro hv
+      have hvTwo : v + v = 0 :=
+        (mem_twoTorsion v).mp (by rw [hFull]; simp)
+      rw [hvTwo] at hv
+      simpa using hv
+    · intro hv
+      subst v
+      simp
+  have ht : (threeTorsion : Finset G).card = 1 := by
+    rw [hThree]
+    simp
+  have hEmpty : (zeroFreeExceptionalFibres : Finset (Finset (Finset G))) = ∅ :=
+    zeroFreeExceptionalFibres_eq_empty_of_no_three_torsion ht
+  have hEach : ∀ F : Finset (Finset G),
+      F ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) →
+        F.card = (twoTorsion : Finset G).card - 3 := by
+    intro F hF
+    rw [zeroFreeFullFibres_eq_union, hEmpty] at hF
+    have hOrd : F ∈ (zeroFreeOrdinaryFibres : Finset (Finset (Finset G))) := by
+      simpa using hF
+    obtain ⟨K, hK, hFK⟩ := Finset.mem_image.mp hOrd
+    have hOrigOrd : K ∈ (ordinaryFibres : Finset (Finset (Finset G))) :=
+      (Finset.mem_filter.mp hK).1
+    obtain ⟨S, hS3, _, hSize⟩ := ordinaryFibres_zeroFree_size K hOrigOrd
+    have hInter : (S ∩ (twoTorsion : Finset G)).card = 3 := by
+      simpa [hFull] using hS3
+    rw [← hFK, hSize, hInter]
+  have hExists : (zeroFreeFullFibres : Finset (Finset (Finset G))).Nonempty := by
+    by_contra hNo
+    have hEmptyFibres : (zeroFreeFullFibres : Finset (Finset (Finset G))) = ∅ := by
+      ext F
+      constructor
+      · intro hF
+        exact False.elim (hNo ⟨F, hF⟩)
+      · intro hF
+        simp at hF
+    have hMzero : maxObservedZeroFreeFibreSize (G := G) = 0 := by
+      simp [maxObservedZeroFreeFibreSize, hEmptyFibres]
+    have hPositive := maxObservedZeroFreeFibreSize_pos_of_four (G := G) hn
+    omega
+  obtain ⟨F, hF⟩ := hExists
+  exact maxObservedZeroFreeFibreSize_eq_of_attained (G := G)
+    ((twoTorsion : Finset G).card - 3)
+    (by intro K hK; exact le_of_eq (hEach K hK))
+    ⟨F, hF, hEach F hF⟩
+
+
 end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_of_attained
@@ -263,3 +329,5 @@ end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.zeroFreeFullFibres_size_h_exists_of_no_three_torsion
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion
+
+#print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_sub_three_of_q_one
