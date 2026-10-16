@@ -441,7 +441,17 @@ def abelianZModThreeLift (e : G) (he : e + e + e = 0) : ZMod 3 →+ G :=
 theorem abelianZModThreeLift_one
     (e : G) (he : e + e + e = 0) :
     abelianZModThreeLift e he 1 = e := by
-  simp [abelianZModThreeLift, ZMod.lift_coe]
+  change (ZMod.lift 3
+    ⟨{ toFun := fun n : ℤ => n • e
+       map_zero' := by simp
+       map_add' := by intro m n; simp only [add_zsmul] },
+     by
+       change (3 : ℤ) • e = 0
+       have hz : (3 : ℤ) • e = e + e + e := by norm_num [three_zsmul]; abel
+       rw [hz]
+       exact he⟩) (Int.cast 1) = e
+  rw [ZMod.lift_coe]
+  simp
 
 /-- The image of the canonical ZMod 3 homomorphism has exponent three. -/
 theorem abelianZModThreeLift_three
@@ -509,7 +519,7 @@ theorem abelianThreeProjection_of_character
   have hpd : p d = -(d + d) := by
     change j (χ d) = -(d + d)
     rw [hχd, hj1]
-    rfl
+
   exact ⟨p, hp, h3p, hpa, hph, hpd⟩
 
 /-- A character separating the exceptional d-coset gives an explicit
