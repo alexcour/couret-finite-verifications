@@ -278,6 +278,7 @@ theorem abelianOrderedSquare_triple
   have hsum (f : G → ℕ) :
       Finset.sum ({a, b, c} : Finset G) f = f a + f b + f c := by
     rw [Finset.sum_insert ha, Finset.sum_insert hb, Finset.sum_singleton]
+    omega
   unfold abelianOrderedSquare
   rw [hsum (fun x => Finset.sum ({a, b, c} : Finset G)
     (fun y => if x + y = z then 1 else 0))]
