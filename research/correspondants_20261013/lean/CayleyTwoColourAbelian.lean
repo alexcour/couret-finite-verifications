@@ -418,6 +418,120 @@ theorem abelianThreeReflection_arc_iff
       _ = φ x + φ s := by rw [hst]
       _ = φ (x + s) := (map_add φ x s).symm
 
+
+/-!
+## COU-20: Three-valued quotient character as a constructive intermediary
+
+If the index-three quotient provides a character χ : G →+ ZMod 3 with
+χ(a)=χ(h)=0 and χ(d)=1, the required additive projection can be
+constructed explicitly. Existence of χ from the original generation
+hypotheses is a separate proof obligation and is NOT asserted here.
+-/
+
+/-- A three-torsion element determines an additive homomorphism from ZMod 3. -/
+def abelianZModThreeLift (e : G) (he : e + e + e = 0) : ZMod 3 →+ G :=
+  ZMod.lift 3
+    ⟨{ toFun := fun n : ℤ => n • e
+       map_zero' := by simp
+       map_add' := by intro m n; simp only [add_zsmul] },
+     by
+       change (3 : ℤ) • e = 0
+       simpa [three_nsmul, add_assoc] using he⟩
+
+theorem abelianZModThreeLift_one
+    (e : G) (he : e + e + e = 0) :
+    abelianZModThreeLift e he 1 = e := by
+  simp [abelianZModThreeLift, ZMod.lift_coe]
+
+/-- The image of the canonical ZMod 3 homomorphism has exponent three. -/
+theorem abelianZModThreeLift_three
+    (e : G) (he : e + e + e = 0) (t : ZMod 3) :
+    abelianZModThreeLift e he t +
+      abelianZModThreeLift e he t +
+      abelianZModThreeLift e he t = 0 := by
+  let j := abelianZModThreeLift e he
+  have hz : (3 : ℕ) • t = 0 := by
+    fin_cases t <;> decide
+  calc
+    j t + j t + j t = (3 : ℕ) • j t := by rw [three_nsmul]; abel
+    _ = j ((3 : ℕ) • t) := (map_nsmul j 3 t).symm
+    _ = 0 := by rw [hz]; simp
+
+/-- A ZMod-three quotient character yields a projection p with precisely
+the axioms consumed by the previously certified reflection theorem.
+The character is an explicit premise, not derived from non-generation. -/
+theorem abelianThreeProjection_of_character
+    (χ : G →+ ZMod 3)
+    (a d h : G)
+    (hh : h + h = 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h)
+    (hχa : χ a = 0) (hχh : χ h = 0) (hχd : χ d = 1) :
+    ∃ p : G →+ G,
+      (∀ x : G, p (p x) = p x) ∧
+      (∀ x : G, p x + p x + p x = 0) ∧
+      p a = 0 ∧ p h = 0 ∧ p d = -(d + d) := by
+  let e : G := -(d + d)
+  have he : e + e + e = 0 := by
+    dsimp [e]
+    calc
+      -(d + d) + -(d + d) + -(d + d) =
+          -(((d + d) + d) + ((d + d) + d)) := by abel
+      _ = 0 := by
+        rcases hthree with hz | ht
+        · rw [hz]; simp
+        · rw [ht, hh]; simp
+  let j : ZMod 3 →+ G := abelianZModThreeLift e he
+  have hj1 : j 1 = e := abelianZModThreeLift_one e he
+  have hχe : χ e = 1 := by
+    dsimp [e]
+    simp only [map_neg, map_add, hχd]
+    decide
+  have hleft : ∀ t : ZMod 3, χ (j t) = t := by
+    intro t
+    have hnat : ∀ n : ℕ, χ (j (n : ZMod 3)) = (n : ZMod 3) := by
+      intro n
+      induction n with
+      | zero => simp
+      | succ n ih =>
+          rw [Nat.cast_succ, map_add, map_add, ih, hj1, hχe]
+    simpa using hnat t.val
+  let p : G →+ G := j.comp χ
+  have hp : ∀ x : G, p (p x) = p x := by
+    intro x
+    change j (χ (j (χ x))) = j (χ x)
+    rw [hleft (χ x)]
+  have h3p : ∀ x : G, p x + p x + p x = 0 := by
+    intro x
+    change j (χ x) + j (χ x) + j (χ x) = 0
+    exact abelianZModThreeLift_three e he (χ x)
+  have hpa : p a = 0 := by simp [p, hχa]
+  have hph : p h = 0 := by simp [p, hχh]
+  have hpd : p d = -(d + d) := by
+    change j (χ d) = -(d + d)
+    rw [hχd, hj1]
+    rfl
+  exact ⟨p, hp, h3p, hpa, hph, hpd⟩
+
+/-- A character separating the exceptional d-coset gives an explicit
+isomorphism of the two directed Cayley digraphs, via the proven reflection. -/
+theorem abelianThreeReflection_of_character_arc_iff
+    (χ : G →+ ZMod 3) (a d h : G)
+    (hh : h + h = 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h)
+    (hχa : χ a = 0) (hχh : χ h = 0) (hχd : χ d = 1) :
+    ∃ φ : G ≃+ G,
+      ∀ x y : G,
+        CayleyArc (AbelianSource a d h) x y ↔
+          CayleyArc (AbelianTarget a d h) (φ x) (φ y) := by
+  obtain ⟨p, hp, h3p, hpa, hph, hpd⟩ :=
+    abelianThreeProjection_of_character χ a d h hh hthree hχa hχh hχd
+  refine ⟨abelianThreeReflection p hp h3p, ?_⟩
+  intro x y
+  exact abelianThreeReflection_arc_iff p hp h3p a d h hpa hph hpd x y
+
+#print axioms Couret.CayleyDoublet.abelianThreeProjection_of_character
+#print axioms Couret.CayleyDoublet.abelianThreeReflection_of_character_arc_iff
+
 #print axioms Couret.CayleyDoublet.abelianThreeReflection_arc_iff
 
 #print axioms Couret.CayleyDoublet.abelianOrderedSquare_source_target
