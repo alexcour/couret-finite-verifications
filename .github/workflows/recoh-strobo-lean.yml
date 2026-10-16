@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/Recoh{FourierBridge,RankBounds,CharacterMasks,RankKernel,KernelCollisions,PivotMasks,PivotCollision,BinaryDichotomy,InformationSet}.lean; then
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/Recoh{FourierBridge,RankBounds,CharacterMasks,RankKernel,KernelCollisions,PivotMasks,PivotCollision,BinaryDichotomy,InformationSet,BinaryLinearTransport}.lean; then
             echo "::error::Unexpected proof placeholder or axiom"
             exit 1
           fi
@@ -38,4 +38,4 @@ jobs:
           lake resolve-deps
           lake exe cache get
           lean --version
-          lake build RecohFourierBridge RecohRankBounds RecohCharacterMasks RecohRankKernel RecohKernelCollisions RecohPivotMasks RecohPivotCollision RecohBinaryDichotomy RecohInformationSet
+          lake build RecohFourierBridge RecohRankBounds RecohCharacterMasks RecohRankKernel RecohKernelCollisions RecohPivotMasks RecohPivotCollision RecohBinaryDichotomy RecohInformationSet RecohBinaryLinearTransport
