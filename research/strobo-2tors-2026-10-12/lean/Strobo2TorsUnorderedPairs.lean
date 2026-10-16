@@ -1,7 +1,7 @@
 import Strobo2TorsNontranslationDegree
 import Mathlib.Combinatorics.SimpleGraph.DegreeSum
 import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Omega
+import Lean.Elab.Tactic.Omega
 
 set_option autoImplicit false
 
