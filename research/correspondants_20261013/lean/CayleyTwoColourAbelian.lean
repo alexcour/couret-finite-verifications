@@ -547,6 +547,10 @@ theorem abelianThreeReflection_of_character_arc_iff
   intro x y
   exact abelianThreeReflection_arc_iff p hp h3p a d h hpa hph hpd x y
 
+theorem abelianZModThree_cases (t : ZMod 3) :
+    t = 0 ∨ t = 1 ∨ t = 2 := by
+  fin_cases t <;> decide
+
 /-- Elementary normal forms construct the missing character from generation.
 No quotient group or internal direct-sum API is used. -/
 theorem abelianThreeCharacter_of_generation
@@ -585,7 +589,7 @@ theorem abelianThreeCharacter_of_generation
     rw [htwo, map_add, hj1]
   have hjK : ∀ t : ZMod 3, j t ∈ K → t = 0 := by
     intro t ht
-    have ht_cases : t = 0 ∨ t = 1 ∨ t = 2 := by fin_cases t <;> decide
+    have ht_cases : t = 0 ∨ t = 1 ∨ t = 2 := abelianZModThree_cases t
     rcases ht_cases with rfl | rfl | rfl
     · rfl
     · exact False.elim (heK (by simpa only [hj1] using ht))
@@ -677,7 +681,7 @@ theorem abelianThreeProjection_of_nongeneration
     intro hdK
     apply hproper
     have hle : AddSubgroup.closure ({a, d, h} : Set G) ≤ K := by
-      apply AddSubgroup.closure_le.mpr
+      apply (AddSubgroup.closure_le K).mpr
       intro x hx
       simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
       rcases hx with rfl | rfl | rfl
