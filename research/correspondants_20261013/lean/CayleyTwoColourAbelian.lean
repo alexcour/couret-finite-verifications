@@ -585,7 +585,8 @@ theorem abelianThreeCharacter_of_generation
     rw [htwo, map_add, hj1]
   have hjK : ∀ t : ZMod 3, j t ∈ K → t = 0 := by
     intro t ht
-    fin_cases t
+    have ht_cases : t = 0 ∨ t = 1 ∨ t = 2 := by fin_cases t <;> decide
+    rcases ht_cases with rfl | rfl | rfl
     · rfl
     · exact False.elim (heK (by simpa only [hj1] using ht))
     · exfalso
@@ -621,7 +622,7 @@ theorem abelianThreeCharacter_of_generation
     rw [hj1, hde]
     exact h3dK
   have hle : AddSubgroup.closure ({a, d, h} : Set G) ≤ H := by
-    apply AddSubgroup.closure_le.mpr
+    apply (AddSubgroup.closure_le H).mpr
     intro x hx
     simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
     rcases hx with rfl | rfl | rfl
