@@ -1,5 +1,7 @@
 # STROBO — paires non translatées et maximum sans zéro : audit indépendant du 16 octobre 2026
 
+**Mise à jour — formalisation du comptage :** voir [PAIR_COUNT_LEAN_20261016.md](PAIR_COUNT_LEAN_20261016.md). Le nouveau module `Strobo2TorsPairCount.lean` formalise la formule universelle, le passage aux paires non ordonnées et les cas h=1, h=2, t=1 ; compilation locale et traces sans `sorryAx` contrôlées. Le SHA exact et les résultats CI observés sont suivis en tête de la PR #25. Le présent texte reste la déduction interne historique ; la table complète des maxima, la nouveauté et la relecture humaine ne sont pas promues par cette extension.
+
 **Statuts :** [I] déduction mathématique écrite à expertiser ; [F] calcul indépendant borné vérifié ; [C] uniquement les théorèmes Lean et les SHA explicitement cités ; [N] antériorité NON AUDITÉE ; [H] aucune relecture indépendante humaine attestée. **Document de recherche en PR DRAFT, non une publication.**
 
 ## 1. Observable, groupe et convention de paires

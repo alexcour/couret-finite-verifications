@@ -1,3 +1,26 @@
+# Pair-count extension — 16 October 2026
+
+The new Lake root `lean/Strobo2TorsPairCount.lean` formalizes the **universal
+unordered nontranslation-pair count** on zero-free triples:
+`(h−1)*((t−1)/2)*(q*h²−6*h+1)`. Nontranslation excludes **every element of G**.
+It includes the h=1 / t=1 empty-set cases, the h=2 formula and the empty-profile-two
+orbit boundary, and a direct proof of the local exceptional orbit-product table.
+See [PAIR_COUNT_LEAN_20261016.md](PAIR_COUNT_LEAN_20261016.md) for exact definitions,
+reusable lemmas, the alternative inclusion-exclusion proof and evidence levels.
+
+**Validation boundary:** the default Lake build and the new theorem's axiom traces
+were checked locally under Lean/mathlib v4.29.1; only `propext`, `Classical.choice`,
+`Quot.sound` occur. The **exact source SHA and observed CI receipts are maintained
+in the current verified-commit section of PR #25**; do not reuse an older green run
+as evidence for this extension. The new independent finite replay covers 18
+presentations / 13,020 triplets, with no discrepancy, and remains [F].
+
+**Still OPEN/DRAFT/NOT MERGED.** Human review and bibliographic novelty remain
+unestablished. No inference to the full maximum table, publication, release or
+priority. Previous snapshots below retain only their historical exact-SHA scope.
+
+---
+
 # STROBO-2TORS — CURRENT SCIENTIFIC CI GATE / 14 OCTOBER 2026
 
 **Latest verified branch HEAD:** `e19c2d9b281759928ab7987bf382bf2f190345be` (PR #25, OPEN/DRAFT). [Lean CI #38637446054](https://github.com/alexcour/couret-finite-verifications/actions/runs/38637446054): **SUCCESS**; [general verify #38637446247](https://github.com/alexcour/couret-finite-verifications/actions/runs/38637446247): **SUCCESS**. The Lean workflow ran locked mathlib v4.29.1, rejected placeholders in its listed roots, replayed bounded exact tests, and completed **789 build jobs successfully**. The inspected `#print axioms` lines for the profile-zero and profile-two theorems show `propext`, `Classical.choice` and `Quot.sound`, not `sorryAx`.
