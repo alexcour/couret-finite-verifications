@@ -1,5 +1,7 @@
 import Strobo2TorsNontranslationDegree
 import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Omega
 
 set_option autoImplicit false
 
@@ -31,11 +33,22 @@ noncomputable def nontranslationPairGraph : SimpleGraph (Finset G) where
       _ = translateSupport (translateSupport T u) (-u) :=
         (translateSupport_add T u (-u)).symm
       _ = translateSupport S (-u) := by rw [hReverse]
-  loopless := by
+  loopless := ⟨by
     intro S h
     obtain ⟨hS, hSelf⟩ := h
     have hNo := ((mem_nontranslatedNeighbours S S hS).mp hSelf).2.2
-    exact hNo ⟨0, by simp [translateSupport]⟩
+    exact hNo ⟨0, by simp [translateSupport]⟩⟩
+
+/-- Finiteness of the ambient support type gives finite neighbour sets.
+Using `Fintype.ofFinite` is safe but intentionally noncomputable. -/
+noncomputable instance nontranslationGraphNeighborFintype (S : Finset G) :
+    Fintype ((nontranslationPairGraph (G := G)).neighborSet S) :=
+  Fintype.ofFinite _
+
+/-- The symmetric, loopless edge set is finite for any finite G. -/
+noncomputable instance nontranslationGraphEdgeFintype :
+    Fintype ((nontranslationPairGraph (G := G)).edgeSet) :=
+  Fintype.ofFinite _
 
 /-- A graph edge is exactly an unordered pair of nontranslated supports,
 as specified by the original labelled ordered-square observable. -/
