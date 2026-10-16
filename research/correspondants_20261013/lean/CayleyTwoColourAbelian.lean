@@ -273,11 +273,26 @@ theorem abelianOrderedSquare_triple
     (a b c z : G) (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c) :
     abelianOrderedSquare ({a, b, c} : Finset G) z =
       abelianTripleSquareCoeff a b c z := by
-  simp only [abelianOrderedSquare, Finset.sum_insert,
-    Finset.sum_singleton, Finset.mem_insert, Finset.mem_singleton,
-    hab, hac, hbc, ne_eq, not_false_eq_true]
+  have ha : a ∉ ({b, c} : Finset G) := by simp [hab, hac]
+  have hb : b ∉ ({c} : Finset G) := by simp [hbc]
+  have hsum (f : G → ℕ) :
+      Finset.sum ({a, b, c} : Finset G) f = f a + f b + f c := by
+    rw [Finset.sum_insert ha, Finset.sum_insert hb, Finset.sum_singleton]
+  unfold abelianOrderedSquare
+  rw [hsum (fun x => Finset.sum ({a, b, c} : Finset G)
+    (fun y => if x + y = z then 1 else 0))]
+  rw [hsum (fun y => if a + y = z then 1 else 0),
+      hsum (fun y => if b + y = z then 1 else 0),
+      hsum (fun y => if c + y = z then 1 else 0)]
   simp only [abelianTripleSquareCoeff, abelianDiagCoeff,
     abelianOffCoeff]
+  have hba : (if b + a = z then (1 : ℕ) else 0) =
+      (if a + b = z then 1 else 0) := by rw [add_comm b a]
+  have hca : (if c + a = z then (1 : ℕ) else 0) =
+      (if a + c = z then 1 else 0) := by rw [add_comm c a]
+  have hcb : (if c + b = z then (1 : ℕ) else 0) =
+      (if b + c = z then 1 else 0) := by rw [add_comm c b]
+  rw [hba, hca, hcb]
   omega
 
 /-- Under explicit three-distinct-generator premises, the two finite supports
