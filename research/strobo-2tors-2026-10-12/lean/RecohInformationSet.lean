@@ -59,7 +59,7 @@ theorem recoh_exists_independent_injective_subbank
     {ι : Type*}
     (bank : ι → Module.Dual K V)
     (hinj : Function.Injective (fun x : V => fun i : ι => bank i x)) :
-    ∃ (κ : Type*) (selected : κ → ι),
+    ∃ (κ : Type) (selected : κ → ι),
       Function.Injective selected ∧
       LinearIndependent K (bank ∘ selected) ∧
       Function.Injective (fun x : V => fun j : κ => bank (selected j) x) := by
