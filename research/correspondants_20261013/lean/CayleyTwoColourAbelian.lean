@@ -273,9 +273,11 @@ theorem abelianOrderedSquare_triple
     (a b c z : G) (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c) :
     abelianOrderedSquare ({a, b, c} : Finset G) z =
       abelianTripleSquareCoeff a b c z := by
-  simp [abelianOrderedSquare, abelianTripleSquareCoeff,
-    abelianDiagCoeff, abelianOffCoeff, hab, hac, hbc,
-    add_comm, add_left_comm, add_assoc]
+  simp only [abelianOrderedSquare, Finset.sum_insert,
+    Finset.sum_singleton, Finset.mem_insert, Finset.mem_singleton,
+    hab, hac, hbc, ne_eq, not_false_eq_true]
+  simp only [abelianTripleSquareCoeff, abelianDiagCoeff,
+    abelianOffCoeff]
   omega
 
 /-- Under explicit three-distinct-generator premises, the two finite supports
