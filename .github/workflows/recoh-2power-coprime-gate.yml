@@ -1,0 +1,35 @@
+name: RECOH 2-power coprime gates
+on:
+  push:
+    branches: [research/recoh-upper-2power-nonzero-20261016]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  coprime-gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Guard proof completeness
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/RecohTwoPowerCoprimeGate.lean; then exit 1; fi
+      - name: Install Lean
+        shell: bash
+        run: |
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Build and check dependencies
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake resolve-deps
+          lake exe cache get
+          lake build RecohRankBounds
+          lake env lean RecohTwoPowerCoprimeGate.lean | tee /tmp/recoh-coprime.log
+          if grep -q "sorryAx" /tmp/recoh-coprime.log; then exit 1; fi
