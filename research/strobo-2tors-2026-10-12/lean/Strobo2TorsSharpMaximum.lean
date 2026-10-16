@@ -339,7 +339,18 @@ theorem maxObservedZeroFreeFibreSize_eq_one_of_card_four
       exact Finset.eq_of_subset_of_card_le hSub (by omega)
     have hFsub : F ⊆ ({(Finset.univ : Finset G).erase 0} : Finset (Finset G)) := by
       intro S hS
-      have hc := zeroFreeFullFibres_support_card_and_zero F hF S hS
+      have hc : S.card = 3 ∧ (0 : G) ∉ S := by
+        change F ∈ (nonemptyFullFibres : Finset (Finset (Finset G))).image withoutZero at hF
+        obtain ⟨K, hK, hKF⟩ := Finset.mem_image.mp hF
+        rw [← hKF] at hS
+        obtain ⟨hSK, hZero⟩ := Finset.mem_filter.mp hS
+        have hAll : K ∈ (allSquareFibres : Finset (Finset (Finset G))) :=
+          (Finset.mem_filter.mp hK).1
+        obtain ⟨T, _, hTK⟩ := Finset.mem_image.mp hAll
+        have hSsq : S ∈ squareFibre T := by
+          rw [hTK]
+          exact hSK
+        exact ⟨((mem_squareFibre T S).mp hSsq).1, hZero⟩
       simp [hUnique S hc.1 hc.2]
     calc
       F.card ≤ ({(Finset.univ : Finset G).erase 0} :
