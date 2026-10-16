@@ -447,7 +447,10 @@ theorem abelianZModThreeLift_one
        map_add' := by intro m n; simp only [add_zsmul] },
      by
        change (3 : ℤ) • e = 0
-       have hz : (3 : ℤ) • e = e + e + e := by norm_num [three_zsmul]; abel
+       have hz : (3 : ℤ) • e = e + e + e := by
+         change ((1 : ℤ) + 1 + 1) • e = e + e + e
+         rw [add_zsmul, add_zsmul]
+         simp [one_zsmul, add_assoc]
        rw [hz]
        exact he⟩) (Int.cast 1) = e
   rw [ZMod.lift_coe]
