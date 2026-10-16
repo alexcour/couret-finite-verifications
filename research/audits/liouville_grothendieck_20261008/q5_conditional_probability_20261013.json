@@ -1,0 +1,45 @@
+{
+  "W_bounds": [
+    "747557/1000000",
+    "842503/1000000"
+  ],
+  "W_mid": "79503/100000",
+  "actual_prime_density_certified": false,
+  "cutoff": "25",
+  "derivative_drift_bound": "47473/2940000",
+  "dp_dW_at_Wmid_outer": [
+    "0.028734",
+    "0.028913"
+  ],
+  "gaussian_replacement_error": "3947462121897085107632288369765474827/2303199242206449440230565751029760000000",
+  "global_GRH_or_LI_proved": false,
+  "independent_human_review_claimed": false,
+  "integral_tail_errors": [
+    "5/595018176841575296925696",
+    "5/8264141345021879123968"
+  ],
+  "low_phases": 67,
+  "mu": "-1",
+  "p_conditional_outer": [
+    "0.286461",
+    "0.292629"
+  ],
+  "p_gaussian_at_Whi_outer": [
+    "0.290912",
+    "0.290915"
+  ],
+  "p_gaussian_at_Wlo_outer": [
+    "0.288175",
+    "0.288178"
+  ],
+  "p_gaussian_at_Wmid_outer": [
+    "0.289557",
+    "0.289560"
+  ],
+  "quadrature_integral_errors": [
+    "871/234375000",
+    "8159/29296875"
+  ],
+  "simpson_intervals": 600,
+  "status": "CONDITIONAL_ON_PINNED_INTERNAL_CERTIFICATES"
+}

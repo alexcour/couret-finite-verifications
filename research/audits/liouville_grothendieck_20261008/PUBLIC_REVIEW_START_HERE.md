@@ -1,5 +1,59 @@
 # Open review / Relecture publique — Couret–Unification (9 October 2026)
 
+## Direct finite sign comparison — 13 Oct 2026
+
+[Sign-level proof](FINITE_SIGN_TRANSPORT_20261013.md),
+[adaptive interval instrument](certify_finite_sign_transport_20261013.py),
+[receipt](finite_sign_transport_20261013.json) and
+[twelve controls](test_finite_sign_transport_20261013.py) compare the
+**arithmetic and signed spectral trajectories on the same finite time interval**
+through B=65,536. At T=25, the spectral positive occupation is in
+**[0.276064,0.276715]**, its excess over the arithmetic occupation is in
+**[0.108075,0.108726]**, and their signs disagree on a logarithmic fraction in
+**[0.163790,0.164442]**. All unresolved cells are charged to the bounds.
+This gives a nontrivial finite first-stage sign comparison under the pinned
+root/interval trust boundary, without GRH/LI/ELI for these finite functions.
+Effective mixing to independent phases and comparison with the full phase
+law remain separate. The earlier **0.001714 Gaussian-tail replacement**
+bound does not bound omission of the raw tail. No limiting arithmetic
+density or uniform rate follows. Previous dated statements and receipts
+are retained; both workflows add replay and controls.
+
+## Direct finite arithmetic truncation — 13 Oct 2026
+
+[Finite-horizon proof](FINITE_ARITHMETIC_TRUNCATION_20261013.md),
+[integer interval instrument](certify_finite_arithmetic_truncation_20261013.py),
+[receipt](finite_arithmetic_truncation_20261013.json) and
+[fourteen controls](test_finite_arithmetic_truncation_20261013.py) add a
+**direct arithmetic calculation through B=65,536**. The positive logarithmic
+occupation lies in **[0.167988,0.167989]**, without GRH or LI. Conditional
+on the pinned low-zero enclosures, whole-cell integration gives
+**A(4,log B) in [1.375161,1.554206]** and
+**A(25,log B) in [0.749592,1.140467]**. These are finite-signal truncation
+errors, not global convergence rates or limiting densities. The current
+coupling-and-smoothing budget is trivial at this horizon; the exact finite
+arithmetic term alone explains why it cannot close. No previous receipt
+is replaced. New checks are integrated into both workflows.
+
+
+## Quantitative convergence audit — 13 Oct 2026
+
+[Quantitative specialization and proof boundaries](WASSERSTEIN_SPECIALIZATION_20261013.md),
+[stdlib verifier](verify_quantitative_specialization_20261013.py),
+[exact receipt](quantitative_specialization_20261013.json) and
+[eleven adversarial controls](test_quantitative_specialization_20261013.py)
+add **H<0.553** for the independent-phase Q5 density and a finite certificate
+**Delta(4,64)>0.011839**, covering all **16,640** modes of the two-frequency
+height-4 truncation. They also establish why the existing width-2e-30
+root boxes cannot certify every mode for **Delta(25,67)** by direct
+interval propagation: a centre combination must have magnitude <1.88e-118.
+The hypotheses and constants of Bailleul–Hayani–Untrau 5.13/5.17 are
+specialized explicitly. **No finite-horizon arithmetic error is certified**;
+GRH/LI/ELI remain hypotheses. The original Q5 probability interval and
+pinned inputs are preserved. New arithmetic checks are added to both
+workflows; execution status must be read from the corresponding CI runs.
+
+
 **Current integration decision — 12 October 2026:** the maintainer authorized merging PR #4 into main. See [integration status and remaining scientific gates](INTEGRATION_DECISION_20261012.md). Earlier draft/unmerged/no-merge annotations below are historical workflow status; external mathematical review, originality and analytic certification remain outstanding.
 
 **Your disagreement is welcome.** This is a public *research record*, not a refereed paper, proof of the Riemann hypothesis, or a claim of mathematical priority.
@@ -10,11 +64,36 @@
 
 1. Read [claims and falsification register](CLAIMS_AND_FAILURES.md), with what was disproved, what is classical and what remains undecided.
 2. Inspect the [frozen experiment and precise equations](FROZEN_METHOD_AND_DENSITY.md).
-3. Browse the [recorded low-zero catalogue](lmfdb_zero_comparison_20261009.json) and [37 locally refined q=15 roots](q15_roots_refined_20261009.json). **Only 30/67 ordinates have been compared against published decimal lists**; q=15 zero lists have NOT.
+3. Browse the [recorded low-zero catalogue](lmfdb_zero_comparison_20261009.json), [q15 certificate](q15_root_interval_certificate_20261012.json) and [new q3/q5 certificate](q3_q5_root_interval_certificate_20261013.json). **13 Oct update:** all 67 roots are internally isolated and matched by finite counts up to 25; [PR #28](https://github.com/alexcour/couret-finite-verifications/pull/28) separately records 37/37 external q15 decimal matches. Third-party decimal agreement and internal interval certificates are distinct evidence layers.
 4. Audit the source: [exact checks](REVIEW_SELF_CHECK.py), [spectral calculation](verify.py), [initial zero scan](rs_density_exploratory.py), [numerical argument-principle cross-check](winding_zero_count.py), [q=5 published comparison](verify_lmfdb_q5.py), [q=3 decimal consistency](verify_published_zero_matches.py), [q=15 high-precision root replay](verify_q15_catalog_20261009.py), [truncation envelope](rs_density_tail_envelope.py) and [quasi-Monte Carlo numerical comparison](qmc_density_replay_20261009.py).
 5. Please challenge the **four open gates** in [open review questions](OPEN_REVIEW_QUESTIONS.md).
 
 ## Scientific boundary
+
+**13 Oct Q5 probability inversion — internal conditional bound:** The
+[Q5 rational Fourier/Simpson proof](Q5_CONDITIONAL_PROBABILITY_20261013.md),
+[standalone fraction-only checker](certify_q5_probability.py) and
+[seven fail-closed controls](test_certify_q5_probability.py) bound the
+sign probability of the specified GRH/independent-phase Q5 model by
+**[0.286450, 0.292650]**, conditional on the pinned 67-root, analytic-K
+and full-tail certificates and their written arguments. The whole
+interval of Gaussian-tail variance is covered through a rigorously
+positive probability derivative; numerical Fourier nodes, Simpson error,
+integral truncation and root enclosures are explicitly bounded.
+[Dedicated replay](https://github.com/alexcour/couret-finite-verifications/actions/runs/38355681524)
+and [general checks](https://github.com/alexcour/couret-finite-verifications/actions/runs/38355681498)
+passed at `456ff042`. This is **not an unconditional prime-race
+density, a global GRH/LI verification, an independent root computation,
+or external mathematical review**. The former wording that inversion
+remained outstanding described the preceding dated stage.
+
+**13 Oct full 67-root and tail continuation:** [proof](ALL_TAIL_BOUNDS_20261013.md), [q3/q5 root instrument](certify_q3_q5_root_intervals.py) and [receipt](q3_q5_root_interval_certificate_20261013.json) add the remaining thirty isolations and counts, including a 320-bit check. Together with the preserved q15 instrument there are 67 simple roots and matching counts within the finite region up to 25. Under GRH and independent uniform phases, [full-tail aggregation](verify_all_tail_bounds.py) bounds any threshold-probability change from replacing all high phases by a Gaussian by <0.002 for all five profiles, hence all thirteen categories. These trusted-backend computations are not global GRH, independent peer review or a numerical prime-density certificate. The Gaussian-replaced probability still needs interval quadrature.
+
+**12 Oct q15 tail comparison:** [autonomous tail proof](Q15_TAIL_BOUNDS_20261012.md) derives strictly positive Hadamard residuals without GRH from the pinned q15 finite certificate and analytic K bounds. Under GRH and independent uniform phases, a rigorously bounded Gaussian replacement of only the q15 tail changes every threshold probability by at most 0.000589 (Q5/Q3/C5), 0.001524 (Q15) or 0.000880 (C15). No numerical quadrature is used. The [exact aggregation checker](verify_q15_tail_bounds.py) consumes receipts; the separate `q15-root-intervals` workflow reexecutes their Arb and analytic prerequisites. This does not certify a prime-race density or the q3/q5 Gaussian replacements. Independent mathematical review remains open.
+
+**12 Oct model continuation:** [independent-phase law classification](PHASE_LAW_CLASSIFICATION_20261012.md) separates finite support invariants from a defined stochastic model and its conditional prime-race interpretation. It proves a complete amplitude-multiset criterion for model-law equality, derives five signed variance formulas and a sufficient criterion for thirteen distinct model laws, and gives exact counterexamples. [Rational replay](verify_phase_law_identities.py) checks finite identities only. No actual zero list, prime law, originality or numerical sign-density certification is added.
+
+**12 Oct rigorous constants:** [analytic enclosure proof](CERTIFIED_SPECTRAL_CONSTANTS_20261012.md), [integer outward-rounding instrument](certify_spectral_constants.py) and [deterministic certificate](spectral_constants_certificate_20261012.json) separate the five Kχ constants unconditionally. Under GRH and the specified independent-phase zero model this verifies thirteen distinct laws. The classical positive completed-L zero sum plus Kχ<4 excludes real nontrivial zeros for these characters without GRH. This does not certify the 37 q15 ordinate candidates, completeness, GRH/LI or any numerical sign density.
 
 **12 Oct finite classification:** [autonomous proof of 56/5/13/28](STRUCTURAL_TRIPLET_CLASSIFICATION_20261012.md), with the complete bias/profile table and negative examples. The proof uses G/G² ≅ C2², character cancellation, Parseval and group actions. [Structural exact replay](verify_triplet_structure.py) agrees with the original [56-row fixture](census_56.csv); [complementary integer/autocorrelation check](verify_triplet_structure_crosscheck.py) and [local output](triplet_structure_crosscheck_20261012.json). External peer review is not claimed. Five amplitude profiles are also five orbits under translations and inversion, whereas translations alone give seven orbits. Thirteen finite invariant classes are not thirteen independently established prime-race laws.
 
@@ -22,7 +101,7 @@
 - **Finite data:** prior RUN-01 to 10^9 reports A=19,067,732; B=31,779,799; D=−737; finite positive log-occupation ≈0.20764. The 10^9 sieve/first-run zip is referred to in the frozen Drive protocol and is **NOT included in this GitHub packet**, therefore these values are quoted from prior work, not independently rerun by this packet.
 - **Conditional classical model:** under GRH and suitable linear independence of Dirichlet zero ordinates, the relevant Rubinstein–Sarnak law has modeled mean −1 and variance ≈3.20300708.
 - **Exploratory numerical estimates:** χ5 accounts for ≈43.9903% of modeled variance, not a probability of winning. Numerical P(X>0)≈0.2894 after truncating at positive ordinate T=25 and replacing higher zeros with an independent Gaussian matching the residual variance. Not rigorously certified.
-- **Zero evidence:** numerical line scan and numerical contour winding both give 67 roots (8,8,8,6,12,13,12); 30 ordinates were compared with published decimals, 37 conductor-15 entries remain locally computed only.
+- **Zero evidence, 13 Oct update:** internal isolations and counts now cover all 67 positive roots up to 25 (8,8,8,6,12,13,12), with finite-region and trusted-backend scope. Earlier external decimal comparisons are separate from these certificates. No global GRH/LI or independent human review follows.
 - **Originality:** no priority claim; general Galois/Dirichlet and Rubinstein–Sarnak mechanism is classical. Whether any atomically stated new subresult is original has not been established.
 
 ## Reproduction without Google Drive

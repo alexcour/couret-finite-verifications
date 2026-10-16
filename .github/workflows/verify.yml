@@ -23,9 +23,37 @@ jobs:
         run: python research/audits/liouville_grothendieck_20261008/verify_triplet_structure.py --check
       - name: CU-BRUIT independent autocorrelation and finite invariance cross-check
         run: python research/audits/liouville_grothendieck_20261008/verify_triplet_structure_crosscheck.py --check
+      - name: CU-BRUIT independent-phase moment identities (no prime law or zero certificate)
+        run: python research/audits/liouville_grothendieck_20261008/verify_phase_law_identities.py --check
+      - name: CU-BRUIT rigorous analytic constant enclosures (GRH and density not certified)
+        run: python research/audits/liouville_grothendieck_20261008/certify_spectral_constants.py --check
+      - name: CU-BRUIT exact q15 receipt aggregation (zero enclosures replayed in separate workflow)
+        run: python research/audits/liouville_grothendieck_20261008/verify_q15_tail_bounds.py --check
+      - name: CU-BRUIT signed tail weights and rational-bound controls
+        run: python research/audits/liouville_grothendieck_20261008/test_q15_tail_bounds.py
+      - name: CU-BRUIT full 67-root receipt aggregation (zero replays in dedicated workflow)
+        run: python research/audits/liouville_grothendieck_20261008/verify_all_tail_bounds.py --check
+      - name: CU-BRUIT full-tail rational witnesses and refusal controls
+        run: python research/audits/liouville_grothendieck_20261008/test_all_tail_bounds.py
+      - name: CU-BRUIT Q5 conditional rational Fourier inversion (NOT a prime-density certificate)
+        run: python research/audits/liouville_grothendieck_20261008/certify_q5_probability.py --check
+      - name: CU-BRUIT Q5 fail-closed arithmetic controls
+        run: python research/audits/liouville_grothendieck_20261008/test_certify_q5_probability.py
+      - name: CU-BRUIT exact Q5 density and finite T4 gap (not arithmetic convergence)
+        run: python -S research/audits/liouville_grothendieck_20261008/verify_quantitative_specialization_20261013.py --check
+      - name: Reject invalid quantitative witnesses and scope promotion
+        run: python -S research/audits/liouville_grothendieck_20261008/test_quantitative_specialization_20261013.py
+      - name: Direct finite arithmetic truncation error through 65536 (not a rate theorem)
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_arithmetic_truncation_20261013.py --check
+      - name: Trial division and elementary-interval refusal controls
+        run: python -S research/audits/liouville_grothendieck_20261008/test_finite_arithmetic_truncation_20261013.py
+      - name: Direct finite sign comparison through 65536 (not independent-phase mixing)
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_sign_transport_20261013.py --check
+      - name: Adaptive sign-cover and unresolved-mass refusal controls
+        run: python -S research/audits/liouville_grothendieck_20261008/test_finite_sign_transport_20261013.py
       - name: CU-BRUIT B1 character labels and signed-conjugate metadata (not zero certification)
         run: python research/audits/liouville_grothendieck_20261008/verify_signed_character_conventions.py --check-local-metadata
-      - name: CU-BRUIT A3 pending-source status must remain 0/37
+      - name: CU-BRUIT empty-source invocation must refuse absent comparison input
         run: |
           python research/audits/liouville_grothendieck_20261008/gate_q15_external_compare_20261010.py --out /tmp/cu_bruit_a3_pending.json
           python -c "import json; d=json.load(open('/tmp/cu_bruit_a3_pending.json')); assert d['q15_external_decimal_matches']==0 and d['status']=='NO_EXTERNAL_SOURCE_37_PENDING' and d['completeness_proved_by_this_script'] is False"

@@ -1,0 +1,618 @@
+{
+  "analytic_constants": {
+    "0,1": {
+      "K": {
+        "decimal_outer_bounds": [
+          "0.202289",
+          "0.206004"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "244552634599978480022152",
+        "upper_integer": "249042938161923517335092"
+      },
+      "L_imag": {
+        "decimal_outer_bounds": [
+          "0.204073",
+          "0.204207"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "246709198742760970509138",
+        "upper_integer": "246870388852042921071759"
+      },
+      "L_norm_square": {
+        "decimal_outer_bounds": [
+          "0.789351",
+          "0.789637"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "954267062588814719327399",
+        "upper_integer": "954611656738326524534165"
+      },
+      "L_real": {
+        "decimal_outer_bounds": [
+          "0.864699",
+          "0.864833"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "1045357671817226556244789",
+        "upper_integer": "1045518861926508506807410"
+      },
+      "Lp_imag": {
+        "decimal_outer_bounds": [
+          "-0.044678",
+          "-0.043395"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "-54012333330176602833102",
+        "upper_integer": "-52462360594007827873164"
+      },
+      "Lp_real": {
+        "decimal_outer_bounds": [
+          "0.154299",
+          "0.155583"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "186537145482450089564787",
+        "upper_integer": "188087118218618864524583"
+      },
+      "ab": [
+        0,
+        1
+      ],
+      "conductor": 5,
+      "label": "5.2/5.3",
+      "parity": "odd",
+      "period_partial_sum_bounds": [
+        1,
+        1
+      ],
+      "tail_component_bounds": [
+        {
+          "L_tail": [
+            "0.0000666666",
+            "0.0000666667"
+          ],
+          "Lp_tail": [
+            "0.0006410536",
+            "0.0006410537"
+          ]
+        },
+        {
+          "L_tail": [
+            "0.0000666666",
+            "0.0000666667"
+          ],
+          "Lp_tail": [
+            "0.0006410536",
+            "0.0006410537"
+          ]
+        }
+      ]
+    },
+    "0,2": {
+      "K": {
+        "decimal_outer_bounds": [
+          "0.152780",
+          "0.160338"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "184699785835868096493404",
+        "upper_integer": "193835715984106501665086"
+      },
+      "L_imag": {
+        "decimal_outer_bounds": [
+          "0.000000",
+          "0.000000"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "0",
+        "upper_integer": "0"
+      },
+      "L_norm_square": {
+        "decimal_outer_bounds": [
+          "0.185194",
+          "0.185310"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "223886378267148707887329",
+        "upper_integer": "224025133595035420355000"
+      },
+      "L_real": {
+        "decimal_outer_bounds": [
+          "0.430342",
+          "0.430476"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "520251884520530739787596",
+        "upper_integer": "520413074629812690356210"
+      },
+      "Lp_imag": {
+        "decimal_outer_bounds": [
+          "0.000000",
+          "0.000000"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "0",
+        "upper_integer": "0"
+      },
+      "Lp_real": {
+        "decimal_outer_bounds": [
+          "0.355599",
+          "0.356882"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "429893548340726090737715",
+        "upper_integer": "431443521076894865708763"
+      },
+      "ab": [
+        0,
+        2
+      ],
+      "conductor": 5,
+      "label": "5.4",
+      "parity": "even",
+      "period_partial_sum_bounds": [
+        1,
+        0
+      ],
+      "tail_component_bounds": [
+        {
+          "L_tail": [
+            "0.0000666666",
+            "0.0000666667"
+          ],
+          "Lp_tail": [
+            "0.0006410536",
+            "0.0006410537"
+          ]
+        },
+        {
+          "L_tail": [
+            "0.0000000000",
+            "0.0000000000"
+          ],
+          "Lp_tail": [
+            "0.0000000000",
+            "0.0000000000"
+          ]
+        }
+      ]
+    },
+    "1,0": {
+      "K": {
+        "decimal_outer_bounds": [
+          "0.111569",
+          "0.116360"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "134879357786627025482922",
+        "upper_integer": "140670325734868672440532"
+      },
+      "L_imag": {
+        "decimal_outer_bounds": [
+          "0.000000",
+          "0.000000"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "0",
+        "upper_integer": "0"
+      },
+      "L_norm_square": {
+        "decimal_outer_bounds": [
+          "0.365433",
+          "0.365595"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "441781905539001485122364",
+        "upper_integer": "441976809386820946730356"
+      },
+      "L_real": {
+        "decimal_outer_bounds": [
+          "0.604510",
+          "0.604645"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "730808834268340009402050",
+        "upper_integer": "730970024377621959968664"
+      },
+      "Lp_imag": {
+        "decimal_outer_bounds": [
+          "0.000000",
+          "0.000000"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "0",
+        "upper_integer": "0"
+      },
+      "Lp_real": {
+        "decimal_outer_bounds": [
+          "0.222235",
+          "0.223518"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "268666376439489131520506",
+        "upper_integer": "270216349175657906487824"
+      },
+      "ab": [
+        1,
+        0
+      ],
+      "conductor": 3,
+      "label": "3.2",
+      "parity": "odd",
+      "period_partial_sum_bounds": [
+        1,
+        0
+      ],
+      "tail_component_bounds": [
+        {
+          "L_tail": [
+            "0.0000666666",
+            "0.0000666667"
+          ],
+          "Lp_tail": [
+            "0.0006410536",
+            "0.0006410537"
+          ]
+        },
+        {
+          "L_tail": [
+            "0.0000000000",
+            "0.0000000000"
+          ],
+          "Lp_tail": [
+            "0.0000000000",
+            "0.0000000000"
+          ]
+        }
+      ]
+    },
+    "1,1": {
+      "K": {
+        "decimal_outer_bounds": [
+          "0.405098",
+          "0.409860"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "489734431625579721210642",
+        "upper_integer": "495489819501394113632502"
+      },
+      "L_imag": {
+        "decimal_outer_bounds": [
+          "-0.316870",
+          "-0.316735"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "-383071481073844867242363",
+        "upper_integer": "-382910290964562916681742"
+      },
+      "L_norm_square": {
+        "decimal_outer_bounds": [
+          "0.645703",
+          "0.645986"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "780608068164771722365501",
+        "upper_integer": "780948298337145275743331"
+      },
+      "L_real": {
+        "decimal_outer_bounds": [
+          "0.738499",
+          "0.738634"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "892791665326980267998386",
+        "upper_integer": "892952855436262218559007"
+      },
+      "Lp_imag": {
+        "decimal_outer_bounds": [
+          "0.019347",
+          "0.020631"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "23390193987091978098118",
+        "upper_integer": "24940166723260753054315"
+      },
+      "Lp_real": {
+        "decimal_outer_bounds": [
+          "0.361068",
+          "0.362351"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "436505165945742008185394",
+        "upper_integer": "438055138681910783141450"
+      },
+      "ab": [
+        1,
+        1
+      ],
+      "conductor": 15,
+      "label": "15.2/15.8",
+      "parity": "even",
+      "period_partial_sum_bounds": [
+        1,
+        1
+      ],
+      "tail_component_bounds": [
+        {
+          "L_tail": [
+            "0.0000666666",
+            "0.0000666667"
+          ],
+          "Lp_tail": [
+            "0.0006410536",
+            "0.0006410537"
+          ]
+        },
+        {
+          "L_tail": [
+            "0.0000666666",
+            "0.0000666667"
+          ],
+          "Lp_tail": [
+            "0.0006410536",
+            "0.0006410537"
+          ]
+        }
+      ]
+    },
+    "1,2": {
+      "K": {
+        "decimal_outer_bounds": [
+          "0.458305",
+          "0.463498"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "554057281907823149160834",
+        "upper_integer": "560333686342372540672340"
+      },
+      "L_imag": {
+        "decimal_outer_bounds": [
+          "0.000000",
+          "0.000000"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "0",
+        "upper_integer": "0"
+      },
+      "L_norm_square": {
+        "decimal_outer_bounds": [
+          "2.630813",
+          "2.632111"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "3180457855490103433663516",
+        "upper_integer": "3182026729917229212062132"
+      },
+      "L_real": {
+        "decimal_outer_bounds": [
+          "1.621978",
+          "1.622379"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "1960851248743300040037392",
+        "upper_integer": "1961334819071145891715262"
+      },
+      "Lp_imag": {
+        "decimal_outer_bounds": [
+          "0.000000",
+          "0.000000"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "0",
+        "upper_integer": "0"
+      },
+      "Lp_real": {
+        "decimal_outer_bounds": [
+          "-0.427910",
+          "-0.424062"
+        ],
+        "denominator": "1208925819614629174706176",
+        "lower_integer": "-517310373460390679725917",
+        "upper_integer": "-512660455251884354864982"
+      },
+      "ab": [
+        1,
+        2
+      ],
+      "conductor": 15,
+      "label": "15.14",
+      "parity": "odd",
+      "period_partial_sum_bounds": [
+        3,
+        0
+      ],
+      "tail_component_bounds": [
+        {
+          "L_tail": [
+            "0.0001999999",
+            "0.0002000001"
+          ],
+          "Lp_tail": [
+            "0.0019231610",
+            "0.0019231611"
+          ]
+        },
+        {
+          "L_tail": [
+            "0.0000000000",
+            "0.0000000000"
+          ],
+          "Lp_tail": [
+            "0.0000000000",
+            "0.0000000000"
+          ]
+        }
+      ]
+    }
+  },
+  "analytic_enclosures": "unconditional elementary periodic-series bounds",
+  "arithmetic_self_checks": {
+    "character_homomorphism_and_primitive_conductors": "PASS",
+    "fraction_machin_pi_and_harmonic_gamma_checks": "PASS",
+    "fraction_operation_comparisons": 95,
+    "independent_log_rational_checks": 8,
+    "zero_containing_denominator": "rejected"
+  },
+  "baseline_variance": {
+    "decimal_outer_bounds": [
+      "1.937431",
+      "1.971921"
+    ],
+    "denominator": "1208925819614629174706176",
+    "lower_integer": "2342210557981434673602748",
+    "upper_integer": "2383905243387982976713146"
+  },
+  "bits": 80,
+  "conditional_profile_variances": {
+    "C15": {
+      "decimal_outer_bounds": [
+        "5.178221",
+        "5.250797"
+      ],
+      "denominator": "1208925819614629174706176",
+      "lower_integer": "6260086010986072443287884",
+      "upper_integer": "6347823799399135885773162"
+    },
+    "C5": {
+      "decimal_outer_bounds": [
+        "3.555744",
+        "3.619949"
+      ],
+      "denominator": "1208925819614629174706176",
+      "lower_integer": "4298631634781262513779964",
+      "upper_integer": "4376248748683371115393882"
+    },
+    "Q15": {
+      "decimal_outer_bounds": [
+        "5.603874",
+        "5.679898"
+      ],
+      "denominator": "1208925819614629174706176",
+      "lower_integer": "6774668813244019866889420",
+      "upper_integer": "6866574734126963302091866"
+    },
+    "Q3": {
+      "decimal_outer_bounds": [
+        "2.829987",
+        "2.902799"
+      ],
+      "denominator": "1208925819614629174706176",
+      "lower_integer": "3421245420274450877466124",
+      "upper_integer": "3509267849266932356237402"
+    },
+    "Q5": {
+      "decimal_outer_bounds": [
+        "3.159671",
+        "3.254618"
+      ],
+      "denominator": "1208925819614629174706176",
+      "lower_integer": "3819808844668379445549980",
+      "upper_integer": "3934590971260834990033834"
+    }
+  },
+  "cutoff": 15000,
+  "euler_gamma": {
+    "decimal_outer_bounds": [
+      "0.577185",
+      "0.577247"
+    ],
+    "denominator": "1208925819614629174706176",
+    "lower_integer": "697774029173749559599171",
+    "upper_integer": "697847813898336205914447"
+  },
+  "gamma_harmonic_cutoff": 16384,
+  "log_series_terms": 48,
+  "not_certified": [
+    "GRH/LI",
+    "actual prime limiting law",
+    "individual zero data",
+    "zero completeness",
+    "numerical sign density",
+    "originality"
+  ],
+  "ordered_ab": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "pi": {
+    "decimal_outer_bounds": [
+      "3.141592",
+      "3.141593"
+    ],
+    "denominator": "1208925819614629174706176",
+    "lower_integer": "3797952473636338580787572",
+    "upper_integer": "3797952473636338580788392"
+  },
+  "real_zero_exclusion": "K(chi)<4 plus classical completed-L Hadamard identity excludes real nontrivial zeros",
+  "schema": "CU-BRUIT-02-C dyadic analytic constants certificate v1",
+  "strict_adjacent_gaps": [
+    {
+      "denominator": "1208925819614629174706176",
+      "gap_lower_integer": "44029460100999424052872",
+      "lower_ab": [
+        1,
+        0
+      ],
+      "upper_ab": [
+        0,
+        2
+      ]
+    },
+    {
+      "denominator": "1208925819614629174706176",
+      "gap_lower_integer": "50716918615871978357066",
+      "lower_ab": [
+        0,
+        2
+      ],
+      "upper_ab": [
+        0,
+        1
+      ]
+    },
+    {
+      "denominator": "1208925819614629174706176",
+      "gap_lower_integer": "240691493463656203875550",
+      "lower_ab": [
+        0,
+        1
+      ],
+      "upper_ab": [
+        1,
+        1
+      ]
+    },
+    {
+      "denominator": "1208925819614629174706176",
+      "gap_lower_integer": "58567462406429035528332",
+      "lower_ab": [
+        1,
+        1
+      ],
+      "upper_ab": [
+        1,
+        2
+      ]
+    }
+  ],
+  "thirteen_distinct_model_laws": "conditional on the signed-zero model identification"
+}
