@@ -143,8 +143,10 @@ theorem maxObservedZeroFreeFibreSize_eq_zero_of_card_lt_four
       obtain ⟨hAll, ⟨S, hS⟩⟩ := Finset.mem_filter.mp hF
       have hSIn : S ∈ F := (Finset.mem_filter.mp hS).1
       have hS3 : S.card = 3 := by
-        rw [allSquareFibres_preimage F hAll] at hSIn
-        exact (mem_tripleSupports S).mp (Finset.mem_filter.mp hSIn).1
+        have hSq : squareFibre S = F :=
+          allSquareFibres_squareFibre_member F hAll S hSIn
+        rw [← hSq] at hSIn
+        exact ((mem_squareFibre S S).mp hSIn).1
       have hAvoid : (0 : G) ∉ S := (Finset.mem_filter.mp hS).2
       exact False.elim (hAvoid (hEveryTripleHitsZero S hS3))
     · intro hF
