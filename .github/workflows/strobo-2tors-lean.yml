@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - research/strobo-2tors-global-classification-2026-10-12
+      - research/strobo-observed-maximum-20261016
   pull_request:
     paths:
       - "research/strobo-2tors-2026-10-12/**"
