@@ -121,20 +121,36 @@ theorem maxObservedZeroFreeFibreSize_pos_of_four
 theorem maxObservedZeroFreeFibreSize_eq_zero_of_card_lt_four
     (hn : Fintype.card G < 4) :
     maxObservedZeroFreeFibreSize (G := G) = 0 := by
-  have hTriples : (tripleSupports : Finset (Finset G)) = ∅ := by
-    ext S
+  have hEveryTripleHitsZero (S : Finset G) (hS3 : S.card = 3) :
+      (0 : G) ∈ S := by
+    by_contra hZero
+    have hSub : S ⊆ (Finset.univ : Finset G).erase (0 : G) := by
+      intro x hx
+      simp only [Finset.mem_erase, Finset.mem_univ, and_true]
+      intro heq
+      exact hZero (heq ▸ hx)
+    have hc : ((Finset.univ : Finset G).erase (0 : G)).card =
+        Fintype.card G - 1 := by
+      rw [Finset.card_erase_of_mem (Finset.mem_univ (0 : G))]
+      simp
+    have hBound := Finset.card_le_card hSub
+    rw [hc, hS3] at hBound
+    omega
+  have hNone : (nonemptyFullFibres : Finset (Finset (Finset G))) = ∅ := by
+    ext F
     constructor
-    · intro hS
-      have hS3 : S.card = 3 := (mem_tripleSupports S).mp hS
-      have hBound : S.card ≤ Fintype.card G := by
-        simpa using (Finset.card_le_card (Finset.subset_univ S))
-      omega
-    · intro h
-      simp at h
-  have hAll : (allSquareFibres : Finset (Finset (Finset G))) = ∅ := by
-    simp [allSquareFibres, hTriples]
+    · intro hF
+      obtain ⟨hAll, ⟨S, hS⟩⟩ := Finset.mem_filter.mp hF
+      have hSIn : S ∈ F := (Finset.mem_filter.mp hS).1
+      have hS3 : S.card = 3 := by
+        rw [allSquareFibres_preimage F hAll] at hSIn
+        exact (mem_tripleSupports S).mp (Finset.mem_filter.mp hSIn).1
+      have hAvoid : (0 : G) ∉ S := (Finset.mem_filter.mp hS).2
+      exact False.elim (hAvoid (hEveryTripleHitsZero S hS3))
+    · intro hF
+      simp at hF
   have hEmpty : (zeroFreeFullFibres : Finset (Finset (Finset G))) = ∅ := by
-    simp [zeroFreeFullFibres, nonemptyFullFibres, hAll]
+    simp [zeroFreeFullFibres, hNone]
   simp [maxObservedZeroFreeFibreSize, hEmpty]
 
 /-- When G has trivial two-torsion, every positive observed fibre has
