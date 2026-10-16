@@ -316,6 +316,110 @@ theorem abelianOrderedSquare_source_target
       abelianOrderedSquare_triple a (a - d) ((a - d) + h) z ht1 ht2 ht3]
   exact abelianTripleSquareCoeff_source_target a d h z hh hthree
 
+
+/-!
+COU-20: a CONDITIONAL construction of the d -> -d reflection.
+
+A 3-torsion idempotent projection is additional mathematical structure.
+Its existence from just "a mod <h> does not generate G/<h>" is NOT yet
+constructed in Lean. The results below never assert that existence.
+-/
+
+/-- On an additive commutative group, an idempotent additive endomorphism
+with image of exponent three gives an additive involution x -> x + p(x). -/
+def abelianThreeReflection
+    (p : G →+ G)
+    (hp : ∀ x : G, p (p x) = p x)
+    (h3 : ∀ x : G, p x + p x + p x = 0) : G ≃+ G where
+  toFun := fun x => x + p x
+  invFun := fun x => x + p x
+  left_inv := by
+    intro x
+    change (x + p x) + p (x + p x) = x
+    rw [map_add, hp x]
+    calc
+      (x + p x) + (p x + p x) = x + (p x + p x + p x) := by abel
+      _ = x := by rw [h3 x]; simp
+  right_inv := by
+    intro x
+    change (x + p x) + p (x + p x) = x
+    rw [map_add, hp x]
+    calc
+      (x + p x) + (p x + p x) = x + (p x + p x + p x) := by abel
+      _ = x := by rw [h3 x]; simp
+  map_add' := by
+    intro x y
+    change (x + y) + p (x + y) = (x + p x) + (y + p y)
+    rw [map_add]
+    abel
+
+/-- If the projection fixes the singleton and half-turn and sends d to
+-2*d, the involution transports the entire source support to the target. -/
+theorem abelianThreeReflection_support
+    (p : G →+ G)
+    (hp : ∀ x : G, p (p x) = p x)
+    (h3 : ∀ x : G, p x + p x + p x = 0)
+    (a d h : G) (ha : p a = 0) (hh : p h = 0)
+    (hd : p d = -(d + d)) :
+    (AbelianSource a d h).image
+      (fun x => abelianThreeReflection p hp h3 x) =
+      AbelianTarget a d h := by
+  let φ : G ≃+ G := abelianThreeReflection p hp h3
+  have ha' : φ a = a := by
+    change a + p a = a
+    simp [ha]
+  have hb' : φ (a + d) = a - d := by
+    change (a + d) + p (a + d) = a - d
+    rw [map_add, ha, hd]
+    abel
+  have hc' : φ ((a + d) + h) = (a - d) + h := by
+    change ((a + d) + h) + p ((a + d) + h) = (a - d) + h
+    rw [map_add, map_add, ha, hd, hh]
+    abel
+  change ({a, a + d, (a + d) + h} : Finset G).image (fun x => φ x) =
+    ({a, a - d, (a - d) + h} : Finset G)
+  simp only [Finset.image_insert, Finset.image_singleton]
+  rw [ha', hb', hc']
+
+/-- Under the explicitly supplied projection, the reflection is a genuine
+uncoloured directed Cayley digraph isomorphism. This is NOT the unconditional
+non-generation -> existence direction of the proposed dichotomy. -/
+theorem abelianThreeReflection_arc_iff
+    (p : G →+ G)
+    (hp : ∀ x : G, p (p x) = p x)
+    (h3 : ∀ x : G, p x + p x + p x = 0)
+    (a d h : G) (ha : p a = 0) (hh : p h = 0)
+    (hd : p d = -(d + d)) (x y : G) :
+    CayleyArc (AbelianSource a d h) x y ↔
+      CayleyArc (AbelianTarget a d h)
+        (abelianThreeReflection p hp h3 x)
+        (abelianThreeReflection p hp h3 y) := by
+  let φ : G ≃+ G := abelianThreeReflection p hp h3
+  have himage :
+      (AbelianSource a d h).image (fun t => φ t) =
+      AbelianTarget a d h :=
+    abelianThreeReflection_support p hp h3 a d h ha hh hd
+  constructor
+  · rintro ⟨s, hs, hys⟩
+    refine ⟨φ s, ?_, ?_⟩
+    · rw [← himage]
+      exact Finset.mem_image.mpr ⟨s, hs, rfl⟩
+    · rw [hys]
+      exact map_add φ x s
+  · rintro ⟨t, ht, hyt⟩
+    have ht' : t ∈ (AbelianSource a d h).image (fun u => φ u) := by
+      rw [himage]
+      exact ht
+    rcases Finset.mem_image.mp ht' with ⟨s, hs, hst⟩
+    refine ⟨s, hs, ?_⟩
+    apply φ.injective
+    calc
+      φ y = φ x + t := hyt
+      _ = φ x + φ s := by rw [hst]
+      _ = φ (x + s) := (map_add φ x s).symm
+
+#print axioms Couret.CayleyDoublet.abelianThreeReflection_arc_iff
+
 #print axioms Couret.CayleyDoublet.abelianOrderedSquare_source_target
 
 #print axioms Couret.CayleyDoublet.abelianTripleSquareCoeff_source_target
