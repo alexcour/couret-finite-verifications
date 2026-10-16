@@ -18,7 +18,7 @@ def recoh_binary_character_linear
     map_smul' := by
       intro c x
       have hc : c = 0 ∨ c = 1 := by
-        fin_cases c <;> simp
+        fin_cases c <;> simp [eq_comm]
       rcases hc with rfl | rfl
       · simp
       · simp }
