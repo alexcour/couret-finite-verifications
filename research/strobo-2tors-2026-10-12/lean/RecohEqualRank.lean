@@ -29,7 +29,7 @@ theorem recoh_equal_rank_bank_surjective
     simp [Fintype.card_fun, hcard, ZMod.card]
   exact (Fintype.bijective_iff_injective_and_card
     (fun a : H => fun i : Fin r => bank i a)).2
-      ⟨hinj, hcodomain⟩ |>.2
+      ⟨hinj, hcodomain.symm⟩ |>.2
 
 end Couret.STROBO2TORS
 
