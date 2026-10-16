@@ -1,0 +1,713 @@
+{
+  "cyclotomic_signs_n24": {
+    "all_orbits_nonzero": true,
+    "divisors": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12,
+      24
+    ],
+    "global_binary_solutions": 4,
+    "global_integer_solutions": 4,
+    "independent_bruteforce_checked_subsets": 2024,
+    "independent_bruteforce_matches": 4,
+    "n": 24,
+    "prime_power_local_counts": {
+      "3": 64,
+      "8": 8
+    },
+    "raw_signs": 128,
+    "solutions": [
+      {
+        "relationship_to_initial": {
+          "group_unit_multiple": true,
+          "inverted_then_translated": false,
+          "reflection_shift_witnesses": [],
+          "translated": true,
+          "translation_shift_witnesses": [
+            0
+          ],
+          "unit_multiplier_witnesses": [
+            1
+          ]
+        },
+        "set": [
+          1,
+          5,
+          17
+        ]
+      },
+      {
+        "relationship_to_initial": {
+          "group_unit_multiple": false,
+          "inverted_then_translated": true,
+          "reflection_shift_witnesses": [
+            2
+          ],
+          "translated": false,
+          "translation_shift_witnesses": [],
+          "unit_multiplier_witnesses": []
+        },
+        "set": [
+          1,
+          9,
+          21
+        ]
+      },
+      {
+        "relationship_to_initial": {
+          "group_unit_multiple": true,
+          "inverted_then_translated": false,
+          "reflection_shift_witnesses": [],
+          "translated": true,
+          "translation_shift_witnesses": [
+            12
+          ],
+          "unit_multiplier_witnesses": [
+            13
+          ]
+        },
+        "set": [
+          5,
+          13,
+          17
+        ]
+      },
+      {
+        "relationship_to_initial": {
+          "group_unit_multiple": false,
+          "inverted_then_translated": true,
+          "reflection_shift_witnesses": [
+            14
+          ],
+          "translated": false,
+          "translation_shift_witnesses": [],
+          "unit_multiplier_witnesses": []
+        },
+        "set": [
+          9,
+          13,
+          21
+        ]
+      }
+    ],
+    "support_initial": [
+      1,
+      5,
+      17
+    ]
+  },
+  "cyclotomic_signs_n40": {
+    "all_orbits_nonzero": true,
+    "divisors": [
+      1,
+      2,
+      4,
+      5,
+      8,
+      10,
+      20,
+      40
+    ],
+    "global_binary_solutions": 2,
+    "global_integer_solutions": 2,
+    "independent_bruteforce_checked_subsets": 9880,
+    "independent_bruteforce_matches": 2,
+    "n": 40,
+    "prime_power_local_counts": {
+      "5": 8,
+      "8": 8
+    },
+    "raw_signs": 128,
+    "solutions": [
+      {
+        "relationship_to_initial": {
+          "group_unit_multiple": true,
+          "inverted_then_translated": false,
+          "reflection_shift_witnesses": [],
+          "translated": true,
+          "translation_shift_witnesses": [
+            0
+          ],
+          "unit_multiplier_witnesses": [
+            1
+          ]
+        },
+        "set": [
+          1,
+          5,
+          17
+        ]
+      },
+      {
+        "relationship_to_initial": {
+          "group_unit_multiple": true,
+          "inverted_then_translated": false,
+          "reflection_shift_witnesses": [],
+          "translated": true,
+          "translation_shift_witnesses": [
+            20
+          ],
+          "unit_multiplier_witnesses": [
+            21
+          ]
+        },
+        "set": [
+          21,
+          25,
+          37
+        ]
+      }
+    ],
+    "support_initial": [
+      1,
+      5,
+      17
+    ]
+  },
+  "date": "2026-10-13",
+  "extended_moduli": {
+    "32": {
+      "all_orbits_nonzero": true,
+      "divisors": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "global_binary_solutions": 2,
+      "global_integer_solutions": 2,
+      "independent_bruteforce_checked_subsets": 4960,
+      "independent_bruteforce_matches": 2,
+      "n": 32,
+      "prime_power_local_counts": {
+        "32": 2
+      },
+      "raw_signs": 32,
+      "solutions": [
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              0
+            ],
+            "unit_multiplier_witnesses": [
+              1
+            ]
+          },
+          "set": [
+            1,
+            5,
+            17
+          ]
+        },
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              16
+            ],
+            "unit_multiplier_witnesses": [
+              17
+            ]
+          },
+          "set": [
+            1,
+            17,
+            21
+          ]
+        }
+      ],
+      "support_initial": [
+        1,
+        5,
+        17
+      ]
+    },
+    "48": {
+      "all_orbits_nonzero": true,
+      "divisors": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        12,
+        16,
+        24,
+        48
+      ],
+      "global_binary_solutions": 2,
+      "global_integer_solutions": 2,
+      "independent_bruteforce_checked_subsets": 17296,
+      "independent_bruteforce_matches": 2,
+      "n": 48,
+      "prime_power_local_counts": {
+        "16": 8,
+        "3": 128
+      },
+      "raw_signs": 512,
+      "solutions": [
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              0
+            ],
+            "unit_multiplier_witnesses": [
+              1
+            ]
+          },
+          "set": [
+            1,
+            5,
+            17
+          ]
+        },
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              24
+            ],
+            "unit_multiplier_witnesses": [
+              25
+            ]
+          },
+          "set": [
+            25,
+            29,
+            41
+          ]
+        }
+      ],
+      "support_initial": [
+        1,
+        5,
+        17
+      ]
+    },
+    "56": {
+      "all_orbits_nonzero": true,
+      "divisors": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        14,
+        28,
+        56
+      ],
+      "global_binary_solutions": 2,
+      "global_integer_solutions": 2,
+      "independent_bruteforce_checked_subsets": 27720,
+      "independent_bruteforce_matches": 2,
+      "n": 56,
+      "prime_power_local_counts": {
+        "7": 8,
+        "8": 8
+      },
+      "raw_signs": 128,
+      "solutions": [
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              0
+            ],
+            "unit_multiplier_witnesses": [
+              1
+            ]
+          },
+          "set": [
+            1,
+            5,
+            17
+          ]
+        },
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              28
+            ],
+            "unit_multiplier_witnesses": [
+              29
+            ]
+          },
+          "set": [
+            29,
+            33,
+            45
+          ]
+        }
+      ],
+      "support_initial": [
+        1,
+        5,
+        17
+      ]
+    },
+    "60": {
+      "all_orbits_nonzero": true,
+      "divisors": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        12,
+        15,
+        20,
+        30,
+        60
+      ],
+      "global_binary_solutions": 2,
+      "global_integer_solutions": 2,
+      "independent_bruteforce_checked_subsets": 34220,
+      "independent_bruteforce_matches": 2,
+      "n": 60,
+      "prime_power_local_counts": {
+        "3": 256,
+        "4": 128,
+        "5": 32
+      },
+      "raw_signs": 2048,
+      "solutions": [
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              0
+            ],
+            "unit_multiplier_witnesses": [
+              1
+            ]
+          },
+          "set": [
+            1,
+            5,
+            17
+          ]
+        },
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              30
+            ],
+            "unit_multiplier_witnesses": [
+              31
+            ]
+          },
+          "set": [
+            31,
+            35,
+            47
+          ]
+        }
+      ],
+      "support_initial": [
+        1,
+        5,
+        17
+      ]
+    },
+    "72": {
+      "all_orbits_nonzero": true,
+      "divisors": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        12,
+        18,
+        24,
+        36,
+        72
+      ],
+      "global_binary_solutions": 2,
+      "global_integer_solutions": 2,
+      "independent_bruteforce_checked_subsets": 59640,
+      "independent_bruteforce_matches": 2,
+      "n": 72,
+      "prime_power_local_counts": {
+        "8": 32,
+        "9": 8
+      },
+      "raw_signs": 2048,
+      "solutions": [
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              0
+            ],
+            "unit_multiplier_witnesses": [
+              1
+            ]
+          },
+          "set": [
+            1,
+            5,
+            17
+          ]
+        },
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              36
+            ],
+            "unit_multiplier_witnesses": [
+              37
+            ]
+          },
+          "set": [
+            37,
+            41,
+            53
+          ]
+        }
+      ],
+      "support_initial": [
+        1,
+        5,
+        17
+      ]
+    },
+    "80": {
+      "all_orbits_nonzero": true,
+      "divisors": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        16,
+        20,
+        40,
+        80
+      ],
+      "global_binary_solutions": 2,
+      "global_integer_solutions": 2,
+      "independent_bruteforce_checked_subsets": 82160,
+      "independent_bruteforce_matches": 2,
+      "n": 80,
+      "prime_power_local_counts": {
+        "16": 8,
+        "5": 16
+      },
+      "raw_signs": 512,
+      "solutions": [
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              0
+            ],
+            "unit_multiplier_witnesses": [
+              1
+            ]
+          },
+          "set": [
+            1,
+            5,
+            17
+          ]
+        },
+        {
+          "relationship_to_initial": {
+            "group_unit_multiple": true,
+            "inverted_then_translated": false,
+            "reflection_shift_witnesses": [],
+            "translated": true,
+            "translation_shift_witnesses": [
+              40
+            ],
+            "unit_multiplier_witnesses": [
+              41
+            ]
+          },
+          "set": [
+            41,
+            45,
+            57
+          ]
+        }
+      ],
+      "support_initial": [
+        1,
+        5,
+        17
+      ]
+    }
+  },
+  "graph_reciprocal_toy": {
+    "n12_reciprocal_arc_toy": {
+      "S_equal_plus_minus_1": [
+        12
+      ],
+      "S_equal_plus_minus_3": [
+        4,
+        4,
+        4
+      ],
+      "warning": "Illustrates invariant only; does NOT establish cospectrality or reproduce Royle pair"
+    },
+    "n24_reciprocal_empty_for_initial": true
+  },
+  "race_mod_30": {
+    "C_t_approx": 104.11329266122952,
+    "assumptions": "Only the finite Fourier identities; no GRH or ELI_A invoked for computations",
+    "characters_gaussian_exact": {
+      "chi_00": [
+        0,
+        0
+      ],
+      "chi_01": [
+        1,
+        0
+      ],
+      "chi_02": [
+        3,
+        0
+      ],
+      "chi_03": [
+        1,
+        0
+      ],
+      "chi_10": [
+        -1,
+        0
+      ],
+      "chi_11": [
+        1,
+        0
+      ],
+      "chi_12": [
+        -1,
+        0
+      ],
+      "chi_13": [
+        1,
+        0
+      ]
+    },
+    "conductor_multiplicities": {
+      "15": 3,
+      "3": 1,
+      "5": 3
+    },
+    "epsilon_available": 3,
+    "fourier_support_size": 7,
+    "k_geometric_mean_approx": 7.443168719445629,
+    "lambda_t": 9,
+    "lambda_t_square_pullback": 5,
+    "product_conductors_exact": 1265625,
+    "pullback_characters_gaussian_exact": {
+      "chi_00": [
+        1,
+        0
+      ],
+      "chi_01": [
+        0,
+        0
+      ],
+      "chi_02": [
+        4,
+        0
+      ],
+      "chi_03": [
+        0,
+        0
+      ],
+      "chi_10": [
+        0,
+        0
+      ],
+      "chi_11": [
+        0,
+        0
+      ],
+      "chi_12": [
+        0,
+        0
+      ],
+      "chi_13": [
+        0,
+        0
+      ]
+    },
+    "support_log_k_approx": 14.051076629277041,
+    "units_mod30": [
+      1,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29
+    ],
+    "weights": {
+      "1": 5,
+      "11": 5,
+      "13": -3,
+      "17": -3,
+      "19": -3,
+      "23": -3,
+      "29": 5,
+      "7": -3
+    }
+  },
+  "status": "FINITE_EXACT_INTERNAL_NOT_EXTERNALLY_AUDITED",
+  "tests": "PASS"
+}
