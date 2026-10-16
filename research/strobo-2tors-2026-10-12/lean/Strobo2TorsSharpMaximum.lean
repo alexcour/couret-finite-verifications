@@ -315,6 +315,39 @@ theorem maxObservedZeroFreeFibreSize_eq_h_sub_three_of_q_one
     ⟨F, hF, hEach F hF⟩
 
 
+
+/-- At group order four there is exactly one available zero-free support,
+so the observed maximum is exactly one. -/
+theorem maxObservedZeroFreeFibreSize_eq_one_of_card_four
+    (hn : Fintype.card G = 4) :
+    maxObservedZeroFreeFibreSize (G := G) = 1 := by
+  have hpos : 0 < maxObservedZeroFreeFibreSize (G := G) :=
+    maxObservedZeroFreeFibreSize_pos_of_four (G := G) (by omega)
+  have hBound : maxObservedZeroFreeFibreSize (G := G) ≤ 1 := by
+    unfold maxObservedZeroFreeFibreSize
+    apply Finset.sup_le
+    intro F hF
+    have hUnique : ∀ S : Finset G, S.card = 3 → (0 : G) ∉ S →
+        S = (Finset.univ : Finset G).erase 0 := by
+      intro S hs hzero
+      have hSub : S ⊆ (Finset.univ : Finset G).erase 0 := by
+        intro x hx
+        exact Finset.mem_erase.mpr
+          ⟨(fun h => hzero (h ▸ hx)), Finset.mem_univ x⟩
+      have hc : ((Finset.univ : Finset G).erase (0 : G)).card = 3 := by
+        simp [hn]
+      exact Finset.eq_of_subset_of_card_le hSub (by omega)
+    have hFsub : F ⊆ ({(Finset.univ : Finset G).erase 0} : Finset (Finset G)) := by
+      intro S hS
+      have hc := zeroFreeFullFibres_support_card_and_zero F hF S hS
+      simp [hUnique S hc.1 hc.2]
+    calc
+      F.card ≤ ({(Finset.univ : Finset G).erase 0} :
+          Finset (Finset G)).card := Finset.card_le_card hFsub
+      _ = 1 := by simp
+  omega
+
+
 end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_of_attained
@@ -331,3 +364,5 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion
 
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_sub_three_of_q_one
+
+#print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_one_of_card_four
