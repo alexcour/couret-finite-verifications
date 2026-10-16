@@ -1,5 +1,10 @@
 # RECOH — Binary character linearization: exact remaining bridge (private, draft)
 
+**Historical plan, superseded for obligations (A) and (B).** The structural
+bridge and its verified scope are recorded in
+[RECOH_BINARY_STRUCTURAL_BRIDGE_20261016.md](RECOH_BINARY_STRUCTURAL_BRIDGE_20261016.md).
+The original plan below is retained as history.
+
 Date: 2026-10-16. PR #36, certified baseline f877dad13346a98b9fc49f5094514f3868cf4018.
 Lean run 38898014066 SUCCESS; verify 38898014246 SUCCESS.
 No merge, release, or public dissemination is authorized.
