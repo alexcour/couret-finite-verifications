@@ -371,7 +371,9 @@ theorem outsideTwoTorsion_card_ge_three_of_large_quotient
   have hOutside :
       ((Finset.univ : Finset G) \ (twoTorsion : Finset G)).card =
         Fintype.card G - (twoTorsion : Finset G).card := by
-    simp
+    simpa using
+      (Finset.card_sdiff_of_subset
+        (Finset.subset_univ (twoTorsion : Finset G)))
   have hqTwo : 2 ≤ (doublingImages : Finset G).card := by omega
   have hTwice : 2 * (twoTorsion : Finset G).card ≤ Fintype.card G := by
     calc
