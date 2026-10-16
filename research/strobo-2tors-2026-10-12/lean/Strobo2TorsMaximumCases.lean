@@ -218,8 +218,9 @@ theorem zeroFreeFullFibres_support_card_and_zero
 theorem zeroFreeFullFibres_eq_empty_of_card_le_three
     (hn : Fintype.card G ≤ 3) :
     (zeroFreeFullFibres : Finset (Finset (Finset G))) = ∅ := by
-  apply Finset.eq_empty_iff_forall_not_mem.mpr
-  intro F hF
+  ext F
+  simp only [Finset.not_mem_empty, iff_false]
+  intro hF
   obtain ⟨S, hS⟩ := zeroFreeFullFibres_member_nonempty F hF
   obtain ⟨hCard, hZero⟩ :=
     zeroFreeFullFibres_support_card_and_zero F hF S hS
