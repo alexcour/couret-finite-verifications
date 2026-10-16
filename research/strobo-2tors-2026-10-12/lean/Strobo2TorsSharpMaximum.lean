@@ -359,6 +359,102 @@ theorem maxObservedZeroFreeFibreSize_eq_one_of_card_four
   omega
 
 
+
+/-- In a group with nontrivial two-torsion and doubling quotient,
+order greater than four guarantees at least three elements outside G[2].
+This is a purely numerical consequence of |G|=h*q. -/
+theorem outsideTwoTorsion_card_ge_three_of_large_quotient
+    (hh : 1 < (twoTorsion : Finset G).card)
+    (hq : 1 < (doublingImages : Finset G).card)
+    (hn : 4 < Fintype.card G) :
+    3 ≤ ((Finset.univ : Finset G) \ (twoTorsion : Finset G)).card := by
+  have hOutside :
+      ((Finset.univ : Finset G) \ (twoTorsion : Finset G)).card =
+        Fintype.card G - (twoTorsion : Finset G).card := by
+    simp
+  have hqTwo : 2 ≤ (doublingImages : Finset G).card := by omega
+  have hTwice : 2 * (twoTorsion : Finset G).card ≤ Fintype.card G := by
+    calc
+      2 * (twoTorsion : Finset G).card =
+          (twoTorsion : Finset G).card * 2 := Nat.mul_comm _ _
+      _ ≤ (twoTorsion : Finset G).card *
+          (doublingImages : Finset G).card :=
+            Nat.mul_le_mul_left _ hqTwo
+      _ = Fintype.card G :=
+            (group_card_eq_h_mul_doublingImages (G := G)).symm
+  rw [hOutside]
+  omega
+
+/-- The remaining large no-three-torsion case has exact maximum h.
+The inequalities exclude the sole small quotient exception at |G|=4. -/
+theorem maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion_large
+    (ht : (threeTorsion : Finset G).card = 1)
+    (hh : 1 < (twoTorsion : Finset G).card)
+    (hq : 1 < (doublingImages : Finset G).card)
+    (hn : 4 < Fintype.card G) :
+    maxObservedZeroFreeFibreSize (G := G) =
+      (twoTorsion : Finset G).card := by
+  exact maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion
+    ht (outsideTwoTorsion_card_ge_three_of_large_quotient hh hq hn)
+
+/-- Exhaustive sharp maximum of observed zero-free ordered-square fibres.
+The branches are ordered to avoid overlap at small group orders. -/
+theorem maxObservedZeroFreeFibreSize_complete :
+    maxObservedZeroFreeFibreSize (G := G) =
+      if Fintype.card G < 4 then 0
+      else if (twoTorsion : Finset G).card = 1 then 1
+      else if (doublingImages : Finset G).card = 1 then
+        (twoTorsion : Finset G).card - 3
+      else if Fintype.card G = 4 then 1
+      else if (threeTorsion : Finset G).card = 1 then
+        (twoTorsion : Finset G).card
+      else if (doublingImages : Finset G).card ≤ 3 then
+        2 * (twoTorsion : Finset G).card - 2
+      else 2 * (twoTorsion : Finset G).card := by
+  by_cases hnSmall : Fintype.card G < 4
+  · simp only [if_pos hnSmall]
+    exact maxObservedZeroFreeFibreSize_eq_zero_of_card_lt_four hnSmall
+  · have hnFour : 4 ≤ Fintype.card G := by omega
+    by_cases hhOne : (twoTorsion : Finset G).card = 1
+    · simp only [if_neg hnSmall, if_pos hhOne]
+      exact maxObservedZeroFreeFibreSize_eq_one_of_trivial_two_torsion hhOne hnFour
+    · have hhBig : 1 < (twoTorsion : Finset G).card := by
+        have hhPos := twoTorsion_card_pos (G := G)
+        omega
+      by_cases hqOne : (doublingImages : Finset G).card = 1
+      · simp only [if_neg hnSmall, if_neg hhOne, if_pos hqOne]
+        exact maxObservedZeroFreeFibreSize_eq_h_sub_three_of_q_one hqOne hnFour
+      · have hqPos : 0 < (doublingImages : Finset G).card := by
+          apply Finset.card_pos.mpr
+          exact ⟨0, Finset.mem_image.mpr
+            ⟨0, Finset.mem_univ _, by simp [doublingImages]⟩⟩
+        have hqBig : 1 < (doublingImages : Finset G).card := by omega
+        by_cases hnEqFour : Fintype.card G = 4
+        · simp only [if_neg hnSmall, if_neg hhOne,
+            if_neg hqOne, if_pos hnEqFour]
+          exact maxObservedZeroFreeFibreSize_eq_one_of_card_four hnEqFour
+        · have hnLarge : 4 < Fintype.card G := by omega
+          by_cases htOne : (threeTorsion : Finset G).card = 1
+          · simp only [if_neg hnSmall, if_neg hhOne,
+              if_neg hqOne, if_neg hnEqFour, if_pos htOne]
+            exact maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion_large
+              htOne hhBig hqBig hnLarge
+          · have htPos : 0 < (threeTorsion : Finset G).card := by
+              apply Finset.card_pos.mpr
+              exact ⟨0, (mem_threeTorsion 0).mpr (by simp)⟩
+            have htBig : 1 < (threeTorsion : Finset G).card := by omega
+            by_cases hqSmall : (doublingImages : Finset G).card ≤ 3
+            · simp only [if_neg hnSmall, if_neg hhOne,
+                if_neg hqOne, if_neg hnEqFour, if_neg htOne,
+                if_pos hqSmall]
+              exact maxObservedZeroFreeFibreSize_eq_reduced hqSmall hhBig htBig
+            · have hqLarge : 3 < (doublingImages : Finset G).card := by omega
+              simp only [if_neg hnSmall, if_neg hhOne,
+                if_neg hqOne, if_neg hnEqFour, if_neg htOne,
+                if_neg hqSmall]
+              exact maxObservedZeroFreeFibreSize_eq_full hqLarge hhBig htBig
+
+
 end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_of_attained
@@ -377,3 +473,7 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_sub_three_of_q_one
 
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_one_of_card_four
+
+#print axioms Couret.STROBO2TORS.outsideTwoTorsion_card_ge_three_of_large_quotient
+#print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion_large
+#print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_complete
