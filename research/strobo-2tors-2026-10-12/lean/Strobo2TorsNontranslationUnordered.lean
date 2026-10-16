@@ -17,25 +17,30 @@ def nontranslationGraph : SimpleGraph (Finset G) where
     exact ⟨((mem_nontranslatedNeighbours S T h.1).mp h.2).1,
       nontranslatedNeighbours_symm S T h.1 h.2⟩
   loopless := by
+    constructor
     intro S h
     exact nontranslatedNeighbours_irrefl S h.1 h.2
+
+/-- Decidable adjacency supplies finite neighbor- and edge-set instances
+to mathlib's graph-counting API on the finite vertex type. -/
+noncomputable instance nontranslationGraph_decidableRel :
+    DecidableRel (nontranslationGraph (G := G)).Adj := Classical.decRel _
 
 /-- Degree of a vertex equals the number of nontranslated square partners. -/
 theorem nontranslationGraph_degree (S : Finset G) :
     (nontranslationGraph (G := G)).degree S =
       if hS : S.card = 3 then (nontranslatedNeighbours S).card else 0 := by
   classical
-  by_cases hS : S.card = 3
-  · simp only [dif_pos hS]
-    rw [SimpleGraph.degree, SimpleGraph.neighborFinset]
-    congr 1
+  have hNeighbors :
+      (nontranslationGraph (G := G)).neighborFinset S =
+        if S.card = 3 then nontranslatedNeighbours S else ∅ := by
     ext T
-    simp [nontranslationGraph, hS]
-  · simp only [dif_neg hS]
-    have hiso : (nontranslationGraph (G := G)).neighborFinset S = ∅ := by
-      ext T
-      simp [nontranslationGraph, hS]
-    simp [SimpleGraph.degree, hiso]
+    by_cases hS : S.card = 3
+    · simp [nontranslationGraph, hS]
+    · simp [nontranslationGraph, hS]
+  change ((nontranslationGraph (G := G)).neighborFinset S).card = _
+  rw [hNeighbors]
+  split_ifs <;> simp
 
 /-- Exact double count: the sum of directed incidences is twice the
 cardinality of the unordered edge set. -/
@@ -46,15 +51,28 @@ theorem nontranslationGraph_twice_edges :
   classical
   have hHandshake :=
     (nontranslationGraph (G := G)).sum_degrees_eq_twice_card_edges
+  have hFilter :
+      (Finset.univ : Finset (Finset G)).filter (fun S => S.card = 3) =
+        tripleSupports := by
+    ext S
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
+    exact (mem_tripleSupports S).symm
   have hSum :
       (∑ S : Finset G, (nontranslationGraph (G := G)).degree S) =
         ∑ S ∈ (tripleSupports : Finset (Finset G)),
           (nontranslatedNeighbours S).card := by
-    simp_rw [nontranslationGraph_degree]
-    rw [← Finset.sum_filter]
-    congr 1
-    ext S
-    simp [tripleSupports, Finset.mem_powersetCard]
+    calc
+      (∑ S : Finset G, (nontranslationGraph (G := G)).degree S) =
+          ∑ S : Finset G,
+            (if S.card = 3 then (nontranslatedNeighbours S).card else 0) := by
+              apply Finset.sum_congr rfl
+              intro S _
+              simpa only using nontranslationGraph_degree S
+      _ = ∑ S ∈ ((Finset.univ : Finset (Finset G)).filter (fun S => S.card = 3)),
+            (nontranslatedNeighbours S).card := by
+              rw [Finset.sum_filter]
+      _ = ∑ S ∈ (tripleSupports : Finset (Finset G)),
+            (nontranslatedNeighbours S).card := by rw [hFilter]
   rw [hSum, directed_nontranslation_degree_sum] at hHandshake
   exact hHandshake.symm
 
