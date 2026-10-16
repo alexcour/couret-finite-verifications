@@ -180,6 +180,75 @@ theorem maxObservedZeroFreeFibreSize_eq_one_of_trivial_two_torsion
   have hLower := maxObservedZeroFreeFibreSize_pos_of_four (G := G) hn
   omega
 
+
+/-- If there is no nonzero three-torsion and three group elements lie
+outside G[2], an ordinary zero-free fibre of size h actually exists. -/
+theorem zeroFreeFullFibres_size_h_exists_of_no_three_torsion
+    (ht : (threeTorsion : Finset G).card = 1)
+    (hOutside : 3 ≤
+      ((Finset.univ : Finset G) \ (twoTorsion : Finset G)).card) :
+    ∃ R : Finset (Finset G),
+      R ∈ (zeroFreeFullFibres : Finset (Finset (Finset G))) ∧
+      R.card = (twoTorsion : Finset G).card := by
+  obtain ⟨S, hSub, hS3⟩ :=
+    Finset.exists_subset_card_eq hOutside
+  have hIntersection : S ∩ (twoTorsion : Finset G) = ∅ := by
+    ext x
+    constructor
+    · intro hx
+      have hSX : x ∈ S := (Finset.mem_inter.mp hx).1
+      have hHX : x ∈ (twoTorsion : Finset G) :=
+        (Finset.mem_inter.mp hx).2
+      exact False.elim ((Finset.mem_sdiff.mp (hSub hSX)).2 hHX)
+    · intro hx
+      simp at hx
+  have hExceptionalZero :
+      (exceptionalFibres : Finset (Finset (Finset G))) = ∅ := by
+    apply Finset.card_eq_zero.mp
+    rw [exceptionalFibres_card_numeric]
+    simp [ht]
+  have hNoException : ∀ T : Finset G, ¬ ExceptionalPartner S T := by
+    intro T hT
+    have hES : S ∈ (exceptionalSupports : Finset (Finset G)) :=
+      (mem_exceptionalSupports S).mpr ⟨hS3, ⟨T, hT⟩⟩
+    have hEF : squareFibre S ∈
+        (exceptionalFibres : Finset (Finset (Finset G))) :=
+      Finset.mem_image.mpr ⟨S, hES, rfl⟩
+    rw [hExceptionalZero] at hEF
+    simpa using hEF
+  have hSize : (withoutZero (squareFibre S)).card =
+      (twoTorsion : Finset G).card := by
+    rw [withoutZero_squareFibre,
+      zeroFreeSquareFibre_card_of_no_exception S hS3 hNoException,
+      hIntersection]
+    simp
+  have hPositive : (withoutZero (squareFibre S)).Nonempty := by
+    apply Finset.card_pos.mp
+    rw [hSize]
+    exact twoTorsion_card_pos
+  have hAll : squareFibre S ∈
+      (allSquareFibres : Finset (Finset (Finset G))) :=
+    Finset.mem_image.mpr ⟨S, (mem_tripleSupports S).mpr hS3, rfl⟩
+  have hFull : squareFibre S ∈
+      (nonemptyFullFibres : Finset (Finset (Finset G))) :=
+    Finset.mem_filter.mpr ⟨hAll, hPositive⟩
+  refine ⟨withoutZero (squareFibre S), ?_, hSize⟩
+  exact Finset.mem_image.mpr ⟨squareFibre S, hFull, rfl⟩
+
+/-- A sharp result for all no-three-torsion groups with at least three
+elements outside G[2]. This covers all nondegenerate large quotients. -/
+theorem maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion
+    (ht : (threeTorsion : Finset G).card = 1)
+    (hOutside : 3 ≤
+      ((Finset.univ : Finset G) \ (twoTorsion : Finset G)).card) :
+    maxObservedZeroFreeFibreSize (G := G) =
+      (twoTorsion : Finset G).card := by
+  apply maxObservedZeroFreeFibreSize_eq_of_attained (G := G)
+  · intro F hF
+    exact zeroFreeFullFibres_card_le_h_of_no_three_torsion ht F hF
+  · exact zeroFreeFullFibres_size_h_exists_of_no_three_torsion ht hOutside
+
+
 end Couret.STROBO2TORS
 
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_of_attained
@@ -191,3 +260,6 @@ end Couret.STROBO2TORS
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_pos_of_four
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_zero_of_card_lt_four
 #print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_one_of_trivial_two_torsion
+
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_size_h_exists_of_no_three_torsion
+#print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_h_of_no_three_torsion
