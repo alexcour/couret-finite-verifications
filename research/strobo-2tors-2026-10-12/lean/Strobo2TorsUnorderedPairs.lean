@@ -42,8 +42,9 @@ noncomputable def nontranslationPairGraph : SimpleGraph (Finset G) where
 /-- Finiteness of the ambient support type gives finite neighbour sets.
 Using `Fintype.ofFinite` is safe but intentionally noncomputable. -/
 noncomputable instance nontranslationGraphNeighborFintype (S : Finset G) :
-    Fintype ((nontranslationPairGraph (G := G)).neighborSet S) :=
-  Fintype.ofFinite _
+    Fintype ((nontranslationPairGraph (G := G)).neighborSet S) := by
+  classical
+  exact (nontranslationPairGraph (G := G)).neighborSetFintype S
 
 /-- A graph edge is exactly an unordered pair of nontranslated supports,
 as specified by the original labelled ordered-square observable. -/
