@@ -1,6 +1,11 @@
 # Couret — Additive and Spectral Reconstruction
 # Couret — Reconstruction additive et spectrale
 
+<!-- research-vision-20261016 -->
+> **Programme et rêve de recherche · 16 octobre 2026**  
+> [Présentation générale en français](RESEARCH_VISION_FR.md) · [Research vision in English](RESEARCH_VISION_EN.md). Cette présentation élargit le contexte aux questions de mémoire, de continuation et de compréhension par l’IA, en distinguant acquis et ambitions. Les énoncés mathématiques et reçus datés ci-dessous gardent leur périmètre propre.
+<!-- /research-vision-20261016 -->
+
 **Research programme statement — 14 October 2026.** This text describes *ongoing research*, not the scope of the archived `v1.0.0` release. It is proposed for external scientific review. No stable release or claim of mathematical priority is made by this document.
 
 ## Présentation française

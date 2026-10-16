@@ -1,5 +1,10 @@
 # Independent review wanted — Couret finite research portfolio
 
+<!-- research-vision-20261016 -->
+> **Programme et rêve de recherche · 16 octobre 2026**  
+> [Présentation générale en français](RESEARCH_VISION_FR.md) · [Research vision in English](RESEARCH_VISION_EN.md). Cette présentation élargit le contexte aux questions de mémoire, de continuation et de compréhension par l’IA, en distinguant acquis et ambitions. Les énoncés mathématiques et reçus datés ci-dessous gardent leur périmètre propre.
+<!-- /research-vision-20261016 -->
+
 **Status: open call for criticism, counterexamples, prior art and replication.**  
 **Updated: 9 October 2026.**  
 Author: Alexandre Couret (independent researcher, France).
