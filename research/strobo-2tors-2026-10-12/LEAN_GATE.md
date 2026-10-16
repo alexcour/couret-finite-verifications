@@ -1,3 +1,21 @@
+# Integrated STROBO gate 16 October 2026
+
+The PR #25 branch now assembles both histogram proofs, PairCount,
+MaximumCases, SharpMaximum and the Bridge/Degree/Symmetry/Unordered chain.
+See [the integrated inventory](CONSOLIDATION_20261016.md) for exact source
+commits, the duplicate-name resolution, the repaired SharpMaximum step,
+and the distinction between zero-free counts and counts admitting zero.
+
+Certification requires successful Lean and verify runs on the exact
+integrated commit, not the earlier isolated source certificates.
+The 20 default roots include one common import module; all requested
+axiom traces must occur in the build log and use only standard axioms.
+The exact integrated commit and CI receipts are maintained at the top of
+PR #25. Historical gates below keep their original commit-specific scope.
+Human review and novelty remain open; OPEN/DRAFT/NOT MERGED.
+
+---
+
 # Pair-count extension — 16 October 2026
 
 The new Lake root `lean/Strobo2TorsPairCount.lean` formalizes the **universal

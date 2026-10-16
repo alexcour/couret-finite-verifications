@@ -1,0 +1,29 @@
+import Strobo2TorsCore
+import Strobo2TorsCardinality
+import Strobo2TorsEnumeration
+import Strobo2TorsZeroFree
+import Strobo2TorsZeroFreeAll
+import Strobo2TorsSurvivalCounts
+import Strobo2TorsOrdinaryProfiles
+import Strobo2TorsOrdinaryCount
+import Strobo2TorsExceptionalZero
+import Strobo2TorsClosedHistogram
+import Strobo2TorsMaximum
+import Strobo2TorsMaximumCases
+import Strobo2TorsPairCount
+import Strobo2TorsHistogram
+import Strobo2TorsSharpMaximum
+import Strobo2TorsNontranslationBridge
+import Strobo2TorsNontranslationDegree
+import Strobo2TorsNontranslationSymmetry
+import Strobo2TorsNontranslationUnordered
+
+/- One import environment for the integrated STROBO proof modules.
+Compilation of separate roots alone would not detect namespace collisions. -/
+
+#print axioms Couret.STROBO2TORS.orderedSquare_classification_iff
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_numeric
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_histogram_closed
+#print axioms Couret.STROBO2TORS.nontranslationPairs_card_numeric
+#print axioms Couret.STROBO2TORS.nontranslationGraph_twice_edges_numeric
+#print axioms Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_complete
