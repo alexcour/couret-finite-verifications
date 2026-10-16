@@ -70,6 +70,67 @@ theorem abelianSource_doublet_iff
       y = x + (a + d) ∨ y = x + ((a + d) + h) := by
   exact markedArc_iff_pair a (a + d) h hhalf hne had hadh x y
 
+
+/-- Strengthening of the existing two-colour obstruction: it is enough that
+the source doublet increment is a natural iterate of the singleton increment
+*modulo the intrinsic half-turn*.  The quotient cyclicity is NOT assumed.
+
+The extra hypotheses are precisely those used by noIso_of_two_colours.
+In particular this theorem does not claim that arbitrary abelian Cayley
+graphs have intrinsic two-colour structure. -/
+theorem noIso_of_two_colours_mod_halfTurn
+    (a b c h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hab : a ≠ b) (habh : a ≠ b + h)
+    (hac : a ≠ c) (hach : a ≠ c + h)
+    (hthreeT : (a - c) + (a - c) + (a - c) = 0 ∨
+      (a - c) + (a - c) + (a - c) = h)
+    (k : ℕ) (hbkm : b = k • a ∨ b + h = k • a)
+    (hbc : b ≠ c) (hbch : b ≠ c + h)
+    (f : G ≃ G)
+    (hf : ∀ x y, CayleyArc (TripleSupport a b h) x y ↔
+      CayleyArc (TripleSupport a c h) (f x) (f y)) : False := by
+  rcases hbkm with hbk | hbk
+  · exact noIso_of_two_colours a b c h hhalf hne
+      hab habh hac hach hthreeT k hbk hbc hbch f hf
+  · have hh : (b + h) + h = b := by
+      calc
+        (b + h) + h = b + (h + h) := by abel
+        _ = b := by simp [hhalf]
+    have hswap : TripleSupport a (b + h) h = TripleSupport a b h := by
+      apply Finset.ext
+      intro x
+      simp only [TripleSupport, Finset.mem_insert, Finset.mem_singleton, hh]
+      tauto
+    have hab' : a ≠ b + h := habh
+    have habh' : a ≠ (b + h) + h := by
+      simpa only [hh] using hab
+    have hbc' : b + h ≠ c := by
+      intro he
+      apply hbch
+      calc
+        b = (b + h) + h := hh.symm
+        _ = c + h := by rw [he]
+    have hbch' : b + h ≠ c + h := by
+      intro he
+      apply hbc
+      calc
+        b = (b + h) + h := hh.symm
+        _ = (c + h) + h := by rw [he]
+        _ = c := by
+          calc
+            (c + h) + h = c + (h + h) := by abel
+            _ = c := by simp [hhalf]
+    have hf' : ∀ x y, CayleyArc (TripleSupport a (b + h) h) x y ↔
+        CayleyArc (TripleSupport a c h) (f x) (f y) := by
+      intro x y
+      rw [hswap]
+      exact hf x y
+    exact noIso_of_two_colours a (b + h) c h hhalf hne
+      hab' habh' hac hach hthreeT k hbk hbc' hbch' f hf'
+
+#print axioms Couret.CayleyDoublet.noIso_of_two_colours_mod_halfTurn
+
 #print axioms Couret.CayleyDoublet.abelianSource_singleton_iff
 #print axioms Couret.CayleyDoublet.abelianSource_doublet_iff
 
