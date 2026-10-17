@@ -1,0 +1,160 @@
+{
+  "format": "recoh-decoder-validation-v1",
+  "date": "2026-10-17",
+  "source_commit": "eaa6330cc2651c9c8d2c0977ed281ba45e184416",
+  "pull_request": "https://github.com/alexcour/couret-finite-verifications/pull/36",
+  "ci_runs": [
+    {
+      "id": 39014668734,
+      "name": "RECOH optimal fixed character bank",
+      "event": "push",
+      "head_sha": "eaa6330cc2651c9c8d2c0977ed281ba45e184416",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39014668734"
+    },
+    {
+      "id": 39014668732,
+      "name": "verify",
+      "event": "push",
+      "head_sha": "eaa6330cc2651c9c8d2c0977ed281ba45e184416",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39014668732"
+    },
+    {
+      "id": 39014668806,
+      "name": "RECOH exact decoder differential replay",
+      "event": "push",
+      "head_sha": "eaa6330cc2651c9c8d2c0977ed281ba45e184416",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39014668806"
+    }
+  ],
+  "lean": {
+    "version": "4.29.1",
+    "ci_build_jobs": 3471,
+    "local_targeted_build_jobs": 3470,
+    "library_roots": 50,
+    "strobo_roots": 27,
+    "recoh_roots": 23,
+    "public_recoh_theorems": 90,
+    "new_decoder_theorems": 10,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "nonstandard_dependencies": [],
+    "scope": "Complete finite candidate generation and exact complex-observation specification. The complex filter is noncomputable. No Lean certification of the optimized Python refinement or of its sparse cyclotomic arithmetic."
+  },
+  "python": {
+    "unit_test_methods": 23,
+    "presentations": 25,
+    "decoded_supports": 183886,
+    "square_fibres": 85599,
+    "ambiguous_pairs_before_probes": 119998,
+    "decoding_failures": 0,
+    "observation_mismatches": 0,
+    "secondary_oracle_fibres": 380,
+    "max_off_diagonal_sets": 20,
+    "max_representatives": 20,
+    "ambient_elements_enumerated_by_decoder": 0,
+    "independent_math_presentations": 24,
+    "independent_math_supports": 13631,
+    "corpus_overlap": "The two corpus sizes must not be added; two mathematical-check presentations contain a unit factor that is outside the Python API."
+  },
+  "artifacts": [
+    {
+      "id": 12094222337,
+      "run": 39014668734,
+      "zip_sha256": "3a23d3ff4bb81d05e35c27019bbd0e14ea530ac2e1afd3c6b09144a5eb75ead4",
+      "downloaded_and_opened": true,
+      "certificate_rechecked": true
+    },
+    {
+      "id": 12094660205,
+      "run": 39014668806,
+      "zip_sha256": "1609c7045012df6acc72bd606681c04162dfce74de971272c1eea4d145829db5",
+      "downloaded_and_opened": true,
+      "both_reports_equal_versioned_files": true
+    }
+  ],
+  "source_snapshot": [
+    {
+      "path": ".github/workflows/recoh-exact-decoder.yml",
+      "sha256": "5adb72884e1e7d28da02b590b861344d680e1e9235995615a1cb3fc24215075c",
+      "git_blob_sha": "1050ceaa87138cbdfa381590dbc84cdcd4035234",
+      "size_bytes": 2461
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/RECOH_EXACT_DECODER_20261017.md",
+      "sha256": "f9d147a373a8daf066253631cff80881a11ddef0b7a99781efe50b3c75abfa08",
+      "git_blob_sha": "4d996478ef18587cd8360df76ac88a13dda90131",
+      "size_bytes": 43980
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/recoh_exact_decoder.py",
+      "sha256": "27855248a2fe0f7e993d772ea9fada490e565c0a2ddaa7428c66cdda7f9cf72e",
+      "git_blob_sha": "2e806c6e4cad864c78f584eb3d026fd596d117bd",
+      "size_bytes": 18980
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/test_recoh_exact_decoder.py",
+      "sha256": "e6e5d385fb4dfd52eefd0b872c23c55d55d8403313e11fcdd1dee6b6607117e5",
+      "git_blob_sha": "8e2eac94bcbb4ba64efa22c31a53cad3205bf684",
+      "size_bytes": 25539
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/recoh_decoder_results_20261017.json",
+      "sha256": "054659165752e7c9ddd4927efa05d0be5e671d05687a61498341dddd1b9dc409",
+      "git_blob_sha": "463d5cb46c5393a474748927927c3015035c0cb7",
+      "size_bytes": 16344
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/recoh_decoder_examples_20261017.json",
+      "sha256": "e7db4d3ad2039985cfb54c39a666d04254f4b74600cd441c11b858671739e13e",
+      "git_blob_sha": "7870d41fb7e749676110235d36a75ae27a056943",
+      "size_bytes": 8245
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/verify_recoh_decoder_independent_20261017.py",
+      "sha256": "088c57b273b808ca1b93a6e7ce6d853dce2f3993c2ee375b737dd94f369464e9",
+      "git_blob_sha": "596b7ff65d5dfc25e821db01635f0eac221305da",
+      "size_bytes": 4871
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/recoh_decoder_independent_results_20261017.json",
+      "sha256": "7ad9808770f1ae3664564ffe41b75487b751c13ffc760c4436ed7f097cab7417",
+      "git_blob_sha": "e3daf18dd7a0dfe4e73256cedd46a244739c2ce9",
+      "size_bytes": 3763
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/verify_recoh_axioms_20261017.py",
+      "sha256": "9d6a9fa5cc33742a8c1df58b8328eda36e38a8ec5e49046c8e4e0ff7162236cf",
+      "git_blob_sha": "cd91690ab9d8fcf871034739267116428e12b4fa",
+      "size_bytes": 4481
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/lakefile.lean",
+      "sha256": "05a4125d4c082f227dd98e2c7b0b6593ddb46d3270246ebac411c9ef7e0af348",
+      "git_blob_sha": "6bf9e53806fac9385070690e0f7f1ad75188a17b",
+      "size_bytes": 1501
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohCandidateDecoder.lean",
+      "sha256": "776f7f56ee0e11b95b74a89da277d67a6f783658f9375affe48c6fa12273ef52",
+      "git_blob_sha": "bf5460e7563f0e8e0762b6e6146ddaeec7b31915",
+      "size_bytes": 8706
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohConsolidated.lean",
+      "sha256": "9ecaa7cf8c7c45cae679ef15e1c7e04fda0b255f184ef3297858d32d7a81452a",
+      "git_blob_sha": "2af2c3db6b32a0251be75232cce8ccc4ac51a13d",
+      "size_bytes": 6392
+    }
+  ],
+  "next_formal_obligation": "Prove refinement of the optimized cyclic-coordinate algorithm, its sparse cyclotomic representation and the sign-based two-torsion recovery against the finite Lean specification.",
+  "research_status": "Open draft; external human review and priority assessment remain separate."
+}
