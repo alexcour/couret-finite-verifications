@@ -19,7 +19,7 @@ theorem recoh_symmetric_three_sum_cube
     (hpair : b + c + b * c = 0) :
     b ^ 3 = 1 := by
   have hc : c = -1 - b := by
-    linear_combination -hsum
+    linear_combination hsum
   have hquadratic : b ^ 2 + b + 1 = 0 := by
     rw [hc] at hpair
     linear_combination -hpair
