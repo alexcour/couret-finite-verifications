@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "source": "PR #9 / SITE_CORRECTIONS_APPROVED_2026-10-14.md",
+  "note": "Markers are diagnostic strings, not proof of correctness; absence can be inconclusive.",
+  "pages": [
+    {
+      "id": "C01",
+      "priority": "P1",
+      "path": "/",
+      "markers_to_locate": [
+        "Reliefs Arithmétiques",
+        "Reconstruction additive et spectrale"
+      ]
+    },
+    {
+      "id": "C02",
+      "priority": "P0",
+      "path": "/",
+      "markers_to_locate": [
+        "équivalent à l'hypothèse de Riemann",
+        "STROBO",
+        "Cayley"
+      ]
+    },
+    {
+      "id": "C03",
+      "priority": "P0",
+      "path": "/resultats-minimaux/",
+      "markers_to_locate": [
+        "équivalent à l'hypothèse de Riemann",
+        "échafaudage non compilé"
+      ]
+    },
+    {
+      "id": "C04",
+      "priority": "P0",
+      "path": "/publications/h1/",
+      "markers_to_locate": [
+        "cette seule inégalité",
+        "auto-adjonction",
+        "KLMN"
+      ]
+    },
+    {
+      "id": "C05",
+      "priority": "P0",
+      "path": "/registre-f0/",
+      "markers_to_locate": [
+        "H1 fermée",
+        "KLMN",
+        "archive"
+      ]
+    },
+    {
+      "id": "C06",
+      "priority": "P1",
+      "path": "/recherches/",
+      "markers_to_locate": [
+        "six domaines",
+        "H1",
+        "STROBO"
+      ]
+    },
+    {
+      "id": "C07",
+      "priority": "P1",
+      "path": "/tableau-de-bord/",
+      "markers_to_locate": [
+        "H1",
+        "démonstration complète"
+      ]
+    },
+    {
+      "id": "C08",
+      "priority": "P0",
+      "path": "/publications/cayg-tc-ramanujan-finie/",
+      "markers_to_locate": [
+        "8 sommets et 12 arêtes",
+        "expanseur quasi-optimal",
+        "deux composantes"
+      ]
+    },
+    {
+      "id": "C09",
+      "priority": "P0",
+      "path": "/publications/triplet-canonique-t_c-1-11-29/",
+      "markers_to_locate": [
+        "spectre entier est fixé par le cardinal",
+        "isospectraux",
+        "Parseval"
+      ]
+    },
+    {
+      "id": "C10",
+      "priority": "P0",
+      "path": "/le-senseur/",
+      "markers_to_locate": [
+        "auto-adjonction via KLMN",
+        "F-05",
+        "F-08"
+      ]
+    },
+    {
+      "id": "C11",
+      "priority": "P1",
+      "path": "/carte/",
+      "markers_to_locate": [
+        "tout vise un même horizon",
+        "STROBO"
+      ]
+    },
+    {
+      "id": "C12",
+      "priority": "P1",
+      "path": "/direction-de-recherche/",
+      "markers_to_locate": [
+        "août 2026",
+        "recherche actuelle"
+      ]
+    },
+    {
+      "id": "C13",
+      "priority": "P1",
+      "path": "/les-mathematiques-du-programme/",
+      "markers_to_locate": [
+        "P8",
+        "Cayley",
+        "STROBO"
+      ]
+    },
+    {
+      "id": "C14",
+      "priority": "P1",
+      "path": "/verification/",
+      "markers_to_locate": [
+        "PR #25",
+        "Lean",
+        "Cayley"
+      ]
+    },
+    {
+      "id": "C15",
+      "priority": "P2",
+      "path": "/publications-et-depots/",
+      "markers_to_locate": [
+        "0,374998",
+        "0,378",
+        "F-001"
+      ]
+    },
+    {
+      "id": "C16",
+      "priority": "P2",
+      "path": "/recherche-actuelle/",
+      "markers_to_locate": [
+        "STROBO",
+        "Cayley",
+        "Lev",
+        "R_S"
+      ]
+    }
+  ]
+}
