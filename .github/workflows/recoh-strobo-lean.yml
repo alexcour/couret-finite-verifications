@@ -4,12 +4,14 @@ on:
     branches:
       - research/recoh-strobo-fourier-lean-2026-10-14
       - research/recoh-fibre-optimal-2026-10-17
+      - research/recoh-square-selector-2026-10-17
     paths:
       - 'research/strobo-2tors-2026-10-12/lean/**'
       - '.github/workflows/recoh-strobo-lean.yml'
       - 'research/strobo-2tors-2026-10-12/verify_recoh*_20261017.py'
       - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
       - 'research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json'
+      - 'research/strobo-2tors-2026-10-12/recoh_square_selector.py'
   pull_request:
     paths:
       - 'research/strobo-2tors-2026-10-12/lean/**'
@@ -17,6 +19,7 @@ on:
       - 'research/strobo-2tors-2026-10-12/verify_recoh*_20261017.py'
       - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
       - 'research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json'
+      - 'research/strobo-2tors-2026-10-12/recoh_square_selector.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -60,6 +63,8 @@ jobs:
       - name: Compare executed Lean decoding and arithmetic with the Python implementation
         run: |
           python3 research/strobo-2tors-2026-10-12/verify_recoh_data_bridge_20261017.py --suite all --output research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json
+      - name: Execute the square selector against full fibres and the typed decoder
+        run: python3 research/strobo-2tors-2026-10-12/verify_recoh_selector_20261017.py --output research/strobo-2tors-2026-10-12/lean/recoh-selector-replay.json
       - name: Preserve the exact compilation and dependency records
         if: always()
         uses: actions/upload-artifact@v4
@@ -70,4 +75,5 @@ jobs:
             research/strobo-2tors-2026-10-12/lean/recoh-axioms.log
             research/strobo-2tors-2026-10-12/lean/recoh-certificate.json
             research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json
+            research/strobo-2tors-2026-10-12/lean/recoh-selector-replay.json
             research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json

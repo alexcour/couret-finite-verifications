@@ -91,6 +91,8 @@ def main():
         "RecohCoefficientDecoder", "RecohTypedObservation", "RecohPreparedDecoder",
         "RecohEarlySignChecks", "RecohCyclicCoefficientDecoder",
         "RecohCyclicDecoderOptimal", "RecohCyclicPreparedDecoder", "RecohFibreOptimal",
+        "RecohTernarySelector", "RecohTernaryFibreSelector", "RecohSquareSelector",
+        "RecohSelectedDecoder",
     ]
     content = "".join(f"import {module}\n" for module in imports) + "\n"
     content += "/-! Fresh public-declaration dependency checks for the integrated RECOH result. -/\n\n"
@@ -118,6 +120,14 @@ def main():
                           "fibre_optimality_theorem": "Couret.STROBO2TORS.recoh_optimal_fibre_bank_size",
                           "square_selection_optimality_theorem": "Couret.STROBO2TORS.recoh_optimal_after_square_bank_size",
                           "square_selection_scope": "Classical existence of one character-bank selection rule whose only input is the labelled ordered square. Each selected bank is fixed on its full triple fibre; exact local budget log2(cardinality), worst-case budget 0 for binary rank zero and r+min(1,s) otherwise, on a nonempty triple domain. No efficient selector, raw JSON implementation, or adaptive decision-tree theorem is claimed.",
+                          "executable_square_selector": "Couret.STROBO2TORS.recohSquareTernaryChoice",
+                          "executable_square_selector_extensionality": "Couret.STROBO2TORS.recoh_square_ternary_choice_eq_of_square_eq",
+                          "executable_selected_bank_minimality": "Couret.STROBO2TORS.recoh_selected_bank_minimal",
+                          "executable_selected_bank_exact_budget": "Couret.STROBO2TORS.recoh_selected_bank_card_eq_fibre_budget",
+                          "selected_typed_decoder_theorem": "Couret.STROBO2TORS.recoh_mem_selected_coefficient_decoder_iff",
+                          "selected_typed_decoder_singleton": "Couret.STROBO2TORS.recoh_selected_coefficient_decoder_singleton",
+                          "selected_typed_decoder_uniqueness": "Couret.STROBO2TORS.recoh_selected_coefficient_decoder_card_le_one",
+                          "executable_selection_scope": "For explicit finite cyclic products, compute square-compatible orbit representatives from at most twenty edge sets, choose the first ternary coordinate separating distinct two-torsion orbits, and decode from all binary readings plus at most one selected ternary reading. The choice depends only on the labelled square; the calculated bank has exact minimal fibre cardinality. The executable direction selector is invariant under sign and tests at most d coordinates. Runtime definitions do not enumerate the ambient group or its two-torsion subgroup. JSON adapters, serialization, Python equivalence and total bit complexity are outside the formal theorem; differential execution is separate evidence.",
                           "decoder_specification_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder",
                           "decoder_refinement_theorem": "Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact",
                           "typed_decoder_theorem": "Couret.STROBO2TORS.recoh_mem_cyclic_coefficient_decoder_iff",

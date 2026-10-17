@@ -21,6 +21,10 @@ import RecohCyclicCoefficientDecoder
 import RecohCyclicDecoderOptimal
 import RecohCyclicPreparedDecoder
 import RecohFibreOptimal
+import RecohTernarySelector
+import RecohTernaryFibreSelector
+import RecohSquareSelector
+import RecohSelectedDecoder
 
 /-! Fresh public-declaration dependency checks for the integrated RECOH result. -/
 
@@ -309,6 +313,22 @@ import RecohFibreOptimal
 #print axioms Couret.STROBO2TORS.recoh_third_probe_separates_exceptional
 #print axioms Couret.STROBO2TORS.recoh_reconstruction_of_separating_banks
 #print axioms Couret.STROBO2TORS.recoh_observation_injective_of_separating_banks
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_card
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_card_le
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_card_eq_fibre_budget
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_prime
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_root_primitive
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_encoding_interpret
+#print axioms Couret.STROBO2TORS.recoh_selected_observation_injective_on_square
+#print axioms Couret.STROBO2TORS.recoh_selected_bank_minimal
+#print axioms Couret.STROBO2TORS.recoh_selected_coefficient_core_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_selected_input_check_iff
+#print axioms Couret.STROBO2TORS.recoh_selected_coefficient_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_selected_coefficient_decoder_rejects
+#print axioms Couret.STROBO2TORS.recoh_mem_selected_coefficient_decoder_iff
+#print axioms Couret.STROBO2TORS.recoh_selected_coefficient_candidates_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_selected_coefficient_decoder_singleton
+#print axioms Couret.STROBO2TORS.recoh_selected_coefficient_decoder_card_le_one
 #print axioms Couret.STROBO2TORS.recoh_recovered_sign_bit_of_sign
 #print axioms Couret.STROBO2TORS.recoh_recovered_sign_bit_sound
 #print axioms Couret.STROBO2TORS.recoh_recover_translation_coordinate
@@ -328,6 +348,52 @@ import RecohFibreOptimal
 #print axioms Couret.STROBO2TORS.recoh_support_probe_sq
 #print axioms Couret.STROBO2TORS.recoh_support_probe_sq_eq_of_square_eq
 #print axioms Couret.STROBO2TORS.recoh_support_probe_eq_or_neg_of_square_eq
+#print axioms Couret.STROBO2TORS.recoh_torsion_orbit_check_iff
+#print axioms Couret.STROBO2TORS.recoh_ordinary_partner_refl
+#print axioms Couret.STROBO2TORS.recoh_ordinary_partner_symm
+#print axioms Couret.STROBO2TORS.recoh_ordinary_partner_trans
+#print axioms Couret.STROBO2TORS.recoh_square_representatives_sound
+#print axioms Couret.STROBO2TORS.recoh_square_representatives_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_one_orbit_check_iff
+#print axioms Couret.STROBO2TORS.recoh_square_representatives_complete
+#print axioms Couret.STROBO2TORS.recoh_first_passing_sound
+#print axioms Couret.STROBO2TORS.recoh_first_passing_exists
+#print axioms Couret.STROBO2TORS.recoh_mem_selected_square_support
+#print axioms Couret.STROBO2TORS.recoh_selected_square_support_covered
+#print axioms Couret.STROBO2TORS.recoh_ternary_reading_equal_iff
+#print axioms Couret.STROBO2TORS.recoh_ternary_orbit_check_iff
+#print axioms Couret.STROBO2TORS.recoh_square_ternary_choice_some
+#print axioms Couret.STROBO2TORS.recoh_cyclic_square_representatives_sound
+#print axioms Couret.STROBO2TORS.recoh_cyclic_square_representatives_nonempty
+#print axioms Couret.STROBO2TORS.recoh_cyclic_square_representatives_complete
+#print axioms Couret.STROBO2TORS.recoh_cyclic_square_representatives_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_square_ternary_choice_eq_of_square_eq
+#print axioms Couret.STROBO2TORS.recoh_square_ternary_choice_complete
+#print axioms Couret.STROBO2TORS.recoh_square_selected_orbits
+#print axioms Couret.STROBO2TORS.recoh_square_ternary_choice_none_iff
+#print axioms Couret.STROBO2TORS.recoh_ordinary_partner_of_common_torsion_orbit
+#print axioms Couret.STROBO2TORS.recoh_cyclic_ternary_constant_on_ordinary
+#print axioms Couret.STROBO2TORS.recoh_cyclic_param_fibre_selected_separator
+#print axioms Couret.STROBO2TORS.recoh_cyclic_fibre_orbit_separator
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_scan_none_iff
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_scan_some_nonzero
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_scan_first
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_scan_steps_le
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_none_iff
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_some_nonzero
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_first
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_steps_le
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_scan_neg
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_neg
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_none_iff_zero
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_exists
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_eq_some_selected
+#print axioms Couret.STROBO2TORS.recoh_ternary_selected_nonzero
+#print axioms Couret.STROBO2TORS.recoh_ternary_selected_neg
+#print axioms Couret.STROBO2TORS.recoh_ternary_coordinate_some_detects
+#print axioms Couret.STROBO2TORS.recoh_ternary_selected_detects
+#print axioms Couret.STROBO2TORS.recoh_ternary_selected_trivial_on_two
+#print axioms Couret.STROBO2TORS.recoh_cyclic_ternary_coordinate_detects
 #print axioms Couret.STROBO2TORS.recoh_symmetric_three_sum_cube
 #print axioms Couret.STROBO2TORS.recoh_symmetric_three_sum_two_power_impossible
 #print axioms Couret.STROBO2TORS.recoh_square_cube_one_implies_one
