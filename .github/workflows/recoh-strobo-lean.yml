@@ -1,0 +1,63 @@
+name: RECOH optimal fixed character bank
+on:
+  push:
+    branches:
+      - research/recoh-strobo-fourier-lean-2026-10-14
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-strobo-lean.yml'
+      - 'research/strobo-2tors-2026-10-12/verify_recoh*_20261017.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-strobo-lean.yml'
+      - 'research/strobo-2tors-2026-10-12/verify_recoh*_20261017.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bridge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Reject proof placeholders and custom axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/Recoh*.lean; then
+            echo "::error::Unexpected proof placeholder or axiom"
+            exit 1
+          fi
+      - name: Install elan
+        shell: bash
+        run: |
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Replay the fixed primary bank in exact arithmetic
+        run: |
+          python3 research/strobo-2tors-2026-10-12/verify_recoh_primary_bank_20261017.py
+          git diff --exit-code -- research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json
+          python3 research/strobo-2tors-2026-10-12/verify_recoh_axioms_20261017.py
+      - name: Restore mathlib and compile the integrated STROBO and RECOH library
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          lake resolve-deps
+          lake exe cache get
+          lean --version
+          lake build 2>&1 | tee recoh-build.log
+          lake env lean RecohConsolidated.lean 2>&1 | tee recoh-axioms.log
+          python3 ../verify_recoh_axioms_20261017.py --log recoh-axioms.log --source-commit "$(git rev-parse HEAD)" | tee recoh-certificate.json
+      - name: Preserve the exact compilation and dependency records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recoh-optimal-bank-${{ github.sha }}
+          path: |
+            research/strobo-2tors-2026-10-12/lean/recoh-build.log
+            research/strobo-2tors-2026-10-12/lean/recoh-axioms.log
+            research/strobo-2tors-2026-10-12/lean/recoh-certificate.json
