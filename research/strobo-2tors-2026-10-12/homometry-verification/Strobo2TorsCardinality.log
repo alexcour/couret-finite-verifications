@@ -1,0 +1,24 @@
+Strobo2TorsCardinality.lean:456:0: warning: automatically included section variable(s) unused in theorem `Couret.STROBO2TORS.triple_sum_two_torsion_shift`:
+  [DecidableEq G]
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Strobo2TorsCardinality.lean:504:0: warning: automatically included section variable(s) unused in theorem `Couret.STROBO2TORS.nonzero_three_torsion_double_ne_zero`:
+  [DecidableEq G]
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Couret.STROBO2TORS.torsionOrbit_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.paired_squareFibre_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.paired_squareFibre_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.squareFibre_card_h_or_two_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.squareFibre_card_le_two_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.squareFibre_card_two_h_iff_exception' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.zeroFreeOrbit_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.paired_zeroFreeSquareFibre_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.mem_exceptionalOffsets_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.exceptionalOffsets_card' depends on axioms: [propext, Classical.choice, Quot.sound]

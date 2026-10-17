@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-10-17T13:16:55.528470+00:00",
+  "validation_scope": "LOCAL compilation and transitive axioms of 10 new public declarations; no remote CI or novelty certification",
+  "base_repository": "alexcour/couret-finite-verifications",
+  "base_commit": "afef68f3c51dda613f749e90b5c992c4734e2c92",
+  "lean_version": "4.29.1",
+  "lean_commit": "f72c35b3f637c8c6571d353742168ab66cc22c00",
+  "mathlib_commit": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "command": "./scripts/verify_homometry.sh",
+  "exit_code": 0,
+  "public_declarations": 10,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "sorryAx": false,
+  "local_runtime_note": "The host exposes /proc/self/exe but not /proc/<pid>/exe. LD_PRELOAD remapped only the latter executable-path readlink to the former, using runtime_procpath_compat.c. Upstream Lean binaries, kernel and mathlib sources were unmodified. This host adaptation is not required on a standard Linux host.",
+  "input_sha256": {
+    "lean/Strobo2TorsCore.lean": "8c32a0fc004922553a9d42003aa4c0c8c9a6b30d8a906ee36d61566951be18b5",
+    "lean/Strobo2TorsCardinality.lean": "43bb7bc977683362729a3aa2f7c214abefd9138f3283fb79ee93f0a1da784093",
+    "lean/RecohFourierBridge.lean": "162c4aac6224640abce8987d230b6cd34d69fa584578b00550229ed923853089",
+    "lean/StroboHomometry.lean": "d425a917138d22db0e9336b5a0dc3446107f7fd9eaaac85386bc9bdfb4cba274",
+    "lean/lakefile.lean": "b5d81a7781556f7e5ef0fde4ad50dbf6ffa0aeebc28a0f3f4068c85d1cf79347",
+    "lean/lake-manifest.json": "b68bce6325161324e52e9507224ad0614491fbab88572f33dd696a265898fc87",
+    "lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "scripts/verify_homometry.sh": "192aee5a690369a8bcf8d2bd250a36097dde46718e32abca39c28b80c31e503e"
+  },
+  "output_sha256": {
+    "homometry-verification/RecohFourierBridge.log": "0e9ad05a0c5863aa1d29d4d6ee37c5e7c83e34884481c4bfd794b5db644b8176",
+    "homometry-verification/Strobo2TorsCardinality.log": "64d301bfff4b09260e51a77a884c7a47c1c8116effd910ba582db6782778d6be",
+    "homometry-verification/Strobo2TorsCore.log": "fedfcf0f268a12cb88e4b51fb4b84346e721c35f14b268f053b59977e4e37cec",
+    "homometry-verification/StroboHomometry.log": "ab1bed81c4c2d1ded47d993663c9ded3e106d0d0044b88f57a6924e21f0e56fd",
+    "homometry-verification/axioms.json": "493f9829dcad2cc7532f8aaf7962e839ff4683dd39ec1a894b242e50a9d231bd",
+    "homometry-verification/runtime_procpath_compat.c": "89591c47bf17c5ea35becd3fbbe9e1d3bf6327d0497b0077dae31e3425ec48d9",
+    "homometry-verification/toolchain.log": "739071968e80f67799345feb7a4a6b97aa95f0e8594b6dffa2556828d6aaf9d6"
+  }
+}

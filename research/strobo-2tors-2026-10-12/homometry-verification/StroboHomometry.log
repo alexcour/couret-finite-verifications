@@ -1,0 +1,18 @@
+'Couret.STROBO2TORS.supportProbe_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.orderedSquare_character_transform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.differenceAutocorrelation_character_transform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.STROBO2TORS.character_sums_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.supportProbe_eq_or_neg_of_orderedSquare_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.STROBO2TORS.supportProbe_norm_eq_of_orderedSquare_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.differenceAutocorrelation_eq_of_orderedSquare_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.STROBO2TORS.triple_homometry_of_tripleSquareCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.recoh_reflection_homometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.STROBO2TORS.homometry_does_not_imply_orderedSquare_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
