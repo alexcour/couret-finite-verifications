@@ -1,0 +1,556 @@
+{
+  "all_character_example": {
+    "all_characters": 18,
+    "arithmetic": "Z[zeta_6], basis (1,zeta_6), zeta_6^2=zeta_6-1",
+    "fixed_bank_witness": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "fixed_minimum": 3,
+    "group": [
+      2,
+      3,
+      3
+    ],
+    "local_minimum_histogram": {
+      "1": 336,
+      "2": 36
+    },
+    "rejected_distinct_banks_by_size": {
+      "0": 1,
+      "1": 18,
+      "2": 153,
+      "3": 156
+    },
+    "repetitions": "cannot improve separation; exhaustive distinct subsets suffice",
+    "selected_worst_minimum": 2
+  },
+  "groups": [
+    {
+      "binary_rank": 0,
+      "cyclic_factors": [],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {},
+      "fibres": 0,
+      "fixed_bank_budget": 0,
+      "order": 1,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {},
+      "supports": 0,
+      "ternary_rank": 0,
+      "worst_selected_budget": 0
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        2
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {},
+      "fibres": 0,
+      "fixed_bank_budget": 0,
+      "order": 2,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {},
+      "supports": 0,
+      "ternary_rank": 0,
+      "worst_selected_budget": 0
+    },
+    {
+      "binary_rank": 0,
+      "cyclic_factors": [
+        3
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "1": 1
+      },
+      "fibres": 1,
+      "fixed_bank_budget": 0,
+      "order": 3,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "0": 1
+      },
+      "supports": 1,
+      "ternary_rank": 1,
+      "worst_selected_budget": 0
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        4
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "2": 2
+      },
+      "fibres": 2,
+      "fixed_bank_budget": 1,
+      "order": 4,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 2
+      },
+      "supports": 4,
+      "ternary_rank": 0,
+      "worst_selected_budget": 1
+    },
+    {
+      "binary_rank": 0,
+      "cyclic_factors": [
+        5
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "1": 10
+      },
+      "fibres": 10,
+      "fixed_bank_budget": 0,
+      "order": 5,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "0": 10
+      },
+      "supports": 10,
+      "ternary_rank": 0,
+      "worst_selected_budget": 0
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        6
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 4,
+        "4": 3
+      },
+      "fibres": 7,
+      "fixed_bank_budget": 2,
+      "order": 6,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 4,
+        "2": 3
+      },
+      "supports": 20,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        8
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "2": 28
+      },
+      "fibres": 28,
+      "fixed_bank_budget": 1,
+      "order": 8,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 28
+      },
+      "supports": 56,
+      "ternary_rank": 0,
+      "worst_selected_budget": 1
+    },
+    {
+      "binary_rank": 0,
+      "cyclic_factors": [
+        9
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "1": 84
+      },
+      "fibres": 84,
+      "fixed_bank_budget": 0,
+      "order": 9,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "0": 84
+      },
+      "supports": 84,
+      "ternary_rank": 1,
+      "worst_selected_budget": 0
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        12
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 98,
+        "4": 6
+      },
+      "fibres": 104,
+      "fixed_bank_budget": 2,
+      "order": 12,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 98,
+        "2": 6
+      },
+      "supports": 220,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        16
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "2": 280
+      },
+      "fibres": 280,
+      "fixed_bank_budget": 1,
+      "order": 16,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 280
+      },
+      "supports": 560,
+      "ternary_rank": 0,
+      "worst_selected_budget": 1
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        18
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 390,
+        "4": 9
+      },
+      "fibres": 399,
+      "fixed_bank_budget": 2,
+      "order": 18,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 390,
+        "2": 9
+      },
+      "supports": 816,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        24
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 988,
+        "4": 12
+      },
+      "fibres": 1000,
+      "fixed_bank_budget": 2,
+      "order": 24,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 988,
+        "2": 12
+      },
+      "supports": 2024,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        36
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 3534,
+        "4": 18
+      },
+      "fibres": 3552,
+      "fixed_bank_budget": 2,
+      "order": 36,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 3534,
+        "2": 18
+      },
+      "supports": 7140,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 2,
+      "cyclic_factors": [
+        2,
+        2
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "4": 1
+      },
+      "fibres": 1,
+      "fixed_bank_budget": 2,
+      "order": 4,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "2": 1
+      },
+      "supports": 4,
+      "ternary_rank": 0,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 2,
+      "cyclic_factors": [
+        2,
+        4
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "4": 14
+      },
+      "fibres": 14,
+      "fixed_bank_budget": 2,
+      "order": 8,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "2": 14
+      },
+      "supports": 56,
+      "ternary_rank": 0,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 2,
+      "cyclic_factors": [
+        2,
+        8
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "4": 140
+      },
+      "fibres": 140,
+      "fixed_bank_budget": 2,
+      "order": 16,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "2": 140
+      },
+      "supports": 560,
+      "ternary_rank": 0,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 2,
+      "cyclic_factors": [
+        4,
+        4
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "4": 140
+      },
+      "fibres": 140,
+      "fixed_bank_budget": 2,
+      "order": 16,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "2": 140
+      },
+      "supports": 560,
+      "ternary_rank": 0,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 3,
+      "cyclic_factors": [
+        2,
+        2,
+        2
+      ],
+      "distinct_extra_ternary_characters_used": 0,
+      "fibre_size_histogram": {
+        "8": 7
+      },
+      "fibres": 7,
+      "fixed_bank_budget": 3,
+      "order": 8,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "3": 7
+      },
+      "supports": 56,
+      "ternary_rank": 0,
+      "worst_selected_budget": 3
+    },
+    {
+      "binary_rank": 2,
+      "cyclic_factors": [
+        2,
+        2,
+        3
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "4": 37,
+        "8": 9
+      },
+      "fibres": 46,
+      "fixed_bank_budget": 3,
+      "order": 12,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "2": 37,
+        "3": 9
+      },
+      "supports": 220,
+      "ternary_rank": 1,
+      "worst_selected_budget": 3
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        2,
+        3,
+        3
+      ],
+      "distinct_extra_ternary_characters_used": 2,
+      "fibre_size_histogram": {
+        "2": 336,
+        "4": 36
+      },
+      "fibres": 372,
+      "fixed_bank_budget": 3,
+      "order": 18,
+      "price_of_fixed_choice": 1,
+      "selected_budget_histogram": {
+        "1": 336,
+        "2": 36
+      },
+      "supports": 816,
+      "ternary_rank": 2,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        2,
+        9
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 390,
+        "4": 9
+      },
+      "fibres": 399,
+      "fixed_bank_budget": 2,
+      "order": 18,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 390,
+        "2": 9
+      },
+      "supports": 816,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 1,
+      "cyclic_factors": [
+        4,
+        9
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "2": 3534,
+        "4": 18
+      },
+      "fibres": 3552,
+      "fixed_bank_budget": 2,
+      "order": 36,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "1": 3534,
+        "2": 18
+      },
+      "supports": 7140,
+      "ternary_rank": 1,
+      "worst_selected_budget": 2
+    },
+    {
+      "binary_rank": 2,
+      "cyclic_factors": [
+        6,
+        6
+      ],
+      "distinct_extra_ternary_characters_used": 2,
+      "fibre_size_histogram": {
+        "4": 1569,
+        "8": 108
+      },
+      "fibres": 1677,
+      "fixed_bank_budget": 4,
+      "order": 36,
+      "price_of_fixed_choice": 1,
+      "selected_budget_histogram": {
+        "2": 1569,
+        "3": 108
+      },
+      "supports": 7140,
+      "ternary_rank": 2,
+      "worst_selected_budget": 3
+    },
+    {
+      "binary_rank": 3,
+      "cyclic_factors": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "distinct_extra_ternary_characters_used": 1,
+      "fibre_size_histogram": {
+        "8": 211,
+        "16": 21
+      },
+      "fibres": 232,
+      "fixed_bank_budget": 4,
+      "order": 24,
+      "price_of_fixed_choice": 0,
+      "selected_budget_histogram": {
+        "3": 211,
+        "4": 21
+      },
+      "supports": 2024,
+      "ternary_rank": 1,
+      "worst_selected_budget": 4
+    }
+  ],
+  "model": "complete labelled ordered square; triples with zero allowed; exact labelled complex characters; bank fixed within each fibre",
+  "scope": "finite enumerative validation, not extraction or an efficient selector; formal results are in RecohFibreOptimal.lean",
+  "total_fibres": 12047,
+  "total_presentations": 24,
+  "total_supports": 30327
+}

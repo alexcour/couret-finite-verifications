@@ -20,6 +20,7 @@ import RecohEarlySignChecks
 import RecohCyclicCoefficientDecoder
 import RecohCyclicDecoderOptimal
 import RecohCyclicPreparedDecoder
+import RecohFibreOptimal
 
 /-! Fresh public-declaration dependency checks for the integrated RECOH result. -/
 
@@ -219,6 +220,32 @@ import RecohCyclicPreparedDecoder
 #print axioms Couret.STROBO2TORS.recoh_sign_recover_support_of_readings
 #print axioms Couret.STROBO2TORS.recoh_sign_recovery_spec
 #print axioms Couret.STROBO2TORS.recoh_sign_fast_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_two_torsion_card_eq_nat_card
+#print axioms Couret.STROBO2TORS.recoh_fibre_card_le_two_pow_of_separating_bank
+#print axioms Couret.STROBO2TORS.recoh_fibre_rank_le_of_separating_bank
+#print axioms Couret.STROBO2TORS.recoh_double_fibre_rank_succ_le_of_separating_bank
+#print axioms Couret.STROBO2TORS.recoh_fibre_budget_ordinary
+#print axioms Couret.STROBO2TORS.recoh_fibre_budget_exceptional
+#print axioms Couret.STROBO2TORS.recoh_two_pow_fibre_budget
+#print axioms Couret.STROBO2TORS.recoh_optimal_fibre_bank_size
+#print axioms Couret.STROBO2TORS.recoh_fixed_bank_injective_on_fibre
+#print axioms Couret.STROBO2TORS.recoh_fibre_bank_mono
+#print axioms Couret.STROBO2TORS.recoh_exists_after_square_fibre_bank
+#print axioms Couret.STROBO2TORS.recoh_exists_square_selection_of_fibre_banks
+#print axioms Couret.STROBO2TORS.recoh_square_selection_injective_on_fibre
+#print axioms Couret.STROBO2TORS.recoh_exists_reconstructing_square_selection
+#print axioms Couret.STROBO2TORS.recoh_no_short_square_selection
+#print axioms Couret.STROBO2TORS.recoh_optimal_after_square_bank_size
+#print axioms Couret.STROBO2TORS.recoh_empty_triple_domain_zero_selection
+#print axioms Couret.STROBO2TORS.recoh_universal_choice_cost
+#print axioms Couret.STROBO2TORS.recoh_bank_injective_on_torsion_orbit
+#print axioms Couret.STROBO2TORS.recoh_probe_constant_on_torsion_orbit
+#print axioms Couret.STROBO2TORS.recoh_param_square_fibre_eq
+#print axioms Couret.STROBO2TORS.recoh_three_primary_character_detects
+#print axioms Couret.STROBO2TORS.recoh_exists_bank_on_ordinary_fibre
+#print axioms Couret.STROBO2TORS.recoh_exists_bank_on_param_fibre
+#print axioms Couret.STROBO2TORS.recoh_exists_bank_on_exceptional_fibre
+#print axioms Couret.STROBO2TORS.recoh_exists_exceptional_fibre_of_positive_ranks
 #print axioms Couret.STROBO2TORS.recoh_probe_reflection_of_cancel
 #print axioms Couret.STROBO2TORS.recoh_probe_reflection_of_trivial_three
 #print axioms Couret.STROBO2TORS.recoh_order_three_reflection_same_square
@@ -298,6 +325,9 @@ import RecohCyclicPreparedDecoder
 #print axioms Couret.STROBO2TORS.recoh_sparse_square_check_iff
 #print axioms Couret.STROBO2TORS.recoh_sparse_readings_check_iff
 #print axioms Couret.STROBO2TORS.recoh_sparse_observation_check_iff
+#print axioms Couret.STROBO2TORS.recoh_support_probe_sq
+#print axioms Couret.STROBO2TORS.recoh_support_probe_sq_eq_of_square_eq
+#print axioms Couret.STROBO2TORS.recoh_support_probe_eq_or_neg_of_square_eq
 #print axioms Couret.STROBO2TORS.recoh_symmetric_three_sum_cube
 #print axioms Couret.STROBO2TORS.recoh_symmetric_three_sum_two_power_impossible
 #print axioms Couret.STROBO2TORS.recoh_square_cube_one_implies_one
