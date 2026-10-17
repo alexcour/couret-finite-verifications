@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-17",
+  "repository": "alexcour/couret-finite-verifications",
+  "pull_request": 36,
+  "source_commit": "109fcf2deab11ef2c32374c2cdeb10810e06add0",
+  "source_tree": "08f1f7d6e0f8d8bb3f3dd08014c397403d87569a",
+  "parent_commit": "df3f5b6c8e2f2f03e380ef68600ca14c4478f837",
+  "lean_version": "4.29.1",
+  "mathlib_ref": "v4.29.1",
+  "library_roots": 57,
+  "strobo_roots": 27,
+  "recoh_roots": 30,
+  "new_modules": 7,
+  "new_public_theorems": 95,
+  "public_theorems_checked": 185,
+  "local_build_jobs": 3478,
+  "ci_build_jobs": 3478,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "nonstandard_dependencies": [],
+  "theorem": "Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact",
+  "ci": {
+    "lean": {
+      "run_id": 39018591115,
+      "job_id": 117355659422,
+      "event": "push",
+      "head_sha": "109fcf2deab11ef2c32374c2cdeb10810e06add0",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39018591115",
+      "completed_at": "2026-10-17T08:51:59Z"
+    },
+    "verify": {
+      "run_id": 39018591035,
+      "event": "push",
+      "head_sha": "109fcf2deab11ef2c32374c2cdeb10810e06add0",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39018591035",
+      "completed_at": "2026-10-17T08:46:20Z"
+    }
+  },
+  "artifact": {
+    "id": 12095912595,
+    "name": "recoh-optimal-bank-109fcf2deab11ef2c32374c2cdeb10810e06add0",
+    "size_in_bytes": 18176,
+    "sha256": "c7763185c21b9af6fed19b5ebc85e1fe361df008e20acb5684d169912ca36f3d",
+    "archive_downloaded": true,
+    "archive_digest_verified": true,
+    "extracted_bytes_preserved": true,
+    "certificate_replayed_identically": true,
+    "source_checkout_verified_in_job_log": true
+  },
+  "preserved_ci_files": [
+    {
+      "path": "recoh_refinement_axioms_20261017.log",
+      "archive_entry": "recoh-axioms.log",
+      "bytes": 20824,
+      "sha256": "7a2a595e5937b1420792c2adc0aa52fb29440f238ba3578cb313dd3220b480d5"
+    },
+    {
+      "path": "recoh_refinement_build_20261017.log",
+      "archive_entry": "recoh-build.log",
+      "bytes": 169723,
+      "sha256": "99f64d33e07ed618144d2096b2f7266924122a4019ce1d04b64202499099f692"
+    },
+    {
+      "path": "recoh_refinement_certificate_20261017.json",
+      "archive_entry": "recoh-certificate.json",
+      "bytes": 992,
+      "sha256": "a19dade27c791e08820ea64ba4a698162f92c23014cbd8282ee4cd67a3d415a3"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohDecoderBounds.lean",
+      "bytes": 8124,
+      "sha256": "007136596acc888d04aeee8638a09fb1002302843da3cdae7d6c320ef17978d6",
+      "git_blob_sha": "cd6762e794f3717bfd3223c00208cca445724c06"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohCyclicHalves.lean",
+      "bytes": 5206,
+      "sha256": "a4e0211ade942e149c23077a732176c321236fab9e7cca6522d82ba445be71bd",
+      "git_blob_sha": "04a9b23f12286904fac4e5d3a2ec31f2333771cc"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohSignRecovery.lean",
+      "bytes": 12096,
+      "sha256": "9c4330cb72ad0993c6c48361a0b68823a89e5af35e3cfb07799a30c9c651fb1c",
+      "git_blob_sha": "6bf5f61709e4a2db24c179c546e60caac0ea920a"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohCyclotomicNormalization.lean",
+      "bytes": 19864,
+      "sha256": "a32b9cab640a62555c7e6cf6db19b7be429a75e16530887b17a37e8f886e5a45",
+      "git_blob_sha": "2dffa689de1255fea7e0b9999c35f8cfd80da983"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohFastDecoder.lean",
+      "bytes": 16982,
+      "sha256": "d84bc4908e0c9ab4ae54de4f0901e08828a787fa98a3987c63969ea57c85e8da",
+      "git_blob_sha": "681a59257eeb9cf46e8ca78bae65e16142afeedf"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohSparseObservation.lean",
+      "bytes": 5956,
+      "sha256": "3e5ab9ed2f77e232442c1e513ac667674b59190c499be9b6b00defed9b569878",
+      "git_blob_sha": "673cfb64f191ab032bc57a7b8bbc143634f6e0cb"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohExactSignBackend.lean",
+      "bytes": 13697,
+      "sha256": "f99e3408f62032866dd7332e37aea90148e1e51601887993b2026a97b35d79dd",
+      "git_blob_sha": "5db6c3724f88d7bcedc4df23463b68eedc5a81b6"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/lakefile.lean",
+      "bytes": 1661,
+      "sha256": "d7d737240ae5415a19d3a2692fa0f75ce54ebe44bcfa0d6e2366813882603a6f",
+      "git_blob_sha": "c21a8b4ccfba3973716bec68fe84d390fba0f9de"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/lean/RecohConsolidated.lean",
+      "bytes": 12913,
+      "sha256": "18b89f69cb3d82d5e337187923de2bb2e9dffe482641945050855b8f24613cdb",
+      "git_blob_sha": "34b19af0be74403ab0e810fc57a4788da1edcf86"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/verify_recoh_axioms_20261017.py",
+      "bytes": 5287,
+      "sha256": "7488688b2cbc2de88cbe042d857fe45b4de066d37941aa50ea79b211aafb14cc",
+      "git_blob_sha": "c13c8ee5684626222d87f23e0a767053d0859a7d"
+    },
+    {
+      "path": "research/strobo-2tors-2026-10-12/RECOH_REFINEMENT_20261017.md",
+      "bytes": 15990,
+      "sha256": "2d7ab287c9d7de7b41f87bbebf69a3c90dc2db66f067cc195ad44a317226c517",
+      "git_blob_sha": "e8bd0107c03020e9bfea95a0113ccb130fae53cf"
+    }
+  ],
+  "scope": {
+    "provided_contracts": [
+      "finite support U covering all nonzero observed square positions",
+      "correct and complete half solver; supplied cyclic presentation discharges this with recoh_product_half_spec",
+      "binary coordinate equivalence and compatibility with the supplied bank",
+      "nonvanishing binary readings on triples, proved separately for two-primary characters",
+      "prime orders, primitive roots and exponent-encoding interpretation contracts"
+    ],
+    "twenty_bound_requires": "U.card <= 6",
+    "short_sparse_bounds_require": "input lists of three exponents; p=2 or p=3",
+    "python_runtime_certified": false,
+    "python_format_adapter_certified": false,
+    "automatic_executable_coordinates_constructed": false,
+    "automatic_optimal_bank_backend_witness_packaged": false,
+    "bit_complexity_theorem": false,
+    "human_review_completed": false
+  },
+  "unchanged_python": {
+    "source_commit": "eaa6330cc2651c9c8d2c0977ed281ba45e184416",
+    "run_id": 39014668806,
+    "unit_tests": 23,
+    "supports": 183886,
+    "presentations": 25,
+    "replayed_in_this_new_lean_lot": false,
+    "note": "Python source and replay files were not changed by the source commit; the earlier result remains attributed to its original commit."
+  },
+  "archival_policy": "This documentary checkpoint preserves CI evidence and updates validation prose. Scientific code and its certificate remain attached to source_commit."
+}

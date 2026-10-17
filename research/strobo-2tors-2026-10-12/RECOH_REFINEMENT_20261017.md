@@ -19,14 +19,23 @@ ses caches, ses conteneurs et sa sérialisation ne sont pas certifiés par ce
 résultat. La différence entre les formats d’entrée des deux couches est
 précisée en section 8.
 
-### Validation avant dépôt
+### Validation du commit scientifique
 
-**La CI du nouveau SHA scientifique est en attente.** L’inventaire de travail
-prévoit 57 modules racines et 185 déclarations publiques RECOH, dont 95
-nouvelles dans les sept modules du présent lot. Le certificat intégré et les
-contrôles distants doivent identifier la version exacte avant toute
-affirmation de réussite de cette nouvelle CI. Les résultats attachés aux
-commits précédents restent des résultats de ces versions.
+**La CI est réussie au SHA `109fcf2deab11ef2c32374c2cdeb10810e06add0`.**
+Le [run Lean #39018591115](https://github.com/alexcour/couret-finite-verifications/actions/runs/39018591115)
+confirme Lean 4.29.1, 3 478 tâches, 57 racines intégrées et 185 déclarations
+publiques RECOH contrôlées, dont 95 nouvelles dans les sept modules du lot.
+Le [contrôle général #39018591035](https://github.com/alexcour/couret-finite-verifications/actions/runs/39018591035)
+est également réussi au même SHA.
+
+Les dépendances se limitent à `propext`, `Classical.choice` et `Quot.sound`.
+L’archive originale a été téléchargée, son empreinte vérifiée et le contrôle
+des 185 traces rejoué : le certificat obtenu est identique à celui de la CI.
+Le [dossier de validation](RECOH_REFINEMENT_VALIDATION_20261017.md), le
+[certificat original](recoh_refinement_certificate_20261017.json) et le
+[manifeste](recoh_refinement_validation_manifest_20261017.json) conservent cette
+provenance. Cette actualisation documentaire ne modifie pas les preuves ;
+leur version certifiée reste le commit scientifique ci-dessus.
 
 ## 1. Le contrat mathématique
 
