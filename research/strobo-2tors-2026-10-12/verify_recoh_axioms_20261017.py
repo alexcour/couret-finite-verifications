@@ -92,7 +92,8 @@ def main():
         "RecohEarlySignChecks", "RecohCyclicCoefficientDecoder",
         "RecohCyclicDecoderOptimal", "RecohCyclicPreparedDecoder", "RecohFibreOptimal",
         "RecohTernarySelector", "RecohTernaryFibreSelector", "RecohSquareSelector",
-        "RecohSelectedDecoder",
+        "RecohSelectedDecoder", "RecohTripleNewton", "RecohStableReconstruction",
+        "RecohOddPowerRuntime",
     ]
     content = "".join(f"import {module}\n" for module in imports) + "\n"
     content += "/-! Fresh public-declaration dependency checks for the integrated RECOH result. -/\n\n"
@@ -128,6 +129,17 @@ def main():
                           "selected_typed_decoder_singleton": "Couret.STROBO2TORS.recoh_selected_coefficient_decoder_singleton",
                           "selected_typed_decoder_uniqueness": "Couret.STROBO2TORS.recoh_selected_coefficient_decoder_card_le_one",
                           "executable_selection_scope": "For explicit finite cyclic products, compute square-compatible orbit representatives from at most twenty edge sets, choose the first ternary coordinate separating distinct two-torsion orbits, and decode from all binary readings plus at most one selected ternary reading. The choice depends only on the labelled square; the calculated bank has exact minimal fibre cardinality. The executable direction selector is invariant under sign and tests at most d coordinates. Runtime definitions do not enumerate the ambient group or its two-torsion subgroup. JSON adapters, serialization, Python equivalence and total bit complexity are outside the formal theorem; differential execution is separate evidence.",
+                          "stable_binary_selection": "Couret.STROBO2TORS.recohStableBinaryMultiplier",
+                          "stable_binary_selection_extensionality": "Couret.STROBO2TORS.recoh_stable_binary_multiplier_eq_of_square_eq",
+                          "stable_binary_amplitude": "Couret.STROBO2TORS.recoh_stable_binary_amplitude",
+                          "stable_bank_separation_and_minimality": "Couret.STROBO2TORS.recoh_computed_stable_bank_optimal",
+                          "stable_rational_phase_error": "Couret.STROBO2TORS.recoh_rational_phase_error",
+                          "stable_typed_decoder_singleton": "Couret.STROBO2TORS.recoh_stable_noisy_decoder_singleton",
+                          "stable_precision_existence": "Couret.STROBO2TORS.recoh_stable_precision_exists",
+                          "stable_complete_reconstruction": "Couret.STROBO2TORS.recoh_stable_noisy_reconstruction",
+                          "stable_typed_decoder_uniqueness": "Couret.STROBO2TORS.recoh_stable_noisy_decoder_card_le_one",
+                          "stable_candidate_bound": "Couret.STROBO2TORS.recoh_stable_noisy_generated_candidates_le_twenty",
+                          "stability_scope": "For explicit finite cyclic products and an exact labelled ordered square of a three-element support, choose binary odd powers solely from R using certified rational Machin/Taylor centres and a squared-norm threshold. The bank keeps the exact minimum number of character readings and separates distinct supports in the fibre by at least two in the sup norm of unweighted unitary character sums. The typed decoder, with checked rational precision parameters, uniquely recovers a support from coordinatewise absolute error epsilon<1, and returns at most one candidate on every typed input. Candidate generation uses at most twenty representatives. Worst-case odd search can inspect half the binary primary order; no polynomial bit complexity, noisy square, universal Python/JSON equivalence, or raw-parser verification is claimed.",
                           "decoder_specification_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder",
                           "decoder_refinement_theorem": "Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact",
                           "typed_decoder_theorem": "Couret.STROBO2TORS.recoh_mem_cyclic_coefficient_decoder_iff",

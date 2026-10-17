@@ -1,0 +1,68 @@
+{
+  "acceptance_radius": [
+    5,
+    8
+  ],
+  "bank": [
+    {
+      "coordinate": 0,
+      "multiplier": 3,
+      "order": 8,
+      "prime": 2
+    }
+  ],
+  "bank_size": 1,
+  "certified_distance_from_measurements": [
+    3784059351918831318435341,
+    5385278907865934011935000
+  ],
+  "cyclic_factors": [
+    8
+  ],
+  "error_bound": [
+    1,
+    2
+  ],
+  "format": "recoh-stable-reconstruction-v1",
+  "precision": {
+    "machin_terms": 2,
+    "taylor_terms": 24
+  },
+  "prediction_error_bound": [
+    209130017251311280487983,
+    2692639453932967005967500
+  ],
+  "prediction_tolerance": [
+    1,
+    8
+  ],
+  "statistics": {
+    "ambient_elements_enumerated": 0,
+    "binary_fallbacks": 0,
+    "cross_orbit_pairs": 0,
+    "final_square_checks": 1,
+    "group_order": 8,
+    "halvable_sets": 4,
+    "odd_candidates_evaluated": 2,
+    "off_diagonal_sets_examined": 10,
+    "r": 1,
+    "s": 0,
+    "sign_tests": 1,
+    "square_positions": 5,
+    "square_representatives": 1,
+    "ternary_coordinates_tested": 0,
+    "translation_orbits": 1,
+    "two_torsion_elements_enumerated": 0
+  },
+  "support": [
+    [
+      0
+    ],
+    [
+      3
+    ],
+    [
+      5
+    ]
+  ]
+}

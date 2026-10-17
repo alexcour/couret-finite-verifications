@@ -1,0 +1,38 @@
+{
+  "cyclic_factors": [
+    8
+  ],
+  "format": "recoh-square-query-v1",
+  "square": [
+    {
+      "count": 3,
+      "point": [
+        0
+      ]
+    },
+    {
+      "count": 1,
+      "point": [
+        2
+      ]
+    },
+    {
+      "count": 2,
+      "point": [
+        3
+      ]
+    },
+    {
+      "count": 2,
+      "point": [
+        5
+      ]
+    },
+    {
+      "count": 1,
+      "point": [
+        6
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "cyclic_factors": [
+    8
+  ],
+  "error_bound": [
+    1,
+    2
+  ],
+  "format": "recoh-stable-observation-v1",
+  "measurements": [
+    {
+      "coordinate": 0,
+      "multiplier": 3,
+      "order": 8,
+      "prime": 2,
+      "value": [
+        [
+          12,
+          5
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  ],
+  "square": [
+    {
+      "count": 3,
+      "point": [
+        0
+      ]
+    },
+    {
+      "count": 1,
+      "point": [
+        2
+      ]
+    },
+    {
+      "count": 2,
+      "point": [
+        3
+      ]
+    },
+    {
+      "count": 2,
+      "point": [
+        5
+      ]
+    },
+    {
+      "count": 1,
+      "point": [
+        6
+      ]
+    }
+  ]
+}
