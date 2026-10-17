@@ -1,3 +1,42 @@
+# Zero-free counts by symmetric difference — 17 October 2026
+
+The current proof layer extends the exact with-zero counts at source commit
+`458ffc79efb198f992b597ad7379bc56c0f59f26` to unordered pairs of distinct
+three-element supports that both avoid zero. It uses simultaneous translation
+and an incidence double count, with no freeness assumption on the pair action.
+See [the proof, exact interfaces and small-group cases](ZERO_FREE_DELTA_COUNTS_20261017.md).
+
+The three additional roots are `Strobo2TorsZeroFreeIncidence`,
+`Strobo2TorsZeroFreeDeltaCount` and `Strobo2TorsZeroFreeCompatibility`.
+The common build contains **30 roots and 439 public theorem traces**, including
+54 new declarations. Lean/mathlib v4.29.1 and the dependency manifest are
+unchanged. The 26 historical proof modules are preserved byte for byte.
+
+**Local validation obtained:** the complete build succeeded with 1,247 jobs;
+all 439 requested axiom traces passed the checker, with dependencies contained
+in `propext`, `Classical.choice`, `Quot.sound` and no `sorryAx`.
+The new independent replay checks all 62 finite abelian isomorphism types of
+order at most 36: 137,315 triples, 236,340 colliding unordered pairs and
+190,930 zero-free colliding pairs. Existing historical replays also pass.
+These bounded computations remain separate from the universal Lean proof.
+
+The exact source SHA and observed remote CI receipts for this extension are
+maintained in the current section of [PR #25](https://github.com/alexcour/couret-finite-verifications/pull/25).
+Only successful runs on the corresponding exact source commit certify that
+commit; the historical runs for `458ffc79` retain their with-zero scope.
+The zero-free formulas, each numerator's divisibility, small-group cases and
+the equality with historical `nontranslationPairs` are now formalized.
+The histogram second-moment identity is proved in the written note and
+checked in the finite replay; no new dedicated Lean lemma for that identity
+is claimed by this extension.
+
+**OPEN / DRAFT / NOT MERGED.** Independent human mathematical review and the
+theorem-by-theorem prior-literature comparison, including Yang–Tang, remain
+open. This work grants no publication, release, DOI or priority conclusion.
+All gates below are historical snapshots with their own exact-commit scope.
+
+---
+
 # Integrated STROBO gate 16 October 2026
 
 The PR #25 branch now assembles both histogram proofs, PairCount,

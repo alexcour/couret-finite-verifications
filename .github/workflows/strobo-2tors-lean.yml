@@ -21,8 +21,10 @@ jobs:
           python research/strobo-2tors-2026-10-12/audit_zero_free_histogram_20261014.py
           python research/strobo-2tors-2026-10-12/verify_nontranslation_pair_count_20261016.py
           python research/strobo-2tors-2026-10-12/verify_delta_pair_counts_20261017.py > research/strobo-2tors-2026-10-12/delta_pair_counts_results_20261017.json
+          python research/strobo-2tors-2026-10-12/verify_zero_free_pair_counts_20261017.py --max-order 36 --output research/strobo-2tors-2026-10-12/zero_free_delta_pair_counts_results_20261017.json
           git diff --exit-code -- research/strobo-2tors-2026-10-12/remaining_profiles_results_20261013.json
           git diff --exit-code -- research/strobo-2tors-2026-10-12/delta_pair_counts_results_20261017.json
+          git diff --exit-code -- research/strobo-2tors-2026-10-12/zero_free_delta_pair_counts_results_20261017.json
       - name: Reject placeholders and custom axioms in proof modules
         shell: bash
         run: |

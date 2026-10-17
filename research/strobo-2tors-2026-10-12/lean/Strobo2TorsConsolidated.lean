@@ -24,6 +24,9 @@ import Strobo2TorsDeltaOrdinaryCount
 import Strobo2TorsDeltaTwoCount
 import Strobo2TorsDeltaExceptionalCount
 import Strobo2TorsDeltaCount
+import Strobo2TorsZeroFreeIncidence
+import Strobo2TorsZeroFreeDeltaCount
+import Strobo2TorsZeroFreeCompatibility
 
 /- One import environment for the integrated STROBO proof modules.
 Compilation of separate roots alone would not detect namespace collisions. -/
@@ -424,3 +427,59 @@ Compilation of separate roots alone would not detect namespace collisions. -/
 #print axioms Couret.STROBO2TORS.squareDeltaPairCount_four
 #print axioms Couret.STROBO2TORS.squareDeltaPairCount_six
 #print axioms Couret.STROBO2TORS.squareDeltaPairCount_numeric
+
+-- Zero-free delta extension: additive local certificate, 17 October 2026.
+#print axioms Couret.STROBO2TORS.translateSupport_zero
+#print axioms Couret.STROBO2TORS.translateSupport_neg_cancel
+#print axioms Couret.STROBO2TORS.add_mem_translateSupport_iff
+#print axioms Couret.STROBO2TORS.translateSupport_union
+#print axioms Couret.STROBO2TORS.translateSupport_symmDiff
+#print axioms Couret.STROBO2TORS.translateSupport_symmDiff_card
+#print axioms Couret.STROBO2TORS.translateSupport_injective
+#print axioms Couret.STROBO2TORS.orderedSquare_translate_covariant
+#print axioms Couret.STROBO2TORS.orderedSquare_eq_translate_iff
+#print axioms Couret.STROBO2TORS.translation_incidence_card
+#print axioms Couret.STROBO2TORS.translation_incidence_card_balance
+#print axioms Couret.STROBO2TORS.zeroFreeGraph_dart_filter_card
+#print axioms Couret.STROBO2TORS.zeroFreeGraph_mul_edges
+#print axioms Couret.STROBO2TORS.zeroFreeGraph_balance_edges
+#print axioms Couret.STROBO2TORS.graph_eq_bot_of_union_card_gt
+#print axioms Couret.STROBO2TORS.zeroFreeGraph_edges_eq_zero_of_card_le
+#print axioms Couret.STROBO2TORS.zeroFreeGraph_transfer_dvd
+#print axioms Couret.STROBO2TORS.zeroFreeGraph_edges_numeric
+#print axioms Couret.STROBO2TORS.triple_union_card_of_symmDiff
+#print axioms Couret.STROBO2TORS.translateSupport_eq_iff
+#print axioms Couret.STROBO2TORS.ordinaryPartner_translate_iff
+#print axioms Couret.STROBO2TORS.anyTranslation_translate_iff
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_translate_iff
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_translate_iff
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_translate_iff
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaGraph_adj_iff
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_transfer
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_balance
+#print axioms Couret.STROBO2TORS.zeroFreeOrdinaryDeltaPairCount_transfer
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_transfer
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_partition
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_eq_zero_of_card_le_union
+#print axioms Couret.STROBO2TORS.squareDeltaPairCount_eq_zero_of_card_lt_union
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_two_eq_zero
+#print axioms Couret.STROBO2TORS.zeroFreeOrdinaryDeltaPairCount_four_eq_zero
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_two_four_mul
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_four_two_mul
+#print axioms Couret.STROBO2TORS.zeroFreeOrdinaryDeltaPairCount_six_twelve_mul
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_six_two_mul
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_two
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_four
+#print axioms Couret.STROBO2TORS.zeroFreeOrdinaryDeltaPairCount_two
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_four
+#print axioms Couret.STROBO2TORS.zeroFreeOrdinaryDeltaPairCount_six
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_six
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_six
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_six_twelve_mul
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_numeric
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_divisibility
+#print axioms Couret.STROBO2TORS.NontranslationCollision.symmDiff_four_or_six
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaGraph_adj_iff
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_twice_eq_filtered
+#print axioms Couret.STROBO2TORS.orderedNontranslationPairs_card_delta_partition
+#print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_four_add_six
