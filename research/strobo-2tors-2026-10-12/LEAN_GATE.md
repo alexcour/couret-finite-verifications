@@ -1,14 +1,63 @@
+# Integrated STROBO gate 16 October 2026
+
+The PR #25 branch now assembles both histogram proofs, PairCount,
+MaximumCases, SharpMaximum and the Bridge/Degree/Symmetry/Unordered chain.
+See [the integrated inventory](CONSOLIDATION_20261016.md) for exact source
+commits, the duplicate-name resolution, the repaired SharpMaximum step,
+and the distinction between zero-free counts and counts admitting zero.
+
+Certification requires successful Lean and verify runs on the exact
+integrated commit, not the earlier isolated source certificates.
+The 20 default roots include one common import module; all requested
+axiom traces must occur in the build log and use only standard axioms.
+The exact integrated commit and CI receipts are maintained at the top of
+PR #25. Historical gates below keep their original commit-specific scope.
+Human review and novelty remain open; OPEN/DRAFT/NOT MERGED.
+
+---
+
+# Pair-count extension — 16 October 2026
+
+The new Lake root `lean/Strobo2TorsPairCount.lean` formalizes the **universal
+unordered nontranslation-pair count** on zero-free triples:
+`(h−1)*((t−1)/2)*(q*h²−6*h+1)`. Nontranslation excludes **every element of G**.
+It includes the h=1 / t=1 empty-set cases, the h=2 formula and the empty-profile-two
+orbit boundary, and a direct proof of the local exceptional orbit-product table.
+See [PAIR_COUNT_LEAN_20261016.md](PAIR_COUNT_LEAN_20261016.md) for exact definitions,
+reusable lemmas, the alternative inclusion-exclusion proof and evidence levels.
+
+**Validation boundary:** the default Lake build and the new theorem's axiom traces
+were checked locally under Lean/mathlib v4.29.1; only `propext`, `Classical.choice`,
+`Quot.sound` occur. The **exact source SHA and observed CI receipts are maintained
+in the current verified-commit section of PR #25**; do not reuse an older green run
+as evidence for this extension. The new independent finite replay covers 18
+presentations / 13,020 triplets, with no discrepancy, and remains [F].
+
+**Still OPEN/DRAFT/NOT MERGED.** Human review and bibliographic novelty remain
+unestablished. No inference to the full maximum table, publication, release or
+priority. Previous snapshots below retain only their historical exact-SHA scope.
+
+---
+
 # STROBO-2TORS — CURRENT SCIENTIFIC CI GATE / 14 OCTOBER 2026
 
-**PROOF-COMPILE RECEIPT:** source HEAD `310fcaf3c65c36eaed85149d4748bf9a6454ab47`. [Lean CI #38582324811](https://github.com/alexcour/couret-finite-verifications/actions/runs/38582324811): SUCCESS. [General verify #38582324737](https://github.com/alexcour/couret-finite-verifications/actions/runs/38582324737): SUCCESS. This HEAD compiles **SIX** Lean modules (v4.29.1) including the newly added `Strobo2TorsSurvivalCounts.lean`. Job logs directly checked: no `sorryAx` among `#print axioms` dependencies, only standard `propext`, `Classical.choice`, `Quot.sound`; no compiler errors. This is a verified internal Lean compilation, **not an external peer review**.
+**Latest verified branch HEAD:** `e19c2d9b281759928ab7987bf382bf2f190345be` (PR #25, OPEN/DRAFT). [Lean CI #38637446054](https://github.com/alexcour/couret-finite-verifications/actions/runs/38637446054): **SUCCESS**; [general verify #38637446247](https://github.com/alexcour/couret-finite-verifications/actions/runs/38637446247): **SUCCESS**. The Lean workflow ran locked mathlib v4.29.1, rejected placeholders in its listed roots, replayed bounded exact tests, and completed **789 build jobs successfully**. The inspected `#print axioms` lines for the profile-zero and profile-two theorems show `propext`, `Classical.choice` and `Quot.sound`, not `sorryAx`.
 
-**New compiled scope (finite abelian G, h=|G[2]|≥4):** no ordinary or exceptional full square-convolution fibre vanishes when zero-containing triple supports are excluded; the nonempty restriction map is injective on full fibres. The exact **total number** of zero-free nonempty fibres is
-`(card G).choose 3 / h - (card G / h) * (h-1) * ((|G[3]|-1)/2)`
-as stated in `zeroFreeFullFibres_card_numeric_of_four` using natural-number divisions. This is a total fibre count, **not** the closed histogram by individual sizes. The preceding classification, full-fibre counts, exceptional zero-free sizes and symbolic/semianalytic aggregation remain compiled as scoped in the earlier proof gate.
+**Exactly NINE `lakefile.lean` roots compile at that SHA:** `Strobo2TorsCore`, `Strobo2TorsCardinality`, `Strobo2TorsEnumeration`, `Strobo2TorsZeroFree`, `Strobo2TorsZeroFreeAll`, `Strobo2TorsSurvivalCounts`, `Strobo2TorsOrdinaryProfiles`, `Strobo2TorsOrdinaryCount`, `Strobo2TorsExceptionalZero`. The auxiliary `Strobo2TorsExceptionProfileTwo.lean` is present in the repository but **not** a `lakefile.lean` build root and must NOT be counted as a tenth compiled module.
 
-**STILL NOT FORMALLY CLOSED:** explicit ordinary no-zero size-by-size binomial histogram `T_j,E_j,O_j`, full combined size-by-size counts, unrestricted sharp maximum table and separately derived nontranslation-pair counts. For `h<4`, do not apply the new survival theorem; cases `h=1,2` require their own accounting. Compilation alone does not show mathematical novelty, and the general “same squares ⇒ same adjacency spectra” statement is false without additional hypotheses. The PR remains **OPEN/DRAFT**, no merge/release/publication/DOI or novelty claim.
+**New certified exceptional SUPPORT counts** for finite abelian G, H=G[2], n=|G|, h=|H| and t=|G[3]|:
+```
+X0 = (n - 2*h)*(h-1)*(t-1)
+X1 = X2 = h*(h-1)*(t-1)
+X3 = 0
+```
+Here subtraction is the truncated natural subtraction implemented in Lean; the group-theoretic and counting arguments ensure the identity is universal. The exact declarations are `exceptionalSupportsProfile_zero_card` (`Strobo2TorsExceptionalZero.lean`), `exceptionalSupportsProfile_one_card` and `exceptionalSupportsProfile_two_card` (`Strobo2TorsOrdinaryCount.lean`), and `exceptionalSupportsProfile_three_eq_empty` (`Strobo2TorsOrdinaryCount.lean`). The proof of X2 uses an involution **on uniquely normalized parameters** `(a,d,v) ↦ (a+v,d,-v)`; the naive support shift `S↦S-v` is not canonically defined without normalization and is not an involution.
 
-**Source of truth:** https://github.com/alexcour/couret-finite-verifications/pull/25 ; `Strobo2TorsSurvivalCounts.lean` ; `lakefile.lean`. New documentation-only commits need their own CI check before labelling the new GitHub branch HEAD verified.
+**Ordinary profile balance compiled:** `|Pj|=h*Oj+Xj` and `Oj=(choose(h,j)*choose(n-h,3-j)-Xj)/h`. Closed numeric statements for `O0` and `O3` are in build roots; the ingredients for `O1` and `O2` compile, but the convenience theorems in the non-root auxiliary module cannot be claimed separately compiled. Complete size-by-size zero-free aggregation, small h=1,2 survivor exclusions, separately certified nontranslation-pair counts, and the full sharp-maximum table remain **OPEN**. For h≥4, the previously compiled total surviving-fibre count remains valid.
+
+**Cayley spectral boundary:** `A_S²=A_T²` alone does NOT imply cospectrality. For the odd-increment family on `Z/(12r)`, common parity grading gives `JAJ^{-1}=-A`; the determinant identity `χ_A(X)^2=χ_{A²}(X²)` (even order) proves cospectrality mathematically when squares coincide. This is an **internal written argument**; a Lean universal matrix-polynomial certificate is not asserted.
+
+**Governance:** one canonical scientific narrative STROBO with Cayley and RECOH as corollaries. Internal CI is not independent human review or a novelty audit. PR #25 stays DRAFT; no merge/release/DOI/HAL/arXiv/priority claim. Older receipts below are historical snapshots, not the present HEAD status.
 
 ---
 

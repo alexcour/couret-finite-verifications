@@ -1,4 +1,5 @@
 import RecohBinaryDichotomy
+import Mathlib.Algebra.Field.ZMod
 import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
 import Mathlib.LinearAlgebra.Dual.Lemmas
 import Mathlib.LinearAlgebra.Dimension.Constructions

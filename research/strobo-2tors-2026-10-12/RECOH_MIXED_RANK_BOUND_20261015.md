@@ -1,5 +1,7 @@
 # RECOH: mixed-rank obstruction and optimal fixed character banks
 
+> Historical snapshot. The integrated result of 17 October 2026 is described in [RECOH_OPTIMAL_BANK_20261017.md](RECOH_OPTIMAL_BANK_20261017.md), with certification tied to its exact source commit. The dated statements and certificates below are preserved as research history.
+
 **15 October 2026 — research note, NOT an independent review, novel theorem claim, or global Lean certificate.** The Lean PR stays DRAFT and unmerged. No private correspondence, historical biographies, FCI or embargoed material occurs here.
 
 ## Exactly defined observation model

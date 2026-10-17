@@ -1,0 +1,247 @@
+{
+  "arithmetic": "exact integer cyclotomic power-basis coefficients",
+  "groups": [
+    {
+      "ambiguous_pairs_before_probes": 0,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 0,
+      "cyclic_factors": [
+        3
+      ],
+      "order": 3,
+      "r": 0,
+      "s": 1,
+      "square_fibres": 1,
+      "supports": 1
+    },
+    {
+      "ambiguous_pairs_before_probes": 0,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 0,
+      "cyclic_factors": [
+        5
+      ],
+      "order": 5,
+      "r": 0,
+      "s": 0,
+      "square_fibres": 10,
+      "supports": 10
+    },
+    {
+      "ambiguous_pairs_before_probes": 0,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 0,
+      "cyclic_factors": [
+        9
+      ],
+      "order": 9,
+      "r": 0,
+      "s": 1,
+      "square_fibres": 84,
+      "supports": 84
+    },
+    {
+      "ambiguous_pairs_before_probes": 0,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 0,
+      "cyclic_factors": [
+        3,
+        3
+      ],
+      "order": 9,
+      "r": 0,
+      "s": 2,
+      "square_fibres": 84,
+      "supports": 84
+    },
+    {
+      "ambiguous_pairs_before_probes": 2,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 1,
+      "cyclic_factors": [
+        4
+      ],
+      "order": 4,
+      "r": 1,
+      "s": 0,
+      "square_fibres": 2,
+      "supports": 4
+    },
+    {
+      "ambiguous_pairs_before_probes": 28,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 1,
+      "cyclic_factors": [
+        8
+      ],
+      "order": 8,
+      "r": 1,
+      "s": 0,
+      "square_fibres": 28,
+      "supports": 56
+    },
+    {
+      "ambiguous_pairs_before_probes": 6,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        2,
+        2
+      ],
+      "order": 4,
+      "r": 2,
+      "s": 0,
+      "square_fibres": 1,
+      "supports": 4
+    },
+    {
+      "ambiguous_pairs_before_probes": 84,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        2,
+        4
+      ],
+      "order": 8,
+      "r": 2,
+      "s": 0,
+      "square_fibres": 14,
+      "supports": 56
+    },
+    {
+      "ambiguous_pairs_before_probes": 22,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        2,
+        3
+      ],
+      "order": 6,
+      "r": 1,
+      "s": 1,
+      "square_fibres": 7,
+      "supports": 20
+    },
+    {
+      "ambiguous_pairs_before_probes": 134,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        4,
+        3
+      ],
+      "order": 12,
+      "r": 1,
+      "s": 1,
+      "square_fibres": 104,
+      "supports": 220
+    },
+    {
+      "ambiguous_pairs_before_probes": 444,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        2,
+        9
+      ],
+      "order": 18,
+      "r": 1,
+      "s": 1,
+      "square_fibres": 399,
+      "supports": 816
+    },
+    {
+      "ambiguous_pairs_before_probes": 3642,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        4,
+        9
+      ],
+      "order": 36,
+      "r": 1,
+      "s": 1,
+      "square_fibres": 3552,
+      "supports": 7140
+    },
+    {
+      "ambiguous_pairs_before_probes": 29964,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 2,
+      "cyclic_factors": [
+        8,
+        9
+      ],
+      "order": 72,
+      "r": 1,
+      "s": 1,
+      "square_fibres": 29784,
+      "supports": 59640
+    },
+    {
+      "ambiguous_pairs_before_probes": 26520,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 3,
+      "cyclic_factors": [
+        4,
+        4,
+        3
+      ],
+      "order": 48,
+      "r": 2,
+      "s": 1,
+      "square_fibres": 4288,
+      "supports": 17296
+    },
+    {
+      "ambiguous_pairs_before_probes": 552,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 3,
+      "cyclic_factors": [
+        2,
+        3,
+        3
+      ],
+      "order": 18,
+      "r": 1,
+      "s": 2,
+      "square_fibres": 372,
+      "supports": 816
+    },
+    {
+      "ambiguous_pairs_before_probes": 12834,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 3,
+      "cyclic_factors": [
+        2,
+        9,
+        3
+      ],
+      "order": 54,
+      "r": 1,
+      "s": 2,
+      "square_fibres": 12294,
+      "supports": 24804
+    },
+    {
+      "ambiguous_pairs_before_probes": 30396,
+      "collisions_after_probes": 0,
+      "constructed_bank_size": 3,
+      "cyclic_factors": [
+        8,
+        3,
+        3
+      ],
+      "order": 72,
+      "r": 1,
+      "s": 2,
+      "square_fibres": 29676,
+      "supports": 59640
+    }
+  ],
+  "model": "labelled ordered square, exactly three distinct support points, zero allowed; fixed individual complex primary-character coefficients",
+  "scope": "bounded replay of construction, not a universal proof or independent human review",
+  "total_ambiguous_pairs_before_probes": 104628,
+  "total_collisions_after_probes": 0,
+  "total_supports": 170691
+}

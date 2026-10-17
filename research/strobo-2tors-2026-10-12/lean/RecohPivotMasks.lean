@@ -1,6 +1,6 @@
 import RecohKernelCollisions
 import Mathlib.Data.Finset.Card
-import Mathlib.Tactic
+import Lean.Elab.Tactic.Omega
 
 set_option autoImplicit false
 

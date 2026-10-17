@@ -1,5 +1,7 @@
 # RECOH — Binary character linearization: exact remaining bridge (private, draft)
 
+> Historical snapshot. The integrated result of 17 October 2026 is described in [RECOH_OPTIMAL_BANK_20261017.md](RECOH_OPTIMAL_BANK_20261017.md), with certification tied to its exact source commit. The dated statements and certificates below are preserved as research history.
+
 **Historical plan, superseded for obligations (A) and (B).** The structural
 bridge and its verified scope are recorded in
 [RECOH_BINARY_STRUCTURAL_BRIDGE_20261016.md](RECOH_BINARY_STRUCTURAL_BRIDGE_20261016.md).

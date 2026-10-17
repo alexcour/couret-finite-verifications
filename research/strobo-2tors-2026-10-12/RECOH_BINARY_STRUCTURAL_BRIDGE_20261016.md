@@ -1,5 +1,7 @@
 # RECOH — Structural binary bridge and collision composition
 
+> Historical snapshot. The integrated result of 17 October 2026 is described in [RECOH_OPTIMAL_BANK_20261017.md](RECOH_OPTIMAL_BANK_20261017.md), with certification tied to its exact source commit. The dated statements and certificates below are preserved as research history.
+
 Date: 16 October 2026. Research PR #36; retain draft status.
 
 ## Exact structural contract
