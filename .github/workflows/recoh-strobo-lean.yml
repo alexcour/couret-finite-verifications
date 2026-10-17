@@ -1,19 +1,22 @@
-name: RECOH optimal fixed character bank
+name: RECOH optimal character banks and typed decoding
 on:
   push:
     branches:
       - research/recoh-strobo-fourier-lean-2026-10-14
+      - research/recoh-fibre-optimal-2026-10-17
     paths:
       - 'research/strobo-2tors-2026-10-12/lean/**'
       - '.github/workflows/recoh-strobo-lean.yml'
       - 'research/strobo-2tors-2026-10-12/verify_recoh*_20261017.py'
       - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
+      - 'research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json'
   pull_request:
     paths:
       - 'research/strobo-2tors-2026-10-12/lean/**'
       - '.github/workflows/recoh-strobo-lean.yml'
       - 'research/strobo-2tors-2026-10-12/verify_recoh*_20261017.py'
       - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
+      - 'research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json'
   workflow_dispatch:
 permissions:
   contents: read
@@ -41,6 +44,8 @@ jobs:
           python3 research/strobo-2tors-2026-10-12/verify_recoh_primary_bank_20261017.py
           git diff --exit-code -- research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json
           python3 research/strobo-2tors-2026-10-12/verify_recoh_axioms_20261017.py
+      - name: Replay full square fibres and the price of a fixed bank
+        run: python3 research/strobo-2tors-2026-10-12/verify_recoh_fibre_20261017.py --check
       - name: Restore mathlib and compile the integrated STROBO and RECOH library
         working-directory: research/strobo-2tors-2026-10-12/lean
         run: |
@@ -65,3 +70,4 @@ jobs:
             research/strobo-2tors-2026-10-12/lean/recoh-axioms.log
             research/strobo-2tors-2026-10-12/lean/recoh-certificate.json
             research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json
+            research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json

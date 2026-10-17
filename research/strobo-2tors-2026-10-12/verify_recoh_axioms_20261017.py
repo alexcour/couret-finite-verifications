@@ -90,7 +90,7 @@ def main():
         "RecohCyclicPrimaryBank", "RecohIndexedSignRecovery",
         "RecohCoefficientDecoder", "RecohTypedObservation", "RecohPreparedDecoder",
         "RecohEarlySignChecks", "RecohCyclicCoefficientDecoder",
-        "RecohCyclicDecoderOptimal", "RecohCyclicPreparedDecoder",
+        "RecohCyclicDecoderOptimal", "RecohCyclicPreparedDecoder", "RecohFibreOptimal",
     ]
     content = "".join(f"import {module}\n" for module in imports) + "\n"
     content += "/-! Fresh public-declaration dependency checks for the integrated RECOH result. -/\n\n"
@@ -115,6 +115,9 @@ def main():
                           "allowed_axioms": sorted(ALLOWED),
                           "nonstandard_dependencies": [],
                           "principal_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_size",
+                          "fibre_optimality_theorem": "Couret.STROBO2TORS.recoh_optimal_fibre_bank_size",
+                          "square_selection_optimality_theorem": "Couret.STROBO2TORS.recoh_optimal_after_square_bank_size",
+                          "square_selection_scope": "Classical existence of one character-bank selection rule whose only input is the labelled ordered square. Each selected bank is fixed on its full triple fibre; exact local budget log2(cardinality), worst-case budget 0 for binary rank zero and r+min(1,s) otherwise, on a nonempty triple domain. No efficient selector, raw JSON implementation, or adaptive decision-tree theorem is claimed.",
                           "decoder_specification_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder",
                           "decoder_refinement_theorem": "Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact",
                           "typed_decoder_theorem": "Couret.STROBO2TORS.recoh_mem_cyclic_coefficient_decoder_iff",
