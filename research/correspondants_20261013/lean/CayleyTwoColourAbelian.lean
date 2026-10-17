@@ -4,11 +4,13 @@ import CayleyTwoColourFamily
 set_option autoImplicit false
 
 /-!
-COU-20 — finite abelian two-colour bridge (candidate, 16 Oct 2026).
+COU-20 — abelian two-colour bridge (17 Oct 2026).
 
-This is a small proof layer for the generalized exceptional triple pair.
-The universal dichotomy ("non-isomorphic iff the singleton step generates
-the h-quotient") is NOT a theorem of this file. No release/priority claim.
+The directed isomorphism dichotomy for the exceptional triple pair is
+assembled below, including its exact order-three quotient formulation.
+It retains a nonzero half-turn and generation by a,d,h; no finiteness or
+cyclicity assumption is added. No spectral-necessity or undirected-graph
+extension, independent human review, release or priority claim.
 -/
 
 namespace Couret.CayleyDoublet
@@ -858,6 +860,222 @@ theorem abelianThreeIso_iff_nongeneration_of_separated
         a d h hhalf hthree hgen hproper
     exact ⟨φ.toEquiv, hφ⟩
 
+/-!
+## COU-20: exact separation criterion and order-three quotient corollary
+-/
+
+/-- The six separations needed by the directed isomorphism theorem follow
+from the two cross exclusions. No finiteness, generation or nonzero h is needed. -/
+theorem abelianSixSeparations_of_double_ne
+    (a d h : G) (hhalf : h + h = 0)
+    (h2zero : d + d ≠ 0) (h2half : d + d ≠ h) :
+    a ≠ a + d ∧ a ≠ (a + d) + h ∧
+      a ≠ a - d ∧ a ≠ (a - d) + h ∧
+      a + d ≠ a - d ∧ a + d ≠ (a - d) + h := by
+  have hd0 : d ≠ 0 := by
+    intro he
+    apply h2zero
+    simp [he]
+  have hdh : d ≠ h := by
+    intro he
+    apply h2zero
+    simpa only [he] using hhalf
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro he
+    apply hd0
+    calc
+      d = (a + d) - a := by abel
+      _ = 0 := by rw [← he]; simp
+  · intro he
+    apply hdh
+    calc
+      d = d + (h + h) := by simp [hhalf]
+      _ = (((a + d) + h) - a) + h := by abel
+      _ = h := by rw [← he]; simp
+  · intro he
+    apply hd0
+    calc
+      d = a - (a - d) := by abel
+      _ = 0 := by rw [← he]; simp
+  · intro he
+    apply hdh
+    calc
+      d = (a - ((a - d) + h)) + h := by abel
+      _ = h := by rw [← he]; simp
+  · intro he
+    apply h2zero
+    calc
+      d + d = (a + d) - (a - d) := by abel
+      _ = 0 := by rw [he]; simp
+  · intro he
+    apply h2half
+    calc
+      d + d = ((a + d) - ((a - d) + h)) + h := by abel
+      _ = h := by rw [he]; simp
+
+/-- Exact minimal criterion for the six separations when 2h=0:
+both d+d=0 and d+d=h must be excluded. -/
+theorem abelianSixSeparations_iff_double_ne
+    (a d h : G) (hhalf : h + h = 0) :
+    (a ≠ a + d ∧ a ≠ (a + d) + h ∧
+      a ≠ a - d ∧ a ≠ (a - d) + h ∧
+      a + d ≠ a - d ∧ a + d ≠ (a - d) + h) ↔
+        d + d ≠ 0 ∧ d + d ≠ h := by
+  constructor
+  · rintro ⟨_, _, _, _, hc1, hc2⟩
+    constructor
+    · intro he
+      apply hc1
+      apply sub_eq_zero.mp
+      calc
+        (a + d) - (a - d) = d + d := by abel
+        _ = 0 := he
+    · intro he
+      apply hc2
+      apply sub_eq_zero.mp
+      calc
+        (a + d) - ((a - d) + h) = (d + d) - h := by abel
+        _ = 0 := by rw [he]; simp
+  · rintro ⟨h2zero, h2half⟩
+    exact abelianSixSeparations_of_double_ne a d h hhalf h2zero h2half
+
+/-- Under the existing three-torsion premise, one extra inequality is
+necessary and sufficient for all six separations. -/
+theorem abelianThreeSeparations_iff_double_ne_zero
+    (a d h : G) (hhalf : h + h = 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h) :
+    (a ≠ a + d ∧ a ≠ (a + d) + h ∧
+      a ≠ a - d ∧ a ≠ (a - d) + h ∧
+      a + d ≠ a - d ∧ a + d ≠ (a - d) + h) ↔
+        d + d ≠ 0 := by
+  constructor
+  · intro hsep
+    exact ((abelianSixSeparations_iff_double_ne a d h hhalf).mp hsep).1
+  · intro h2zero
+    have hd0 : d ≠ 0 := by
+      intro he
+      apply h2zero
+      simp [he]
+    have hdh : d ≠ h := by
+      intro he
+      apply h2zero
+      simpa only [he] using hhalf
+    obtain ⟨_, h2half⟩ :=
+      no_cross_collision_of_order_three d h hhalf hd0 hdh hthree
+    exact abelianSixSeparations_of_double_ne a d h hhalf h2zero h2half
+
+/-- When h is nonzero, the second cross exclusion already follows from
+2h=0 and 3d in {0,h}, even if the supports degenerate. -/
+theorem abelianThree_double_ne_halfTurn
+    (d h : G) (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h) :
+    d + d ≠ h := by
+  intro hdd
+  have hd : d = 0 ∨ d = h := by
+    rcases hthree with ht | ht
+    · right
+      have he : h + d = 0 := by simpa only [hdd] using ht
+      exact add_left_cancel (he.trans hhalf.symm)
+    · left
+      have he : h + d = h := by simpa only [hdd] using ht
+      exact add_left_cancel (show h + d = h + 0 by simpa using he)
+  apply hne
+  rcases hd with rfl | rfl
+  · simpa using hdd.symm
+  · exact hdd.symm.trans hhalf
+
+/-- The previously certified directed dichotomy with its six technical
+separations replaced by their exact minimal condition under 3d in {0,h}.
+The nonzero half-turn and generation hypotheses are retained. -/
+theorem abelianThreeIso_iff_nongeneration
+    (a d h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h)
+    (hgen : AddSubgroup.closure ({a, d, h} : Set G) = ⊤)
+    (hd2 : d + d ≠ 0) :
+    (∃ f : G ≃ G, ∀ x y : G,
+      CayleyArc (AbelianSource a d h) x y ↔
+      CayleyArc (AbelianTarget a d h) (f x) (f y)) ↔
+        AddSubgroup.closure ({a, h} : Set G) ≠ ⊤ := by
+  obtain ⟨hs1, hs2, ht1, ht2, hc1, hc2⟩ :=
+    (abelianThreeSeparations_iff_double_ne_zero a d h hhalf hthree).mpr hd2
+  exact abelianThreeIso_iff_nongeneration_of_separated a d h
+    hhalf hne hthree hgen hs1 hs2 ht1 ht2 hc1 hc2
+
+#print axioms Couret.CayleyDoublet.abelianSixSeparations_of_double_ne
+#print axioms Couret.CayleyDoublet.abelianSixSeparations_iff_double_ne
+#print axioms Couret.CayleyDoublet.abelianThreeSeparations_iff_double_ne_zero
+#print axioms Couret.CayleyDoublet.abelianThree_double_ne_halfTurn
+#print axioms Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration
+
+
+/-- A half-turn generates exactly its two possible multiples.  The assertion
+also holds for `h = 0`; neither finiteness nor nontriviality is required. -/
+theorem abelian_mem_zmultiples_halfTurn_iff
+    (h x : G) (hhalf : h + h = 0) :
+    x ∈ AddSubgroup.zmultiples h ↔ x = 0 ∨ x = h := by
+  have hneg : -h = h := by
+    calc
+      -h = -h + (h + h) := by rw [hhalf, add_zero]
+      _ = h := by abel
+  let K : AddSubgroup G :=
+    { carrier := {y | y = 0 ∨ y = h}
+      zero_mem' := Or.inl rfl
+      add_mem' := by
+        rintro x y (rfl | rfl) (rfl | rfl)
+        · exact Or.inl (by simp)
+        · exact Or.inr (by simp)
+        · exact Or.inr (by simp)
+        · exact Or.inl hhalf
+      neg_mem' := by
+        rintro x (rfl | rfl)
+        · exact Or.inl (by simp)
+        · exact Or.inr hneg }
+  have hz : AddSubgroup.zmultiples h ≤ K :=
+    AddSubgroup.zmultiples_le.mpr (Or.inr rfl)
+  constructor
+  · intro hx
+    exact hz hx
+  · rintro (rfl | rfl)
+    · exact (AddSubgroup.zmultiples h).zero_mem
+    · exact AddSubgroup.mem_zmultiples _
+
+/-- Exact quotient order three is precisely the elementary arithmetic used
+by the exceptional-pair separation lemmas.  In particular `h ≠ 0` is not
+needed for this reduction. -/
+theorem abelian_quotient_addOrderOf_three_iff
+    (d h : G) (hhalf : h + h = 0) :
+    addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3 ↔
+      ((d + d) + d = 0 ∨ (d + d) + d = h) ∧ d ≠ 0 ∧ d ≠ h := by
+  letI : Fact (Nat.Prime 3) := ⟨by decide⟩
+  rw [addOrderOf_eq_prime_iff, ← QuotientAddGroup.mk_nsmul]
+  simp only [ne_eq, QuotientAddGroup.eq_zero_iff]
+  rw [abelian_mem_zmultiples_halfTurn_iff h (3 • d) hhalf,
+    abelian_mem_zmultiples_halfTurn_iff h d hhalf]
+  simp only [three'_nsmul, not_or]
+
+#print axioms abelian_mem_zmultiples_halfTurn_iff
+#print axioms abelian_quotient_addOrderOf_three_iff
+
+/-- Natural quotient-order formulation of the directed Cayley dichotomy.
+The arithmetic and all six separations are derived, while the nonzero
+half-turn and generation premises of the certified theorem are preserved. -/
+theorem abelianThreeIso_iff_nongeneration_of_quotient_order_three
+    (a d h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (horder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3)
+    (hgen : AddSubgroup.closure ({a, d, h} : Set G) = ⊤) :
+    (∃ f : G ≃ G, ∀ x y : G,
+      CayleyArc (AbelianSource a d h) x y ↔
+      CayleyArc (AbelianTarget a d h) (f x) (f y)) ↔
+        AddSubgroup.closure ({a, h} : Set G) ≠ ⊤ := by
+  obtain ⟨hthree, hd0, hdh⟩ :=
+    (abelian_quotient_addOrderOf_three_iff d h hhalf).mp horder
+  exact abelianThreeIso_iff_nongeneration a d h hhalf hne hthree hgen
+    (no_cross_collision_of_order_three d h hhalf hd0 hdh hthree).1
+
+#print axioms Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_quotient_order_three
+
 #print axioms Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_separated
 
 #print axioms Couret.CayleyDoublet.abelianNoIso_of_doublet_mem_closure
@@ -884,4 +1102,5 @@ theorem abelianThreeIso_iff_nongeneration_of_separated
 end AbelianTwoColour
 
 end Couret.CayleyDoublet
+
 
