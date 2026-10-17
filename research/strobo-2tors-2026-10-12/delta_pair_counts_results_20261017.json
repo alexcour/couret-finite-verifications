@@ -1,0 +1,936 @@
+{
+  "all_checks_passed": true,
+  "delta_pair_totals": {
+    "2": 10232,
+    "4": 774,
+    "6": 92270
+  },
+  "maximum_group_order": 36,
+  "nontranslation_pairs": 3492,
+  "ordinary_pairs": 99784,
+  "presentations": 33,
+  "rows": [
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 0,
+      "moduli": [
+        1
+      ],
+      "nontranslation_pairs": 0,
+      "order": 1,
+      "ordinary_pairs": 0,
+      "square_fibres": 0,
+      "supports": 0,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 2,
+      "maximum_fibre_size": 0,
+      "moduli": [
+        2
+      ],
+      "nontranslation_pairs": 0,
+      "order": 2,
+      "ordinary_pairs": 0,
+      "square_fibres": 0,
+      "supports": 0,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        3
+      ],
+      "nontranslation_pairs": 0,
+      "order": 3,
+      "ordinary_pairs": 0,
+      "square_fibres": 1,
+      "supports": 1,
+      "t": 3,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 2,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 2,
+        "4": 0,
+        "6": 0
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        4
+      ],
+      "nontranslation_pairs": 0,
+      "order": 4,
+      "ordinary_pairs": 2,
+      "square_fibres": 2,
+      "supports": 4,
+      "t": 1,
+      "unordered_collision_pairs": 2
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        5
+      ],
+      "nontranslation_pairs": 0,
+      "order": 5,
+      "ordinary_pairs": 0,
+      "square_fibres": 10,
+      "supports": 10,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 6,
+        "4": 6,
+        "6": 10
+      },
+      "delta_six_nontranslation_pairs": 6,
+      "delta_six_ordinary_pairs": 4,
+      "formula_counts": {
+        "2": 6,
+        "4": 6,
+        "6": 10
+      },
+      "h": 2,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        6
+      ],
+      "nontranslation_pairs": 12,
+      "order": 6,
+      "ordinary_pairs": 10,
+      "square_fibres": 7,
+      "supports": 20,
+      "t": 3,
+      "unordered_collision_pairs": 22
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        7
+      ],
+      "nontranslation_pairs": 0,
+      "order": 7,
+      "ordinary_pairs": 0,
+      "square_fibres": 35,
+      "supports": 35,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 12,
+        "4": 0,
+        "6": 16
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 16,
+      "formula_counts": {
+        "2": 12,
+        "4": 0,
+        "6": 16
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        8
+      ],
+      "nontranslation_pairs": 0,
+      "order": 8,
+      "ordinary_pairs": 28,
+      "square_fibres": 28,
+      "supports": 56,
+      "t": 1,
+      "unordered_collision_pairs": 28
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        9
+      ],
+      "nontranslation_pairs": 0,
+      "order": 9,
+      "ordinary_pairs": 0,
+      "square_fibres": 84,
+      "supports": 84,
+      "t": 3,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 20,
+        "4": 0,
+        "6": 40
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 40,
+      "formula_counts": {
+        "2": 20,
+        "4": 0,
+        "6": 40
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        10
+      ],
+      "nontranslation_pairs": 0,
+      "order": 10,
+      "ordinary_pairs": 60,
+      "square_fibres": 60,
+      "supports": 120,
+      "t": 1,
+      "unordered_collision_pairs": 60
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        11
+      ],
+      "nontranslation_pairs": 0,
+      "order": 11,
+      "ordinary_pairs": 0,
+      "square_fibres": 165,
+      "supports": 165,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 30,
+        "4": 12,
+        "6": 92
+      },
+      "delta_six_nontranslation_pairs": 12,
+      "delta_six_ordinary_pairs": 80,
+      "formula_counts": {
+        "2": 30,
+        "4": 12,
+        "6": 92
+      },
+      "h": 2,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        12
+      ],
+      "nontranslation_pairs": 24,
+      "order": 12,
+      "ordinary_pairs": 110,
+      "square_fibres": 104,
+      "supports": 220,
+      "t": 3,
+      "unordered_collision_pairs": 134
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        13
+      ],
+      "nontranslation_pairs": 0,
+      "order": 13,
+      "ordinary_pairs": 0,
+      "square_fibres": 286,
+      "supports": 286,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 42,
+        "4": 0,
+        "6": 140
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 140,
+      "formula_counts": {
+        "2": 42,
+        "4": 0,
+        "6": 140
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        14
+      ],
+      "nontranslation_pairs": 0,
+      "order": 14,
+      "ordinary_pairs": 182,
+      "square_fibres": 182,
+      "supports": 364,
+      "t": 1,
+      "unordered_collision_pairs": 182
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        15
+      ],
+      "nontranslation_pairs": 0,
+      "order": 15,
+      "ordinary_pairs": 0,
+      "square_fibres": 455,
+      "supports": 455,
+      "t": 3,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 56,
+        "4": 0,
+        "6": 224
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 224,
+      "formula_counts": {
+        "2": 56,
+        "4": 0,
+        "6": 224
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        16
+      ],
+      "nontranslation_pairs": 0,
+      "order": 16,
+      "ordinary_pairs": 280,
+      "square_fibres": 280,
+      "supports": 560,
+      "t": 1,
+      "unordered_collision_pairs": 280
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        17
+      ],
+      "nontranslation_pairs": 0,
+      "order": 17,
+      "ordinary_pairs": 0,
+      "square_fibres": 680,
+      "supports": 680,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 72,
+        "4": 18,
+        "6": 354
+      },
+      "delta_six_nontranslation_pairs": 18,
+      "delta_six_ordinary_pairs": 336,
+      "formula_counts": {
+        "2": 72,
+        "4": 18,
+        "6": 354
+      },
+      "h": 2,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        18
+      ],
+      "nontranslation_pairs": 36,
+      "order": 18,
+      "ordinary_pairs": 408,
+      "square_fibres": 399,
+      "supports": 816,
+      "t": 3,
+      "unordered_collision_pairs": 444
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        19
+      ],
+      "nontranslation_pairs": 0,
+      "order": 19,
+      "ordinary_pairs": 0,
+      "square_fibres": 969,
+      "supports": 969,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 90,
+        "4": 0,
+        "6": 480
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 480,
+      "formula_counts": {
+        "2": 90,
+        "4": 0,
+        "6": 480
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        20
+      ],
+      "nontranslation_pairs": 0,
+      "order": 20,
+      "ordinary_pairs": 570,
+      "square_fibres": 570,
+      "supports": 1140,
+      "t": 1,
+      "unordered_collision_pairs": 570
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        21
+      ],
+      "nontranslation_pairs": 0,
+      "order": 21,
+      "ordinary_pairs": 0,
+      "square_fibres": 1330,
+      "supports": 1330,
+      "t": 3,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 110,
+        "4": 0,
+        "6": 660
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 660,
+      "formula_counts": {
+        "2": 110,
+        "4": 0,
+        "6": 660
+      },
+      "h": 2,
+      "maximum_fibre_size": 2,
+      "moduli": [
+        22
+      ],
+      "nontranslation_pairs": 0,
+      "order": 22,
+      "ordinary_pairs": 770,
+      "square_fibres": 770,
+      "supports": 1540,
+      "t": 1,
+      "unordered_collision_pairs": 770
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "h": 1,
+      "maximum_fibre_size": 1,
+      "moduli": [
+        23
+      ],
+      "nontranslation_pairs": 0,
+      "order": 23,
+      "ordinary_pairs": 0,
+      "square_fibres": 1771,
+      "supports": 1771,
+      "t": 1,
+      "unordered_collision_pairs": 0
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 132,
+        "4": 24,
+        "6": 904
+      },
+      "delta_six_nontranslation_pairs": 24,
+      "delta_six_ordinary_pairs": 880,
+      "formula_counts": {
+        "2": 132,
+        "4": 24,
+        "6": 904
+      },
+      "h": 2,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        24
+      ],
+      "nontranslation_pairs": 48,
+      "order": 24,
+      "ordinary_pairs": 1012,
+      "square_fibres": 1000,
+      "supports": 2024,
+      "t": 3,
+      "unordered_collision_pairs": 1060
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 6,
+        "4": 0,
+        "6": 0
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 0,
+      "formula_counts": {
+        "2": 6,
+        "4": 0,
+        "6": 0
+      },
+      "h": 4,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        2,
+        2
+      ],
+      "nontranslation_pairs": 0,
+      "order": 4,
+      "ordinary_pairs": 6,
+      "square_fibres": 1,
+      "supports": 4,
+      "t": 1,
+      "unordered_collision_pairs": 6
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 6,
+        "4": 6,
+        "6": 10
+      },
+      "delta_six_nontranslation_pairs": 6,
+      "delta_six_ordinary_pairs": 4,
+      "formula_counts": {
+        "2": 6,
+        "4": 6,
+        "6": 10
+      },
+      "h": 2,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        2,
+        3
+      ],
+      "nontranslation_pairs": 12,
+      "order": 6,
+      "ordinary_pairs": 10,
+      "square_fibres": 7,
+      "supports": 20,
+      "t": 3,
+      "unordered_collision_pairs": 22
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 90,
+        "4": 36,
+        "6": 348
+      },
+      "delta_six_nontranslation_pairs": 108,
+      "delta_six_ordinary_pairs": 240,
+      "formula_counts": {
+        "2": 90,
+        "4": 36,
+        "6": 348
+      },
+      "h": 4,
+      "maximum_fibre_size": 8,
+      "moduli": [
+        2,
+        2,
+        3
+      ],
+      "nontranslation_pairs": 144,
+      "order": 12,
+      "ordinary_pairs": 330,
+      "square_fibres": 46,
+      "supports": 220,
+      "t": 3,
+      "unordered_collision_pairs": 474
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 924,
+        "4": 168,
+        "6": 7336
+      },
+      "delta_six_nontranslation_pairs": 1176,
+      "delta_six_ordinary_pairs": 6160,
+      "formula_counts": {
+        "2": 924,
+        "4": 168,
+        "6": 7336
+      },
+      "h": 8,
+      "maximum_fibre_size": 16,
+      "moduli": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "nontranslation_pairs": 1344,
+      "order": 24,
+      "ordinary_pairs": 7084,
+      "square_fibres": 232,
+      "supports": 2024,
+      "t": 3,
+      "unordered_collision_pairs": 8428
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 72,
+        "4": 72,
+        "6": 408
+      },
+      "delta_six_nontranslation_pairs": 72,
+      "delta_six_ordinary_pairs": 336,
+      "formula_counts": {
+        "2": 72,
+        "4": 72,
+        "6": 408
+      },
+      "h": 2,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        2,
+        3,
+        3
+      ],
+      "nontranslation_pairs": 144,
+      "order": 18,
+      "ordinary_pairs": 408,
+      "square_fibres": 372,
+      "supports": 816,
+      "t": 9,
+      "unordered_collision_pairs": 552
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 918,
+        "4": 432,
+        "6": 11088
+      },
+      "delta_six_nontranslation_pairs": 1296,
+      "delta_six_ordinary_pairs": 9792,
+      "formula_counts": {
+        "2": 918,
+        "4": 432,
+        "6": 11088
+      },
+      "h": 4,
+      "maximum_fibre_size": 8,
+      "moduli": [
+        2,
+        2,
+        3,
+        3
+      ],
+      "nontranslation_pairs": 1728,
+      "order": 36,
+      "ordinary_pairs": 10710,
+      "square_fibres": 1677,
+      "supports": 7140,
+      "t": 9,
+      "unordered_collision_pairs": 12438
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 7440,
+        "4": 0,
+        "6": 69440
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 69440,
+      "formula_counts": {
+        "2": 7440,
+        "4": 0,
+        "6": 69440
+      },
+      "h": 32,
+      "maximum_fibre_size": 32,
+      "moduli": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nontranslation_pairs": 0,
+      "order": 32,
+      "ordinary_pairs": 76880,
+      "square_fibres": 155,
+      "supports": 4960,
+      "t": 1,
+      "unordered_collision_pairs": 76880
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 36,
+        "4": 0,
+        "6": 48
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 48,
+      "formula_counts": {
+        "2": 36,
+        "4": 0,
+        "6": 48
+      },
+      "h": 4,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        2,
+        4
+      ],
+      "nontranslation_pairs": 0,
+      "order": 8,
+      "ordinary_pairs": 84,
+      "square_fibres": 14,
+      "supports": 56,
+      "t": 1,
+      "unordered_collision_pairs": 84
+    },
+    {
+      "all_checks_passed": true,
+      "delta_pair_counts": {
+        "2": 168,
+        "4": 0,
+        "6": 672
+      },
+      "delta_six_nontranslation_pairs": 0,
+      "delta_six_ordinary_pairs": 672,
+      "formula_counts": {
+        "2": 168,
+        "4": 0,
+        "6": 672
+      },
+      "h": 4,
+      "maximum_fibre_size": 4,
+      "moduli": [
+        4,
+        4
+      ],
+      "nontranslation_pairs": 0,
+      "order": 16,
+      "ordinary_pairs": 840,
+      "square_fibres": 140,
+      "supports": 560,
+      "t": 1,
+      "unordered_collision_pairs": 840
+    }
+  ],
+  "scope": {
+    "nontranslation_test": "all translations in the ambient group",
+    "ordered_square_diagonals_included": true,
+    "ordered_sums_per_support": 9,
+    "pairs": "unordered pairs of distinct three-element supports",
+    "signature": "labelled vector of ordered-sum multiplicities",
+    "small_group_subtraction": "truncated natural-number subtraction",
+    "zero_allowed": true
+  },
+  "square_fibres": 11832,
+  "status": "FINITE_CHECK_ONLY",
+  "supports": 28450,
+  "unordered_collision_pairs": 103276
+}

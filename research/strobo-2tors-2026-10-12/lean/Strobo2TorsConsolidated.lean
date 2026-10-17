@@ -20,6 +20,10 @@ import Strobo2TorsNontranslationUnordered
 import Strobo2TorsDeltaOrdinary
 import Strobo2TorsDeltaExceptional
 import Strobo2TorsSymmetricDifference
+import Strobo2TorsDeltaOrdinaryCount
+import Strobo2TorsDeltaTwoCount
+import Strobo2TorsDeltaExceptionalCount
+import Strobo2TorsDeltaCount
 
 /- One import environment for the integrated STROBO proof modules.
 Compilation of separate roots alone would not detect namespace collisions. -/
@@ -369,3 +373,54 @@ Compilation of separate roots alone would not detect namespace collisions. -/
 #print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_six_iff
 #print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_classification
 #print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_four_not_translation
+
+-- Strobo2TorsDeltaOrdinaryCount
+#print axioms Couret.STROBO2TORS.ordinaryGraph_neighborFinset
+#print axioms Couret.STROBO2TORS.ordinaryGraph_degree
+#print axioms Couret.STROBO2TORS.ordinaryGraph_twice_edges
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_degree
+#print axioms Couret.STROBO2TORS.ordinaryGraph_adj_delta_cases
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_four_eq_bot
+#print axioms Couret.STROBO2TORS.ordinaryGraph_degree_partition
+#print axioms Couret.STROBO2TORS.ordinaryGraph_edges_partition
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_two_six_twice_edges
+
+-- Strobo2TorsDeltaTwoCount
+#print axioms Couret.STROBO2TORS.ordinaryPartner_inter_two_param
+#print axioms Couret.STROBO2TORS.mem_deltaTwoParameters
+#print axioms Couret.STROBO2TORS.deltaTwoParameters_card
+#print axioms Couret.STROBO2TORS.mem_deltaTwoOrderedPairs
+#print axioms Couret.STROBO2TORS.deltaTwoRealization_image
+#print axioms Couret.STROBO2TORS.deltaTwoRealization_preimage
+#print axioms Couret.STROBO2TORS.twice_deltaTwoOrderedPairs_card
+#print axioms Couret.STROBO2TORS.deltaTwoOrderedPairs_iff_adj
+#print axioms Couret.STROBO2TORS.deltaTwoOrderedPairs_card_eq_twice_edges
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_two_four_mul_edges
+
+-- Strobo2TorsDeltaExceptionalCount
+#print axioms Couret.STROBO2TORS.mem_nontranslationDeltaNeighbours
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_adj_iff
+#print axioms Couret.STROBO2TORS.nontranslationDeltaNeighbours_four_card_exceptional
+#print axioms Couret.STROBO2TORS.nontranslationDeltaNeighbours_six_card_exceptional
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_degree
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_degree_four
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_degree_six
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_four_twice_edges
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_four_twice_edges_numeric
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_six_twice_edges
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_six_twice_edges_numeric
+
+-- Strobo2TorsDeltaCount
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_adj_iff
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_degree
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_edges_partition
+#print axioms Couret.STROBO2TORS.nontranslationDeltaGraph_two_eq_bot
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_six_twelve_mul_edges
+#print axioms Couret.STROBO2TORS.ordinaryDeltaGraph_six_edges_numeric
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_two_four_mul_edges
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_four_twice_edges_numeric
+#print axioms Couret.STROBO2TORS.squareDeltaGraph_six_twelve_mul_edges
+#print axioms Couret.STROBO2TORS.squareDeltaPairCount_two
+#print axioms Couret.STROBO2TORS.squareDeltaPairCount_four
+#print axioms Couret.STROBO2TORS.squareDeltaPairCount_six
+#print axioms Couret.STROBO2TORS.squareDeltaPairCount_numeric
