@@ -808,6 +808,58 @@ theorem abelianNoIso_of_doublet_mem_closure
   · exact hbc (add_left_cancel hc)
   · exact hbch (add_left_cancel hch')
 
+
+/-!
+COU-20: formal assembly of the two directions.
+The separated-support version exposes the exact hypotheses required
+by the intrinsic-colour obstruction. The next corollary discharges
+these separations from the order-three quotient arithmetic.
+-/
+
+/-- Full isomorphism dichotomy for separated exceptional triples in
+an additive commutative group. Both directions are constructed in Lean. -/
+theorem abelianThreeIso_iff_nongeneration_of_separated
+    (a d h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h)
+    (hgen : AddSubgroup.closure ({a, d, h} : Set G) = ⊤)
+    (hs1 : a ≠ a + d)
+    (hs2 : a ≠ (a + d) + h)
+    (ht1 : a ≠ a - d)
+    (ht2 : a ≠ (a - d) + h)
+    (hcross1 : a + d ≠ a - d)
+    (hcross2 : a + d ≠ (a - d) + h) :
+    (∃ f : G ≃ G, ∀ x y : G,
+      CayleyArc (AbelianSource a d h) x y ↔
+      CayleyArc (AbelianTarget a d h) (f x) (f y)) ↔
+        AddSubgroup.closure ({a, h} : Set G) ≠ ⊤ := by
+  constructor
+  · rintro ⟨f, hf⟩ hfull
+    have hbK : a + d ∈ AddSubgroup.closure ({a, h} : Set G) := by
+      rw [hfull]
+      trivial
+    have htargetThree :
+        (a - (a - d)) + (a - (a - d)) + (a - (a - d)) = 0 ∨
+        (a - (a - d)) + (a - (a - d)) + (a - (a - d)) = h := by
+      have hdiff : a - (a - d) = d := by abel
+      simpa only [hdiff] using hthree
+    have htransport :
+        ∀ x y : G,
+          CayleyArc (TripleSupport a (a + d) h) x y ↔
+          CayleyArc (TripleSupport a (a - d) h) (f x) (f y) := by
+      intro x y
+      exact hf x y
+    exact abelianNoIso_of_doublet_mem_closure a (a + d) (a - d) h
+      hhalf hne hs1 hs2 ht1 ht2 htargetThree
+      hbK hcross1 hcross2 f htransport
+  · intro hproper
+    obtain ⟨φ, hφ⟩ :=
+      abelianThreeReflection_of_nongeneration_arc_iff
+        a d h hhalf hthree hgen hproper
+    exact ⟨φ.toEquiv, hφ⟩
+
+#print axioms Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_separated
+
 #print axioms Couret.CayleyDoublet.abelianNoIso_of_doublet_mem_closure
 
 #print axioms Couret.CayleyDoublet.abelianThreeCharacter_of_generation
