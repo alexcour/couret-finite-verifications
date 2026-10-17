@@ -1,6 +1,7 @@
 import Strobo2TorsConsolidated
 import RecohOptimalBank
 import RecohUpperSignGate
+import RecohCandidateDecoder
 
 /-! Fresh public-declaration dependency checks for the integrated RECOH result. -/
 
@@ -11,6 +12,16 @@ import RecohUpperSignGate
 #print axioms Couret.STROBO2TORS.recoh_binary_coordinates_of_card
 #print axioms Couret.STROBO2TORS.recoh_binary_information_set_of_card
 #print axioms Couret.STROBO2TORS.recoh_short_bank_collision_of_binary_card
+#print axioms Couret.STROBO2TORS.recoh_edge_decode_card
+#print axioms Couret.STROBO2TORS.recoh_ordered_square_pos_of_mem
+#print axioms Couret.STROBO2TORS.recoh_mem_square_support
+#print axioms Couret.STROBO2TORS.recoh_square_support_card_le_six
+#print axioms Couret.STROBO2TORS.recoh_mem_candidates_iff
+#print axioms Couret.STROBO2TORS.recoh_candidate_card_three
+#print axioms Couret.STROBO2TORS.recoh_candidates_complete
+#print axioms Couret.STROBO2TORS.recoh_mem_exact_decoder_iff
+#print axioms Couret.STROBO2TORS.recoh_exact_decoder_singleton
+#print axioms Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder
 #print axioms Couret.STROBO2TORS.recoh_two_torsion_probe_is_sign
 #print axioms Couret.STROBO2TORS.recoh_three_torsion_probe_equal_iff_trivial
 #print axioms Couret.STROBO2TORS.recoh_order_three_character_mask_iff

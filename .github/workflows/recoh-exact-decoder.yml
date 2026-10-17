@@ -1,0 +1,56 @@
+name: RECOH exact decoder differential replay
+
+on:
+  push:
+    branches:
+      - research/recoh-strobo-fourier-lean-2026-10-14
+    paths:
+      - 'research/strobo-2tors-2026-10-12/recoh_exact_decoder.py'
+      - 'research/strobo-2tors-2026-10-12/test_recoh_exact_decoder.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_decoder_results_20261017.json'
+      - 'research/strobo-2tors-2026-10-12/verify_recoh_decoder_independent_20261017.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_decoder_independent_results_20261017.json'
+      - '.github/workflows/recoh-exact-decoder.yml'
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/recoh_exact_decoder.py'
+      - 'research/strobo-2tors-2026-10-12/test_recoh_exact_decoder.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_decoder_results_20261017.json'
+      - 'research/strobo-2tors-2026-10-12/verify_recoh_decoder_independent_20261017.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_decoder_independent_results_20261017.json'
+      - '.github/workflows/recoh-exact-decoder.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-decoder:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Unit tests, exhaustive independent oracle and frozen report
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONOPTIMIZE=0
+          python3 research/strobo-2tors-2026-10-12/test_recoh_exact_decoder.py --exhaustive --output /tmp/recoh-decoder-results.json
+          diff -u research/strobo-2tors-2026-10-12/recoh_decoder_results_20261017.json /tmp/recoh-decoder-results.json
+      - name: Independent mathematical reconstruction check
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONOPTIMIZE=0
+          python3 research/strobo-2tors-2026-10-12/verify_recoh_decoder_independent_20261017.py > /tmp/recoh-decoder-independent-results.json
+          diff -u research/strobo-2tors-2026-10-12/recoh_decoder_independent_results_20261017.json /tmp/recoh-decoder-independent-results.json
+      - name: Preserve exact differential report
+        uses: actions/upload-artifact@v4
+        with:
+          name: recoh-exact-decoder-${{ github.sha }}
+          path: |
+            /tmp/recoh-decoder-results.json
+            /tmp/recoh-decoder-independent-results.json
+          if-no-files-found: error

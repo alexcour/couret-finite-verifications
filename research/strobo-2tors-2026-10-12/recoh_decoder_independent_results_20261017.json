@@ -1,0 +1,249 @@
+{
+  "status": "PASS",
+  "presentations": 24,
+  "triples": 13631,
+  "results": [
+    {
+      "moduli": [
+        1
+      ],
+      "order": 1,
+      "triples": 0,
+      "bank_size": 0,
+      "max_edge_sets": 0
+    },
+    {
+      "moduli": [
+        2
+      ],
+      "order": 2,
+      "triples": 0,
+      "bank_size": 1,
+      "max_edge_sets": 0
+    },
+    {
+      "moduli": [
+        3
+      ],
+      "order": 3,
+      "triples": 1,
+      "bank_size": 0,
+      "max_edge_sets": 1
+    },
+    {
+      "moduli": [
+        4
+      ],
+      "order": 4,
+      "triples": 4,
+      "bank_size": 1,
+      "max_edge_sets": 4
+    },
+    {
+      "moduli": [
+        5
+      ],
+      "order": 5,
+      "triples": 10,
+      "bank_size": 0,
+      "max_edge_sets": 10
+    },
+    {
+      "moduli": [
+        6
+      ],
+      "order": 6,
+      "triples": 20,
+      "bank_size": 2,
+      "max_edge_sets": 10
+    },
+    {
+      "moduli": [
+        8
+      ],
+      "order": 8,
+      "triples": 56,
+      "bank_size": 1,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        9
+      ],
+      "order": 9,
+      "triples": 84,
+      "bank_size": 0,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        12
+      ],
+      "order": 12,
+      "triples": 220,
+      "bank_size": 2,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        2,
+        2
+      ],
+      "order": 4,
+      "triples": 4,
+      "bank_size": 2,
+      "max_edge_sets": 4
+    },
+    {
+      "moduli": [
+        2,
+        4
+      ],
+      "order": 8,
+      "triples": 56,
+      "bank_size": 2,
+      "max_edge_sets": 10
+    },
+    {
+      "moduli": [
+        2,
+        6
+      ],
+      "order": 12,
+      "triples": 220,
+      "bank_size": 3,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        3,
+        3
+      ],
+      "order": 9,
+      "triples": 84,
+      "bank_size": 0,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        4,
+        4
+      ],
+      "order": 16,
+      "triples": 560,
+      "bank_size": 2,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        2,
+        2,
+        2
+      ],
+      "order": 8,
+      "triples": 56,
+      "bank_size": 3,
+      "max_edge_sets": 4
+    },
+    {
+      "moduli": [
+        2,
+        2,
+        3
+      ],
+      "order": 12,
+      "triples": 220,
+      "bank_size": 3,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        2,
+        9
+      ],
+      "order": 18,
+      "triples": 816,
+      "bank_size": 2,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        3,
+        6
+      ],
+      "order": 18,
+      "triples": 816,
+      "bank_size": 3,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        2,
+        3,
+        3
+      ],
+      "order": 18,
+      "triples": 816,
+      "bank_size": 3,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "order": 16,
+      "triples": 560,
+      "bank_size": 4,
+      "max_edge_sets": 4
+    },
+    {
+      "moduli": [
+        4,
+        6
+      ],
+      "order": 24,
+      "triples": 2024,
+      "bank_size": 3,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "order": 24,
+      "triples": 2024,
+      "bank_size": 4,
+      "max_edge_sets": 20
+    },
+    {
+      "moduli": [
+        1,
+        6
+      ],
+      "order": 6,
+      "triples": 20,
+      "bank_size": 2,
+      "max_edge_sets": 10
+    },
+    {
+      "moduli": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "order": 32,
+      "triples": 4960,
+      "bank_size": 5,
+      "max_edge_sets": 4
+    }
+  ],
+  "scope": "Independent exact exhaustive finite validation; no Lean certificate of executable code."
+}

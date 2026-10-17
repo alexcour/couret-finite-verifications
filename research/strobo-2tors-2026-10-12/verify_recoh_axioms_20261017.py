@@ -81,7 +81,7 @@ def main():
     if args.source_commit:
         assert re.fullmatch(r"[0-9a-f]{40}", args.source_commit), "Invalid source commit SHA"
     names = declarations()
-    content = "import Strobo2TorsConsolidated\nimport RecohOptimalBank\nimport RecohUpperSignGate\n\n"
+    content = "import Strobo2TorsConsolidated\nimport RecohOptimalBank\nimport RecohUpperSignGate\nimport RecohCandidateDecoder\n\n"
     content += "/-! Fresh public-declaration dependency checks for the integrated RECOH result. -/\n\n"
     content += "\n".join("#print axioms " + name for name in names) + "\n"
     path = LEAN / "RecohConsolidated.lean"
@@ -103,7 +103,9 @@ def main():
                           "source_commit": args.source_commit,
                           "allowed_axioms": sorted(ALLOWED),
                           "nonstandard_dependencies": [],
-                          "principal_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_size"},
+                          "principal_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_size",
+                          "decoder_specification_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder",
+                          "decoder_scope": "complete finite candidate generation and exact complex-observation specification; not a verification of the Python refinement"},
                          sort_keys=True))
     else:
         print(f"RECOH certificate inventory: {len(names)} public theorems")
