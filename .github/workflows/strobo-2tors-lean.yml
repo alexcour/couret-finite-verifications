@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - research/strobo-2tors-global-classification-2026-10-12
+      - research/strobo-integrated-maxima-20261016
   pull_request:
     paths:
       - "research/strobo-2tors-2026-10-12/**"
@@ -53,3 +54,4 @@ jobs:
           fi
           grep -q "Couret.STROBO2TORS.nontranslationPairs_card_numeric.*depends on axioms" lean-build.log
           grep -q "Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_eq_one_of_card_four.*depends on axioms" lean-build.log
+          grep -q "Couret.STROBO2TORS.maxObservedZeroFreeFibreSize_complete.*depends on axioms" lean-build.log
