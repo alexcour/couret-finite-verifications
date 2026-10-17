@@ -1,0 +1,139 @@
+{
+  "claim_scope": "classical exact finite identities; no novelty assertion",
+  "date": "2026-10-11",
+  "discrete_alias": {
+    "K_A": [
+      [
+        "1/2"
+      ]
+    ],
+    "K_B": [
+      [
+        "3/2"
+      ]
+    ],
+    "e0": [
+      "1"
+    ],
+    "eta": "1",
+    "losses_first_6": [
+      "1/2",
+      "1/8",
+      "1/32",
+      "1/128",
+      "1/512",
+      "1/2048"
+    ],
+    "same_losses_steps_0_to_12": true,
+    "same_state_after_2": true,
+    "state_after_1_A": [
+      "1/2"
+    ],
+    "state_after_1_B": [
+      "-1/2"
+    ]
+  },
+  "isospectral_task_alignment": {
+    "K1": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "4"
+      ]
+    ],
+    "K2": [
+      [
+        "4",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "co_transformed_e0": [
+      "0",
+      "1"
+    ],
+    "co_transformed_losses_identical_steps_0_to_12": true,
+    "eta": "1/8",
+    "loss_K1_first_5": [
+      "1/2",
+      "49/128",
+      "2401/8192",
+      "117649/524288",
+      "5764801/33554432"
+    ],
+    "loss_K2_first_5": [
+      "1/2",
+      "1/8",
+      "1/32",
+      "1/128",
+      "1/512"
+    ],
+    "losses_different_steps_1_to_12": true,
+    "shared_e0": [
+      "1",
+      "0"
+    ]
+  },
+  "project": "NTK-OBS-01",
+  "two_mode_identification": {
+    "K": [
+      [
+        "1/2",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "alternative_three_sample_solution": {
+      "first_three_match": true,
+      "fourth_separates": true,
+      "m3_alternative": "2875/12288",
+      "m3_original": "985/4096",
+      "q": [
+        "1/2",
+        "11/48"
+      ],
+      "weights": [
+        "20/13",
+        "45/13"
+      ]
+    },
+    "e0": [
+      "1",
+      "2"
+    ],
+    "eta": "1/2",
+    "moments_m0_through_m3": [
+      "5",
+      "25/16",
+      "145/256",
+      "985/4096"
+    ],
+    "prony": {
+      "q": [
+        "9/16",
+        "1/4"
+      ],
+      "recurrence": {
+        "prod_q": "9/64",
+        "sum_q": "13/16"
+      },
+      "weights": [
+        "1",
+        "4"
+      ]
+    },
+    "recovered_lambdas_in_monotone_branch": [
+      "1/2",
+      "1"
+    ]
+  }
+}
