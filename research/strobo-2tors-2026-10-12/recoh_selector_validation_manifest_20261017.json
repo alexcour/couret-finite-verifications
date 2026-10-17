@@ -1,0 +1,263 @@
+{
+  "archive": {
+    "archive_download_url": "https://api.github.com/repos/alexcour/couret-finite-verifications/actions/artifacts/12106629512/zip",
+    "created_at": "2026-10-17T16:28:59Z",
+    "digest": "sha256:324b7df6a5e8370eca326b8513a01933867016b182259f2feffb2e322ac74f6a",
+    "downloaded_bytes": 128397,
+    "expired": false,
+    "expires_at": "2027-01-15T15:51:30Z",
+    "id": 12106629512,
+    "name": "recoh-optimal-bank-ee1043326ca360b298be5032f24ff7444a05aa76",
+    "sha256": "324b7df6a5e8370eca326b8513a01933867016b182259f2feffb2e322ac74f6a",
+    "size_in_bytes": 128397,
+    "updated_at": "2026-10-17T16:28:59Z",
+    "url": "https://api.github.com/repos/alexcour/couret-finite-verifications/actions/artifacts/12106629512",
+    "workflow_run": {
+      "head_branch": "research/recoh-square-selector-2026-10-17",
+      "head_repository_id": 1388838082,
+      "head_sha": "ee1043326ca360b298be5032f24ff7444a05aa76",
+      "id": 39046887611,
+      "repository_id": 1388838082
+    }
+  },
+  "base_commit": "8febe10087c3dc984acb6c9fbee244b3debab554",
+  "certificate_rechecked_from_exact_ci_log": true,
+  "event": "push",
+  "exact_ci_files": {
+    "recoh_selector_axioms_20261017.log": {
+      "archive_path": "lean/recoh-axioms.log",
+      "bytes": 43949,
+      "sha256": "b433d046af855245a3fc33af9fab15abc46239464e5bb9dbcf2ff3e72cb01389"
+    },
+    "recoh_selector_build_20261017.log": {
+      "archive_path": "lean/recoh-build.log",
+      "bytes": 233893,
+      "sha256": "0095b1c28d70b6840e9460da6e2060b1b4f98a47a49e6e9b58d65c8455d3de7d"
+    },
+    "recoh_selector_certificate_20261017.json": {
+      "archive_path": "lean/recoh-certificate.json",
+      "bytes": 4092,
+      "sha256": "20491e6e67cb33f24f52202b9145a53464eecbe147026449ea3c3ee7f8442387"
+    },
+    "recoh_selector_decoder_replay_20261017.json": {
+      "archive_path": "lean/recoh-data-bridge-replay.json",
+      "bytes": 371055,
+      "sha256": "2346ba27a0c205fb8e31b76f6ee1edf8a9834f829c2dc6f9151e5c36a3356b83"
+    },
+    "recoh_selector_replay_20261017.json": {
+      "archive_path": "lean/recoh-selector-replay.json",
+      "bytes": 1238428,
+      "sha256": "e8d6100f77c0988535affb6f35f6b5ef3520ff78722d1343cc4ace5337ee6556"
+    }
+  },
+  "finite_report_identical_to_source": true,
+  "integrated_jobs": 3499,
+  "integrated_roots": 78,
+  "lean_version": "Lean (version 4.29.1, x86_64-unknown-linux-gnu, commit f72c35b3f637c8c6571d353742168ab66cc22c00, Release)",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "new_executable_replay_modules": 1,
+  "new_proof_modules": 4,
+  "new_public_declarations": 62,
+  "previous_decoder_ci_results_equal_local_results": true,
+  "previous_decoder_replay": {
+    "assertion_count": 7693,
+    "case_count": 1454,
+    "decode_summary": {
+      "cases": 283,
+      "expected_accepted": 155,
+      "expected_rejected": 128,
+      "large_presentation_cases": 16,
+      "lean_prepared_decoder_executed": 211,
+      "lean_rejection_stages": {
+        "adapter": 72,
+        "no_candidate": 6,
+        "none": 155,
+        "typed_guard": 50
+      },
+      "lean_typed_decoder_executed": 211,
+      "passed": 283
+    },
+    "elapsed_seconds": 67.414,
+    "failed_cases": 0,
+    "input_sha256": "d7252d65bded8e744f1f6898f2648166af2b1085745a55024ae0434ac0f14eb8",
+    "lean_stdout_sha256": "8ab4d479320976c2e8bc64c15d51871db5775c394f5e1c2b277b1e86bba06cce",
+    "passed_cases": 1454,
+    "status": "pass"
+  },
+  "public_recoh_declarations": 387,
+  "pull_request": 60,
+  "replay_source_hashes_match_source_commit": true,
+  "replay_source_hashes_match_working_tree": true,
+  "scope": "Executable selection from the labelled ordered square on explicit finite cyclic products, then a typed exact decoder. The calculated bank has exactly the minimal full-fibre budget, with all binary coordinates and at most one ternary coordinate. No explicit vector v(R) extraction, full ambient-group or two-torsion enumeration, raw JSON refinement, universal Python equivalence, total bit-complexity theorem, adaptive-tree theorem, noise guarantee or novelty claim.",
+  "selector_ci_results_equal_local_results": true,
+  "selector_ci_summaries_equal_local_summaries": true,
+  "selector_input_digest_equal_local_input_digest": true,
+  "selector_lean_replay": {
+    "batch_size": 100,
+    "batches": [
+      {
+        "cases": 100,
+        "elapsed_seconds": 38.483,
+        "first_case_id": "selector-00000",
+        "last_case_id": "selector-00099"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 60.345,
+        "first_case_id": "selector-00100",
+        "last_case_id": "selector-00199"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 46.58,
+        "first_case_id": "selector-00200",
+        "last_case_id": "selector-00299"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 41.04,
+        "first_case_id": "selector-00300",
+        "last_case_id": "selector-00399"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 139.214,
+        "first_case_id": "selector-00400",
+        "last_case_id": "selector-00499"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 127.223,
+        "first_case_id": "selector-00500",
+        "last_case_id": "selector-00599"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 98.75,
+        "first_case_id": "selector-00600",
+        "last_case_id": "selector-00699"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 161.476,
+        "first_case_id": "selector-00700",
+        "last_case_id": "selector-00799"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 112.831,
+        "first_case_id": "selector-00800",
+        "last_case_id": "selector-00899"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 104.155,
+        "first_case_id": "selector-00900",
+        "last_case_id": "selector-00999"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 99.45,
+        "first_case_id": "selector-01000",
+        "last_case_id": "selector-01099"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 116.484,
+        "first_case_id": "selector-01100",
+        "last_case_id": "selector-01199"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 107.377,
+        "first_case_id": "selector-01200",
+        "last_case_id": "selector-01299"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 77.161,
+        "first_case_id": "selector-01300",
+        "last_case_id": "selector-01399"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 74.699,
+        "first_case_id": "selector-01400",
+        "last_case_id": "selector-01499"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 65.687,
+        "first_case_id": "selector-01500",
+        "last_case_id": "selector-01599"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 62.413,
+        "first_case_id": "selector-01600",
+        "last_case_id": "selector-01699"
+      },
+      {
+        "cases": 100,
+        "elapsed_seconds": 15.294,
+        "first_case_id": "selector-01700",
+        "last_case_id": "selector-01799"
+      },
+      {
+        "cases": 74,
+        "elapsed_seconds": 4.81,
+        "first_case_id": "selector-01800",
+        "last_case_id": "selector-01873"
+      }
+    ],
+    "case_input_sha256": "69b181b6f2d8eab4182de7168d5df7ba77cb9a33645e9d4007760143308169c4",
+    "case_kinds": {
+      "decode": 1204,
+      "direction": 116,
+      "select": 554
+    },
+    "cases": 1874,
+    "compiled_import_sha256": {
+      "RecohSelectedDecoder": "24d54508a8c61e4d87a8630e5d4373db0c6034830c012ef9b9e8618342ae6686",
+      "RecohSquareSelector": "ed0434043e66415d70dc43027ac3917d750f405bc2333e3c5401161cec8917c8",
+      "RecohTernaryFibreSelector": "6fa70a311972e981671e335f8bf61de200a39829b8d9a1fd0263b54b93599359",
+      "RecohTernarySelector": "e6a6eb5cd7c2068e94984e36a764dd5e236e5fdac5136f570519d030d813ad0d"
+    },
+    "elapsed_seconds": 1553.509,
+    "executed": true,
+    "global_timeout_seconds": 1800,
+    "lean_version": "Lean (version 4.29.1, x86_64-unknown-linux-gnu, commit f72c35b3f637c8c6571d353742168ab66cc22c00, Release)",
+    "rejection_stages": {
+      "adapter": 91,
+      "no_candidate": 5,
+      "none": 1097,
+      "not_decode": 670,
+      "typed_guard": 11
+    }
+  },
+  "selector_replay": {
+    "assertions": 169097,
+    "direction_cases": 116,
+    "fibres": 12047,
+    "invalid_cases": 107,
+    "large_cases": 17,
+    "presentations": 24,
+    "public_protocol": {
+      "cli_cases": 2,
+      "invalid_queries": 6,
+      "same_fibre_queries": 4
+    },
+    "scope": "Exhaustive finite and differential execution evidence; no Python or JSON refinement proof",
+    "sources_unchanged_during_verification": true,
+    "status": "passed",
+    "supports": 30327,
+    "typed_equivalent_square_encodings": 6
+  },
+  "source_commit": "ee1043326ca360b298be5032f24ff7444a05aa76",
+  "source_lean_job": 117437280044,
+  "source_lean_run": 39046887611,
+  "source_tree": "2a162d39263e59679189be6361c72fa0c361157c",
+  "source_tree_rechecked_from_git_commit": true,
+  "source_verify_run": 39046887581,
+  "validation_target": "source_commit_and_exact_ci_archive"
+}
