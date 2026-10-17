@@ -20,9 +20,18 @@ ne demande plus à l’utilisateur de fournir leurs contrats sémantiques.
 Cette avancée concerne des données déjà typées et les opérations Lean. Elle
 ne constitue pas une preuve du parseur ni de l’exécution du programme Python.
 
-**Validation avant dépôt : la CI du nouveau SHA est en attente.** La source
-scientifique de ce lot, son certificat global et son archive de validation
-seront renseignés après dépôt et vérification. Le socle précédent est le
+**Validation achevée au SHA `71c40ceb196edaf406fd8f927ae592064236a020` :**
+[CI Lean et rejeu #39020988463](https://github.com/alexcour/couret-finite-verifications/actions/runs/39020988463)
+et [verify #39020988432](https://github.com/alexcour/couret-finite-verifications/actions/runs/39020988432)
+réussis. La compilation compte 3 490 tâches et 69 racines ; les 296 théorèmes
+publics RECOH, dont 111 nouveaux dans onze modules, ont uniquement des
+dépendances standard. Le rejeu réel Lean/Python passe 1 454 cas et 7 693
+assertions, sans divergence. Sur 283 observations complètes, 211 atteignent
+chacun des deux décodeurs Lean et 72 sont rejetées auparavant par l’adaptateur.
+L’archive originale a été vérifiée et le certificat reproduit à l’identique.
+Le [rapport de validation](RECOH_DATA_BRIDGE_VALIDATION_20261017.md) et le
+[manifeste](recoh_data_bridge_validation_manifest_20261017.json) détaillent
+la provenance et les limites. Le socle précédent est le
 commit scientifique `109fcf2deab11ef2c32374c2cdeb10810e06add0`, accompagné du
 checkpoint documentaire `c6d36b4fed6fb3c7eecbbe8f08e65f87fc48d21a`. La présente
 note complète la [note de raffinement](RECOH_REFINEMENT_20261017.md) et
@@ -157,7 +166,8 @@ Le véritable $E$ appartient aux sous-ensembles à trois éléments de $U$.
 Comme $|U|\le6$, il y en a au plus $\binom63=20$. Chaque fibre du
 doublement est vide ou une translation de $G[2]$. L’énumération complète
 donnerait au plus $20|G[2]|$ paires ; le noyau choisit une seule demi-somme
-par $E$, puis retrouve la translation nécessaire.
+par $E$ faisable, puis retrouve la translation nécessaire pour le véritable
+ensemble associé à un support réalisant l’observation.
 
 Le solveur cyclique utilise le représentant naturel $t$ de la cible. Pour
 un module impair, il multiplie par $(q+1)/2$. Pour un module pair, il
@@ -334,6 +344,6 @@ formats de coefficients, signes et demi-sommes. Ses adaptateurs JSON et de
 sortie ne sont pas certifiés ; les exposants négatifs utilisent un
 adaptateur explicitement signalé. Des essais finis complètent les preuves
 sans établir un raffinement universel du runtime Python. Les résultats
-consolidés et la provenance du nouveau commit seront joints à la validation
-du lot, sans les confondre avec la CI du socle précédent ni avec une revue
-humaine indépendante.
+consolidés et la provenance du nouveau commit sont conservés dans le
+[rapport de validation](RECOH_DATA_BRIDGE_VALIDATION_20261017.md), sans les
+confondre avec la CI du socle précédent ni avec une revue humaine indépendante.
