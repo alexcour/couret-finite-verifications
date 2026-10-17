@@ -17,6 +17,9 @@ import Strobo2TorsNontranslationBridge
 import Strobo2TorsNontranslationDegree
 import Strobo2TorsNontranslationSymmetry
 import Strobo2TorsNontranslationUnordered
+import Strobo2TorsDeltaOrdinary
+import Strobo2TorsDeltaExceptional
+import Strobo2TorsSymmetricDifference
 
 /- One import environment for the integrated STROBO proof modules.
 Compilation of separate roots alone would not detect namespace collisions. -/
@@ -346,3 +349,23 @@ Compilation of separate roots alone would not detect namespace collisions. -/
 #print axioms Couret.STROBO2TORS.nontranslationGraph_degree
 #print axioms Couret.STROBO2TORS.nontranslationGraph_twice_edges
 #print axioms Couret.STROBO2TORS.nontranslationGraph_twice_edges_numeric
+
+-- Symmetric-difference subdivision of distinct triple supports.
+#print axioms Couret.STROBO2TORS.inter_translateSupport_add_mem
+#print axioms Couret.STROBO2TORS.ordinaryPartner_inter_card_eq_zero_or_two
+#print axioms Couret.STROBO2TORS.exceptionalPartner_normalized_inter
+#print axioms Couret.STROBO2TORS.exceptionalPartner_normalized_inter_singleton
+#print axioms Couret.STROBO2TORS.exceptionalPartner_normalized_inter_empty
+#print axioms Couret.STROBO2TORS.exceptionalPartner_inter_card_zero_or_one
+#print axioms Couret.STROBO2TORS.exceptionalPartner_inter_card_ne_two
+#print axioms Couret.STROBO2TORS.triple_symmDiff_card_balance
+#print axioms Couret.STROBO2TORS.triple_symmDiff_two_iff_inter_two
+#print axioms Couret.STROBO2TORS.triple_symmDiff_four_iff_inter_one
+#print axioms Couret.STROBO2TORS.triple_symmDiff_six_iff_inter_zero
+#print axioms Couret.STROBO2TORS.triple_symmDiff_six_iff_disjoint
+#print axioms Couret.STROBO2TORS.triple_symmDiff_card_cases
+#print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_two_iff
+#print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_four_iff
+#print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_six_iff
+#print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_classification
+#print axioms Couret.STROBO2TORS.orderedSquare_symmDiff_four_not_translation
