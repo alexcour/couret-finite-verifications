@@ -52,6 +52,9 @@ jobs:
           lake build 2>&1 | tee recoh-build.log
           lake env lean RecohConsolidated.lean 2>&1 | tee recoh-axioms.log
           python3 ../verify_recoh_axioms_20261017.py --log recoh-axioms.log --source-commit "$(git rev-parse HEAD)" | tee recoh-certificate.json
+      - name: Compare executed Lean decoding and arithmetic with the Python implementation
+        run: |
+          python3 research/strobo-2tors-2026-10-12/verify_recoh_data_bridge_20261017.py --suite all --output research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json
       - name: Preserve the exact compilation and dependency records
         if: always()
         uses: actions/upload-artifact@v4
@@ -61,3 +64,4 @@ jobs:
             research/strobo-2tors-2026-10-12/lean/recoh-build.log
             research/strobo-2tors-2026-10-12/lean/recoh-axioms.log
             research/strobo-2tors-2026-10-12/lean/recoh-certificate.json
+            research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json

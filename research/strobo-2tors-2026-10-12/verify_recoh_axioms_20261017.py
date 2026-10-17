@@ -81,7 +81,18 @@ def main():
     if args.source_commit:
         assert re.fullmatch(r"[0-9a-f]{40}", args.source_commit), "Invalid source commit SHA"
     names = declarations()
-    content = "import Strobo2TorsConsolidated\nimport RecohOptimalBank\nimport RecohUpperSignGate\nimport RecohCandidateDecoder\nimport RecohDecoderBounds\nimport RecohCyclicHalves\nimport RecohSignRecovery\nimport RecohCyclotomicNormalization\nimport RecohFastDecoder\nimport RecohSparseObservation\nimport RecohExactSignBackend\n\n"
+    imports = [
+        "Strobo2TorsConsolidated", "RecohOptimalBank", "RecohUpperSignGate",
+        "RecohCandidateDecoder", "RecohDecoderBounds", "RecohCyclicHalves",
+        "RecohSignRecovery", "RecohCyclotomicNormalization", "RecohFastDecoder",
+        "RecohSparseObservation", "RecohExactSignBackend",
+        "RecohCoefficientObservations", "RecohCyclicCoordinates",
+        "RecohCyclicPrimaryBank", "RecohIndexedSignRecovery",
+        "RecohCoefficientDecoder", "RecohTypedObservation", "RecohPreparedDecoder",
+        "RecohEarlySignChecks", "RecohCyclicCoefficientDecoder",
+        "RecohCyclicDecoderOptimal", "RecohCyclicPreparedDecoder",
+    ]
+    content = "".join(f"import {module}\n" for module in imports) + "\n"
     content += "/-! Fresh public-declaration dependency checks for the integrated RECOH result. -/\n\n"
     content += "\n".join("#print axioms " + name for name in names) + "\n"
     path = LEAN / "RecohConsolidated.lean"
@@ -106,10 +117,18 @@ def main():
                           "principal_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_size",
                           "decoder_specification_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder",
                           "decoder_refinement_theorem": "Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact",
+                          "typed_decoder_theorem": "Couret.STROBO2TORS.recoh_mem_cyclic_coefficient_decoder_iff",
+                          "typed_decoder_minimal_bank_theorem": "Couret.STROBO2TORS.recoh_cyclic_decoder_uses_minimal_bank",
+                          "typed_decoder_uniqueness_theorem": "Couret.STROBO2TORS.recoh_cyclic_coefficient_decoder_card_le_one",
+                          "coefficient_observation_theorem": "Couret.STROBO2TORS.recoh_coefficient_observation_check_iff",
+                          "coordinate_construction": "Couret.STROBO2TORS.recohProductTwoCoordinates",
+                          "coefficient_format_theorem": "Couret.STROBO2TORS.recoh_coefficient_format_check_iff",
+                          "early_filter_theorem": "Couret.STROBO2TORS.recoh_early_coefficient_backend_decoder_eq_backend",
+                          "typed_early_filter_theorem": "Couret.STROBO2TORS.recoh_cyclic_prepared_decoder_eq_coefficient",
                           "half_solver_theorem": "Couret.STROBO2TORS.recoh_product_half_spec",
                           "sparse_arithmetic_theorem": "Couret.STROBO2TORS.recoh_normalized_sparse_equal_iff",
                           "candidate_bound_theorem": "Couret.STROBO2TORS.recoh_checked_fast_decoder_card_le_twenty",
-                          "decoder_scope": "mathematical refinement of one-representative decoding, cyclic halving, sign recovery and sparse exact arithmetic under supplied support, primary-exponent and coordinate contracts; executable Lean operators, not a certification of the external Python runtime, parser, cache or serialization"},
+                          "decoder_scope": "exact fully instantiated typed decoder on products of cyclic groups: moduli determine primary parameters, character bank, exponent encoders, binary coordinates and halving; sparse square entries determine support and values; direct observed coefficient lists are checked. The typed guard, solution membership, uniqueness, twenty-candidate bound and minimal actual bank are proved, together with equivalent early square/sign/ternary filters. JSON parsing, raw-coordinate validation, descriptor serialization, compiled execution, Python runtime and cache remain outside this formal proof; differential replay is separate evidence"},
                          sort_keys=True))
     else:
         print(f"RECOH certificate inventory: {len(names)} public theorems")

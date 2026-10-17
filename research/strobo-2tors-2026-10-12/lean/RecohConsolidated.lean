@@ -9,6 +9,17 @@ import RecohCyclotomicNormalization
 import RecohFastDecoder
 import RecohSparseObservation
 import RecohExactSignBackend
+import RecohCoefficientObservations
+import RecohCyclicCoordinates
+import RecohCyclicPrimaryBank
+import RecohIndexedSignRecovery
+import RecohCoefficientDecoder
+import RecohTypedObservation
+import RecohPreparedDecoder
+import RecohEarlySignChecks
+import RecohCyclicCoefficientDecoder
+import RecohCyclicDecoderOptimal
+import RecohCyclicPreparedDecoder
 
 /-! Fresh public-declaration dependency checks for the integrated RECOH result. -/
 
@@ -33,11 +44,69 @@ import RecohExactSignBackend
 #print axioms Couret.STROBO2TORS.recoh_three_torsion_probe_equal_iff_trivial
 #print axioms Couret.STROBO2TORS.recoh_order_three_character_mask_iff
 #print axioms Couret.STROBO2TORS.recoh_common_kernel_translation_collision
+#print axioms Couret.STROBO2TORS.recoh_coefficient_sign_bools_exact
+#print axioms Couret.STROBO2TORS.recoh_coefficient_backend_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_coefficient_backend_decoder_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_coefficient_format_check_iff
+#print axioms Couret.STROBO2TORS.recoh_coefficient_format_reduced
+#print axioms Couret.STROBO2TORS.recoh_terms_polynomial_aeval
+#print axioms Couret.STROBO2TORS.recoh_coefficients_degree_lt
+#print axioms Couret.STROBO2TORS.recoh_root_terms_reduced
+#print axioms Couret.STROBO2TORS.recoh_reduced_terms_reduced
+#print axioms Couret.STROBO2TORS.recoh_reduced_terms_value
+#print axioms Couret.STROBO2TORS.recoh_reduced_coefficients_equal_iff
+#print axioms Couret.STROBO2TORS.recoh_coefficient_match_iff
+#print axioms Couret.STROBO2TORS.recoh_coefficients_reduced_negate
+#print axioms Couret.STROBO2TORS.recoh_coefficient_value_negate
+#print axioms Couret.STROBO2TORS.recoh_coefficient_match_neg_iff
+#print axioms Couret.STROBO2TORS.recoh_coefficient_readings_check_iff
+#print axioms Couret.STROBO2TORS.recoh_coefficient_observation_check_iff
+#print axioms Couret.STROBO2TORS.recoh_coefficient_readings_check_reduced
+#print axioms Couret.STROBO2TORS.recoh_coefficient_observation_check_reduced
 #print axioms Couret.STROBO2TORS.recoh_exists_stdAddChar_eq_of_pow_eq_one
 #print axioms Couret.STROBO2TORS.recoh_complex_character_zmod_encoding
 #print axioms Couret.STROBO2TORS.recoh_complex_character_binary_encoding
 #print axioms Couret.STROBO2TORS.recoh_complex_character_ternary_encoding
 #print axioms Couret.STROBO2TORS.recoh_short_complex_character_bank_collision
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_prime
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_root_primitive
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_encoding_interpret
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_encoding_length
+#print axioms Couret.STROBO2TORS.recoh_cyclic_observed_bank_injective
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coefficient_core_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_cyclic_input_check_iff
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coefficient_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coefficient_decoder_rejects
+#print axioms Couret.STROBO2TORS.recoh_mem_cyclic_coefficient_decoder_iff
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coefficient_decoder_singleton
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coefficient_decoder_card_le_one
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coefficient_candidates_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_even_cyclic_half_modulus_double
+#print axioms Couret.STROBO2TORS.recoh_even_cyclic_half_modulus_ne_zero
+#print axioms Couret.STROBO2TORS.recoh_cyclic_two_torsion_iff
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_bit_zero
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_bit_double
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_bit_add
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_bit_encode
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_bit_decode
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_shift_even
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_shift_odd
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_shift_double
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_shift_zero
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_shift_add
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_encode_decode
+#print axioms Couret.STROBO2TORS.recoh_product_torsion_decode_encode
+#print axioms Couret.STROBO2TORS.recoh_product_two_coordinates_apply
+#print axioms Couret.STROBO2TORS.recoh_product_two_coordinates_eq_zero_iff
+#print axioms Couret.STROBO2TORS.recoh_product_two_coordinates_symm_apply
+#print axioms Couret.STROBO2TORS.recoh_product_two_coordinates_symm_apply_odd
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_card_of_even
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_card_of_odd
+#print axioms Couret.STROBO2TORS.recoh_cyclic_bank_card
+#print axioms Couret.STROBO2TORS.recoh_cyclic_observed_bank_minimal
+#print axioms Couret.STROBO2TORS.recoh_cyclic_decoder_uses_minimal_bank
+#print axioms Couret.STROBO2TORS.recoh_cyclic_binary_candidate_terms_le_three
+#print axioms Couret.STROBO2TORS.recoh_cyclic_ternary_candidate_terms_le_six
 #print axioms Couret.STROBO2TORS.recoh_odd_cyclic_half_double
 #print axioms Couret.STROBO2TORS.recoh_even_value_half_double
 #print axioms Couret.STROBO2TORS.recoh_even_cyclic_double_value
@@ -47,6 +116,34 @@ import RecohExactSignBackend
 #print axioms Couret.STROBO2TORS.recoh_product_half_sound
 #print axioms Couret.STROBO2TORS.recoh_product_half_complete
 #print axioms Couret.STROBO2TORS.recoh_product_half_spec
+#print axioms Couret.STROBO2TORS.recoh_cyclic_prepared_core_eq_coefficient
+#print axioms Couret.STROBO2TORS.recoh_cyclic_prepared_decoder_eq_coefficient
+#print axioms Couret.STROBO2TORS.recoh_mem_cyclic_prepared_decoder_iff
+#print axioms Couret.STROBO2TORS.recoh_cyclic_prepared_decoder_singleton
+#print axioms Couret.STROBO2TORS.recoh_cyclic_prepared_decoder_card_le_one
+#print axioms Couret.STROBO2TORS.recoh_cyclic_prepared_candidates_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_cyclic_root_primitive
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coordinate_character_apply
+#print axioms Couret.STROBO2TORS.recoh_cyclic_coordinate_character_pow
+#print axioms Couret.STROBO2TORS.recoh_cyclic_exponents_length
+#print axioms Couret.STROBO2TORS.recoh_cyclic_exponents_interpret
+#print axioms Couret.STROBO2TORS.recoh_cyclic_exponents_lt
+#print axioms Couret.STROBO2TORS.recoh_primary_factor_dvd
+#print axioms Couret.STROBO2TORS.recoh_cyclic_primary_bank_pow
+#print axioms Couret.STROBO2TORS.recoh_cyclic_primary_bank_interpret
+#print axioms Couret.STROBO2TORS.recoh_cyclic_binary_probe_nonzero
+#print axioms Couret.STROBO2TORS.recoh_canonical_primary_exponent_succ
+#print axioms Couret.STROBO2TORS.recoh_cyclic_nsmul_zero_dvd
+#print axioms Couret.STROBO2TORS.recoh_cyclic_primary_coordinate_kernel
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_zero_of_coprime
+#print axioms Couret.STROBO2TORS.recoh_cyclic_primary_bank_separates
+#print axioms Couret.STROBO2TORS.recoh_cyclic_binary_bank_sign_coordinates
+#print axioms Couret.STROBO2TORS.recoh_cyclic_ternary_bank_trivial_on_two
+#print axioms Couret.STROBO2TORS.recoh_cyclic_primary_observation_injective
+#print axioms Couret.STROBO2TORS.recoh_cyclic_torsion_card
+#print axioms Couret.STROBO2TORS.recoh_cyclic_product_torsion_card
+#print axioms Couret.STROBO2TORS.recoh_cyclic_canonical_bank_optimal
+#print axioms Couret.STROBO2TORS.recoh_cyclic_square_injective_of_no_even
 #print axioms Couret.STROBO2TORS.recoh_primary_polynomial_eq_cyclotomic
 #print axioms Couret.STROBO2TORS.recoh_cyclotomic_eval_eq_iff
 #print axioms Couret.STROBO2TORS.recoh_primary_polynomial_aeval
@@ -84,6 +181,11 @@ import RecohExactSignBackend
 #print axioms Couret.STROBO2TORS.recoh_candidates_card_le_twenty_mul_torsion
 #print axioms Couret.STROBO2TORS.recoh_ordered_square_candidate_pairs_card_le
 #print axioms Couret.STROBO2TORS.recoh_ordered_square_candidates_card_le
+#print axioms Couret.STROBO2TORS.recoh_early_readings_check_iff
+#print axioms Couret.STROBO2TORS.recoh_early_readings_of_translated_observation
+#print axioms Couret.STROBO2TORS.recoh_early_readings_of_final_check
+#print axioms Couret.STROBO2TORS.recoh_early_coefficient_backend_decoder_eq_backend
+#print axioms Couret.STROBO2TORS.recoh_early_coefficient_backend_decoder_card_le_twenty
 #print axioms Couret.STROBO2TORS.recoh_sign_bit_from_bool_eq
 #print axioms Couret.STROBO2TORS.recoh_recover_translation_from_bools_coordinate
 #print axioms Couret.STROBO2TORS.recoh_boolean_recovery_refines_complex
@@ -123,6 +225,11 @@ import RecohExactSignBackend
 #print axioms Couret.STROBO2TORS.recoh_triple_probe_translate
 #print axioms Couret.STROBO2TORS.recoh_reflection_supports_distinct
 #print axioms Couret.STROBO2TORS.recoh_masked_bank_collision
+#print axioms Couret.STROBO2TORS.recoh_indexed_recover_translation_coordinate
+#print axioms Couret.STROBO2TORS.recoh_indexed_boolean_recovery_eq_translation
+#print axioms Couret.STROBO2TORS.recoh_indexed_recover_support_card
+#print axioms Couret.STROBO2TORS.recoh_indexed_boolean_recovery_spec
+#print axioms Couret.STROBO2TORS.recoh_indexed_checked_decoder_eq_exact
 #print axioms Couret.STROBO2TORS.recoh_spanning_subbank_preserves_injectivity
 #print axioms Couret.STROBO2TORS.recoh_exists_independent_injective_subbank
 #print axioms Couret.STROBO2TORS.recoh_binary_information_set_linear
@@ -137,6 +244,16 @@ import RecohExactSignBackend
 #print axioms Couret.STROBO2TORS.recoh_pivot_bank_has_genuine_collision
 #print axioms Couret.STROBO2TORS.recoh_surjective_binary_pivots_leave_short_mask
 #print axioms Couret.STROBO2TORS.recoh_short_indexed_ternary_bank_has_kernel
+#print axioms Couret.STROBO2TORS.recoh_prepared_fast_decoder_eq_checked
+#print axioms Couret.STROBO2TORS.recoh_prepared_edge_sets_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_prepared_fast_candidates_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_prepared_fast_decoder_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_ordered_square_two_torsion_translate
+#print axioms Couret.STROBO2TORS.recoh_prepared_square_decoder_eq_checked
+#print axioms Couret.STROBO2TORS.recoh_indexed_recover_support_square
+#print axioms Couret.STROBO2TORS.recoh_prepared_indexed_square_decoder_eq_checked
+#print axioms Couret.STROBO2TORS.recoh_prepared_coefficient_backend_decoder_eq_backend
+#print axioms Couret.STROBO2TORS.recoh_prepared_coefficient_backend_decoder_card_le_twenty
 #print axioms Couret.STROBO2TORS.recoh_mem_torsion_subgroup
 #print axioms Couret.STROBO2TORS.recoh_torsion_subgroup_nsmul
 #print axioms Couret.STROBO2TORS.recoh_prime_coordinates_of_card
@@ -192,6 +309,11 @@ import RecohExactSignBackend
 #print axioms Couret.STROBO2TORS.recoh_two_power_normalized_triple_nonzero
 #print axioms Couret.STROBO2TORS.recoh_two_power_triple_nonzero
 #print axioms Couret.STROBO2TORS.recoh_two_primary_triple_nonzero
+#print axioms Couret.STROBO2TORS.recoh_typed_square_zero_outside
+#print axioms Couret.STROBO2TORS.recoh_typed_square_covered
+#print axioms Couret.STROBO2TORS.recoh_typed_square_format_check_iff
+#print axioms Couret.STROBO2TORS.recoh_typed_square_support_card_le_six
+#print axioms Couret.STROBO2TORS.recoh_all_coefficient_formats_iff
 #print axioms Couret.STROBO2TORS.recoh_three_signs_nonzero
 #print axioms Couret.STROBO2TORS.recoh_sign_triple_probe_nonzero
 #print axioms Couret.STROBO2TORS.recoh_sign_character_trivial_on_double
