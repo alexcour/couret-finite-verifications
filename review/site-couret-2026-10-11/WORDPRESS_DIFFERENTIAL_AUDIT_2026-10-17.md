@@ -1,22 +1,29 @@
 # Reconciliation du site public — audit différentiel du 17 octobre 2026
 
-**Statut : constat documentaire en lecture seule / HOLD CMS / PR #43 DRAFT.** Cette note n'autorise ni mise en ligne WordPress, ni promotion scientifique, ni fusion de la PR. Elle résume des observations du texte public relevé le 17 octobre 2026 au matin (Europe/Paris) et les compare au lot éditorial P0 du 15 octobre. **Une lecture relayée n'est ni un reçu du workflow WordPress, ni une inspection des révisions du CMS.** Le reçu reproductible de référence reste celui du 15/10 : workflow [#38733374530](https://github.com/alexcour/couret-finite-verifications/actions/runs/38733374530), artefact `11970513363`.
+**Statut : constat documentaire en lecture seule / HOLD CMS / PR #43 DRAFT.** Cette note n'autorise ni mise en ligne WordPress, ni promotion scientifique, ni fusion de la PR. Elle résume des observations du texte public relevé le 17 octobre 2026 au matin (Europe/Paris) et les compare au lot éditorial P0 du 15 octobre. **Une lecture relayée n'est ni un reçu du workflow WordPress, ni une inspection des révisions du CMS.** Le dernier reçu reproductible est celui du **17/10 à 06:22 UTC** : workflow [#39009617951](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951), artefact JSON/Markdown [`12092138778`](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951/artifacts/12092138778), commit exact `765eb75d3c78c297d7ad79042a93cc8356279b18`. Le reçu antérieur du 15/10 est [#38733374530](https://github.com/alexcour/couret-finite-verifications/actions/runs/38733374530), artefact `11970513363`.
+
+
+## Rectification prioritaire — reçu automatisé du 17 octobre (08:22 Paris)
+
+Le nouveau workflow de lecture seule a archivé **16/16 HTTP 200** pour 15 URL distinctes, sans contrôle du rendu ni certification de publication. Les extraits HTML visibles corrigent l'impression du premier audit relayé : **C02 et C03 sont encore non conformes.** La phrase d'équivalence RH se trouve dans les deux pages ; C03 conserve également « échafaudage non compilé ». C04 affiche encore le titre H1 fermé et une implication KLMN incomplète ; C05 conserve « H1 fermée » ; C08 conserve « expanseur quasi-optimal » sur un graphe déconnecté ; C09 conserve l'inférence cardinal ⇒ spectre. Les cartes H1 C06/C07 conservent leurs libellés D/P. C10 contient encore la mention historique « auto-adjonction via KLMN » en F-04, mais le reçu lexical ne tranche pas à lui seul si un rectificatif contextuel distinct est servi. C15 contient bien F-001 et cite l'ancien 0,378 comme erroné. **Aucune de ces lectures n'atteste l'application en brouillon CMS ni une validation éditoriale.**
+
+Reçu : [workflow #39009617951](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951), [artefact #12092138778](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951/artifacts/12092138778), date des lectures `2026-10-17T06:21:47Z` à `06:22:07Z`, source GitHub `765eb75d3c78c297d7ad79042a93cc8356279b18`. Le workflow `verify` associé #39009617958 est également SUCCESS ; cela ne constitue pas une approbation du contenu WordPress.
 
 ## Matrice des corrections
 
 | ID | Objet | Texte public observé le 17/10 | Qualification |
 | --- | --- | --- | --- |
-| C02 | Accueil : prétention d'équivalence RH | Phrase active non retrouvée ; formulation de non-revendication RH visible | **Semble corrigé** ; confirmer par nouveau reçu HTML/SEO |
-| C03 | Résultats minimaux : même prétention RH | Phrase active non retrouvée, malgré métadonnées d'août | **Semble corrigé** ; confirmer bloc partagé, HTML/SEO et cache |
+| C02 | Accueil : prétention d'équivalence RH | **Reçu automatisé 17/10 :** « Nous présentons un unique point ouvert comme équivalent à l'hypothèse de Riemann » encore présent dans le texte HTML visible | **Non conforme** ; ancienne affirmation toujours servie, même si une autre zone nie la preuve de RH |
+| C03 | Résultats minimaux : même prétention RH | **Reçu automatisé 17/10 :** même phrase active d'équivalence RH et mention « échafaudage non compilé » encore servies | **Non conforme** ; bloc partagé/caches à inspecter |
 | C04 | Fiche H1 | Titre « auto-adjonction, fermée par une borne », badges D/P et implication KLMN toujours visibles | **Non conforme** |
 | C05 | Registre F0 | Tableau historique « H1 fermée » sans rectificatif daté au-dessus | **Non conforme** |
 | C06 | Carte H1 dans Recherches | Carte « fermée par une borne » et badges D/P subsistent | **Non conforme** ; contrôler la grille Portfolio dynamique |
 | C07 | Carte H1 dans Tableau de bord | Carte « fermée » et badges D/P subsistent | **Non conforme** ; le simple changement de titre est insuffisant |
 | C08 | Fiche Cayley G30 | « expanseur quasi-optimal » et mélange global subsistent malgré deux composantes | **Non conforme** |
-| C09 | F-08 : Parseval et spectre | Page non relue le 17/10 (limite de lecture) ; anomalie constatée au reçu du 15/10 | **Inconnu au 17/10**, à revérifier |
-| C10 | Le (S)enseur : rectification KLMN en F-04 | Page non relue le 17/10 ; anomalie constatée au reçu du 15/10 | **Inconnu au 17/10**, à revérifier |
+| C09 | F-08 : Parseval et spectre | **Reçu automatisé 17/10 :** « puisque le spectre entier est fixé par le cardinal » apparaît toujours ; la page contient aussi l'argument Parseval et les témoins isospectraux | **Non conforme pour cette assertion**, interprétation des rectificatifs à auditer |
+| C10 | Le (S)enseur : rectification KLMN en F-04 | **Reçu automatisé 17/10 :** l'ancienne mention « auto-adjonction via KLMN » est toujours lisible en F-04 ; F-05 et F-08 présents | **Contexte incertain** : vérifier qu'un rectificatif daté est immédiatement rattaché à F-04 ; un marqueur historique seul ne prouve pas la non-conformité |
 
-**Ne pas simplifier en « 5 corrections non appliquées certifiées le 17/10 ».** Trois P0 demeurent positivement non conformes (C04, C05, C08), deux sont indéterminés aujourd'hui (C09, C10), deux semblent corrigés (C02, C03) ; C06 et C07 sont deux propagations H1 non conformes. La recette exacte fait foi pour tout GO.
+**Réconciliation des deux relevés du 17/10 :** le premier relevé relayé (07:30–08:30 Paris) n'avait pas retrouvé la formule RH en C02/C03 et n'avait pas lu C09/C10. Le reçu GitHub ultérieur (08:21–08:22 Paris) établit au contraire que la formule RH est **présente** en C02/C03, ainsi que l'inférence erronée de C09. En conséquence, **six P0 (C02/C03/C04/C05/C08/C09) présentent encore des formulations non conformes** ; C10 réclame un contrôle contextuel du rectificatif F-04. Les deux cartes C06/C07 restent également non conformes. Aucun GO ne peut se fonder sur les seules requêtes HTTP 200.
 
 ## Contradictions de navigation hors lot P0
 
