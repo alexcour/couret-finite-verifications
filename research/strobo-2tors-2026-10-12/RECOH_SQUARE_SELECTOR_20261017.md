@@ -21,16 +21,22 @@ inconnu ni un membre de la fibre comme donnée auxiliaire. Les coefficients
 prédits des représentants servent à choisir la sonde ; ils ne constituent pas
 des mesures supplémentaires du support inconnu.
 
-**État au dépôt des sources révisées :** la compilation intégrée réussit avec
-78 racines et 3 499 tâches. Les quatre modules de preuve ajoutent 62 théorèmes
-publics aux 325 antérieurs ; le relevé frais des 387 déclarations n’utilise que
-`propext`, `Classical.choice` et `Quot.sound`. Le contrôle Python exhaustif et la
-non-régression des décodeurs précédents sont réussis. Le rejeu Lean/Python complet
-de 1 874 cas est en cours. Sa première exécution a atteint la limite de 600 secondes
-du harnais ; les sources Lean sont conservées et les mêmes cas sont désormais
-exécutés par lots de 100, avec progression et budget global de 1 800 secondes.
-La clôture sera consignée avec le commit source, les journaux exacts de CI, le
-certificat de dépendances et les empreintes des cas exécutés.
+**État vérifié :** la compilation intégrée réussit avec 78 racines et
+3 499 tâches. Les quatre modules de preuve ajoutent 62 théorèmes publics aux
+325 antérieurs ; le relevé frais des 387 déclarations n’utilise que `propext`,
+`Classical.choice` et `Quot.sound`. Le rejeu complet des 1 874 cas Lean/Python
+réussit avec 169 097 assertions, ainsi que la non-régression des
+1 454 cas précédents. Les résultats distants et locaux ont été comparés et les
+empreintes rapprochées des blobs du commit source.
+
+Source compilée : [`ee1043326ca360b298be5032f24ff7444a05aa76`](https://github.com/alexcour/couret-finite-verifications/commit/ee1043326ca360b298be5032f24ff7444a05aa76).
+Proposition : [PR 60 en brouillon](https://github.com/alexcour/couret-finite-verifications/pull/60).
+Validation distante : [CI push 39046887611](https://github.com/alexcour/couret-finite-verifications/actions/runs/39046887611),
+archive `12106629512` téléchargée et vérifiée.
+Le [manifeste de validation](recoh_selector_validation_manifest_20261017.json)
+relie ce commit aux cinq journaux et rapports de CI recopiés sans modification.
+Le commit documentaire qui contient le manifeste conserve les mêmes sources
+Lean, Python et paramètres de compilation.
 
 ## 2. Domaine et observations
 
@@ -197,6 +203,19 @@ fibre a un seul support et aucune lecture supplémentaire n’est demandée.
 Dans le pire cas sur un domaine de triplets non vide, le budget est
 \(0\) si \(r=0\), et \(r+\min(1,s)\) sinon.
 
+Le mécanisme du minorant est particulièrement simple une fois le carré connu :
+
+\[
+P_\chi(S)^2=\sum_{z\in G}R_S(z)\chi(z).
+\]
+
+Le membre de droite est fixé sur toute la fibre. Une lecture de caractère peut
+donc y prendre au plus deux valeurs complexes, les racines carrées d’une même
+quantité. Une banque de \(k\) caractères fournit au plus \(2^k\) signatures sur
+la fibre ; pour la séparer, il faut \(|F_R|\le 2^k\). La construction atteint
+ce minorant. Cet argument concerne le nombre de sondes dans le modèle exact,
+et ne chiffre ni la précision nécessaire ni le coût arithmétique d’une lecture.
+
 ## 7. Exemple où la première coordonnée ternaire échoue
 
 Dans \(C_2\times C_3\times C_3\), prenons
@@ -267,6 +286,35 @@ par `VERIFY_LOCAL.sh` et les fichiers de résultats de la release doivent rester
 identiques.
 
 ## 9. Validation indépendante et périmètre exact
+
+### Résultats et traçabilité
+
+| Contrôle | Résultat vérifié |
+|---|---|
+| Compilation intégrée Lean | 78 racines, 3 499 tâches réussies. |
+| Dépendances des théorèmes RECOH | 387 déclarations ; les trois axiomes standards indiqués ci-dessus seulement. |
+| Vérification exhaustive Python | 24 présentations, 30 327 supports, 12 047 fibres. |
+| Nouveau rejeu Lean/Python | 1 874 cas : 554 sélections, 1 204 décodages, 116 directions ; 169 097 assertions totales réussies. |
+| Couverture complémentaire | 17 cas sur de grandes présentations, 107 observations invalides, 6 encodages typés équivalents. |
+| Non-régression des décodeurs et de l’arithmétique | 1 454 cas, 7 693 assertions, aucun échec. |
+| Provenance | Archive `12106629512` de la CI push `39046887611` ; SHA-256 de l’archive et des cinq fichiers contrôlés. |
+
+Les cinq fichiers exacts sont le [journal de compilation](recoh_selector_build_20261017.log),
+le [relevé des dépendances](recoh_selector_axioms_20261017.log),
+le [certificat](recoh_selector_certificate_20261017.json),
+le [nouveau rejeu](recoh_selector_replay_20261017.json) et
+le [rejeu des décodeurs précédents](recoh_selector_decoder_replay_20261017.json).
+Le manifeste consigne aussi l’égalité des résultats locaux et distants, les
+empreintes du jeu de cas et des sources, Lean 4.29.1 et le commit Mathlib fixé.
+
+La première exécution monolithique locale a atteint le plafond de 600 secondes
+du harnais. Le correctif n’a changé aucune définition Lean ni retiré aucun cas :
+les mêmes 1 874 entrées sont exécutées en 19 lots séquentiels, sous un budget Lean
+global de 1 800 secondes. Le statut de réussite est produit après vérification
+de toutes les sorties concaténées. Cette adaptation du harnais ne constitue
+pas un résultat de performance du sélecteur.
+
+### Couverture et limites
 
 Le nouveau vérificateur énumère 24 petites présentations, 30 327 supports et
 12 047 fibres. Il vérifie la couverture complète des fibres par les orbites des
@@ -361,9 +409,42 @@ puis sur le parcours complet. Aucun gain chiffré ni théorème de complexité
 binaire totale ne découle de la seule égalité avec `padicValNat` ; ils restent
 à établir pour une implémentation effectivement partagée.
 
-La robustesse exigerait ensuite des bornes quantitatives de séparation et
-des seuils de décision. Le fait que les lectures exactes distinguent deux
-orbites ne suffit pas à assurer une récupération stable sous perturbation.
+### Robustesse et statut scientifique
+
+Une [analyse complémentaire de stabilité](RECOH_STABILITY_FOLLOWUP_20261017.md)
+précise désormais cette piste sous l’hypothèse que le carré reste exact.
+Elle montre que la marge de la sonde binaire canonique peut tendre vers zéro
+sur des fibres ordinaires, puis utilise une identité de Newton pour proposer
+un choix entre le caractère binaire et son cube, calculé depuis le carré.
+Le nombre minimal de sondes est conservé et la séparation uniforme visée est
+au moins un en norme maximale.
+
+La note détermine aussi la meilleure constante d'amplitude pour le seul couple
+de caractères : \(\alpha\approx0{,}7692923542\), racine positive de
+\(\alpha^3+3\alpha^2+\alpha-3=0\). Le protocole simple par approximation
+certifiée conserve sa garantie explicite de \(1/2\) ; atteindre une constante
+plus proche de \(\alpha\) demande d'affiner ce choix.
+
+Une seconde construction proposée parcourt les puissances impaires du caractère
+binaire. Une identité de moyenne et un test rationnel à erreur certifiée donnent
+une amplitude au moins un par coordonnée, donc une séparation uniforme au moins
+deux sur toute fibre non triviale, avec le même nombre minimal de sondes.
+Un exemple dans \(C_4\) montre que deux est la meilleure constante uniforme
+pour des coefficients unitaires non pondérés. Le compromis est calculatoire :
+le parcours naïf comporte \(N/2\) candidats pour un caractère d'ordre
+\(N=2^a\), potentiellement exponentiel en la taille binaire de cet ordre.
+
+Sur les fibres exceptionnelles, le calcul de la forme normale donne déjà une
+séparation exactement égale à deux pour la banque actuelle. Une paire de
+supports impose ce plafond à toute banque de caractères unitaires non pondérés ;
+la banque actuelle l’atteint. Ces déductions analytiques sont explicitées dans
+la note complémentaire. Leur formalisation, l’approximation certifiée nécessaire
+au choix binaire et un véritable décodeur bruité constituent un prochain lot.
+Elles ne figurent pas dans les 62 nouveaux théorèmes compilés de COU-27.
+
+L’injectivité exacte ne donne pas à elle seule une marge quantitative uniforme
+ni le programme qui exploite une tolérance d’erreur. Le bruit sur le carré
+lui-même demande encore un modèle distinct de celui de cette analyse.
 Les arbres de mesures adaptatifs après réception de lectures restent un autre
 modèle : ici toute la banque est arrêtée après \(R\) et avant ces lectures.
 
