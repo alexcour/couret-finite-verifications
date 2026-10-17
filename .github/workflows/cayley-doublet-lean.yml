@@ -1,0 +1,49 @@
+name: cayley-doublet-lean
+
+on:
+  push:
+    branches:
+      - review/correspondants-q5-strobo-20261013
+    paths:
+      - 'research/correspondants_20261013/lean/**'
+      - '.github/workflows/cayley-doublet-lean.yml'
+  pull_request:
+    paths:
+      - 'research/correspondants_20261013/lean/**'
+      - '.github/workflows/cayley-doublet-lean.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  doublet-transport:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check for proof holes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/correspondants_20261013/lean/CayleyDoubletCore.lean; then
+            echo 'Unexpected proof placeholder or additional assumption'
+            exit 1
+          fi
+      - name: Install Lean toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve and cache mathlib
+        working-directory: research/correspondants_20261013/lean
+        run: |
+          lake resolve-deps
+          lake exe cache get
+          lean --version
+      - name: Kernel-check structural transport lemmas
+        working-directory: research/correspondants_20261013/lean
+        run: lake env lean CayleyDoubletCore.lean
