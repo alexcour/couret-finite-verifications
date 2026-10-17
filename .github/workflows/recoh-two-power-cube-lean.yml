@@ -30,6 +30,7 @@ jobs:
           set -euo pipefail
           lake resolve-deps
           lake exe cache get
-          lake build RecohRankBounds RecohTwoPowerCoprimeGate
+          lake build RecohRankBounds
+          lake env lean RecohTwoPowerCoprimeGate.lean -o .lake/build/lib/lean/RecohTwoPowerCoprimeGate.olean
           lake env lean RecohTwoPowerCubeGate.lean | tee /tmp/recoh-two-power-cube.log
           if grep -q sorryAx /tmp/recoh-two-power-cube.log; then exit 1; fi
