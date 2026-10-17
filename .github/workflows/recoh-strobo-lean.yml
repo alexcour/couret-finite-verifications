@@ -1,10 +1,11 @@
-name: RECOH optimal character banks and typed decoding
+name: RECOH optimal stable banks and typed decoding
 on:
   push:
     branches:
       - research/recoh-strobo-fourier-lean-2026-10-14
       - research/recoh-fibre-optimal-2026-10-17
       - research/recoh-square-selector-2026-10-17
+      - research/recoh-stability-2026-10-17
     paths:
       - 'research/strobo-2tors-2026-10-12/lean/**'
       - '.github/workflows/recoh-strobo-lean.yml'
@@ -12,6 +13,7 @@ on:
       - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
       - 'research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json'
       - 'research/strobo-2tors-2026-10-12/recoh_square_selector.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_stable_decoder.py'
   pull_request:
     paths:
       - 'research/strobo-2tors-2026-10-12/lean/**'
@@ -20,6 +22,7 @@ on:
       - 'research/strobo-2tors-2026-10-12/recoh_primary_bank_results_20261017.json'
       - 'research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json'
       - 'research/strobo-2tors-2026-10-12/recoh_square_selector.py'
+      - 'research/strobo-2tors-2026-10-12/recoh_stable_decoder.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -65,6 +68,8 @@ jobs:
           python3 research/strobo-2tors-2026-10-12/verify_recoh_data_bridge_20261017.py --suite all --output research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json
       - name: Execute the square selector against full fibres and the typed decoder
         run: python3 research/strobo-2tors-2026-10-12/verify_recoh_selector_20261017.py --output research/strobo-2tors-2026-10-12/lean/recoh-selector-replay.json
+      - name: Certify stable selection, rational phases and noisy typed decoding
+        run: python3 research/strobo-2tors-2026-10-12/verify_recoh_stability_20261017.py --output research/strobo-2tors-2026-10-12/lean/recoh-stability-replay.json --cases-output research/strobo-2tors-2026-10-12/lean/recoh-stability-cases.json
       - name: Preserve the exact compilation and dependency records
         if: always()
         uses: actions/upload-artifact@v4
@@ -76,4 +81,6 @@ jobs:
             research/strobo-2tors-2026-10-12/lean/recoh-certificate.json
             research/strobo-2tors-2026-10-12/lean/recoh-data-bridge-replay.json
             research/strobo-2tors-2026-10-12/lean/recoh-selector-replay.json
+            research/strobo-2tors-2026-10-12/lean/recoh-stability-replay.json
+            research/strobo-2tors-2026-10-12/lean/recoh-stability-cases.json
             research/strobo-2tors-2026-10-12/recoh_fibre_results_20261017.json
