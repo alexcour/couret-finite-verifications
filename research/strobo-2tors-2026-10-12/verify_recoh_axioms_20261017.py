@@ -81,7 +81,7 @@ def main():
     if args.source_commit:
         assert re.fullmatch(r"[0-9a-f]{40}", args.source_commit), "Invalid source commit SHA"
     names = declarations()
-    content = "import Strobo2TorsConsolidated\nimport RecohOptimalBank\nimport RecohUpperSignGate\nimport RecohCandidateDecoder\n\n"
+    content = "import Strobo2TorsConsolidated\nimport RecohOptimalBank\nimport RecohUpperSignGate\nimport RecohCandidateDecoder\nimport RecohDecoderBounds\nimport RecohCyclicHalves\nimport RecohSignRecovery\nimport RecohCyclotomicNormalization\nimport RecohFastDecoder\nimport RecohSparseObservation\nimport RecohExactSignBackend\n\n"
     content += "/-! Fresh public-declaration dependency checks for the integrated RECOH result. -/\n\n"
     content += "\n".join("#print axioms " + name for name in names) + "\n"
     path = LEAN / "RecohConsolidated.lean"
@@ -105,7 +105,11 @@ def main():
                           "nonstandard_dependencies": [],
                           "principal_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_size",
                           "decoder_specification_theorem": "Couret.STROBO2TORS.recoh_optimal_bank_exact_decoder",
-                          "decoder_scope": "complete finite candidate generation and exact complex-observation specification; not a verification of the Python refinement"},
+                          "decoder_refinement_theorem": "Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact",
+                          "half_solver_theorem": "Couret.STROBO2TORS.recoh_product_half_spec",
+                          "sparse_arithmetic_theorem": "Couret.STROBO2TORS.recoh_normalized_sparse_equal_iff",
+                          "candidate_bound_theorem": "Couret.STROBO2TORS.recoh_checked_fast_decoder_card_le_twenty",
+                          "decoder_scope": "mathematical refinement of one-representative decoding, cyclic halving, sign recovery and sparse exact arithmetic under supplied support, primary-exponent and coordinate contracts; executable Lean operators, not a certification of the external Python runtime, parser, cache or serialization"},
                          sort_keys=True))
     else:
         print(f"RECOH certificate inventory: {len(names)} public theorems")

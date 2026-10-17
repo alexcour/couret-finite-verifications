@@ -2,6 +2,13 @@ import Strobo2TorsConsolidated
 import RecohOptimalBank
 import RecohUpperSignGate
 import RecohCandidateDecoder
+import RecohDecoderBounds
+import RecohCyclicHalves
+import RecohSignRecovery
+import RecohCyclotomicNormalization
+import RecohFastDecoder
+import RecohSparseObservation
+import RecohExactSignBackend
 
 /-! Fresh public-declaration dependency checks for the integrated RECOH result. -/
 
@@ -31,6 +38,85 @@ import RecohCandidateDecoder
 #print axioms Couret.STROBO2TORS.recoh_complex_character_binary_encoding
 #print axioms Couret.STROBO2TORS.recoh_complex_character_ternary_encoding
 #print axioms Couret.STROBO2TORS.recoh_short_complex_character_bank_collision
+#print axioms Couret.STROBO2TORS.recoh_odd_cyclic_half_double
+#print axioms Couret.STROBO2TORS.recoh_even_value_half_double
+#print axioms Couret.STROBO2TORS.recoh_even_cyclic_double_value
+#print axioms Couret.STROBO2TORS.recoh_cyclic_half_sound
+#print axioms Couret.STROBO2TORS.recoh_cyclic_half_complete
+#print axioms Couret.STROBO2TORS.recoh_cyclic_half_spec
+#print axioms Couret.STROBO2TORS.recoh_product_half_sound
+#print axioms Couret.STROBO2TORS.recoh_product_half_complete
+#print axioms Couret.STROBO2TORS.recoh_product_half_spec
+#print axioms Couret.STROBO2TORS.recoh_primary_polynomial_eq_cyclotomic
+#print axioms Couret.STROBO2TORS.recoh_cyclotomic_eval_eq_iff
+#print axioms Couret.STROBO2TORS.recoh_primary_polynomial_aeval
+#print axioms Couret.STROBO2TORS.recoh_primary_top_power
+#print axioms Couret.STROBO2TORS.recoh_root_polynomial_aeval
+#print axioms Couret.STROBO2TORS.recoh_root_polynomial_degree
+#print axioms Couret.STROBO2TORS.recoh_root_sum_polynomial_aeval
+#print axioms Couret.STROBO2TORS.recoh_root_sum_polynomial_degree
+#print axioms Couret.STROBO2TORS.recoh_root_sum_polynomial_eq_iff
+#print axioms Couret.STROBO2TORS.recoh_terms_polynomial_append
+#print axioms Couret.STROBO2TORS.recoh_root_terms_polynomial
+#print axioms Couret.STROBO2TORS.recoh_reduced_terms_polynomial
+#print axioms Couret.STROBO2TORS.recoh_root_terms_length_le
+#print axioms Couret.STROBO2TORS.recoh_reduced_terms_length_le
+#print axioms Couret.STROBO2TORS.recoh_two_primary_triple_length
+#print axioms Couret.STROBO2TORS.recoh_three_primary_triple_length
+#print axioms Couret.STROBO2TORS.recoh_terms_polynomial_coeff
+#print axioms Couret.STROBO2TORS.recoh_sparse_coeff_zero_of_not_mem
+#print axioms Couret.STROBO2TORS.recoh_sparse_equal_iff
+#print axioms Couret.STROBO2TORS.recoh_normalized_sparse_equal_iff
+#print axioms Couret.STROBO2TORS.recoh_normalized_comparison_positions_le
+#print axioms Couret.STROBO2TORS.recoh_primary_triple_comparison_positions_le
+#print axioms Couret.STROBO2TORS.recoh_negate_terms_polynomial
+#print axioms Couret.STROBO2TORS.recoh_normalized_sparse_equal_neg_iff
+#print axioms Couret.STROBO2TORS.recoh_mem_double_fibre
+#print axioms Couret.STROBO2TORS.recoh_double_fibre_eq_translate
+#print axioms Couret.STROBO2TORS.recoh_double_fibre_zero_card
+#print axioms Couret.STROBO2TORS.recoh_double_fibre_card_of_nonempty
+#print axioms Couret.STROBO2TORS.recoh_double_fibre_card_zero_or_torsion
+#print axioms Couret.STROBO2TORS.recoh_double_fibre_card_le
+#print axioms Couret.STROBO2TORS.recoh_edge_sets_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_candidate_pairs_card_eq_sum
+#print axioms Couret.STROBO2TORS.recoh_candidate_pairs_card_le_edges_mul_torsion
+#print axioms Couret.STROBO2TORS.recoh_candidate_pairs_card_le_twenty_mul_torsion
+#print axioms Couret.STROBO2TORS.recoh_candidates_card_le_twenty_mul_torsion
+#print axioms Couret.STROBO2TORS.recoh_ordered_square_candidate_pairs_card_le
+#print axioms Couret.STROBO2TORS.recoh_ordered_square_candidates_card_le
+#print axioms Couret.STROBO2TORS.recoh_sign_bit_from_bool_eq
+#print axioms Couret.STROBO2TORS.recoh_recover_translation_from_bools_coordinate
+#print axioms Couret.STROBO2TORS.recoh_boolean_recovery_refines_complex
+#print axioms Couret.STROBO2TORS.recoh_boolean_recovery_eq_translation
+#print axioms Couret.STROBO2TORS.recoh_boolean_recovery_sound
+#print axioms Couret.STROBO2TORS.recoh_primary_sign_bools_exact
+#print axioms Couret.STROBO2TORS.recoh_boolean_recover_support_card
+#print axioms Couret.STROBO2TORS.recoh_boolean_recover_support_eq_sign
+#print axioms Couret.STROBO2TORS.recoh_boolean_recovery_spec
+#print axioms Couret.STROBO2TORS.recoh_sparse_recovery_spec
+#print axioms Couret.STROBO2TORS.recoh_sparse_sign_checked_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_sparse_backend_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_sparse_backend_decoder_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_mem_feasible_edge_sets
+#print axioms Couret.STROBO2TORS.recoh_edge_representative_card
+#print axioms Couret.STROBO2TORS.recoh_edge_decode_change_half
+#print axioms Couret.STROBO2TORS.recoh_mem_fast_candidates_iff
+#print axioms Couret.STROBO2TORS.recoh_fast_candidates_card_three
+#print axioms Couret.STROBO2TORS.recoh_sparse_edge_sets_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_feasible_edge_sets_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_fast_candidates_card_le
+#print axioms Couret.STROBO2TORS.recoh_fast_candidates_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_fast_decoder_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_checked_fast_decoder_card_le_twenty
+#print axioms Couret.STROBO2TORS.recoh_checked_fast_decoder_eq_fast
+#print axioms Couret.STROBO2TORS.recoh_fast_candidates_complete
+#print axioms Couret.STROBO2TORS.recoh_mem_fast_decoder_iff
+#print axioms Couret.STROBO2TORS.recoh_fast_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_checked_fast_decoder_eq_exact
+#print axioms Couret.STROBO2TORS.recoh_sign_recover_support_card
+#print axioms Couret.STROBO2TORS.recoh_sign_recover_support_of_readings
+#print axioms Couret.STROBO2TORS.recoh_sign_recovery_spec
+#print axioms Couret.STROBO2TORS.recoh_sign_fast_decoder_eq_exact
 #print axioms Couret.STROBO2TORS.recoh_probe_reflection_of_cancel
 #print axioms Couret.STROBO2TORS.recoh_probe_reflection_of_trivial_three
 #print axioms Couret.STROBO2TORS.recoh_order_three_reflection_same_square
@@ -79,6 +165,22 @@ import RecohCandidateDecoder
 #print axioms Couret.STROBO2TORS.recoh_third_probe_separates_exceptional
 #print axioms Couret.STROBO2TORS.recoh_reconstruction_of_separating_banks
 #print axioms Couret.STROBO2TORS.recoh_observation_injective_of_separating_banks
+#print axioms Couret.STROBO2TORS.recoh_recovered_sign_bit_of_sign
+#print axioms Couret.STROBO2TORS.recoh_recovered_sign_bit_sound
+#print axioms Couret.STROBO2TORS.recoh_recover_translation_coordinate
+#print axioms Couret.STROBO2TORS.recoh_recover_translation_eq
+#print axioms Couret.STROBO2TORS.recoh_recover_translation_sound
+#print axioms Couret.STROBO2TORS.recoh_translation_unique_of_sign_readings
+#print axioms Couret.STROBO2TORS.recoh_three_primary_on_two_torsion
+#print axioms Couret.STROBO2TORS.recoh_three_primary_probe_translate
+#print axioms Couret.STROBO2TORS.recoh_sign_coordinates_separate_two_torsion
+#print axioms Couret.STROBO2TORS.recoh_sign_coordinates_of_separating_bank
+#print axioms Couret.STROBO2TORS.recoh_exists_primary_sign_coordinates
+#print axioms Couret.STROBO2TORS.recoh_exists_primary_translation_recovery
+#print axioms Couret.STROBO2TORS.recoh_ordered_square_zero_outside_pair_sums
+#print axioms Couret.STROBO2TORS.recoh_sparse_square_check_iff
+#print axioms Couret.STROBO2TORS.recoh_sparse_readings_check_iff
+#print axioms Couret.STROBO2TORS.recoh_sparse_observation_check_iff
 #print axioms Couret.STROBO2TORS.recoh_symmetric_three_sum_cube
 #print axioms Couret.STROBO2TORS.recoh_symmetric_three_sum_two_power_impossible
 #print axioms Couret.STROBO2TORS.recoh_square_cube_one_implies_one
