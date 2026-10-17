@@ -1,0 +1,92 @@
+{
+  "archive": {
+    "archive_download_url": "https://api.github.com/repos/alexcour/couret-finite-verifications/actions/artifacts/12103885765/zip",
+    "created_at": "2026-10-17T14:13:55Z",
+    "digest": "sha256:5cbc6b4ab5999bca7596b9a7aabb888d64dd5c6b52a2df7971268fe4f2c89d45",
+    "downloaded_bytes": 91125,
+    "expired": false,
+    "expires_at": "2027-01-15T14:03:55Z",
+    "id": 12103885765,
+    "name": "recoh-optimal-bank-8b5e2dbedff59b3089c65fe70aff6b596ee392d3",
+    "sha256": "5cbc6b4ab5999bca7596b9a7aabb888d64dd5c6b52a2df7971268fe4f2c89d45",
+    "size_in_bytes": 91125,
+    "updated_at": "2026-10-17T14:13:55Z",
+    "url": "https://api.github.com/repos/alexcour/couret-finite-verifications/actions/artifacts/12103885765",
+    "workflow_run": {
+      "head_branch": "research/recoh-fibre-optimal-2026-10-17",
+      "head_repository_id": 1388838082,
+      "head_sha": "8b5e2dbedff59b3089c65fe70aff6b596ee392d3",
+      "id": 39039158181,
+      "repository_id": 1388838082
+    }
+  },
+  "base_commit": "afef68f3c51dda613f749e90b5c992c4734e2c92",
+  "certificate_rechecked_from_exact_ci_log": true,
+  "decoder_replay": {
+    "assertion_count": 7693,
+    "case_count": 1454,
+    "decode_summary": {
+      "cases": 283,
+      "expected_accepted": 155,
+      "expected_rejected": 128,
+      "large_presentation_cases": 16,
+      "lean_prepared_decoder_executed": 211,
+      "lean_rejection_stages": {
+        "adapter": 72,
+        "no_candidate": 6,
+        "none": 155,
+        "typed_guard": 50
+      },
+      "lean_typed_decoder_executed": 211,
+      "passed": 283
+    },
+    "elapsed_seconds": 66.713,
+    "failed_cases": 0,
+    "input_sha256": "d7252d65bded8e744f1f6898f2648166af2b1085745a55024ae0434ac0f14eb8",
+    "lean_stdout_sha256": "8ab4d479320976c2e8bc64c15d51871db5775c394f5e1c2b277b1e86bba06cce",
+    "passed_cases": 1454,
+    "status": "pass"
+  },
+  "decoder_replay_source_hashes_match_checkpoint": true,
+  "event": "push",
+  "exact_ci_files": {
+    "recoh_fibre_axioms_20261017.log": {
+      "archive_path": "lean/recoh-axioms.log",
+      "bytes": 36849,
+      "sha256": "ac1b9439801e825e9f9645a0de806e94c268de97b293d3b1966cc8cad623283e"
+    },
+    "recoh_fibre_build_20261017.log": {
+      "archive_path": "lean/recoh-build.log",
+      "bytes": 214341,
+      "sha256": "6215c5055a557256fbd38b7d64a753561d2ec4383ed46b27fc7a3cee26810094"
+    },
+    "recoh_fibre_certificate_20261017.json": {
+      "archive_path": "lean/recoh-certificate.json",
+      "bytes": 2668,
+      "sha256": "030109f776efa576bc8fc602967457d6c433e6756425f0ca068777e045a4af13"
+    },
+    "recoh_fibre_decoder_replay_20261017.json": {
+      "archive_path": "lean/recoh-data-bridge-replay.json",
+      "bytes": 371055,
+      "sha256": "7ebb240b18935c788955c1c1a8457b15cba22b3895d7ed41dfa776c11a9e673a"
+    }
+  },
+  "finite_fibres": 12047,
+  "finite_presentations": 24,
+  "finite_report_identical_to_source": true,
+  "finite_supports": 30327,
+  "integrated_jobs": 3494,
+  "integrated_roots": 73,
+  "lean_version": "4.29.1",
+  "mathlib_revision": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "new_lean_modules": 4,
+  "new_public_declarations": 29,
+  "public_recoh_declarations": 325,
+  "pull_request": 59,
+  "scope": "Exact complex characters on full labelled ordered-square fibres of triple supports, zero allowed. Existence of a square-indexed selection rule, fixed within every fibre. No efficient selector, adaptive-tree proof, raw-input refinement, Python extraction or noise guarantee.",
+  "source_commit": "8b5e2dbedff59b3089c65fe70aff6b596ee392d3",
+  "source_lean_job": 117414933044,
+  "source_lean_run": 39039158181,
+  "source_tree": "e56a2923d81b089dfce3fe3c7128a2011f8e0c4c",
+  "source_verify_run": 39039158227
+}
