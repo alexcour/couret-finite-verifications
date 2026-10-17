@@ -330,7 +330,7 @@ def check_public_protocol(checks):
     return {"same_fibre_queries": len(fibre), "invalid_queries": len(invalid), "cli_cases": 2}
 
 
-def execute_lean(cases, checks):
+def execute_lean(cases, checks, *, timeout_seconds, batch_size):
     lake = os.environ.get("RECOH_LAKE") or shutil.which("lake")
     if not lake:
         raise RuntimeError("lake is required; set RECOH_LAKE or use --python-only explicitly")
@@ -341,14 +341,36 @@ def execute_lean(cases, checks):
         path = ROOT / "lean/.lake/build/lib/lean" / (module + ".olean")
         compiled[module] = hashlib.sha256(path.read_bytes()).hexdigest()
     with tempfile.TemporaryDirectory(prefix="recoh-selector-") as temporary:
-        input_path = Path(temporary) / "cases.json"
-        input_path.write_bytes(stable_bytes(cases))
-        command = [lake, "env", "lean", "--run", "RecohSelectorReplay.lean", str(input_path)]
         started = time.monotonic()
-        run = subprocess.run(command, cwd=ROOT / "lean", text=True, capture_output=True, timeout=600)
-        if run.returncode:
-            raise RuntimeError(f"Lean execution failed ({run.returncode}):\n{run.stdout}\n{run.stderr}")
-        actual = json.loads(run.stdout)
+        actual, batches = [], []
+        for offset in range(0, len(cases), batch_size):
+            batch = cases[offset:offset + batch_size]
+            input_path = Path(temporary) / f"cases-{offset:05d}.json"
+            input_path.write_bytes(stable_bytes(batch))
+            remaining = timeout_seconds - (time.monotonic() - started)
+            if remaining <= 0:
+                raise RuntimeError(f"Lean replay exhausted its {timeout_seconds}s global budget "
+                                   f"after {len(actual)}/{len(cases)} cases")
+            command = [lake, "env", "lean", "--run", "RecohSelectorReplay.lean", str(input_path)]
+            batch_started = time.monotonic()
+            try:
+                run = subprocess.run(command, cwd=ROOT / "lean", text=True,
+                                     capture_output=True, timeout=remaining)
+            except subprocess.TimeoutExpired as error:
+                raise RuntimeError(f"Lean replay exhausted its {timeout_seconds}s global budget "
+                                   f"during {batch[0]['id']}..{batch[-1]['id']}; "
+                                   f"{len(actual)}/{len(cases)} cases completed") from error
+            if run.returncode:
+                raise RuntimeError(f"Lean execution failed ({run.returncode}):\n{run.stdout}\n{run.stderr}")
+            result = json.loads(run.stdout)
+            if not isinstance(result, list) or len(result) != len(batch):
+                raise RuntimeError(f"Lean returned the wrong batch cardinality at {batch[0]['id']}")
+            actual.extend(result)
+            batches.append({"first_case_id": batch[0]["id"], "last_case_id": batch[-1]["id"],
+                            "cases": len(batch),
+                            "elapsed_seconds": round(time.monotonic() - batch_started, 3)})
+            print(f"Lean selector replay: {len(actual)}/{len(cases)} cases completed "
+                  f"in {time.monotonic() - started:.1f}s", file=sys.stderr, flush=True)
         elapsed = round(time.monotonic() - started, 3)
     checks.check(len(actual) == len(cases), "Lean output cardinality")
     rows = []
@@ -374,6 +396,8 @@ def execute_lean(cases, checks):
                 checks.check(result["steps"] <= len(case["cyclic_factors"]), (case, "scan steps"))
         rows.append({"id": case["id"], "kind": case["kind"], "label": case["label"], "actual": result})
     return {"executed": True, "cases": len(cases), "elapsed_seconds": elapsed,
+            "global_timeout_seconds": timeout_seconds, "batch_size": batch_size,
+            "batches": batches,
             "lean_version": version, "compiled_import_sha256": compiled,
             "case_kinds": dict(Counter(c["kind"] for c in cases)),
             "rejection_stages": dict(Counter(r.get("rejection_stage", "not_decode") for r in actual)),
@@ -385,7 +409,13 @@ def main():
     parser.add_argument("--python-only", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--cases-output", type=Path)
+    parser.add_argument("--lean-timeout-seconds", type=int, default=1800,
+                        help="global budget for all Lean batches (default: 1800 seconds)")
+    parser.add_argument("--lean-batch-size", type=int, default=100,
+                        help="sequential Lean batch size, without sampling (default: 100)")
     args = parser.parse_args()
+    if args.lean_timeout_seconds <= 0 or args.lean_batch_size <= 0:
+        parser.error("Lean timeout and batch size must be positive")
     files = [ROOT / "recoh_square_selector.py", ROOT / "recoh_exact_decoder.py", Path(__file__),
              *sorted((ROOT / "lean").glob("Recoh*.lean")),
              ROOT / "lean/lakefile.lean", ROOT / "lean/lake-manifest.json", ROOT / "lean/lean-toolchain"]
@@ -402,7 +432,8 @@ def main():
         case["id"] = f"selector-{i:05d}"
     if args.cases_output:
         args.cases_output.write_bytes(stable_bytes(cases))
-    replay = {"executed": False, "reason": "explicit --python-only"} if args.python_only else execute_lean(cases, checks)
+    replay = {"executed": False, "reason": "explicit --python-only"} if args.python_only else execute_lean(
+        cases, checks, timeout_seconds=args.lean_timeout_seconds, batch_size=args.lean_batch_size)
     after_hashes = source_hashes()
     checks.check(before_hashes == after_hashes, "source files changed during verification")
     scope = ("Exhaustive finite Python evidence only; Lean execution explicitly skipped" if args.python_only else

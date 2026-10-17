@@ -21,13 +21,16 @@ inconnu ni un membre de la fibre comme donnée auxiliaire. Les coefficients
 prédits des représentants servent à choisir la sonde ; ils ne constituent pas
 des mesures supplémentaires du support inconnu.
 
-**État au dépôt des sources :** les quatre modules de preuve et le programme de
-rejeu compilent ; les modules ajoutent 62 théorèmes publics aux 325 antérieurs.
-Le contrôle Python exhaustif et la non-régression des décodeurs précédents sont
-réussis. Après suppression d’un recalcul par coordonnée lors de la construction
-des slots ternaires, la validation intégrée finale et le rejeu Lean/Python sont
-en cours. Leur clôture sera consignée avec le commit source, les journaux exacts
-de CI, le certificat de dépendances et les empreintes des cas exécutés.
+**État au dépôt des sources révisées :** la compilation intégrée réussit avec
+78 racines et 3 499 tâches. Les quatre modules de preuve ajoutent 62 théorèmes
+publics aux 325 antérieurs ; le relevé frais des 387 déclarations n’utilise que
+`propext`, `Classical.choice` et `Quot.sound`. Le contrôle Python exhaustif et la
+non-régression des décodeurs précédents sont réussis. Le rejeu Lean/Python complet
+de 1 874 cas est en cours. Sa première exécution a atteint la limite de 600 secondes
+du harnais ; les sources Lean sont conservées et les mêmes cas sont désormais
+exécutés par lots de 100, avec progression et budget global de 1 800 secondes.
+La clôture sera consignée avec le commit source, les journaux exacts de CI, le
+certificat de dépendances et les empreintes des cas exécutés.
 
 ## 2. Domaine et observations
 
@@ -252,6 +255,12 @@ cd ..
 python3 verify_recoh_selector_20261017.py --output selector-replay.json
 ```
 
+Le rejeu conserve l’ordre et l’intégralité des cas. Les options
+`--lean-batch-size` (100 par défaut) et `--lean-timeout-seconds` (1 800 par défaut)
+règlent le harnais ; le délai porte sur l’ensemble des lots. Leur progression
+est écrite sur la sortie d’erreur. Le rapport de réussite n’est créé qu’après
+comparaison de tous les résultats et contrôle des empreintes des sources.
+
 La chaîne intégrée conserve également les tests de la banque fixe, des fibres
 et des deux décodeurs typés antérieurs. Le contrôle public du dépôt est exécuté
 par `VERIFY_LOCAL.sh` et les fichiers de résultats de la release doivent rester
@@ -295,6 +304,62 @@ Une extraction contrôlée ou un certificat vérifiable de l’entrée et de la
 sortie réduirait la frontière entre la preuve typée et l’interface externe.
 Une analyse de coût devrait compter les opérations entières et leur taille,
 y compris le calcul des paramètres primaires dans Lean.
+
+### Calcul ciblé et partage des paramètres primaires
+
+Une piste précise consiste à remplacer, dans
+[`recohCanonicalPrimaryData`](lean/RecohCyclicPrimaryBank.lean), la construction
+de `(q i).factorization` par le calcul de la seule valuation au premier demandé,
+ici deux ou trois. Dans la version de Mathlib épinglée au commit
+`5e932f97dd25535344f80f9dd8da3aab83df0fe6`,
+[`Nat.factorization`](https://github.com/leanprover-community/mathlib4/blob/5e932f97dd25535344f80f9dd8da3aab83df0fe6/Mathlib/Data/Nat/Factorization/Defs.lean)
+construit une fonction à support fini dont le support est `n.primeFactors`.
+Le C généré inspecté confirme que ce support est effectivement calculé :
+les deux fermetures des champs `exponent` et `cofactor` appellent
+`lp_mathlib_Nat_factorization`, qui appelle `lp_mathlib_Nat_primeFactors`,
+même si la valeur consultée ensuite ne concerne qu'un premier donné.
+Les fichiers concernés sont `lean/.lake/build/ir/RecohCyclicPrimaryBank.c` et
+`lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/Data/Nat/Factorization/Defs.c`.
+
+L'alternative existe déjà dans
+[`Mathlib/Data/Nat/MaxPowDiv.lean`](https://github.com/leanprover-community/mathlib4/blob/5e932f97dd25535344f80f9dd8da3aab83df0fe6/Mathlib/Data/Nat/MaxPowDiv.lean) :
+`Nat.maxPowDvdDiv p n` calcule une paire `(e, c)`, dont `padicValNat p n`
+est la première projection et `Nat.divMaxPow n p` la seconde. Pour un module
+non nul et un premier qui le divise, les données primaires recherchées sont
+donc `exponent = e - 1` et `cofactor = c`. Le théorème
+`Nat.factorization_def n hp` établit déjà l'égalité
+`n.factorization p = padicValNat p n` lorsque `hp : p.Prime`.
+Il fournit le lien mathématique avec les paramètres actuels ; cette optimisation
+n'est pas implémentée dans le présent lot.
+
+Les obligations du prochain lot seraient les suivantes :
+
+1. Établir `e ≥ 1` pour les coordonnées retenues, puis
+   `e - 1 + 1 = e`, `n = p ^ e * c` et `Nat.Coprime p c`.
+   Les lemmes `Nat.pow_padicValNat_mul_divMaxPow` et
+   `Nat.not_dvd_divMaxPow`, avec la primalité de `p` et `n ≠ 0`,
+   fournissent les relations nécessaires aux champs `factor` et `coprime`
+   de `RecohPrimaryFactorData`.
+2. Prouver l'égalité du cofacteur `c` avec le quotient actuel
+   `n / p ^ n.factorization p`, puis l'égalité des données primaires.
+   Transporter cette égalité jusqu'aux ordres des racines, aux encodages,
+   au choix de la banque et aux sorties du décodeur, en conservant les gardes
+   et les contrats sur les observations typées.
+3. Matérialiser une paire `(e, c)` partagée par couple `(p, i)` et vérifier
+   son emploi effectif par les deux champs et les appels répétés du décodeur.
+   Définir seulement une fonction `i ↦ Nat.maxPowDvdDiv p (q i)` puis l'appeler
+   séparément pour chaque projection n'assure pas ce partage. De même,
+   appeler indépendamment `padicValNat` et `Nat.divMaxPow` peut répéter le calcul :
+   dans `lean/.lake/packages/mathlib/.lake/build/ir/Mathlib/Data/Nat/MaxPowDiv.c`,
+   chacune de ces deux fonctions appelle `lp_mathlib_Nat_maxPowDvdDiv`.
+   Une table de paires préparées, ou une représentation équivalente dont le
+   partage est contrôlé dans le code généré, serait à raccorder aux preuves.
+
+La validation devrait combiner ces preuves d'équivalence, l'inspection du code
+généré et des mesures comparatives documentées sur le calcul des paramètres
+puis sur le parcours complet. Aucun gain chiffré ni théorème de complexité
+binaire totale ne découle de la seule égalité avec `padicValNat` ; ils restent
+à établir pour une implémentation effectivement partagée.
 
 La robustesse exigerait ensuite des bornes quantitatives de séparation et
 des seuils de décision. Le fait que les lectures exactes distinguent deux
