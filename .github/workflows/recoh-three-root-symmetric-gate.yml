@@ -1,0 +1,32 @@
+name: RECOH symmetric three-root gate
+on:
+  push:
+    branches: [research/recoh-three-2power-nonzero-20261017]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  algebra:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install elan
+        shell: bash
+        run: |
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile and inspect axioms
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake resolve-deps
+          lake exe cache get
+          lake build RecohRankBounds
+          lake env lean RecohTwoPowerCoprimeGate.lean -o .lake/build/lib/lean/RecohTwoPowerCoprimeGate.olean
+          lake env lean RecohTwoPowerCubeGate.lean -o .lake/build/lib/lean/RecohTwoPowerCubeGate.olean
+          lake env lean RecohThreeRootSymmetricGate.lean | tee /tmp/recoh-symmetric.log
+          if grep -q sorryAx /tmp/recoh-symmetric.log; then exit 1; fi
