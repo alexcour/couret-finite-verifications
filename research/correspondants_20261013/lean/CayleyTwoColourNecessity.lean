@@ -92,12 +92,12 @@ theorem abelianThree_odd_quotient_return (a d h : G)
   obtain ⟨n, hn, hplus | hminus⟩ :=
     odd_multiple_or_neg_of_cyclic (a : G ⧸ H) (d : G ⧸ H) hgen hodd
   · refine ⟨n, hn, Or.inr ?_⟩
-    apply (QuotientAddGroup.eq_zero_iff (n • a - d)).mpr
+    apply (QuotientAddGroup.eq_zero_iff (n • a - d)).mp
     change n • (a : G ⧸ H) - (d : G ⧸ H) = 0
     rw [hplus]
     exact sub_self _
   · refine ⟨n, hn, Or.inl ?_⟩
-    apply (QuotientAddGroup.eq_zero_iff (n • a + d)).mpr
+    apply (QuotientAddGroup.eq_zero_iff (n • a + d)).mp
     change n • (a : G ⧸ H) + (d : G ⧸ H) = 0
     rw [hminus]
     exact neg_add_cancel _
@@ -158,6 +158,30 @@ theorem abelianThree_spectral_necessity_of_trace_bridge (a d h : G)
           hhalf hne horder hfull hodd
       exact (hdiff (hbridge (2 * n + 1) hcospec)).elim
 
+/-- An exact iff once the all-power trace bridge is available.
+No unconditional spectral classification is claimed by this theorem:
+the missing characteristic-polynomial-to-traces assertion is *visible*
+as hbridge. -/
+theorem abelianThree_spectral_equivalence_of_trace_bridge (a d h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (horder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3)
+    (hgen : AddSubgroup.closure ({a, d, h} : Set G) = ⊤)
+    (hbridge :
+      ∀ n : ℕ,
+        (abelianCayleyMatrix (AbelianSource a d h)).charpoly =
+          (abelianCayleyMatrix (AbelianTarget a d h)).charpoly →
+        Matrix.trace (abelianCayleyMatrix (AbelianSource a d h) ^ n) =
+          Matrix.trace (abelianCayleyMatrix (AbelianTarget a d h) ^ n)) :
+    ((abelianCayleyMatrix (AbelianSource a d h)).charpoly =
+        (abelianCayleyMatrix (AbelianTarget a d h)).charpoly) ↔
+      (AddSubgroup.closure ({a, h} : Set G) ≠ ⊤ ∨
+       Even (Nat.card (G ⧸ AddSubgroup.zmultiples h))) := by
+  constructor
+  · exact abelianThree_spectral_necessity_of_trace_bridge a d h
+      hhalf hne horder hgen hbridge
+  · exact abelianThreeCospectral_of_nongeneration_or_even_quotient a d h
+      hhalf hne horder hgen
+
 end Couret.CayleyDoublet
 
 #print axioms Couret.CayleyNecessity.oddify_nsmul
@@ -166,3 +190,5 @@ end Couret.CayleyDoublet
 #print axioms Couret.CayleyDoublet.abelianThree_odd_trace_witness_of_odd_quotient
 #print axioms Couret.CayleyDoublet.rational_trace_eq_of_charpoly_eq
 #print axioms Couret.CayleyDoublet.abelianThree_spectral_necessity_of_trace_bridge
+
+#print axioms Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_trace_bridge
