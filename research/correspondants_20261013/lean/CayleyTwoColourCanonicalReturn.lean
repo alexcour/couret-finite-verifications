@@ -157,9 +157,95 @@ theorem abelianThree_canonical_odd_quotient_return
     rw [hminus]
     exact neg_add_cancel _
 
+
+/-- Oddness of the quotient order 3*ell forces ell to be odd. -/
+theorem odd_ell_of_odd_three_mul (ell : ℕ)
+    (hodd : Odd (3 * ell)) : Odd ell := by
+  obtain ⟨m, hm⟩ := hodd
+  refine ⟨ell / 2, ?_⟩
+  omega
+
+/-- The order-three canonical return is a witness for an ACTUAL
+difference of directed adjacency-matrix traces at exactly ell,
+not merely for some unspecified odd exponent. -/
+theorem abelianThree_canonical_odd_trace_difference
+    (a d h : G) (ell : ℕ)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hpair : AddSubgroup.closure ({a, h} : Set G) = ⊤)
+    (hodd : Odd (Nat.card (G ⧸ AddSubgroup.zmultiples h)))
+    (hell : 0 < ell)
+    (hsize : Nat.card (G ⧸ AddSubgroup.zmultiples h) = 3 * ell)
+    (hdorder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3) :
+    Matrix.trace (abelianCayleyMatrix (AbelianSource a d h) ^ ell) ≠
+      Matrix.trace (abelianCayleyMatrix (AbelianTarget a d h) ^ ell) := by
+  have hreturn := abelianThree_canonical_odd_quotient_return
+    a d h ell hpair hodd hell hsize hdorder
+  have hellOdd : Odd ell :=
+    odd_ell_of_odd_three_mul ell (by simpa only [← hsize] using hodd)
+  obtain ⟨n, hn⟩ := hellOdd
+  have hdiff :=
+    (abelianThree_odd_trace_ne_iff a d h hhalf hne hdorder n).mpr
+      (by simpa only [hn] using hreturn)
+  simpa only [hn] using hdiff
+
+/-- Conditional complete first-coefficient obstruction. Unlike the
+earlier hbridge, the only remaining analytic input is a FINITE prefix
+of ordinary single-matrix Newton equations at degrees <= ell.
+The return at ell and all lower trace equalities are derived from the
+group hypotheses. -/
+theorem abelianThree_charpoly_ne_of_newton_prefix
+    (a d h : G) (ell : ℕ)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hpair : AddSubgroup.closure ({a, h} : Set G) = ⊤)
+    (hodd : Odd (Nat.card (G ⧸ AddSubgroup.zmultiples h)))
+    (hell : 0 < ell)
+    (hsize : Nat.card (G ⧸ AddSubgroup.zmultiples h) = 3 * ell)
+    (hdorder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3)
+    (hS : ∀ k : ℕ, 0 < k → k ≤ ell →
+      Couret.CayleyNewton.NewtonTraceEquation
+        (Couret.CayleyNewton.reverseCharpolyCoeff
+          (abelianCayleyMatrix (AbelianSource a d h)))
+        (fun m => Matrix.trace
+          (abelianCayleyMatrix (AbelianSource a d h) ^ m)) k)
+    (hT : ∀ k : ℕ, 0 < k → k ≤ ell →
+      Couret.CayleyNewton.NewtonTraceEquation
+        (Couret.CayleyNewton.reverseCharpolyCoeff
+          (abelianCayleyMatrix (AbelianTarget a d h)))
+        (fun m => Matrix.trace
+          (abelianCayleyMatrix (AbelianTarget a d h) ^ m)) k) :
+    (abelianCayleyMatrix (AbelianSource a d h)).charpoly ≠
+      (abelianCayleyMatrix (AbelianTarget a d h)).charpoly := by
+  let A := abelianCayleyMatrix (AbelianSource a d h)
+  let B := abelianCayleyMatrix (AbelianTarget a d h)
+  have hord : addOrderOf (a : G ⧸ AddSubgroup.zmultiples h) =
+      3 * ell := by
+    rw [quotient_alpha_order_of_pair_generation a h hpair, hsize]
+  have hprev : ∀ k : ℕ, 0 < k → k < ell →
+      Matrix.trace (A ^ k) = Matrix.trace (B ^ k) := by
+    intro k _ hk
+    exact abelianThree_trace_eq_before_third a d h ell k
+      hhalf hne hdorder hord hk
+  have hdiff : Matrix.trace (A ^ ell) ≠ Matrix.trace (B ^ ell) :=
+    abelianThree_canonical_odd_trace_difference a d h ell
+      hhalf hne hpair hodd hell hsize hdorder
+  have hcoeff : Couret.CayleyNewton.reverseCharpolyCoeff A ell ≠
+      Couret.CayleyNewton.reverseCharpolyCoeff B ell :=
+    Couret.CayleyNewton.newton_first_coefficient_ne_of_trace_prefix
+      (Couret.CayleyNewton.reverseCharpolyCoeff A)
+      (Couret.CayleyNewton.reverseCharpolyCoeff B)
+      (fun k => Matrix.trace (A ^ k))
+      (fun k => Matrix.trace (B ^ k))
+      ell hell hS hT hprev hdiff
+  intro hp
+  exact hcoeff (congrFun
+    (Couret.CayleyNewton.reverseCharpolyCoeff_congr A B hp) ell)
+
 end Couret.CayleyDoublet
 
 #print axioms Couret.CayleyCanonical.canonical_of_bounded_coordinate
 #print axioms Couret.CayleyCanonical.canonical_of_natural_coordinate
 #print axioms Couret.CayleyCanonical.canonical_of_odd_cyclic
 #print axioms Couret.CayleyDoublet.abelianThree_canonical_odd_quotient_return
+#print axioms Couret.CayleyDoublet.odd_ell_of_odd_three_mul
+#print axioms Couret.CayleyDoublet.abelianThree_canonical_odd_trace_difference
+#print axioms Couret.CayleyDoublet.abelianThree_charpoly_ne_of_newton_prefix
