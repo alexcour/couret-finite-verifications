@@ -111,7 +111,11 @@ theorem canonical_of_odd_cyclic
   · exact canonical_of_natural_coordinate alpha delta ell n
       hell hord hn hthree hne
   · have hthreeNeg : (3 : ℕ) • (-delta) = 0 := by
-      simpa only [nsmul_neg, neg_zero] using congrArg Neg.neg hthree
+      calc
+        (3 : ℕ) • (-delta) = -((3 : ℕ) • delta) := by
+          simp only [three_nsmul]
+          abel
+        _ = 0 := by rw [hthree]; simp
     have hneNeg : -delta ≠ 0 := neg_ne_zero.mpr hne
     rcases canonical_of_natural_coordinate alpha (-delta) ell n
         hell hord hn hthreeNeg hneNeg with hneg | hpos
