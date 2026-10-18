@@ -50,7 +50,7 @@ theorem canonical_of_bounded_coordinate
     simpa [hm, h1] using hcoordinate
   · right
     have hbeta : (3 : ℕ) • (ell • alpha) = 0 := by
-      rw [← mul_nsmul, ← hord]
+      rw [← mul_nsmul', ← hord]
       exact addOrderOf_nsmul_eq_zero alpha
     have hdouble : (2 : ℕ) • (ell • alpha) = -(ell • alpha) := by
       have hh : (2 : ℕ) • (ell • alpha) + (ell • alpha) = 0 := by
@@ -58,7 +58,7 @@ theorem canonical_of_bounded_coordinate
       exact eq_neg_of_add_eq_zero_left hh
     have hd : delta = -(ell • alpha) := by
       have h := hcoordinate
-      rw [hm, h2, mul_nsmul'] at h
+      rw [hm, h2, mul_nsmul] at h
       exact h.symm.trans hdouble
     simp [hd]
 
