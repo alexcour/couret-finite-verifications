@@ -125,13 +125,8 @@ theorem rational_trace_eq_of_charpoly_eq
     {i : Type*} [Fintype i] [DecidableEq i]
     (A B : Matrix i i ℚ) (h : A.charpoly = B.charpoly) :
     Matrix.trace A = Matrix.trace B := by
-  classical
-  cases isEmpty_or_nonempty i with
-  | inl _ =>
-      simp [Matrix.trace]
-  | inr _ =>
-      rw [Matrix.trace_eq_neg_charpoly_coeff,
-        Matrix.trace_eq_neg_charpoly_coeff, h]
+  rw [Matrix.trace_eq_neg_charpoly_nextCoeff,
+    Matrix.trace_eq_neg_charpoly_nextCoeff, h]
 
 /-- An exact assembly interface for the missing all-power-traces lemma.
 This statement is CONDITIONAL: hbridge is NOT derived here from charpoly
