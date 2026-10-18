@@ -26,7 +26,7 @@ theorem odd_third_factor
   have hell : 0 < ell := by omega
   have hoddell : Odd ell := by
     rw [hcard] at hodd
-    exact (odd_mul.mp hodd).2
+    exact Couret.CayleyDoublet.odd_ell_of_odd_three_mul ell hodd
   exact ⟨ell, hell, hoddell, hcard⟩
 
 end Couret.CayleyThirdFactor
