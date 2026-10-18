@@ -135,11 +135,14 @@ theorem rational_trace_eq_of_charpoly_eq
 
 /-- An exact assembly interface for the missing all-power-traces lemma.
 This statement is CONDITIONAL: hbridge is NOT derived here from charpoly
-equality and therefore this is not the desired unconditional necessity. -/
+equality and therefore this is not the desired unconditional necessity.
+The implication alone does not require global generation by a,d,h:
+if generation by a,h fails, its first disjunct already holds; if it
+succeeds, global generation is automatic. The full IFF still requires
+global generation in the sufficient direction. -/
 theorem abelianThree_spectral_necessity_of_trace_bridge (a d h : G)
     (hhalf : h + h = 0) (hne : h ≠ 0)
     (horder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3)
-    (hgen : AddSubgroup.closure ({a, d, h} : Set G) = ⊤)
     (hbridge :
       ∀ n : ℕ,
         (abelianCayleyMatrix (AbelianSource a d h)).charpoly =
@@ -183,7 +186,7 @@ theorem abelianThree_spectral_equivalence_of_trace_bridge (a d h : G)
        Even (Nat.card (G ⧸ AddSubgroup.zmultiples h))) := by
   constructor
   · exact abelianThree_spectral_necessity_of_trace_bridge a d h
-      hhalf hne horder hgen hbridge
+      hhalf hne horder hbridge
   · exact abelianThreeCospectral_of_nongeneration_or_even_quotient a d h
       hhalf hne horder hgen
 
