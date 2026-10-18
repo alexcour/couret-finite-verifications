@@ -1,33 +1,41 @@
 #!/usr/bin/env bash
-# COU-20 isolated Lean 4.29.1 research check.
-# Run after GitHub runner availability is restored (or in a checkout with lake).
+# COU-20: original modules, odd witness, matrix bridge and full classification.
 set -euo pipefail
 cd "$(dirname "$0")/../lean"
-if ! command -v lake >/dev/null 2>&1; then
+command -v lake >/dev/null 2>&1 || {
   echo "ERROR: lake is missing; no Lean certificate produced" >&2
   exit 2
-fi
+}
 test "$(cat lean-toolchain)" = "leanprover/lean4:v4.29.1"
 if grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' \
-    CayleyTwoColourNecessity.lean CayleyTwoColourNewton.lean CayleyTwoColourFirstReturn.lean CayleyTwoColourCanonicalReturn.lean CayleyTwoColourThirdFactor.lean; then
-  echo "ERROR: placeholders or introduced axioms in research source" >&2
+    CayleyTwoColourNecessity.lean CayleyTwoColourNewton.lean \
+    CayleyTwoColourFirstReturn.lean CayleyTwoColourCanonicalReturn.lean \
+    CayleyTwoColourThirdFactor.lean PolynomialJacobi.lean \
+    CayleyCharpolyTrace.lean CayleyTwoColourMatrixNewton.lean \
+    CayleyTwoColourClassification.lean; then
+  echo "ERROR: unfinished proof or introduced axiom" >&2
   exit 3
 fi
 lake resolve-deps
 lake exe cache get
-mkdir -p .lake/build/lib/lean
-LEAN_LOG="$(mktemp)"
-trap 'rm -f "$LEAN_LOG"' EXIT
-lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourFamily.olean CayleyTwoColourFamily.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourAbelian.olean CayleyTwoColourAbelian.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourSpectral.olean CayleyTwoColourSpectral.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourParity.olean CayleyTwoColourParity.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourNecessity.olean CayleyTwoColourNecessity.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourNewton.olean CayleyTwoColourNewton.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourFirstReturn.olean CayleyTwoColourFirstReturn.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourCanonicalReturn.olean CayleyTwoColourCanonicalReturn.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean CayleyTwoColourThirdFactor.lean 2>&1 | tee -a "$LEAN_LOG"
-lake env lean CayleyNewtonAPISmoke.lean 2>&1 | tee -a "$LEAN_LOG"
-python3 ../tests/check_cou20_axioms.py "$LEAN_LOG" --lean-dir .
-echo "SUCCESS: all five research modules compiled; axioms reports checked automatically."
+mkdir -p .lake/build/lib/lean .lake/cou20-audit
+[[ -v LEAN_PATH ]] || LEAN_PATH=""
+export LEAN_PATH="$(pwd)/.lake/build/lib/lean:$LEAN_PATH"
+log_file=".lake/cou20-audit/lean.log"
+: > "$log_file"
+git rev-parse HEAD | tee -a "$log_file"
+lake env lean --version | tee -a "$log_file"
+for module in \
+  CayleyDoubletCore CayleyTwoColourFamily CayleyTwoColourAbelian \
+  CayleyTwoColourSpectral CayleyTwoColourParity CayleyTwoColourNecessity \
+  CayleyTwoColourNewton CayleyTwoColourFirstReturn \
+  CayleyTwoColourCanonicalReturn CayleyTwoColourThirdFactor CayleyNewtonAPISmoke \
+  PolynomialJacobi CayleyCharpolyTrace CayleyTwoColourMatrixNewton \
+  CayleyTwoColourClassification; do
+  lake env lean -o ".lake/build/lib/lean/$module.olean" "$module.lean" 2>&1 | tee -a "$log_file"
+done
+python3 ../tests/check_cou20_axioms.py "$log_file" --lean-dir .
+python3 ../tests/check_cou20_classification_axioms.py "$log_file" \
+  --receipt .lake/cou20-audit/receipt.json
+cp lean-toolchain lake-manifest.json .lake/cou20-audit/
+echo "SUCCESS: complete COU-20 classification compiled and axiom audit passed."

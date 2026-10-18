@@ -1,0 +1,16 @@
+{
+  "certified_sufficiency_commit": "b9c38ecdcb78c3e24ae5e6315fe8262b2a3568b3",
+  "certified_odd_witness_commit": "868648f6daaf2df18b7dbd434ebda065901f20f6",
+  "git_blob_sha1": {
+    "CayleyDoubletCore.lean": "6c90a06a58cf72cb152a9d92e1a24911f384adfb",
+    "CayleyTwoColourFamily.lean": "e409a797338e90bd3621a7254a1d3b7f5e55ca18",
+    "CayleyTwoColourAbelian.lean": "44f2961d45eca8bbe2959032eebcfbe68d4c3c71",
+    "CayleyTwoColourSpectral.lean": "2e8394fe289b70a3251029dcc96933650938800b",
+    "CayleyTwoColourParity.lean": "24f65ada1578a8a620e77c385789798b2acf4d93",
+    "CayleyTwoColourNecessity.lean": "a0ceed689a499c43b12b0c7b8ea8728fb66e7d86",
+    "CayleyTwoColourNewton.lean": "d15dafa3d400b6cccb3c6bd0ab839d6be71c7591",
+    "CayleyTwoColourFirstReturn.lean": "7a27726623574481f9613a3ca85a88c722abc27c",
+    "CayleyTwoColourCanonicalReturn.lean": "9ed92983270aafbefc8e81bd762db80660c37251",
+    "CayleyTwoColourThirdFactor.lean": "7ae9ac62293a65330561f10d0473128ea0f53c3a"
+  }
+}

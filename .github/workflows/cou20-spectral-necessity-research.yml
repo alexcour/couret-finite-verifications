@@ -32,3 +32,10 @@ jobs:
         run: |
           set -euo pipefail
           bash research/correspondants_20261013/tests/verify_cou20_necessity.sh
+      - name: Preserve compiler log and axiom receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cou20-spectral-classification-audit
+          path: research/correspondants_20261013/lean/.lake/cou20-audit/
+          if-no-files-found: warn

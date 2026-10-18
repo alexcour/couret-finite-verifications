@@ -6,6 +6,10 @@ on:
   pull_request:
     paths:
       - 'research/correspondants_20261013/lean/**'
+      - 'research/correspondants_20261013/tests/check_cou20_axioms.py'
+      - 'research/correspondants_20261013/tests/check_cou20_classification_axioms.py'
+      - 'research/correspondants_20261013/tests/cou20-certified-sources.json'
+      - 'research/correspondants_20261013/tests/verify_cou20_necessity.sh'
       - '.github/workflows/cou20-abelian-lean-candidate.yml'
   workflow_dispatch:
 
@@ -34,17 +38,15 @@ jobs:
           curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Kernel-check bridge and dependencies
-        working-directory: research/correspondants_20261013/lean
         shell: bash
         run: |
           set -euo pipefail
-          lake resolve-deps
-          lake exe cache get
-          lean --version
-          mkdir -p .lake/build/lib/lean
-          lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean
-          lake env lean -o .lake/build/lib/lean/CayleyTwoColourFamily.olean CayleyTwoColourFamily.lean
-          lake env lean -o .lake/build/lib/lean/CayleyTwoColourAbelian.olean CayleyTwoColourAbelian.lean
-          lake env lean -o .lake/build/lib/lean/CayleyTwoColourSpectral.olean CayleyTwoColourSpectral.lean
-          lake env lean CayleyTwoColourParity.lean
+          bash research/correspondants_20261013/tests/verify_cou20_necessity.sh
+      - name: Preserve compiler log and axiom receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cou20-spectral-classification-audit
+          path: research/correspondants_20261013/lean/.lake/cou20-audit/
+          if-no-files-found: warn
 
