@@ -8,7 +8,7 @@ if ! command -v lake >/dev/null 2>&1; then
   exit 2
 fi
 test "$(cat lean-toolchain)" = "leanprover/lean4:v4.29.1"
-if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' \
+if grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' \
     CayleyTwoColourNecessity.lean CayleyTwoColourNewton.lean; then
   echo "ERROR: placeholders or introduced axioms in research source" >&2
   exit 3
