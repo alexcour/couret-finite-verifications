@@ -27,6 +27,7 @@ import Strobo2TorsDeltaCount
 import Strobo2TorsZeroFreeIncidence
 import Strobo2TorsZeroFreeDeltaCount
 import Strobo2TorsZeroFreeCompatibility
+import Strobo2TorsFibreMoment
 
 /- One import environment for the integrated STROBO proof modules.
 Compilation of separate roots alone would not detect namespace collisions. -/
@@ -483,3 +484,13 @@ Compilation of separate roots alone would not detect namespace collisions. -/
 #print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_twice_eq_filtered
 #print axioms Couret.STROBO2TORS.orderedNontranslationPairs_card_delta_partition
 #print axioms Couret.STROBO2TORS.zeroFreeNontranslationDeltaPairCount_four_add_six
+
+-- M002.4: combinatorial fibre-moment bridge and boundary cases.
+#print axioms Couret.STROBO2TORS.zeroFreeCollisionDarts_eq_fibre_biUnion
+#print axioms Couret.STROBO2TORS.zeroFreeCollisionDarts_card_eq_twice_moment
+#print axioms Couret.STROBO2TORS.zeroFreeSquareDeltaPairCount_twice_eq_collisionDarts
+#print axioms Couret.STROBO2TORS.zeroFreeCollisionDarts_delta_partition
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_secondMoment_eq_deltaCounts
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_secondMoment_eq_zero_iff
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_secondMoment_zero_of_card_le_four
+#print axioms Couret.STROBO2TORS.zeroFreeFullFibres_secondMoment_zero_of_empty
