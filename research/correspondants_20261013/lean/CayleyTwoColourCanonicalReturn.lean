@@ -28,7 +28,7 @@ theorem canonical_of_bounded_coordinate
     (hne : delta ≠ 0) :
     ell • alpha = delta ∨ ell • alpha = -delta := by
   have hzero : (3 * k) • alpha = 0 := by
-    rw [mul_nsmul, hcoordinate, hthree]
+    rw [mul_nsmul', hcoordinate, hthree]
   have hdiv : 3 * ell ∣ 3 * k := by
     rw [← hord]
     exact (addOrderOf_dvd_iff_nsmul_eq_zero).mpr hzero
@@ -58,7 +58,7 @@ theorem canonical_of_bounded_coordinate
       exact eq_neg_of_add_eq_zero_left hh
     have hd : delta = -(ell • alpha) := by
       have h := hcoordinate
-      rw [hm, h2, mul_nsmul] at h
+      rw [hm, h2, mul_nsmul'] at h
       exact h.symm.trans hdouble
     simp [hd]
 
