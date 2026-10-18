@@ -119,6 +119,57 @@ theorem charpoly_ne_of_first_trace_difference_of_newton_at
   exact hdiff (matrix_trace_eq_at_of_charpoly_eq_of_newton_at
     A B k hk hp hprev hA hB)
 
+/-- The first coefficient where two monic characteristic-polynomial
+coefficient lists may differ is controlled by the corresponding power trace.
+
+Unlike the cospectrality contradiction above, this lemma does NOT assume
+equality of characteristic polynomials or even equality of the kth
+coefficients. It determines their exact signed gap from a single pair
+of Newton identities plus equality at all smaller positive indices. -/
+theorem newton_first_coefficient_gap_mul
+    (c d u v : ℕ → ℚ) (k : ℕ) (hk : 0 < k)
+    (hcoeff : ∀ j : ℕ, 0 < j → j < k → c j = d j)
+    (htrace : ∀ j : ℕ, 0 < j → j < k → u j = v j)
+    (hu : NewtonTraceEquation c u k)
+    (hv : NewtonTraceEquation d v k) :
+    (k : ℚ) * (c k - d k) = -(u k - v k) := by
+  unfold NewtonTraceEquation at hu hv
+  have hsum :
+      (∑ j ∈ Finset.range (k - 1), c (j + 1) * u (k - (j + 1))) =
+        (∑ j ∈ Finset.range (k - 1), d (j + 1) * v (k - (j + 1))) := by
+    apply Finset.sum_congr rfl
+    intro j hj
+    have hjlt : j < k - 1 := Finset.mem_range.mp hj
+    have hjpos : 0 < j + 1 := by omega
+    have hjupper : j + 1 < k := by omega
+    have hpos : 0 < k - (j + 1) := by omega
+    have hlt : k - (j + 1) < k := by omega
+    rw [hcoeff (j + 1) hjpos hjupper,
+      htrace (k - (j + 1)) hpos hlt]
+  rw [hsum] at hu
+  calc
+    (k : ℚ) * (c k - d k) =
+        (k : ℚ) * c k - (k : ℚ) * d k := by ring
+    _ = -(u k - v k) := by linarith
+
+/-- In particular, a first positive trace discrepancy forces a genuine
+difference of the corresponding characteristic coefficients. -/
+theorem newton_first_coefficient_ne
+    (c d u v : ℕ → ℚ) (k : ℕ) (hk : 0 < k)
+    (hcoeff : ∀ j : ℕ, 0 < j → j < k → c j = d j)
+    (htrace : ∀ j : ℕ, 0 < j → j < k → u j = v j)
+    (hu : NewtonTraceEquation c u k)
+    (hv : NewtonTraceEquation d v k)
+    (hdiff : u k ≠ v k) :
+    c k ≠ d k := by
+  intro h
+  have he := newton_first_coefficient_gap_mul
+    c d u v k hk hcoeff htrace hu hv
+  rw [h, sub_self, mul_zero] at he
+  have hz : u k - v k = 0 := by
+    simpa only [neg_eq_zero] using he.symm
+  exact hdiff (sub_eq_zero.mp hz)
+
 /-- Uniqueness of a sequence at every positive index satisfying
 Newton's recurrence for a prescribed sequence of coefficients. This
 is purely recurrence algebra, independent of matrix theory. -/
@@ -233,6 +284,8 @@ end Couret.CayleyDoublet
 #print axioms Couret.CayleyNewton.newtonTraceEquation_eq_at
 #print axioms Couret.CayleyNewton.matrix_trace_eq_at_of_charpoly_eq_of_newton_at
 #print axioms Couret.CayleyNewton.charpoly_ne_of_first_trace_difference_of_newton_at
+#print axioms Couret.CayleyNewton.newton_first_coefficient_gap_mul
+#print axioms Couret.CayleyNewton.newton_first_coefficient_ne
 #print axioms Couret.CayleyNewton.newtonTraceEquation_unique_positive
 #print axioms Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_of_newton
 #print axioms Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_newton
