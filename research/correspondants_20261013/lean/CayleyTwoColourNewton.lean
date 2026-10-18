@@ -122,6 +122,23 @@ open Couret.CayleyNewton
 
 variable {G : Type*} [AddCommGroup G] [DecidableEq G] [Fintype G]
 
+/-- No spectral or Newton hypothesis is needed for even powers:
+the equality of matrix squares was already certified in COU-20.
+This statement concerns the ACTUAL directed Finset adjacency matrices,
+not multiset translation sums. -/
+theorem abelianThree_even_trace_eq_of_square (a d h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (horder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3)
+    (n : ℕ) :
+    Matrix.trace (abelianCayleyMatrix (AbelianSource a d h) ^ (2 * n)) =
+      Matrix.trace (abelianCayleyMatrix (AbelianTarget a d h) ^ (2 * n)) := by
+  exact congrArg Matrix.trace
+    (Couret.CayleySpectral.even_pow_eq_of_sq_eq
+      (abelianCayleyMatrix (AbelianSource a d h))
+      (abelianCayleyMatrix (AbelianTarget a d h))
+      (abelianCayleyMatrix_sq_eq_of_quotient_order_three
+        a d h hhalf hne horder) n)
+
 /-- The proposed full directed classification, conditional only on the
 single-matrix Newton recurrence for each actual adjacency matrix.
 The half-turn, quotient-order-three and global-generation hypotheses
@@ -147,3 +164,5 @@ end Couret.CayleyDoublet
 #print axioms Couret.CayleyNewton.newtonTraceEquation_unique_positive
 #print axioms Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_of_newton
 #print axioms Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_newton
+
+#print axioms Couret.CayleyDoublet.abelianThree_even_trace_eq_of_square
