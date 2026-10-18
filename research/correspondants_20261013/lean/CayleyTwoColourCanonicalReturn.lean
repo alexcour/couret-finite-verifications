@@ -16,7 +16,7 @@ noncomputable section
 namespace Couret.CayleyCanonical
 
 /-- For alpha of order 3*ell, a nonzero three-torsion element represented
-by a bounded natural multiple k<3*ell must equal +/-ell*alpha. -/
+by a bounded natural multiple k<3*ell must equal either ell*alpha or its additive inverse. -/
 theorem canonical_of_bounded_coordinate
     {Q : Type*} [AddCommGroup Q]
     (alpha delta : Q) (ell k : ℕ)
