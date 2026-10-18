@@ -33,7 +33,7 @@ theorem no_early_three_torsion_return
     j • alpha ≠ delta ∧ j • alpha ≠ -delta := by
   have hbad (hreturn : j • alpha = delta ∨ j • alpha = -delta) : False := by
     have hzero : (3 * j) • alpha = 0 := by
-      rw [mul_nsmul]
+      rw [mul_nsmul']
       rcases hreturn with hplus | hminus
       · rw [hplus, hthree]
       · rw [hminus]
