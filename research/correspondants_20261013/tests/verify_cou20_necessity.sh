@@ -29,7 +29,7 @@ for module in \
   CayleyDoubletCore CayleyTwoColourFamily CayleyTwoColourAbelian \
   CayleyTwoColourSpectral CayleyTwoColourParity CayleyTwoColourNecessity \
   CayleyTwoColourNewton CayleyTwoColourFirstReturn \
-  CayleyTwoColourCanonicalReturn CayleyTwoColourThirdFactor CayleyNewtonAPISmoke \
+  CayleyTwoColourCanonicalReturn CayleyTwoColourThirdFactor CayleyNewtonDegreeOne CayleyNewtonAPISmoke \
   PolynomialJacobi CayleyCharpolyTrace CayleyTwoColourMatrixNewton \
   CayleyTwoColourClassification; do
   lake env lean -o ".lake/build/lib/lean/$module.olean" "$module.lean" 2>&1 | tee -a "$log_file"
