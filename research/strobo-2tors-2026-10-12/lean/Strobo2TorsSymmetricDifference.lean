@@ -20,8 +20,7 @@ theorem card_symmDiff_of_equal_card (S T : Finset G) (hcard : S.card = T.card) :
     exact (Finset.mem_sdiff.mp hx).2 (Finset.mem_sdiff.mp hy).1
   have hDiff : (S \ T).card = (T \ S).card :=
     Finset.card_sdiff_eq_card_sdiff_iff.mpr hcard
-  simp only [symmDiff, sup_eq_union]
-  rw [Finset.card_union_of_disjoint hDisj]
+  rw [Finset.symmDiff_def, Finset.card_union_of_disjoint hDisj]
   omega
 
 /-- Nonidentical three-point supports differ in exactly two, four, or
@@ -36,7 +35,7 @@ theorem card_symmDiff_triples_cases (S T : Finset G)
   have hPos : 0 < (S \ T).card := by
     by_contra hn
     have hZero : (S \ T).card = 0 := by omega
-    have hSDZero : (S ∆ T).card = 0 := by rw [hDiff, hZero]; simp
+    have hSDZero : (S ∆ T).card = 0 := by rw [hDiff, hZero]
     have hEq : S = T :=
       Finset.symmDiff_eq_empty.mp (Finset.card_eq_zero.mp hSDZero)
     exact hne hEq
