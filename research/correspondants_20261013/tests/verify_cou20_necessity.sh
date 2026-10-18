@@ -18,15 +18,15 @@ lake exe cache get
 mkdir -p .lake/build/lib/lean
 LEAN_LOG="$(mktemp)"
 trap 'rm -f "$LEAN_LOG"' EXIT
-lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourFamily.olean CayleyTwoColourFamily.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourAbelian.olean CayleyTwoColourAbelian.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourSpectral.olean CayleyTwoColourSpectral.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourParity.olean CayleyTwoColourParity.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourNecessity.olean CayleyTwoColourNecessity.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourNewton.olean CayleyTwoColourNewton.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourFirstReturn.olean CayleyTwoColourFirstReturn.lean
-lake env lean -o .lake/build/lib/lean/CayleyTwoColourCanonicalReturn.olean CayleyTwoColourCanonicalReturn.lean
-lake env lean CayleyTwoColourThirdFactor.lean 2>&1 | tee "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourFamily.olean CayleyTwoColourFamily.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourAbelian.olean CayleyTwoColourAbelian.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourSpectral.olean CayleyTwoColourSpectral.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourParity.olean CayleyTwoColourParity.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourNecessity.olean CayleyTwoColourNecessity.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourNewton.olean CayleyTwoColourNewton.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourFirstReturn.olean CayleyTwoColourFirstReturn.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourCanonicalReturn.olean CayleyTwoColourCanonicalReturn.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean CayleyTwoColourThirdFactor.lean 2>&1 | tee -a "$LEAN_LOG"
 python3 ../tests/check_cou20_axioms.py "$LEAN_LOG" --lean-dir .
 echo "SUCCESS: all five research modules compiled; axioms reports checked automatically."
