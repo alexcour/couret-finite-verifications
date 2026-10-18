@@ -9,7 +9,7 @@ if ! command -v lake >/dev/null 2>&1; then
 fi
 test "$(cat lean-toolchain)" = "leanprover/lean4:v4.29.1"
 if grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' \
-    CayleyTwoColourNecessity.lean CayleyTwoColourNewton.lean CayleyTwoColourFirstReturn.lean CayleyTwoColourCanonicalReturn.lean; then
+    CayleyTwoColourNecessity.lean CayleyTwoColourNewton.lean CayleyTwoColourFirstReturn.lean CayleyTwoColourCanonicalReturn.lean CayleyTwoColourThirdFactor.lean; then
   echo "ERROR: placeholders or introduced axioms in research source" >&2
   exit 3
 fi
@@ -24,5 +24,6 @@ lake env lean -o .lake/build/lib/lean/CayleyTwoColourParity.olean CayleyTwoColou
 lake env lean -o .lake/build/lib/lean/CayleyTwoColourNecessity.olean CayleyTwoColourNecessity.lean
 lake env lean -o .lake/build/lib/lean/CayleyTwoColourNewton.olean CayleyTwoColourNewton.lean
 lake env lean -o .lake/build/lib/lean/CayleyTwoColourFirstReturn.olean CayleyTwoColourFirstReturn.lean
-lake env lean CayleyTwoColourCanonicalReturn.lean
-echo "SUCCESS: all four research modules compiled; inspect #print axioms logs."
+lake env lean -o .lake/build/lib/lean/CayleyTwoColourCanonicalReturn.olean CayleyTwoColourCanonicalReturn.lean
+lake env lean CayleyTwoColourThirdFactor.lean
+echo "SUCCESS: all five research modules compiled; inspect #print axioms logs."
