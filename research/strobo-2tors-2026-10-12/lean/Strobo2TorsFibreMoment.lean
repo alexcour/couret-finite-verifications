@@ -283,7 +283,6 @@ theorem zeroFreeFullFibres_secondMoment_zero_of_card_le_four
     zeroFreeSquareDeltaPairCount_eq_zero_of_card_le_union (G := G) 2 (by omega),
     zeroFreeSquareDeltaPairCount_eq_zero_of_card_le_union (G := G) 4 (by omega),
     zeroFreeSquareDeltaPairCount_eq_zero_of_card_le_union (G := G) 6 (by omega)]
-  rfl
 
 /-- Explicitly includes an empty collection of surviving fibres. -/
 theorem zeroFreeFullFibres_secondMoment_zero_of_empty
