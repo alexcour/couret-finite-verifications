@@ -28,5 +28,6 @@ lake env lean -o .lake/build/lib/lean/CayleyTwoColourNewton.olean CayleyTwoColou
 lake env lean -o .lake/build/lib/lean/CayleyTwoColourFirstReturn.olean CayleyTwoColourFirstReturn.lean 2>&1 | tee -a "$LEAN_LOG"
 lake env lean -o .lake/build/lib/lean/CayleyTwoColourCanonicalReturn.olean CayleyTwoColourCanonicalReturn.lean 2>&1 | tee -a "$LEAN_LOG"
 lake env lean CayleyTwoColourThirdFactor.lean 2>&1 | tee -a "$LEAN_LOG"
+lake env lean CayleyNewtonAPISmoke.lean 2>&1 | tee -a "$LEAN_LOG"
 python3 ../tests/check_cou20_axioms.py "$LEAN_LOG" --lean-dir .
 echo "SUCCESS: all five research modules compiled; axioms reports checked automatically."
