@@ -50,6 +50,75 @@ def NewtonTraceEquation (c u : ℕ → ℚ) (k : ℕ) : Prop :=
       (∑ j ∈ Finset.range (k - 1), c (j + 1) * u (k - (j + 1))) +
         (k : ℚ) * c k = 0
 
+/-- A single Newton identity at degree k suffices to transfer equality
+of all earlier positive traces to equality of the kth trace, provided
+the two matrices have the same characteristic coefficients.
+
+This isolates precisely the arithmetic needed at the first differing
+odd exponent, and avoids requiring infinitely many instances at once. -/
+theorem newtonTraceEquation_eq_at
+    (c u v : ℕ → ℚ) (k : ℕ) (hk : 0 < k)
+    (hu : NewtonTraceEquation c u k)
+    (hv : NewtonTraceEquation c v k)
+    (hprev : ∀ m : ℕ, 0 < m → m < k → u m = v m) :
+    u k = v k := by
+  unfold NewtonTraceEquation at hu hv
+  have hsum :
+      (∑ j ∈ Finset.range (k - 1), c (j + 1) * u (k - (j + 1))) =
+        (∑ j ∈ Finset.range (k - 1), c (j + 1) * v (k - (j + 1))) := by
+    apply Finset.sum_congr rfl
+    intro j hj
+    have hjlt : j < k - 1 := Finset.mem_range.mp hj
+    have hpos : 0 < k - (j + 1) := by omega
+    have hlt : k - (j + 1) < k := by omega
+    rw [hprev (k - (j + 1)) hpos hlt]
+  rw [hsum] at hu
+  linarith
+
+/-- A single *matrix* Newton identity at k, plus matching lower traces,
+transfers equality of characteristic polynomials to matching kth traces.
+The two Newton identities must still be proved for the matrices;
+they are not generated or postulated by this statement. -/
+theorem matrix_trace_eq_at_of_charpoly_eq_of_newton_at
+    {i : Type*} [Fintype i] [DecidableEq i]
+    (A B : Matrix i i ℚ) (k : ℕ) (hk : 0 < k)
+    (hp : A.charpoly = B.charpoly)
+    (hprev : ∀ m : ℕ, 0 < m → m < k →
+      Matrix.trace (A ^ m) = Matrix.trace (B ^ m))
+    (hA : NewtonTraceEquation (reverseCharpolyCoeff A)
+      (fun m => Matrix.trace (A ^ m)) k)
+    (hB : NewtonTraceEquation (reverseCharpolyCoeff B)
+      (fun m => Matrix.trace (B ^ m)) k) :
+    Matrix.trace (A ^ k) = Matrix.trace (B ^ k) := by
+  have hc := reverseCharpolyCoeff_congr A B hp
+  have hB' : NewtonTraceEquation (reverseCharpolyCoeff A)
+      (fun m => Matrix.trace (B ^ m)) k := by
+    rw [hc]
+    exact hB
+  exact newtonTraceEquation_eq_at
+    (reverseCharpolyCoeff A)
+    (fun m => Matrix.trace (A ^ m))
+    (fun m => Matrix.trace (B ^ m))
+    k hk hA hB' hprev
+
+/-- Contrapositive suitable for the first odd trace witness:
+a first positive-power trace discrepancy refutes cospectrality
+from just the two Newton identities at that ONE degree. -/
+theorem charpoly_ne_of_first_trace_difference_of_newton_at
+    {i : Type*} [Fintype i] [DecidableEq i]
+    (A B : Matrix i i ℚ) (k : ℕ) (hk : 0 < k)
+    (hprev : ∀ m : ℕ, 0 < m → m < k →
+      Matrix.trace (A ^ m) = Matrix.trace (B ^ m))
+    (hA : NewtonTraceEquation (reverseCharpolyCoeff A)
+      (fun m => Matrix.trace (A ^ m)) k)
+    (hB : NewtonTraceEquation (reverseCharpolyCoeff B)
+      (fun m => Matrix.trace (B ^ m)) k)
+    (hdiff : Matrix.trace (A ^ k) ≠ Matrix.trace (B ^ k)) :
+    A.charpoly ≠ B.charpoly := by
+  intro hp
+  exact hdiff (matrix_trace_eq_at_of_charpoly_eq_of_newton_at
+    A B k hk hp hprev hA hB)
+
 /-- Uniqueness of a sequence at every positive index satisfying
 Newton's recurrence for a prescribed sequence of coefficients. This
 is purely recurrence algebra, independent of matrix theory. -/
@@ -161,6 +230,9 @@ theorem abelianThree_spectral_equivalence_of_newton
 end Couret.CayleyDoublet
 
 #print axioms Couret.CayleyNewton.reverseCharpolyCoeff_congr
+#print axioms Couret.CayleyNewton.newtonTraceEquation_eq_at
+#print axioms Couret.CayleyNewton.matrix_trace_eq_at_of_charpoly_eq_of_newton_at
+#print axioms Couret.CayleyNewton.charpoly_ne_of_first_trace_difference_of_newton_at
 #print axioms Couret.CayleyNewton.newtonTraceEquation_unique_positive
 #print axioms Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_of_newton
 #print axioms Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_newton
