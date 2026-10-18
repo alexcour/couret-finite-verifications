@@ -170,6 +170,80 @@ theorem newton_first_coefficient_ne
     simpa only [neg_eq_zero] using he.symm
   exact hdiff (sub_eq_zero.mp hz)
 
+/-- Equality of the first ell-1 positive power traces, together with
+Newton's identities up to that range, forces equality of the first
+ell-1 characteristic coefficients. This is the missing inductive step
+needed to apply the first-coefficient gap lemma without a separate
+assumption of matching coefficients.
+
+All hypotheses are stated in terms of sequences, not matrices;
+the matrix Newton identities themselves remain an explicit obligation. -/
+theorem newton_coefficient_prefix_eq (c d u v : ℕ → ℚ) (ell : ℕ)
+    (hu : ∀ k : ℕ, 0 < k → k < ell → NewtonTraceEquation c u k)
+    (hv : ∀ k : ℕ, 0 < k → k < ell → NewtonTraceEquation d v k)
+    (htrace : ∀ k : ℕ, 0 < k → k < ell → u k = v k) :
+    ∀ k : ℕ, 0 < k → k < ell → c k = d k := by
+  intro k
+  induction k using Nat.strong_induction_on with
+  | h k ih =>
+      intro hk hkle
+      have hcu := hu k hk hkle
+      have hdv := hv k hk hkle
+      unfold NewtonTraceEquation at hcu hdv
+      have hsum :
+          (∑ j ∈ Finset.range (k - 1), c (j + 1) * u (k - (j + 1))) =
+            (∑ j ∈ Finset.range (k - 1), d (j + 1) * v (k - (j + 1))) := by
+        apply Finset.sum_congr rfl
+        intro j hj
+        have hjlt : j < k - 1 := Finset.mem_range.mp hj
+        have hp : 0 < j + 1 := by omega
+        have hlt : j + 1 < k := by omega
+        have hple : j + 1 < ell := lt_trans hlt hkle
+        have hkp : 0 < k - (j + 1) := by omega
+        have hkl : k - (j + 1) < ell := by omega
+        rw [ih (j + 1) hlt hp hple,
+          htrace (k - (j + 1)) hkp hkl]
+      rw [hsum, htrace k hk hkle] at hcu
+      have hmul : (k : ℚ) * c k = (k : ℚ) * d k := by linarith
+      have hk0 : (k : ℚ) ≠ 0 := by
+        exact_mod_cast (Nat.ne_of_gt hk)
+      exact (mul_left_cancel₀ hk0) hmul
+
+/-- Equality of earlier traces automatically supplies the equality
+of earlier coefficients used by the single-degree gap formula.
+Only Newton's equations at indices 1,...,ell are required, not at
+arbitrary powers. -/
+theorem newton_first_gap_of_trace_prefix (c d u v : ℕ → ℚ) (ell : ℕ)
+    (hell : 0 < ell)
+    (hu : ∀ k : ℕ, 0 < k → k ≤ ell → NewtonTraceEquation c u k)
+    (hv : ∀ k : ℕ, 0 < k → k ≤ ell → NewtonTraceEquation d v k)
+    (htrace : ∀ k : ℕ, 0 < k → k < ell → u k = v k) :
+    (ell : ℚ) * (c ell - d ell) = -(u ell - v ell) := by
+  have hcoeff : ∀ k : ℕ, 0 < k → k < ell → c k = d k :=
+    newton_coefficient_prefix_eq c d u v ell
+      (fun k hk hlt => hu k hk (Nat.le_of_lt hlt))
+      (fun k hk hlt => hv k hk (Nat.le_of_lt hlt))
+      htrace
+  exact newton_first_coefficient_gap_mul c d u v ell hell
+    hcoeff htrace (hu ell hell le_rfl) (hv ell hell le_rfl)
+
+/-- A first trace disagreement therefore refutes equality of the
+corresponding coefficient, using only the finite Newton prefix. -/
+theorem newton_first_coefficient_ne_of_trace_prefix
+    (c d u v : ℕ → ℚ) (ell : ℕ) (hell : 0 < ell)
+    (hu : ∀ k : ℕ, 0 < k → k ≤ ell → NewtonTraceEquation c u k)
+    (hv : ∀ k : ℕ, 0 < k → k ≤ ell → NewtonTraceEquation d v k)
+    (htrace : ∀ k : ℕ, 0 < k → k < ell → u k = v k)
+    (hdiff : u ell ≠ v ell) :
+    c ell ≠ d ell := by
+  intro hcoeff
+  have hgap := newton_first_gap_of_trace_prefix c d u v ell
+    hell hu hv htrace
+  rw [hcoeff, sub_self, mul_zero] at hgap
+  have hzero : u ell - v ell = 0 := by
+    simpa only [neg_eq_zero] using hgap.symm
+  exact hdiff (sub_eq_zero.mp hzero)
+
 /-- Uniqueness of a sequence at every positive index satisfying
 Newton's recurrence for a prescribed sequence of coefficients. This
 is purely recurrence algebra, independent of matrix theory. -/
@@ -286,6 +360,9 @@ end Couret.CayleyDoublet
 #print axioms Couret.CayleyNewton.charpoly_ne_of_first_trace_difference_of_newton_at
 #print axioms Couret.CayleyNewton.newton_first_coefficient_gap_mul
 #print axioms Couret.CayleyNewton.newton_first_coefficient_ne
+#print axioms Couret.CayleyNewton.newton_coefficient_prefix_eq
+#print axioms Couret.CayleyNewton.newton_first_gap_of_trace_prefix
+#print axioms Couret.CayleyNewton.newton_first_coefficient_ne_of_trace_prefix
 #print axioms Couret.CayleyNewton.newtonTraceEquation_unique_positive
 #print axioms Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_of_newton
 #print axioms Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_newton
