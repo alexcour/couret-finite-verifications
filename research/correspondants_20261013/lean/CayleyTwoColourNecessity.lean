@@ -92,12 +92,12 @@ theorem abelianThree_odd_quotient_return (a d h : G)
   obtain ⟨n, hn, hplus | hminus⟩ :=
     odd_multiple_or_neg_of_cyclic (a : G ⧸ H) (d : G ⧸ H) hgen hodd
   · refine ⟨n, hn, Or.inr ?_⟩
-    apply (QuotientAddGroup.eq_zero_iff (n • a - d)).mp
+    apply (QuotientAddGroup.eq_zero_iff (n • a - d)).mpr
     change n • (a : G ⧸ H) - (d : G ⧸ H) = 0
     rw [hplus]
     exact sub_self _
   · refine ⟨n, hn, Or.inl ?_⟩
-    apply (QuotientAddGroup.eq_zero_iff (n • a + d)).mp
+    apply (QuotientAddGroup.eq_zero_iff (n • a + d)).mpr
     change n • (a : G ⧸ H) + (d : G ⧸ H) = 0
     rw [hminus]
     exact neg_add_cancel _
