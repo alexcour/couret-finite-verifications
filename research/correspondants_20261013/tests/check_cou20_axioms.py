@@ -18,6 +18,7 @@ RESEARCH = (
     "CayleyTwoColourFirstReturn.lean",
     "CayleyTwoColourCanonicalReturn.lean",
     "CayleyTwoColourThirdFactor.lean",
+    "CayleyNewtonDegreeOne.lean",
 )
 EXPECTED_RE = re.compile(r"^\s*#print\s+axioms\s+([\w.]+)\s*$", re.M)
 OUTPUT_RE = re.compile(
