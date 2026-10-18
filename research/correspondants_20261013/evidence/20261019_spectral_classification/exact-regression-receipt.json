@@ -1,0 +1,14 @@
+{
+  "source_commit": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+  "prior_witness_commit": "868648f6daaf2df18b7dbd434ebda065901f20f6",
+  "prior_witness_run": 39167835577,
+  "prior_witness_job": 117794430026,
+  "mathlib_commit": "5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+  "sympy_version": "1.14.0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "regression_files": {
+    "exact-enumeration.log": "896c1facba1cafae481744efe2813f172970a2b4ded8e9deb6d981e7446f7d59",
+    "exact-newton.log": "68caa971b0c6f402146a9269b1cd5b416a2996124dda89d0be8f80bcd488b08c",
+    "exact-targeted.log": "5e5705133ca459cb03d4e884c8ad6524808d97641ca6a494c7226268899c291a"
+  }
+}
