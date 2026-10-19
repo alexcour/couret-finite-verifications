@@ -12,7 +12,7 @@ if grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' \
     CayleyTwoColourFirstReturn.lean CayleyTwoColourCanonicalReturn.lean \
     CayleyTwoColourThirdFactor.lean PolynomialJacobi.lean \
     CayleyCharpolyTrace.lean CayleyTwoColourMatrixNewton.lean \
-    CayleyTwoColourClassification.lean; then
+    CayleyTwoColourClassification.lean CayleyTwoColourFirstCoeff.lean; then
   echo "ERROR: unfinished proof or introduced axiom" >&2
   exit 3
 fi
@@ -31,7 +31,7 @@ for module in \
   CayleyTwoColourNewton CayleyTwoColourFirstReturn \
   CayleyTwoColourCanonicalReturn CayleyTwoColourThirdFactor CayleyNewtonAPISmoke \
   PolynomialJacobi CayleyCharpolyTrace CayleyTwoColourMatrixNewton \
-  CayleyTwoColourClassification; do
+  CayleyTwoColourClassification CayleyTwoColourFirstCoeff; do
   lake env lean -o ".lake/build/lib/lean/$module.olean" "$module.lean" 2>&1 | tee -a "$log_file"
 done
 python3 ../tests/check_cou20_axioms.py "$log_file" --lean-dir .
