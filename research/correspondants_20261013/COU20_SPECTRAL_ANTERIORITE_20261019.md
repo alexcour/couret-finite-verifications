@@ -191,3 +191,28 @@ Le fichier [lean/CayleyTwoColourFirstCoeff.lean](lean/CayleyTwoColourFirstCoeff.
 **Portée des textes :** Mönius (2021, théorème 3.1.3) fournit un critère suffisant de cospectralité de circulants fondé sur des congruences de sommes de racines de l'unité et sur des multiplicateurs locaux modulo les facteurs premiers. Le chapitre expose aussi des constructions suffisantes supplémentaires. Aucune dérivation du critère nécessaire-et-suffisant COU-20 ni du premier coefficient différent n'est revendiquée à partir de ces résultats ; les implications précises restent à vérifier et peuvent contenir d'autres recouvrements.
 
 **Portes de sortie inchangées :** audit humain indépendant / Gate C ouverts ; COU-20 In Progress ; PR #49 OPEN/DRAFT ; aucune priorité scientifique revendiquée.
+
+
+## J. Confrontation vérifiable : Mönius (2020), théorème 3, et révisions du certificat Lean
+
+**Source primaire** : Mönius, [*Constructions of isospectral circulant graphs*](https://www.e-periodica.ch/cntmng?pid=edm-001%3A2020%3A75%3A%3A224), *Elem. Math.* 75 (2020), 45–57, [DOI 10.4171/EM/404](https://doi.org/10.4171/EM/404), **théorème 3**, p. 49. L'extrait de cette page est accessible via l'indexation E-Periodica ; l'accès intégral, la pagination et la fidélité de toutes les expressions de la version texte n'ont pas été personnellement audités page par page. La thèse de 2021 reprend un énoncé apparenté au **théorème 3.1.3**.
+
+L'énoncé, **suffisant**, comporte notamment la condition qu'il existe un même `m ∈ (Z/nZ)^×` tel que les ensembles de connexion satisfassent `S ≡ m T (mod n/p)` pour **chaque** premier `p|n`, ainsi qu'une condition de coïncidence des sommes de racines de l'unité primitives avec un multiplicateur `l`. Il ne faut ni transformer cette condition en nécessité de cospectralité, ni omettre la seconde hypothèse du théorème.
+
+**Test exact d'applicabilité**, paire Brown 2009 (également, par isomorphismes séparés, Mönius 2021 ex. 3.1.13) : `n=12`, `S={1,5,11}`, `T={1,3,9}`. Pour le diviseur premier `p=2`, le quotient est `n/p=6`.
+- `S (mod 6)={1,5}` ;
+- si `m=1` ou `m=7` modulo 12, `mT (mod 6)={1,3}` ;
+- si `m=5` ou `m=11` modulo 12, `mT (mod 6)={3,5}`.
+- Ce sont **toutes** les unités modulo 12 ; aucune ne satisfait la condition, même pour `p=2` seul.
+
+Donc **ce théorème 3 ne s'applique pas directement à ces représentants publiés**. Le test est conservé dans [tests/cou20_prior_art_invariants_exact.py](tests/cou20_prior_art_invariants_exact.py). Cette obstruction subsiste sous des changements **indépendants de multiplicateurs unitaires** des deux supports, car ceux-ci peuvent être absorbés dans un autre multiplicateur `m` ; elle n'exclut pas des représentations par isomorphismes non affines, ni les théorèmes 5, 7, 10 de Mönius, ni une implication provenant d'autres théorèmes. **La classification universelle COU-20 et le premier écart des coefficients restent sans priorité établie.**
+
+### Historique de CI pour la formule absolue
+
+- [Run #39242010676](https://github.com/alexcour/couret-finite-verifications/actions/runs/39242010676) sur `0a576f9b...` : **FAILURE**, trois erreurs Lean dans `CayleyTwoColourFirstCoeff.lean` (ordre de l'élément h ; substitution de l'exposant ; réécriture finale). Les `sorryAx` qui apparaissent dans ce journal proviennent de déclarations contenant des trous d'élaboration ; ce run **ne certifie pas** les nouveaux théorèmes.
+- [Run #39242745977](https://github.com/alexcour/couret-finite-verifications/actions/runs/39242745977) sur `8d23e2f...` : **FAILURE**, une erreur de transport de l'inégalité de traces lors de l'identification `k=2n+1`; la correction des deux autres obligations est passée.
+- Le correctif suivant est enregistré dans `CayleyTwoColourFirstCoeff.lean` au commit `511af8238074d4e4426c1163864a071f1be92a61`. Le run [#39249189840](https://github.com/alexcour/couret-finite-verifications/actions/runs/39249189840) doit être interrogé avant toute annonce de certificat, et le HEAD ultérieur `4b3cc4e98108689cec383cca2b8407edbff4a2d7` ne change que le script expérimental.
+
+**Rappel** : les deux premiers théorèmes sur le premier coefficient et le lien signé étaient **déjà certifiés** au commit `bf11eba7399eaee3fe50ec59119d0f0438bc5a00`, workflow [#39239651122](https://github.com/alexcour/couret-finite-verifications/actions/runs/39239651122). **Ne pas attribuer leurs succès aux trois candidats ajoutés après ce SHA.** Les preuves anciennes et la classification fondamentale ne sont pas modifiées.
+
+**Gouvernance maintenue :** Gate C ouvert ; revue humaine indépendante à organiser ; PR #49 OPEN/DRAFT, non fusionnée ; ticket COU-20 In Progress.
