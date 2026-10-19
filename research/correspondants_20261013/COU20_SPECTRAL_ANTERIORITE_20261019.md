@@ -159,3 +159,17 @@ Pour q pairs 6 et 12, les premières traces et coefficients testés coïncident,
 - La branche `q` impair et `⟨a,h⟩=G` est structurellement **cyclique** (extension d'un groupe cyclique d'ordre impair par C2), et l'antériorité sur les circulants demeure donc centrale.
 - Statuts inchangés : relecture mathématique indépendante et Gate C ouverts ; PR #49 OPEN/DRAFT ; aucune fusion, release, publication ni revendication de priorité.
 
+
+
+## H. Formalisation du premier coefficient — nouveau candidat (19 octobre 2026)
+
+Un module **distinct** `lean/CayleyTwoColourFirstCoeff.lean` a été ajouté à la branche de la PR #49. Il importe `CayleyTwoColourClassification` sans modifier les anciens théorèmes et contient deux déclarations :
+
+1. `abelianThree_first_charpoly_coefficient_at_quotient_third` : tous les coefficients renversés d'indice positif strictement inférieur à `k=|G/H|/3` sont égaux ; à l'indice `k`, ils diffèrent, pour le quotient impair engendré par a+H ;
+2. `abelianThree_first_charpoly_coefficient_gap_at_quotient_third` : relation signée `k·(c_k(S)-c_k(T))=-(tr(A_S^k)-tr(A_T^k))`.
+
+**Dépendances réutilisées :** témoin certifié du premier désaccord des traces ; `newton_coefficient_prefix_eq`, `newton_first_coefficient_ne_of_trace_prefix`, `newton_first_gap_of_trace_prefix` et `satisfiesMatrixNewton`. Le script `tests/verify_cou20_necessity.sh` est maintenant étendu au nouveau module ; le vérificateur d'axiomes doit en lire les nouveaux théorèmes publics.
+
+**Important — statut exact à cette écriture :** code Lean **candidat ajouté, compilation du nouveau module et ses sorties `#print axioms` non encore vérifiées**. Les succès CI historiques au commit `0ed4fea...` ne certifient PAS les nouveaux fichiers. La formule numérique `|c_k(S)-c_k(T)|=6·3^((k−1)/2)` n'est pas intégrée à ces nouvelles déclarations Lean ; elle demeure conséquence mathématique de la formule de traces et du lien de Newton, avec tests exacts séparés. Ne pas écrire « nouveau théorème certifié » sans journal CI sur le SHA du nouveau module.
+
+**Suite bibliographique :** contre-expertise sur Mönius, *Constructions of isospectral circulant graphs* (2020), DOI [10.4171/EM/404](https://doi.org/10.4171/EM/404), accès intégral toujours non établi ; comparer les théorèmes exacts et non le seul résumé. Vérifier séparément si l'énoncé « premier coefficient différent » figure ou se déduit des outils classiques (Newton + caractères) : aucune revendication de nouveauté.
