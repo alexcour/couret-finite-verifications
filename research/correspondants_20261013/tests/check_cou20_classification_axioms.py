@@ -72,7 +72,10 @@ def main() -> None:
         path = source_dir / f"{module}.lean"
         content = path.read_text()
         names = re.findall(r"^theorem\s+(\w+)", content, flags=re.M)
-        new_theorems.update(f"{namespace}.{name}" for name in names if not (module == "CayleyTwoColourFirstCoefficient" and name == "first_reverse_coefficient_gap_of_first_trace_difference"))
+        new_theorems.update(
+            f"{'Couret.CayleyNewton' if module == 'CayleyTwoColourFirstCoefficient' and name == 'first_reverse_coefficient_gap_of_first_trace_difference' else namespace}.{name}"
+            for name in names
+        )
         sources[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
     required.update(new_theorems)
     axioms = parse_axioms(args.log.read_text())
