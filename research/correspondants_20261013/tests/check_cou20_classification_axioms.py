@@ -14,6 +14,7 @@ NEW_MODULES = {
     "CayleyCharpolyTrace": "Couret.CharpolyTrace",
     "CayleyTwoColourMatrixNewton": "Couret.CayleyNewton",
     "CayleyTwoColourClassification": "Couret.CayleyDoublet",
+    "CayleyTwoColourFirstCoefficient": "Couret.CayleyDoublet",
 }
 REQUIRED = {
     "Matrix.derivative_det_polynomial",
@@ -27,6 +28,8 @@ REQUIRED = {
     "Couret.CayleyDoublet.abelianThree_spectral_necessity",
     "Couret.CayleyDoublet.abelianThree_spectral_equivalence",
     "Couret.CayleyDoublet.abelianThree_noncospectral_of_generated_odd_quotient",
+    "Couret.CayleyNewton.first_reverse_coefficient_gap_of_first_trace_difference",
+    "Couret.CayleyDoublet.abelianThree_first_reverse_coefficient_difference",
 }
 
 def parse_axioms(text: str) -> dict[str, list[str]]:
@@ -69,7 +72,7 @@ def main() -> None:
         path = source_dir / f"{module}.lean"
         content = path.read_text()
         names = re.findall(r"^theorem\s+(\w+)", content, flags=re.M)
-        new_theorems.update(f"{namespace}.{name}" for name in names)
+        new_theorems.update(f"{namespace}.{name}" for name in names if not (module == "CayleyTwoColourFirstCoefficient" and name == "first_reverse_coefficient_gap_of_first_trace_difference"))
         sources[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
     required.update(new_theorems)
     axioms = parse_axioms(args.log.read_text())
