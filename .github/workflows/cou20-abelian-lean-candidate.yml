@@ -10,6 +10,7 @@ on:
       - 'research/correspondants_20261013/tests/check_cou20_classification_axioms.py'
       - 'research/correspondants_20261013/tests/cou20-certified-sources.json'
       - 'research/correspondants_20261013/tests/verify_cou20_necessity.sh'
+      - 'research/correspondants_20261013/tests/cou20_homometry_exact.py'
       - '.github/workflows/cou20-abelian-lean-candidate.yml'
   workflow_dispatch:
 
@@ -42,6 +43,9 @@ jobs:
         run: |
           set -euo pipefail
           bash research/correspondants_20261013/tests/verify_cou20_necessity.sh
+      - name: Exact homometry regression (not a Lean proof)
+        shell: bash
+        run: python3 research/correspondants_20261013/tests/cou20_homometry_exact.py
       - name: Preserve compiler log and axiom receipt
         if: always()
         uses: actions/upload-artifact@v4
