@@ -94,9 +94,32 @@ def test_moenius_thm3_necessary_hypothesis_mod12() -> None:
           "fails for Brown n=12 pair: PASS")
 
 
+def test_moenius_theorem3_brown_family_finite() -> None:
+    """Finite replays of the symbolic mod-n/2 obstruction for Brown's p=3 family.
+
+    The *general* proof (for every r>=2) is elementary divisibility
+    and documented separately in the prior-art report; this loop is
+    evidence only for the displayed finite values.
+    """
+    from math import gcd
+
+    for r in range(2, 11):
+        t = 2 ** (r - 1)
+        n, reduced_modulus = 6 * t, 3 * t
+        reduced_source = {1, 1 + 2 * t}
+        reduced_target = {1, 1 + t}
+        for m in range(n):
+            if gcd(m, n) == 1:
+                assert {m * x % reduced_modulus for x in reduced_target} != (
+                    reduced_source
+                )
+    print("Moenius Theorem 3 modulo-n/2 obstruction: Brown family r=2..10 PASS")
+
+
 if __name__ == "__main__":
     test_brown_moenius_mod12()
     test_moenius_thm3_necessary_hypothesis_mod12()
+    test_moenius_theorem3_brown_family_finite()
     for quotient_order in (3, 9, 15, 21, 27):
         test_odd_quotient(quotient_order)
     for quotient_order in (6, 12):
