@@ -42,7 +42,7 @@ Contrôle des hypothèses : `2h=n=0`, `h≠0`, `3d=3·2^r=n=0`, `d∉H` donc `or
 | **Brown (2009), th. 3.1 et ex. 3.1**, même source | Z/(2^r p), r≥2, p premier impair ; digraphes ; supports construits, sans boucles dans la famille exposée | Famille infinie cospectrale et non isomorphe ; ex. n=12 | **DIRECT** : p=3 donne exactement les S,T de COU-20 pour a=1,d=2^r,h=n/2 ; branche quotient pair | DIRECT, **antériorité certaine** sur cette sous-famille ; texte primaire et substitution explicite |
 | **Mönius (2020)**, *Constructions of isospectral circulant graphs*, *Elem. Math.* **75**(2), 45–57, [DOI](https://doi.org/10.4171/EM/404) | Constructions de circulants isospectraux | Construction de familles isospectrales | Risque sérieux de généralisation couvrant d'autres paramètres ; **l'article complet de l'éditeur est sous abonnement** | INCERTAIN quant à l'inclusion exacte de l'iff ; notice primaire vérifiée, pas d'attribution conjecturale |
 | **Mönius (2021), th. 3.1.3, 3.1.5, 3.1.7 et 3.1.10**, thèse *Algebraic and Arithmetic Properties of Graph Spectra*, [texte consultable](https://www.researchgate.net/publication/350342437_Algebraic_and_Arithmetic_Properties_of_Graph_Spectra) | Circulants ; bijections spectrales, congruences modulo diviseurs, ensembles de somme de racines nulle ; th. 3.1.10 avec n multiple de 4 et ensembles impairs | **Critères suffisants** explicites de cospectralité ; ne classent pas toutes les paires | Les mécanismes de parité/fourier sont proches. **Une dérivation formelle du critère abélien iff n'a pas été établie dans cet audit** ; ne pas exclure un recouvrement supplémentaire | MÉTHODE / INCERTAIN ; texte long vérifié mais application exhaustive non certifiée |
-| **Mönius (2021), ex. 3.1.13 et th. 3.1.19**, même thèse | Ex. n=12 autre paire triple ; th. 3.1.19 exige S=−S, T=−T et considère les circulants non orientés | Exemples et construction par ensembles de différences | L'ex. n=12 n'est pas identifié comme la paire Brown sans isomorphisme explicite ; th. 3.1.19 **n'est pas le théorème dirigé** recherché | DISTINCT / à vérifier pour équivalences affines |
+| **Mönius (2021), ex. 3.1.13 et th. 3.1.19**, [thèse](https://www.researchgate.net/publication/350342437_Algebraic_and_Arithmetic_Properties_of_Graph_Spectra) | Ex. n=12 : U={5,7,11}, V={3,9,11} ; th. 3.1.19 : ensembles symétriques S=−S, T=−T (non orientés) | Exemple cospectral et construction différente | **IDENTIFICATION EXACTE À ISOMORPHISME SÉPARÉ** : U=7·{1,5,11} et V=11·{1,3,9} modulo 12, unités 7,11 ; c'est la paire Brown 2009. Le th. 3.1.19 ne s'applique pas directement aux supports orientés triples | DIRECT (n=12), sous l'équivalence explicite ; calcul modulaire exact |
 | **Huang et Chang (2001)**, *Circulant digraphs determined by their spectra*, *Discrete Math.* **240**, 261–270, [DOI](https://doi.org/10.1016/S0012-365X(01)00198-4) | Détermination spectrale de circulants orientés | Conditions de détermination spectrale pour certaines classes | Problème apparenté mais pas d'identité au critère exact établie | INCERTAIN ; contrôle notice/abstract, texte complet non audité |
 | **Mans, Pappalardi et Shparlinski (2002)**, *On the spectral Ádám property for circulant graphs*, *Discrete Math.* **254**, 309–329, [DOI](https://doi.org/10.1016/S0012-365X(01)00374-0) | Propriété spectrale d'Ádám, différentes valences | Critères pour certaines familles de circulants | Pas de conséquence exacte sur l'iff de COU-20 vérifiée | INCERTAIN ; résumé/notice |
 | **Mönius (2020, 2022)**, *The algebraic degree of spectra of circulant graphs* [DOI](https://doi.org/10.1016/j.jnt.2019.08.002) ; *Splitting fields of spectra of circulant graphs* [DOI](https://doi.org/10.1016/j.jalgebra.2021.11.036) | Corps de décomposition / degrés algébriques des valeurs propres | Invariants des **corps**, parfois conditions nécessaires de cospectralité | Une égalité de corps ne signifie pas une égalité de multiensembles propres : **ne fournit pas directement l'iff** | DISTINCT, attention aux conditions nécessaires seulement |
@@ -104,3 +104,58 @@ Pour q impair et ⟨a,h⟩=G, Q est cyclique impair et G est extension d'un grou
 - Jin, W. et al. (2026), *A classification of locally-quasiprimitive circulant digraphs*, [arXiv:2607.18783](https://arxiv.org/abs/2607.18783).
 
 **Dernière règle :** le présent document est une note de recherches et de recouvrements vérifiés, **pas** une décision de Gate C, une attestation d'exhaustivité bibliographique ou une autorisation de publication.
+
+
+## G. Deuxième passe documentaire et corollaire de Newton (19 octobre 2026)
+
+### G1. Identification exacte Brown–Mönius au module 12
+
+**Primaire Brown :** [arXiv:0904.1968v1](https://arxiv.org/pdf/0904.1968), théorème 3.1, exemple 3.1 (n=12), supports `S_B={1,5,11}`, `T_B={1,3,9}`.  
+**Primaire Mönius :** [thèse Würzburg 2021](https://www.researchgate.net/publication/350342437_Algebraic_and_Arithmetic_Properties_of_Graph_Spectra), §3.1.3, **exemple 3.1.13**, supports `S_M={5,7,11}`, `T_M={3,9,11}`. La thèse mentionne que cet exemple ne provient pas directement des constructions 3.1.5, 3.1.7 ou 3.1.10 (pour les ensembles tels qu'écrits).
+
+**Calcul intégral, sans approximation :**
+- `7·S_B (mod 12) = {7,35 mod 12,77 mod 12}={5,7,11}=S_M`.
+- `11·T_B (mod 12)={11,33 mod 12,99 mod 12}={3,9,11}=T_M`.
+- `gcd(7,12)=gcd(11,12)=1`. Les deux multiplications sont des automorphismes du groupe cyclique, et donc des isomorphismes dirigés de Cayley individuellement.
+
+**Conclusion :** le cas Mönius 3.1.13 est une autre présentation, après deux automorphismes indépendants, de la même paire de graphes orientés que Brown 2009. Cela corrige le statut antérieur « équivalence affine non vérifiée ». Il ne faudrait toutefois **pas** inférer que chaque famille construite par Mönius coïncide avec celle de Brown, ni que ses critères 3.1.5/3.1.7/3.1.10 sont équivalents à COU-20.
+
+### G2. Conditions précises du théorème 3.1.10 de Mönius
+
+La thèse §3.1.2, **théorème 3.1.10**, suppose notamment `4|n`, un ensemble d'équilibre formé de progressions disjointes à diviseur pair, tous ses éléments impairs, puis choisit `S` comme **la moitié** des éléments dans chaque progression et `T` comme le complément (ou le complément décalé de n/2), avec ajout éventuel d'un même ensemble `Z` d'éléments **pairs**. Ceci fournit une **condition suffisante** de cospectralité. La classification COU-20 porte sur d'autres hypothèses (groupe abélien général, supports triples, possibilité de boucles, condition nécessaire et suffisante) : aucune réduction exhaustive de COU-20 au théorème 3.1.10 n'est justifiée à cette coupe.
+
+### G3. Premier coefficient différent du polynôme caractéristique
+
+**Corollaire mathématique direct, sans nouvelle compilation Lean :** sous la branche `⟨a,h⟩=G`, `q=|G/H|` impair et `ord(d+H)=3`, écrire `k=q/3` (impair), `N=|G|=2q=6k`, et `χ(A)=X^N+Σ_{j=1}^N c_j(A)X^(N−j)`. Puisque `tr(A_S^j)=tr(A_T^j)` pour `j<k`, Newton donne `c_j(S)=c_j(T)` pour `j<k`. L'identité de Newton au rang k donne :
+
+`k(c_k(S)−c_k(T)) = −(tr(A_S^k)−tr(A_T^k))`.
+
+La formule de traces formalisée donne `|tr(A_S^k)−tr(A_T^k)|=|G|·3^((k−1)/2)=6k·3^((k−1)/2)`. Ainsi,
+
+**`|c_k(S)−c_k(T)|=6·3^((k−1)/2)`**, et **k est le premier indice de coefficient différent**. C'est une conséquence élémentaire du certificat COU-20 + identités classiques de Newton ; **aucune originalité revendiquée**, et cette formulation n'a pas fait l'objet d'un nouveau certificat Lean.
+
+| q impair | n=2q | k=q/3 | Différence des traces au rang k (choix a=1,d=q/3,h=q) | Différence des c_k |
+|---:|---:|---:|---:|---:|
+| 3 | 6 | 1 | −6 | +6 |
+| 9 | 18 | 3 | +54 | −18 |
+| 15 | 30 | 5 | −270 | +54 |
+| 21 | 42 | 7 | +1134 | −162 |
+| 27 | 54 | 9 | −4374 | +486 |
+
+Pour q pairs 6 et 12, les premières traces et coefficients testés coïncident, conformément à la branche cospectrale mais **sans vérification exhaustive du polynôme de degré n**.
+
+**Reproduction indépendante sur arithmétique entière :** [tests/cou20_prior_art_invariants_exact.py](tests/cou20_prior_art_invariants_exact.py). Ce script dénombre exactement les marches fermées avec les supports orientés en utilisant la convolution modulaire et reconstruit les coefficients par Newton ; il vérifie les cinq instances impaires, les deux premières tranches de quotients pairs et les deux automorphismes Brown–Mönius. L'exécution locale de la même logique a réussi le 19 octobre 2026. Le dépôt n'a pas à ce stade de nouveau reçu CI certifiant cette pièce ; la preuve universelle reste celle du commit Lean historique.
+
+### G4. Antériorité structurelle plus ancienne
+
+**Elspas et Turner (1970)**, *Graphs with circulant adjacency matrices*, *J. Combin. Theory* **9**(3), 297–307, [DOI 10.1016/S0021-9800(70)80068-0](https://doi.org/10.1016/S0021-9800(70)80068-0), travaillent explicitement sur les circulants dirigés **et** non dirigés, et des critères d'isomorphisme par multiplicateurs. Leur texte est une antériorité sur les outils structuraux, non une démonstration consultée de l'équivalence et de k=q/3. La thèse de Mönius (exemple 3.1.12) leur attribue par ailleurs une autre paire de digraphes cospectraux à n=32 (supports de six éléments).
+
+**Babai (1979)**, [DOI 10.1016/0095-8956(79)90079-0](https://doi.org/10.1016/0095-8956(79)90079-0), obtient des expressions de traces/spectres de graphes de Cayley en caractères irréductibles, dans un cadre mentionnant les digraphes avec arcs colorés. Cette méthode suffit à rendre le **genre** d'argument traces/caractères ancien, sans attribuer à Babai la formule spéciale du COU-20.
+
+### G5. Limites toujours actives
+
+- L'article de Mönius en *Elemente der Mathematik* (2020) reste non consulté en intégralité (accès restreint sur la plateforme éditoriale). Sa thèse de 2021 est consultable ; cette distinction doit rester explicite.
+- L'absence d'un énoncé `iff` identique ou d'un `k=q/3` imprimé dans les extraits lus n'est pas un certificat de nouveauté. Une implication par un théorème plus général reste plausible.
+- La branche `q` impair et `⟨a,h⟩=G` est structurellement **cyclique** (extension d'un groupe cyclique d'ordre impair par C2), et l'antériorité sur les circulants demeure donc centrale.
+- Statuts inchangés : relecture mathématique indépendante et Gate C ouverts ; PR #49 OPEN/DRAFT ; aucune fusion, release, publication ni revendication de priorité.
+
