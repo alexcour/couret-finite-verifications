@@ -171,7 +171,11 @@ theorem abelianThree_card_eq_six_quotient_third
       have hz := addOrderOf_nsmul_eq_zero h
       rw [horder] at hz
       exact hne (by simpa using hz)
-    rcases hdiv with ⟨m, hm⟩
+    have hle : addOrderOf h ≤ 2 :=
+      Nat.le_of_dvd (by decide : 0 < 2) hdiv
+    have hnonzero : addOrderOf h ≠ 0 := by
+      intro hz
+      simp [hz] at hdiv
     omega
   have hsub : Nat.card (AddSubgroup.zmultiples h) = 2 := by
     simpa only [Nat.card_zmultiples] using htwo
@@ -212,12 +216,13 @@ theorem abelianThree_first_charpoly_coefficient_abs_gap
     abelianThree_card_eq_six_quotient_third h hhalf hne k hsize
   have hc : (Fintype.card G : ℚ) = 6 * (k : ℚ) := by
     exact_mod_cast hcNat
+  have hk' : k = 2 * n + 1 := hn
   have htrace :
       |Matrix.trace (A ^ k) - Matrix.trace (B ^ k)| =
         (Fintype.card G : ℚ) * (3 : ℚ) ^ n := by
-    rw [hn]
+    rw [hk']
     exact abelianThree_odd_trace_gap_abs_of_ne a d h
-      hhalf hne horder n (by simpa only [← hn] using hdiff)
+      hhalf hne horder n (by simpa only [hk'] using hdiff)
   have hnewton :
       (k : ℚ) * (reverseCharpolyCoeff A k - reverseCharpolyCoeff B k) =
        -(Matrix.trace (A ^ k) - Matrix.trace (B ^ k)) :=
@@ -236,6 +241,8 @@ theorem abelianThree_first_charpoly_coefficient_abs_gap
   have hcoeff : |reverseCharpolyCoeff A k - reverseCharpolyCoeff B k| =
       6 * (3 : ℚ) ^ n :=
     (mul_left_cancel₀ hk0) hmul
+  change |reverseCharpolyCoeff A k - reverseCharpolyCoeff B k| =
+    6 * (3 : ℚ) ^ ((k - 1) / 2)
   simpa only [hncalc] using hcoeff
 
 
