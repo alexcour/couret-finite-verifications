@@ -254,3 +254,14 @@ Restent distincts du certificat Lean :
 La PR #49 reste **ouverte et en brouillon**. Aucune fusion dans main,
 publication, release ou revendication de nouveauté scientifique n’est effectuée.
 
+
+
+---
+
+## Addendum bibliographique — 19 octobre 2026 — antériorités (sans revendication de priorité)
+
+L'[audit d'antériorité COU-20](COU20_SPECTRAL_ANTERIORITE_20261019.md) identifie désormais un **recouvrement exact et explicite** : le **théorème 3.1 de Julia Brown**, *Isomorphic and Nonisomorphic, Isospectral Circulant Graphs* ([arXiv:0904.1968](https://arxiv.org/pdf/0904.1968), 2009), spécialisé à p=3 et n=3·2^r, r≥2, fournit les supports S={1,1+2^r,1+2^r+n/2}, T={1,1−2^r,1−2^r+n/2}, qui sont **exactement** la sous-famille cyclique COU-20 (a=1, d=2^r, h=n/2). Brown prouve déjà leur cospectralité et non-isomorphisme. Son exemple n=12 correspond à {1,5,11} et {1,3,9}. **Aucune originalité de cette sous-famille n'est revendiquée.**
+
+La formule générale de valeurs propres par les caractères des groupes abéliens est classique (Babai, 1979 ; Brown, 2009). Les constructions de Mönius (*Elem. Math.*, 2020, et thèse 2021) comportent des critères de cospectralité et des cas voisins ; l'article intégral de 2020 et les éventuelles spécialisations exactes de ces théorèmes restent à auditer. Les travaux de Lu–Mönius (2023) portent entre autres sur les corps spectraux, ce qui n'est pas en soi l'égalité de polynômes caractéristiques. L'équivalence χ(A_S)=χ(A_T) ssi (⟨a,h⟩≠G ou |G/H| pair), et le premier exposant k=|G/H|/3, **n'ont pas été identifiés textuellement** dans les sources lues ; leur originalité n'en résulte nullement, une implication par des théorèmes existants restant possible. **La branche de premier désaccord se réduit structurellement au cas cyclique**, ce qui appelle particulièrement la confrontation aux sources sur les circulants.
+
+**Statuts inchangés :** certification Lean sur commit source 0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e ; audit bibliographique et relecture mathématique humaine *ouverts* ; PR #49 *OPEN/DRAFT*, ni fusion ni publication, ni revendication de priorité. Ne pas confondre validation formelle et nouveauté scientifique.
