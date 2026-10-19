@@ -220,9 +220,14 @@ theorem abelianThree_first_charpoly_coefficient_abs_gap
   have htrace :
       |Matrix.trace (A ^ k) - Matrix.trace (B ^ k)| =
         (Fintype.card G : ℚ) * (3 : ℚ) ^ n := by
+    have hdiffK : Matrix.trace (A ^ k) ≠ Matrix.trace (B ^ k) := by
+      exact hdiff
+    have hdiffN : Matrix.trace (A ^ (2 * n + 1)) ≠
+        Matrix.trace (B ^ (2 * n + 1)) := by
+      simpa only [hk'] using hdiffK
     rw [hk']
     exact abelianThree_odd_trace_gap_abs_of_ne a d h
-      hhalf hne horder n (by simpa only [hk'] using hdiff)
+      hhalf hne horder n hdiffN
   have hnewton :
       (k : ℚ) * (reverseCharpolyCoeff A k - reverseCharpolyCoeff B k) =
        -(Matrix.trace (A ^ k) - Matrix.trace (B ^ k)) :=
