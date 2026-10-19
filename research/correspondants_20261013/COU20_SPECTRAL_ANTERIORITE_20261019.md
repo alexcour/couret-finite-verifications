@@ -216,3 +216,21 @@ Donc **ce théorème 3 ne s'applique pas directement à ces représentants publi
 **Rappel** : les deux premiers théorèmes sur le premier coefficient et le lien signé étaient **déjà certifiés** au commit `bf11eba7399eaee3fe50ec59119d0f0438bc5a00`, workflow [#39239651122](https://github.com/alexcour/couret-finite-verifications/actions/runs/39239651122). **Ne pas attribuer leurs succès aux trois candidats ajoutés après ce SHA.** Les preuves anciennes et la classification fondamentale ne sont pas modifiées.
 
 **Gouvernance maintenue :** Gate C ouvert ; revue humaine indépendante à organiser ; PR #49 OPEN/DRAFT, non fusionnée ; ticket COU-20 In Progress.
+
+
+### J1. Renforcement symbolique : obstruction de la condition du théorème 3 pour *toute* la sous-famille Brown `p=3`
+
+Pour chaque `r≥2`, poser `t=2^(r−1)`, `n=6t=3·2^r` et `q=n/2=3t`. La spécialisation Brown fournit `a=1`, `d=2t`, `h=3t`, donc après réduction modulo `q` les ensembles de connexion deviennent :
+
+`S mod q={1,1+2t}`, `T mod q={1,1+t}`.
+
+**Preuve élémentaire (indépendante des tests) :** si `mT≡S (mod 3t)`, comme `1∈T`, le résidu `m` appartient à `S` : il est congru à `1` ou `1+2t`. Dans le premier cas, le second élément de `mT` est `1+t`, distinct de `1+2t` modulo `3t`. Dans le deuxième cas, le second élément vaut
+`(1+2t)(1+t)=1+3t+2t²≡1+2t² (mod 3t)`. Pour produire le second élément attendu `1`, il faudrait `3t | 2t²`, donc `3 | 2t`, **impossible puisque `t` est une puissance de deux**. Il n'existe aucun `m`, même sans restriction d'inversibilité, satisfaisant cette congruence.
+
+**Conclusion rigoureusement bornée :** la condition `S≡mT (mod n/p)`, requise par le théorème 3 de Mönius (2020), est **impossible dès p=2** pour toute la famille Brown `p=3`, `r≥2`, avec ces ensembles de connexion. L'obstruction survit à des automorphismes multiplicatifs indépendants ; elle n'interdit **pas** les isomorphismes non multiplicatifs, les autres constructions de Mönius ou une conséquence différente de sa théorie. Des rejouements finis pour `r=2..10` figurent dans [tests/cou20_prior_art_invariants_exact.py](tests/cou20_prior_art_invariants_exact.py), **non substituables à la preuve symbolique**. Aucune originalité scientifique revendiquée.
+
+### J2. Certificat Lean final de la formule absolue
+
+La correction au SHA de code **`511af8238074d4e4426c1163864a071f1be92a61`** a été compilée avec **SUCCESS** dans le workflow [#39249189840](https://github.com/alexcour/couret-finite-verifications/actions/runs/39249189840), job [#118048496509](https://github.com/alexcour/couret-finite-verifications/actions/runs/39249189840/job/118048496509). **144 sorties axiomatiques**, **25 théorèmes publics**, **10 sources historiques intactes**, aucun axiome extérieur à `propext, Classical.choice, Quot.sound`, aucun `sorryAx`. Les trois nouveaux théorèmes sur (i) l'amplitude des traces impaires, (ii) `|G|=6k` et (iii) `|c_k(S)-c_k(T)|=6·3^((k−1)/2)` apparaissent dans les sorties.
+
+**Traçabilité stricte :** il s'agit d'une compilation sur **le commit GitHub de fusion de test `37bcfbb...`**, intégrant `511af823...`, pas d'une compilation « direct HEAD » indépendamment observée. Le statut précédent « candidat non certifié » est corrigé ici pour la source testée. **Gate C toujours ouvert, PR #49 OPEN/DRAFT**, aucun avis de priorité ; le théorème de Mönius 2020 n'a pas été intégralement audité page par page.
