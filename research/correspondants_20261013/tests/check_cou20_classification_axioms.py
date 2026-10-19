@@ -14,6 +14,7 @@ NEW_MODULES = {
     "CayleyCharpolyTrace": "Couret.CharpolyTrace",
     "CayleyTwoColourMatrixNewton": "Couret.CayleyNewton",
     "CayleyTwoColourClassification": "Couret.CayleyDoublet",
+    "CayleyTwoColourFirstCoeff": "Couret.CayleyDoublet",
 }
 REQUIRED = {
     "Matrix.derivative_det_polynomial",
