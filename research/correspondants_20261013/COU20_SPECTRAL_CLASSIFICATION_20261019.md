@@ -274,3 +274,20 @@ Le rapprochement des exemples **Brown (2009), ex. 3.1** et **Mönius (2021), ex.
 **Conséquence déduite des traces et de Newton (non certifiée par une nouvelle preuve Lean)** : dans la branche non cospectrale, `q=|G/H|` impair, `k=q/3`, les coefficients `c_j` des polynômes caractéristiques coïncident pour `j<k`, et `|c_k(S)−c_k(T)|=6·3^((k−1)/2)`. Vérification arithmétique indépendante sur cinq quotients impairs : [script exact](tests/cou20_prior_art_invariants_exact.py). Cette propriété est un corollaire des théorèmes déjà certifiés et des identités classiques de Newton, **pas une revendication de nouveauté ni une nouvelle compilation CI**. Les sources bibliographiques ne justifient pas de conclure à l'originalité de l'équivalence ou du premier coefficient distinct.
 
 **Gouvernance :** relecture humaine et Gate C ouverts ; PR #49 OPEN/DRAFT, aucun merge, release ou publication.
+
+
+### Mise à jour CERTIFIÉE — 19 octobre 2026 — premier coefficient et amplitude absolue
+
+Le module [`CayleyTwoColourFirstCoeff.lean`](lean/CayleyTwoColourFirstCoeff.lean), source corrigée au commit **`511af8238074d4e4426c1163864a071f1be92a61`**, contient désormais **cinq** théorèmes publics nouveaux par rapport à la certification initiale du 19 octobre : deux sur le premier indice et l'identité signée, puis trois sur l'amplitude absolue des traces, le cardinal `|G|=6k`, et la formule finale.
+
+Dans la branche `⟨a,h⟩=G` et `|G/H|` impair, avec `k=|G/H|/3` positif impair et `χ_A(X)=X^N+∑ c_j(A)X^(N-j)` :
+
+- **Premier indice :** `c_j(A_S)=c_j(A_T)` pour `1≤j<k`, puis `c_k(A_S)≠c_k(A_T)`.
+- **Newton signé :** `k(c_k(A_S)-c_k(A_T))=-(tr(A_S^k)-tr(A_T^k))`.
+- **Amplitude absolue formalisée :** `|c_k(A_S)-c_k(A_T)|=6·3^((k-1)/2)`.
+
+**Certificat observé :** [GitHub Actions #39249189840](https://github.com/alexcour/couret-finite-verifications/actions/runs/39249189840), job [#118048496509](https://github.com/alexcour/couret-finite-verifications/actions/runs/39249189840/job/118048496509), **SUCCESS**. Le journal rapporte **144 contrôles axiomatiques**, **25 théorèmes publics du lot**, **10 fichiers historiques certifiés inchangés**, et pour les trois derniers lemmes uniquement `propext`, `Classical.choice` et `Quot.sound`, **aucun `sorryAx`**. Le job CI a effectué le checkout du **commit technique GitHub de test de fusion `37bcfbb...`**, intégrant `511af823...`, et non un checkout direct du SHA source. Le certificat se rapporte à ce code sur la référence testée ; **ne pas l'appeler run direct au SHA source**.
+
+Les deux échecs de compilation antérieurs [#39242010676](https://github.com/alexcour/couret-finite-verifications/actions/runs/39242010676) et [#39242745977](https://github.com/alexcour/couret-finite-verifications/actions/runs/39242745977) restent dans l'historique ; ils n'invalident pas ce certificat ultérieur. Les anciennes mentions « formule absolue non certifiée » conservées ci-dessus décrivent leurs révisions propres et sont **supplantées par le présent addendum**.
+
+Ces résultats concernent toujours exclusivement les matrices rationnelles des digraphes orientés, boucles comprises, sous les hypothèses initiales. Ils ne démontrent aucune originalité : [l'audit bibliographique](COU20_SPECTRAL_ANTERIORITE_20261019.md) reste ouvert (notamment Mönius 2020), la relecture humaine indépendante aussi. **COU-20 In Progress ; PR #49 OPEN/DRAFT — no merge, no release, no priorité.**
