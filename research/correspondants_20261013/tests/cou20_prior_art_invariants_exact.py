@@ -70,8 +70,33 @@ def test_brown_moenius_mod12() -> None:
     print("Brown example 3.1 -> Moenius example 3.1.13 by units 7,11 modulo 12: PASS")
 
 
+def test_moenius_thm3_necessary_hypothesis_mod12() -> None:
+    """Test just the modulo-n/p congruence required to invoke Moenius Thm 3.
+
+    It is NOT a necessary condition for cospectrality, and failing it does
+    not mean that no other theorem or other graph presentation could apply.
+    """
+    from math import gcd
+
+    n, p = 12, 2
+    brown_s, brown_t = {1, 5, 11}, {1, 3, 9}
+    units = tuple(u for u in range(n) if gcd(u, n) == 1)
+    assert units == (1, 5, 7, 11)
+    modulus = n // p
+    s_reduced = {x % modulus for x in brown_s}
+    candidates = {u: {u * x % modulus for x in brown_t} for u in units}
+    assert s_reduced == {1, 5}
+    assert candidates == {
+        1: {1, 3}, 5: {3, 5}, 7: {1, 3}, 11: {3, 5}
+    }
+    assert all(value != s_reduced for value in candidates.values())
+    print("Moenius 2020 Theorem 3 congruence modulo n/2=6 "
+          "fails for Brown n=12 pair: PASS")
+
+
 if __name__ == "__main__":
     test_brown_moenius_mod12()
+    test_moenius_thm3_necessary_hypothesis_mod12()
     for quotient_order in (3, 9, 15, 21, 27):
         test_odd_quotient(quotient_order)
     for quotient_order in (6, 12):
