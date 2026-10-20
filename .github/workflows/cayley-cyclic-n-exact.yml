@@ -1,0 +1,43 @@
+name: cayley-cyclic-n-exact
+on:
+  push:
+    paths:
+      - 'research/cayley/replay_cyclic_n_20261020.py'
+      - 'research/cayley/replay_expected_20261020.json'
+      - '.github/workflows/cayley-cyclic-n-exact.yml'
+  pull_request:
+    paths:
+      - 'research/cayley/replay_cyclic_n_20261020.py'
+      - 'research/cayley/replay_expected_20261020.json'
+      - '.github/workflows/cayley-cyclic-n-exact.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Pin exact-arithmetic dependency
+        run: python -m pip install 'sympy==1.14.0'
+      - name: Replay cyclotomic and Cayley checks (exact integer arithmetic)
+        run: python research/cayley/replay_cyclic_n_20261020.py > /tmp/cayley-cyclic-n-replay.json
+      - name: Match finite results against dated manifest
+        run: |
+          python - <<'PY'
+          import json
+          with open('/tmp/cayley-cyclic-n-replay.json', encoding='utf-8') as f:
+              got = json.load(f)
+          with open('research/cayley/replay_expected_20261020.json', encoding='utf-8') as f:
+              expected = json.load(f)
+          assert got['root_lemma']['orders'] == len(expected['root_lemma']['ambient_root_orders'])
+          for key, manifest_key in (('targets','target_count'),('unordered_ambient_triples','unordered_ambient_triples'),('disagreements','unexpected_solutions')):
+              assert got['root_lemma'][key] == expected['root_lemma'][manifest_key], (key, got['root_lemma'][key])
+          for key in ('presentations','cospectral','disagreements'):
+              assert got['cayley'][key] == expected['cayley'][key], (key, got['cayley'][key])
+          print('PASS — exact checks agree with 2026-10-20 finite manifest; no general theorem certified')
+          PY
