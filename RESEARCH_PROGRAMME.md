@@ -14,7 +14,7 @@
 
 Il étudie des problèmes de reconstruction en **combinatoire additive** et en **théorie spectrale des graphes** : quand un objet est-il déterminé par une observation partielle, telle que les sommes de ses éléments prises deux à deux (avec multiplicité et répétitions autorisées) ou le spectre d'un graphe de Cayley ? Quelles ambiguïtés subsistent exactement ?
 
-**Premier résultat de recherche :** classification structurelle des ensembles à trois éléments d'un groupe abélien (sans hypothèse de finitude sur G pour la classification) partageant la même fonction de représentation des sommes ordonnées de deux éléments. Il s'agit du cas à trois éléments du **problème 2 de V. F. Lev (2004)**. La classification structurelle est formalisée en Lean 4 et vérifiée par calcul exhaustif sur des groupes finis bornés ; les dénombrements quantitatifs complémentaires ne sont pas tous formalisés. **Le résultat attend une relecture mathématique humaine indépendante et un audit d'antériorité complet.**
+**Objet de recherche sous audit d’antériorité :** classification structurelle des ensembles à trois éléments d'un groupe abélien (sans hypothèse de finitude sur G pour la classification) partageant la même fonction de représentation des sommes ordonnées de deux éléments. Il s'agit du cas à trois éléments du **problème 2 de V. F. Lev (2004)**. La classification structurelle est formalisée en Lean 4 et vérifiée par calcul exhaustif sur des groupes finis bornés ; les dénombrements quantitatifs complémentaires ne sont pas tous formalisés. **Le résultat attend une relecture mathématique humaine indépendante et un audit d'antériorité complet.**
 
 ## English presentation
 
@@ -22,7 +22,7 @@ Il étudie des problèmes de reconstruction en **combinatoire additive** et en *
 
 It investigates reconstruction problems in **additive combinatorics** and **spectral graph theory**: when is an object determined by a partial observation, such as its pairwise sums (ordered, counted with multiplicity, and allowing equal summands) or the spectrum of a Cayley graph? Exactly which ambiguities remain?
 
-**First research result:** a structural classification of three-element subsets of an abelian group (without ambient finiteness for structural classification) with identical ordered-pair sum representation functions. This is the three-element case of **V. F. Lev's Problem 2 (2004)**. The structural classification is formalised in Lean 4 and checked by bounded exhaustive computation; further quantitative counting statements remain only partly formalised. **Independent expert mathematical review and a full prior-art audit are still pending.**
+**Research object under prior-art review:** a structural classification of three-element subsets of an abelian group (without ambient finiteness for structural classification) with identical ordered-pair sum representation functions. This is the three-element case of **V. F. Lev's Problem 2 (2004)**. The structural classification is formalised in Lean 4 and checked by bounded exhaustive computation; further quantitative counting statements remain only partly formalised. **Independent expert mathematical review and a full prior-art audit are still pending.**
 
 ## Exact scope and primary sources
 
@@ -49,6 +49,12 @@ The open-ended question is to classify pairs of supports `S,T` with `R_S = R_T`.
 **Gates / Portes :** E = explicit internal proof/compiled scope; N = prior art still not fully audited; Q = CI and internal replays, independent human expert review pending; D = editorial integration approved explicitly on 14 October 2026 at 21:31 Europe/Paris. Editorial PRs #34 and #9 are merged into main (merge commits d137f119acf9383b06fb8de3856610970ae6bc1a and 3d2e7067e85d17db8d07968056572bd0363b9a4f). WordPress deployment requires authenticated site access and separate readback. Research PRs #25 and #30 retain their own draft status; no stable research release or new DOI. Historical `v1.0.0` claims remain unchanged. Preserve older statuses as dated snapshots, not current assertions.
 
 **Primary literature:** Vsevolod F. Lev, “Reconstructing Integer Sets From Their Representation Functions”, *Electronic Journal of Combinatorics* **11** (2004), #R78, **Problem 2**, p. 5; [DOI 10.37236/1831](https://doi.org/10.37236/1831).
+
+## Prior-art checkpoint — 20 October 2026
+
+The Fourier-sign criterion is already explicit in Lev (2004), p. 5, immediately before Problem 2: equality of ordered-pair sum representation functions on a finite abelian group is equivalent to characterwise equality up to sign. Translations by elements of order two are also identified there. [Primary article, p. 5](https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r78/pdf/).
+
+This is an antecedent mechanism, not a new hypothesis or a novelty claim of this programme. A possible contribution must be assessed at the level of the exact three-element classification, including exceptional fibres and quantitative scope, against subsequent primary literature. That comparison remains open. The infinite-ambient structural statement has its own hypotheses; the finite Fourier observation alone neither proves nor antedates all of it.
 
 ## Research method and review boundaries
 
