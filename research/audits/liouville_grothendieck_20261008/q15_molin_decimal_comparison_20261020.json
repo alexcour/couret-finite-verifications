@@ -1,0 +1,252 @@
+{
+  "schema": "cu-bruit-q15-molin-decimal-audit-20261020-v1",
+  "comparator": "decimal exact on displayed strings",
+  "numeric_threshold_only": "1e-30",
+  "status": "DECIMAL_CONCORDANCE_27_OF_37; GATE_A3_CERTIFICATION_HOLD",
+  "by_character": {
+    "15.2": {
+      "local_count": 12,
+      "local_count_below_20": 9,
+      "reported_count_below_20": 9,
+      "decimal_matches": 9,
+      "max_absolute_decimal_difference": "5e-35",
+      "pending_20_to_25": 3
+    },
+    "15.14": {
+      "local_count": 13,
+      "local_count_below_20": 9,
+      "reported_count_below_20": 9,
+      "decimal_matches": 9,
+      "max_absolute_decimal_difference": "4.3e-35",
+      "pending_20_to_25": 4
+    },
+    "15.8": {
+      "local_count": 12,
+      "local_count_below_20": 9,
+      "reported_count_below_20": 9,
+      "decimal_matches": 9,
+      "max_absolute_decimal_difference": "4.8e-35",
+      "pending_20_to_25": 3
+    }
+  },
+  "total_local": 37,
+  "total_reported": 27,
+  "total_decimal_matches": 27,
+  "total_pending_above_20_below_25": 10,
+  "max_absolute_displayed_decimal_difference": "5e-35",
+  "signed_conventions": "15.2 and 15.8 are complex conjugates; positive roots compared directly by same Conrey label, not across conjugates",
+  "coverage_note": "All 27 displayed values < 20 align with 27 local values < 20; does NOT certify exhaustive zero count below 20",
+  "provenance_note": "Source values provided in private correspondence; reported PARI run not independently rerun. Unauthenticated transcribed fixture, not certified archive.",
+  "rigorous_error_bound_verified": false,
+  "zero_isolation_verified": false,
+  "exhaustive_zero_count_verified": false,
+  "comparisons": [
+    {
+      "character": "15.2",
+      "rank": 1,
+      "local": "2.73460370911883725526846548734412216",
+      "molin_reported": "2.7346037091188372552684654873441221613",
+      "abs_difference": "1.3e-36"
+    },
+    {
+      "character": "15.2",
+      "rank": 2,
+      "local": "5.24301049275448939295780629412083942",
+      "molin_reported": "5.2430104927544893929578062941208394242",
+      "abs_difference": "4.2e-36"
+    },
+    {
+      "character": "15.2",
+      "rank": 3,
+      "local": "8.41468524980489927126454193275339625",
+      "molin_reported": "8.4146852498048992712645419327533962545",
+      "abs_difference": "4.5e-36"
+    },
+    {
+      "character": "15.2",
+      "rank": 4,
+      "local": "10.1876027276453024410392281737734211",
+      "molin_reported": "10.187602727645302441039228173773421109",
+      "abs_difference": "9e-36"
+    },
+    {
+      "character": "15.2",
+      "rank": 5,
+      "local": "11.9073724765466703206668691610290188",
+      "molin_reported": "11.907372476546670320666869161029018811",
+      "abs_difference": "1.1e-35"
+    },
+    {
+      "character": "15.2",
+      "rank": 6,
+      "local": "13.3373958554155892403877849438430742",
+      "molin_reported": "13.337395855415589240387784943843074200",
+      "abs_difference": "0"
+    },
+    {
+      "character": "15.2",
+      "rank": 7,
+      "local": "15.3661395764977823147947183320934829",
+      "molin_reported": "15.366139576497782314794718332093482950",
+      "abs_difference": "5e-35"
+    },
+    {
+      "character": "15.2",
+      "rank": 8,
+      "local": "17.7723902492166640608502314259928581",
+      "molin_reported": "17.772390249216664060850231425992858099",
+      "abs_difference": "1e-36"
+    },
+    {
+      "character": "15.2",
+      "rank": 9,
+      "local": "18.9769996500882535345336185036068452",
+      "molin_reported": "18.976999650088253534533618503606845190",
+      "abs_difference": "1e-35"
+    },
+    {
+      "character": "15.14",
+      "rank": 1,
+      "local": "3.05701820980868915287415506904708829",
+      "molin_reported": "3.0570182098086891528741550690470882907",
+      "abs_difference": "7e-37"
+    },
+    {
+      "character": "15.14",
+      "rank": 2,
+      "local": "5.34319209367996891782367161036914649",
+      "molin_reported": "5.3431920936799689178236716103691464863",
+      "abs_difference": "3.7e-36"
+    },
+    {
+      "character": "15.14",
+      "rank": 3,
+      "local": "7.26763059826680725286077767720710152",
+      "molin_reported": "7.2676305982668072528607776772071015192",
+      "abs_difference": "8e-37"
+    },
+    {
+      "character": "15.14",
+      "rank": 4,
+      "local": "10.1337481552283757972592006003482581",
+      "molin_reported": "10.133748155228375797259200600348258080",
+      "abs_difference": "2e-35"
+    },
+    {
+      "character": "15.14",
+      "rank": 5,
+      "local": "12.1596985338107708179232438174534441",
+      "molin_reported": "12.159698533810770817923243817453444129",
+      "abs_difference": "2.9e-35"
+    },
+    {
+      "character": "15.14",
+      "rank": 6,
+      "local": "13.4893845731553180405332225553316328",
+      "molin_reported": "13.489384573155318040533222555331632793",
+      "abs_difference": "7e-36"
+    },
+    {
+      "character": "15.14",
+      "rank": 7,
+      "local": "15.2404085290390331668778881598505608",
+      "molin_reported": "15.240408529039033166877888159850560843",
+      "abs_difference": "4.3e-35"
+    },
+    {
+      "character": "15.14",
+      "rank": 8,
+      "local": "16.6335584161855863815882344250819375",
+      "molin_reported": "16.633558416185586381588234425081937543",
+      "abs_difference": "4.3e-35"
+    },
+    {
+      "character": "15.14",
+      "rank": 9,
+      "local": "19.1034971852546946574430563193662774",
+      "molin_reported": "19.103497185254694657443056319366277420",
+      "abs_difference": "2e-35"
+    },
+    {
+      "character": "15.8",
+      "rank": 1,
+      "local": "4.40670023980367373719937803757298205",
+      "molin_reported": "4.4067002398036737371993780375729820542",
+      "abs_difference": "4.2e-36"
+    },
+    {
+      "character": "15.8",
+      "rank": 2,
+      "local": "6.59078267021547088948133257241464069",
+      "molin_reported": "6.5907826702154708894813325724146406850",
+      "abs_difference": "5e-36"
+    },
+    {
+      "character": "15.8",
+      "rank": 3,
+      "local": "8.2645016539034249559622725883592349",
+      "molin_reported": "8.2645016539034249559622725883592349002",
+      "abs_difference": "2e-37"
+    },
+    {
+      "character": "15.8",
+      "rank": 4,
+      "local": "10.3262042503149412504441259741175657",
+      "molin_reported": "10.326204250314941250444125974117565734",
+      "abs_difference": "3.4e-35"
+    },
+    {
+      "character": "15.8",
+      "rank": 5,
+      "local": "13.0289562739916393005292866125075241",
+      "molin_reported": "13.028956273991639300529286612507524052",
+      "abs_difference": "4.8e-35"
+    },
+    {
+      "character": "15.8",
+      "rank": 6,
+      "local": "14.4644611344633431787718406511262041",
+      "molin_reported": "14.464461134463343178771840651126204110",
+      "abs_difference": "1e-35"
+    },
+    {
+      "character": "15.8",
+      "rank": 7,
+      "local": "16.1718928849898424074159070632160022",
+      "molin_reported": "16.171892884989842407415907063216002236",
+      "abs_difference": "3.6e-35"
+    },
+    {
+      "character": "15.8",
+      "rank": 8,
+      "local": "17.4447642660956702334834408678860314",
+      "molin_reported": "17.444764266095670233483440867886031438",
+      "abs_difference": "3.8e-35"
+    },
+    {
+      "character": "15.8",
+      "rank": 9,
+      "local": "19.1378424241927806232584172227031588",
+      "molin_reported": "19.137842424192780623258417222703158795",
+      "abs_difference": "5e-36"
+    }
+  ],
+  "uncompared_local_positive_ordinates": {
+    "15.2": [
+      "20.6276317759696503061509492892928215",
+      "21.883973024208911650321337567140856",
+      "23.3384800177598776614370034132301448"
+    ],
+    "15.14": [
+      "20.662363051410306773038882163646401",
+      "22.1763976882137610875602048530011719",
+      "23.3679992386749353766036263213775203",
+      "24.9035011690429676759519645233408587"
+    ],
+    "15.8": [
+      "21.2846436971018487270595972736621467",
+      "23.1489453949247701890128702116736991",
+      "24.0718583151786825783290611481884112"
+    ]
+  }
+}
