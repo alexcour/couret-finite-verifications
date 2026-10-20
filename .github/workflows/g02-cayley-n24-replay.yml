@@ -1,0 +1,39 @@
+name: G02 Cayley N24 exact replay
+on:
+  pull_request:
+    paths:
+      - 'research/correspondants_20261013/CAYLEY_N24_*'
+      - 'research/correspondants_20261013/SHA256SUMS_CAYLEY_N24.txt'
+      - 'research/correspondants_20261013/verify_cayley_n24.py'
+      - '.github/workflows/g02-cayley-n24-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Source and environment
+        run: |
+          echo "checkout=$(git rev-parse HEAD)"
+          python --version
+      - name: SHA256 manifest
+        working-directory: research/correspondants_20261013
+        run: sha256sum -c SHA256SUMS_CAYLEY_N24.txt
+      - name: Exact deterministic N24 replay
+        working-directory: research/correspondants_20261013
+        run: |
+          python3 verify_cayley_n24.py > "$RUNNER_TEMP/CAYLEY_N24_RESULTS.generated.json"
+          diff -u CAYLEY_N24_RESULTS.json "$RUNNER_TEMP/CAYLEY_N24_RESULTS.generated.json"
+      - name: Retain replay and source identity
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: cayley-n24-replay
+          path: ${{ runner.temp }}/CAYLEY_N24_RESULTS.generated.json
+          if-no-files-found: ignore
