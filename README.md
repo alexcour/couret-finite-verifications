@@ -98,3 +98,7 @@ This repository hosts a **publicly readable research review packet** on Liouvill
 The packet intentionally reports **30/67 external decimal ordinate comparisons**, with 37 q=15 still awaiting independent catalogue comparison; no certified zero completeness, no unconditional sign-density, no novelty or RH claim. The historical frozen prime-sieve ZIP is *not* mirrored here. CI tests the exact finite checks, the 56-triplet census and two structural verifiers; it does not certify the exploratory analytic or zero-finding programs.
 
 The maintainer authorized integration through PR #4 on 12 October 2026. The [integration decision and remaining scientific gates](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) supersede the packet's earlier draft/no-merge annotations. The finite classification proof establishes five labelled profiles and thirteen nonempty bias/profile classes; it awaits external mathematical review. Published v1.0.0 tags and DOI records retain their original scope.
+
+## Lean trust and review map
+
+The main-branch G30 certificate uses `native_decide`, so its trust includes compiled evaluation. The source inventory, compiler dependency and per-theorem axiom-receipt procedure are documented in [LEAN_TRUST.md](LEAN_TRUST.md). The larger STROBO and COU-20 developments remain draft branches with separate source commits; [BRANCHES.md](BRANCHES.md) identifies their review status and the required module-by-module review.
