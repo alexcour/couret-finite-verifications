@@ -1,0 +1,42 @@
+{
+  "correlated_equal_moduli_variances": [
+    2,
+    0
+  ],
+  "corrupted_log_coefficient_and_missing_variance_factor": "rejected",
+  "finite_bias_profile_classes": 13,
+  "first_log_bessel_coefficients": [
+    "1/4",
+    "1/64",
+    "1/576",
+    "11/49152"
+  ],
+  "five_profile_variance_formulas": "PASS exact synthetic rational weights",
+  "independent_moment_product_and_newton_vectors": 6,
+  "log_bessel_coefficients_checked_through_t_order": 32,
+  "not_certified": [
+    "countable reconstruction theorem",
+    "GRH/LI",
+    "prime limiting law",
+    "actual zero data or tail",
+    "thirteen distinct actual prime-race laws",
+    "sign density",
+    "novelty"
+  ],
+  "proved_by_execution": "finite rational identities only",
+  "rows_compared": 56,
+  "same_variance_different_fourth_moments": [
+    "9/4",
+    "3/2"
+  ],
+  "schema": "CU-BRUIT-02-C exact independent-phase identities v1",
+  "signed_conjugate_variance_aggregation": "PASS with unequal positive lists",
+  "synthetic_equal_channel_model_laws": 5,
+  "synthetic_law_sizes": [
+    6,
+    6,
+    8,
+    12,
+    24
+  ]
+}

@@ -1,6 +1,138 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+## Q5 improved 67-factor Bessel Gaussian replacement — 13 October 2026
+
+The [rational whole-product proof and CI receipt](Q5_FULL_BESSEL_ENVELOPE_20261013.md)
+and [verifier](certify_q5_full_bessel_envelope_20261013.py) replace the former
+12-witness integral estimate with cell bounds on all **67 low Bessel phases**.
+[CI run 38406208951](https://github.com/alexcour/couret-finite-verifications/actions/runs/38406208951)
+passed and reports a **conditional uniform Gaussian-replacement error ≤0.000175363**
+(former refined-K bound ≤0.001596446). The resulting **Q5 independent-phase
+model sign probability is enclosed in [0.289262,0.289616]**, including variance,
+quadrature, integral truncation and Gaussian replacement errors. These are
+outward numerical bounds *under GRH, independent uniform phases and the trusted
+internal zero/analytic certificates*. The genuine arithmetic prime-race density,
+LI assumptions needed for its identification, Arb soundness and external
+mathematical review are not certified here. Historical receipts remain intact;
+PR #27 stays open as DRAFT without merge or release.
+
+## Direct finite sign comparison — 13 Oct 2026
+
+[Sign-level proof](FINITE_SIGN_TRANSPORT_20261013.md),
+[adaptive interval instrument](certify_finite_sign_transport_20261013.py),
+[receipt](finite_sign_transport_20261013.json) and
+[twelve controls](test_finite_sign_transport_20261013.py) compare the
+**arithmetic and signed spectral trajectories on the same finite time interval**
+through B=65,536. At T=25, the spectral positive occupation is in
+**[0.276064,0.276715]**, its excess over the arithmetic occupation is in
+**[0.108075,0.108726]**, and their signs disagree on a logarithmic fraction in
+**[0.163790,0.164442]**. All unresolved cells are charged to the bounds.
+This gives a nontrivial finite first-stage sign comparison under the pinned
+root/interval trust boundary, without GRH/LI/ELI for these finite functions.
+Effective mixing to independent phases and comparison with the full phase
+law remain separate. The earlier **0.001714 Gaussian-tail replacement**
+bound does not bound omission of the raw tail. No limiting arithmetic
+density or uniform rate follows. Previous dated statements and receipts
+are retained; both workflows add replay and controls.
+
+## Direct finite arithmetic truncation — 13 Oct 2026
+
+[Finite-horizon proof](FINITE_ARITHMETIC_TRUNCATION_20261013.md),
+[integer interval instrument](certify_finite_arithmetic_truncation_20261013.py),
+[receipt](finite_arithmetic_truncation_20261013.json) and
+[fourteen controls](test_finite_arithmetic_truncation_20261013.py) add a
+**direct arithmetic calculation through B=65,536**. The positive logarithmic
+occupation lies in **[0.167988,0.167989]**, without GRH or LI. Conditional
+on the pinned low-zero enclosures, whole-cell integration gives
+**A(4,log B) in [1.375161,1.554206]** and
+**A(25,log B) in [0.749592,1.140467]**. These are finite-signal truncation
+errors, not global convergence rates or limiting densities. The current
+coupling-and-smoothing budget is trivial at this horizon; the exact finite
+arithmetic term alone explains why it cannot close. No previous receipt
+is replaced. New checks are integrated into both workflows.
+
+
+## Quantitative convergence audit — 13 Oct 2026
+
+[Quantitative specialization and proof boundaries](WASSERSTEIN_SPECIALIZATION_20261013.md),
+[stdlib verifier](verify_quantitative_specialization_20261013.py),
+[exact receipt](quantitative_specialization_20261013.json) and
+[eleven adversarial controls](test_quantitative_specialization_20261013.py)
+add **H<0.553** for the independent-phase Q5 density and a finite certificate
+**Delta(4,64)>0.011839**, covering all **16,640** modes of the two-frequency
+height-4 truncation. They also establish why the existing width-2e-30
+root boxes cannot certify every mode for **Delta(25,67)** by direct
+interval propagation: a centre combination must have magnitude <1.88e-118.
+The hypotheses and constants of Bailleul–Hayani–Untrau 5.13/5.17 are
+specialized explicitly. **No finite-horizon arithmetic error is certified**;
+GRH/LI/ELI remain hypotheses. The original Q5 probability interval and
+pinned inputs are preserved. New arithmetic checks are added to both
+workflows; execution status must be read from the corresponding CI runs.
+
+
+## Refined analytic K bounds — 13 Oct 2026 (experimental, source branch)
+
+[New exact double-Abel instrument](certify_refined_K_20261013.py) uses the
+periodic character's first and second partial sums for the tails of
+L(1,chi) and L'(1,chi), plus elementary convexity bounds on Euler's
+constant. It **preserves** the original pinned analytic-K receipt and,
+for each of the five K constants, computes an enclosure strictly
+contained in the existing one with >100x smaller width. The dedicated
+[CI workflow 38388561716](https://github.com/alexcour/couret-finite-verifications/actions/runs/38388561716)
+executed this new checker and its input-sha safeguards successfully.
+**No tightened Q5 probability interval is claimed yet.** The new
+intervals have not been substituted into the full-tail replacement bound
+or into Q5 Fourier inversion. The script relies on the old dyadic
+interval/log arithmetic; it is not a backend-independent review.
+GRH/LI, the true prime density, human review and priority remain open.
+[Drive research note](https://docs.google.com/document/d/1FKwUK02YAK4pRgGCAuTKQ0pmUn0HdhQUdQNhrsaShQs/edit)
+records the model interval and continuation. The PR stays draft.
+
+## Q5 conditional sign probability — 13 Oct 2026 (internal interval replay)
+
+[Full rational Fourier/Simpson argument and error budget](Q5_CONDITIONAL_PROBABILITY_20261013.md),
+[deterministic verifier](certify_q5_probability.py) and
+[fail-closed tests](test_certify_q5_probability.py) now enclose the probability
+of the **specified GRH/independent-uniform-phase Q5 model** in
+**[0.286450, 0.292650]**, conditional on the earlier 67-root, five-K and
+full-tail certificates and on successful replay. The Gaussian-replaced sign
+probability is bounded at both endpoints of W in [0.747557,0.842503].
+A rigorous derivative enclosure proves positivity throughout that interval,
+allowing endpoint monotonicity. All Fourier evaluations, Simpson remainders,
+integral tails, parameter intervals and rounding errors are accounted for.
+The separate full-tail replacement error <=0.001714 is included exactly once.
+The result remains an **internal conditional probability enclosure**, not an
+unconditional logarithmic prime density, global GRH/LI proof, independent
+Arb implementation, external peer review or originality assertion.
+PR #27 remains a DRAFT, without merge or publication.
+
+## Full zero and tail continuation — 13 Oct 2026
+
+[Full proof and commands](ALL_TAIL_BOUNDS_20261013.md): the thirty q3/q5 candidates now have internal Arb isolations and finite counts 6/8/8/8. Together with the unchanged q15 certificate, all **67** positive roots below 25 are isolated as simple critical-line roots and matched by completed-L contour counts, under the trusted backend and written argument. The q3/q5 recalculation at 320 bits agrees with the 256-bit intervals/signs/counts. [New root instrument](certify_q3_q5_root_intervals.py), [receipt](q3_q5_root_interval_certificate_20261013.json), [controls](test_q3_q5_root_intervals.py). Old decimals are search seeds; Newton iterates are not proofs.
+
+The [full-tail exact checker](verify_all_tail_bounds.py) and [receipt](all_tail_bounds_20261013.json) enclose five positive Hadamard residuals without GRH. Under GRH and independent uniform phases, replacing **all** seven-character phases above ordinate 25 with a matched-variance Gaussian changes any threshold probability by at most **0.001714 (Q5), 0.001998 (Q3), 0.000915 (Q15), 0.000933 (C5), 0.000556 (C15)**. These are exact rational witness bounds using a global Bessel envelope and no numerical quadrature. They apply to all thirteen bias/profile categories in that model. The Q5 tail variance lower bound is >29/40.
+
+The dedicated `zero-intervals-and-tail-bounds` workflow replays all root and K prerequisites before aggregation. At the earlier full-tail stage, Gaussian probability evaluation was still open; the subsequent Q5-specific rational inversion is documented above. The historical 0.2894389 was exploratory and is not itself a certified point value. Global GRH/LI, identification with the actual prime race, independent human review and originality remain open. Earlier dated q3/q5-pending statements below describe their former scope, now superseded by this finite continuation. PR #27 remains a research draft.
+
+**Current integration:** PR #4 merged into main on 12 Oct 2026, commit 3b6d6e75; its post-merge CI passed. Earlier DRAFT/branch-only annotations below are historical, as explained by [the integration decision](INTEGRATION_DECISION_20261012.md). Analytic and independent-review gates remain open.
+
+## Independent-phase law classification — continuation 12 Oct 2026
+
+[Autonomous model theorem and full proof](PHASE_LAW_CLASSIFICATION_20261012.md): for square-summable independent circular amplitudes, the law determines exactly its mean and its multiset of nonzero amplitudes. Equal finite (bias,labelled profile) gives equal laws in a fixed independent-phase model; thirteen categories give at most thirteen laws. Five distinct signed variance constants suffice to separate all thirteen. Their [analytic enclosures are now certified](CERTIFIED_SPECTRAL_CONSTANTS_20261012.md): under GRH and the declared independent-phase spectral model, the thirteen laws are distinct. The proof includes a qualitative sign rule, exact failures of variance-only reconstruction and correlated-phase invariance, and a synthetic model in which the thirteen categories collapse to five laws.
+
+[Exact rational checks](verify_phase_law_identities.py) verify Bessel logarithm coefficients through order 32, independent moments, finite Newton reconstruction and signed-conjugate variance aggregation; compare all 56 existing census rows with `--check`. [Local receipt](phase_law_identities_20261012.json). No zero data, GRH/LI, actual prime limiting law or sign-density value is certified. This continuation is proposed in a new research PR.
+
+The [integer dyadic certificate](spectral_constants_certificate_20261012.json) uses period-sum bounds at N=15000 and explicit log/arctan/harmonic remainders, with no floating-point or zero catalogue. Run `certify_spectral_constants.py --check`. It proves five analytic constants Kχ are pairwise distinct. The classical completed-L Hadamard identity and Kχ<4 also exclude real nontrivial zeros, including central zeros, for these seven characters without GRH; no nonreal ordinate or zero completeness is certified. Under GRH, Kχ equals the signed zero-sum Bχ. Remaining analytic/independent-review gates are not promoted as a whole.
+
 Drive worklog: https://docs.google.com/document/d/1gzH_yp1lUV_BZP4l6ErginfNVKYyEzNBM8I_wiWGBPY/edit
+
+## q15 zero certificate and tail comparison — continuation 12 Oct 2026
+
+[Written tail proof](Q15_TAIL_BOUNDS_20261012.md) combines the analytic K intervals with the [finite q15 certificate from PR #28](https://github.com/alexcour/couret-finite-verifications/pull/28), pinned at `04fbd2f56de679bb1b8d5c7dc56354b20d3c9ccd`. Its unmodified root verifier, receipt and controls are included here for replay. The 37 simple roots and 12/13/12 positive counts up to 25 are certified internally with Arb, subject to the stated trust base and independent review. PR #28 separately records 37/37 external approximate decimal matches; these do not certify the third-party decimals. Earlier 0/37 statements below are dated observations or an empty-input rejection test.
+
+Without GRH, the positive Hadamard residuals beyond |Im(s)|=25 lie in [0.062912,0.067673] for the quartic pair and [0.061899,0.067092] for the real character. Under GRH and independent phases, replacing only the q15 tail by a matched-variance Gaussian changes any threshold probability by at most **0.000589** for Q5/Q3/C5, **0.001524** for Q15 and **0.000880** for C15. The proof uses Taylor replacement, a global Bessel envelope and exact integrals, with no numerical quadrature. [Rational checker](verify_q15_tail_bounds.py), [receipt](q15_tail_bounds_20261012.json) and [ten controls](test_q15_tail_bounds.py).
+
+These are partial replacement-error bounds, not an error bar on the old full Gaussian-tail density estimate. The q3/q5 root isolation/counts, their Gaussian replacement, numerical density evaluation, global GRH/LI and identification with a prime race remain open. CI separately replays the q15 interval certificate before checking the tail aggregation. No human review, originality or merge is claimed for this research continuation.
 
 **Scope**: frozen CU-BRUIT-01 weights `S={1,11,29}`, `D=5A-3B`, `E_D=(log x/sqrt x)D`; no modification of the first-run protocol or prime counts.
 
