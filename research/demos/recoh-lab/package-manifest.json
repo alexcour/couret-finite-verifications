@@ -1,0 +1,28 @@
+{
+  "package_name": "recoh-lab-wordpress-package",
+  "version": "1.0.0",
+  "date": "2026-10-20",
+  "author": "Alexandre Couret & Antigravity",
+  "files": {
+    "recoh.html": {
+      "size": 52557,
+      "sha256": "6eedba1aedfa5bef8bff0180887c3237f1ce54d63133b80342fbad2ddfb814ae"
+    },
+    "intro.txt": {
+      "size": 257,
+      "sha256": "fc54628e6dc0b6ccc7b1e11f10cef3049a344488d96767fa7e9674e0f502d54d"
+    },
+    "wordpress-srcdoc-block.html": {
+      "size": 57634,
+      "sha256": "eda0e6d42481d4718dcb99db20489197d7958ab2d2648fe4d3b7c5d9ed81f5be"
+    },
+    "wordpress-src-block.template.html": {
+      "size": 305,
+      "sha256": "f28718313c0e64b78889ddd97735874965acbf532a948478be7b2a2598cdd45d"
+    },
+    "README-integration.md": {
+      "size": 598,
+      "sha256": "858d1997fa65398b472af22af39abe27789385b2d4d5a40b7d45a1416b22a99d"
+    }
+  }
+}

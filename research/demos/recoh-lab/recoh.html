@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RECOH Lab — Reconstruction additive et spectrale (C₈ / C₄)</title>
+<style>
+:root{
+  --bg:#0a121d;--surface:#152232;--surface-elev:#1b2d42;--border:#2b425b;--accent:#38b2ac;
+  --accent-hover:#2c9691;--text:#e4ecf3;--muted:#9ab0c4;--gold:#ecc94b;--ok:#48bb78;
+  --err:#f56565;--warn:#ed8936;--font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);margin:0;padding:20px;line-height:1.55}
+.container{max-width:1080px;margin:auto}
+header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:20px}
+h1{font-size:1.75rem;margin:0 0 6px;color:#fff}
+.subtitle{color:var(--muted);font-size:0.95rem;margin:0 0 12px}
+.nav-views{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.nav-btn{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px 16px;font-weight:600;cursor:pointer}
+.nav-btn.active{background:var(--accent);color:#08161f;border-color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:18px}
+.panel h2{font-size:1.15rem;margin-top:0;margin-bottom:10px;color:#fff;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+.btn{background:#1a414e;color:#fff;border:1px solid #4a7785;border-radius:6px;padding:8px 12px;font:inherit;font-size:0.9rem;cursor:pointer;transition:background 0.15s}
+.btn:hover{background:#235868}
+.btn:disabled{opacity:0.4;cursor:not-allowed}
+.btn-sm{padding:4px 8px;font-size:0.8rem}
+.btn-danger{background:#5a2323;border-color:#9b4444}
+.btn-danger:hover{background:#772e2e}
+.btn-accent{background:var(--accent);color:#061821;font-weight:600;border-color:var(--accent)}
+.btn-accent:hover{background:var(--accent-hover)}
+.digits{font-family:var(--mono)}
+.nodes-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.node-btn{width:44px;height:44px;border-radius:8px;background:var(--surface-elev);border:1px solid var(--border);color:var(--text);font-weight:bold;font-size:1.05rem;cursor:pointer}
+.node-btn.active{background:var(--accent);color:#0a1720;border-color:var(--accent)}
+.barrow{display:grid;grid-template-columns:28px 1fr 28px;gap:8px;align-items:center;margin:4px 0}
+.bar-track{height:14px;background:#0d1824;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent);border-radius:4px}
+.badge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:0.8rem;font-weight:bold}
+.badge-ok{background:#22543d;color:#9ae6b4;border:1px solid #38a169}
+.badge-warn{background:#744210;color:#fbd38d;border:1px solid #d69e2e}
+.badge-err{background:#742a2a;color:#feb2b2;border:1px solid #e53e3e}
+.badge-info{background:#2b6cb0;color:#bee3f8;border:1px solid #3182ce}
+.notice{padding:12px;border-radius:6px;background:var(--surface-elev);border-left:4px solid var(--gold);margin:10px 0;font-size:0.9rem}
+.notice-ok{border-left-color:var(--ok)}
+.notice-err{border-left-color:var(--err)}
+.cand-list{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.cand-chip{background:var(--surface-elev);border:1px solid var(--border);padding:4px 10px;border-radius:6px;font-family:var(--mono);font-size:0.9rem}
+.cand-chip.matched{border-color:var(--ok);background:#133324}
+.form-group{margin-bottom:10px}
+label{display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px}
+input,select{background:#0a1522;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font:inherit;font-size:0.9rem;width:100%}
+input:focus,select:focus{border-color:var(--accent);outline:none}
+.meas-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.85rem}
+.meas-table th,.meas-table td{border:1px solid var(--border);padding:6px 8px;text-align:left}
+.meas-table th{background:var(--surface-elev);color:var(--muted)}
+.footer-text{color:var(--muted);font-size:0.8rem;margin-top:20px;border-top:1px solid var(--border);padding-top:12px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>RECOH Lab — Reconstruction additive et spectrale</h1>
+  <p class="subtitle">Laboratoire interactif de paires ordonnées et levée d'ambiguïté spectrale dans les groupes cycliques finis C₈ et C₄.</p>
+  <div class="nav-views" role="tablist">
+    <button class="nav-btn active" id="tab-exp" role="tab" aria-selected="true">EXPÉRIMENTER</button>
+    <button class="nav-btn" id="tab-und" role="tab" aria-selected="false">COMPRENDRE</button>
+    <button class="nav-btn" id="tab-ver" role="tab" aria-selected="false">VÉRIFIER</button>
+    <a href="./challenge.html" class="btn btn-accent" style="margin-left:auto;align-self:center">Défi à l'aveugle →</a>
+  </div>
+</header>
+
+<!-- VUE 1 : EXPÉRIMENTER -->
+<main id="view-exp">
+  <!-- Choix du groupe et cas d'étude -->
+  <section class="panel">
+    <h2>1. Groupe cyclique et configurations types</h2>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <label style="margin:0;font-weight:bold;color:#fff">Groupe :</label>
+      <select id="group-select" style="width:auto;min-width:130px">
+        <option value="8" selected>C₈ (ℤ/8ℤ — 56 triplets)</option>
+        <option value="4">C₄ (ℤ/4ℤ — 4 triplets)</option>
+      </select>
+      <span style="color:var(--muted);margin-left:8px">Cas types de référence :</span>
+      <button class="btn btn-sm" id="preset-c8-ref">C₈ {0,3,5} Réf</button>
+      <button class="btn btn-sm" id="preset-c8-rat">C₈ 12/5 Rationnel</button>
+      <button class="btn btn-sm" id="preset-c8-weak">C₈ χ¹ Faible</button>
+      <button class="btn btn-sm" id="preset-c4-border">C₄ Frontière ε=1</button>
+    </div>
+  </section>
+
+  <div class="grid-2">
+    <!-- Choix du support -->
+    <section class="panel">
+      <h2>2. Support simulé S (3 éléments)</h2>
+      <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">Cliquez sur les résidus pour constituer un sous-ensemble S de 3 points distincts.</p>
+      <div id="nodes-container" class="nodes-row" role="group" aria-label="Résidus du groupe"></div>
+      <p class="digits" id="support-label" style="font-size:1.05rem;font-weight:bold;margin:8px 0"></p>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-sm" id="btn-reset-support">Restaurer référence</button>
+        <button class="btn btn-sm" id="btn-random-support">Triplet aléatoire</button>
+      </div>
+    </section>
+
+    <!-- Histogramme R -->
+    <section class="panel">
+      <h2>3. Observation additive R_S(z)</h2>
+      <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">Compte les 9 couples ordonnés (x,y) ∈ S² tels que x+y ≡ z (mod n), diagonales incluses.</p>
+      <div id="bars-container"></div>
+      <p class="digits" id="vector-label" style="font-weight:bold;margin:8px 0;font-size:0.95rem"></p>
+    </section>
+  </div>
+
+  <!-- Fibre complète des candidats -->
+  <section class="panel">
+    <h2>4. Fibre complète des triplets compatibles avec R</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">Énumération exhaustive exacte des triplets reproduisant identiquement ce vecteur R.</p>
+    <div id="fiber-count-label" style="font-weight:600;margin-bottom:6px"></div>
+    <div id="candidates-container" class="cand-list"></div>
+    <div class="notice" id="fiber-notice"></div>
+  </section>
+
+  <!-- Mesures Fourier & Filtrage -->
+  <section class="panel">
+    <h2>5. Mesure spectrale supplémentaire et modèle de bruit</h2>
+    <div style="display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
+      <span style="font-weight:600">Mode d'observation :</span>
+      <button class="btn btn-sm active" id="btn-mode-single">Une seule lecture</button>
+      <button class="btn btn-sm" id="btn-mode-notebook">Carnet de mesures (cumulatif)</button>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="form-group">
+          <label for="char-k">Caractère χᵏ mesuré (P_k(S) = Σ exp(2πikx/n)) :</label>
+          <select id="char-k"></select>
+        </div>
+        <div class="form-group">
+          <label for="input-re">Partie réelle y_re :</label>
+          <input type="number" step="any" id="input-re">
+        </div>
+        <div class="form-group">
+          <label for="input-im">Partie imaginaire y_im :</label>
+          <input type="number" step="any" id="input-im">
+        </div>
+        <div class="form-group">
+          <label for="input-eps">Borne d'erreur physique ε :</label>
+          <input type="number" step="0.01" min="0" id="input-eps" value="0.10">
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn btn-sm" id="btn-fill-truth">Mesurer le support affiché</button>
+          <button class="btn btn-sm btn-accent" id="btn-add-notebook" style="display:none">Ajouter au carnet</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel" style="background:var(--surface-elev);margin:0">
+          <h3 style="font-size:0.95rem;margin-top:0">Analyse de robustesse et marges</h3>
+          <div id="margin-analysis"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carnet de mesures (table) -->
+    <div id="notebook-panel" style="margin-top:14px;display:none">
+      <h3 style="font-size:0.95rem;margin:10px 0 6px">Observations actives dans le carnet</h3>
+      <table class="meas-table" id="notebook-table">
+        <thead>
+          <tr><th>#</th><th>Caractère</th><th>y (re + i·im)</th><th>ε</th><th>Action</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button class="btn btn-sm btn-danger" id="btn-clear-notebook">Vider le carnet</button>
+    </div>
+
+    <div style="margin-top:14px">
+      <div id="filter-summary" style="font-weight:600;margin-bottom:6px"></div>
+      <div id="filtered-candidates" class="cand-list"></div>
+    </div>
+  </section>
+
+  <!-- Décision virtuelle -->
+  <section class="panel">
+    <h2>6. Dépôt virtuel et décision de sécurité</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">
+      Expérience de décision : peut-on autoriser ou refuser un dépôt virtuel sur une position donnée en se fondant sur les candidats survivants ?
+    </p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <label style="margin:0;font-weight:600">Position candidate p :</label>
+      <select id="decision-pos" style="width:auto;min-width:90px"></select>
+      <span id="decision-badge" class="badge"></span>
+    </div>
+    <div id="decision-explanation" class="notice" style="margin-top:10px"></div>
+  </section>
+
+  <!-- Export et Import rejouable -->
+  <section class="panel">
+    <h2>7. Exportation, importation et recalcul certifié</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">
+      Format versionné JSON conforme au schéma recoh-lab/1.0. À l'importation, le moteur recalcule intégralement la fibre, les marges et la décision sans se fier aux champs enregistrés.
+    </p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-accent" id="btn-export-json">Exporter le scénario JSON</button>
+      <button class="btn" id="btn-import-trigger">Importer un JSON</button>
+      <input type="file" id="file-importer" accept=".json,application/json" style="display:none">
+    </div>
+    <div id="import-report" class="notice hidden"></div>
+  </section>
+</main>
+
+<!-- VUE 2 : COMPRENDRE -->
+<section id="view-und" class="panel hidden">
+  <h2>Comprendre la reconstruction additive et spectrale</h2>
+  <div style="font-size:0.95rem;line-height:1.6">
+    <p><strong>1. Le problème des signatures additives :</strong><br>
+    Soit un sous-ensemble $S \subset C_n$ de 3 points. L'observation additive $R_S(z)$ compte le nombre de paires ordonnées $(x,y) \in S \times S$ telles que $x+y \equiv z \pmod n$. Parce que $S$ a 3 points, $\sum_{z} R_S(z) = 3^2 = 9$. Dans $C_8$, deux ensembles distincts non équivalents par isométrie peuvent produire exactement la même convolution $R_S$. C'est le cas de $S=\{0,3,5\}$ et $T=\{1,4,7\}$.
+    </p>
+    <p><strong>2. Levée d'ambiguïté spectrale :</strong><br>
+    Une mesure de transformée de Fourier $P_k(S) = \sum_{x \in S} \exp(2\pi i k x / n)$ fournit une information spectrale. L'identité fondamentale relie convolution et Fourier complexe :
+    $$\sum_{z=0}^{n-1} R_S(z) \exp(2\pi i k z / n) = P_k(S)^2$$
+    <em>Attention :</em> le terme de droite est le carré complexe $P_k(S)^2$, et non le carré du module $|P_k(S)|^2$.
+    </p>
+    <p><strong>3. Modèle de bruit et marges :</strong><br>
+    Si la mesure spectrale $y$ est entachée d'une erreur physique majorée par $\varepsilon$, on teste $|P_k(S) - y| \le \varepsilon$. Lorsque la distance entre les prédictions des deux candidats $\delta_k = |P_k(S) - P_k(T)|$ vérifie $\delta_k > 2\varepsilon$, les boules d'erreur sont strictement disjointes : l'identification est universellement garantie dans cette fibre.
+    </p>
+    <p><strong>4. Décision virtuelle sécurisée :</strong><br>
+    Un dépôt virtuel sur une position $p$ n'est <strong>AUTORISÉ</strong> que si $p$ est libre dans <em>tous</em> les candidats compatibles. Si les candidats sont en désaccord, la décision est <strong>INDÉTERMINÉE</strong> et l'action est bloquée. Si aucun candidat n'est compatible, le statut est <strong>OBSERVATIONS INCOMPATIBLES</strong> : l'ensemble vide n'autorise jamais !
+    </p>
+  </div>
+</section>
+
+<!-- VUE 3 : VÉRIFIER -->
+<section id="view-ver" class="panel hidden">
+  <h2>Vérifier les hypothèses et le code du laboratoire</h2>
+  <div style="font-size:0.92rem;line-height:1.6">
+    <p><strong>Statut logiciel :</strong> RECOH Lab v1.0.0 — Moteur fini autonome sans dépendance serveur.<br>
+    <strong>Statut scientifique :</strong> Démonstrateur de calcul fini sur $C_8$ et $C_4$. Ne constitue pas une preuve de généralisation asymptotique ni une certification matérielle industrielle.
+    </p>
+    <table class="meas-table">
+      <thead>
+        <tr><th>Élément</th><th>Formalisme / Règle</th><th>Validation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Convolutions ordonnées</td><td>Diagonales incluses ($x=y$), total=9</td><td>Vérifié sur les 56 triplets de C₈ et 4 triplets de C₄</td></tr>
+        <tr><td>Identité Fourier</td><td>$\sum R(z) e^{2\pi ikz/n} = P_k(S)^2$</td><td>Vérifié exactement sur 56x8 cas ; mutant $|P|^2$ rejeté</td></tr>
+        <tr><td>Étanchéité défi</td><td>Sélecteur ne reçoit que la fibre</td><td>Zéro fuite de la cible secrète</td></tr>
+        <tr><td>Décision vide</td><td>$\emptyset \implies$ BLOQUÉ</td><td>Autorisation par vacuité rigoureusement proscrite</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px">Code source inspectable dans le dépôt GitHub : <code>research/demos/recoh-lab/</code></p>
+  </div>
+</section>
+
+<footer class="footer-text">
+  <p>RECOH Lab • Couret — Reconstruction additive et spectrale • 20 octobre 2026.<br>
+  Calcul entier exact pour les convolutions et énumérations ; arithmétique complexe en virgule flottante pour Fourier. Données conservées localement dans votre session de navigation.</p>
+</footer>
+</div>
+
+<script>
+/* RECOH Lab — exact finite Cn core (C8, C4, and Cn finite demonstrator).
+ * Couret additive & spectral reconstruction laboratory.
+ * MIT License.
+ */
+(function (root, factory) {
+  "use strict";
+  const api = factory();
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  if (root) root.RECOH_CORE = api;
+})(typeof globalThis === "object" ? globalThis : this, function () {
+  "use strict";
+
+  const VERSION = "1.0.0";
+  const DEFAULT_N = 8;
+  const EPSILON_BOUNDARY_TOLERANCE = 1e-12;
+
+  // Validation d'un support de 3 éléments distincts dans Z/nZ
+  function checkSupport(s, n = DEFAULT_N, count = 3) {
+    if (!Array.isArray(s) || s.length !== count) {
+      throw new Error("Le support doit contenir exactement " + count + " éléments.");
+    }
+    for (let i = 0; i < s.length; i++) {
+      const x = s[i];
+      if (!Number.isInteger(x) || x < 0 || x >= n) {
+        throw new Error("Chaque élément doit être un entier compris entre 0 et " + (n - 1) + ".");
+      }
+    }
+    const set = new Set(s);
+    if (set.size !== count) {
+      throw new Error("Les éléments du support doivent être strictement distincts.");
+    }
+    return [...s].sort((a, b) => a - b);
+  }
+
+  // Énumération de tous les triplets de Z/nZ (a < b < c)
+  function triples(n = DEFAULT_N) {
+    if (!Number.isInteger(n) || n < 3 || n > 24) {
+      throw new Error("L'ordre n du groupe cyclique doit être un entier entre 3 et 24.");
+    }
+    const out = [];
+    for (let a = 0; a < n - 2; a++) {
+      for (let b = a + 1; b < n - 1; b++) {
+        for (let c = b + 1; c < n; c++) {
+          out.push([a, b, c]);
+        }
+      }
+    }
+    return out;
+  }
+
+  // Convolution ordonnée R_S(z) = #{(x,y) in S^2 | x+y = z mod n}, diagonales incluses
+  function convolution(s, n = DEFAULT_N) {
+    checkSupport(s, n, 3);
+    const r = new Array(n).fill(0);
+    for (let i = 0; i < s.length; i++) {
+      for (let j = 0; j < s.length; j++) {
+        const sum = (s[i] + s[j]) % n;
+        r[sum]++;
+      }
+    }
+    return r;
+  }
+
+  // Énumération et filtrage exact de la fibre des triplets compatibles avec R
+  function candidates(r, n = DEFAULT_N) {
+    if (!Array.isArray(r) || r.length !== n) {
+      throw new Error("L'observation R doit être un tableau de longueur " + n + ".");
+    }
+    let total = 0;
+    for (let i = 0; i < n; i++) {
+      const val = r[i];
+      if (!Number.isInteger(val) || val < 0) {
+        throw new Error("Chaque composante de R doit être un entier naturel.");
+      }
+      total += val;
+    }
+    if (total !== 9) {
+      return []; // La somme doit valoir 3^2 = 9
+    }
+    const all = triples(n);
+    return all.filter(s => {
+      const r_cand = convolution(s, n);
+      for (let i = 0; i < n; i++) {
+        if (r_cand[i] !== r[i]) return false;
+      }
+      return true;
+    });
+  }
+
+  // Transformée de Fourier / Caractère : P_k(S) = sum_{x in S} exp(2pi * i * k * x / n)
+  // Convention d'exponentielle positive conformément au contrat scientifique
+  function character(s, k = 3, n = DEFAULT_N) {
+    checkSupport(s, n, 3);
+    if (!Number.isInteger(k)) throw new Error("L'indice de caractère k doit être entier.");
+    const k_mod = ((k % n) + n) % n;
+    let re = 0;
+    let im = 0;
+    for (let i = 0; i < s.length; i++) {
+      const theta = (2 * Math.PI * k_mod * s[i]) / n;
+      re += Math.cos(theta);
+      im += Math.sin(theta);
+    }
+    return { re, im };
+  }
+
+  // Transformée de Fourier exacte de R : sum_{z} R(z) exp(2pi * i * k * z / n)
+  // Doit égaler exactement P_k(S)^2 (carré complexe, non |P_k|^2)
+  function fourierR(r, k, n = DEFAULT_N) {
+    if (!Array.isArray(r) || r.length !== n) throw new Error("R invalide");
+    const k_mod = ((k % n) + n) % n;
+    let re = 0;
+    let im = 0;
+    for (let z = 0; z < n; z++) {
+      const theta = (2 * Math.PI * k_mod * z) / n;
+      re += r[z] * Math.cos(theta);
+      im += r[z] * Math.sin(theta);
+    }
+    return { re, im };
+  }
+
+  // Produit de deux nombres complexes (a * b)
+  function complexMul(a, b) {
+    return {
+      re: a.re * b.re - a.im * b.im,
+      im: a.re * b.im + a.im * b.re
+    };
+  }
+
+  // Distance euclidienne dans C
+  function complexDist(a, b) {
+    return Math.hypot(a.re - b.re, a.im - b.im);
+  }
+
+  // Test de compatibilité d'un candidat S avec une observation (k, y, epsilon)
+  function compatible(s, k, observation, epsilon, n = DEFAULT_N) {
+    if (!observation || typeof observation.re !== "number" || typeof observation.im !== "number" ||
+        !Number.isFinite(observation.re) || !Number.isFinite(observation.im)) {
+      throw new Error("Mesure observation invalide.");
+    }
+    if (typeof epsilon !== "number" || !Number.isFinite(epsilon) || epsilon < 0) {
+      throw new Error("La tolérance d'erreur epsilon doit être un réel positif ou nul.");
+    }
+    const val = character(s, k, n);
+    const dist = complexDist(val, observation);
+    return dist <= epsilon + EPSILON_BOUNDARY_TOLERANCE;
+  }
+
+  // Calcul de la séparation delta_k pour un ensemble de candidats dans C_n
+  // delta_k = min_{S != T} |P_k(S) - P_k(T)|
+  function computeSeparation(candList, k, n = DEFAULT_N) {
+    if (!Array.isArray(candList) || candList.length < 2) {
+      return {
+        delta_k: null,
+        status: "DEJA_DETERMINE",
+        description: "Fibre unitaire ou vide : séparation sans objet."
+      };
+    }
+    let minD = Infinity;
+    const preds = candList.map(s => character(s, k, n));
+    for (let i = 0; i < preds.length; i++) {
+      for (let j = i + 1; j < preds.length; j++) {
+        const d = complexDist(preds[i], preds[j]);
+        if (d < minD) minD = d;
+      }
+    }
+    return {
+      delta_k: minD,
+      status: minD < 1e-10 ? "INDISTINGUABLE" : "CALCULE",
+      description: minD < 1e-10 ? "Prédictions identiques pour au moins deux candidats." : "Séparation calculée."
+    };
+  }
+
+  // Analyse de la marge de robustesse M = delta_k - 2 * epsilon
+  function analyzeMargin(delta_k, epsilon) {
+    if (delta_k === null || delta_k === undefined) {
+      return {
+        margin: null,
+        guarantee: "NON_APPLICABLE",
+        label: "Déjà déterminé par R"
+      };
+    }
+    const margin = delta_k - 2 * epsilon;
+    if (margin > EPSILON_BOUNDARY_TOLERANCE) {
+      return {
+        margin,
+        guarantee: "SEPARATION_GARANTIE",
+        label: "Séparation uniforme garantie : les disques B(P_k, ε) sont disjoints."
+      };
+    } else {
+      return {
+        margin,
+        guarantee: "SEPARATION_NON_GARANTIE",
+        label: "Séparation uniforme non garantie : chevauchement possible."
+      };
+    }
+  }
+
+  // Filtrage mode cumulatif « Carnet de mesures »
+  // measurements = [ { k, y: {re, im}, epsilon }, ... ]
+  function filterNotebook(candList, measurements, n = DEFAULT_N) {
+    if (!Array.isArray(candList)) return [];
+    if (!Array.isArray(measurements) || measurements.length === 0) return [...candList];
+    return candList.filter(s => {
+      for (let i = 0; i < measurements.length; i++) {
+        const m = measurements[i];
+        if (!compatible(s, m.k, m.y, m.epsilon, n)) return false;
+      }
+      return true;
+    });
+  }
+
+  // Moteur de décision virtuelle
+  // Position p in {0, ..., n-1}
+  // Règle stricte :
+  // - |C| == 0 => OBSERVATIONS_INCOMPATIBLES (Dépôt bloqué; l'ensemble vide n'autorise JAMAIS)
+  // - p absent de tous les candidats => AUTORISE
+  // - p présent dans tous les candidats => REFUSE
+  // - désaccord => INDETERMINE (Dépôt bloqué)
+  function evaluateVirtualDecision(candList, position, n = DEFAULT_N) {
+    if (!Number.isInteger(position) || position < 0 || position >= n) {
+      throw new Error("Position de dépôt invalide : " + position);
+    }
+    if (!Array.isArray(candList) || candList.length === 0) {
+      return {
+        status: "OBSERVATIONS_INCOMPATIBLES",
+        allowed: false,
+        blocked: true,
+        reason: "Aucun candidat compatible : les observations sont contradictoires. Dépôt bloqué.",
+        candidate_count: 0
+      };
+    }
+    let presentCount = 0;
+    for (let i = 0; i < candList.length; i++) {
+      if (candList[i].includes(position)) presentCount++;
+    }
+    if (presentCount === 0) {
+      return {
+        status: "AUTORISE",
+        allowed: true,
+        blocked: false,
+        reason: "Position " + position + " libre dans TOUS les " + candList.length + " candidat(s). Dépôt virtuel autorisé.",
+        candidate_count: candList.length
+      };
+    } else if (presentCount === candList.length) {
+      return {
+        status: "REFUSE",
+        allowed: false,
+        blocked: true,
+        reason: "Position " + position + " occupée dans TOUS les " + candList.length + " candidat(s). Dépôt virtuel refusé.",
+        candidate_count: candList.length
+      };
+    } else {
+      return {
+        status: "INDETERMINE",
+        allowed: false,
+        blocked: true,
+        reason: "Désaccord entre les candidats (occupée dans " + presentCount + "/" + candList.length + "). Dépôt virtuel bloqué.",
+        candidate_count: candList.length
+      };
+    }
+  }
+
+  // Translation t dans Z/nZ
+  function translate(s, t, n = DEFAULT_N) {
+    checkSupport(s, n, 3);
+    if (!Number.isInteger(t)) throw new Error("Translation t invalide");
+    return s.map(x => ((x + t) % n + n) % n).sort((a, b) => a - b);
+  }
+
+  // Simulateur étanche de défi aveugle (Zero Target Leakage)
+  function createBlindChallenge(targetCandidate, n = DEFAULT_N) {
+    const checkedTarget = checkSupport(targetCandidate, n, 3);
+    const secretTarget = [...checkedTarget]; // Scope privé fermé
+    const publicR = convolution(secretTarget, n);
+    const publicFiber = candidates(publicR, n);
+
+    let measurementHistory = [];
+    let revealed = false;
+
+    return {
+      getObservationR() {
+        return [...publicR];
+      },
+      getFiberCount() {
+        return publicFiber.length;
+      },
+      // Le sélecteur ne reçoit QUE la fibre et l'historique public, jamais le secretTarget
+      recommendNextMeasurement() {
+        let bestK = 1;
+        let maxDelta = -1;
+        for (let k = 1; k < n; k++) {
+          const sep = computeSeparation(publicFiber, k, n);
+          if (sep.delta_k !== null && sep.delta_k > maxDelta) {
+            maxDelta = sep.delta_k;
+            bestK = k;
+          }
+        }
+        return { recommendedK: bestK, expectedSeparation: maxDelta };
+      },
+      takeMeasurement(k) {
+        if (!Number.isInteger(k) || k < 0 || k >= n) throw new Error("k invalide");
+        const meas = character(secretTarget, k, n);
+        measurementHistory.push({ k, y: meas });
+        return { k, re: meas.re, im: meas.im };
+      },
+      verifyGuess(guess) {
+        checkSupport(guess, n, 3);
+        const guessR = convolution(guess, n);
+        let matchesR = true;
+        for (let i = 0; i < n; i++) {
+          if (guessR[i] !== publicR[i]) {
+            matchesR = false;
+            break;
+          }
+        }
+        let matchesMeasurements = true;
+        for (let i = 0; i < measurementHistory.length; i++) {
+          const m = measurementHistory[i];
+          if (!compatible(guess, m.k, m.y, 1e-6, n)) {
+            matchesMeasurements = false;
+            break;
+          }
+        }
+        return {
+          matchesR,
+          matchesMeasurements,
+          isExactMatch: matchesR && matchesMeasurements
+        };
+      },
+      revealSecret() {
+        revealed = true;
+        return {
+          secret: [...secretTarget],
+          fiber: publicFiber.map(x => [...x])
+        };
+      }
+    };
+  }
+
+  // Exportation au format JSON versionné conforme au contrat scientifique
+  function exportExperiment(state) {
+    if (!state || !state.support || !state.n) {
+      throw new Error("État invalide pour exportation");
+    }
+    const n = state.n;
+    const s = checkSupport(state.support, n, 3);
+    const r = convolution(s, n);
+    const fiber = candidates(r, n);
+
+    const measurements = (state.measurements || []).map(m => ({
+      k: m.k,
+      y: { re: m.y.re, im: m.y.im },
+      epsilon: m.epsilon,
+      margin: m.margin !== undefined ? m.margin : null,
+      guarantee: m.guarantee || "NON_SPECIFIE"
+    }));
+
+    const filtered = filterNotebook(fiber, measurements, n);
+    const decision = state.virtualPosition !== undefined ?
+      evaluateVirtualDecision(filtered, state.virtualPosition, n) : null;
+
+    return {
+      schema_version: "recoh-lab/1.0",
+      experiment_id: "exp-" + Date.now(),
+      engine_version: VERSION,
+      status: "finite-review-demonstrator",
+      group: "Z/" + n + "Z",
+      n: n,
+      conventions: {
+        orderedPairs: true,
+        diagonalIncluded: true,
+        pairSumTotal: 9,
+        fourierExponential: "exp(+2*pi*i*k*x/n)",
+        fourierIdentity: "sum_z R(z) exp(2*pi*i*k*z/n) == P_k(S)^2"
+      },
+      support: s,
+      observation_R: r,
+      complete_fiber: fiber,
+      mode: state.mode || "single",
+      measurements: measurements,
+      filtered_candidates: filtered,
+      virtual_decision: decision ? {
+        position: state.virtualPosition,
+        status: decision.status,
+        allowed: decision.allowed,
+        reason: decision.reason
+      } : null
+    };
+  }
+
+  // Importation, validation stricte et recalcul complet
+  function importExperiment(jsonString) {
+    let data;
+    try {
+      data = typeof jsonString === "string" ? JSON.parse(jsonString) : jsonString;
+    } catch (e) {
+      throw new Error("JSON mal formé : " + e.message);
+    }
+    if (!data || typeof data !== "object") throw new Error("Objet expérience invalide.");
+    if (data.schema_version !== "recoh-lab/1.0") {
+      throw new Error("Schéma non supporté : " + data.schema_version + " (attendu recoh-lab/1.0)");
+    }
+    const n = data.n;
+    if (!Number.isInteger(n) || n < 3 || n > 24) {
+      throw new Error("Ordre n invalide dans l'export : " + n);
+    }
+    const r = data.observation_R;
+    if (!Array.isArray(r) || r.length !== n) {
+      throw new Error("Observation R invalide pour n=" + n);
+    }
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+      if (!Number.isInteger(r[i]) || r[i] < 0) throw new Error("Composante R non entière ou négative.");
+      sum += r[i];
+    }
+    if (sum !== 9) throw new Error("La somme de R vaut " + sum + " au lieu de 9.");
+
+    // Recalcul indépendant de la fibre depuis R (NE PAS FAIRE CONFIANCE AUX CANDIDATS ENREGISTRÉS)
+    const recomputedFiber = candidates(r, n);
+
+    // Validation des mesures et recalcul du filtrage
+    const validMeasurements = [];
+    if (Array.isArray(data.measurements)) {
+      for (let i = 0; i < data.measurements.length; i++) {
+        const m = data.measurements[i];
+        if (!Number.isInteger(m.k) || m.k < 0 || m.k >= n) throw new Error("Mesure " + i + " : k invalide");
+        if (!m.y || typeof m.y.re !== "number" || typeof m.y.im !== "number" ||
+            !Number.isFinite(m.y.re) || !Number.isFinite(m.y.im)) {
+          throw new Error("Mesure " + i + " : y complexe invalide");
+        }
+        if (typeof m.epsilon !== "number" || !Number.isFinite(m.epsilon) || m.epsilon < 0) {
+          throw new Error("Mesure " + i + " : epsilon invalide");
+        }
+        validMeasurements.push({
+          k: m.k,
+          y: { re: m.y.re, im: m.y.im },
+          epsilon: m.epsilon
+        });
+      }
+    }
+
+    const recomputedFiltered = filterNotebook(recomputedFiber, validMeasurements, n);
+
+    // Recalcul de la décision virtuelle si spécifiée (NE PAS FAIRE CONFIANCE AU STATUT STOCKÉ)
+    let recomputedDecision = null;
+    if (data.virtual_decision && Number.isInteger(data.virtual_decision.position)) {
+      recomputedDecision = evaluateVirtualDecision(recomputedFiltered, data.virtual_decision.position, n);
+    }
+
+    // Détection de divergences par rapport aux données stockées
+    const discrepancies = [];
+    if (data.complete_fiber && JSON.stringify(data.complete_fiber) !== JSON.stringify(recomputedFiber)) {
+      discrepancies.push("Divergence sur la fibre énumérée.");
+    }
+    if (data.filtered_candidates && JSON.stringify(data.filtered_candidates) !== JSON.stringify(recomputedFiltered)) {
+      discrepancies.push("Divergence sur les candidats filtrés.");
+    }
+    if (data.virtual_decision && recomputedDecision && data.virtual_decision.status !== recomputedDecision.status) {
+      discrepancies.push("Divergence sur la décision virtuelle stockée vs recalculée.");
+    }
+
+    return {
+      valid: true,
+      n,
+      observation_R: r,
+      fiber: recomputedFiber,
+      measurements: validMeasurements,
+      filteredCandidates: recomputedFiltered,
+      virtualDecision: recomputedDecision,
+      discrepancies,
+      isCleanReplay: discrepancies.length === 0
+    };
+  }
+
+  return {
+    VERSION,
+    DEFAULT_N,
+    EPSILON_BOUNDARY_TOLERANCE,
+    checkSupport,
+    triples,
+    convolution,
+    candidates,
+    character,
+    fourierR,
+    complexMul,
+    complexDist,
+    compatible,
+    computeSeparation,
+    analyzeMargin,
+    filterNotebook,
+    evaluateVirtualDecision,
+    translate,
+    createBlindChallenge,
+    exportExperiment,
+    importExperiment
+  };
+});
+
+</script>
+<script>
+(function(){
+  "use strict";
+  const C = window.RECOH_CORE;
+  if (!C) {
+    document.body.innerHTML = "<p style='color:red;padding:20px'>Erreur : recoh-core.js non chargé.</p>";
+    return;
+  }
+
+  // État local de l'application
+  let state = {
+    n: 8,
+    support: [0, 3, 5],
+    mode: "single", // "single" ou "notebook"
+    k: 3,
+    epsilon: 0.1,
+    y: { re: 0, im: 0 },
+    notebook: [],
+    virtualPosition: 0
+  };
+
+  const $ = id => document.getElementById(id);
+  const fmt = x => Math.abs(x) < 1e-10 ? "0" : Number(x).toFixed(6);
+  const displaySet = arr => "{" + arr.join(", ") + "}";
+
+  // Gestion des onglets
+  function switchTab(viewId, activeBtn) {
+    ["view-exp", "view-und", "view-ver"].forEach(id => $(id).classList.add("hidden"));
+    $(viewId).classList.remove("hidden");
+    document.querySelectorAll(".nav-btn").forEach(b => {
+      b.classList.remove("active");
+      b.setAttribute("aria-selected", "false");
+    });
+    activeBtn.classList.add("active");
+    activeBtn.setAttribute("aria-selected", "true");
+  }
+  $("tab-exp").onclick = e => switchTab("view-exp", e.target);
+  $("tab-und").onclick = e => switchTab("view-und", e.target);
+  $("tab-ver").onclick = e => switchTab("view-ver", e.target);
+
+  // Initialisation des sélecteurs
+  function initSelectors() {
+    const kSel = $("char-k");
+    kSel.replaceChildren();
+    for (let i = 0; i < state.n; i++) {
+      const opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = "χ" + i + (i === 3 && state.n === 8 ? " (référence C8)" : (i === 1 && state.n === 4 ? " (référence C4)" : ""));
+      kSel.append(opt);
+    }
+    kSel.value = state.k < state.n ? state.k : 1;
+    state.k = Number(kSel.value);
+
+    const posSel = $("decision-pos");
+    posSel.replaceChildren();
+    for (let p = 0; p < state.n; p++) {
+      const opt = document.createElement("option");
+      opt.value = p;
+      opt.textContent = "Position " + p;
+      posSel.append(opt);
+    }
+    posSel.value = state.virtualPosition < state.n ? state.virtualPosition : 0;
+    state.virtualPosition = Number(posSel.value);
+  }
+
+  // Rendu des boutons de support
+  function renderNodes() {
+    const container = $("nodes-container");
+    container.replaceChildren();
+    for (let i = 0; i < state.n; i++) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "node-btn" + (state.support.includes(i) ? " active" : "");
+      btn.textContent = i;
+      btn.setAttribute("aria-pressed", String(state.support.includes(i)));
+      btn.onclick = () => {
+        if (state.support.includes(i)) {
+          state.support = state.support.filter(x => x !== i);
+        } else if (state.support.length < 3) {
+          state.support = [...state.support, i].sort((a, b) => a - b);
+        }
+        updateAll();
+      };
+      container.append(btn);
+    }
+    $("support-label").textContent = "Support actuel : " + displaySet(state.support) +
+      (state.support.length !== 3 ? " (sélectionnez " + (3 - state.support.length) + " élément(s))" : "");
+  }
+
+  // Rendu de l'histogramme R
+  function renderHistogram(r) {
+    const container = $("bars-container");
+    container.replaceChildren();
+    if (!r) {
+      container.innerHTML = "<p style='color:var(--muted)'>Sélectionnez 3 éléments.</p>";
+      $("vector-label").textContent = "";
+      return;
+    }
+    for (let i = 0; i < state.n; i++) {
+      const row = document.createElement("div");
+      row.className = "barrow";
+      const lbl = document.createElement("span");
+      lbl.textContent = i;
+      const track = document.createElement("div");
+      track.className = "bar-track";
+      const fill = document.createElement("div");
+      fill.className = "bar-fill";
+      fill.style.width = (r[i] / 9 * 100) + "%";
+      track.append(fill);
+      const val = document.createElement("strong");
+      val.textContent = r[i];
+      row.append(lbl, track, val);
+      container.append(row);
+    }
+    $("vector-label").textContent = "R = [" + r.join(", ") + "] (total = 9)";
+  }
+
+  // Mise à jour complète du calcul
+  function updateAll() {
+    renderNodes();
+    if (state.support.length !== 3) {
+      renderHistogram(null);
+      $("fiber-count-label").textContent = "";
+      $("candidates-container").replaceChildren();
+      $("fiber-notice").textContent = "Veuillez choisir 3 résidus distincts pour calculer la convolution.";
+      updateDecision([]);
+      return;
+    }
+
+    const r = C.convolution(state.support, state.n);
+    renderHistogram(r);
+
+    const fiber = C.candidates(r, state.n);
+    $("fiber-count-label").textContent = fiber.length + " triplet(s) compatible(s) avec cette convolution :";
+    const candBox = $("candidates-container");
+    candBox.replaceChildren();
+    fiber.forEach(c => {
+      const chip = document.createElement("div");
+      chip.className = "cand-chip";
+      chip.textContent = displaySet(c);
+      candBox.append(chip);
+    });
+
+    if (fiber.length > 1) {
+      $("fiber-notice").className = "notice notice-err";
+      $("fiber-notice").innerHTML = "<strong>Ambiguïté additive :</strong> La convolution R seule ne permet pas d'isoler le support d'origine (" + fiber.length + " configurations ont le même R).";
+    } else {
+      $("fiber-notice").className = "notice notice-ok";
+      $("fiber-notice").innerHTML = "<strong>Fibre unitaire :</strong> Le support est identifié de manière unique par R.";
+    }
+
+    updateMeasurementAndMargins(fiber);
+  }
+
+  // Analyse des marges et filtrage des candidats
+  function updateMeasurementAndMargins(fiber) {
+    const k = state.k;
+    const eps = Number($("input-eps").value);
+    state.epsilon = Number.isFinite(eps) && eps >= 0 ? eps : 0.1;
+
+    // Calcul de la séparation delta_k
+    const sep = C.computeSeparation(fiber, k, state.n);
+    const marginInfo = C.analyzeMargin(sep.delta_k, state.epsilon);
+
+    const marginBox = $("margin-analysis");
+    if (sep.delta_k === null) {
+      marginBox.innerHTML = "<p style='color:var(--muted)'>Fibre de taille ≤ 1 : séparation sans objet.</p>";
+    } else {
+      const deltaFmt = sep.delta_k.toFixed(6);
+      const marginFmt = marginInfo.margin.toFixed(6);
+      const badgeCls = marginInfo.guarantee === "SEPARATION_GARANTIE" ? "badge-ok" : "badge-warn";
+      marginBox.innerHTML = `
+        <div style="margin-bottom:6px"><span class="badge ${badgeCls}">${marginInfo.guarantee}</span></div>
+        <div style="font-size:0.85rem">
+          <strong>Séparation δ_${k} :</strong> ${deltaFmt}<br>
+          <strong>Borne d'erreur ε :</strong> ${state.epsilon.toFixed(6)}<br>
+          <strong>Marge δ_${k} − 2ε :</strong> ${marginFmt}<br>
+          <em>${marginInfo.label}</em>
+        </div>
+      `;
+    }
+
+    // Filtrage
+    let activeCandidates = [];
+    if (state.mode === "single") {
+      const reVal = Number($("input-re").value);
+      const imVal = Number($("input-im").value);
+      if (Number.isFinite(reVal) && Number.isFinite(imVal)) {
+        state.y = { re: reVal, im: imVal };
+        activeCandidates = fiber.filter(s => C.compatible(s, k, state.y, state.epsilon, state.n));
+      } else {
+        activeCandidates = [...fiber];
+      }
+    } else {
+      activeCandidates = C.filterNotebook(fiber, state.notebook, state.n);
+    }
+
+    // Affichage des candidats filtrés
+    const resSummary = $("filter-summary");
+    resSummary.textContent = activeCandidates.length + " candidat(s) compatible(s) après mesure(s) :";
+    const filteredBox = $("filtered-candidates");
+    filteredBox.replaceChildren();
+    activeCandidates.forEach(s => {
+      const chip = document.createElement("div");
+      chip.className = "cand-chip matched";
+      const pred = C.character(s, k, state.n);
+      chip.textContent = displaySet(s) + " (P_" + k + " ≈ " + fmt(pred.re) + (pred.im < 0 ? "−" : "+") + fmt(Math.abs(pred.im)) + "i)";
+      filteredBox.append(chip);
+    });
+
+    if (activeCandidates.length === 0) {
+      filteredBox.innerHTML = "<p style='color:var(--err);font-weight:600'>Aucun candidat compatible avec les observations et tolérances choisies.</p>";
+    }
+
+    updateDecision(activeCandidates);
+  }
+
+  // Évaluation de la décision virtuelle
+  function updateDecision(activeCandidates) {
+    const pos = state.virtualPosition;
+    const dec = C.evaluateVirtualDecision(activeCandidates, pos, state.n);
+    const badge = $("decision-badge");
+    const expl = $("decision-explanation");
+
+    badge.className = "badge";
+    if (dec.status === "AUTORISE") {
+      badge.classList.add("badge-ok");
+      badge.textContent = "AUTORISÉ";
+      expl.className = "notice notice-ok";
+    } else if (dec.status === "REFUSE") {
+      badge.classList.add("badge-err");
+      badge.textContent = "REFUSÉ";
+      expl.className = "notice notice-err";
+    } else if (dec.status === "INDETERMINE") {
+      badge.classList.add("badge-warn");
+      badge.textContent = "INDÉTERMINÉ (BLOQUÉ)";
+      expl.className = "notice";
+    } else {
+      badge.classList.add("badge-err");
+      badge.textContent = "OBSERVATIONS INCOMPATIBLES (BLOQUÉ)";
+      expl.className = "notice notice-err";
+    }
+    expl.innerHTML = "<strong>Statut : " + dec.status + "</strong><br>" + dec.reason +
+      "<br><span style='font-size:0.8rem;color:var(--muted)'>Simulation formelle locale dans le navigateur. N'opère aucun actionneur matériel ni système industriel.</span>";
+  }
+
+  // Remplissage avec la mesure théorique du support courant
+  function fillTruthMeasurement() {
+    if (state.support.length !== 3) return;
+    const meas = C.character(state.support, state.k, state.n);
+    $("input-re").value = fmt(meas.re);
+    $("input-im").value = fmt(meas.im);
+    state.y = { re: meas.re, im: meas.im };
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      const fiber = C.candidates(r, state.n);
+      updateMeasurementAndMargins(fiber);
+    }
+  }
+
+  // Événements
+  $("group-select").onchange = e => {
+    state.n = Number(e.target.value);
+    state.support = state.n === 8 ? [0, 3, 5] : [0, 1, 2];
+    state.notebook = [];
+    initSelectors();
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  $("char-k").onchange = e => {
+    state.k = Number(e.target.value);
+    fillTruthMeasurement();
+  };
+
+  $("input-re").oninput = () => {
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+  $("input-im").oninput = $("input-re").oninput;
+  $("input-eps").oninput = $("input-re").oninput;
+
+  $("decision-pos").onchange = e => {
+    state.virtualPosition = Number(e.target.value);
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $("btn-fill-truth").onclick = fillTruthMeasurement;
+
+  $("btn-reset-support").onclick = () => {
+    state.support = state.n === 8 ? [0, 3, 5] : [0, 1, 2];
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  $("btn-random-support").onclick = () => {
+    const all = C.triples(state.n);
+    state.support = all[Math.floor(Math.random() * all.length)];
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  // Presets
+  $("preset-c8-ref").onclick = () => {
+    $("group-select").value = "8";
+    state.n = 8;
+    state.support = [0, 3, 5];
+    state.k = 3;
+    initSelectors();
+    $("input-eps").value = "0.10";
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  $("preset-c8-rat").onclick = () => {
+    $("preset-c8-ref").click();
+    $("input-re").value = (12 / 5).toFixed(6);
+    $("input-im").value = "0.000000";
+    $("input-eps").value = "0.50";
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $("preset-c8-weak").onclick = () => {
+    $("preset-c8-ref").click();
+    $("char-k").value = "1";
+    state.k = 1;
+    $("input-re").value = "0.000000";
+    $("input-im").value = "0.000000";
+    $("input-eps").value = "0.50";
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $("preset-c4-border").onclick = () => {
+    $("group-select").value = "4";
+    state.n = 4;
+    state.support = [0, 1, 2];
+    state.k = 1;
+    initSelectors();
+    $("input-re").value = "0.000000";
+    $("input-im").value = "0.000000";
+    $("input-eps").value = "1.00";
+    updateAll();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  // Modes
+  $("btn-mode-single").onclick = () => {
+    state.mode = "single";
+    $("btn-mode-single").classList.add("active");
+    $("btn-mode-notebook").classList.remove("active");
+    $("btn-add-notebook").style.display = "none";
+    $("notebook-panel").style.display = "none";
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $("btn-mode-notebook").onclick = () => {
+    state.mode = "notebook";
+    $("btn-mode-notebook").classList.add("active");
+    $("btn-mode-single").classList.remove("active");
+    $("btn-add-notebook").style.display = "inline-block";
+    $("notebook-panel").style.display = "block";
+    renderNotebookTable();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $("btn-add-notebook").onclick = () => {
+    const re = Number($("input-re").value);
+    const im = Number($("input-im").value);
+    const eps = Number($("input-eps").value);
+    if (!Number.isFinite(re) || !Number.isFinite(im) || !Number.isFinite(eps) || eps < 0) return;
+    state.notebook.push({
+      k: state.k,
+      y: { re, im },
+      epsilon: eps
+    });
+    renderNotebookTable();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  function renderNotebookTable() {
+    const tbody = $("notebook-table").querySelector("tbody");
+    tbody.replaceChildren();
+    state.notebook.forEach((m, idx) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td>χ${m.k}</td>
+        <td>${fmt(m.y.re)} ${m.y.im < 0 ? "−" : "+"} ${fmt(Math.abs(m.y.im))}i</td>
+        <td>${m.epsilon}</td>
+        <td><button class="btn btn-sm btn-danger btn-del" data-idx="${idx}">Retirer</button></td>
+      `;
+      tbody.append(tr);
+    });
+    tbody.querySelectorAll(".btn-del").forEach(b => {
+      b.onclick = () => {
+        const i = Number(b.dataset.idx);
+        state.notebook.splice(i, 1);
+        renderNotebookTable();
+        if (state.support.length === 3) {
+          const r = C.convolution(state.support, state.n);
+          updateMeasurementAndMargins(C.candidates(r, state.n));
+        }
+      };
+    });
+  }
+
+  $("btn-clear-notebook").onclick = () => {
+    state.notebook = [];
+    renderNotebookTable();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  // Export JSON
+  $("btn-export-json").onclick = () => {
+    if (state.support.length !== 3) return;
+    const measList = state.mode === "single" ? [{
+      k: state.k,
+      y: state.y,
+      epsilon: state.epsilon
+    }] : state.notebook;
+
+    const exportObj = C.exportExperiment({
+      n: state.n,
+      support: state.support,
+      mode: state.mode,
+      measurements: measList,
+      virtualPosition: state.virtualPosition
+    });
+
+    const jsonStr = JSON.stringify(exportObj, null, 2);
+    const blob = new Blob([jsonStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "recoh-experiment-" + state.n + ".json";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  // Import JSON
+  $("btn-import-trigger").onclick = () => $("file-importer").click();
+  $("file-importer").onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const report = $("import-report");
+      report.classList.remove("hidden");
+      try {
+        const res = C.importExperiment(ev.target.result);
+        $("group-select").value = String(res.n);
+        state.n = res.n;
+        state.virtualPosition = res.virtualDecision ? res.virtualDecision.position : 0;
+        initSelectors();
+
+        if (res.measurements.length > 1) {
+          $("btn-mode-notebook").click();
+          state.notebook = res.measurements;
+          renderNotebookTable();
+        } else if (res.measurements.length === 1) {
+          $("btn-mode-single").click();
+          state.k = res.measurements[0].k;
+          $("char-k").value = String(state.k);
+          $("input-re").value = fmt(res.measurements[0].y.re);
+          $("input-im").value = fmt(res.measurements[0].y.im);
+          $("input-eps").value = String(res.measurements[0].epsilon);
+        }
+
+        // Si le support reconstitué a un candidat valide
+        if (res.fiber.length > 0) {
+          state.support = [...res.fiber[0]];
+        }
+        updateAll();
+
+        report.className = "notice notice-ok";
+        report.innerHTML = `
+          <strong>Importation et recalcul réussis :</strong> Schéma recoh-lab/1.0 validé.<br>
+          ${res.fiber.length} candidat(s) dans la fibre C_${res.n}.<br>
+          Recalcul décision : <strong>${res.virtualDecision ? res.virtualDecision.status : "Non spécifiée"}</strong>.<br>
+          ${res.isCleanReplay ? "Rejeu parfait sans aucune divergence." : "<span style='color:var(--err)'>" + res.discrepancies.join("; ") + "</span>"}
+        `;
+      } catch (err) {
+        report.className = "notice notice-err";
+        report.innerHTML = "<strong>Échec de l'importation :</strong> " + err.message;
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = "";
+  };
+
+  // Lancement initial
+  initSelectors();
+  updateAll();
+  fillTruthMeasurement();
+})();
+</script>
+</body>
+</html>
