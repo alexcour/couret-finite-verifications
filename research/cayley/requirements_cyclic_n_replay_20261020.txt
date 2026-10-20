@@ -1,0 +1,4 @@
+# Only the earlier character-spectrum replay needs these packages.
+# The independent adjacency-walk verifier uses the Python standard library.
+sympy==1.14.0
+mpmath==1.3.0

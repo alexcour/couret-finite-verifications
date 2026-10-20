@@ -9,3 +9,7 @@ Status: finite, exact and reproducible computations only. This branch is not par
 - Independent human review and prior-art assessment: still pending. The original prime-p manuscript and its proof status stay unchanged.
 
 Source and script should be reviewed together before integration to main.
+
+## Independent audit supplement, 20 October 2026
+
+See [the complete argument and audit](CYCLIC_N_INDEPENDENT_AUDIT_2026-10-20.md). The earlier 4,928 cases have been replayed by exact adjacency walk counts, and an additional 22,275 HNF presentations give zero disagreements (323 positive). Both spectral tables and composite/even-order homomorphism arguments are explicit. The generation hypothesis is essential: C8, n=4, k=4, kp=2 is a counterexample if it is dropped. Full rows are in the gzip evidence; the JSON receipt records hashes and dependency versions. The standalone script and dedicated CI use only the Python standard library. DRAFT, no independent human review of the extension and no novelty claim.
