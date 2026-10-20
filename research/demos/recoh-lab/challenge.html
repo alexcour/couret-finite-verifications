@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Défi RECOH — reconstruction à l'aveugle dans C₈</title>
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#e9f0f3;background:#0d1724;color-scheme:dark}
+*{box-sizing:border-box}body{max-width:860px;margin:auto;padding:20px;line-height:1.5}
+a{color:#91ddcf}.muted{color:#b8c8d4}.panel{background:#172536;border:1px solid #314454;border-radius:14px;padding:20px;margin:16px 0}
+button{font:inherit;cursor:pointer;color:white;background:#183c46;border:1px solid #638e98;border-radius:8px;padding:10px;margin:3px}
+button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,a:focus-visible{outline:3px solid #efd08a;outline-offset:2px}
+button.active{background:#167e70;border-color:#4de0b6}.digits{font-family:ui-monospace,SFMono-Regular,monospace}
+.nodes{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px}.nodes button{margin:0;min-height:48px}
+.barrow{display:grid;grid-template-columns:24px 1fr 25px;gap:10px;align-items:center;margin:6px 0}
+.track{height:15px;background:#0a141e;border-radius:7px}.fill{height:100%;background:#41ba9c;border-radius:7px}
+.notice{border-left:4px solid #e5be76;padding:12px;background:#253346}
+.ok{border-left-color:#54c9a6}.danger{border-left-color:#ee8e88}
+strong{color:#fff}@media(max-width:450px){body{padding:12px}.panel{padding:14px}.nodes button{padding:4px}}
+</style>
+</head>
+<body>
+<header><p><a href="./index.html">← Retour au laboratoire RECOH</a></p>
+<h1>Défi : reconstruisez un triplet caché</h1>
+<p class="muted">Vous voyez les sommes mais pas leur origine. Une mesure supplémentaire permet ensuite de départager les candidats.</p></header>
+<main>
+<section class="panel">
+<h2>1. Observation partielle</h2>
+<p>Le logiciel choisit secrètement trois résidus de C₈. Il affiche seulement R(k), le nombre de couples ordonnés de somme k.</p>
+<div id="bars" aria-label="Histogramme des sommes ordonnées"></div>
+<p class="digits" id="vector"></p>
+<p id="fiberCount"></p>
+<button id="newGame">Nouvel exercice</button>
+</section>
+<section class="panel">
+<h2>2. Votre première reconstruction</h2>
+<p>Choisissez trois résidus, puis vérifiez si leur convolution reproduit exactement l'observation.</p>
+<div class="nodes" id="guessNodes" role="group" aria-label="Choix des trois éléments de votre proposition"></div>
+<p id="guessValue" class="digits"></p>
+<button id="submitR" disabled>Tester les sommes</button>
+<p id="rFeedback" role="status" aria-live="polite"></p>
+</section>
+<section class="panel">
+<h2>3. Une nouvelle mesure</h2>
+<p>Après une première proposition compatible, demandez la valeur de χ³(S) = Σ exp(+2πi·3x/8), calculée numériquement.</p>
+<button id="showMeasure" disabled>Dévoiler χ³ du support caché</button>
+<p class="digits" id="measurement"></p>
+<p>Adaptez éventuellement votre triplet, puis testez si les deux observations concordent.</p>
+<button id="submitBoth" disabled>Vérifier les deux observations</button>
+<p id="finalFeedback" role="status" aria-live="polite"></p>
+<button id="reveal" disabled>Afficher la solution et l'autre candidat</button>
+<div id="solution" class="notice" hidden></div>
+</section>
+<section class="panel">
+<h2>Cadre scientifique</h2>
+<p class="muted">L'égalité des convolutions est vérifiée par calcul entier exact sur les 56 triplets de C₈. Le caractère χ³ est calculé en virgule flottante avec tolérance de comparaison 10⁻⁶. Le défi illustre uniquement ce cas fini : il ne prouve ni un théorème général ni la résistance à des erreurs de mesure. Le support caché n'est dissimulé que dans l'interface ; les outils de développement du navigateur peuvent révéler son état. Aucune donnée n'est envoyée à un serveur.</p>
+</section>
+</main>
+<script src="./recoh-core.js"></script>
+<script>
+"use strict";
+const C=globalThis.RECOH_CORE, $=id=>document.getElementById(id);
+const all=C.triples();let secret=null, guess=[], observed=[], step=0, freq=null;
+const key=s=>s.join(","), fmt=x=>Math.abs(x)<1e-10?"0":x.toFixed(6);
+function pick(n){const limit=Math.floor(4294967296/n)*n;const a=new Uint32Array(1);do{crypto.getRandomValues(a)}while(a[0]>=limit);return a[0]%n}
+function drawBars(){
+ $("bars").replaceChildren();
+ observed.forEach((v,i)=>{
+  const row=document.createElement("div");row.className="barrow";
+  const label=document.createElement("span");label.textContent=i;
+  const track=document.createElement("div");track.className="track";
+  const bar=document.createElement("div");bar.className="fill";bar.style.width=(v/9*100)+"%";track.append(bar);
+  const value=document.createElement("strong");value.textContent=v;row.append(label,track,value);$("bars").append(row);
+ });
+ $("vector").textContent="R = ["+observed.join(", ")+"]";
+ $("fiberCount").textContent=C.candidates(observed).length+" configurations possèdent cette même convolution.";
+}
+function renderGuess(){
+ $("guessNodes").replaceChildren();
+ for(let i=0;i<8;i++){
+  const b=document.createElement("button");b.type="button";b.textContent=i;
+  b.className=guess.includes(i)?"active":"";b.setAttribute("aria-pressed",String(guess.includes(i)));
+  b.onclick=()=>{if(guess.includes(i))guess=guess.filter(x=>x!==i);else if(guess.length<3)guess=[...guess,i].sort((a,b)=>a-b);
+    $("rFeedback").textContent="";$("finalFeedback").textContent="";
+    renderGuess();
+  };$("guessNodes").append(b);
+ }
+ $("guessValue").textContent=guess.length?("Votre proposition : {"+key(guess)+"}"):"Votre proposition : aucune sélection";
+ $("submitR").disabled=guess.length!==3||step!==0;
+ $("submitBoth").disabled=guess.length!==3||step!==2;
+}
+function newGame(){
+ secret=all[pick(all.length)];guess=[];observed=C.convolution(secret);freq=null;step=0;
+ $("rFeedback").textContent="";$("finalFeedback").textContent="";
+ $("measurement").textContent="Mesure encore masquée.";
+ $("showMeasure").disabled=true;$("reveal").disabled=false;
+ $("solution").hidden=true;$("solution").textContent="";
+ drawBars();renderGuess();
+}
+$("newGame").onclick=newGame;
+$("submitR").onclick=()=>{
+ if(guess.length!==3||step!==0)return;
+ const ok=C.convolution(guess).every((x,i)=>x===observed[i]);
+ $("rFeedback").className=ok?"notice ok":"notice danger";
+ $("rFeedback").textContent=ok?"Cette proposition explique toutes les sommes. Mais cela ne prouve pas que vous avez retrouvé le support caché : deux triplets sont encore possibles.":"Cette proposition ne reproduit pas R : modifiez les points et réessayez.";
+ if(ok){step=1;$("showMeasure").disabled=false;renderGuess()}
+};
+$("showMeasure").onclick=()=>{
+ if(step!==1)return;
+ freq=C.character(secret,3);step=2;
+ $("measurement").textContent="χ³(S) ≈ "+fmt(freq.re)+(freq.im<0?" − ":" + ")+fmt(Math.abs(freq.im))+" i";
+ $("showMeasure").disabled=true;renderGuess();
+};
+$("submitBoth").onclick=()=>{
+ if(step!==2||guess.length!==3)return;
+ const exact=C.convolution(guess).every((x,i)=>x===observed[i]);
+ const agrees=exact&&C.compatible(guess,3,freq,1e-6);
+ $("finalFeedback").className=agrees?"notice ok":"notice danger";
+ $("finalFeedback").textContent=agrees?
+   "Bravo. Votre triplet est l'unique candidat de cette fibre compatible avec R et χ³ (tolérance 10⁻⁶).":
+   "Votre triplet ne satisfait pas simultanément R et χ³. Cherchez l'autre candidat de la fibre.";
+ if(agrees){step=3;renderGuess();showSolution()}
+};
+function showSolution(){
+ const fiber=C.candidates(observed);
+ $("solution").hidden=false;
+ $("solution").textContent="Support tiré : {"+key(secret)+"}. Fibre exacte : "+fiber.map(s=>"{"+key(s)+"}").join(" et ")+". Le caractère χ³ distingue ces deux candidats dans C₈.";
+}
+$("reveal").onclick=()=>{showSolution();$("submitR").disabled=true;$("submitBoth").disabled=true;$("showMeasure").disabled=true;step=3};
+newGame();
+</script>
+</body></html>
