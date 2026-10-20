@@ -23,7 +23,7 @@ jobs:
           use-mathlib-cache: true
       - name: Verify proof axioms (no sorryAx)
         run: |
-          printf 'import CayleyTwoColourAbelian\n#print axioms Couret.CayleyDoublet.abelianThree_iso_iff_nongeneration\n' > G02AxiomCheck.lean
+          printf 'import CayleyTwoColourAbelian\n#print axioms Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration\n' > G02AxiomCheck.lean
           lake env lean G02AxiomCheck.lean > G02AxiomCheck.log
           cat G02AxiomCheck.log
           if grep -q 'sorryAx' G02AxiomCheck.log; then exit 1; fi
