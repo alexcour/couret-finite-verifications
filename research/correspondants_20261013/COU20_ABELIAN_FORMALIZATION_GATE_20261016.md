@@ -1,3 +1,17 @@
+<!-- CURRENT READING NOTICE 2026-10-20 -->
+> **Repère de lecture — 20 octobre 2026.** Le texte ci-dessous conserve l’état
+> historique de l’audit à sa date de rédaction. Pour l’étape ultérieure de
+> formalisation, consulter le [rapport du 19 octobre](COU20_SPECTRAL_CLASSIFICATION_20261019.md)
+> et ses [reçus de vérification](evidence/20261019_spectral_classification/verification-summary.json),
+> rattachés au commit source `0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e`.
+> Les mentions historiques « non compilé » ou « obligation manquante » ne
+> décrivent pas cette révision ultérieure. Ces reçus internes ne constituent
+> ni une relecture mathématique humaine indépendante ni un audit d’originalité.
+> La PR #49 reste en brouillon, sans fusion ni publication stable.
+<!-- END CURRENT READING NOTICE -->
+
+---
+
 # COU-20 — Ablation et certification des deux couleurs, groupes abéliens finis
 
 Date: 16 Oct 2026. **RESEARCH CANDIDATE / NOT UNIVERSALLY LEAN-PROVED / NOT PEER REVIEWED.**

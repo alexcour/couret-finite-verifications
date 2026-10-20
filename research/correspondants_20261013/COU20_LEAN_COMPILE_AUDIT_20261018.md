@@ -1,3 +1,17 @@
+<!-- CURRENT READING NOTICE 2026-10-20 -->
+> **Repère de lecture — 20 octobre 2026.** Le texte ci-dessous conserve l’état
+> historique de l’audit à sa date de rédaction. Pour l’étape ultérieure de
+> formalisation, consulter le [rapport du 19 octobre](COU20_SPECTRAL_CLASSIFICATION_20261019.md)
+> et ses [reçus de vérification](evidence/20261019_spectral_classification/verification-summary.json),
+> rattachés au commit source `0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e`.
+> Les mentions historiques « non compilé » ou « obligation manquante » ne
+> décrivent pas cette révision ultérieure. Ces reçus internes ne constituent
+> ni une relecture mathématique humaine indépendante ni un audit d’originalité.
+> La PR #49 reste en brouillon, sans fusion ni publication stable.
+<!-- END CURRENT READING NOTICE -->
+
+---
+
 # COU-20 — audit de préparation à la compilation (18 octobre 2026)
 
 **Source auditée :** branche `research/cou20-spectral-necessity-20261018`, séparée du commit certifié `b9c38ecdcb78c3e24ae5e6315fe8262b2a3568b3`.
