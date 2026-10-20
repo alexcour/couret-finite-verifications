@@ -115,9 +115,9 @@ select{background:#0a1522;color:var(--text);border:1px solid var(--border);borde
   </section>
 
   <section class="panel" style="font-size:0.85rem;color:var(--muted)">
-    <h3 style="margin-top:0;color:var(--text);font-size:0.95rem">Garantie d'étanchéité (Zero Target Leakage)</h3>
+    <h3 style="margin-top:0;color:var(--text);font-size:0.95rem">Choix de mesure indépendant de la cible</h3>
     <p>
-      Le moteur de défi isole le support secret dans une fermeture privée inaccessible. Le sélecteur d'assistance ne reçoit que la fibre publique et maximise la distance minimale de séparation $\delta_k = \min_{S \ne T} |P_k(S) - P_k(T)|$. Aucune méta-variable ni graine cachée n'est divulguée avant l'appel explicite de révélation.
+      Le moteur de défi isole le support secret dans une fermeture JavaScript. Ce défi pédagogique ne garantit pas un secret face à l’inspection du navigateur. Le sélecteur d'assistance ne reçoit que la fibre publique et maximise la distance minimale de séparation $\delta_k = \min_{S \ne T} |P_k(S) - P_k(T)|$. Le test de recommandation compare les choix pour les deux cibles d’une même fibre ; il ne constitue pas une preuve générale de sécurité.
     </p>
   </section>
 </main>
@@ -260,7 +260,7 @@ select{background:#0a1522;color:var(--text);border:1px solid var(--border);borde
     box.className = "notice notice-ok";
     box.innerHTML = "<strong>Mesure acquise sur le support secret :</strong><br>" +
       "χ" + k + "(S_secret) ≈ " + fmt(acquiredMeas.re) + (acquiredMeas.im < 0 ? " − " : " + ") + fmt(Math.abs(acquiredMeas.im)) + "i.<br>" +
-      "Cette observation est désormais verrouillée. Testez si votre proposition concorde simultanément avec R et cette mesure.";
+      "Cette observation est ajoutée aux mesures acquises. Testez la concordance avec R et toutes les mesures acquises.";
     step = 2;
     $("btn-take-meas").disabled = true;
     $("btn-test-both").disabled = guess.length !== 3;
@@ -272,12 +272,18 @@ select{background:#0a1522;color:var(--text);border:1px solid var(--border);borde
     const res = challenge.verifyGuess(guess);
     const box = $("final-feedback");
     box.style.display = "block";
-    if (res.isExactMatch) {
+    if (res.isUniqueMatch) {
       box.className = "notice notice-ok";
       box.innerHTML = "<strong>Félicitations ! Victoire complète.</strong><br>" +
         "Votre triplet " + displaySet(guess) + " est le seul et unique candidat de la fibre compatible avec la signature R et la mesure spectrale χ" + acquiredMeas.k + ".";
       step = 3;
       $("btn-reveal").click();
+    } else if (res.isCompatible) {
+      box.className = "notice";
+      box.textContent = "Proposition compatible, mais " + res.compatibleCount +
+        " candidats subsistent. Acquérez explicitement une autre mesure pour les distinguer.";
+      step = 1;
+      $("btn-take-meas").disabled = false;
     } else {
       box.className = "notice notice-err";
       box.innerHTML = "<strong>Incohérence détectée :</strong> Votre triplet explique bien R, mais sa valeur spectrale pour χ" + acquiredMeas.k +
@@ -307,3 +313,4 @@ select{background:#0a1522;color:var(--text);border:1px solid var(--border);borde
 </script>
 </body>
 </html>
+

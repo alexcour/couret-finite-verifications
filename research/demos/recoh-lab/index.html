@@ -201,7 +201,7 @@ a:hover{text-decoration:underline}
 
   <!-- Export et Import rejouable -->
   <section class="panel">
-    <h2>7. Exportation, importation et recalcul certifié</h2>
+    <h2>7. Exportation, importation et recalcul des observations</h2>
     <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">
       Format versionné JSON conforme au schéma recoh-lab/1.0. À l'importation, le moteur recalcule intégralement la fibre, les marges et la décision sans se fier aux champs enregistrés.
     </p>
@@ -239,7 +239,7 @@ a:hover{text-decoration:underline}
 <section id="view-ver" class="panel hidden">
   <h2>Vérifier les hypothèses et le code du laboratoire</h2>
   <div style="font-size:0.92rem;line-height:1.6">
-    <p><strong>Statut logiciel :</strong> RECOH Lab v1.0.0 — Moteur fini autonome sans dépendance serveur.<br>
+    <p><strong>Statut logiciel :</strong> RECOH Lab v1.0.1-review — Moteur fini autonome sans dépendance serveur.<br>
     <strong>Statut scientifique :</strong> Démonstrateur de calcul fini sur $C_8$ et $C_4$. Ne constitue pas une preuve de généralisation asymptotique ni une certification matérielle industrielle.
     </p>
     <table class="meas-table">
@@ -507,7 +507,7 @@ a:hover{text-decoration:underline}
       expl.className = "notice notice-err";
     }
     expl.innerHTML = "<strong>Statut : " + dec.status + "</strong><br>" + dec.reason +
-      "<br><span style='font-size:0.8rem;color:var(--muted)'>Simulation formelle locale dans le navigateur. N'opère aucun actionneur matériel ni système industriel.</span>";
+      "<br><span style='font-size:0.8rem;color:var(--muted)'>Simulation pédagogique locale dans le navigateur. N'opère aucun actionneur matériel ni système industriel.</span>";
   }
 
   // Remplissage avec la mesure théorique du support courant
@@ -740,28 +740,29 @@ a:hover{text-decoration:underline}
       report.classList.remove("hidden");
       try {
         const res = C.importExperiment(ev.target.result);
+        if (res.n !== 4 && res.n !== 8) {
+          throw new Error("Cette interface affiche uniquement C4 et C8 ; import non appliqué.");
+        }
+        if (res.fiber.length === 0) {
+          throw new Error("R ne correspond à aucun triplet ; import non appliqué. Aucune ancienne autorisation ne vaut pour ce fichier.");
+        }
         $("group-select").value = String(res.n);
         state.n = res.n;
+        state.support = res.support ? [...res.support] : [...res.fiber[0]];
         state.virtualPosition = res.virtualDecision ? res.virtualDecision.position : 0;
+        state.notebook = res.mode === "notebook" ? res.measurements : [];
+        const displayed = res.measurements[0] || {
+          k: res.n === 8 ? 3 : 1, y: {re: 0, im: 0}, epsilon: 0.1
+        };
+        state.k = displayed.k;
         initSelectors();
-
-        if (res.measurements.length > 1) {
-          $("btn-mode-notebook").click();
-          state.notebook = res.measurements;
-          renderNotebookTable();
-        } else if (res.measurements.length === 1) {
-          $("btn-mode-single").click();
-          state.k = res.measurements[0].k;
-          $("char-k").value = String(state.k);
-          $("input-re").value = fmt(res.measurements[0].y.re);
-          $("input-im").value = fmt(res.measurements[0].y.im);
-          $("input-eps").value = String(res.measurements[0].epsilon);
-        }
-
-        // Si le support reconstitué a un candidat valide
-        if (res.fiber.length > 0) {
-          state.support = [...res.fiber[0]];
-        }
+        $("char-k").value = String(state.k);
+        // Keep full imported precision; formatting for display must not alter observations.
+        $("input-re").value = String(displayed.y.re);
+        $("input-im").value = String(displayed.y.im);
+        $("input-eps").value = String(displayed.epsilon);
+        $(res.mode === "notebook" ? "btn-mode-notebook" : "btn-mode-single").click();
+        renderNotebookTable();
         updateAll();
 
         report.className = "notice notice-ok";
@@ -773,7 +774,7 @@ a:hover{text-decoration:underline}
         `;
       } catch (err) {
         report.className = "notice notice-err";
-        report.innerHTML = "<strong>Échec de l'importation :</strong> " + err.message;
+        report.textContent = "Échec de l'importation : " + err.message;
       }
     };
     reader.readAsText(file);
@@ -788,3 +789,4 @@ a:hover{text-decoration:underline}
 </script>
 </body>
 </html>
+
