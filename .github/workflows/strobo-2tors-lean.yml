@@ -1,0 +1,58 @@
+name: strobo-2tors-lean
+on:
+  push:
+    branches:
+      - research/strobo-2tors-global-classification-2026-10-12
+  pull_request:
+    paths:
+      - "research/strobo-2tors-2026-10-12/**"
+      - ".github/workflows/strobo-2tors-lean.yml"
+  workflow_dispatch:
+
+jobs:
+  core-and-exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Replay exact triple-square tests
+        run: |
+          python research/strobo-2tors-2026-10-12/verify_strobo_2tors.py
+          python research/strobo-2tors-2026-10-12/verify_remaining_profiles_20261013.py
+          python research/strobo-2tors-2026-10-12/audit_zero_free_histogram_20261014.py
+          python research/strobo-2tors-2026-10-12/verify_nontranslation_pair_count_20261016.py
+          python research/strobo-2tors-2026-10-12/verify_delta_pair_counts_20261017.py > research/strobo-2tors-2026-10-12/delta_pair_counts_results_20261017.json
+          python research/strobo-2tors-2026-10-12/verify_zero_free_pair_counts_20261017.py --max-order 36 --output research/strobo-2tors-2026-10-12/zero_free_delta_pair_counts_results_20261017.json
+          git diff --exit-code -- research/strobo-2tors-2026-10-12/remaining_profiles_results_20261013.json
+          git diff --exit-code -- research/strobo-2tors-2026-10-12/delta_pair_counts_results_20261017.json
+          git diff --exit-code -- research/strobo-2tors-2026-10-12/zero_free_delta_pair_counts_results_20261017.json
+      - name: Reject placeholders and custom axioms in proof modules
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/strobo-2tors-2026-10-12/check_consolidation.py
+      - name: Install elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve Lean and mathlib
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: |
+          lake resolve-deps
+          lake exe cache get
+          lean --version
+      - name: Compile classification and fibre counts with and without zero
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake build 2>&1 | tee lean-build.log
+          python ../check_consolidation.py --log lean-build.log
+      - name: Preserve compilation and axiom log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strobo-consolidated-lean-${{ github.sha }}
+          path: research/strobo-2tors-2026-10-12/lean/lean-build.log
+          if-no-files-found: ignore
