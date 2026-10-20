@@ -20,3 +20,11 @@ assert.ok([...fibres.values()].every(x=>x===2));
 assert.throws(()=>C.convolution([0,0,1]));
 assert.throws(()=>C.compatible([0,3,5],3,{re:NaN,im:0},0.1));
 console.log("RECOH C8: all exact finite and numeric example tests passed");
+for (const s of C.triples()) {
+ const fiber=C.candidates(C.convolution(s));
+ assert.equal(fiber.length,2);
+ const v=C.character(s,3);
+ const surviving=fiber.filter(candidate=>C.compatible(candidate,3,v,1e-6));
+ assert.deepEqual(surviving,[s],"Chi3 must separate each complete C8 fiber");
+}
+console.log("RECOH C8: chi3 distinguishes both candidates in all 28 fibers");
