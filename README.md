@@ -1,3 +1,5 @@
+> **Archive and working-tree boundary · 20 October 2026.** The version DOI below identifies the preserved v1.0.0 tag. The `research/` directory and later research presentations on this branch are a separate working review area, with their own evidence and open review gates. They are not included in that archived release. See [research/README.md](research/README.md).
+
 > **Current research identity (14 October 2026): [Couret — Additive and Spectral Reconstruction](RESEARCH_PROGRAMME.md).** The active research focuses on reconstruction of three-element subsets from ordered pairwise sums and separately on Cayley-graph spectral ambiguities. Lean-checked structural results and bounded exhaustive computations do not constitute external human review or establish mathematical priority. The historical name “Couret–Unification” remains in provenance records. This note does not alter the archived v1.0.0 release.
 
 > **PUBLIC SCIENTIFIC CORRECTION — 13 October 2026.** The historical [T1′–T4 Riemann-hypothesis proof chain](https://github.com/couret-interia/rh-analytic-framework-t1t4) is **invalid as a proof**. Its published T2 argument omits the nonzero diagonal of the Gram-matrix error, and T3 asserts an incompatible wave-packet normalization. Read the [explicit mathematical erratum](ERRATUM_RH_T1T4_2026-10-13.md). The original archive is preserved for historical accountability; do **not** cite it as a valid RH proof or a journal-ready proof framework. This correction does not disqualify unrelated finite checks, which have separate review limits.
@@ -5,8 +7,10 @@
 <!-- research-vision-20261016 -->
 > **Research programme and ambitions · 16 October 2026**  
 > [Présentation en français](RESEARCH_VISION_FR.md) · [Research vision in English](RESEARCH_VISION_EN.md)  
-> Our research dream is to turn a result into reasoning that can be recovered, tested and passed on. Additive reconstruction is the active mathematical entry point to the wider programme. The presentation distinguishes existing work, proposed experiments and research dreams. This repository retains its own claim and review boundaries.
+> The aim of this programme is to make results recoverable, testable and transferable. Additive reconstruction is the active mathematical entry point to the wider programme. The presentation distinguishes existing work, proposed experiments and research dreams. This repository retains its own claim and review boundaries.
 <!-- /research-vision-20261016 -->
+
+> **Authorship clarification · 20 October 2026.** Alexandre Couret is the author responsible for this programme. First-person plural wording in the linked research vision refers to his workflow with AI assistants; it does not designate a team of human coauthors or an independent validation. AI systems are assistance tools, not authors.
 
 # Couret — finite verifications (public release v1.0.0)
 
