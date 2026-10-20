@@ -10,7 +10,7 @@
 })(typeof globalThis === "object" ? globalThis : this, function () {
   "use strict";
 
-  const VERSION = "1.0.0";
+  const VERSION = "1.0.1-review";
   const DEFAULT_N = 8;
   const EPSILON_BOUNDARY_TOLERANCE = 1e-12;
 
@@ -103,8 +103,8 @@
     return { re, im };
   }
 
-  // Transformée de Fourier exacte de R : sum_{z} R(z) exp(2pi * i * k * z / n)
-  // Doit égaler exactement P_k(S)^2 (carré complexe, non |P_k|^2)
+  // Évaluation numérique de la transformée de Fourier de R : sum_{z} R(z) exp(2pi * i * k * z / n)
+  // Identité mathématique visée : P_k(S)^2 (carré complexe, non |P_k|^2)
   function fourierR(r, k, n = DEFAULT_N) {
     if (!Array.isArray(r) || r.length !== n) throw new Error("R invalide");
     const k_mod = ((k % n) + n) % n;
@@ -148,11 +148,13 @@
   // Calcul de la séparation delta_k pour un ensemble de candidats dans C_n
   // delta_k = min_{S != T} |P_k(S) - P_k(T)|
   function computeSeparation(candList, k, n = DEFAULT_N) {
-    if (!Array.isArray(candList) || candList.length < 2) {
+    if (!Array.isArray(candList)) throw new Error("Liste de candidats invalide.");
+    if (candList.length < 2) {
       return {
         delta_k: null,
-        status: "DEJA_DETERMINE",
-        description: "Fibre unitaire ou vide : séparation sans objet."
+        status: candList.length === 0 ? "OBSERVATIONS_INCOMPATIBLES" : "DEJA_DETERMINE",
+        description: candList.length === 0 ?
+          "Aucun candidat : observations incompatibles." : "Fibre unitaire : séparation sans objet."
       };
     }
     let minD = Infinity;
@@ -176,7 +178,7 @@
       return {
         margin: null,
         guarantee: "NON_APPLICABLE",
-        label: "Déjà déterminé par R"
+        label: "Séparation sans objet ; consulter le statut de la fibre."
       };
     }
     const margin = delta_k - 2 * epsilon;
@@ -321,10 +323,17 @@
             break;
           }
         }
+        const compatibleCandidates = publicFiber.filter(candidate =>
+          measurementHistory.every(m => compatible(candidate, m.k, m.y, 1e-6, n)));
+        const isCompatible = matchesR && matchesMeasurements;
         return {
           matchesR,
           matchesMeasurements,
-          isExactMatch: matchesR && matchesMeasurements
+          isCompatible,
+          compatibleCount: compatibleCandidates.length,
+          isUniqueMatch: isCompatible && compatibleCandidates.length === 1,
+          // Compatibility alone does not establish a unique reconstruction.
+          isExactMatch: isCompatible && compatibleCandidates.length === 1
         };
       },
       revealSecret() {
@@ -417,12 +426,47 @@
 
     // Recalcul indépendant de la fibre depuis R (NE PAS FAIRE CONFIANCE AUX CANDIDATS ENREGISTRÉS)
     const recomputedFiber = candidates(r, n);
+    if (data.mode !== "single" && data.mode !== "notebook") {
+      throw new Error("Mode invalide : single ou notebook attendu.");
+    }
+    if (!Array.isArray(data.measurements) || data.measurements.length > 100) {
+      throw new Error("Les mesures doivent être un tableau de taille au plus 100.");
+    }
+    if (data.mode === "single" && data.measurements.length !== 1) {
+      throw new Error("Le mode single exige exactement une lecture.");
+    }
+    if (data.group !== undefined && data.group !== "Z/" + n + "Z") {
+      throw new Error("Groupe incompatible avec n.");
+    }
+    if (data.support !== undefined) {
+      const suppliedR = convolution(checkSupport(data.support, n, 3), n);
+      if (suppliedR.some((v, i) => v !== r[i])) {
+        throw new Error("Le support enregistré ne reproduit pas observation_R.");
+      }
+    }
+    if (data.conventions !== undefined) {
+      const expected = {
+        orderedPairs: true, diagonalIncluded: true, pairSumTotal: 9,
+        fourierExponential: "exp(+2*pi*i*k*x/n)",
+        fourierIdentity: "sum_z R(z) exp(2*pi*i*k*z/n) == P_k(S)^2"
+      };
+      if (!data.conventions || typeof data.conventions !== "object" ||
+          Object.keys(expected).some(key => data.conventions[key] !== expected[key])) {
+        throw new Error("Conventions incompatibles avec le moteur.");
+      }
+    }
+    if (data.virtual_decision !== undefined && data.virtual_decision !== null &&
+        (typeof data.virtual_decision !== "object" ||
+         !Number.isInteger(data.virtual_decision.position))) {
+      throw new Error("Décision virtuelle ou position invalide.");
+    }
 
     // Validation des mesures et recalcul du filtrage
     const validMeasurements = [];
     if (Array.isArray(data.measurements)) {
       for (let i = 0; i < data.measurements.length; i++) {
         const m = data.measurements[i];
+        if (!m || typeof m !== "object") throw new Error("Mesure invalide.");
         if (!Number.isInteger(m.k) || m.k < 0 || m.k >= n) throw new Error("Mesure " + i + " : k invalide");
         if (!m.y || typeof m.y.re !== "number" || typeof m.y.im !== "number" ||
             !Number.isFinite(m.y.re) || !Number.isFinite(m.y.im)) {
@@ -444,7 +488,10 @@
     // Recalcul de la décision virtuelle si spécifiée (NE PAS FAIRE CONFIANCE AU STATUT STOCKÉ)
     let recomputedDecision = null;
     if (data.virtual_decision && Number.isInteger(data.virtual_decision.position)) {
-      recomputedDecision = evaluateVirtualDecision(recomputedFiltered, data.virtual_decision.position, n);
+      recomputedDecision = {
+        ...evaluateVirtualDecision(recomputedFiltered, data.virtual_decision.position, n),
+        position: data.virtual_decision.position
+      };
     }
 
     // Détection de divergences par rapport aux données stockées
@@ -455,13 +502,20 @@
     if (data.filtered_candidates && JSON.stringify(data.filtered_candidates) !== JSON.stringify(recomputedFiltered)) {
       discrepancies.push("Divergence sur les candidats filtrés.");
     }
-    if (data.virtual_decision && recomputedDecision && data.virtual_decision.status !== recomputedDecision.status) {
+    if (data.virtual_decision && recomputedDecision &&
+        (data.virtual_decision.status !== recomputedDecision.status ||
+         data.virtual_decision.allowed !== recomputedDecision.allowed)) {
       discrepancies.push("Divergence sur la décision virtuelle stockée vs recalculée.");
+    }
+    if (data.engine_version !== undefined && data.engine_version !== VERSION) {
+      discrepancies.push("Version moteur différente : recalcul effectué avec " + VERSION + ".");
     }
 
     return {
       valid: true,
       n,
+      mode: data.mode,
+      support: data.support ? [...data.support] : null,
       observation_R: r,
       fiber: recomputedFiber,
       measurements: validMeasurements,
@@ -495,3 +549,4 @@
     importExperiment
   };
 });
+

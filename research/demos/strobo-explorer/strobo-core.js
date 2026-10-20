@@ -10,7 +10,7 @@
 })(typeof globalThis === "object" ? globalThis : this, function () {
   "use strict";
 
-  const VERSION = "1.0.0";
+  const VERSION = "1.0.1-review";
   const SUPPORTED_ORDERS = [4, 6, 8];
 
   function checkSupport(s, n) {
@@ -127,15 +127,26 @@
       throw new Error("Schéma non reconnu : " + data.schema_version);
     }
     const n = data.n;
-    const rS = convolution(data.support_S, n);
+    triples(n); // Validate the declared finite domain before allocating arrays.
+    const checkedS = checkSupport(data.support_S, n);
+    const checkedT = checkSupport(data.support_T, n);
+    const distinct = checkedS.join(",") !== checkedT.join(",");
+    const rS = convolution(checkedS, n);
     const rT = convolution(data.support_T, n);
-    const matchesStored = rS.every((v, i) => v === data.convolution_R[i]);
-    const isExactCollision = rS.every((v, i) => v === rT[i]);
+    const matchesStored = Array.isArray(data.convolution_R) &&
+      data.convolution_R.length === n &&
+      rS.every((v, i) => v === data.convolution_R[i]);
+    const isExactCollision = distinct && rS.every((v, i) => v === rT[i]);
+    const diff = symmetricDifference(checkedS, checkedT);
+    const matchesMetadata =
+      JSON.stringify(data.symmetric_difference) === JSON.stringify(diff) &&
+      data.delta_cardinality === diff.length &&
+      data.zero_free_diff === !diff.includes(0);
     return {
-      valid: isExactCollision && matchesStored,
+      valid: isExactCollision && matchesStored && matchesMetadata,
       recomputed_R: rS,
       isExactCollision: isExactCollision,
-      recomputed_diff: symmetricDifference(data.support_S, data.support_T)
+      recomputed_diff: diff
     };
   }
 
@@ -151,3 +162,4 @@
     verifyWitness
   };
 });
+
