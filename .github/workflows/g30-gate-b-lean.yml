@@ -7,13 +7,15 @@ on:
     paths:
       - "research/g30-gate-b-lean/**"
       - ".github/workflows/g30-gate-b-lean.yml"
+      - "PUBLIC_CLAIM_STATUS.json"
+      - "scripts/check_public_claim_status.py"
   workflow_dispatch:
 
 jobs:
   gate-b:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Verify canonical Drive hashes
         working-directory: research/g30-gate-b-lean
@@ -44,6 +46,14 @@ jobs:
       - name: Compile G30 complex spectrum certificate
         working-directory: research/g30-gate-b-lean
         run: lake env lean G30ComplexSpectrum.lean
+
+      - name: Print axiom dependencies of every active G30 declaration
+        working-directory: research/g30-gate-b-lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          python ../../scripts/check_public_claim_status.py --emit-axiom-audit "$RUNNER_TEMP/G30AxiomAudit.lean"
+          lake env lean "$RUNNER_TEMP/G30AxiomAudit.lean" | tee "$RUNNER_TEMP/g30-axioms.txt"
 
       - name: Reject sorry/admit in certificate
         shell: bash

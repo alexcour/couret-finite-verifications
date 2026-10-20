@@ -1,14 +1,41 @@
-> **Current research identity (14 October 2026): [Couret — Additive and Spectral Reconstruction](RESEARCH_PROGRAMME.md).** The active research focuses on reconstruction of three-element subsets from ordered pairwise sums and separately on Cayley-graph spectral ambiguities. Lean-checked structural results and bounded exhaustive computations do not constitute external human review or establish mathematical priority. The historical name “Couret–Unification” remains in provenance records. This note does not alter the archived v1.0.0 release.
+# Couret finite verifications and research review index
+
+The [v1.0.0 tag](https://github.com/alexcour/couret-finite-verifications/tree/v1.0.0)
+and its DOI identify the archived finite-computation release. The default branch
+also contains later documentation and bounded research checks. The STROBO and
+Cayley proof developments remain on the review branches linked below.
+
+For a result, use its exact source revision and verification receipt.
+[BRANCHES.md](BRANCHES.md) records the review entry points and their integration
+status. [LEAN_AUDIT.md](LEAN_AUDIT.md) explains the G30 native-computation trust
+model and the scope of the larger branch developments.
+
+<!-- BEGIN GENERATED PUBLIC CLAIM STATUS -->
+
+Status snapshot: **2026-10-20**. Source: `PUBLIC_CLAIM_STATUS.json`.
+
+| Object | Verification scope | Integration | Human review | Originality |
+| --- | --- | --- | --- | --- |
+| [G30 exact finite certificate](https://github.com/alexcour/couret-finite-verifications/blob/5bfca060ce3a4ed5687bd80d0cccab73767074b3/research/g30-gate-b-lean/G30ComplexSpectrum.lean) | Finite certificate using native evaluation | main research directory | open | not claimed |
+| [STROBO structural results](https://github.com/alexcour/couret-finite-verifications/pull/25) | Formal results on an open review branch | open draft not merged | open | unestablished |
+| [Cayley COU-20 structural results](https://github.com/alexcour/couret-finite-verifications/pull/49) | Formal results on an open review branch | open draft not merged | open | unestablished |
+
+`RHClaimed=false`; `novelty_claimed=false`; `external_mathematical_review_completed=false`.
+These flags are publication boundaries, not new mathematical theorems.
+
+<!-- END GENERATED PUBLIC CLAIM STATUS -->
 
 > **PUBLIC SCIENTIFIC CORRECTION — 13 October 2026.** The historical [T1′–T4 Riemann-hypothesis proof chain](https://github.com/couret-interia/rh-analytic-framework-t1t4) is **invalid as a proof**. Its published T2 argument omits the nonzero diagonal of the Gram-matrix error, and T3 asserts an incompatible wave-packet normalization. Read the [explicit mathematical erratum](ERRATUM_RH_T1T4_2026-10-13.md). The original archive is preserved for historical accountability; do **not** cite it as a valid RH proof or a journal-ready proof framework. This correction does not disqualify unrelated finite checks, which have separate review limits.
 
-<!-- research-vision-20261016 -->
-> **Research programme and ambitions · 16 October 2026**  
-> [Présentation en français](RESEARCH_VISION_FR.md) · [Research vision in English](RESEARCH_VISION_EN.md)  
-> Our research dream is to turn a result into reasoning that can be recovered, tested and passed on. Additive reconstruction is the active mathematical entry point to the wider programme. The presentation distinguishes existing work, proposed experiments and research dreams. This repository retains its own claim and review boundaries.
-<!-- /research-vision-20261016 -->
+## Research context
 
-# Couret — finite verifications (public release v1.0.0)
+The active mathematical programme concerns additive reconstruction and Cayley
+spectral ambiguities. See [RESEARCH_PROGRAMME.md](RESEARCH_PROGRAMME.md) and the
+contextual presentations in [French](RESEARCH_VISION_FR.md) and
+[English](RESEARCH_VISION_EN.md). These research ambitions do not extend the
+claims of the archived release or establish originality.
+
+## Archived finite release v1.0.0
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22978365.svg)](https://doi.org/10.5281/zenodo.22978365)
 
