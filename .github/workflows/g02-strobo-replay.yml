@@ -1,0 +1,44 @@
+name: G02 STROBO finite replay
+on:
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/verify_strobo_2tors.py'
+      - 'research/strobo-2tors-2026-10-12/verify_remaining_profiles_20261013.py'
+      - 'research/strobo-2tors-2026-10-12/remaining_profiles_results_20261013.json'
+      - '.github/workflows/g02-strobo-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source and environment
+        run: |
+          echo "checkout=$(git rev-parse HEAD)"
+          python --version
+      - name: Exact STROBO fibre verification
+        working-directory: research/strobo-2tors-2026-10-12
+        run: python3 verify_strobo_2tors.py > "$RUNNER_TEMP/strobo-fibres.log"
+      - name: Regenerate and compare profile JSON
+        working-directory: research/strobo-2tors-2026-10-12
+        run: |
+          cp remaining_profiles_results_20261013.json "$RUNNER_TEMP/remaining_profiles.expected.json"
+          python3 verify_remaining_profiles_20261013.py > "$RUNNER_TEMP/strobo-profiles.log"
+          diff -u "$RUNNER_TEMP/remaining_profiles.expected.json" remaining_profiles_results_20261013.json
+          git diff --exit-code -- remaining_profiles_results_20261013.json
+      - name: Retain evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strobo-finite-replay
+          path: |
+            ${{ runner.temp }}/strobo-fibres.log
+            ${{ runner.temp }}/strobo-profiles.log
+            ${{ runner.temp }}/remaining_profiles.expected.json
+          if-no-files-found: ignore
