@@ -24,6 +24,7 @@ label{display:block;margin:12px 0 5px}input,select{background:#091725;color:#e9f
 <header><h1>RECOH Lab — reconstruction dans C₈</h1>
 <p>Démonstrateur expérimental de sommes ordonnées étiquetées. Calcul exact de la convolution; évaluation spectrale numérique séparée.</p></header>
 <main>
+<section class="panel"><h2>Défi de reconstruction à l’aveugle</h2><p>Essayez de retrouver un triplet caché à partir de sa convolution, puis utilisez une nouvelle mesure pour lever l’ambiguïté.</p><p><a href="./challenge.html">Ouvrir le défi interactif →</a></p></section>
 <div class="layout">
 <section class="panel"><h2>1. Choisir un support</h2>
 <p>Sélectionnez trois éléments distincts de C₈.</p>
@@ -65,7 +66,7 @@ function render(){
  for(let i=0;i<8;i++){
   const b=document.createElement("button");b.className="node"+(s.includes(i)?" active":"");
   b.textContent=i;b.setAttribute("aria-pressed",String(s.includes(i)));
-  b.onclick=()=>{if(s.includes(i)){if(s.length===3){s=s.filter(x=>x!==i);render();}else{s=s.filter(x=>x!==i);render();}}else if(s.length<3){s=[...s,i].sort((a,b)=>a-b);render();}};
+  b.onclick=()=>{if(s.includes(i)){s=s.filter(x=>x!==i);render();}else if(s.length<3){s=[...s,i].sort((a,b)=>a-b);render();}};
   nodes.append(b);
  }
  $("support").textContent="Support actuel : "+display(s)+(s.length!==3?" — sélectionner "+(3-s.length)+" élément(s)":"");
