@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RECOH Lab — C8</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#e9f0f3;background:#0d1724}*{box-sizing:border-box}
+body{max-width:1030px;margin:auto;padding:24px}a{color:#91ddcf}header p,.muted{color:#abc0ce}
+.panel{background:#172536;border:1px solid #314454;border-radius:14px;padding:20px;margin:14px 0}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}button,input,select{font:inherit}
+button{background:#153c43;color:white;border:1px solid #638e98;border-radius:9px;padding:9px;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f6d17e}
+button.active{background:#167e70}button:disabled{opacity:.4;cursor:not-allowed}
+.nodes{display:grid;grid-template-columns:repeat(8,1fr);gap:7px}
+.node{height:45px}.barrow{display:grid;grid-template-columns:30px 1fr 24px;gap:10px;align-items:center;margin:5px 0}
+.bar{height:12px;background:#0b141c;border-radius:6px}.bar span{display:block;height:100%;background:#41ba9c;border-radius:6px}
+code,.digits{font-family:ui-monospace,monospace}#candidates{display:grid;gap:7px}.cand{display:block;text-align:left;width:100%}
+label{display:block;margin:12px 0 5px}input,select{background:#091725;color:#e9f0f3;padding:7px;border:1px solid #537281;border-radius:8px}
+.note{background:#243246;border-left:4px solid #e6be76;padding:11px}
+@media(max-width:750px){.layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>RECOH Lab — reconstruction dans C₈</h1>
+<p>Démonstrateur expérimental de sommes ordonnées étiquetées. Calcul exact de la convolution; évaluation spectrale numérique séparée.</p></header>
+<main>
+<div class="layout">
+<section class="panel"><h2>1. Choisir un support</h2>
+<p>Sélectionnez trois éléments distincts de C₈.</p>
+<div id="nodes" class="nodes" role="group" aria-label="Résidus de zéro à sept"></div>
+<p id="support" class="digits"></p>
+<button id="reset">Restaurer {0,3,5}</button>
+<button id="random">Autre triplet</button></section>
+<section class="panel"><h2>2. Observer les sommes</h2><p>R(k) compte les couples ordonnés (a,b) tels que a+b ≡ k (mod 8), diagonale incluse.</p>
+<div id="bars"></div><p id="vector" class="digits"></p></section>
+</div>
+<section class="panel"><h2>3. Reconstruire sans connaître l'original</h2>
+<p>Les 56 triplets possibles sont énumérés exactement, puis filtrés par comparaison entière.</p>
+<p id="total"></p><div id="candidates"></div>
+<p id="boundary" class="note"></p></section>
+<section class="panel"><h2>4. Ajouter une observation Fourier</h2>
+<p>χᵏ(S)=Σ<sub>x∈S</sub> exp(2πikx/8). Cette convention définit explicitement le signe de la phase.</p>
+<label for="k">Caractère mesuré</label><select id="k"><option value="3">χ³ (exemple)</option><option value="1">χ¹</option><option value="2">χ²</option><option value="4">χ⁴</option><option value="5">χ⁵</option><option value="6">χ⁶</option><option value="7">χ⁷</option><option value="0">χ⁰</option></select>
+<label for="re">Mesure — partie réelle</label><input id="re" type="number" step="any">
+<label for="im">Mesure — partie imaginaire</label><input id="im" type="number" step="any">
+<label for="tol">Tolérance euclidienne (amplitude complexe)</label><input id="tol" type="number" step="0.01" min="0" value="0.1">
+<p><button id="measure">Préremplir avec la mesure du support affiché</button></p>
+<p id="filter"></p><div id="filtered"></div></section>
+<section class="panel"><h2>5. Exporter l'expérience</h2>
+<p>Le JSON inclut les données, les paramètres de filtrage et les résultats. Cette exportation n'est ni une preuve formelle ni une validation indépendante.</p>
+<button id="export">Exporter JSON</button>
+<p class="muted">Statut : démonstrateur de calcul fini en revue. La nouveauté mathématique et la généralisation sont des questions distinctes. Aucun service extérieur ni collecte de données.</p></section>
+</main>
+<script src="./recoh-core.js"></script>
+<script>
+"use strict";
+const C=globalThis.RECOH_CORE;
+let s=[0,3,5];
+const $=id=>document.getElementById(id);
+const fmt=x=>(Math.abs(x)<1e-10?0:x).toFixed(6);
+const display=a=>"{"+a.join(", ")+"}";
+let cand=[];
+function render(){
+ const nodes=$("nodes");nodes.replaceChildren();
+ for(let i=0;i<8;i++){
+  const b=document.createElement("button");b.className="node"+(s.includes(i)?" active":"");
+  b.textContent=i;b.setAttribute("aria-pressed",String(s.includes(i)));
+  b.onclick=()=>{if(s.includes(i)){if(s.length===3){s=s.filter(x=>x!==i);render();}else{s=s.filter(x=>x!==i);render();}}else if(s.length<3){s=[...s,i].sort((a,b)=>a-b);render();}};
+  nodes.append(b);
+ }
+ $("support").textContent="Support actuel : "+display(s)+(s.length!==3?" — sélectionner "+(3-s.length)+" élément(s)":"");
+ if(s.length!==3){$("bars").replaceChildren();$("vector").textContent="";$("total").textContent="Choisissez trois points."; $("candidates").replaceChildren();$("boundary").textContent="La reconstruction requiert trois éléments.";cand=[];filter();return}
+ const r=C.convolution(s);cand=C.candidates(r);
+ $("bars").replaceChildren();
+ for(let i=0;i<8;i++){const row=document.createElement("div");row.className="barrow"; const label=document.createElement("span");label.textContent=i;const bar=document.createElement("div");bar.className="bar";const fill=document.createElement("span");fill.style.width=(r[i]/9*100)+"%";bar.append(fill);const val=document.createElement("strong");val.textContent=r[i];row.append(label,bar,val);$("bars").append(row)}
+ $("vector").textContent="R = ["+r.join(", ")+"]";
+ $("total").textContent=cand.length+" triplet(s) compatible(s) avec cette observation exacte.";
+ $("candidates").replaceChildren();
+ cand.forEach(x=>{let e=document.createElement("div");e.textContent=display(x);$("candidates").append(e)});
+ $("boundary").textContent="Égalité de R : conclusion exacte pour les 56 triplets de C₈. Une expérience finie n'est pas une preuve générale.";
+ filter();
+}
+function filter(){
+ $("filtered").replaceChildren();
+ if(!cand.length){$("filter").textContent="Sélection incomplète.";return}
+ const k=Number($("k").value), re=Number($("re").value),im=Number($("im").value),tol=Number($("tol").value);
+ if($("re").value===""||$("im").value===""||$("tol").value===""||!Number.isFinite(re)||!Number.isFinite(im)||!Number.isFinite(tol)||tol<0){$("filter").textContent="Renseignez une mesure complexe valide et une tolérance positive ou nulle.";return}
+ const compatible=cand.filter(x=>C.compatible(x,k,{re,im},tol));
+ $("filter").textContent=compatible.length+" candidat(s) compatible(s) avec la mesure χ"+k+" et la tolérance "+tol+".";
+ for(const x of compatible){const v=C.character(x,k);const e=document.createElement("div");e.textContent=display(x)+" : "+fmt(v.re)+" "+(v.im<0?"−":"+")+" "+fmt(Math.abs(v.im))+"i";$("filtered").append(e)}
+ if(!compatible.length){$("filtered").textContent="Aucun candidat : mesure et tolérance incompatibles avec les données exactes."}
+}
+function measure(){if(s.length!==3)return;const k=Number($("k").value),v=C.character(s,k);$("re").value=fmt(v.re);$("im").value=fmt(v.im);filter()}
+$("reset").onclick=()=>{s=[0,3,5];render();measure()};
+$("random").onclick=()=>{const list=C.triples();s=list[Math.floor(Math.random()*list.length)];render();measure()};
+$("measure").onclick=measure;
+["k","re","im","tol"].forEach(id=>$(id).addEventListener("input",filter));
+$("export").onclick=()=>{
+ if(s.length!==3)return;
+ const r=C.convolution(s),k=Number($("k").value), re=$("re").value,im=$("im").value,tol=$("tol").value;
+ const valid=re!==""&&im!==""&&tol!==""&&Number.isFinite(Number(re))&&Number.isFinite(Number(im))&&Number.isFinite(Number(tol))&&Number(tol)>=0;
+ const obj={schema:"recoh-lab-c8/0.1",status:"finite-review-demonstrator",group:"Z/8Z",orderedPairs:true,diagonalIncluded:true,support:s,convolution:r,candidates:cand,characterConvention:"exp(+2*pi*i*k*x/8)",k,observation:valid?{re:Number(re),im:Number(im),tolerance:Number(tol)}:null,filteredCandidates:valid?cand.filter(x=>C.compatible(x,k,{re:Number(re),im:Number(im)},Number(tol))):null};
+ const blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="recoh-c8-experiment.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+render();measure();
+</script></body></html>
