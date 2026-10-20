@@ -1,0 +1,22 @@
+"use strict";
+const assert=require("node:assert/strict");
+const C=require("./recoh-core.js");
+assert.equal(C.triples().length,56);
+assert.deepEqual(C.convolution([0,3,5]),[3,0,1,2,0,2,1,0]);
+assert.deepEqual(C.candidates([3,0,1,2,0,2,1,0]),[[0,3,5],[1,4,7]]);
+assert.deepEqual(C.translate([0,3,5],4),[1,4,7]);
+assert.equal(C.triples().every(s=>C.candidates(C.convolution(s)).some(t=>JSON.stringify(t)===JSON.stringify(s))),true);
+assert.equal(C.triples().every(s=>C.convolution(s).reduce((a,b)=>a+b,0)===9),true);
+const k=3,a=C.character([0,3,5],k),b=C.character([1,4,7],k);
+assert.ok(Math.abs(a.re-(1+Math.SQRT2))<1e-10);
+assert.ok(Math.hypot(a.re-b.re,a.im-b.im)>1);
+assert.equal(C.compatible([0,3,5],3,a,0.1),true);
+assert.equal(C.compatible([1,4,7],3,a,0.1),false);
+assert.equal(C.compatible([1,4,7],3,a,5),true);
+const fibres=new Map();
+for(const s of C.triples()){const key=C.convolution(s).join(",");fibres.set(key,(fibres.get(key)||0)+1)}
+assert.equal(fibres.size,28);
+assert.ok([...fibres.values()].every(x=>x===2));
+assert.throws(()=>C.convolution([0,0,1]));
+assert.throws(()=>C.compatible([0,3,5],3,{re:NaN,im:0},0.1));
+console.log("RECOH C8: all exact finite and numeric example tests passed");
