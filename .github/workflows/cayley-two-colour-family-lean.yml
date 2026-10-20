@@ -1,0 +1,50 @@
+name: cayley-two-colour-family-lean
+on:
+  push:
+    branches: [review/correspondants-q5-strobo-20261013]
+    paths:
+      - 'research/correspondants_20261013/lean/**'
+      - '.github/workflows/cayley-two-colour-family-lean.yml'
+  pull_request:
+    paths:
+      - 'research/correspondants_20261013/lean/**'
+      - '.github/workflows/cayley-two-colour-family-lean.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  two-colour-candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Reject placeholders
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/correspondants_20261013/lean/CayleyTwoColourFamily.lean research/correspondants_20261013/lean/CayleyTwoColourZMod.lean; then
+            exit 1
+          fi
+      - name: Install Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Verify core and new bridge
+        working-directory: research/correspondants_20261013/lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake resolve-deps
+          lake exe cache get
+          lean --version
+          lake env lean CayleyDoubletCore.lean
+          mkdir -p .lake/build/lib/lean
+          lake env lean -o .lake/build/lib/lean/CayleyDoubletCore.olean CayleyDoubletCore.lean
+          lake env lean -o .lake/build/lib/lean/CayleyTwoColourFamily.olean CayleyTwoColourFamily.lean
+          lake env lean CayleyTwoColourZMod.lean

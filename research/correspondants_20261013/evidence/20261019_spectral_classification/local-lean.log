@@ -1,0 +1,481 @@
+0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e
+Lean (version 4.29.1, x86_64-unknown-linux-gnu, commit f72c35b3f637c8c6571d353742168ab66cc22c00, Release)
+'Couret.CayleyDoublet.twoShared_iff' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.isMate_iff' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.uniqueMate_natural' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.doubletArc_iff' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.iterateMap_conjugate' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.iterateMap_period_iff' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.markedQuotient_natural' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.no_conjugacy_when_periods_differ' depends on axioms: [Quot.sound]
+CayleyDoubletCore.lean:460:42: warning: This simp argument is unused:
+  add_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [sub_eq_add_neg, add_a̵s̵s̵o̵c̵,̵ ̵a̵d̵d̵_̵left_comm, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CayleyDoubletCore.lean:460:53: warning: This simp argument is unused:
+  add_left_comm
+
+Hint: Omit it from the simp argument list.
+  simp [sub_eq_add_neg, add_assoc, a̵d̵d̵_̵l̵e̵f̵t̵_̵c̵o̵m̵m̵,̵ ̵add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'Couret.CayleyDoublet.isMate_eq_halfTurn_of_rigid' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.halfTurn_isMate' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.halfTurn_unique_of_rigid' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.markedArc_quotient_formula' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.shiftSteps_fixed_iff' depends on axioms: [propext]
+'Couret.CayleyDoublet.singletonArc_iff' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.singletonQuotient_natural' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.relativeOffset_iff' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.noTwoColourConjugacy' depends on axioms: [Quot.sound]
+'Couret.CayleyDoublet.singletonArc_iff_point' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.singletonArc_quotient_formula' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.bothColours_quotient_formulas' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.no_cross_collision_of_order_three' depends on axioms: [propext]
+'Couret.CayleyDoublet.signed_cross_differences_distinct_of_order_three' depends on axioms: [propext]
+CayleyDoubletCore.lean:913:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:920:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:936:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:943:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:950:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:969:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:976:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:983:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1006:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1019:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1026:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1033:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1050:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1064:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1141:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1148:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1164:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:1171:38: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+CayleyDoubletCore.lean:927:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CayleyDoubletCore.lean:992:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CayleyDoubletCore.lean:999:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CayleyDoubletCore.lean:1057:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CayleyDoubletCore.lean:1155:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CayleyDoubletCore.lean:1178:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CayleyDoubletCore.lean:913:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:920:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:936:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:943:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:950:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:969:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:976:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:983:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1006:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1019:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1026:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1033:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1050:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1064:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1141:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1148:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1164:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyDoubletCore.lean:1171:38: warning: 'simp [hhalf]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Couret.CayleyDoublet.tripleSupport_differenceRigid_of_order_three' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.halfTurn_unique_of_order_three' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.exceptionalTriple_mate_and_two_colours' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.iterateMap_add_shift' depends on axioms: [propext]
+'Couret.CayleyDoublet.distinct_relative_shifts_no_conjugacy' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.noIso_of_two_colours' depends on axioms: [propext, Quot.sound]
+CayleyTwoColourAbelian.lean:354:4: warning: 'change (x + y) + p (x + y) = (x + p x) + (y + p y)' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+CayleyTwoColourAbelian.lean:448:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianZModThreeLift_one`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourAbelian.lean:460:15: warning: This simp argument is unused:
+  one_zsmul
+
+Hint: Omit it from the simp argument list.
+  simp [o̵n̵e̵_̵z̵s̵m̵u̵l̵,̵ ̵add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CayleyTwoColourAbelian.lean:467:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianZModThreeLift_three`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourAbelian.lean:613:38: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CayleyTwoColourAbelian.lean:656:46: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CayleyTwoColourAbelian.lean:869:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianSixSeparations_of_double_ne`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourAbelian.lean:969:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianThree_double_ne_halfTurn`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Couret.CayleyDoublet.abelianSixSeparations_of_double_ne' depends on axioms: [propext]
+'Couret.CayleyDoublet.abelianSixSeparations_iff_double_ne' depends on axioms: [propext]
+'Couret.CayleyDoublet.abelianThreeSeparations_iff_double_ne_zero' depends on axioms: [propext]
+'Couret.CayleyDoublet.abelianThree_double_ne_halfTurn' depends on axioms: [propext]
+'Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration' depends on axioms: [propext, Classical.choice, Quot.sound]
+CayleyTwoColourAbelian.lean:1014:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelian_mem_zmultiples_halfTurn_iff`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Couret.CayleyDoublet.abelian_mem_zmultiples_halfTurn_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelian_quotient_addOrderOf_three_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_quotient_order_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_separated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianNoIso_of_doublet_mem_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThreeCharacter_of_generation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThreeProjection_of_nongeneration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeReflection_of_nongeneration_arc_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeProjection_of_character' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThreeReflection_of_character_arc_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeReflection_arc_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianOrderedSquare_source_target' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.abelianTripleSquareCoeff_source_target' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.noIso_of_two_colours_mod_halfTurn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianSource_singleton_iff' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.abelianSource_doublet_iff' depends on axioms: [propext, Quot.sound]
+CayleyTwoColourSpectral.lean:244:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianTranslationMatrix_zero`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:255:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianCayleyMatrix_eq_sum`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:275:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianParitySign_sq`:
+  [DecidableEq G]
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:280:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianCayleyMatrix_parity_sign`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:499:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianCayleyMatrix_apply`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:532:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianThree_support_parity`:
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:547:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianThree_parity_d_zero`:
+  [DecidableEq G]
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourSpectral.lean:701:25: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'Couret.CayleySpectral.charpoly_eq_of_sq_eq_of_signs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleySpectral.trace_pow_eq_zero_of_odd_of_signs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleySpectral.odd_pow_sub_of_sq_eq' depends on axioms: [propext]
+'Couret.CayleyDoublet.abelianCayleyMatrix_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianCayleyMatrix_sq_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianCayleyMatrix_sq_eq_of_quotient_order_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeCospectral_of_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_parity_d_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianCayleyMatrix_charpoly_of_iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThreeCospectral_of_nongeneration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_pow_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_traces_zero_of_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_trace_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_trace_ne_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.exists_parity_of_even_generator_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.exists_parity_of_even_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.exists_parity_of_even_card_of_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.surjective_of_value_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.even_natCard_of_value_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.even_natCard_of_exists_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.even_natCard_quotient_of_parity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.apply_eq_zero_of_odd_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyParity.apply_eq_zero_of_odd_nsmul_mem_zmultiples' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelian_quotient_zmultiples_generator_of_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelian_quotient_closure_singleton_of_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelian_quotient_natCard_even_of_odd_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelian_quotient_natCard_even_of_order_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianQuotient_generated_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianPairParity_of_even_card_of_odd_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianParity_of_even_quotient_of_odd_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianParity_exists_iff_even_quotient_of_odd_order' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeParity_of_even_quotient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThreeParity_exists_iff_even_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeCospectral_of_even_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThreeCospectral_of_nongeneration_or_even_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_traces_zero_of_even_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+CayleyTwoColourNecessity.lean:82:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianThree_odd_quotient_return`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Couret.CayleyNecessity.oddify_nsmul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNecessity.odd_multiple_or_neg_of_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_quotient_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_odd_trace_witness_of_odd_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.rational_trace_eq_of_charpoly_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_spectral_necessity_of_trace_bridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_trace_bridge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyNewton.reverseCharpolyCoeff_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.newtonTraceEquation_eq_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.matrix_trace_eq_at_of_charpoly_eq_of_newton_at' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyNewton.charpoly_ne_of_first_trace_difference_of_newton_at' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyNewton.newton_first_coefficient_gap_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.newton_first_coefficient_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.newton_coefficient_prefix_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.newton_first_gap_of_trace_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.newton_first_coefficient_ne_of_trace_prefix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyNewton.newtonTraceEquation_unique_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_of_newton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_newton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_even_trace_eq_of_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+CayleyTwoColourFirstReturn.lean:60:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.quotient_alpha_order_of_pair_generation`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+CayleyTwoColourFirstReturn.lean:81:0: warning: automatically included section variable(s) unused in theorem `Couret.CayleyDoublet.abelianThree_no_early_quotient_return`:
+  [DecidableEq G]
+  [Fintype G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] [Fintype G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'Couret.CayleyFirstReturn.no_early_three_torsion_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.quotient_alpha_order_of_pair_generation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_no_early_quotient_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_trace_eq_before_third' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyCanonical.canonical_of_bounded_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyCanonical.canonical_of_natural_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyCanonical.canonical_of_odd_cyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_canonical_odd_quotient_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.odd_ell_of_odd_three_mul' depends on axioms: [propext, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_canonical_odd_trace_difference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_charpoly_ne_of_newton_prefix' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyThirdFactor.odd_third_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_exists_canonical_odd_return' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_noncospectral_odd_of_newton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Matrix.trace_eq_sum_roots_charpoly_of_splits.{u_1, u_3} {n : Type u_1} [Fintype n] [DecidableEq n] {K : Type u_3}
+  [Field K] {A : Matrix n n K} (hAps : A.charpoly.Splits) : A.trace = A.charpoly.roots.sum
+Matrix.trace_eq_neg_charpoly_coeff.{u, v} {R : Type u} [CommRing R] {n : Type v} [DecidableEq n] [Fintype n]
+  [Nonempty n] (M : Matrix n n R) : M.trace = -M.charpoly.coeff (Fintype.card n - 1)
+Matrix.charpolyRev.{u, v} {R : Type u} [CommRing R] {n : Type v} [DecidableEq n] [Fintype n] (M : Matrix n n R) :
+  Polynomial R
+Matrix.coeff_det_one_add_X_smul_one.{u, v} {R : Type u} [CommRing R] {n : Type v} [DecidableEq n] [Fintype n]
+  (M : Matrix n n R) : (1 + Polynomial.X • M.map ⇑Polynomial.C).det.coeff 1 = M.trace
+Matrix.derivative_det_one_add_X_smul.{u, v} {R : Type u} [CommRing R] {n : Type v} [DecidableEq n] [Fintype n]
+  (M : Matrix n n R) : Polynomial.eval 0 (Polynomial.derivative (1 + Polynomial.X • M.map ⇑Polynomial.C).det) = M.trace
+MvPolynomial.psum_eq_mul_esymm_sub_sum.{u_1, u_2} (σ : Type u_1) [Fintype σ] (R : Type u_2) [CommRing R] (k : ℕ)
+  (h : 0 < k) :
+  MvPolynomial.psum σ R k =
+    (-1) ^ (k + 1) * ↑k * MvPolynomial.esymm σ R k -
+      ∑ a ∈ Finset.antidiagonal k with a.1 ∈ Set.Ioo 0 k,
+        (-1) ^ a.1 * MvPolynomial.esymm σ R a.1 * MvPolynomial.psum σ R a.2
+MvPolynomial.mul_esymm_eq_sum.{u_1, u_2} (σ : Type u_1) [Fintype σ] (R : Type u_2) [CommRing R] (k : ℕ) :
+  ↑k * MvPolynomial.esymm σ R k =
+    (-1) ^ (k + 1) *
+      ∑ a ∈ Finset.antidiagonal k with a.1 < k, (-1) ^ a.1 * MvPolynomial.esymm σ R a.1 * MvPolynomial.psum σ R a.2
+'Matrix.derivative_det_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Matrix.derivative_charpoly_eq_trace_adjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Matrix.derivative_det_one_sub_X_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.trace_pow_eq_of_charpoly_eq_of_jacobi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.trace_pow_eq_of_charpoly_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.coeff_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.matPolyEquiv_reverseCharmatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.reverseCharmatrix_mul_adjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.adjugateCoeff_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.adjugateCoeff_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.adjugateCoeff_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.trace_mul_adjugateCoeff_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CharpolyTrace.trace_mul_adjugateCoeff_eq_of_jacobi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.reverseCharpolyCoeff_eq_charpolyRev' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.satisfiesMatrixNewton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_via_newton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_first_trace_difference_at_quotient_third' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Couret.CayleyDoublet.abelianThree_spectral_necessity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_spectral_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Couret.CayleyDoublet.abelianThree_noncospectral_of_generated_odd_quotient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

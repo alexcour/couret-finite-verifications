@@ -1,0 +1,56 @@
+name: cou20-abelian-lean-candidate
+
+on:
+  push:
+    branches: [research/cou-20-abelian-two-colour-20261015]
+  pull_request:
+    paths:
+      - 'research/correspondants_20261013/lean/**'
+      - 'research/correspondants_20261013/tests/check_cou20_axioms.py'
+      - 'research/correspondants_20261013/tests/check_cou20_classification_axioms.py'
+      - 'research/correspondants_20261013/tests/cou20-certified-sources.json'
+      - 'research/correspondants_20261013/tests/verify_cou20_necessity.sh'
+      - 'research/correspondants_20261013/tests/cou20_homometry_exact.py'
+      - '.github/workflows/cou20-abelian-lean-candidate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  abelian-bridge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Reject incomplete proof placeholders
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|axiom)([^[:alnum:]_]|$)' research/correspondants_20261013/lean/CayleyTwoColourAbelian.lean research/correspondants_20261013/lean/CayleyTwoColourSpectral.lean research/correspondants_20261013/lean/CayleyTwoColourParity.lean; then
+            exit 1
+          fi
+      - name: Install Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Kernel-check bridge and dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash research/correspondants_20261013/tests/verify_cou20_necessity.sh
+      - name: Exact homometry regression (not a Lean proof)
+        shell: bash
+        run: python3 research/correspondants_20261013/tests/cou20_homometry_exact.py
+      - name: Preserve compiler log and axiom receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cou20-spectral-classification-audit
+          path: research/correspondants_20261013/lean/.lake/cou20-audit/
+          if-no-files-found: warn
+

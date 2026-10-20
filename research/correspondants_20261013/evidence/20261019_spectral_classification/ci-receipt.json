@@ -1,0 +1,668 @@
+{
+  "source_commit": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+  "toolchain": "leanprover/lean4:v4.29.1",
+  "manifest_sha256": "3c512317c3a351f6ad8a5be1fd429163acfcc3f3796d2fa4fe652b19d36bd575",
+  "certified_sources_preserved": true,
+  "source_sha256": {
+    "CayleyDoubletCore.lean": "7162f949e4d7aece3f9241308253678a1dadd2e7255ff303aab69f6bf9731a4a",
+    "CayleyTwoColourFamily.lean": "69673503e6f3aca79e315886c18f61d28f50b63808dcab10fe39ca827bd7c5f3",
+    "CayleyTwoColourAbelian.lean": "c9643d6e3a677d5a903623825d50a309d87175a21ace2b7ab56939d9189f13b1",
+    "CayleyTwoColourSpectral.lean": "c35f0bcb235d6cfd9ce9cf16e4ece0a784c0c18ed967e268865d8a9c061aa16b",
+    "CayleyTwoColourParity.lean": "d093cc5d0fb31526ef68d4b1d68ee24818c67ebec52adc75170199eecb1ea7a6",
+    "CayleyTwoColourNecessity.lean": "7675ca2a1f08e8c6a20617d181810b5c2b6a4f0cffcf96b93678cb0bc9c7869d",
+    "CayleyTwoColourNewton.lean": "2a16c18cd916994db6f9967e25da73baa67cd8fa6f444067cba08d9bc99d049c",
+    "CayleyTwoColourFirstReturn.lean": "1dcc5a145d246c6fe4f97e77da583efa74c5bd4607939c25f4fefa9de830b0ef",
+    "CayleyTwoColourCanonicalReturn.lean": "d42d32ebf171bc2a72aa60523719dbdaaf3f0930bd30560960b5a8d6dae8cfa9",
+    "CayleyTwoColourThirdFactor.lean": "e70e1aee776509b376b41c8a8e2a0e86da60bd4afd69cfc444455445ef314974",
+    "PolynomialJacobi.lean": "9f05f98f965a0100651cade5bd4826f50af073a9e71eb72ae472cdc0ba6092e3",
+    "CayleyCharpolyTrace.lean": "9d047dab2b170c5e9f2aa123bbdc1e6c99a3007f1937dea965a61d17a484ce92",
+    "CayleyTwoColourMatrixNewton.lean": "690d7c3068be85de243c61c581f1c06c810bb3d0b94aaacad9a01fbf92387d15",
+    "CayleyTwoColourClassification.lean": "d5e3fa101ab825c87b19dceead2d61cb5de3cf4986d44637cad46caf7831ac24"
+  },
+  "public_new_theorems": 20,
+  "axiom_checks": 139,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "axioms": {
+    "Couret.CayleyCanonical.canonical_of_bounded_coordinate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyCanonical.canonical_of_natural_coordinate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyCanonical.canonical_of_odd_cyclic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianCayleyMatrix_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianCayleyMatrix_charpoly_of_iso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianCayleyMatrix_sq_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianCayleyMatrix_sq_eq_of_quotient_order_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianNoIso_of_doublet_mem_closure": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianOrderedSquare_source_target": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianPairParity_of_even_card_of_odd_order": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianParity_exists_iff_even_quotient_of_odd_order": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianParity_of_even_quotient_of_odd_order": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianQuotient_generated_pair": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianSixSeparations_iff_double_ne": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianSixSeparations_of_double_ne": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianSource_doublet_iff": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianSource_singleton_iff": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeCharacter_of_generation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeCospectral_of_even_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeCospectral_of_nongeneration": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeCospectral_of_nongeneration_or_even_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeCospectral_of_parity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_quotient_order_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration_of_separated": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeParity_exists_iff_even_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeParity_of_even_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeProjection_of_character": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeProjection_of_nongeneration": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeReflection_arc_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeReflection_of_character_arc_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeReflection_of_nongeneration_arc_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThreeSeparations_iff_double_ne_zero": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_canonical_odd_quotient_return": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_canonical_odd_trace_difference": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_charpoly_ne_of_newton_prefix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_double_ne_halfTurn": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_even_trace_eq_of_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_exists_canonical_odd_return": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_first_trace_difference_at_quotient_third": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_no_early_quotient_return": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_noncospectral_odd_of_newton": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_noncospectral_of_generated_odd_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_pow_sub": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_quotient_return": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_trace_ne_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_trace_sub": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_trace_witness_of_odd_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_traces_zero_of_even_quotient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_odd_traces_zero_of_parity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_parity_d_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_spectral_equivalence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_newton": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_spectral_equivalence_of_trace_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_spectral_necessity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_spectral_necessity_of_trace_bridge": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianThree_trace_eq_before_third": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelianTripleSquareCoeff_source_target": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelian_mem_zmultiples_halfTurn_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelian_quotient_addOrderOf_three_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelian_quotient_closure_singleton_of_pair": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelian_quotient_natCard_even_of_odd_order": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelian_quotient_natCard_even_of_order_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.abelian_quotient_zmultiples_generator_of_pair": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.bothColours_quotient_formulas": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.distinct_relative_shifts_no_conjugacy": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.doubletArc_iff": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.exceptionalTriple_mate_and_two_colours": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.halfTurn_isMate": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.halfTurn_unique_of_order_three": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.halfTurn_unique_of_rigid": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.isMate_eq_halfTurn_of_rigid": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.isMate_iff": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.iterateMap_add_shift": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.iterateMap_conjugate": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.iterateMap_period_iff": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.markedArc_quotient_formula": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.markedQuotient_natural": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.noIso_of_two_colours": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.noIso_of_two_colours_mod_halfTurn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.noTwoColourConjugacy": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.no_conjugacy_when_periods_differ": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.no_cross_collision_of_order_three": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.odd_ell_of_odd_three_mul": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.quotient_alpha_order_of_pair_generation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.rational_trace_eq_of_charpoly_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.relativeOffset_iff": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.shiftSteps_fixed_iff": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.signed_cross_differences_distinct_of_order_three": [
+      "propext"
+    ],
+    "Couret.CayleyDoublet.singletonArc_iff": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.singletonArc_iff_point": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.singletonArc_quotient_formula": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.singletonQuotient_natural": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.tripleSupport_differenceRigid_of_order_three": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyDoublet.twoShared_iff": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyDoublet.uniqueMate_natural": [
+      "Quot.sound"
+    ],
+    "Couret.CayleyFirstReturn.no_early_three_torsion_return": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNecessity.odd_multiple_or_neg_of_cyclic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNecessity.oddify_nsmul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.charpoly_ne_of_first_trace_difference_of_newton_at": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.matrix_trace_eq_at_of_charpoly_eq_of_newton_at": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newtonTraceEquation_eq_at": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newtonTraceEquation_unique_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newton_coefficient_prefix_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newton_first_coefficient_gap_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newton_first_coefficient_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newton_first_coefficient_ne_of_trace_prefix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.newton_first_gap_of_trace_prefix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.reverseCharpolyCoeff_congr": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.reverseCharpolyCoeff_eq_charpolyRev": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.satisfiesMatrixNewton": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_of_newton": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyNewton.trace_pow_eq_of_charpoly_eq_via_newton": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.apply_eq_zero_of_odd_annihilator": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.apply_eq_zero_of_odd_nsmul_mem_zmultiples": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.even_natCard_of_exists_parity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.even_natCard_of_value_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.even_natCard_quotient_of_parity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.exists_parity_of_even_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.exists_parity_of_even_card_of_closure": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.exists_parity_of_even_generator_order": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyParity.surjective_of_value_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleySpectral.charpoly_eq_of_sq_eq_of_signs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleySpectral.odd_pow_sub_of_sq_eq": [
+      "propext"
+    ],
+    "Couret.CayleySpectral.trace_pow_eq_zero_of_odd_of_signs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CayleyThirdFactor.odd_third_factor": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.adjugateCoeff_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.adjugateCoeff_succ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.adjugateCoeff_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.coeff_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.matPolyEquiv_reverseCharmatrix": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.reverseCharmatrix_mul_adjugate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.trace_mul_adjugateCoeff_eq_of_jacobi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.trace_mul_adjugateCoeff_expansion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.trace_pow_eq_of_charpoly_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Couret.CharpolyTrace.trace_pow_eq_of_charpoly_eq_of_jacobi": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Matrix.derivative_charpoly_eq_trace_adjugate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Matrix.derivative_det_one_sub_X_smul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Matrix.derivative_det_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "log_sha256": "987335fabe643d33b5f37ede7490b24f68a898fc87dabbc8b4a2ab1daad39585"
+}

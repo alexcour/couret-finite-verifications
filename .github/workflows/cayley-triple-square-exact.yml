@@ -1,0 +1,38 @@
+name: cayley-triple-square-exact
+
+on:
+  pull_request:
+    paths:
+      - 'research/correspondants_20261013/**'
+      - '.github/workflows/cayley-triple-square-exact.yml'
+  push:
+    branches:
+      - 'review/correspondants-q5-strobo-20261013'
+    paths:
+      - 'research/correspondants_20261013/**'
+      - '.github/workflows/cayley-triple-square-exact.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-exact-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source (read only)
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Exact cyclic triple-square census
+        shell: bash
+        working-directory: research/correspondants_20261013
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 verify_triple_square_cyclic.py > "$RUNNER_TEMP/triple_square_replay.json"
+          cmp "$RUNNER_TEMP/triple_square_replay.json" TRIPLE_SQUARE_CYCLIC_RESULTS.json
+          sha256sum -c SHA256SUMS_TRIPLE_SQUARE.txt
+          python3 verify_two_colour_quotient.py > "$RUNNER_TEMP/two_colour_replay.json"
+          grep -q '"test_status": "PASS"' "$RUNNER_TEMP/two_colour_replay.json"

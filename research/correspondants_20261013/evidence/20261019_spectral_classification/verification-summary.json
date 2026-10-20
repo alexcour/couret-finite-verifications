@@ -1,0 +1,159 @@
+{
+  "source_commit": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+  "observed_at_utc": "2026-10-18 22:17:35 UTC",
+  "repository": "alexcour/couret-finite-verifications",
+  "pull_request": 49,
+  "source_branch": "research/cou-20-abelian-two-colour-20261015",
+  "pr_state_at_verification": {
+    "state": "open",
+    "draft": true,
+    "merged": false
+  },
+  "direct_run": {
+    "id": 39171035697,
+    "job_id": 117803947726,
+    "checkout_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+    "conclusion": "success",
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171035697"
+  },
+  "pr_run": {
+    "id": 39171039890,
+    "job_id": 117803959270,
+    "checkout_sha": "7277ba41370f9f755dca7fa5934e8a846603e8c1",
+    "checkout_kind": "GitHub synthetic PR test merge; PR not merged",
+    "conclusion": "success",
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171039890"
+  },
+  "ci_artifact": {
+    "id": 12152244147,
+    "name": "cou20-spectral-classification-audit",
+    "zip_bytes": 7221,
+    "zip_sha256": "2593c38ea6ef589c10f3876db8914ec45f557c21d52209dd98811b4b6b0d8613"
+  },
+  "local": {
+    "command": "bash research/correspondants_20261013/tests/verify_cou20_necessity.sh",
+    "source_commit": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+    "exit_code": 0,
+    "complete_import_chain": true,
+    "compiled_modules": 15,
+    "source_hashes_match_ci": true,
+    "axiom_tables_match_ci": true,
+    "compatibility_note": "Local Lean launcher uses LD_PRELOAD=/tmp/selfpath.so to resolve /proc executable paths in the sandbox; the standard Lean 4.29.1 kernel is unchanged. GitHub CI does not use this launcher shim."
+  },
+  "audit": {
+    "axiom_reports": 139,
+    "new_public_theorems": 20,
+    "unchanged_certified_modules": 10,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "sorryAx": false
+  },
+  "all_observed_source_runs": [
+    {
+      "id": 39171039937,
+      "name": "cayley-triple-square-exact",
+      "event": "pull_request",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171039937"
+    },
+    {
+      "id": 39171040017,
+      "name": "verify",
+      "event": "pull_request",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171040017"
+    },
+    {
+      "id": 39171039868,
+      "name": "cayley-doublet-lean",
+      "event": "pull_request",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171039868"
+    },
+    {
+      "id": 39171039882,
+      "name": "cayley-two-colour-family-lean",
+      "event": "pull_request",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171039882"
+    },
+    {
+      "id": 39171039890,
+      "name": "cou20-abelian-lean-candidate",
+      "event": "pull_request",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171039890"
+    },
+    {
+      "id": 39171035706,
+      "name": "verify",
+      "event": "push",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171035706"
+    },
+    {
+      "id": 39171035697,
+      "name": "cou20-abelian-lean-candidate",
+      "event": "push",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou-20-abelian-two-colour-20261015",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39171035697"
+    },
+    {
+      "id": 39170848553,
+      "name": "verify",
+      "event": "push",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou20-spectral-necessity-20261018",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39170848553"
+    },
+    {
+      "id": 39170848551,
+      "name": "cou20-spectral-necessity-research",
+      "event": "push",
+      "head_sha": "0ed4fea806063c0ffba52fc8b1d15681cfe5ee8e",
+      "branch": "research/cou20-spectral-necessity-20261018",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39170848551"
+    }
+  ],
+  "scope": "Finite additive commutative G, h+h=0, h!=0, exact order three of d in G/<h>, global generation by a,d,h for the equivalence; directed Finset adjacency with loops.",
+  "outstanding": [
+    "Independent human mathematical review",
+    "Prior-art review and Gate C",
+    "Any extension to other supports or undirected simple graphs"
+  ],
+  "restrictions": {
+    "pr_remains_draft": true,
+    "no_pr_merge": true,
+    "no_release": true,
+    "no_publication": true,
+    "no_scientific_novelty_claim": true
+  }
+}

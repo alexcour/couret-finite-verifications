@@ -1,0 +1,5 @@
+PASS (6,) N 6 same-charpoly False exponents 10
+PASS (12,) N 12 same-charpoly True exponents 16
+PASS (18,) N 18 same-charpoly False exponents 22
+PASS (9, 2) N 18 same-charpoly False exponents 22
+PASS: all exact matrix Newton recurrence checks

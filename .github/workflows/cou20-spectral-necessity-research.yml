@@ -1,0 +1,41 @@
+name: cou20-spectral-necessity-research
+
+on:
+  push:
+    branches:
+      - research/cou20-spectral-necessity-20261018
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cou20-spectral-necessity-research-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  research-lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile existing certified modules and COU-20 necessity candidates
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash research/correspondants_20261013/tests/verify_cou20_necessity.sh
+      - name: Preserve compiler log and axiom receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cou20-spectral-classification-audit
+          path: research/correspondants_20261013/lean/.lake/cou20-audit/
+          if-no-files-found: warn
