@@ -1,0 +1,27 @@
+name: G02 Strobo2TorsZeroFreeAll Lean
+on:
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/g02-strobo2torszerofreeall-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1.6.2
+        with:
+          lake-package-directory: research/strobo-2tors-2026-10-12/lean
+          build: true
+          use-mathlib-cache: true
+      - name: Check original proof source and import
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: |
+          echo "checkout=$(git rev-parse HEAD)"
+          if grep -nE '(^|[[:space:]])sorry([[:space:]]|$)|sorryAx' Strobo2TorsZeroFreeAll.lean; then exit 1; fi
+          printf 'import Strobo2TorsZeroFreeAll\n' > G02ImportCheck.lean
+          lake env lean G02ImportCheck.lean
