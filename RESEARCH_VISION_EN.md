@@ -2,11 +2,13 @@
 
 [Français](RESEARCH_VISION_FR.md) · English
 
-Our research programme and our research dream
+Research programme and perspectives
 
 Alexandre Couret  
 For researchers interested in the programme  
 16 October 2026
+
+> **Authorship clarified on 20 October 2026.** Alexandre Couret is the author responsible for this programme. In this historical text, “we” refers to his workflow with AI assistants; it does not designate human coauthors or an independent validation. AI assistants are not authors.
 
 **Our dream as researchers is to build an AI research environment in which a result becomes a lasting ability to reason. We want a system that can recover why an argument works, recognize when its assumptions have changed, carry the idea into a new problem, and pass that understanding to another session or collaborator.**
 

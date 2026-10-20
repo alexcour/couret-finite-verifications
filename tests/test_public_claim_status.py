@@ -149,14 +149,33 @@ class ClaimStatusMutations(unittest.TestCase):
         file = self.root / ".github/workflows/g30-gate-b-lean.yml"
         original = file.read_text()
         for before, after in (
-            ("run: lake env lean G30ComplexSpectrum.lean", "run: lake env lean G30ComplexSpectrum.drive.lean"),
-            ('lake env lean "$RUNNER_TEMP/G30AxiomAudit.lean" | tee "$RUNNER_TEMP/g30-axioms.txt"', "true"),
+            ("lake env lean G30ComplexSpectrum.lean", "lake env lean G30ComplexSpectrum.drive.lean"),
+            ('lake env lean G30AxiomAudit.lean 2>&1 | tee G30_AXIOMS.log', "true"),
         ):
             with self.subTest(before=before):
                 file.write_text(original.replace(before, after))
                 with self.assertRaisesRegex(GUARD.StatusError, "G30 workflow"):
                     GUARD.validate_manifest(self.data, self.root)
         file.write_text(original)
+
+    def test_axiom_receipt_cannot_lose_source_checkout_binding(self):
+        file = self.root / ".github/workflows/g30-gate-b-lean.yml"
+        file.write_text(file.read_text().replace('"checkout_commit": os.environ["GITHUB_SHA"]',
+                                                 '"checkout_commit": "unrecorded"'))
+        with self.assertRaisesRegex(GUARD.StatusError, "G30 workflow"):
+            GUARD.validate_manifest(self.data, self.root)
+
+    def test_native_axiom_placeholder_gate_cannot_be_removed(self):
+        file = self.root / ".github/workflows/g30-gate-b-lean.yml"
+        file.write_text(file.read_text().replace("if grep -q 'sorryAx' G30_AXIOMS.log; then", "if false; then"))
+        with self.assertRaisesRegex(GUARD.StatusError, "G30 workflow"):
+            GUARD.validate_manifest(self.data, self.root)
+
+    def test_axiom_log_must_remain_in_the_archived_receipt(self):
+        file = self.root / ".github/workflows/g30-gate-b-lean.yml"
+        file.write_text(file.read_text().replace("            research/g30-gate-b-lean/G30_AXIOMS.log\n", ""))
+        with self.assertRaisesRegex(GUARD.StatusError, "missing archived evidence G30_AXIOMS"):
+            GUARD.validate_manifest(self.data, self.root)
 
     def test_receipt_source_change_is_not_silently_accepted(self):
         file = self.root / "audit/branches-2026-10-20.json"

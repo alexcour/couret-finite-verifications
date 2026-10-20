@@ -216,19 +216,39 @@ def validate_recorded_scope(data: dict, root: Path) -> None:
             "Mathlib version differs from the recorded toolchain")
 
     workflow = (root / ".github/workflows/g30-gate-b-lean.yml").read_text()
-    for name, commands in {
-        "Compile G30 complex spectrum certificate": ["run: lake env lean G30ComplexSpectrum.lean"],
-        "Print axiom dependencies of every active G30 declaration": [
-            'python ../../scripts/check_public_claim_status.py --emit-axiom-audit "$RUNNER_TEMP/G30AxiomAudit.lean"',
-            'lake env lean "$RUNNER_TEMP/G30AxiomAudit.lean" | tee "$RUNNER_TEMP/g30-axioms.txt"',
-        ],
-    }.items():
+    def workflow_step(name: str) -> set[str]:
         matches = re.findall(r"(?ms)^      - name: " + re.escape(name) +
                              r"\n(.*?)(?=^      - (?:name|uses):|\Z)", workflow)
         require(len(matches) == 1, f"G30 workflow: missing or duplicate step {name}")
-        lines = {line.strip() for line in matches[0].splitlines()}
+        return {line.strip() for line in matches[0].splitlines()}
+
+    for name, commands in {
+        "Compile G30 complex spectrum certificate": [
+            "set -euo pipefail",
+            "lake env lean G30ComplexSpectrum.lean 2>&1 | tee G30_BUILD.log",
+        ],
+        "Record the native-evaluation trust boundary and all theorem axioms": [
+            "set -euo pipefail",
+            'SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}',
+            'if len(roots) != 15:',
+            'namespace = "CouretUnification.G30ComplexSpectrum."',
+            'Path("G30AxiomAudit.lean").write_text(audit)',
+            'evidence = {"source_commit": os.environ["SOURCE_COMMIT"], "checkout_commit": os.environ["GITHUB_SHA"],',
+            'Path("G30_TRUST_RECEIPT.json").write_text(json.dumps(evidence, indent=2) + "\\n")',
+            'lake env lean G30AxiomAudit.lean 2>&1 | tee G30_AXIOMS.log',
+            "if grep -q 'sorryAx' G30_AXIOMS.log; then",
+            "exit 1",
+        ],
+    }.items():
+        lines = workflow_step(name)
         require("working-directory: " + G30_DIR in lines and all(c in lines for c in commands),
                 f"G30 workflow: compiled source/audit command differs in {name}")
+    archive = workflow_step("Archive the G30 build and axiom receipt")
+    for name in ("G30_BUILD.log", "G30_AXIOMS.log", "G30_TOOLCHAIN.log", "G30_TRUST_RECEIPT.json",
+                 "lake-manifest.json", "lean-toolchain", "lakefile.lean",
+                 "G30ComplexSpectrum.lean", "G30ComplexSpectrum.drive.lean"):
+        require(G30_DIR + "/" + name in archive, f"G30 workflow: missing archived evidence {name}")
+    require("if-no-files-found: error" in archive, "G30 workflow: missing artifact must fail")
 
     snapshot = json.loads((root / "audit/branches-2026-10-20.json").read_text())
     require(snapshot.get("repository") == REPOSITORY and snapshot.get("schema_version") == 1,

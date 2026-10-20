@@ -7,8 +7,6 @@ on:
     paths:
       - "research/g30-gate-b-lean/**"
       - ".github/workflows/g30-gate-b-lean.yml"
-      - "PUBLIC_CLAIM_STATUS.json"
-      - "scripts/check_public_claim_status.py"
   workflow_dispatch:
 
 jobs:
@@ -45,15 +43,59 @@ jobs:
 
       - name: Compile G30 complex spectrum certificate
         working-directory: research/g30-gate-b-lean
-        run: lake env lean G30ComplexSpectrum.lean
-
-      - name: Print axiom dependencies of every active G30 declaration
-        working-directory: research/g30-gate-b-lean
         shell: bash
         run: |
           set -euo pipefail
-          python ../../scripts/check_public_claim_status.py --emit-axiom-audit "$RUNNER_TEMP/G30AxiomAudit.lean"
-          lake env lean "$RUNNER_TEMP/G30AxiomAudit.lean" | tee "$RUNNER_TEMP/g30-axioms.txt"
+          lake env lean G30ComplexSpectrum.lean 2>&1 | tee G30_BUILD.log
+
+      - name: Record the native-evaluation trust boundary and all theorem axioms
+        working-directory: research/g30-gate-b-lean
+        shell: bash
+        env:
+          SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os, re
+          from pathlib import Path
+          source = Path("G30ComplexSpectrum.lean").read_text()
+          roots = re.findall(r"^theorem\s+(\w+)", source, re.M)
+          if len(roots) != 15:
+              raise SystemExit("Update the documented G30 root inventory before promotion")
+          namespace = "CouretUnification.G30ComplexSpectrum."
+          audit = source + "\n" + "\n".join("#print axioms " + namespace + n for n in roots) + "\n"
+          Path("G30AxiomAudit.lean").write_text(audit)
+          evidence = {"source_commit": os.environ["SOURCE_COMMIT"], "checkout_commit": os.environ["GITHUB_SHA"],
+                      "workflow_run": os.environ["GITHUB_RUN_ID"], "roots": [namespace + n for n in roots],
+                      "files": {p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in
+                                ["G30ComplexSpectrum.lean", "G30ComplexSpectrum.drive.lean", "lakefile.lean", "lean-toolchain"]},
+                      "scope": "Finite G30 certificate only; native evaluation extends the trusted code base"}
+          Path("G30_TRUST_RECEIPT.json").write_text(json.dumps(evidence, indent=2) + "\n")
+          PY
+          lean --version | tee G30_TOOLCHAIN.log
+          lake --version | tee -a G30_TOOLCHAIN.log
+          lake env lean G30AxiomAudit.lean 2>&1 | tee G30_AXIOMS.log
+          if grep -q 'sorryAx' G30_AXIOMS.log; then
+            echo "::error::A theorem depends on an unresolved proof placeholder"
+            exit 1
+          fi
+
+      - name: Archive the G30 build and axiom receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: g30-trust-${{ github.sha }}
+          retention-days: 90
+          path: |
+            research/g30-gate-b-lean/G30_BUILD.log
+            research/g30-gate-b-lean/G30_AXIOMS.log
+            research/g30-gate-b-lean/G30_TOOLCHAIN.log
+            research/g30-gate-b-lean/G30_TRUST_RECEIPT.json
+            research/g30-gate-b-lean/lake-manifest.json
+            research/g30-gate-b-lean/lean-toolchain
+            research/g30-gate-b-lean/lakefile.lean
+            research/g30-gate-b-lean/G30ComplexSpectrum.lean
+            research/g30-gate-b-lean/G30ComplexSpectrum.drive.lean
+          if-no-files-found: error
 
       - name: Reject sorry/admit in certificate
         shell: bash

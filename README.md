@@ -1,14 +1,10 @@
 # Couret finite verifications and research review index
 
-The [v1.0.0 tag](https://github.com/alexcour/couret-finite-verifications/tree/v1.0.0)
-and its DOI identify the archived finite-computation release. The default branch
-also contains later documentation and bounded research checks. The STROBO and
-Cayley proof developments remain on the review branches linked below.
-
-For a result, use its exact source revision and verification receipt.
-[BRANCHES.md](BRANCHES.md) records the review entry points and their integration
-status. [LEAN_AUDIT.md](LEAN_AUDIT.md) explains the G30 native-computation trust
-model and the scope of the larger branch developments.
+The immutable v1.0.0 tag and its DOI identify the archived finite release.
+Later research files and draft proofs retain their own source revisions,
+review gates and publication decisions. See [research/README.md](research/README.md),
+[BRANCHES.md](BRANCHES.md), [LEAN_TRUST.md](LEAN_TRUST.md) and
+[LEAN_AUDIT.md](LEAN_AUDIT.md) for the recorded evidence and its limits.
 
 <!-- BEGIN GENERATED PUBLIC CLAIM STATUS -->
 
@@ -25,15 +21,13 @@ These flags are publication boundaries, not new mathematical theorems.
 
 <!-- END GENERATED PUBLIC CLAIM STATUS -->
 
+> **Archive and working-tree boundary · 20 October 2026.** The version DOI below identifies the preserved v1.0.0 tag. The `research/` directory and later research presentations on this branch are a separate working review area, with their own evidence and open review gates. They are not included in that archived release. See [research/README.md](research/README.md).
+
+> **Current research identity (14 October 2026): [Couret — Additive and Spectral Reconstruction](RESEARCH_PROGRAMME.md).** The active research focuses on reconstruction of three-element subsets from ordered pairwise sums and separately on Cayley-graph spectral ambiguities. Lean-checked structural results and bounded exhaustive computations do not constitute external human review or establish mathematical priority. The historical name “Couret–Unification” remains in provenance records. This note does not alter the archived v1.0.0 release.
+
 > **PUBLIC SCIENTIFIC CORRECTION — 13 October 2026.** The historical [T1′–T4 Riemann-hypothesis proof chain](https://github.com/couret-interia/rh-analytic-framework-t1t4) is **invalid as a proof**. Its published T2 argument omits the nonzero diagonal of the Gram-matrix error, and T3 asserts an incompatible wave-packet normalization. Read the [explicit mathematical erratum](ERRATUM_RH_T1T4_2026-10-13.md). The original archive is preserved for historical accountability; do **not** cite it as a valid RH proof or a journal-ready proof framework. This correction does not disqualify unrelated finite checks, which have separate review limits.
 
-## Research context
-
-The active mathematical programme concerns additive reconstruction and Cayley
-spectral ambiguities. See [RESEARCH_PROGRAMME.md](RESEARCH_PROGRAMME.md) and the
-contextual presentations in [French](RESEARCH_VISION_FR.md) and
-[English](RESEARCH_VISION_EN.md). These research ambitions do not extend the
-claims of the archived release or establish originality.
+> **Authorship clarification · 20 October 2026.** Alexandre Couret is the author responsible for this programme. First-person plural wording in the linked research vision refers to his workflow with AI assistants; it does not designate a team of human coauthors or an independent validation. AI systems are assistance tools, not authors.
 
 ## Archived finite release v1.0.0
 
@@ -121,3 +115,12 @@ This repository hosts a **publicly readable research review packet** on Liouvill
 The packet intentionally reports **30/67 external decimal ordinate comparisons**, with 37 q=15 still awaiting independent catalogue comparison; no certified zero completeness, no unconditional sign-density, no novelty or RH claim. The historical frozen prime-sieve ZIP is *not* mirrored here. CI tests the exact finite checks, the 56-triplet census and two structural verifiers; it does not certify the exploratory analytic or zero-finding programs.
 
 The maintainer authorized integration through PR #4 on 12 October 2026. The [integration decision and remaining scientific gates](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) supersede the packet's earlier draft/no-merge annotations. The finite classification proof establishes five labelled profiles and thirteen nonempty bias/profile classes; it awaits external mathematical review. Published v1.0.0 tags and DOI records retain their original scope.
+
+## Lean trust and review map
+
+The main-branch G30 certificate uses `native_decide`, so its trust includes compiled evaluation. The source inventory, compiler dependency and per-theorem axiom-receipt procedure are documented in [LEAN_TRUST.md](LEAN_TRUST.md). The larger STROBO and COU-20 developments remain draft branches with separate source commits; [BRANCHES.md](BRANCHES.md) identifies their review status and the required module-by-module review.
+
+## Programme context
+
+[Présentation en français](RESEARCH_VISION_FR.md) · [Programme overview in English](RESEARCH_VISION_EN.md).
+The repository-specific scope and authorship notice above govern this page.

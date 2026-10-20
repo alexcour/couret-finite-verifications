@@ -2,8 +2,10 @@
 
 Français · [English](RESEARCH_VISION_EN.md)
 
-**Notre programme et notre rêve de chercheurs**  
+**Programme et perspectives de recherche**  
 Alexandre Couret · Recherche indépendante en France · 16 octobre 2026
+
+> **Attribution précisée le 20 octobre 2026.** Alexandre Couret est l’auteur responsable de ce programme. Dans ce texte historique, « nous » désigne sa méthode de travail avec des assistants IA ; il ne désigne pas une équipe de coauteurs humains ni une validation indépendante. Les assistants IA ne sont pas auteurs.
 
 **Notre rêve de chercheurs est de construire un environnement dans lequel une IA puisse faire d’un résultat une capacité durable de raisonnement : en retrouver les raisons, reconnaître ses limites, le transformer pour une nouvelle question et transmettre ce qu’elle a compris à d’autres.**
 
