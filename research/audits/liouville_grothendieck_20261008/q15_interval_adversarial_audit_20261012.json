@@ -1,0 +1,447 @@
+{
+  "id": "CU-BRUIT-Q15-ADVERSARIAL-AUDIT-20261012",
+  "status": "INTERNAL_ADVERSARIAL_REPLAY_PASSED",
+  "audited_original_commit": "04fbd2f56de679bb1b8d5c7dc56354b20d3c9ccd",
+  "instrument_sha256": "339cd95772f171ad22aa53f5ad9f1ddc2365a63d3d33b971dd47f619d0809aed",
+  "original_receipt_sha256": "b694a1e8382b25fb3843f80854721a9c569377344d7818e10fb85f5f9c5ff684",
+  "original_256_bit_receipt_exact_replay": true,
+  "cross_check_precision_bits": 320,
+  "higher_precision_certificate_canonical_json_sha256": "5c347c98ba1d92e6a0e1faa8f713c6aff8aae94dc8cb0908ea9db339fdec64e8",
+  "higher_precision_root_identities_and_endpoint_signs_unchanged": true,
+  "higher_precision_counts": [
+    {
+      "character": "15.2",
+      "isolated_simple_roots": 12,
+      "zero_count_with_multiplicity": 12,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "50331021",
+          -22
+        ],
+        "upper_dyadic": [
+          "805316403",
+          -26
+        ]
+      },
+      "accepted_interval_charts": 1131,
+      "maximum_subdivision_depth": 5,
+      "minimum_rotated_real_lower_dyadic": [
+        "318231715290453747357468802727640341328574378674891726657233156193166763267539788285217690475",
+        -318
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.14",
+      "isolated_simple_roots": 13,
+      "zero_count_with_multiplicity": 13,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "436207105",
+          -25
+        ],
+        "upper_dyadic": [
+          "872416253",
+          -26
+        ]
+      },
+      "accepted_interval_charts": 938,
+      "maximum_subdivision_depth": 4,
+      "minimum_rotated_real_lower_dyadic": [
+        "99951594378477582150414388564449429962347605890039015286023752256798024782322289956568491935",
+        -320
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.8",
+      "isolated_simple_roots": 12,
+      "zero_count_with_multiplicity": 12,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "805296545",
+          -26
+        ],
+        "upper_dyadic": [
+          "805316189",
+          -26
+        ]
+      },
+      "accepted_interval_charts": 1125,
+      "maximum_subdivision_depth": 5,
+      "minimum_rotated_real_lower_dyadic": [
+        "2027660422735517640912882378370547768966342325881746356896344860741655344755422298850338575263",
+        -320
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    }
+  ],
+  "alternative_contour_counts": [
+    {
+      "character": "15.2",
+      "contour": "wider",
+      "vertices_exact": [
+        [
+          "-1/4",
+          "0"
+        ],
+        [
+          "5/4",
+          "0"
+        ],
+        [
+          "5/4",
+          "25"
+        ],
+        [
+          "-1/4",
+          "25"
+        ],
+        [
+          "-1/4",
+          "0"
+        ]
+      ],
+      "zero_count_with_multiplicity": 12,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "805299507",
+          -26
+        ],
+        "upper_dyadic": [
+          "50332077",
+          -22
+        ]
+      },
+      "accepted_interval_charts": 1040,
+      "maximum_subdivision_depth": 5,
+      "minimum_rotated_real_lower_dyadic": [
+        "202918524868632701558460901560044256652246195638691770993803517538784231696303423790549552999",
+        -318
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.2",
+      "contour": "narrower",
+      "vertices_exact": [
+        [
+          "1/4",
+          "0"
+        ],
+        [
+          "3/4",
+          "0"
+        ],
+        [
+          "3/4",
+          "25"
+        ],
+        [
+          "1/4",
+          "25"
+        ],
+        [
+          "1/4",
+          "0"
+        ]
+      ],
+      "zero_count_with_multiplicity": 12,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "200248784617585320224533284953395510744003548970936197182535150733333099291935051564652695649049",
+          -313
+        ],
+        "upper_dyadic": [
+          "400497569235170640449066569906791021488007097941872394365070301466666198583870103129305391303059",
+          -314
+        ]
+      },
+      "accepted_interval_charts": 2594,
+      "maximum_subdivision_depth": 5,
+      "minimum_rotated_real_lower_dyadic": [
+        "941585403978705724133503941062144758378954924053917963702669180106202093067214521205230021773",
+        -319
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.14",
+      "contour": "wider",
+      "vertices_exact": [
+        [
+          "-1/4",
+          "0"
+        ],
+        [
+          "5/4",
+          "0"
+        ],
+        [
+          "5/4",
+          "25"
+        ],
+        [
+          "-1/4",
+          "25"
+        ],
+        [
+          "-1/4",
+          "0"
+        ]
+      ],
+      "zero_count_with_multiplicity": 13,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "872414541",
+          -26
+        ],
+        "upper_dyadic": [
+          "436207961",
+          -25
+        ]
+      },
+      "accepted_interval_charts": 884,
+      "maximum_subdivision_depth": 4,
+      "minimum_rotated_real_lower_dyadic": [
+        "9243636686543245683651066200003203807266983758709430546563557774048721926089415158355623068963",
+        -320
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.14",
+      "contour": "narrower",
+      "vertices_exact": [
+        [
+          "1/4",
+          "0"
+        ],
+        [
+          "3/4",
+          "0"
+        ],
+        [
+          "3/4",
+          "25"
+        ],
+        [
+          "1/4",
+          "25"
+        ],
+        [
+          "1/4",
+          "0"
+        ]
+      ],
+      "zero_count_with_multiplicity": 13,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "1735489466685739441945955136262761093114697424414780375581971306355553527196770446893656695628451",
+          -316
+        ],
+        "upper_dyadic": [
+          "1735489466685739441945955136262761093114697424414780375581971306355553527196770446893656695643247",
+          -316
+        ]
+      },
+      "accepted_interval_charts": 2056,
+      "maximum_subdivision_depth": 4,
+      "minimum_rotated_real_lower_dyadic": [
+        "3171864694322904391579336262987633534597963104557784749540962502567602214184822751670850297965",
+        -320
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.8",
+      "contour": "wider",
+      "vertices_exact": [
+        [
+          "-1/4",
+          "0"
+        ],
+        [
+          "5/4",
+          "0"
+        ],
+        [
+          "5/4",
+          "25"
+        ],
+        [
+          "-1/4",
+          "25"
+        ],
+        [
+          "-1/4",
+          "0"
+        ]
+      ],
+      "zero_count_with_multiplicity": 12,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "50331219",
+          -22
+        ],
+        "upper_dyadic": [
+          "402656615",
+          -25
+        ]
+      },
+      "accepted_interval_charts": 1037,
+      "maximum_subdivision_depth": 5,
+      "minimum_rotated_real_lower_dyadic": [
+        "2599209887441815696283148656616658776600405772687306546197532194221603095249062917357386537611",
+        -320
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    },
+    {
+      "character": "15.8",
+      "contour": "narrower",
+      "vertices_exact": [
+        [
+          "1/4",
+          "0"
+        ],
+        [
+          "3/4",
+          "0"
+        ],
+        [
+          "3/4",
+          "25"
+        ],
+        [
+          "1/4",
+          "25"
+        ],
+        [
+          "1/4",
+          "0"
+        ]
+      ],
+      "zero_count_with_multiplicity": 12,
+      "winding_enclosure": {
+        "lower_dyadic": [
+          "1601990276940682561796266279627164085952028391767489577460281205866664794335480412517221565192345",
+          -316
+        ],
+        "upper_dyadic": [
+          "1601990276940682561796266279627164085952028391767489577460281205866664794335480412517221565212295",
+          -316
+        ]
+      },
+      "accepted_interval_charts": 2488,
+      "maximum_subdivision_depth": 5,
+      "minimum_rotated_real_lower_dyadic": [
+        "472228571322542324643595069586501865554086913917661460396349943875050646183470933337228395235",
+        -319
+      ],
+      "boundary_proved_nonzero_by_interval_charts": true,
+      "integer_isolated": true
+    }
+  ],
+  "regularization_near_one": [
+    {
+      "character": "15.2",
+      "exact_point_cross_checks": 4,
+      "completed_box_containing_one_finite": true,
+      "box_point_cross_checks": 3
+    },
+    {
+      "character": "15.14",
+      "exact_point_cross_checks": 4,
+      "completed_box_containing_one_finite": true,
+      "box_point_cross_checks": 3
+    },
+    {
+      "character": "15.8",
+      "exact_point_cross_checks": 4,
+      "completed_box_containing_one_finite": true,
+      "box_point_cross_checks": 3
+    }
+  ],
+  "clockwise_15_2_winding": {
+    "zero_count_with_multiplicity": -12,
+    "winding_enclosure": {
+      "lower_dyadic": [
+        "-402658203",
+        -25
+      ],
+      "upper_dyadic": [
+        "-201324083",
+        -24
+      ]
+    },
+    "accepted_interval_charts": 1131,
+    "maximum_subdivision_depth": 5,
+    "minimum_rotated_real_lower_dyadic": [
+      "318231715290453747357468802727640341328574378674891726657233156193166763267539788285217690475",
+      -318
+    ],
+    "boundary_proved_nonzero_by_interval_charts": true,
+    "integer_isolated": true
+  },
+  "meromorphic_one_zero_two_poles_winding": {
+    "zero_count_with_multiplicity": -1,
+    "winding_enclosure": {
+      "lower_dyadic": [
+        "-266998379490113760299377713271194014325338065294581596243380200977777465722580068752870260867133",
+        -317
+      ],
+      "upper_dyadic": [
+        "-533996758980227520598755426542388028650676130589163192486760401955554931445160137505740521733951",
+        -318
+      ]
+    },
+    "accepted_interval_charts": 422,
+    "maximum_subdivision_depth": 1,
+    "minimum_rotated_real_lower_dyadic": [
+      "588598454000612231393499743809835338997479727914338923307901172916868108687182711344230358319103",
+      -320
+    ],
+    "boundary_proved_nonzero_by_interval_charts": true,
+    "integer_isolated": true
+  },
+  "entire_nonvanishing_exponential_winding": {
+    "zero_count_with_multiplicity": 0,
+    "winding_enclosure": {
+      "lower_dyadic": [
+        "-1804538253",
+        -338
+      ],
+      "upper_dyadic": [
+        "759239415",
+        -338
+      ]
+    },
+    "accepted_interval_charts": 522,
+    "maximum_subdivision_depth": 3,
+    "minimum_rotated_real_lower_dyadic": [
+      "1222519084671897558965179993026170283185938900697890138374204765903299317350263859121270700887",
+      -315
+    ],
+    "boundary_proved_nonzero_by_interval_charts": true,
+    "integer_isolated": true
+  },
+  "unresolved_oscillatory_charts_rejected": true,
+  "simple_positive_rectangle_geometry_checked": true,
+  "generic_count_callback_holomorphicity_is_a_caller_obligation": true,
+  "same_Arb_backend_and_same_counting_instrument_used": true,
+  "second_independent_proof_implementation_claimed": false,
+  "independent_human_review_claimed": false,
+  "Lean_formalization_claimed": false,
+  "global_GRH_or_LI_proved": false,
+  "prime_race_density_certified": false,
+  "scientific_scope_extended": false
+}
