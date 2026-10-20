@@ -59,11 +59,16 @@ assert.ok(Math.abs(c4_p1.re) < 1e-10 && Math.abs(c4_p1.im - 1) < 1e-10); // P_1 
 const c4_sep = C.computeSeparation(c4_cand, 1, 4);
 assert.ok(Math.abs(c4_sep.delta_k - 2.0) < 1e-10);
 
-// Boundary test at epsilon = 1 and y = 0
+// Boundary test at epsilon = 1 and y = 0 (exact algebraic, no artificial widening)
 const y_zero = { re: 0, im: 0 };
 assert.equal(C.compatible([0, 1, 2], 1, y_zero, 1.0, 4), true);
 assert.equal(C.compatible([0, 2, 3], 1, y_zero, 1.0, 4), true);
 assert.equal(C.compatible([0, 1, 2], 1, y_zero, 0.99, 4), false);
+
+const bQual = C.qualifiedCompatibility([0, 1, 2], 1, y_zero, 1.0, 4);
+assert.equal(bQual.compatible, true);
+assert.equal(bQual.distance, 1.0);
+assert.equal(bQual.algebraic, true);
 
 // 5. Virtual decision engine rules
 // Disagreement -> INDETERMINE
@@ -77,6 +82,11 @@ const dec_empty = C.evaluateVirtualDecision([], 2, 8);
 assert.equal(dec_empty.status, "OBSERVATIONS_INCOMPATIBLES");
 assert.equal(dec_empty.allowed, false);
 assert.equal(dec_empty.blocked, true);
+// Numerical boundary uncertainty -> INCERTITUDE_NUMERIQUE (dépôt bloqué)
+const dec_uncertain = C.evaluateVirtualDecision([[0, 1, 2]], 2, 4, true);
+assert.equal(dec_uncertain.status, "INCERTITUDE_NUMERIQUE");
+assert.equal(dec_uncertain.allowed, false);
+assert.equal(dec_uncertain.blocked, true);
 
 // 6. Export / Import Replay Engine
 const exported = C.exportExperiment({

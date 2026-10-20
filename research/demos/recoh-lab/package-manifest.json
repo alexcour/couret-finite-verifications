@@ -5,16 +5,16 @@
   "author": "Alexandre Couret & Antigravity",
   "files": {
     "recoh.html": {
-      "size": 52557,
-      "sha256": "6eedba1aedfa5bef8bff0180887c3237f1ce54d63133b80342fbad2ddfb814ae"
+      "size": 55394,
+      "sha256": "a409e62a527908f9bcda9296bbe0ed3e4f6a43f37f773e2d72a5edc9252e5916"
     },
     "intro.txt": {
       "size": 257,
       "sha256": "fc54628e6dc0b6ccc7b1e11f10cef3049a344488d96767fa7e9674e0f502d54d"
     },
     "wordpress-srcdoc-block.html": {
-      "size": 57634,
-      "sha256": "eda0e6d42481d4718dcb99db20489197d7958ab2d2648fe4d3b7c5d9ed81f5be"
+      "size": 60531,
+      "sha256": "09ad7a89e29e235372e7a379ed66b4a3b88b3627423edd2a8a6790dceb8e4a08"
     },
     "wordpress-src-block.template.html": {
       "size": 305,

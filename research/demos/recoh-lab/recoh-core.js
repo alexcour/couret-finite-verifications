@@ -10,9 +10,11 @@
 })(typeof globalThis === "object" ? globalThis : this, function () {
   "use strict";
 
-  const VERSION = "1.0.0";
+  const VERSION = "1.0.1";
   const DEFAULT_N = 8;
-  const EPSILON_BOUNDARY_TOLERANCE = 1e-12;
+  const SQRT2_2 = Math.SQRT1_2; // Exact Math.sqrt(2)/2 in IEEE-754 double precision
+  const NUMERIC_EPSILON_UNCERTAINTY = 1e-14; // Seuil d'incertitude machine pour double précision
+  const EPSILON_BOUNDARY_TOLERANCE = NUMERIC_EPSILON_UNCERTAINTY;
 
   // Validation d'un support de 3 éléments distincts dans Z/nZ
   function checkSupport(s, n = DEFAULT_N, count = 3) {
@@ -88,19 +90,51 @@
   }
 
   // Transformée de Fourier / Caractère : P_k(S) = sum_{x in S} exp(2pi * i * k * x / n)
-  // Convention d'exponentielle positive conformément au contrat scientifique
+  // Convention d'exponentielle positive conformément au contrat scientifique.
+  // Pour C4 et C8, exploitation des coordonnées algébriques exactes dans Q(i, sqrt(2))
+  // afin d'éliminer les erreurs de troncature trigonométriques à la frontière.
   function character(s, k = 3, n = DEFAULT_N) {
     checkSupport(s, n, 3);
     if (!Number.isInteger(k)) throw new Error("L'indice de caractère k doit être entier.");
     const k_mod = ((k % n) + n) % n;
     let re = 0;
     let im = 0;
+
+    if (n === 4) {
+      // Racines 4-ièmes exactes dans Z[i] : 1, i, -1, -i
+      for (let i = 0; i < s.length; i++) {
+        const m = (k_mod * s[i]) % 4;
+        if (m === 0) re += 1;
+        else if (m === 1) im += 1;
+        else if (m === 2) re -= 1;
+        else if (m === 3) im -= 1;
+      }
+      return { re, im, algebraic: true };
+    }
+
+    if (n === 8) {
+      // Racines 8-ièmes exactes dans Q(i, sqrt(2))
+      for (let i = 0; i < s.length; i++) {
+        const m = (k_mod * s[i]) % 8;
+        if (m === 0) re += 1;
+        else if (m === 1) { re += SQRT2_2; im += SQRT2_2; }
+        else if (m === 2) im += 1;
+        else if (m === 3) { re -= SQRT2_2; im += SQRT2_2; }
+        else if (m === 4) re -= 1;
+        else if (m === 5) { re -= SQRT2_2; im -= SQRT2_2; }
+        else if (m === 6) im -= 1;
+        else if (m === 7) { re += SQRT2_2; im -= SQRT2_2; }
+      }
+      return { re, im, algebraic: true };
+    }
+
+    // Évaluation trigonométrique générale pour n arbitraire (marquée numérique)
     for (let i = 0; i < s.length; i++) {
       const theta = (2 * Math.PI * k_mod * s[i]) / n;
       re += Math.cos(theta);
       im += Math.sin(theta);
     }
-    return { re, im };
+    return { re, im, algebraic: false };
   }
 
   // Transformée de Fourier exacte de R : sum_{z} R(z) exp(2pi * i * k * z / n)
@@ -131,7 +165,8 @@
     return Math.hypot(a.re - b.re, a.im - b.im);
   }
 
-  // Test de compatibilité d'un candidat S avec une observation (k, y, epsilon)
+  // Test de compatibilité physique stricte d'un candidat S avec une observation (k, y, epsilon)
+  // AUCUN élargissement arbitraire d'epsilon (+1e-12 proscrit conformément au mandat).
   function compatible(s, k, observation, epsilon, n = DEFAULT_N) {
     if (!observation || typeof observation.re !== "number" || typeof observation.im !== "number" ||
         !Number.isFinite(observation.re) || !Number.isFinite(observation.im)) {
@@ -142,7 +177,26 @@
     }
     const val = character(s, k, n);
     const dist = complexDist(val, observation);
-    return dist <= epsilon + EPSILON_BOUNDARY_TOLERANCE;
+    return dist <= epsilon;
+  }
+
+  // Qualification numérique fine aux frontières
+  function qualifiedCompatibility(s, k, observation, epsilon, n = DEFAULT_N) {
+    if (!observation || typeof observation.re !== "number" || typeof observation.im !== "number" ||
+        !Number.isFinite(observation.re) || !Number.isFinite(observation.im) ||
+        typeof epsilon !== "number" || !Number.isFinite(epsilon) || epsilon < 0) {
+      throw new Error("Paramètres invalides");
+    }
+    const val = character(s, k, n);
+    const dist = complexDist(val, observation);
+    const diff = dist - epsilon;
+    const isBoundaryUncertain = Math.abs(diff) <= NUMERIC_EPSILON_UNCERTAINTY;
+    return {
+      compatible: dist <= epsilon,
+      distance: dist,
+      isBoundaryUncertain: isBoundaryUncertain,
+      algebraic: Boolean(val.algebraic)
+    };
   }
 
   // Calcul de la séparation delta_k pour un ensemble de candidats dans C_n
@@ -213,10 +267,11 @@
   // Position p in {0, ..., n-1}
   // Règle stricte :
   // - |C| == 0 => OBSERVATIONS_INCOMPATIBLES (Dépôt bloqué; l'ensemble vide n'autorise JAMAIS)
+  // - Incertitude numérique à la frontière non résolue => INCERTITUDE_NUMERIQUE (Dépôt bloqué)
   // - p absent de tous les candidats => AUTORISE
   // - p présent dans tous les candidats => REFUSE
   // - désaccord => INDETERMINE (Dépôt bloqué)
-  function evaluateVirtualDecision(candList, position, n = DEFAULT_N) {
+  function evaluateVirtualDecision(candList, position, n = DEFAULT_N, hasBoundaryUncertainty = false) {
     if (!Number.isInteger(position) || position < 0 || position >= n) {
       throw new Error("Position de dépôt invalide : " + position);
     }
@@ -225,8 +280,17 @@
         status: "OBSERVATIONS_INCOMPATIBLES",
         allowed: false,
         blocked: true,
-        reason: "Aucun candidat compatible : les observations sont contradictoires. Dépôt bloqué.",
+        reason: "Aucun candidat compatible : les observations sont contradictoires. Dépôt bloqué (l'ensemble vide n'autorise jamais par vacuité).",
         candidate_count: 0
+      };
+    }
+    if (hasBoundaryUncertainty) {
+      return {
+        status: "INCERTITUDE_NUMERIQUE",
+        allowed: false,
+        blocked: true,
+        reason: "Comparaison numérique non résolue à la frontière (incertitude machine). Dépôt virtuel bloqué.",
+        candidate_count: candList.length
       };
     }
     let presentCount = 0;
@@ -485,6 +549,7 @@
     complexMul,
     complexDist,
     compatible,
+    qualifiedCompatibility,
     computeSeparation,
     analyzeMargin,
     filterNotebook,
