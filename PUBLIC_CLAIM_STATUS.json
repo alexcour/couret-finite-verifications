@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "repository": "alexcour/couret-finite-verifications",
+  "snapshot_date": "2026-10-20",
+  "snapshot_base_commit": "5bfca060ce3a4ed5687bd80d0cccab73767074b3",
+  "entry_provenance_values": [
+    "executed",
+    "imported",
+    "recovered",
+    "unassessed"
+  ],
+  "scope": "README and LEAN_AUDIT generated blocks; tracked main Lean source inventory; named public review branches. This guard is not a mathematical proof, a literature audit, a website crawler, or a check of private repositories.",
+  "global_claims": {
+    "RHClaimed": false,
+    "novelty_claimed": false,
+    "external_mathematical_review_completed": false
+  },
+  "claims": [
+    {
+      "id": "G30",
+      "title": "G30 exact finite certificate",
+      "status": "finite_certificate_with_native_evaluation",
+      "entry_provenance": "imported",
+      "integration": "main_research_directory",
+      "review_status": "open",
+      "novelty_status": "not_claimed",
+      "source_url": "https://github.com/alexcour/couret-finite-verifications/blob/5bfca060ce3a4ed5687bd80d0cccab73767074b3/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+      "source_commit": "5bfca060ce3a4ed5687bd80d0cccab73767074b3",
+      "trust_basis": "compiler_runtime_and_imported_dependencies",
+      "ci_evidence": {
+        "source_commit": "d2c13d4d0c74e9b0ebe01c55b4ad787442b4d825",
+        "same_source_blob_as_main": true,
+        "run_id": 37820482958,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/37820482958",
+        "inspection": "run metadata, job steps, and source blob identity; no new local Lean compilation",
+        "workflow_name": "g30-gate-b-lean",
+        "source_git_blob": "1a701ae6228d783dd10799ad8b992e15e1d6bc8f"
+      }
+    },
+    {
+      "id": "STROBO",
+      "title": "STROBO structural results",
+      "status": "formal_results_on_review_branch",
+      "entry_provenance": "unassessed",
+      "integration": "open_draft_not_merged",
+      "review_status": "open",
+      "novelty_status": "unestablished",
+      "source_url": "https://github.com/alexcour/couret-finite-verifications/pull/25",
+      "source_commit": "9c61de6daf8df99da6574d627b45941403594956",
+      "trust_basis": "consult_exact_theorem_and_axiom_receipts_on_review_branch",
+      "ci_evidence": {
+        "source_commit": "9c61de6daf8df99da6574d627b45941403594956",
+        "run_id": 39011585111,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39011585111",
+        "inspection": "run metadata inspected; the existing theorem-level axiom reports are linked from the PR and are not reaudited by this manifest",
+        "workflow_name": "strobo-2tors-lean"
+      },
+      "pull_request": 25
+    },
+    {
+      "id": "CAYLEY_COU20",
+      "title": "Cayley COU-20 structural results",
+      "status": "formal_results_on_review_branch",
+      "entry_provenance": "unassessed",
+      "integration": "open_draft_not_merged",
+      "review_status": "open",
+      "novelty_status": "unestablished",
+      "source_url": "https://github.com/alexcour/couret-finite-verifications/pull/49",
+      "source_commit": "d0ee48a4ee1f016875492037b485428929e42cf3",
+      "trust_basis": "consult_exact_theorem_and_axiom_receipts_on_review_branch",
+      "ci_evidence": {
+        "source_commit": "d0ee48a4ee1f016875492037b485428929e42cf3",
+        "run_id": 39256396744,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/39256396744",
+        "inspection": "run metadata inspected; the existing theorem-level axiom reports are linked from the PR and are not reaudited by this manifest",
+        "workflow_name": "cou20-abelian-lean-candidate"
+      },
+      "pull_request": 49
+    }
+  ],
+  "lean_toolchain": {
+    "lean": "v4.29.1",
+    "mathlib": "v4.29.1",
+    "native_evaluation_model": "one generated axiom per native computation",
+    "reference": "https://lean-lang.org/doc/reference/latest/releases/v4.29.0/",
+    "implementation": "https://github.com/leanprover/lean4/blob/v4.29.1/src/Lean/Meta/Native.lean"
+  },
+  "lean_sources": [
+    {
+      "path": "research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+      "role": "compiled_certificate",
+      "entry_provenance": "imported",
+      "git_blob": "1a701ae6228d783dd10799ad8b992e15e1d6bc8f",
+      "sha256": "e00f97deab416d954b9e4daa8675d62b739428d881d990739df778e3ab232d43",
+      "theorem_count": 15,
+      "native_decide_count": 14,
+      "decide_count": 0,
+      "explicit_axiom_count": 0,
+      "placeholder_count": 0,
+      "namespace": "CouretUnification.G30ComplexSpectrum"
+    },
+    {
+      "path": "research/g30-gate-b-lean/G30ComplexSpectrum.drive.lean",
+      "role": "historical_import_not_compiled_by_workflow",
+      "entry_provenance": "imported",
+      "git_blob": "f90ad1f44da11cc232d5a14946f1605309f53528",
+      "sha256": "b9e457d27f72229f50c2a58f7b10f068236c440db478b05c0d7cddfcd073c207",
+      "theorem_count": 15,
+      "native_decide_count": 14,
+      "decide_count": 0,
+      "explicit_axiom_count": 0,
+      "placeholder_count": 0
+    },
+    {
+      "path": "research/g30-gate-b-lean/lakefile.lean",
+      "role": "build_configuration",
+      "entry_provenance": "unassessed",
+      "git_blob": "ad2d560ec7121880a1feacc826a638d06dff0f93",
+      "sha256": "3a76c62ffe3a9e70a81487a9bfc4e67ffa0d6603112bf5c21f9dbc49bb4d132b",
+      "theorem_count": 0,
+      "native_decide_count": 0,
+      "decide_count": 0,
+      "explicit_axiom_count": 0,
+      "placeholder_count": 0
+    }
+  ]
+}

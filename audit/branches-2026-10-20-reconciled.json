@@ -1,0 +1,632 @@
+{
+  "schema_version": 1,
+  "repository": "alexcour/couret-finite-verifications",
+  "observation": "before_reconciliation_publication",
+  "observed_at_utc": "2026-10-20T10:16:39.285Z",
+  "main_commit": "2e5ffea1f6c020d3daac69c36d7d113dd0075b82",
+  "main_tree": "3c4fbfcb7fb9fb9db45636d4d1b40a99eb669ab5",
+  "api_pages": [
+    {
+      "page": 1,
+      "per_page": 100,
+      "count": 100
+    },
+    {
+      "page": 2,
+      "per_page": 100,
+      "count": 4
+    }
+  ],
+  "branch_count": 104,
+  "groups": {
+    "audit": 8,
+    "chore": 1,
+    "correction": 1,
+    "docs": 5,
+    "feat": 1,
+    "fix": 1,
+    "main": 1,
+    "research": 73,
+    "review": 13
+  },
+  "branches": [
+    {
+      "name": "audit/cou-14-zenodo-verification-2026-10-14",
+      "head_sha": "6567729e6d9734640fc112e8016315db335dca86",
+      "protected": false
+    },
+    {
+      "name": "audit/m002-1-finset-card-receipt-20261014",
+      "head_sha": "96082fe4d30c347cd486fc6cd89399ffc457c3be",
+      "protected": false
+    },
+    {
+      "name": "audit/math-anc-01-b04-20261014",
+      "head_sha": "f91679fbeaebc37701cf98962e88391888c80d1a",
+      "protected": false
+    },
+    {
+      "name": "audit/public-claim-status-20261020-reviewed",
+      "head_sha": "35a74faf5b0004f8b6611dfcbf4400d215c50487",
+      "protected": false
+    },
+    {
+      "name": "audit/wordpress-readonly-16url-20261014",
+      "head_sha": "5c40a19f1409f2ee49a72126feea8c937c0dbf7a",
+      "protected": false
+    },
+    {
+      "name": "audit/2026-10-20-authorship-scope",
+      "head_sha": "9da78ec80e7cca536f16511f4dedd251742ba054",
+      "protected": false
+    },
+    {
+      "name": "audit/2026-10-20-lean-trust-ci",
+      "head_sha": "1cacacfeccc135498a4e81e5f76e6b9b36947dab",
+      "protected": false
+    },
+    {
+      "name": "audit/2026-10-20-prior-art-focus",
+      "head_sha": "41766ebe88d076fff39e4f3017e4f367c86e9ce5",
+      "protected": false
+    },
+    {
+      "name": "chore/gha-node24-ubuntu2404",
+      "head_sha": "91a107fb8430aa6763b55713634a31bc124bd47e",
+      "protected": false
+    },
+    {
+      "name": "correction/t1t4-public-erratum-20261013",
+      "head_sha": "931bf511bc1eb99e294a6b5bc41b685ca939686e",
+      "protected": false
+    },
+    {
+      "name": "docs/dependency-boundaries-2026-10-14",
+      "head_sha": "9e12e4f357f667b75fe54fadcb04aa1ea687a653",
+      "protected": false
+    },
+    {
+      "name": "docs/pr4-postmerge-status-2026-10-12",
+      "head_sha": "135cbae4e16ad3eeb388a62f51450faac816e068",
+      "protected": false
+    },
+    {
+      "name": "docs/reconstruction-programme-20261014",
+      "head_sha": "746799e3f5cffa4558f7ab1556c46fcaf66b6bf8",
+      "protected": false
+    },
+    {
+      "name": "docs/site-couret-current-research-2026-10-11",
+      "head_sha": "44faaea75317608ac33301dc8fcbfeccd113cf9c",
+      "protected": false
+    },
+    {
+      "name": "docs/zenodo-pre-review-audit-2026-10-11",
+      "head_sha": "49174cda46ce65572259ccfe96e6f3e1897b6c8a",
+      "protected": false
+    },
+    {
+      "name": "feat/recoh-lab-c8-demonstrator-20261020",
+      "head_sha": "e2d5b0c5d59faec148e261ed6a91e6aeb395d9bd",
+      "protected": false
+    },
+    {
+      "name": "fix/strobo-closed-histogram-empty-20261015",
+      "head_sha": "a8937817c77d1fe4ff6044d411cc8acce36b57b8",
+      "protected": false
+    },
+    {
+      "name": "main",
+      "head_sha": "2e5ffea1f6c020d3daac69c36d7d113dd0075b82",
+      "protected": false
+    },
+    {
+      "name": "research/agent-cert-01-2026-10-09",
+      "head_sha": "d6455d1cdc051c593834b05e21300c3e3f99001c",
+      "protected": false
+    },
+    {
+      "name": "research/agent-cert-02-2026-10-09",
+      "head_sha": "9f5ee234997df9f0c763930d61998a77f06280ca",
+      "protected": false
+    },
+    {
+      "name": "research/audit-cu-strobo-2026-10-11",
+      "head_sha": "60a52d05a8fc5a62202ffb38383d1b02c119f66e",
+      "protected": false
+    },
+    {
+      "name": "research/babanskyy-local-crt-2026-10-13",
+      "head_sha": "5671fde27270302adc66bc49b89b2e6ad904c6a7",
+      "protected": false
+    },
+    {
+      "name": "research/cayley-cn-shortroot-20261020",
+      "head_sha": "bd9dc5839690ab5ff4d865af5f4bb3830f41f19f",
+      "protected": false
+    },
+    {
+      "name": "research/connes-grothendieck-liouville-2026-10-08",
+      "head_sha": "88d6eb2a7e4a98028e0c0ea06ff90ac273a10e5f",
+      "protected": false
+    },
+    {
+      "name": "research/cont-p-v1-12-finite-geometry",
+      "head_sha": "a22fad93887bcc82448896c6366bfc8008ebe5da",
+      "protected": false
+    },
+    {
+      "name": "research/cou20-spectral-necessity-20261018",
+      "head_sha": "bef25648f750d1b9d7792a883597021665e3ba00",
+      "protected": false
+    },
+    {
+      "name": "research/cou-20-abelian-two-colour-20261015",
+      "head_sha": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+      "protected": false
+    },
+    {
+      "name": "research/couret-diag-01-2026-10-08",
+      "head_sha": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+      "protected": false
+    },
+    {
+      "name": "research/couret-diag-02-2026-10-08",
+      "head_sha": "9552f4d8f966609755189abe68ac3f61445252b1",
+      "protected": false
+    },
+    {
+      "name": "research/couret-norm01-2026-10-09",
+      "head_sha": "4e5b85d6459cb032ff681400c89a822f12c8bfa9",
+      "protected": false
+    },
+    {
+      "name": "research/couret-norm01-referee-2026-10-09",
+      "head_sha": "3612336eddb4a91475184e6cb35feae7f154d8b6",
+      "protected": false
+    },
+    {
+      "name": "research/couret-norm02-lean-2026-10-09",
+      "head_sha": "9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5",
+      "protected": false
+    },
+    {
+      "name": "research/couret-oai-bridge-01",
+      "head_sha": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
+      "protected": false
+    },
+    {
+      "name": "research/couret-sparse-01-2026-10-08",
+      "head_sha": "1fbc8d7df39eb63b7ffd0f3d3cc9c115f485255f",
+      "protected": false
+    },
+    {
+      "name": "research/couret-t94-mrsts-2026-10-09",
+      "head_sha": "4a467c5edba68a5d415d53d18c28f9b7f44ad9d6",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-01-limit-01-2026-10-08",
+      "head_sha": "25f2d087be6470e4b644464cf8617c8bccc3eef5",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-01-limit-02-2026-10-09",
+      "head_sha": "9096428cb88bdb452b4ea6db128ec060c228985f",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-01-limit-03-2026-10-09",
+      "head_sha": "185d29e9aea4097028f1fef87516113df02c398f",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-01-limit-04-2026-10-09",
+      "head_sha": "53a19b38e9cd7e0214802e99d7e4fe0901f14ca2",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-01-limit-05-source-gate-2026-10-09",
+      "head_sha": "c904c983a489f150edbba1cd11489c012d927c37",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-02-b2-tail-20261012",
+      "head_sha": "5db8006ff93e7c4708961dc5e4447d66fbe17d79",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-02-c-phase-laws-2026-10-12",
+      "head_sha": "2e96d121614fa111ece73aca3f413ffd73364267",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-56-triples-exact-2026-10-09",
+      "head_sha": "200528523935ed2d24359e9d88787d666f06a868",
+      "protected": false
+    },
+    {
+      "name": "research/cu-bruit-q15-aveiro-comparison-2026-10-12",
+      "head_sha": "8fcd903b8da83eff934ad41c96f102219c10838e",
+      "protected": false
+    },
+    {
+      "name": "research/cu-log-spec-01-2026-10-11",
+      "head_sha": "c0a651183310068a58b6eb91136bc7ef3a3d0f18",
+      "protected": false
+    },
+    {
+      "name": "research/cu-log-spec-02-2026-10-11",
+      "head_sha": "c4a1afdbf6d9e9abbb632ffbc6564e3e77f49cb1",
+      "protected": false
+    },
+    {
+      "name": "research/cu-mod-obs-05-dynamic-2026-10-11",
+      "head_sha": "992580a5263496d1772705383a397de0a128c00d",
+      "protected": false
+    },
+    {
+      "name": "research/cu-mod-obs-archive-2026-10-11",
+      "head_sha": "04159b86e08a990c11c4cb77dd6ee8d19dfafcad",
+      "protected": false
+    },
+    {
+      "name": "research/g30-gate-b-lean",
+      "head_sha": "d2c13d4d0c74e9b0ebe01c55b4ad787442b4d825",
+      "protected": false
+    },
+    {
+      "name": "research/liouville-audit-2026-10-08",
+      "head_sha": "8a8227048f12169067627c9a591ee5448bdfc0b9",
+      "protected": false
+    },
+    {
+      "name": "research/liouville-grothendieck-cross-audit-2026-10-08",
+      "head_sha": "fd99acea789c2676bb840ce92ac731c46e43be74",
+      "protected": false
+    },
+    {
+      "name": "research/literature-priority-audit-2026-10-13",
+      "head_sha": "10e722caf470ece51fa57fee52121176d29f39de",
+      "protected": false
+    },
+    {
+      "name": "research/mod-obs-01-2026-10-11",
+      "head_sha": "184c4f66f93d32835539cbbe7882439d976d5de7",
+      "protected": false
+    },
+    {
+      "name": "research/mod-obs-02-2026-10-11",
+      "head_sha": "1da6e09d47554bf6e98978ce8032be6f057bf85c",
+      "protected": false
+    },
+    {
+      "name": "research/mod-obs-03-2026-10-11",
+      "head_sha": "17e28fcd1a488217b60020ddc007b6435711fa91",
+      "protected": false
+    },
+    {
+      "name": "research/mod-obs-03-noisy-oracle-2026-10-11",
+      "head_sha": "bc9c54d524c535943bc53ec94c692825b229fd06",
+      "protected": false
+    },
+    {
+      "name": "research/ntk-obs-01-2026-10-11",
+      "head_sha": "c54f66e0fce48e40591bc0e52c2d5d4f544491f1",
+      "protected": false
+    },
+    {
+      "name": "research/ntk-obs-02-2026-10-11",
+      "head_sha": "fd621385ca810b60c2388d032b7fbce91bfa25a1",
+      "protected": false
+    },
+    {
+      "name": "research/parallel-workstreams-2026-10-09",
+      "head_sha": "a891b78a110dfd59cf4ec962ac77ff4ddbb788b7",
+      "protected": false
+    },
+    {
+      "name": "research/q15-molin-pari-crosscheck-20261020",
+      "head_sha": "475873a84f6d8f142204274259d5c98f30f17dbc",
+      "protected": false
+    },
+    {
+      "name": "research/recoh30-probe-budget-2026-10-14",
+      "head_sha": "ee3518fe02bc265c0536ae760e03281267ae5fd0",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-2power-triple-nonzero-20261016",
+      "head_sha": "42596dabca9a67d8ebf68907a485c785f0211194",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-equal-rank-info-20261016",
+      "head_sha": "85df7268e792e69b2e1ad2461dec2af575c43c88",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-fibre-optimal-2026-10-17",
+      "head_sha": "8febe10087c3dc984acb6c9fbee244b3debab554",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-infoset-universe-fix-20261016",
+      "head_sha": "c29e53471f7b9611946bf78de84f6b396478d3f3",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-rank-one-lean-20261015",
+      "head_sha": "71d66a9addc72a758b9d02ffad265c35cab94534",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-square-selector-2026-10-17",
+      "head_sha": "51f629fec7fb921278e835e46e2568b22ae79523",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-stability-2026-10-17",
+      "head_sha": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-strobo-fourier-lean-2026-10-14",
+      "head_sha": "afef68f3c51dda613f749e90b5c992c4734e2c92",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-three-2power-nonzero-20261017",
+      "head_sha": "38e5d14a0e0d8bc99f6376f1993000041df093ec",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-upper-2power-nonzero-20261016",
+      "head_sha": "ad993581448a92b698d5059d93993de95b18dbe0",
+      "protected": false
+    },
+    {
+      "name": "research/recoh-upper-primary-gate-20261016",
+      "head_sha": "4bb756a14a7f0f0bd7c23ece9ac5c5532cdcdfa7",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-2tors-01-2026-10-12",
+      "head_sha": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-2tors-global-classification-2026-10-12",
+      "head_sha": "9c61de6daf8df99da6574d627b45941403594956",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-ab-01-2026-10-12",
+      "head_sha": "fe387be435dc799e9b326570b9e36fe740e5d4c6",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-c3-01-2026-10-10",
+      "head_sha": "b1ed93d6244f1bc43a41961aa40ecab4f8fa6029",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-exceptional-profiles-x012-20261014",
+      "head_sha": "6e45abff86d3030315af53372d950e1fbfc1a44c",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-homometry-bridge-20261017",
+      "head_sha": "41a2ef6f6ae6f6a26b3d630d365ad404fd97fe42",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-integrated-maxima-20261016",
+      "head_sha": "2760e2a96683af8af91e11386c2fc228e762a725",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-m0024-fibre-moment-20261018",
+      "head_sha": "46d8415e210e3292a6e74b2bd990cd104cfa2835",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-max-h-one-proof-20261016",
+      "head_sha": "29d722927e4670e67624e644687b3c4cf102f3ab",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-observed-maximum-20261016",
+      "head_sha": "4391baef365ec111a31fafba77b7c98f8874ebda",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-ordinary-histogram-20261014",
+      "head_sha": "0287a031fd14e854bd87085bfcea1680a63cf0f5",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-pair-count-maxima-2026-10-15",
+      "head_sha": "09045f6831d5c8158f9f21286604ea700fba00ae",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-profile-partition-2026-10-14",
+      "head_sha": "c7adacbb38c59753318ef256bb966a4cd0dc0d7d",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-sharp-maximum-20261015",
+      "head_sha": "81ef748c2cd2f801a3b936d17238a30a0d69f24d",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-unordered-nontranslation-pairs-2026-10-16",
+      "head_sha": "3fb45e3419d8f464ba08064afe59061c6f6f9189",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-x0-final-count-20261014",
+      "head_sha": "8c2376975b1f05cb4233abc68d9a7db5bfc0e767",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-zero-free-histogram-2026-10-15",
+      "head_sha": "9087a71b774a9b7076b91b513a1f07a1bb25bdba",
+      "protected": false
+    },
+    {
+      "name": "research/strobo-zero-free-histogram-20261015",
+      "head_sha": "68b98420401c46c1db9b128ec77e0d9ff13c908c",
+      "protected": false
+    },
+    {
+      "name": "research/zenodo-frederic-v7-2026-10-09",
+      "head_sha": "2e95da2a05a9186aa16b249c6467ae20751cd342",
+      "protected": false
+    },
+    {
+      "name": "review/consolidation-strobo-modobs-2026-10-11",
+      "head_sha": "9896f7043ae48861070df2f5b24e529f6b4c52a9",
+      "protected": false
+    },
+    {
+      "name": "review/correspondants-q5-strobo-20261013",
+      "head_sha": "ff3d9db23f4e79fecded496f4bfea0b96fe0c5e9",
+      "protected": false
+    },
+    {
+      "name": "review/cu-bruit-56-13-referee-pack-2026-10-09",
+      "head_sha": "4ab54917708037589f3659250fd30dd359ca6e38",
+      "protected": false
+    },
+    {
+      "name": "review/cu-bruit-referee-pack-2026-10-09",
+      "head_sha": "200528523935ed2d24359e9d88787d666f06a868",
+      "protected": false
+    },
+    {
+      "name": "review/frederic-maths-complete-2026-10-09",
+      "head_sha": "7cde1760b429dcaae1d8a54de0c3fbc516205d95",
+      "protected": false
+    },
+    {
+      "name": "review/frederic-site-update-2026-10-09",
+      "head_sha": "0ad5fe722fdaf29b020d0da9e5d8eb90077999d1",
+      "protected": false
+    },
+    {
+      "name": "review/frederic-unified-master-2026-10-09",
+      "head_sha": "e5d08df5fa65fa48f9c772dd8bfb79edc5ab9187",
+      "protected": false
+    },
+    {
+      "name": "review/spec-obs-09-independent-audit-2026-10-09",
+      "head_sha": "2ce732576cdef6d70207dcb0d189f0f61758a820",
+      "protected": false
+    },
+    {
+      "name": "review/strobo-nontranslation-bridge-20261015",
+      "head_sha": "2de57704de1541bcbb354642bd8feb34149f04fb",
+      "protected": false
+    },
+    {
+      "name": "review/strobo-nontranslation-degree-20261016",
+      "head_sha": "c164cd21a3161dfe49ba49af38591fecc4d295ec",
+      "protected": false
+    },
+    {
+      "name": "review/strobo-nontranslation-unordered-20261016",
+      "head_sha": "0de7c865665cef33cbd42ef1d45e9d73c9bf75aa",
+      "protected": false
+    },
+    {
+      "name": "review/strobo-symdiff-trichotomy-20261016",
+      "head_sha": "8f44811497d0e7831280e7d03b1f11184608bbff",
+      "protected": false
+    },
+    {
+      "name": "review/strobo-unordered-pairs-handshake-20261016",
+      "head_sha": "3ff9c36906482b5cb07c4a78be84d3a9a7b5a314",
+      "protected": false
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 25,
+      "url": "https://github.com/alexcour/couret-finite-verifications/pull/25",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_branch": "research/strobo-2tors-global-classification-2026-10-12",
+      "head_sha": "9c61de6daf8df99da6574d627b45941403594956",
+      "base_branch": "main",
+      "reported_base_sha": "482ce6f4cc6e5e2bcef6178d5b63e0042026b55f",
+      "changed_files": 67,
+      "commits": 101,
+      "mergeable": true,
+      "mergeable_state": "clean"
+    },
+    {
+      "number": 49,
+      "url": "https://github.com/alexcour/couret-finite-verifications/pull/49",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_branch": "research/cou-20-abelian-two-colour-20261015",
+      "head_sha": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+      "base_branch": "main",
+      "reported_base_sha": "fa2d21ab4a2e3014d9f3bee85a8397ed5f8e083a",
+      "changed_files": 80,
+      "commits": 139,
+      "mergeable": true,
+      "mergeable_state": "clean"
+    },
+    {
+      "number": 50,
+      "url": "https://github.com/alexcour/couret-finite-verifications/pull/50",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_branch": "research/strobo-observed-maximum-20261016",
+      "head_sha": "4391baef365ec111a31fafba77b7c98f8874ebda",
+      "base_branch": "research/strobo-2tors-global-classification-2026-10-12",
+      "reported_base_sha": "1b76d8069c92bd37166aac7fb5922ab6d9ffbdd7",
+      "changed_files": 3,
+      "commits": 13,
+      "mergeable": false,
+      "mergeable_state": "dirty"
+    },
+    {
+      "number": 57,
+      "url": "https://github.com/alexcour/couret-finite-verifications/pull/57",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_branch": "research/strobo-integrated-maxima-20261016",
+      "head_sha": "2760e2a96683af8af91e11386c2fc228e762a725",
+      "base_branch": "research/strobo-2tors-global-classification-2026-10-12",
+      "reported_base_sha": "da58ebb9fe33d231054515880c6af6bca04e66af",
+      "changed_files": 3,
+      "commits": 5,
+      "mergeable": false,
+      "mergeable_state": "dirty"
+    },
+    {
+      "number": 62,
+      "url": "https://github.com/alexcour/couret-finite-verifications/pull/62",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_branch": "research/strobo-m0024-fibre-moment-20261018",
+      "head_sha": "46d8415e210e3292a6e74b2bd990cd104cfa2835",
+      "base_branch": "research/strobo-2tors-global-classification-2026-10-12",
+      "reported_base_sha": "9c61de6daf8df99da6574d627b45941403594956",
+      "changed_files": 3,
+      "commits": 4,
+      "mergeable": true,
+      "mergeable_state": "clean"
+    }
+  ],
+  "scope": "Two API pages and named PR metadata; not an atomic Git snapshot, ancestry audit, mathematical review, or deletion authorization. CI receipts remain frozen at their own source revisions."
+}

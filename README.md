@@ -1,18 +1,35 @@
+# Couret finite verifications and research review index
+
+The immutable v1.0.0 tag and its DOI identify the archived finite release.
+Later research files and draft proofs retain their own source revisions,
+review gates and publication decisions. See [research/README.md](research/README.md),
+[BRANCHES.md](BRANCHES.md), [LEAN_TRUST.md](LEAN_TRUST.md) and
+[LEAN_AUDIT.md](LEAN_AUDIT.md) for the recorded evidence and its limits.
+
+<!-- BEGIN GENERATED PUBLIC CLAIM STATUS -->
+
+Status snapshot: **2026-10-20**. Source: `PUBLIC_CLAIM_STATUS.json`.
+
+| Object | Verification scope | Integration | Human review | Originality |
+| --- | --- | --- | --- | --- |
+| [G30 exact finite certificate](https://github.com/alexcour/couret-finite-verifications/blob/5bfca060ce3a4ed5687bd80d0cccab73767074b3/research/g30-gate-b-lean/G30ComplexSpectrum.lean) | Finite certificate using native evaluation | main research directory | open | not claimed |
+| [STROBO structural results](https://github.com/alexcour/couret-finite-verifications/pull/25) | Formal results on an open review branch | open draft not merged | open | unestablished |
+| [Cayley COU-20 structural results](https://github.com/alexcour/couret-finite-verifications/pull/49) | Formal results on an open review branch | open draft not merged | open | unestablished |
+
+`RHClaimed=false`; `novelty_claimed=false`; `external_mathematical_review_completed=false`.
+These flags are publication boundaries, not new mathematical theorems.
+
+<!-- END GENERATED PUBLIC CLAIM STATUS -->
+
 > **Archive and working-tree boundary · 20 October 2026.** The version DOI below identifies the preserved v1.0.0 tag. The `research/` directory and later research presentations on this branch are a separate working review area, with their own evidence and open review gates. They are not included in that archived release. See [research/README.md](research/README.md).
 
 > **Current research identity (14 October 2026): [Couret — Additive and Spectral Reconstruction](RESEARCH_PROGRAMME.md).** The active research focuses on reconstruction of three-element subsets from ordered pairwise sums and separately on Cayley-graph spectral ambiguities. Lean-checked structural results and bounded exhaustive computations do not constitute external human review or establish mathematical priority. The historical name “Couret–Unification” remains in provenance records. This note does not alter the archived v1.0.0 release.
 
 > **PUBLIC SCIENTIFIC CORRECTION — 13 October 2026.** The historical [T1′–T4 Riemann-hypothesis proof chain](https://github.com/couret-interia/rh-analytic-framework-t1t4) is **invalid as a proof**. Its published T2 argument omits the nonzero diagonal of the Gram-matrix error, and T3 asserts an incompatible wave-packet normalization. Read the [explicit mathematical erratum](ERRATUM_RH_T1T4_2026-10-13.md). The original archive is preserved for historical accountability; do **not** cite it as a valid RH proof or a journal-ready proof framework. This correction does not disqualify unrelated finite checks, which have separate review limits.
 
-<!-- research-vision-20261016 -->
-> **Research programme and ambitions · 16 October 2026**  
-> [Présentation en français](RESEARCH_VISION_FR.md) · [Research vision in English](RESEARCH_VISION_EN.md)  
-> The aim of this programme is to make results recoverable, testable and transferable. Additive reconstruction is the active mathematical entry point to the wider programme. The presentation distinguishes existing work, proposed experiments and research dreams. This repository retains its own claim and review boundaries.
-<!-- /research-vision-20261016 -->
-
 > **Authorship clarification · 20 October 2026.** Alexandre Couret is the author responsible for this programme. First-person plural wording in the linked research vision refers to his workflow with AI assistants; it does not designate a team of human coauthors or an independent validation. AI systems are assistance tools, not authors.
 
-# Couret — finite verifications (public release v1.0.0)
+## Archived finite release v1.0.0
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22978365.svg)](https://doi.org/10.5281/zenodo.22978365)
 
@@ -102,3 +119,8 @@ The maintainer authorized integration through PR #4 on 12 October 2026. The [int
 ## Lean trust and review map
 
 The main-branch G30 certificate uses `native_decide`, so its trust includes compiled evaluation. The source inventory, compiler dependency and per-theorem axiom-receipt procedure are documented in [LEAN_TRUST.md](LEAN_TRUST.md). The larger STROBO and COU-20 developments remain draft branches with separate source commits; [BRANCHES.md](BRANCHES.md) identifies their review status and the required module-by-module review.
+
+## Programme context
+
+[Présentation en français](RESEARCH_VISION_FR.md) · [Programme overview in English](RESEARCH_VISION_EN.md).
+The repository-specific scope and authorship notice above govern this page.
