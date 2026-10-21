@@ -1,0 +1,1356 @@
+<div class="cu-recoh-wrapper" style="margin:25px 0;width:100%;">
+  <iframe id="recoh-frame" srcdoc="<!doctype html>
+<html lang=&quot;fr&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<title>RECOH Lab — Reconstruction additive et spectrale (C₈ / C₄)</title>
+<style>
+:root{
+  --bg:#0a121d;--surface:#152232;--surface-elev:#1b2d42;--border:#2b425b;--accent:#38b2ac;
+  --accent-hover:#2c9691;--text:#e4ecf3;--muted:#9ab0c4;--gold:#ecc94b;--ok:#48bb78;
+  --err:#f56565;--warn:#ed8936;--font:system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);margin:0;padding:20px;line-height:1.55}
+.container{max-width:1080px;margin:auto}
+header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:20px}
+h1{font-size:1.75rem;margin:0 0 6px;color:#fff}
+.subtitle{color:var(--muted);font-size:0.95rem;margin:0 0 12px}
+.nav-views{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.nav-btn{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px 16px;font-weight:600;cursor:pointer}
+.nav-btn.active{background:var(--accent);color:#08161f;border-color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:18px}
+.panel h2{font-size:1.15rem;margin-top:0;margin-bottom:10px;color:#fff;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
+.btn{background:#1a414e;color:#fff;border:1px solid #4a7785;border-radius:6px;padding:8px 12px;font:inherit;font-size:0.9rem;cursor:pointer;transition:background 0.15s}
+.btn:hover{background:#235868}
+.btn:disabled{opacity:0.4;cursor:not-allowed}
+.btn-sm{padding:4px 8px;font-size:0.8rem}
+.btn-danger{background:#5a2323;border-color:#9b4444}
+.btn-danger:hover{background:#772e2e}
+.btn-accent{background:var(--accent);color:#061821;font-weight:600;border-color:var(--accent)}
+.btn-accent:hover{background:var(--accent-hover)}
+.digits{font-family:var(--mono)}
+.nodes-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.node-btn{width:44px;height:44px;border-radius:8px;background:var(--surface-elev);border:1px solid var(--border);color:var(--text);font-weight:bold;font-size:1.05rem;cursor:pointer}
+.node-btn.active{background:var(--accent);color:#0a1720;border-color:var(--accent)}
+.barrow{display:grid;grid-template-columns:28px 1fr 28px;gap:8px;align-items:center;margin:4px 0}
+.bar-track{height:14px;background:#0d1824;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent);border-radius:4px}
+.badge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:0.8rem;font-weight:bold}
+.badge-ok{background:#22543d;color:#9ae6b4;border:1px solid #38a169}
+.badge-warn{background:#744210;color:#fbd38d;border:1px solid #d69e2e}
+.badge-err{background:#742a2a;color:#feb2b2;border:1px solid #e53e3e}
+.badge-info{background:#2b6cb0;color:#bee3f8;border:1px solid #3182ce}
+.notice{padding:12px;border-radius:6px;background:var(--surface-elev);border-left:4px solid var(--gold);margin:10px 0;font-size:0.9rem}
+.notice-ok{border-left-color:var(--ok)}
+.notice-err{border-left-color:var(--err)}
+.cand-list{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.cand-chip{background:var(--surface-elev);border:1px solid var(--border);padding:4px 10px;border-radius:6px;font-family:var(--mono);font-size:0.9rem}
+.cand-chip.matched{border-color:var(--ok);background:#133324}
+.form-group{margin-bottom:10px}
+label{display:block;font-size:0.85rem;color:var(--muted);margin-bottom:4px}
+input,select{background:#0a1522;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font:inherit;font-size:0.9rem;width:100%}
+input:focus,select:focus{border-color:var(--accent);outline:none}
+.meas-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.85rem}
+.meas-table th,.meas-table td{border:1px solid var(--border);padding:6px 8px;text-align:left}
+.meas-table th{background:var(--surface-elev);color:var(--muted)}
+.footer-text{color:var(--muted);font-size:0.8rem;margin-top:20px;border-top:1px solid var(--border);padding-top:12px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+<div class=&quot;container&quot;>
+<header>
+  <h1>RECOH Lab — Reconstruction additive et spectrale</h1>
+  <p class=&quot;subtitle&quot;>Laboratoire interactif de paires ordonnées et levée d'ambiguïté spectrale dans les groupes cycliques finis C₈ et C₄.</p>
+  <div class=&quot;nav-views&quot; role=&quot;tablist&quot;>
+    <button class=&quot;nav-btn active&quot; id=&quot;tab-exp&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;>EXPÉRIMENTER</button>
+    <button class=&quot;nav-btn&quot; id=&quot;tab-und&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;>COMPRENDRE</button>
+    <button class=&quot;nav-btn&quot; id=&quot;tab-ver&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;>VÉRIFIER</button>
+    <a href=&quot;./challenge.html&quot; class=&quot;btn btn-accent&quot; style=&quot;margin-left:auto;align-self:center&quot;>Défi à l'aveugle →</a>
+  </div>
+</header>
+
+<!-- VUE 1 : EXPÉRIMENTER -->
+<main id=&quot;view-exp&quot;>
+  <!-- Choix du groupe et cas d'étude -->
+  <section class=&quot;panel&quot;>
+    <h2>1. Groupe cyclique et configurations types</h2>
+    <div style=&quot;display:flex;gap:12px;align-items:center;flex-wrap:wrap&quot;>
+      <label style=&quot;margin:0;font-weight:bold;color:#fff&quot;>Groupe :</label>
+      <select id=&quot;group-select&quot; style=&quot;width:auto;min-width:130px&quot;>
+        <option value=&quot;8&quot; selected>C₈ (ℤ/8ℤ — 56 triplets)</option>
+        <option value=&quot;4&quot;>C₄ (ℤ/4ℤ — 4 triplets)</option>
+      </select>
+      <span style=&quot;color:var(--muted);margin-left:8px&quot;>Cas types de référence :</span>
+      <button class=&quot;btn btn-sm&quot; id=&quot;preset-c8-ref&quot;>C₈ {0,3,5} Réf</button>
+      <button class=&quot;btn btn-sm&quot; id=&quot;preset-c8-rat&quot;>C₈ 12/5 Rationnel</button>
+      <button class=&quot;btn btn-sm&quot; id=&quot;preset-c8-weak&quot;>C₈ χ¹ Faible</button>
+      <button class=&quot;btn btn-sm&quot; id=&quot;preset-c4-border&quot;>C₄ Frontière ε=1</button>
+    </div>
+  </section>
+
+  <div class=&quot;grid-2&quot;>
+    <!-- Choix du support -->
+    <section class=&quot;panel&quot;>
+      <h2>2. Support simulé S (3 éléments)</h2>
+      <p style=&quot;font-size:0.85rem;color:var(--muted);margin:0 0 8px&quot;>Cliquez sur les résidus pour constituer un sous-ensemble S de 3 points distincts.</p>
+      <div id=&quot;nodes-container&quot; class=&quot;nodes-row&quot; role=&quot;group&quot; aria-label=&quot;Résidus du groupe&quot;></div>
+      <p class=&quot;digits&quot; id=&quot;support-label&quot; style=&quot;font-size:1.05rem;font-weight:bold;margin:8px 0&quot;></p>
+      <div style=&quot;display:flex;gap:8px&quot;>
+        <button class=&quot;btn btn-sm&quot; id=&quot;btn-reset-support&quot;>Restaurer référence</button>
+        <button class=&quot;btn btn-sm&quot; id=&quot;btn-random-support&quot;>Triplet aléatoire</button>
+      </div>
+    </section>
+
+    <!-- Histogramme R -->
+    <section class=&quot;panel&quot;>
+      <h2>3. Observation additive R_S(z)</h2>
+      <p style=&quot;font-size:0.85rem;color:var(--muted);margin:0 0 8px&quot;>Compte les 9 couples ordonnés (x,y) ∈ S² tels que x+y ≡ z (mod n), diagonales incluses.</p>
+      <div id=&quot;bars-container&quot;></div>
+      <p class=&quot;digits&quot; id=&quot;vector-label&quot; style=&quot;font-weight:bold;margin:8px 0;font-size:0.95rem&quot;></p>
+    </section>
+  </div>
+
+  <!-- Fibre complète des candidats -->
+  <section class=&quot;panel&quot;>
+    <h2>4. Fibre complète des triplets compatibles avec R</h2>
+    <p style=&quot;font-size:0.85rem;color:var(--muted);margin:0 0 8px&quot;>Énumération exhaustive exacte des triplets reproduisant identiquement ce vecteur R.</p>
+    <div id=&quot;fiber-count-label&quot; style=&quot;font-weight:600;margin-bottom:6px&quot;></div>
+    <div id=&quot;candidates-container&quot; class=&quot;cand-list&quot;></div>
+    <div class=&quot;notice&quot; id=&quot;fiber-notice&quot;></div>
+  </section>
+
+  <!-- Mesures Fourier &amp; Filtrage -->
+  <section class=&quot;panel&quot;>
+    <h2>5. Mesure spectrale supplémentaire et modèle de bruit</h2>
+    <div style=&quot;display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap&quot;>
+      <span style=&quot;font-weight:600&quot;>Mode d'observation :</span>
+      <button class=&quot;btn btn-sm active&quot; id=&quot;btn-mode-single&quot;>Une seule lecture</button>
+      <button class=&quot;btn btn-sm&quot; id=&quot;btn-mode-notebook&quot;>Carnet de mesures (cumulatif)</button>
+    </div>
+
+    <div class=&quot;grid-2&quot;>
+      <div>
+        <div class=&quot;form-group&quot;>
+          <label for=&quot;char-k&quot;>Caractère χᵏ mesuré (P_k(S) = Σ exp(2πikx/n)) :</label>
+          <select id=&quot;char-k&quot;></select>
+        </div>
+        <div class=&quot;form-group&quot;>
+          <label for=&quot;input-re&quot;>Partie réelle y_re :</label>
+          <input type=&quot;number&quot; step=&quot;any&quot; id=&quot;input-re&quot;>
+        </div>
+        <div class=&quot;form-group&quot;>
+          <label for=&quot;input-im&quot;>Partie imaginaire y_im :</label>
+          <input type=&quot;number&quot; step=&quot;any&quot; id=&quot;input-im&quot;>
+        </div>
+        <div class=&quot;form-group&quot;>
+          <label for=&quot;input-eps&quot;>Borne d'erreur physique ε :</label>
+          <input type=&quot;number&quot; step=&quot;0.01&quot; min=&quot;0&quot; id=&quot;input-eps&quot; value=&quot;0.10&quot;>
+        </div>
+        <div style=&quot;display:flex;gap:8px;margin-top:10px&quot;>
+          <button class=&quot;btn btn-sm&quot; id=&quot;btn-fill-truth&quot;>Mesurer le support affiché</button>
+          <button class=&quot;btn btn-sm btn-accent&quot; id=&quot;btn-add-notebook&quot; style=&quot;display:none&quot;>Ajouter au carnet</button>
+        </div>
+      </div>
+
+      <div>
+        <div class=&quot;panel&quot; style=&quot;background:var(--surface-elev);margin:0&quot;>
+          <h3 style=&quot;font-size:0.95rem;margin-top:0&quot;>Analyse de robustesse et marges</h3>
+          <div id=&quot;margin-analysis&quot;></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carnet de mesures (table) -->
+    <div id=&quot;notebook-panel&quot; style=&quot;margin-top:14px;display:none&quot;>
+      <h3 style=&quot;font-size:0.95rem;margin:10px 0 6px&quot;>Observations actives dans le carnet</h3>
+      <table class=&quot;meas-table&quot; id=&quot;notebook-table&quot;>
+        <thead>
+          <tr><th>#</th><th>Caractère</th><th>y (re + i·im)</th><th>ε</th><th>Action</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button class=&quot;btn btn-sm btn-danger&quot; id=&quot;btn-clear-notebook&quot;>Vider le carnet</button>
+    </div>
+
+    <div style=&quot;margin-top:14px&quot;>
+      <div id=&quot;filter-summary&quot; style=&quot;font-weight:600;margin-bottom:6px&quot;></div>
+      <div id=&quot;filtered-candidates&quot; class=&quot;cand-list&quot;></div>
+    </div>
+  </section>
+
+  <!-- Décision virtuelle -->
+  <section class=&quot;panel&quot;>
+    <h2>6. Dépôt virtuel et décision de sécurité</h2>
+    <p style=&quot;font-size:0.85rem;color:var(--muted);margin:0 0 8px&quot;>
+      Expérience de décision : peut-on autoriser ou refuser un dépôt virtuel sur une position donnée en se fondant sur les candidats survivants ?
+    </p>
+    <div style=&quot;display:flex;gap:12px;align-items:center;flex-wrap:wrap&quot;>
+      <label style=&quot;margin:0;font-weight:600&quot;>Position candidate p :</label>
+      <select id=&quot;decision-pos&quot; style=&quot;width:auto;min-width:90px&quot;></select>
+      <span id=&quot;decision-badge&quot; class=&quot;badge&quot;></span>
+    </div>
+    <div id=&quot;decision-explanation&quot; class=&quot;notice&quot; style=&quot;margin-top:10px&quot;></div>
+  </section>
+
+  <!-- Export et Import rejouable -->
+  <section class=&quot;panel&quot;>
+    <h2>7. Exportation, importation et recalcul certifié</h2>
+    <p style=&quot;font-size:0.85rem;color:var(--muted);margin:0 0 8px&quot;>
+      Format versionné JSON conforme au schéma recoh-lab/1.0. À l'importation, le moteur recalcule intégralement la fibre, les marges et la décision sans se fier aux champs enregistrés.
+    </p>
+    <div style=&quot;display:flex;gap:10px;flex-wrap:wrap&quot;>
+      <button class=&quot;btn btn-accent&quot; id=&quot;btn-export-json&quot;>Exporter le scénario JSON</button>
+      <button class=&quot;btn&quot; id=&quot;btn-import-trigger&quot;>Importer un JSON</button>
+      <input type=&quot;file&quot; id=&quot;file-importer&quot; accept=&quot;.json,application/json&quot; style=&quot;display:none&quot;>
+    </div>
+    <div id=&quot;import-report&quot; class=&quot;notice hidden&quot;></div>
+  </section>
+</main>
+
+<!-- VUE 2 : COMPRENDRE -->
+<section id=&quot;view-und&quot; class=&quot;panel hidden&quot;>
+  <h2>Comprendre la reconstruction additive et spectrale</h2>
+  <div style=&quot;font-size:0.95rem;line-height:1.6&quot;>
+    <p><strong>1. Le problème des signatures additives :</strong><br>
+    Soit un sous-ensemble $S \subset C_n$ de 3 points. L'observation additive $R_S(z)$ compte le nombre de paires ordonnées $(x,y) \in S \times S$ telles que $x+y \equiv z \pmod n$. Parce que $S$ a 3 points, $\sum_{z} R_S(z) = 3^2 = 9$. Dans $C_8$, deux ensembles distincts non équivalents par isométrie peuvent produire exactement la même convolution $R_S$. C'est le cas de $S=\{0,3,5\}$ et $T=\{1,4,7\}$.
+    </p>
+    <p><strong>2. Levée d'ambiguïté spectrale :</strong><br>
+    Une mesure de transformée de Fourier $P_k(S) = \sum_{x \in S} \exp(2\pi i k x / n)$ fournit une information spectrale. L'identité fondamentale relie convolution et Fourier complexe :
+    $$\sum_{z=0}^{n-1} R_S(z) \exp(2\pi i k z / n) = P_k(S)^2$$
+    <em>Attention :</em> le terme de droite est le carré complexe $P_k(S)^2$, et non le carré du module $|P_k(S)|^2$.
+    </p>
+    <p><strong>3. Modèle de bruit et marges :</strong><br>
+    Si la mesure spectrale $y$ est entachée d'une erreur physique majorée par $\varepsilon$, on teste $|P_k(S) - y| \le \varepsilon$. Lorsque la distance entre les prédictions des deux candidats $\delta_k = |P_k(S) - P_k(T)|$ vérifie $\delta_k > 2\varepsilon$, les boules d'erreur sont strictement disjointes : l'identification est universellement garantie dans cette fibre.
+    </p>
+    <p><strong>4. Décision virtuelle sécurisée :</strong><br>
+    Un dépôt virtuel sur une position $p$ n'est <strong>AUTORISÉ</strong> que si $p$ est libre dans <em>tous</em> les candidats compatibles. Si les candidats sont en désaccord, la décision est <strong>INDÉTERMINÉE</strong> et l'action est bloquée. Si aucun candidat n'est compatible, le statut est <strong>OBSERVATIONS INCOMPATIBLES</strong> : l'ensemble vide n'autorise jamais !
+    </p>
+  </div>
+</section>
+
+<!-- VUE 3 : VÉRIFIER -->
+<section id=&quot;view-ver&quot; class=&quot;panel hidden&quot;>
+  <h2>Vérifier les hypothèses et le code du laboratoire</h2>
+  <div style=&quot;font-size:0.92rem;line-height:1.6&quot;>
+    <p><strong>Statut logiciel :</strong> RECOH Lab v1.0.0 — Moteur fini autonome sans dépendance serveur.<br>
+    <strong>Statut scientifique :</strong> Démonstrateur de calcul fini sur $C_8$ et $C_4$. Ne constitue pas une preuve de généralisation asymptotique ni une certification matérielle industrielle.
+    </p>
+    <table class=&quot;meas-table&quot;>
+      <thead>
+        <tr><th>Élément</th><th>Formalisme / Règle</th><th>Validation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Convolutions ordonnées</td><td>Diagonales incluses ($x=y$), total=9</td><td>Vérifié sur les 56 triplets de C₈ et 4 triplets de C₄</td></tr>
+        <tr><td>Identité Fourier</td><td>$\sum R(z) e^{2\pi ikz/n} = P_k(S)^2$</td><td>Vérifié exactement sur 56x8 cas ; mutant $|P|^2$ rejeté</td></tr>
+        <tr><td>Étanchéité défi</td><td>Sélecteur ne reçoit que la fibre</td><td>Zéro fuite de la cible secrète</td></tr>
+        <tr><td>Décision vide</td><td>$\emptyset \implies$ BLOQUÉ</td><td>Autorisation par vacuité rigoureusement proscrite</td></tr>
+      </tbody>
+    </table>
+    <p style=&quot;margin-top:10px&quot;>Code source inspectable dans le dépôt GitHub : <code>research/demos/recoh-lab/</code></p>
+  </div>
+</section>
+
+<footer class=&quot;footer-text&quot;>
+  <p>RECOH Lab • Couret — Reconstruction additive et spectrale • 20 octobre 2026.<br>
+  Calcul entier exact pour les convolutions et énumérations ; arithmétique complexe en virgule flottante pour Fourier. Données conservées localement dans votre session de navigation.</p>
+</footer>
+</div>
+
+<script>
+/* RECOH Lab — exact finite Cn core (C8, C4, and Cn finite demonstrator).
+ * Couret additive &amp; spectral reconstruction laboratory.
+ * MIT License.
+ */
+(function (root, factory) {
+  &quot;use strict&quot;;
+  const api = factory();
+  if (typeof module !== &quot;undefined&quot; &amp;&amp; module.exports) module.exports = api;
+  if (root) root.RECOH_CORE = api;
+})(typeof globalThis === &quot;object&quot; ? globalThis : this, function () {
+  &quot;use strict&quot;;
+
+  const VERSION = &quot;1.0.1&quot;;
+  const DEFAULT_N = 8;
+  const SQRT2_2 = Math.SQRT1_2; // Exact Math.sqrt(2)/2 in IEEE-754 double precision
+  const NUMERIC_EPSILON_UNCERTAINTY = 1e-14; // Seuil d'incertitude machine pour double précision
+
+  // Validation d'un support de 3 éléments distincts dans Z/nZ
+  function checkSupport(s, n = DEFAULT_N, count = 3) {
+    if (!Array.isArray(s) || s.length !== count) {
+      throw new Error(&quot;Le support doit contenir exactement &quot; + count + &quot; éléments.&quot;);
+    }
+    for (let i = 0; i < s.length; i++) {
+      const x = s[i];
+      if (!Number.isInteger(x) || x < 0 || x >= n) {
+        throw new Error(&quot;Chaque élément doit être un entier compris entre 0 et &quot; + (n - 1) + &quot;.&quot;);
+      }
+    }
+    const set = new Set(s);
+    if (set.size !== count) {
+      throw new Error(&quot;Les éléments du support doivent être strictement distincts.&quot;);
+    }
+    return [...s].sort((a, b) => a - b);
+  }
+
+  // Énumération de tous les triplets de Z/nZ (a < b < c)
+  function triples(n = DEFAULT_N) {
+    if (!Number.isInteger(n) || n < 3 || n > 24) {
+      throw new Error(&quot;L'ordre n du groupe cyclique doit être un entier entre 3 et 24.&quot;);
+    }
+    const out = [];
+    for (let a = 0; a < n - 2; a++) {
+      for (let b = a + 1; b < n - 1; b++) {
+        for (let c = b + 1; c < n; c++) {
+          out.push([a, b, c]);
+        }
+      }
+    }
+    return out;
+  }
+
+  // Convolution ordonnée R_S(z) = #{(x,y) in S^2 | x+y = z mod n}, diagonales incluses
+  function convolution(s, n = DEFAULT_N) {
+    checkSupport(s, n, 3);
+    const r = new Array(n).fill(0);
+    for (let i = 0; i < s.length; i++) {
+      for (let j = 0; j < s.length; j++) {
+        const sum = (s[i] + s[j]) % n;
+        r[sum]++;
+      }
+    }
+    return r;
+  }
+
+  // Énumération et filtrage exact de la fibre des triplets compatibles avec R
+  function candidates(r, n = DEFAULT_N) {
+    if (!Array.isArray(r) || r.length !== n) {
+      throw new Error(&quot;L'observation R doit être un tableau de longueur &quot; + n + &quot;.&quot;);
+    }
+    let total = 0;
+    for (let i = 0; i < n; i++) {
+      const val = r[i];
+      if (!Number.isInteger(val) || val < 0) {
+        throw new Error(&quot;Chaque composante de R doit être un entier naturel.&quot;);
+      }
+      total += val;
+    }
+    if (total !== 9) {
+      return []; // La somme doit valoir 3^2 = 9
+    }
+    const all = triples(n);
+    return all.filter(s => {
+      const r_cand = convolution(s, n);
+      for (let i = 0; i < n; i++) {
+        if (r_cand[i] !== r[i]) return false;
+      }
+      return true;
+    });
+  }
+
+  // Transformée de Fourier / Caractère : P_k(S) = sum_{x in S} exp(2pi * i * k * x / n)
+  // Convention d'exponentielle positive conformément au contrat scientifique.
+  // Pour C4 et C8, exploitation des coordonnées algébriques exactes dans Q(i, sqrt(2))
+  // afin d'éliminer les erreurs de troncature trigonométriques à la frontière.
+  function character(s, k = 3, n = DEFAULT_N) {
+    checkSupport(s, n, 3);
+    if (!Number.isInteger(k)) throw new Error(&quot;L'indice de caractère k doit être entier.&quot;);
+    const k_mod = ((k % n) + n) % n;
+    let re = 0;
+    let im = 0;
+
+    if (n === 4) {
+      // Racines 4-ièmes exactes dans Z[i] : 1, i, -1, -i
+      for (let i = 0; i < s.length; i++) {
+        const m = (k_mod * s[i]) % 4;
+        if (m === 0) re += 1;
+        else if (m === 1) im += 1;
+        else if (m === 2) re -= 1;
+        else if (m === 3) im -= 1;
+      }
+      return { re, im, algebraic: true };
+    }
+
+    if (n === 8) {
+      // Racines 8-ièmes exactes dans Q(i, sqrt(2))
+      for (let i = 0; i < s.length; i++) {
+        const m = (k_mod * s[i]) % 8;
+        if (m === 0) re += 1;
+        else if (m === 1) { re += SQRT2_2; im += SQRT2_2; }
+        else if (m === 2) im += 1;
+        else if (m === 3) { re -= SQRT2_2; im += SQRT2_2; }
+        else if (m === 4) re -= 1;
+        else if (m === 5) { re -= SQRT2_2; im -= SQRT2_2; }
+        else if (m === 6) im -= 1;
+        else if (m === 7) { re += SQRT2_2; im -= SQRT2_2; }
+      }
+      return { re, im, algebraic: true };
+    }
+
+    // Évaluation trigonométrique générale pour n arbitraire (marquée numérique)
+    for (let i = 0; i < s.length; i++) {
+      const theta = (2 * Math.PI * k_mod * s[i]) / n;
+      re += Math.cos(theta);
+      im += Math.sin(theta);
+    }
+    return { re, im, algebraic: false };
+  }
+
+  // Transformée de Fourier exacte de R : sum_{z} R(z) exp(2pi * i * k * z / n)
+  // Doit égaler exactement P_k(S)^2 (carré complexe, non |P_k|^2)
+  function fourierR(r, k, n = DEFAULT_N) {
+    if (!Array.isArray(r) || r.length !== n) throw new Error(&quot;R invalide&quot;);
+    const k_mod = ((k % n) + n) % n;
+    let re = 0;
+    let im = 0;
+    for (let z = 0; z < n; z++) {
+      const theta = (2 * Math.PI * k_mod * z) / n;
+      re += r[z] * Math.cos(theta);
+      im += r[z] * Math.sin(theta);
+    }
+    return { re, im };
+  }
+
+  // Produit de deux nombres complexes (a * b)
+  function complexMul(a, b) {
+    return {
+      re: a.re * b.re - a.im * b.im,
+      im: a.re * b.im + a.im * b.re
+    };
+  }
+
+  // Distance euclidienne dans C
+  function complexDist(a, b) {
+    return Math.hypot(a.re - b.re, a.im - b.im);
+  }
+
+  // Test de compatibilité physique stricte d'un candidat S avec une observation (k, y, epsilon)
+  // AUCUN élargissement arbitraire d'epsilon (+1e-12 proscrit conformément au mandat).
+  function compatible(s, k, observation, epsilon, n = DEFAULT_N) {
+    if (!observation || typeof observation.re !== &quot;number&quot; || typeof observation.im !== &quot;number&quot; ||
+        !Number.isFinite(observation.re) || !Number.isFinite(observation.im)) {
+      throw new Error(&quot;Mesure observation invalide.&quot;);
+    }
+    if (typeof epsilon !== &quot;number&quot; || !Number.isFinite(epsilon) || epsilon < 0) {
+      throw new Error(&quot;La tolérance d'erreur epsilon doit être un réel positif ou nul.&quot;);
+    }
+    const val = character(s, k, n);
+    const dist = complexDist(val, observation);
+    return dist <= epsilon;
+  }
+
+  // Qualification numérique fine aux frontières
+  function qualifiedCompatibility(s, k, observation, epsilon, n = DEFAULT_N) {
+    if (!observation || typeof observation.re !== &quot;number&quot; || typeof observation.im !== &quot;number&quot; ||
+        !Number.isFinite(observation.re) || !Number.isFinite(observation.im) ||
+        typeof epsilon !== &quot;number&quot; || !Number.isFinite(epsilon) || epsilon < 0) {
+      throw new Error(&quot;Paramètres invalides&quot;);
+    }
+    const val = character(s, k, n);
+    const dist = complexDist(val, observation);
+    const diff = dist - epsilon;
+    const isBoundaryUncertain = Math.abs(diff) <= NUMERIC_EPSILON_UNCERTAINTY;
+    return {
+      compatible: dist <= epsilon,
+      distance: dist,
+      isBoundaryUncertain: isBoundaryUncertain,
+      algebraic: Boolean(val.algebraic)
+    };
+  }
+
+  // Calcul de la séparation delta_k pour un ensemble de candidats dans C_n
+  // delta_k = min_{S != T} |P_k(S) - P_k(T)|
+  function computeSeparation(candList, k, n = DEFAULT_N) {
+    if (!Array.isArray(candList) || candList.length < 2) {
+      return {
+        delta_k: null,
+        status: &quot;DEJA_DETERMINE&quot;,
+        description: &quot;Fibre unitaire ou vide : séparation sans objet.&quot;
+      };
+    }
+    let minD = Infinity;
+    const preds = candList.map(s => character(s, k, n));
+    for (let i = 0; i < preds.length; i++) {
+      for (let j = i + 1; j < preds.length; j++) {
+        const d = complexDist(preds[i], preds[j]);
+        if (d < minD) minD = d;
+      }
+    }
+    return {
+      delta_k: minD,
+      status: minD < 1e-10 ? &quot;INDISTINGUABLE&quot; : &quot;CALCULE&quot;,
+      description: minD < 1e-10 ? &quot;Prédictions identiques pour au moins deux candidats.&quot; : &quot;Séparation calculée.&quot;
+    };
+  }
+
+  // Analyse de la marge de robustesse M = delta_k - 2 * epsilon
+  function analyzeMargin(delta_k, epsilon) {
+    if (delta_k === null || delta_k === undefined) {
+      return {
+        margin: null,
+        guarantee: &quot;NON_APPLICABLE&quot;,
+        label: &quot;Déjà déterminé par R&quot;
+      };
+    }
+    const margin = delta_k - 2 * epsilon;
+    if (margin > EPSILON_BOUNDARY_TOLERANCE) {
+      return {
+        margin,
+        guarantee: &quot;SEPARATION_GARANTIE&quot;,
+        label: &quot;Séparation uniforme garantie : les disques B(P_k, ε) sont disjoints.&quot;
+      };
+    } else {
+      return {
+        margin,
+        guarantee: &quot;SEPARATION_NON_GARANTIE&quot;,
+        label: &quot;Séparation uniforme non garantie : chevauchement possible.&quot;
+      };
+    }
+  }
+
+  // Filtrage mode cumulatif « Carnet de mesures »
+  // measurements = [ { k, y: {re, im}, epsilon }, ... ]
+  function filterNotebook(candList, measurements, n = DEFAULT_N) {
+    if (!Array.isArray(candList)) return [];
+    if (!Array.isArray(measurements) || measurements.length === 0) return [...candList];
+    return candList.filter(s => {
+      for (let i = 0; i < measurements.length; i++) {
+        const m = measurements[i];
+        if (!compatible(s, m.k, m.y, m.epsilon, n)) return false;
+      }
+      return true;
+    });
+  }
+
+  // Moteur de décision virtuelle
+  // Position p in {0, ..., n-1}
+  // Règle stricte :
+  // - |C| == 0 => OBSERVATIONS_INCOMPATIBLES (Dépôt bloqué; l'ensemble vide n'autorise JAMAIS)
+  // - Incertitude numérique à la frontière non résolue => INCERTITUDE_NUMERIQUE (Dépôt bloqué)
+  // - p absent de tous les candidats => AUTORISE
+  // - p présent dans tous les candidats => REFUSE
+  // - désaccord => INDETERMINE (Dépôt bloqué)
+  function evaluateVirtualDecision(candList, position, n = DEFAULT_N, hasBoundaryUncertainty = false) {
+    if (!Number.isInteger(position) || position < 0 || position >= n) {
+      throw new Error(&quot;Position de dépôt invalide : &quot; + position);
+    }
+    if (!Array.isArray(candList) || candList.length === 0) {
+      return {
+        status: &quot;OBSERVATIONS_INCOMPATIBLES&quot;,
+        allowed: false,
+        blocked: true,
+        reason: &quot;Aucun candidat compatible : les observations sont contradictoires. Dépôt bloqué (l'ensemble vide n'autorise jamais par vacuité).&quot;,
+        candidate_count: 0
+      };
+    }
+    if (hasBoundaryUncertainty) {
+      return {
+        status: &quot;INCERTITUDE_NUMERIQUE&quot;,
+        allowed: false,
+        blocked: true,
+        reason: &quot;Comparaison numérique non résolue à la frontière (incertitude machine). Dépôt virtuel bloqué.&quot;,
+        candidate_count: candList.length
+      };
+    }
+    let presentCount = 0;
+    for (let i = 0; i < candList.length; i++) {
+      if (candList[i].includes(position)) presentCount++;
+    }
+    if (presentCount === 0) {
+      return {
+        status: &quot;AUTORISE&quot;,
+        allowed: true,
+        blocked: false,
+        reason: &quot;Position &quot; + position + &quot; libre dans TOUS les &quot; + candList.length + &quot; candidat(s). Dépôt virtuel autorisé.&quot;,
+        candidate_count: candList.length
+      };
+    } else if (presentCount === candList.length) {
+      return {
+        status: &quot;REFUSE&quot;,
+        allowed: false,
+        blocked: true,
+        reason: &quot;Position &quot; + position + &quot; occupée dans TOUS les &quot; + candList.length + &quot; candidat(s). Dépôt virtuel refusé.&quot;,
+        candidate_count: candList.length
+      };
+    } else {
+      return {
+        status: &quot;INDETERMINE&quot;,
+        allowed: false,
+        blocked: true,
+        reason: &quot;Désaccord entre les candidats (occupée dans &quot; + presentCount + &quot;/&quot; + candList.length + &quot;). Dépôt virtuel bloqué.&quot;,
+        candidate_count: candList.length
+      };
+    }
+  }
+
+  // Translation t dans Z/nZ
+  function translate(s, t, n = DEFAULT_N) {
+    checkSupport(s, n, 3);
+    if (!Number.isInteger(t)) throw new Error(&quot;Translation t invalide&quot;);
+    return s.map(x => ((x + t) % n + n) % n).sort((a, b) => a - b);
+  }
+
+  // Simulateur étanche de défi aveugle (Zero Target Leakage)
+  function createBlindChallenge(targetCandidate, n = DEFAULT_N) {
+    const checkedTarget = checkSupport(targetCandidate, n, 3);
+    const secretTarget = [...checkedTarget]; // Scope privé fermé
+    const publicR = convolution(secretTarget, n);
+    const publicFiber = candidates(publicR, n);
+
+    let measurementHistory = [];
+    let revealed = false;
+
+    return {
+      getObservationR() {
+        return [...publicR];
+      },
+      getFiberCount() {
+        return publicFiber.length;
+      },
+      // Le sélecteur ne reçoit QUE la fibre et l'historique public, jamais le secretTarget
+      recommendNextMeasurement() {
+        let bestK = 1;
+        let maxDelta = -1;
+        for (let k = 1; k < n; k++) {
+          const sep = computeSeparation(publicFiber, k, n);
+          if (sep.delta_k !== null &amp;&amp; sep.delta_k > maxDelta) {
+            maxDelta = sep.delta_k;
+            bestK = k;
+          }
+        }
+        return { recommendedK: bestK, expectedSeparation: maxDelta };
+      },
+      takeMeasurement(k) {
+        if (!Number.isInteger(k) || k < 0 || k >= n) throw new Error(&quot;k invalide&quot;);
+        const meas = character(secretTarget, k, n);
+        measurementHistory.push({ k, y: meas });
+        return { k, re: meas.re, im: meas.im };
+      },
+      verifyGuess(guess) {
+        checkSupport(guess, n, 3);
+        const guessR = convolution(guess, n);
+        let matchesR = true;
+        for (let i = 0; i < n; i++) {
+          if (guessR[i] !== publicR[i]) {
+            matchesR = false;
+            break;
+          }
+        }
+        let matchesMeasurements = true;
+        for (let i = 0; i < measurementHistory.length; i++) {
+          const m = measurementHistory[i];
+          if (!compatible(guess, m.k, m.y, 1e-6, n)) {
+            matchesMeasurements = false;
+            break;
+          }
+        }
+        return {
+          matchesR,
+          matchesMeasurements,
+          isExactMatch: matchesR &amp;&amp; matchesMeasurements
+        };
+      },
+      revealSecret() {
+        revealed = true;
+        return {
+          secret: [...secretTarget],
+          fiber: publicFiber.map(x => [...x])
+        };
+      }
+    };
+  }
+
+  // Exportation au format JSON versionné conforme au contrat scientifique
+  function exportExperiment(state) {
+    if (!state || !state.support || !state.n) {
+      throw new Error(&quot;État invalide pour exportation&quot;);
+    }
+    const n = state.n;
+    const s = checkSupport(state.support, n, 3);
+    const r = convolution(s, n);
+    const fiber = candidates(r, n);
+
+    const measurements = (state.measurements || []).map(m => ({
+      k: m.k,
+      y: { re: m.y.re, im: m.y.im },
+      epsilon: m.epsilon,
+      margin: m.margin !== undefined ? m.margin : null,
+      guarantee: m.guarantee || &quot;NON_SPECIFIE&quot;
+    }));
+
+    const filtered = filterNotebook(fiber, measurements, n);
+    const decision = state.virtualPosition !== undefined ?
+      evaluateVirtualDecision(filtered, state.virtualPosition, n) : null;
+
+    return {
+      schema_version: &quot;recoh-lab/1.0&quot;,
+      experiment_id: &quot;exp-&quot; + Date.now(),
+      engine_version: VERSION,
+      status: &quot;finite-review-demonstrator&quot;,
+      group: &quot;Z/&quot; + n + &quot;Z&quot;,
+      n: n,
+      conventions: {
+        orderedPairs: true,
+        diagonalIncluded: true,
+        pairSumTotal: 9,
+        fourierExponential: &quot;exp(+2*pi*i*k*x/n)&quot;,
+        fourierIdentity: &quot;sum_z R(z) exp(2*pi*i*k*z/n) == P_k(S)^2&quot;
+      },
+      support: s,
+      observation_R: r,
+      complete_fiber: fiber,
+      mode: state.mode || &quot;single&quot;,
+      measurements: measurements,
+      filtered_candidates: filtered,
+      virtual_decision: decision ? {
+        position: state.virtualPosition,
+        status: decision.status,
+        allowed: decision.allowed,
+        reason: decision.reason
+      } : null
+    };
+  }
+
+  // Importation, validation stricte et recalcul complet
+  function importExperiment(jsonString) {
+    let data;
+    try {
+      data = typeof jsonString === &quot;string&quot; ? JSON.parse(jsonString) : jsonString;
+    } catch (e) {
+      throw new Error(&quot;JSON mal formé : &quot; + e.message);
+    }
+    if (!data || typeof data !== &quot;object&quot;) throw new Error(&quot;Objet expérience invalide.&quot;);
+    if (data.schema_version !== &quot;recoh-lab/1.0&quot;) {
+      throw new Error(&quot;Schéma non supporté : &quot; + data.schema_version + &quot; (attendu recoh-lab/1.0)&quot;);
+    }
+    const n = data.n;
+    if (!Number.isInteger(n) || n < 3 || n > 24) {
+      throw new Error(&quot;Ordre n invalide dans l'export : &quot; + n);
+    }
+    const r = data.observation_R;
+    if (!Array.isArray(r) || r.length !== n) {
+      throw new Error(&quot;Observation R invalide pour n=&quot; + n);
+    }
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+      if (!Number.isInteger(r[i]) || r[i] < 0) throw new Error(&quot;Composante R non entière ou négative.&quot;);
+      sum += r[i];
+    }
+    if (sum !== 9) throw new Error(&quot;La somme de R vaut &quot; + sum + &quot; au lieu de 9.&quot;);
+
+    // Recalcul indépendant de la fibre depuis R (NE PAS FAIRE CONFIANCE AUX CANDIDATS ENREGISTRÉS)
+    const recomputedFiber = candidates(r, n);
+
+    // Validation des mesures et recalcul du filtrage
+    const validMeasurements = [];
+    if (Array.isArray(data.measurements)) {
+      for (let i = 0; i < data.measurements.length; i++) {
+        const m = data.measurements[i];
+        if (!Number.isInteger(m.k) || m.k < 0 || m.k >= n) throw new Error(&quot;Mesure &quot; + i + &quot; : k invalide&quot;);
+        if (!m.y || typeof m.y.re !== &quot;number&quot; || typeof m.y.im !== &quot;number&quot; ||
+            !Number.isFinite(m.y.re) || !Number.isFinite(m.y.im)) {
+          throw new Error(&quot;Mesure &quot; + i + &quot; : y complexe invalide&quot;);
+        }
+        if (typeof m.epsilon !== &quot;number&quot; || !Number.isFinite(m.epsilon) || m.epsilon < 0) {
+          throw new Error(&quot;Mesure &quot; + i + &quot; : epsilon invalide&quot;);
+        }
+        validMeasurements.push({
+          k: m.k,
+          y: { re: m.y.re, im: m.y.im },
+          epsilon: m.epsilon
+        });
+      }
+    }
+
+    const recomputedFiltered = filterNotebook(recomputedFiber, validMeasurements, n);
+
+    // Recalcul de la décision virtuelle si spécifiée (NE PAS FAIRE CONFIANCE AU STATUT STOCKÉ)
+    let recomputedDecision = null;
+    if (data.virtual_decision &amp;&amp; Number.isInteger(data.virtual_decision.position)) {
+      recomputedDecision = evaluateVirtualDecision(recomputedFiltered, data.virtual_decision.position, n);
+    }
+
+    // Détection de divergences par rapport aux données stockées
+    const discrepancies = [];
+    if (data.complete_fiber &amp;&amp; JSON.stringify(data.complete_fiber) !== JSON.stringify(recomputedFiber)) {
+      discrepancies.push(&quot;Divergence sur la fibre énumérée.&quot;);
+    }
+    if (data.filtered_candidates &amp;&amp; JSON.stringify(data.filtered_candidates) !== JSON.stringify(recomputedFiltered)) {
+      discrepancies.push(&quot;Divergence sur les candidats filtrés.&quot;);
+    }
+    if (data.virtual_decision &amp;&amp; recomputedDecision &amp;&amp; data.virtual_decision.status !== recomputedDecision.status) {
+      discrepancies.push(&quot;Divergence sur la décision virtuelle stockée vs recalculée.&quot;);
+    }
+
+    return {
+      valid: true,
+      n,
+      observation_R: r,
+      fiber: recomputedFiber,
+      measurements: validMeasurements,
+      filteredCandidates: recomputedFiltered,
+      virtualDecision: recomputedDecision,
+      discrepancies,
+      isCleanReplay: discrepancies.length === 0
+    };
+  }
+
+  return {
+    VERSION,
+    DEFAULT_N,
+    EPSILON_BOUNDARY_TOLERANCE,
+    checkSupport,
+    triples,
+    convolution,
+    candidates,
+    character,
+    fourierR,
+    complexMul,
+    complexDist,
+    compatible,
+    qualifiedCompatibility,
+    computeSeparation,
+    analyzeMargin,
+    filterNotebook,
+    evaluateVirtualDecision,
+    translate,
+    createBlindChallenge,
+    exportExperiment,
+    importExperiment
+  };
+});
+
+</script>
+<script>
+(function(){
+  &quot;use strict&quot;;
+  const C = window.RECOH_CORE;
+  if (!C) {
+    document.body.innerHTML = &quot;<p style='color:red;padding:20px'>Erreur : recoh-core.js non chargé.</p>&quot;;
+    return;
+  }
+
+  // État local de l'application
+  let state = {
+    n: 8,
+    support: [0, 3, 5],
+    mode: &quot;single&quot;, // &quot;single&quot; ou &quot;notebook&quot;
+    k: 3,
+    epsilon: 0.1,
+    y: { re: 0, im: 0 },
+    notebook: [],
+    virtualPosition: 0
+  };
+
+  const $ = id => document.getElementById(id);
+  const fmt = x => Math.abs(x) < 1e-10 ? &quot;0&quot; : Number(x).toFixed(6);
+  const displaySet = arr => &quot;{&quot; + arr.join(&quot;, &quot;) + &quot;}&quot;;
+
+  // Gestion des onglets
+  function switchTab(viewId, activeBtn) {
+    [&quot;view-exp&quot;, &quot;view-und&quot;, &quot;view-ver&quot;].forEach(id => $(id).classList.add(&quot;hidden&quot;));
+    $(viewId).classList.remove(&quot;hidden&quot;);
+    document.querySelectorAll(&quot;.nav-btn&quot;).forEach(b => {
+      b.classList.remove(&quot;active&quot;);
+      b.setAttribute(&quot;aria-selected&quot;, &quot;false&quot;);
+    });
+    activeBtn.classList.add(&quot;active&quot;);
+    activeBtn.setAttribute(&quot;aria-selected&quot;, &quot;true&quot;);
+  }
+  $(&quot;tab-exp&quot;).onclick = e => switchTab(&quot;view-exp&quot;, e.target);
+  $(&quot;tab-und&quot;).onclick = e => switchTab(&quot;view-und&quot;, e.target);
+  $(&quot;tab-ver&quot;).onclick = e => switchTab(&quot;view-ver&quot;, e.target);
+
+  // Initialisation des sélecteurs
+  function initSelectors() {
+    const kSel = $(&quot;char-k&quot;);
+    kSel.replaceChildren();
+    for (let i = 0; i < state.n; i++) {
+      const opt = document.createElement(&quot;option&quot;);
+      opt.value = i;
+      opt.textContent = &quot;χ&quot; + i + (i === 3 &amp;&amp; state.n === 8 ? &quot; (référence C8)&quot; : (i === 1 &amp;&amp; state.n === 4 ? &quot; (référence C4)&quot; : &quot;&quot;));
+      kSel.append(opt);
+    }
+    kSel.value = state.k < state.n ? state.k : 1;
+    state.k = Number(kSel.value);
+
+    const posSel = $(&quot;decision-pos&quot;);
+    posSel.replaceChildren();
+    for (let p = 0; p < state.n; p++) {
+      const opt = document.createElement(&quot;option&quot;);
+      opt.value = p;
+      opt.textContent = &quot;Position &quot; + p;
+      posSel.append(opt);
+    }
+    posSel.value = state.virtualPosition < state.n ? state.virtualPosition : 0;
+    state.virtualPosition = Number(posSel.value);
+  }
+
+  // Rendu des boutons de support
+  function renderNodes() {
+    const container = $(&quot;nodes-container&quot;);
+    container.replaceChildren();
+    for (let i = 0; i < state.n; i++) {
+      const btn = document.createElement(&quot;button&quot;);
+      btn.type = &quot;button&quot;;
+      btn.className = &quot;node-btn&quot; + (state.support.includes(i) ? &quot; active&quot; : &quot;&quot;);
+      btn.textContent = i;
+      btn.setAttribute(&quot;aria-pressed&quot;, String(state.support.includes(i)));
+      btn.onclick = () => {
+        if (state.support.includes(i)) {
+          state.support = state.support.filter(x => x !== i);
+        } else if (state.support.length < 3) {
+          state.support = [...state.support, i].sort((a, b) => a - b);
+        }
+        updateAll();
+      };
+      container.append(btn);
+    }
+    $(&quot;support-label&quot;).textContent = &quot;Support actuel : &quot; + displaySet(state.support) +
+      (state.support.length !== 3 ? &quot; (sélectionnez &quot; + (3 - state.support.length) + &quot; élément(s))&quot; : &quot;&quot;);
+  }
+
+  // Rendu de l'histogramme R
+  function renderHistogram(r) {
+    const container = $(&quot;bars-container&quot;);
+    container.replaceChildren();
+    if (!r) {
+      container.innerHTML = &quot;<p style='color:var(--muted)'>Sélectionnez 3 éléments.</p>&quot;;
+      $(&quot;vector-label&quot;).textContent = &quot;&quot;;
+      return;
+    }
+    for (let i = 0; i < state.n; i++) {
+      const row = document.createElement(&quot;div&quot;);
+      row.className = &quot;barrow&quot;;
+      const lbl = document.createElement(&quot;span&quot;);
+      lbl.textContent = i;
+      const track = document.createElement(&quot;div&quot;);
+      track.className = &quot;bar-track&quot;;
+      const fill = document.createElement(&quot;div&quot;);
+      fill.className = &quot;bar-fill&quot;;
+      fill.style.width = (r[i] / 9 * 100) + &quot;%&quot;;
+      track.append(fill);
+      const val = document.createElement(&quot;strong&quot;);
+      val.textContent = r[i];
+      row.append(lbl, track, val);
+      container.append(row);
+    }
+    $(&quot;vector-label&quot;).textContent = &quot;R = [&quot; + r.join(&quot;, &quot;) + &quot;] (total = 9)&quot;;
+  }
+
+  // Mise à jour complète du calcul
+  function updateAll() {
+    renderNodes();
+    if (state.support.length !== 3) {
+      renderHistogram(null);
+      $(&quot;fiber-count-label&quot;).textContent = &quot;&quot;;
+      $(&quot;candidates-container&quot;).replaceChildren();
+      $(&quot;fiber-notice&quot;).textContent = &quot;Veuillez choisir 3 résidus distincts pour calculer la convolution.&quot;;
+      updateDecision([]);
+      return;
+    }
+
+    const r = C.convolution(state.support, state.n);
+    renderHistogram(r);
+
+    const fiber = C.candidates(r, state.n);
+    $(&quot;fiber-count-label&quot;).textContent = fiber.length + &quot; triplet(s) compatible(s) avec cette convolution :&quot;;
+    const candBox = $(&quot;candidates-container&quot;);
+    candBox.replaceChildren();
+    fiber.forEach(c => {
+      const chip = document.createElement(&quot;div&quot;);
+      chip.className = &quot;cand-chip&quot;;
+      chip.textContent = displaySet(c);
+      candBox.append(chip);
+    });
+
+    if (fiber.length > 1) {
+      $(&quot;fiber-notice&quot;).className = &quot;notice notice-err&quot;;
+      $(&quot;fiber-notice&quot;).innerHTML = &quot;<strong>Ambiguïté additive :</strong> La convolution R seule ne permet pas d'isoler le support d'origine (&quot; + fiber.length + &quot; configurations ont le même R).&quot;;
+    } else {
+      $(&quot;fiber-notice&quot;).className = &quot;notice notice-ok&quot;;
+      $(&quot;fiber-notice&quot;).innerHTML = &quot;<strong>Fibre unitaire :</strong> Le support est identifié de manière unique par R.&quot;;
+    }
+
+    updateMeasurementAndMargins(fiber);
+  }
+
+  // Analyse des marges et filtrage des candidats
+  function updateMeasurementAndMargins(fiber) {
+    const k = state.k;
+    const eps = Number($(&quot;input-eps&quot;).value);
+    state.epsilon = Number.isFinite(eps) &amp;&amp; eps >= 0 ? eps : 0.1;
+
+    // Calcul de la séparation delta_k
+    const sep = C.computeSeparation(fiber, k, state.n);
+    const marginInfo = C.analyzeMargin(sep.delta_k, state.epsilon);
+
+    const marginBox = $(&quot;margin-analysis&quot;);
+    if (sep.delta_k === null) {
+      marginBox.innerHTML = &quot;<p style='color:var(--muted)'>Fibre de taille ≤ 1 : séparation sans objet.</p>&quot;;
+    } else {
+      const deltaFmt = sep.delta_k.toFixed(6);
+      const marginFmt = marginInfo.margin.toFixed(6);
+      const badgeCls = marginInfo.guarantee === &quot;SEPARATION_GARANTIE&quot; ? &quot;badge-ok&quot; : &quot;badge-warn&quot;;
+      marginBox.innerHTML = `
+        <div style=&quot;margin-bottom:6px&quot;><span class=&quot;badge ${badgeCls}&quot;>${marginInfo.guarantee}</span></div>
+        <div style=&quot;font-size:0.85rem&quot;>
+          <strong>Séparation δ_${k} :</strong> ${deltaFmt}<br>
+          <strong>Borne d'erreur ε :</strong> ${state.epsilon.toFixed(6)}<br>
+          <strong>Marge δ_${k} − 2ε :</strong> ${marginFmt}<br>
+          <em>${marginInfo.label}</em>
+        </div>
+      `;
+    }
+
+    // Filtrage
+    let activeCandidates = [];
+    if (state.mode === &quot;single&quot;) {
+      const reVal = Number($(&quot;input-re&quot;).value);
+      const imVal = Number($(&quot;input-im&quot;).value);
+      if (Number.isFinite(reVal) &amp;&amp; Number.isFinite(imVal)) {
+        state.y = { re: reVal, im: imVal };
+        activeCandidates = fiber.filter(s => C.compatible(s, k, state.y, state.epsilon, state.n));
+      } else {
+        activeCandidates = [...fiber];
+      }
+    } else {
+      activeCandidates = C.filterNotebook(fiber, state.notebook, state.n);
+    }
+
+    // Affichage des candidats filtrés
+    const resSummary = $(&quot;filter-summary&quot;);
+    resSummary.textContent = activeCandidates.length + &quot; candidat(s) compatible(s) après mesure(s) :&quot;;
+    const filteredBox = $(&quot;filtered-candidates&quot;);
+    filteredBox.replaceChildren();
+    activeCandidates.forEach(s => {
+      const chip = document.createElement(&quot;div&quot;);
+      chip.className = &quot;cand-chip matched&quot;;
+      const pred = C.character(s, k, state.n);
+      chip.textContent = displaySet(s) + &quot; (P_&quot; + k + &quot; ≈ &quot; + fmt(pred.re) + (pred.im < 0 ? &quot;−&quot; : &quot;+&quot;) + fmt(Math.abs(pred.im)) + &quot;i)&quot;;
+      filteredBox.append(chip);
+    });
+
+    if (activeCandidates.length === 0) {
+      filteredBox.innerHTML = &quot;<p style='color:var(--err);font-weight:600'>Aucun candidat compatible avec les observations et tolérances choisies.</p>&quot;;
+    }
+
+    updateDecision(activeCandidates);
+  }
+
+  // Évaluation de la décision virtuelle
+  function updateDecision(activeCandidates) {
+    const pos = state.virtualPosition;
+    const dec = C.evaluateVirtualDecision(activeCandidates, pos, state.n);
+    const badge = $(&quot;decision-badge&quot;);
+    const expl = $(&quot;decision-explanation&quot;);
+
+    badge.className = &quot;badge&quot;;
+    if (dec.status === &quot;AUTORISE&quot;) {
+      badge.classList.add(&quot;badge-ok&quot;);
+      badge.textContent = &quot;AUTORISÉ&quot;;
+      expl.className = &quot;notice notice-ok&quot;;
+    } else if (dec.status === &quot;REFUSE&quot;) {
+      badge.classList.add(&quot;badge-err&quot;);
+      badge.textContent = &quot;REFUSÉ&quot;;
+      expl.className = &quot;notice notice-err&quot;;
+    } else if (dec.status === &quot;INDETERMINE&quot;) {
+      badge.classList.add(&quot;badge-warn&quot;);
+      badge.textContent = &quot;INDÉTERMINÉ (BLOQUÉ)&quot;;
+      expl.className = &quot;notice&quot;;
+    } else {
+      badge.classList.add(&quot;badge-err&quot;);
+      badge.textContent = &quot;OBSERVATIONS INCOMPATIBLES (BLOQUÉ)&quot;;
+      expl.className = &quot;notice notice-err&quot;;
+    }
+    expl.innerHTML = &quot;<strong>Statut : &quot; + dec.status + &quot;</strong><br>&quot; + dec.reason +
+      &quot;<br><span style='font-size:0.8rem;color:var(--muted)'>Simulation formelle locale dans le navigateur. N'opère aucun actionneur matériel ni système industriel.</span>&quot;;
+  }
+
+  // Remplissage avec la mesure théorique du support courant
+  function fillTruthMeasurement() {
+    if (state.support.length !== 3) return;
+    const meas = C.character(state.support, state.k, state.n);
+    $(&quot;input-re&quot;).value = fmt(meas.re);
+    $(&quot;input-im&quot;).value = fmt(meas.im);
+    state.y = { re: meas.re, im: meas.im };
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      const fiber = C.candidates(r, state.n);
+      updateMeasurementAndMargins(fiber);
+    }
+  }
+
+  // Événements
+  $(&quot;group-select&quot;).onchange = e => {
+    state.n = Number(e.target.value);
+    state.support = state.n === 8 ? [0, 3, 5] : [0, 1, 2];
+    state.notebook = [];
+    initSelectors();
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  $(&quot;char-k&quot;).onchange = e => {
+    state.k = Number(e.target.value);
+    fillTruthMeasurement();
+  };
+
+  $(&quot;input-re&quot;).oninput = () => {
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+  $(&quot;input-im&quot;).oninput = $(&quot;input-re&quot;).oninput;
+  $(&quot;input-eps&quot;).oninput = $(&quot;input-re&quot;).oninput;
+
+  $(&quot;decision-pos&quot;).onchange = e => {
+    state.virtualPosition = Number(e.target.value);
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $(&quot;btn-fill-truth&quot;).onclick = fillTruthMeasurement;
+
+  $(&quot;btn-reset-support&quot;).onclick = () => {
+    state.support = state.n === 8 ? [0, 3, 5] : [0, 1, 2];
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  $(&quot;btn-random-support&quot;).onclick = () => {
+    const all = C.triples(state.n);
+    state.support = all[Math.floor(Math.random() * all.length)];
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  // Presets
+  $(&quot;preset-c8-ref&quot;).onclick = () => {
+    $(&quot;group-select&quot;).value = &quot;8&quot;;
+    state.n = 8;
+    state.support = [0, 3, 5];
+    state.k = 3;
+    initSelectors();
+    $(&quot;input-eps&quot;).value = &quot;0.10&quot;;
+    updateAll();
+    fillTruthMeasurement();
+  };
+
+  $(&quot;preset-c8-rat&quot;).onclick = () => {
+    $(&quot;preset-c8-ref&quot;).click();
+    $(&quot;input-re&quot;).value = (12 / 5).toFixed(6);
+    $(&quot;input-im&quot;).value = &quot;0.000000&quot;;
+    $(&quot;input-eps&quot;).value = &quot;0.50&quot;;
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $(&quot;preset-c8-weak&quot;).onclick = () => {
+    $(&quot;preset-c8-ref&quot;).click();
+    $(&quot;char-k&quot;).value = &quot;1&quot;;
+    state.k = 1;
+    $(&quot;input-re&quot;).value = &quot;0.000000&quot;;
+    $(&quot;input-im&quot;).value = &quot;0.000000&quot;;
+    $(&quot;input-eps&quot;).value = &quot;0.50&quot;;
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $(&quot;preset-c4-border&quot;).onclick = () => {
+    $(&quot;group-select&quot;).value = &quot;4&quot;;
+    state.n = 4;
+    state.support = [0, 1, 2];
+    state.k = 1;
+    initSelectors();
+    $(&quot;input-re&quot;).value = &quot;0.000000&quot;;
+    $(&quot;input-im&quot;).value = &quot;0.000000&quot;;
+    $(&quot;input-eps&quot;).value = &quot;1.00&quot;;
+    updateAll();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  // Modes
+  $(&quot;btn-mode-single&quot;).onclick = () => {
+    state.mode = &quot;single&quot;;
+    $(&quot;btn-mode-single&quot;).classList.add(&quot;active&quot;);
+    $(&quot;btn-mode-notebook&quot;).classList.remove(&quot;active&quot;);
+    $(&quot;btn-add-notebook&quot;).style.display = &quot;none&quot;;
+    $(&quot;notebook-panel&quot;).style.display = &quot;none&quot;;
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $(&quot;btn-mode-notebook&quot;).onclick = () => {
+    state.mode = &quot;notebook&quot;;
+    $(&quot;btn-mode-notebook&quot;).classList.add(&quot;active&quot;);
+    $(&quot;btn-mode-single&quot;).classList.remove(&quot;active&quot;);
+    $(&quot;btn-add-notebook&quot;).style.display = &quot;inline-block&quot;;
+    $(&quot;notebook-panel&quot;).style.display = &quot;block&quot;;
+    renderNotebookTable();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  $(&quot;btn-add-notebook&quot;).onclick = () => {
+    const re = Number($(&quot;input-re&quot;).value);
+    const im = Number($(&quot;input-im&quot;).value);
+    const eps = Number($(&quot;input-eps&quot;).value);
+    if (!Number.isFinite(re) || !Number.isFinite(im) || !Number.isFinite(eps) || eps < 0) return;
+    state.notebook.push({
+      k: state.k,
+      y: { re, im },
+      epsilon: eps
+    });
+    renderNotebookTable();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  function renderNotebookTable() {
+    const tbody = $(&quot;notebook-table&quot;).querySelector(&quot;tbody&quot;);
+    tbody.replaceChildren();
+    state.notebook.forEach((m, idx) => {
+      const tr = document.createElement(&quot;tr&quot;);
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td>χ${m.k}</td>
+        <td>${fmt(m.y.re)} ${m.y.im < 0 ? &quot;−&quot; : &quot;+&quot;} ${fmt(Math.abs(m.y.im))}i</td>
+        <td>${m.epsilon}</td>
+        <td><button class=&quot;btn btn-sm btn-danger btn-del&quot; data-idx=&quot;${idx}&quot;>Retirer</button></td>
+      `;
+      tbody.append(tr);
+    });
+    tbody.querySelectorAll(&quot;.btn-del&quot;).forEach(b => {
+      b.onclick = () => {
+        const i = Number(b.dataset.idx);
+        state.notebook.splice(i, 1);
+        renderNotebookTable();
+        if (state.support.length === 3) {
+          const r = C.convolution(state.support, state.n);
+          updateMeasurementAndMargins(C.candidates(r, state.n));
+        }
+      };
+    });
+  }
+
+  $(&quot;btn-clear-notebook&quot;).onclick = () => {
+    state.notebook = [];
+    renderNotebookTable();
+    if (state.support.length === 3) {
+      const r = C.convolution(state.support, state.n);
+      updateMeasurementAndMargins(C.candidates(r, state.n));
+    }
+  };
+
+  // Export JSON
+  $(&quot;btn-export-json&quot;).onclick = () => {
+    if (state.support.length !== 3) return;
+    const measList = state.mode === &quot;single&quot; ? [{
+      k: state.k,
+      y: state.y,
+      epsilon: state.epsilon
+    }] : state.notebook;
+
+    const exportObj = C.exportExperiment({
+      n: state.n,
+      support: state.support,
+      mode: state.mode,
+      measurements: measList,
+      virtualPosition: state.virtualPosition
+    });
+
+    const jsonStr = JSON.stringify(exportObj, null, 2);
+    const blob = new Blob([jsonStr], { type: &quot;application/json&quot; });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement(&quot;a&quot;);
+    a.href = url;
+    a.download = &quot;recoh-experiment-&quot; + state.n + &quot;.json&quot;;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  // Import JSON
+  $(&quot;btn-import-trigger&quot;).onclick = () => $(&quot;file-importer&quot;).click();
+  $(&quot;file-importer&quot;).onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const report = $(&quot;import-report&quot;);
+      report.classList.remove(&quot;hidden&quot;);
+      try {
+        const res = C.importExperiment(ev.target.result);
+        $(&quot;group-select&quot;).value = String(res.n);
+        state.n = res.n;
+        state.virtualPosition = res.virtualDecision ? res.virtualDecision.position : 0;
+        initSelectors();
+
+        if (res.measurements.length > 1) {
+          $(&quot;btn-mode-notebook&quot;).click();
+          state.notebook = res.measurements;
+          renderNotebookTable();
+        } else if (res.measurements.length === 1) {
+          $(&quot;btn-mode-single&quot;).click();
+          state.k = res.measurements[0].k;
+          $(&quot;char-k&quot;).value = String(state.k);
+          $(&quot;input-re&quot;).value = fmt(res.measurements[0].y.re);
+          $(&quot;input-im&quot;).value = fmt(res.measurements[0].y.im);
+          $(&quot;input-eps&quot;).value = String(res.measurements[0].epsilon);
+        }
+
+        // Si le support reconstitué a un candidat valide
+        if (res.fiber.length > 0) {
+          state.support = [...res.fiber[0]];
+        }
+        updateAll();
+
+        report.className = &quot;notice notice-ok&quot;;
+        report.innerHTML = `
+          <strong>Importation et recalcul réussis :</strong> Schéma recoh-lab/1.0 validé.<br>
+          ${res.fiber.length} candidat(s) dans la fibre C_${res.n}.<br>
+          Recalcul décision : <strong>${res.virtualDecision ? res.virtualDecision.status : &quot;Non spécifiée&quot;}</strong>.<br>
+          ${res.isCleanReplay ? &quot;Rejeu parfait sans aucune divergence.&quot; : &quot;<span style='color:var(--err)'>&quot; + res.discrepancies.join(&quot;; &quot;) + &quot;</span>&quot;}
+        `;
+      } catch (err) {
+        report.className = &quot;notice notice-err&quot;;
+        report.innerHTML = &quot;<strong>Échec de l'importation :</strong> &quot; + err.message;
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = &quot;&quot;;
+  };
+
+  // Lancement initial
+  initSelectors();
+  updateAll();
+  fillTruthMeasurement();
+})();
+</script>
+</body>
+</html>
+" style="width:100%;min-height:920px;border:1px solid #2b425b;border-radius:10px;background:#0a121d;" loading="lazy" title="RECOH Lab — Démonstrateur interactif"></iframe>
+</div>
