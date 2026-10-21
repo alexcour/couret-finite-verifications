@@ -1,0 +1,33 @@
+CU-BRUIT-02 — proposed research review contribution, 21 October 2026
+
+Claim: a computer-assisted conditional upper bound delta_plus < 0.468.
+Global assumptions: GRH for seven primitive L functions, joint Q-independence
+of the 67 positive ordinates <=25, and trivial intersection of their Q-span
+with the Q-span of the remaining active spectrum. No global symmetry,
+simplicity, noncoincidence or uniform multiplicity assumption is used.
+Central nonvanishing is directly enclosed at 256/320 bits. Neither computation
+nor CI proves GRH or independence, establishes novelty or is independent
+mathematical review. See NOTE_CONSOLIDEE_CU_BRUIT_02_20261021.txt for the proof.
+
+Run in this directory using Python 3.12, without -O / PYTHONOPTIMIZE:
+python -m pip install -r requirements.txt
+python audit_center_and_characters.py --precision 256 --out central_replay.json
+python audit_quadratic_majorant.py --data inputs --constants spectral_constants_150000.json --precision 192 --denominator 256 --grid 16 --out majorant_replay.json
+python certify_roots_height200.py --data inputs --precision 256 --out roots_height200_replay.json
+python audit_variance_counting.py --data inputs --constants spectral_constants_150000.json --roots roots_height200_replay.json --precision 192 --out variance_replay.json
+python review_finite_receipts.py --base . --out receipt_crosscheck_replay.json
+
+The full height-200 regeneration takes several minutes. The last check only
+cross-checks exact witnesses in the saved receipts; it does not isolate roots.
+The quadratic script retains earlier multiplicity-dependent probability
+variants in its output. Its global function majorant is the component used in
+the new proof; the new tail variance replaces those multiplicity assumptions.
+The spectral K constants are retained for legacy consistency comparisons.
+They are not needed to prove central nonvanishing in this consolidated proof.
+
+Pinned imported isolation/counting sources originated at repository commit
+1fe8961bfeedd14a5d5cb8699d3c79e4c762536a. Their exact hashes are enforced by
+the root script. The proposed patch is based locally on commit
+cb79157d413075a4a47fe92ab1437141aa4200c9. The packet is proposed for a draft PR; its actual remote CI status must be
+read on that PR. No third-party correspondence or private dossier material is
+included. This is outside archived release v1.0.0; no merge or release is proposed.

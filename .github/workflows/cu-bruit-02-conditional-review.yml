@@ -1,0 +1,35 @@
+name: CU-BRUIT-02 conditional computational replay
+on:
+  pull_request:
+    paths:
+      - 'research/cu-bruit-02-2026-10-21/**'
+      - '.github/workflows/cu-bruit-02-conditional-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  computational-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: research/cu-bruit-02-2026-10-21
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned arithmetic backend
+        run: python -m pip install -r requirements.txt
+      - name: Direct central nonvanishing and exact character conventions
+        run: python audit_center_and_characters.py --precision 256 --out central_replay.json
+      - name: Global quadratic majorant, with rigorous interpolation and integration error
+        run: python audit_quadratic_majorant.py --data inputs --constants spectral_constants_150000.json --precision 192 --denominator 256 --grid 16 --out majorant_replay.json
+      - name: Regenerate all 995 positive roots and complete contour counts
+        run: python certify_roots_height200.py --data inputs --precision 256 --out roots_height200_replay.json
+      - name: Conditional variance and sign bound using the regenerated root certificate
+        run: python audit_variance_counting.py --data inputs --constants spectral_constants_150000.json --roots roots_height200_replay.json --precision 192 --out variance_replay.json
+      - name: Cross-check exact witnesses in saved receipts (does not prove GRH or LI)
+        run: python review_finite_receipts.py --base . --out receipt_crosscheck_replay.json

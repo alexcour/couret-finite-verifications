@@ -1,0 +1,12 @@
+{
+  "status": "INTERNAL_EXACT_RECEIPT_CROSSCHECK",
+  "positive_roots": 995,
+  "signed_conjugate_counts_checked": true,
+  "central_nonzero": 7,
+  "sign_upper_less_than": "117/250",
+  "GRH_proved": false,
+  "LI_proved": false,
+  "roots_regenerated_by_this_check": false,
+  "independent_review": false,
+  "script_sha256": "27e2d0a769b859b9fe5e5e7593255bb12db5054e6ec42cc539cffa72b472bb3b"
+}
