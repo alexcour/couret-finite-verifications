@@ -1,0 +1,44 @@
+# Reconciliation du site public — audit différentiel du 17 octobre 2026
+
+**Statut : constat documentaire en lecture seule / HOLD CMS / PR #43 DRAFT.** Cette note n'autorise ni mise en ligne WordPress, ni promotion scientifique, ni fusion de la PR. Elle résume des observations du texte public relevé le 17 octobre 2026 au matin (Europe/Paris) et les compare au lot éditorial P0 du 15 octobre. **Une lecture relayée n'est ni un reçu du workflow WordPress, ni une inspection des révisions du CMS.** Le dernier reçu reproductible est celui du **17/10 à 06:22 UTC** : workflow [#39009617951](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951), artefact JSON/Markdown [`12092138778`](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951/artifacts/12092138778), commit exact `765eb75d3c78c297d7ad79042a93cc8356279b18`. Le reçu antérieur du 15/10 est [#38733374530](https://github.com/alexcour/couret-finite-verifications/actions/runs/38733374530), artefact `11970513363`.
+
+
+## Rectification prioritaire — reçu automatisé du 17 octobre (08:22 Paris)
+
+Le nouveau workflow de lecture seule a archivé **16/16 HTTP 200** pour 15 URL distinctes, sans contrôle du rendu ni certification de publication. Les extraits HTML visibles corrigent l'impression du premier audit relayé : **C02 et C03 sont encore non conformes.** La phrase d'équivalence RH se trouve dans les deux pages ; C03 conserve également « échafaudage non compilé ». C04 affiche encore le titre H1 fermé et une implication KLMN incomplète ; C05 conserve « H1 fermée » ; C08 conserve « expanseur quasi-optimal » sur un graphe déconnecté ; C09 conserve l'inférence cardinal ⇒ spectre. Les cartes H1 C06/C07 conservent leurs libellés D/P. C10 contient encore la mention historique « auto-adjonction via KLMN » en F-04, mais le reçu lexical ne tranche pas à lui seul si un rectificatif contextuel distinct est servi. C15 contient bien F-001 et cite l'ancien 0,378 comme erroné. **Aucune de ces lectures n'atteste l'application en brouillon CMS ni une validation éditoriale.**
+
+Reçu : [workflow #39009617951](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951), [artefact #12092138778](https://github.com/alexcour/couret-finite-verifications/actions/runs/39009617951/artifacts/12092138778), date des lectures `2026-10-17T06:21:47Z` à `06:22:07Z`, source GitHub `765eb75d3c78c297d7ad79042a93cc8356279b18`. Le workflow `verify` associé #39009617958 est également SUCCESS ; cela ne constitue pas une approbation du contenu WordPress.
+
+## Matrice des corrections
+
+| ID | Objet | Texte public observé le 17/10 | Qualification |
+| --- | --- | --- | --- |
+| C02 | Accueil : prétention d'équivalence RH | **Reçu automatisé 17/10 :** « Nous présentons un unique point ouvert comme équivalent à l'hypothèse de Riemann » encore présent dans le texte HTML visible | **Non conforme** ; ancienne affirmation toujours servie, même si une autre zone nie la preuve de RH |
+| C03 | Résultats minimaux : même prétention RH | **Reçu automatisé 17/10 :** même phrase active d'équivalence RH et mention « échafaudage non compilé » encore servies | **Non conforme** ; bloc partagé/caches à inspecter |
+| C04 | Fiche H1 | Titre « auto-adjonction, fermée par une borne », badges D/P et implication KLMN toujours visibles | **Non conforme** |
+| C05 | Registre F0 | Tableau historique « H1 fermée » sans rectificatif daté au-dessus | **Non conforme** |
+| C06 | Carte H1 dans Recherches | Carte « fermée par une borne » et badges D/P subsistent | **Non conforme** ; contrôler la grille Portfolio dynamique |
+| C07 | Carte H1 dans Tableau de bord | Carte « fermée » et badges D/P subsistent | **Non conforme** ; le simple changement de titre est insuffisant |
+| C08 | Fiche Cayley G30 | « expanseur quasi-optimal » et mélange global subsistent malgré deux composantes | **Non conforme** |
+| C09 | F-08 : Parseval et spectre | **Reçu automatisé 17/10 :** « puisque le spectre entier est fixé par le cardinal » apparaît toujours ; la page contient aussi l'argument Parseval et les témoins isospectraux | **Non conforme pour cette assertion**, interprétation des rectificatifs à auditer |
+| C10 | Le (S)enseur : rectification KLMN en F-04 | **Reçu automatisé 17/10 :** l'ancienne mention « auto-adjonction via KLMN » est toujours lisible en F-04 ; F-05 et F-08 présents | **Contexte incertain** : vérifier qu'un rectificatif daté est immédiatement rattaché à F-04 ; un marqueur historique seul ne prouve pas la non-conformité |
+
+**Réconciliation des deux relevés du 17/10 :** le premier relevé relayé (07:30–08:30 Paris) n'avait pas retrouvé la formule RH en C02/C03 et n'avait pas lu C09/C10. Le reçu GitHub ultérieur (08:21–08:22 Paris) établit au contraire que la formule RH est **présente** en C02/C03, ainsi que l'inférence erronée de C09. En conséquence, **six P0 (C02/C03/C04/C05/C08/C09) présentent encore des formulations non conformes** ; C10 réclame un contrôle contextuel du rectificatif F-04. Les deux cartes C06/C07 restent également non conformes. Aucun GO ne peut se fonder sur les seules requêtes HTTP 200.
+
+## Contradictions de navigation hors lot P0
+
+1. **Routage vers RH / P8 :** `/carte/` et `/les-mathematiques-du-programme/` conservent un horizon RH/P8 alors que `/recherche-actuelle/` sépare STROBO et Cayley et récuse une route RH actuelle. Ajouter une bannière d'archive et renvoyer vers l'[erratum T1′–T4 du 13/10](https://github.com/alexcour/couret-finite-verifications/blob/main/research/rh-t1t4/ERRATUM_RH_T1T4_2026-10-13.md) **après vérification du chemin exact** ; ne pas supprimer l'histoire.
+2. **Porte « Vérifier » :** les compteurs historiques `0 sorry`, `11 sorry` et `14 théorèmes` ne constituent pas une preuve publique actuelle tant que leur dépôt source privé n'est pas nommé/contextualisé. Orienter `/verification/` vers les artefacts publics rejouables de [couret-finite-verifications](https://github.com/alexcour/couret-finite-verifications), avec SHA exact et commande de replay. Éviter d'inventer des compteurs à jour.
+3. **STROBO :** la fiche `/recherche-actuelle/` est prudente mais chronologiquement en retard. Les certificats de la [PR #25](https://github.com/alexcour/couret-finite-verifications/pull/25) doivent être repris seulement dans leurs périmètres explicites de compilation, avec séparation humain/antériorité. Ne pas convertir un succès Lean en validation externe ou nouveauté.
+4. **Archives T1′–T4 :** une archive publique encore intitulée « Proof-Article » dans le dépôt historique accessible depuis le site doit être étiquetée clairement **RETRACTED AS PROOF / ARCHIVE HISTORIQUE — ARGUMENT INVALIDÉ**, en préservant le document et en reliant l'erratum, sous les droits du propriétaire du dépôt concerné.
+5. **Hygiène éditoriale :** uniformiser « 10 dépôts / 13 DOI, dont 3 DOI de concept » ; corriger le compteur 77/70 du tableau de bord ; rapprocher `/verifier/` et `/verification/` ; rectifier l'affirmation trop générale « sans native_decide » ; distinguer les archives d'août de l'état courant d'octobre ; reporter F-001 dans la Galerie des dépromotions.
+6. **Fonds Bernard Couret :** maintenir la traçabilité des 177 scans, et distinguer la pièce historique prouvée de toute reconstruction mathématique contemporaine.
+
+## Portes de recette et responsabilités
+
+- **Avant application :** comparer les 9 contenus P0 aux textes approuvés du [lot P0](./WORDPRESS_P0_CMS_HANDOFF_2026-10-15.md) ; retrouver sources internes, révisions et sauvegardes, y compris les trois fiches Portfolio ; obtenir URL de prévisualisation et capture avant/après desktop/mobile ; contrôler les attributs et badges H1 (notamment C07), les SEO et caches.
+- **Après corrections proposées, mais avant publication :** validation éditoriale explicite page par page. **HOLD tant qu'elle manque**. Préserver F-01, F-04, F-05, F-08 et F-001 ; ne pas modifier l'histoire sous couvert de correction.
+- **Après publication autorisée :** lancer `WordPress 16 URL audit` de la PR #43 ; archiver son JSON horodaté, les empreintes et métadonnées ; comparer aux critères C01–C16 ; vérifier le contenu et le rendu, pas uniquement HTTP 200. Consigner le résultat dans [COU-12](https://linear.app/couret/issue/COU-12/harmoniser-le-portail-strobo-cayley-et-la-pr-editoriale-34).
+- **Limites du relevé du 17/10 :** C09/C10 n'ont pas été lus, C12 sans corps, registre/journal/direction de recherche sans texte ; aucun audit visuel, mobile, SEO exhaustif ou liens morts. Les résultats ne sont pas transférables à une date ultérieure.
+
+**Source du constat :** « Audit du site couretunification.fr — 17/10/2026 », relevé du 17 octobre 07:30–08:30 Paris, rapproché des pièces publiques de la PR #43 et de la recette du 15 octobre. Le présent fichier est une synthèse opérationnelle et non un nouveau résultat scientifique.
