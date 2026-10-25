@@ -3,7 +3,11 @@ import CayleyTwoColourNewton
 /-!
 COU-20 — separation before the canonical third-period (18 October 2026).
 
-RESEARCH PROOF CANDIDATES — NOT YET COMPILED.
+COMPILED RESEARCH MODULE — NOT AN INDEPENDENT MATHEMATICAL REVIEW.
+The four theorem statements were compiled in the PR #91 validation
+(run 39497617199) and merged unchanged into main at
+cb79157d413075a4a47fe92ab1437141aa4200c9 (20 October 2026).
+This is a record of compilation, not a claim of mathematical novelty.
 
 This module separates two logically different tasks:
 (1) if the image of a has order 3*ell and 3*delta=0, then no positive
@@ -11,9 +15,9 @@ This module separates two logically different tasks:
 (2) the quotient application transfers this fact into equality of the
     directed adjacency-matrix traces at EVERY degree strictly below ell.
 
-It does NOT prove that ell*a is +delta or -delta: the canonical RETURN
-theorem is still a distinct open Lean obligation. It also does NOT prove
-the universal Newton identity needed for characteristic coefficients.
+The module does NOT itself prove the return at ell*a = +/-delta or the
+universal Newton identity. They are separate obligations; their status
+must be checked at their own source commits, not inferred from this file.
 -/
 
 set_option autoImplicit false
@@ -112,7 +116,7 @@ theorem abelianThree_no_early_quotient_return (a d h : G) (ell j : ℕ)
 /-- Every *earlier* power trace coincides, not only the even traces,
 provided that alpha has order 3*ell. The proof reuses the certified
 odd-trace iff and square identity and handles even/odd exponents
-separately. No appeal to the unproved Newton recurrence occurs here. -/
+separately. No appeal to Newton's recurrence occurs here. -/
 theorem abelianThree_trace_eq_before_third (a d h : G) (ell j : ℕ)
     (hhalf : h + h = 0) (hne : h ≠ 0)
     (hdorder : addOrderOf (d : G ⧸ AddSubgroup.zmultiples h) = 3)
