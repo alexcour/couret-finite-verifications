@@ -15,7 +15,7 @@ This module separates two logically different tasks:
 (2) the quotient application transfers this fact into equality of the
     directed adjacency-matrix traces at EVERY degree strictly below ell.
 
-The module does NOT itself prove the return at ell*a = +/-delta or the
+The module does NOT itself prove the return at ell*a = plus or minus delta or the
 universal Newton identity. They are separate obligations; their status
 must be checked at their own source commits, not inferred from this file.
 -/
