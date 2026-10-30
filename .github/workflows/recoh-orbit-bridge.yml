@@ -28,8 +28,6 @@ jobs:
         run: lake build Strobo2TorsCardinality
       - name: Compile the exact bridge module
         run: lake env lean RecohConditionalOrbitBridge.lean
-      - name: Compile bridge olean for downstream module
-        run: lake build Strobo2TorsCardinality && lake env lean -o RecohConditionalOrbitBridge.olean RecohConditionalOrbitBridge.lean
       - name: Compile conditional bank lemma
         run: lake env lean RecohConditionalBank.lean
       - name: Record exact checkout
