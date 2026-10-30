@@ -31,21 +31,25 @@ theorem recoh_orbit_translation_separated
     have hi := heq i
     rw [hcov i u, hcov i v] at hi
     exact mul_right_cancel₀ (hnonzero i) hi
-  have huv : (u - v) + (u - v) = 0 := by
-    rw [sub_eq_add_neg]
-    have hvneg : -v = v := by
-      apply eq_neg_of_add_eq_zero_left hv
-    rw [hvneg]
+  have huv : (u + v) + (u + v) = 0 := by
     calc
       (u + v) + (u + v) = (u + u) + (v + v) := by abel
       _ = 0 := by simp [hu, hv]
-  have hd : u - v = 0 := by
-    apply hsep (u - v) huv
+  have hd : u + v = 0 := by
+    apply hsep (u + v) huv
     intro i
-    have hm := (bank i).map_sub u v
-    rw [heval i] at hm
-    simpa using hm
-  exact sub_eq_zero.mp hd
+    have hv2 : bank i v * bank i v = 1 := by
+      have hh := (bank i).map_add_eq_mul v v
+      rw [hv] at hh
+      simpa using hh.symm
+    calc
+      bank i (u + v) = bank i u * bank i v :=
+        (bank i).map_add_eq_mul u v
+      _ = bank i v * bank i v := by rw [heval i]
+      _ = 1 := hv2
+  calc
+    u = -v := eq_neg_of_add_eq_zero_left hd
+    _ = v := (eq_neg_of_add_eq_zero_left hv).symm
 
 #print axioms Couret.STROBO2TORS.recoh_orbit_translation_separated
 
