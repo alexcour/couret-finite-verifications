@@ -36,7 +36,6 @@ theorem recoh_squareFibre_union_at_most_two_orbits
         ((b - a) + (b - a)) + (b - a) = d
     · refine ⟨R, ?_⟩
       rw [hs, paired_squareFibre_eq a b d hd hd0 hab, if_pos h3]
-      rfl
     · refine ⟨S, ?_⟩
       rw [hs, paired_squareFibre_eq a b d hd hd0 hab, if_neg h3]
       simp
