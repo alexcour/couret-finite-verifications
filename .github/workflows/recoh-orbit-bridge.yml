@@ -17,6 +17,8 @@ jobs:
         working-directory: research/strobo-2tors-2026-10-12/lean
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: research/strobo-2tors-2026-10-12/lean
@@ -25,5 +27,8 @@ jobs:
         run: lake build Strobo2TorsCardinality
       - name: Compile the exact bridge module
         run: lake env lean RecohConditionalOrbitBridge.lean
-      - name: Record source commit
-        run: echo "SOURCE_SHA=$GITHUB_SHA"
+      - name: Record exact checkout
+        run: |
+          echo "CHECKOUT_SHA=$(git rev-parse HEAD)"
+          echo "EXPECTED_SHA=${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha || github.sha }}"
