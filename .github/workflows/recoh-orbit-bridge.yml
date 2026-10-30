@@ -21,6 +21,8 @@ jobs:
         with:
           lake-package-directory: research/strobo-2tors-2026-10-12/lean
           build: false
+      - name: Build STROBO prerequisite
+        run: lake build Strobo2TorsCardinality
       - name: Compile the exact bridge module
         run: lake env lean RecohConditionalOrbitBridge.lean
       - name: Record source commit
