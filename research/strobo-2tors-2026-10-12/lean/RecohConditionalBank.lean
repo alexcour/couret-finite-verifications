@@ -1,4 +1,4 @@
-import RecohConditionalOrbitBridge
+import Strobo2TorsCardinality
 import Mathlib.Algebra.Group.AddChar
 
 set_option autoImplicit false
