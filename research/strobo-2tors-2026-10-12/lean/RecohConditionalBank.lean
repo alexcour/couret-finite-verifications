@@ -53,4 +53,48 @@ theorem recoh_orbit_translation_separated
 
 #print axioms Couret.STROBO2TORS.recoh_orbit_translation_separated
 
+
+/-- In the aligned-signature case, one additional covariant measurement
+that separates the two representatives separates their whole orbits.
+Character existence is intentionally not asserted by this lemma. -/
+theorem recoh_two_orbits_separated
+    {I : Type*} (bank : I → AddChar G ℂ)
+    (beta : AddChar G ℂ) (S T : Finset G)
+    (probe : I → Finset G → ℂ) (extra : Finset G → ℂ)
+    (hcovS : ∀ i u, probe i (translateSupport S u) = bank i u * probe i S)
+    (hcovT : ∀ i u, probe i (translateSupport T u) = bank i u * probe i T)
+    (hextraS : ∀ u, extra (translateSupport S u) = beta u * extra S)
+    (hextraT : ∀ u, extra (translateSupport T u) = beta u * extra T)
+    (hnonzero : ∀ i, probe i S ≠ 0)
+    (hsep : ∀ d : G, d + d = 0 →
+      (∀ i, bank i d = 1) → d = 0)
+    (hbase : ∀ i, probe i S = probe i T)
+    (hbeta : extra S ≠ extra T)
+    (u v : G) (hu : u + u = 0) (hv : v + v = 0)
+    (hmatch : ∀ i, probe i (translateSupport S u) =
+      probe i (translateSupport T v))
+    (hbetaMatch : extra (translateSupport S u) =
+      extra (translateSupport T v)) : False := by
+  have hsame : ∀ i, probe i (translateSupport S u) =
+      probe i (translateSupport S v) := by
+    intro i
+    calc
+      probe i (translateSupport S u) =
+          probe i (translateSupport T v) := hmatch i
+      _ = bank i v * probe i T := hcovT i v
+      _ = bank i v * probe i S := by rw [← hbase i]
+      _ = probe i (translateSupport S v) := (hcovS i v).symm
+  have huv : u = v :=
+    recoh_orbit_translation_separated bank S probe hcovS hnonzero hsep
+      u v hu hv hsame
+  subst v
+  rw [hextraS, hextraT] at hbetaMatch
+  have hnonzeroBeta : beta u ≠ 0 := by
+    intro hz
+    have hh := beta.map_add_eq_mul u (-u)
+    simp [hz] at hh
+  exact hbeta (mul_left_cancel₀ hnonzeroBeta hbetaMatch)
+
+#print axioms Couret.STROBO2TORS.recoh_two_orbits_separated
+
 end Couret.STROBO2TORS
