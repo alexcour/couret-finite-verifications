@@ -23,4 +23,24 @@ theorem recoh_fourier_character_value_ne_zero (chi : AddChar G ℂ) (x : G) :
 
 #print axioms Couret.STROBO2TORS.recoh_fourier_character_value_ne_zero
 
+
+/-- Fourier sum of a finite support. -/
+def recohFourierSum (chi : AddChar G ℂ) (S : Finset G) : ℂ :=
+  S.sum (fun x => chi x)
+
+/-- Pointwise shifts of Fourier summands obey character covariance. -/
+theorem recoh_fourier_sum_shift (chi : AddChar G ℂ)
+    (S : Finset G) (u : G) :
+    S.sum (fun x => chi (x + u)) = recohFourierSum chi S * chi u := by
+  calc
+    S.sum (fun x => chi (x + u)) =
+        S.sum (fun x => chi x * chi u) := by
+          apply Finset.sum_congr rfl
+          intro x hx
+          exact chi.map_add_eq_mul x u
+    _ = recohFourierSum chi S * chi u := by
+          simp [recohFourierSum, Finset.sum_mul]
+
+#print axioms Couret.STROBO2TORS.recoh_fourier_sum_shift
+
 end Couret.STROBO2TORS
