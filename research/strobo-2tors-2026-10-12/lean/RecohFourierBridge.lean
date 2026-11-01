@@ -1,3 +1,4 @@
+import Strobo2TorsCore
 import Mathlib.Algebra.Group.AddChar
 import Mathlib.Data.Complex.Basic
 
@@ -42,5 +43,19 @@ theorem recoh_fourier_sum_shift (chi : AddChar G ℂ)
           simp [recohFourierSum, Finset.sum_mul]
 
 #print axioms Couret.STROBO2TORS.recoh_fourier_sum_shift
+
+
+/-- Fourier covariance under translation of the actual support. -/
+theorem recoh_fourier_translate_support [DecidableEq G]
+    (chi : AddChar G ℂ) (S : Finset G) (u : G) :
+    recohFourierSum chi (translateSupport S u) =
+      recohFourierSum chi S * chi u := by
+  unfold recohFourierSum translateSupport
+  rw [Finset.sum_image (by
+    intro a ha b hb hab
+    exact add_right_cancel hab)]
+  exact recoh_fourier_sum_shift chi S u
+
+#print axioms Couret.STROBO2TORS.recoh_fourier_translate_support
 
 end Couret.STROBO2TORS
