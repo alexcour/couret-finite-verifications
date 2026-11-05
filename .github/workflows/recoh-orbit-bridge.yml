@@ -8,6 +8,7 @@ on:
       - 'research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean'
       - 'research/strobo-2tors-2026-10-12/lean/RecohConditionalBank.lean'
       - 'research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean'
+      - 'research/strobo-2tors-2026-10-12/lean/RecohFourierCovarianceBridge.lean'
       - '.github/workflows/recoh-orbit-bridge.yml'
 permissions:
   contents: read
@@ -32,7 +33,7 @@ jobs:
       - name: Compile conditional bank lemma
         run: lake env lean RecohConditionalBank.lean
       - name: Compile Fourier prerequisite lemma
-        run: lake env lean RecohFourierBridge.lean
+        run: lake env lean RecohFourierCovarianceBridge.lean
       - name: Record exact checkout
         run: |
           echo "CHECKOUT_SHA=$(git rev-parse HEAD)"
