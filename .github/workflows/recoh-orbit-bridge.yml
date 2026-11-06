@@ -34,6 +34,8 @@ jobs:
         run: lake env lean RecohConditionalBank.lean
       - name: Compile Fourier prerequisite lemma
         run: lake env lean RecohFourierCovarianceBridge.lean
+      - name: Compile restored historical Fourier bridge
+        run: lake env lean RecohFourierBridge.lean
       - name: Record exact checkout
         run: |
           echo "CHECKOUT_SHA=$(git rev-parse HEAD)"
