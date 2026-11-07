@@ -11,11 +11,30 @@
   "mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
   "pipeline_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
   "mechanical_preflight": {
-    "status": "RERUN_PENDING_OBSERVATION",
-    "previous_run": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42387460539",
-    "previous_result": "fail",
-    "previous_stage": "solution-build",
-    "repair": "Explicit Finset sum_insert/sum_singleton expansion in orderedSquare_three, without changing the theorem statement."
+    "status": "pass",
+    "stage": "complete",
+    "run_id": 42388442177,
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42388442177",
+    "report_path": "corpus/evidence/palomar-mechanical-42388442177.json",
+    "report_sha256": "8e840e791ef08d64e41f447909fe52809ca7a814b009e68041de5c4d68a6c494",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "independent_kernels": [
+      "nanoda",
+      "con-ron"
+    ],
+    "compared_theorems": [
+      "Couret.Palomar.classification"
+    ],
+    "compared_definitions": [
+      "Couret.Palomar.orderedSquare",
+      "Couret.Palomar.translateSupport",
+      "Couret.Palomar.OrdinaryPartner",
+      "Couret.Palomar.ExceptionalPartner"
+    ]
   },
   "intake": {
     "status": "NOT_STARTED",
@@ -26,7 +45,8 @@
   },
   "registration": {
     "status": "NOT_REGISTERED",
-    "palomar_id": null
+    "palomar_id": null,
+    "next_step": "The author must authenticate on the Palomar submission form, submit the exact repository/commit/configuration, inspect the automated editorial review and then decide whether to register. No GitHub credential usable for agent intake is available in this session."
   },
   "zulip": {
     "message_sent": false,
@@ -39,5 +59,24 @@
     "Private and unlocated source collections are outside the public catalogue."
   ],
   "official_requirements": "https://palomar-registry.org/how-to-submit",
-  "submission_form": "https://submit.palomar-registry.org/"
+  "submission_form": "https://submit.palomar-registry.org/",
+  "source_integrity": {
+    "status": "success",
+    "run_id": 42392071825,
+    "source_commit": "c5e93496e9ef52d19772a790656acc739ceccc9b",
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42392071825",
+    "github_blob_variants": 236,
+    "git_snapshots_with_lean": 132,
+    "archive_lean_members": 436,
+    "whole_corpus_lean_build": "NOT_RUN"
+  },
+  "history": [
+    {
+      "commit": "69e8a456594c8fdd40e328129819c0b1af371836",
+      "run_id": 42387460539,
+      "status": "fail",
+      "stage": "solution-build",
+      "repair": "Replace broad simp with explicit finite-sum expansion; unchanged theorem statement."
+    }
+  ]
 }
