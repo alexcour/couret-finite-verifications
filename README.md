@@ -102,3 +102,7 @@ The maintainer authorized integration through PR #4 on 12 October 2026. The [int
 ## Lean trust and review map
 
 The main-branch G30 certificate uses `native_decide`, so its trust includes compiled evaluation. The source inventory, compiler dependency and per-theorem axiom-receipt procedure are documented in [LEAN_TRUST.md](LEAN_TRUST.md). The larger STROBO and COU-20 developments remain draft branches with separate source commits; [BRANCHES.md](BRANCHES.md) identifies their review status and the required module-by-module review.
+
+## Consignes pour les agents
+
+Les interventions assistées suivent les [consignes du dépôt](AGENTS.md).
