@@ -11,7 +11,8 @@
     "Mathlib public import",
     "@[expose] public section",
     "implementation namespace Couret.Proof",
-    "independent compared statement and matching Solution"
+    "independent compared statement and matching Solution",
+    "Replace global simp in orderedSquare_three with explicit finite-sum expansion for Mathlib 4.35; theorem statement unchanged."
   ],
   "validation": {
     "local_lean": "unavailable",

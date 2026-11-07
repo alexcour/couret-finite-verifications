@@ -982,8 +982,11 @@ def translateSupport (S : Finset G) (u : G) : Finset G :=
 theorem orderedSquare_three (a b c z : G)
     (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c) :
     orderedSquare ({a, b, c} : Finset G) z = tripleSquareCoeff a b c z := by
-  simp [orderedSquare, tripleSquareCoeff, diagCoeff, offCoeff,
-    hab, hac, hbc, add_comm]
+  have ha : a ∉ ({b, c} : Finset G) := by simp [hab, hac]
+  have hb : b ∉ ({c} : Finset G) := by simp [hbc]
+  simp only [orderedSquare, Finset.sum_insert ha, Finset.sum_insert hb,
+    Finset.sum_singleton, tripleSquareCoeff, diagCoeff, offCoeff,
+    add_comm b a, add_comm c a, add_comm c b]
   omega
 
 theorem translateSupport_three (a b c u : G) :

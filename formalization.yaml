@@ -80,7 +80,7 @@
     "notes": "Alexandre Couret is the author and maintainer. Packaging is AI-assisted. No independent human mathematical review, originality assessment or journal endorsement is claimed."
   },
   "fidelity": {
-    "divergences": "The public source theorem and all its exceptional torsion hypotheses are retained. Implementation namespace Couret.STROBO2TORS is renamed Couret.Proof. Imports and visibility are adapted to the module system; public definitions are exposed. The advertised namespace is Couret.Palomar. A full current-toolchain comparison is pending."
+    "divergences": "The public source theorem and all its exceptional torsion hypotheses are retained. Implementation namespace Couret.STROBO2TORS is renamed Couret.Proof. Imports and visibility are adapted to the module system; public definitions are exposed. The advertised namespace is Couret.Palomar. A full current-toolchain comparison is pending. The orderedSquare_three proof uses explicit sum_insert/sum_singleton expansion to avoid a changed simp normalization in Mathlib 4.35; its statement is unchanged."
   },
   "review": {
     "status": "self-assessed; no independent human review",
