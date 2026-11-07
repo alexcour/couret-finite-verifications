@@ -1,8 +1,8 @@
 {
   "version": "v0.4",
   "project": {
-    "name": "Three-point ordered convolution-square classification",
-    "description": "For three-element finite supports S and T in any abelian group, equality of all labelled coefficients of their ordered additive convolution squares is equivalent to a translation by an element annihilated by doubling, or to the explicit exceptional paired shape in the statement. Diagonal pairs are included. The full proof development is contained in this snapshot. This is an adaptation of an existing public Couret formalization; mathematical novelty and independent human review are not established.",
+    "name": "Cardinalities of three-point ordered convolution-square fibres",
+    "description": "In any finite abelian group G, fix a three-element support S and retain the entire labelled ordered additive convolution square, including diagonal pairs. The number of three-element supports with the same square is h or 2h, where h is the number of elements u satisfying u+u=0; in particular it is at most 2h. The full proof is included. This adapts a prior public Couret formalization; novelty and independent human review are not established.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -32,6 +32,19 @@
       "license": "MIT",
       "note": "Immutable public source theorem Couret.STROBO2TORS.orderedSquare_classification_iff. The complete proof file is copied here, with module-system visibility, imports and a renamed implementation namespace. This source reference makes no claim to a complete literature review.",
       "author_endorsement": "participated"
+    },
+    {
+      "title": "STROBO-2TORS fibre cardinality",
+      "authors": [
+        "Alexandre Couret"
+      ],
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
+      "type": "formalization",
+      "relationship": "adapts",
+      "license": "MIT",
+      "author_endorsement": "participated",
+      "note": "Full Cardinality module copied with module-system visibility and implementation namespace changes. Source theorem squareFibre_card_h_or_two_h and its upper-bound corollary."
     }
   ],
   "related_formalizations": [
@@ -39,10 +52,15 @@
       "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
       "relationship": "adapts",
       "note": "Original public Lean 4.29.1 source; the present snapshot is migrated for the current module system."
+    },
+    {
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
+      "relationship": "adapts",
+      "note": "Prior Lean 4.29.1 implementation. New-toolchain verification pending."
     }
   ],
   "status": {
-    "scope": "The single compared theorem is the cardinality-three ordered-square classification. Four explicit definitions are compared as well. The implementation includes the full source proof, not an assumed classification hypothesis. No statement about four-point supports, reconstruction cost, RH, Hilbert-Polya, BSD, P versus NP, or topological universality is submitted. The only intentional hole is in Challenge.lean. Current-toolchain mechanical verification is being attempted; no success is claimed by this metadata.",
+    "scope": "Only the fibre-cardinality dichotomy and upper bound are compared, with three independently stated definitions. The hypotheses include a finite abelian group and S.card=3. Historical compilations do not certify this migrated snapshot. The two intentional Challenge holes are excluded from solution sorry_count.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -80,22 +98,27 @@
     "notes": "Alexandre Couret is the author and maintainer. Packaging is AI-assisted. No independent human mathematical review, originality assessment or journal endorsement is claimed."
   },
   "fidelity": {
-    "divergences": "The public source theorem and all its exceptional torsion hypotheses are retained. Implementation namespace Couret.STROBO2TORS is renamed Couret.Proof. Imports and visibility are adapted to the module system; public definitions are exposed. The advertised namespace is Couret.Palomar. A full current-toolchain comparison is pending. The orderedSquare_three proof uses explicit sum_insert/sum_singleton expansion to avoid a changed simp normalization in Mathlib 4.35; its statement is unchanged."
+    "divergences": "Implementation namespace is Couret.Proof; module headers, public imports and exposed public sections adapt the prior source. The pre-existing migrated Core is inherited from commit 24f69d5c2635ff405a628c170086a62d477fd3a5. Mathematical statements are unchanged. Current compilation and Comparator verification remain pending."
   },
   "review": {
     "status": "self-assessed; no independent human review",
     "reviewers": [],
-    "notes": "The informal interpretation and the definitions have been inspected during AI-assisted packaging. The pinned full Palomar mechanical workflow must pass before intake. Prior-art completeness and research interest remain for assessment; no Palomar registration has been made."
+    "notes": "AI-assisted preparation. The two advertised statements and definitions are independently restated in Challenge.lean. No independent human review, novelty claim or Palomar registration."
   },
   "alignment": {
-    "namespace": "Couret.Palomar",
+    "namespace": "Couret.PalomarCardinality",
     "statements": [
       {
-        "source": "Couret.STROBO2TORS.orderedSquare_classification_iff at the cited immutable source",
-        "lean": "Couret.Palomar.classification",
+        "source": "Couret.STROBO2TORS.squareFibre_card_h_or_two_h at https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
+        "lean": "Couret.PalomarCardinality.fibre_cardinality",
         "module": "Solution",
-        "status": "adapted; current-toolchain check pending",
-        "note": "The theorem has S.card = 3 and T.card = 3 and compares the full labelled ordered-square functions, including diagonal terms. The exceptional case is explicit rather than bundled as an unproved assumption."
+        "status": "adapted; current-toolchain check pending"
+      },
+      {
+        "source": "Couret.STROBO2TORS.squareFibre_card_le_two_h at https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
+        "lean": "Couret.PalomarCardinality.fibre_upper_bound",
+        "module": "Solution",
+        "status": "adapted; current-toolchain check pending"
       }
     ]
   },

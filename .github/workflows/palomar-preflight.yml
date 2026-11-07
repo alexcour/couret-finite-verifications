@@ -1,18 +1,22 @@
-name: Couret Palomar full mechanical preflight
+name: STROBO fibre cardinality Lean migration
 on:
   push:
-    branches: [palomar/strobo-three-supports-20261107]
+    branches: [palomar/strobo-fibre-cardinality-20261107]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  palomar-preflight:
-    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
-    with:
-      repository: ${{ github.repository }}
-      commit: ${{ github.sha }}
-      pipeline_commit: 14aa8d6b3c2f14a8540605e37144560b9a00e7e7
-      request_id: couret000001
-      mode: full
-      execution_profile: palomar-standard-v1
-      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'
+  lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          build: true
+          use-mathlib-cache: true
+      - name: Record solution axioms
+        run: |
+          set -o pipefail
+          lake env lean Solution.lean | tee axioms.log
+          if grep -q 'sorryAx' axioms.log; then exit 1; fi

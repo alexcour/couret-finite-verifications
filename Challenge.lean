@@ -1,41 +1,36 @@
 module
 
 public import Mathlib
-
 @[expose] public section
 
 set_option autoImplicit false
 
-namespace Couret.Palomar
+namespace Couret.PalomarCardinality
 
-variable {G : Type*} [AddCommGroup G] [DecidableEq G]
+variable {G : Type*} [AddCommGroup G] [DecidableEq G] [Fintype G]
 
-/-- Ordered additive autoconvolution, counting diagonal pairs as well. -/
+/-- Ordered additive convolution square; diagonal pairs are included. -/
 def orderedSquare (S : Finset G) (z : G) : ℕ :=
   S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
 
-/-- Translation of a finite support. -/
-def translateSupport (S : Finset G) (u : G) : Finset G :=
-  S.image (fun x => x + u)
+/-- Elements annihilated by doubling. -/
+def twoTorsion : Finset G :=
+  Finset.univ.filter (fun u => u + u = 0)
 
-/-- Translation by an element annihilated by doubling. -/
-def OrdinaryPartner (S T : Finset G) : Prop :=
-  ∃ u : G, u + u = 0 ∧ T = translateSupport S u
+/-- All three-element supports with the same labelled ordered square as S. -/
+def squareFibre (S : Finset G) : Finset (Finset G) :=
+  Finset.univ.powerset.filter (fun T => T.card = 3 ∧
+    ∀ z : G, orderedSquare S z = orderedSquare T z)
 
-/-- Explicit exceptional paired shape; all torsion conditions are retained. -/
-def ExceptionalPartner (S T : Finset G) : Prop :=
-  ∃ a b d u : G, d + d = 0 ∧ d ≠ 0 ∧ a + a ≠ b + b ∧ u + u = 0 ∧
-    ((((b - a) + (b - a)) + (b - a) = 0) ∨
-      (((b - a) + (b - a)) + (b - a) = d)) ∧
-    S = {a, b, b + d} ∧
-    T = translateSupport ({a, b + b - a, (b + b - a) + d} : Finset G) u
-
-/-- Classification of equal ordered squares of three-point supports.
-The hypotheses and the exceptional torsion shape are explicit. No novelty claim is made. -/
-theorem classification (S T : Finset G) (hS : S.card = 3) (hT : T.card = 3) :
-    (∀ z : G, orderedSquare S z = orderedSquare T z) ↔
-      OrdinaryPartner S T ∨ ExceptionalPartner S T := by
+/-- Each fibre has h or 2h elements, where h is the size of the doubling kernel. -/
+theorem fibre_cardinality (S : Finset G) (hS : S.card = 3) :
+    (squareFibre S).card = (twoTorsion : Finset G).card ∨
+      (squareFibre S).card = 2 * (twoTorsion : Finset G).card := by
   sorry
 
-end Couret.Palomar
+/-- In particular, every such fibre has at most twice the doubling-kernel size. -/
+theorem fibre_upper_bound (S : Finset G) (hS : S.card = 3) :
+    (squareFibre S).card ≤ 2 * (twoTorsion : Finset G).card := by
+  sorry
 
+end Couret.PalomarCardinality

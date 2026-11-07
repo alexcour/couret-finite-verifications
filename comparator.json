@@ -2,13 +2,13 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Couret.Palomar.classification"
+    "Couret.PalomarCardinality.fibre_cardinality",
+    "Couret.PalomarCardinality.fibre_upper_bound"
   ],
   "definition_names": [
-    "Couret.Palomar.orderedSquare",
-    "Couret.Palomar.translateSupport",
-    "Couret.Palomar.OrdinaryPartner",
-    "Couret.Palomar.ExceptionalPartner"
+    "Couret.PalomarCardinality.orderedSquare",
+    "Couret.PalomarCardinality.twoTorsion",
+    "Couret.PalomarCardinality.squareFibre"
   ],
   "permitted_axioms": [
     "propext",
@@ -16,4 +16,3 @@
     "Classical.choice"
   ]
 }
-

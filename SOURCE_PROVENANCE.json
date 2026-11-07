@@ -1,22 +1,15 @@
 {
-  "source_repository": "alexcour/couret-finite-verifications",
-  "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
-  "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-  "source_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
-  "source_license": "MIT",
-  "target_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
-  "target_toolchain": "leanprover/lean4:v4.35.0-rc2",
-  "transformations": [
+  "inherited_core_commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+  "cardinality_source": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
+  "source_git_blob": "ed273fbebca19c6a8163fa41c59ca080360255cc",
+  "changes": [
     "module header",
-    "Mathlib public import",
-    "@[expose] public section",
-    "implementation namespace Couret.Proof",
-    "independent compared statement and matching Solution",
-    "Replace global simp in orderedSquare_three with explicit finite-sum expansion for Mathlib 4.35; theorem statement unchanged."
+    "public imports",
+    "exposed public section",
+    "namespace renamed to Couret.Proof",
+    "independent Challenge and Solution"
   ],
-  "validation": {
-    "local_lean": "unavailable",
-    "full_preflight": "not yet observed",
-    "registration": "not submitted"
-  }
+  "new_build": "PENDING",
+  "comparator": "NOT_RUN",
+  "registration": "NOT_STARTED"
 }

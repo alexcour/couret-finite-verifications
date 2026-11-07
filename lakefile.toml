@@ -1,6 +1,6 @@
-name = "CouretPalomarCandidate"
+name = "CouretPalomarCardinality"
 version = "0.0.1"
-defaultTargets = ["CouretProof", "Challenge", "Solution"]
+defaultTargets = ["CouretProof", "CouretCardinality", "Challenge", "Solution"]
 
 [[require]]
 name = "mathlib"
@@ -16,3 +16,5 @@ name = "Challenge"
 [[lean_lib]]
 name = "Solution"
 
+[[lean_lib]]
+name = "CouretCardinality"
