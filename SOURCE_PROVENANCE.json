@@ -1,0 +1,21 @@
+{
+  "source_repository": "alexcour/couret-finite-verifications",
+  "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
+  "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+  "source_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
+  "source_license": "MIT",
+  "target_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+  "target_toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "transformations": [
+    "module header",
+    "Mathlib public import",
+    "@[expose] public section",
+    "implementation namespace Couret.Proof",
+    "independent compared statement and matching Solution"
+  ],
+  "validation": {
+    "local_lean": "unavailable",
+    "full_preflight": "not yet observed",
+    "registration": "not submitted"
+  }
+}

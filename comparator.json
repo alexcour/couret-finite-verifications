@@ -1,0 +1,19 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Couret.Palomar.classification"
+  ],
+  "definition_names": [
+    "Couret.Palomar.orderedSquare",
+    "Couret.Palomar.translateSupport",
+    "Couret.Palomar.OrdinaryPartner",
+    "Couret.Palomar.ExceptionalPartner"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
+
