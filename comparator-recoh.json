@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Couret.PalomarRECOH.masked_bank_collision"
+  ],
+  "definition_names": [
+    "Couret.PalomarRECOH.orderedSquare",
+    "Couret.PalomarRECOH.tripleProbe"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
