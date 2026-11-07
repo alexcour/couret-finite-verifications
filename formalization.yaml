@@ -1,8 +1,8 @@
 {
   "version": "v0.4",
   "project": {
-    "name": "Cardinalities of three-point ordered convolution-square fibres",
-    "description": "In any finite abelian group G, fix a three-element support S and retain the entire labelled ordered additive convolution square, including diagonal pairs. The number of three-element supports with the same square is h or 2h, where h is the number of elements u satisfying u+u=0; in particular it is at most 2h. The full proof is included. This adapts a prior public Couret formalization; novelty and independent human review are not established.",
+    "name": "Conditional masked-probe collisions for additive reconstruction",
+    "description": "In an abelian group with a nonzero element v of order three and a nonzero element d annihilated by doubling, the supports {0,v,v+d} and {0,-v,-v+d} are distinct and have equal full labelled ordered additive convolution squares. Any finite list of multiplicative probes satisfying, for each probe chi, chi(d)=-1 or chi(v)=chi(-v), also has equal triple-probe sums on these supports. The masking condition is a hypothesis: no existence theorem or general lower bound on the number of probes is claimed. This adapts a prior public Couret formalization; novelty and independent human review are not established.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -45,6 +45,19 @@
       "license": "MIT",
       "author_endorsement": "participated",
       "note": "Full Cardinality module copied with module-system visibility and implementation namespace changes. Source theorem squareFibre_card_h_or_two_h and its upper-bound corollary."
+    },
+    {
+      "title": "RECOH masked bank collision",
+      "authors": [
+        "Alexandre Couret"
+      ],
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean",
+      "type": "formalization",
+      "relationship": "adapts",
+      "license": "MIT",
+      "author_endorsement": "participated",
+      "note": "Complete source bridge copied; theorem recoh_masked_bank_collision. Explicit masking, homomorphism and torsion hypotheses retained."
     }
   ],
   "related_formalizations": [
@@ -60,7 +73,7 @@
     }
   ],
   "status": {
-    "scope": "Only the fibre-cardinality dichotomy and upper bound are compared, with three independently stated definitions. The hypotheses include a finite abelian group and S.card=3. Historical compilations do not certify this migrated snapshot. The two intentional Challenge holes are excluded from solution sorry_count.",
+    "scope": "Only masked_bank_collision and two definitions are compared. Arbitrary abelian group, commutative ring, finite probe list, explicit multiplicativity/mask and nonzero order-three/order-two hypotheses. Does not establish mask existence, optimal bank size, a separating-character existence theorem, runtime certification, novelty or full-corpus validation.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -98,25 +111,19 @@
     "notes": "Alexandre Couret is the author and maintainer. Packaging is AI-assisted. No independent human mathematical review, originality assessment or journal endorsement is claimed."
   },
   "fidelity": {
-    "divergences": "Implementation namespace is Couret.Proof; module headers, public imports and exposed public sections adapt the prior source. The pre-existing migrated Core is inherited from commit 24f69d5c2635ff405a628c170086a62d477fd3a5. Mathematical statements are unchanged. Current compilation and Comparator verification remain pending."
+    "divergences": "Implementation namespace renamed Couret.Proof; module headers and public visibility adapted. Core and Cardinality implementations are inherited from their migrated candidates. Challenge independently restates the definitions and the exact conditional theorem. Current-toolchain build pending."
   },
   "review": {
     "status": "self-assessed; no independent human review",
     "reviewers": [],
-    "notes": "AI-assisted preparation. The two advertised statements and definitions are independently restated in Challenge.lean. No independent human review, novelty claim or Palomar registration."
+    "notes": "AI-assisted preparation; no independent human review. Current-toolchain compilation and Comparator pending. Historical CI receipt is separate from this candidate."
   },
   "alignment": {
-    "namespace": "Couret.PalomarCardinality",
+    "namespace": "Couret.PalomarRECOH",
     "statements": [
       {
-        "source": "Couret.STROBO2TORS.squareFibre_card_h_or_two_h at https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
-        "lean": "Couret.PalomarCardinality.fibre_cardinality",
-        "module": "Solution",
-        "status": "adapted; current-toolchain check pending"
-      },
-      {
-        "source": "Couret.STROBO2TORS.squareFibre_card_le_two_h at https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
-        "lean": "Couret.PalomarCardinality.fibre_upper_bound",
+        "source": "Couret.STROBO2TORS.recoh_masked_bank_collision at https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean",
+        "lean": "Couret.PalomarRECOH.masked_bank_collision",
         "module": "Solution",
         "status": "adapted; current-toolchain check pending"
       }

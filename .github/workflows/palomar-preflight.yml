@@ -1,7 +1,7 @@
-name: STROBO fibre cardinality Lean migration
+name: RECOH masked collision Lean migration
 on:
   push:
-    branches: [palomar/strobo-fibre-cardinality-20261107]
+    branches: [palomar/recoh-masked-collision-20261107]
   workflow_dispatch:
 permissions:
   contents: read

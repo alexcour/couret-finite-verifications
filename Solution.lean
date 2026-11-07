@@ -1,41 +1,42 @@
 module
 
 public import Mathlib
-public import CouretCardinality
+public import CouretRecoh
 
 @[expose] public section
 
 set_option autoImplicit false
 
-namespace Couret.PalomarCardinality
+namespace Couret.PalomarRECOH
 
-variable {G : Type*} [AddCommGroup G] [DecidableEq G] [Fintype G]
+variable {G : Type*} [AddCommGroup G] [DecidableEq G]
 
-/-- Ordered additive convolution square; diagonal pairs are included. -/
+/-- Full labelled ordered square, including the diagonal pairs. -/
 def orderedSquare (S : Finset G) (z : G) : ℕ :=
   S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
 
-/-- Elements annihilated by doubling. -/
-def twoTorsion : Finset G :=
-  Finset.univ.filter (fun u => u + u = 0)
+/-- Sum of three probe values, with multiplicities. -/
+def tripleProbe {R : Type*} [CommRing R]
+    (chi : G → R) (a b c : G) : R :=
+  chi a + chi b + chi c
 
-/-- All three-element supports with the same labelled ordered square as S. -/
-def squareFibre (S : Finset G) : Finset (Finset G) :=
-  Finset.univ.powerset.filter (fun T => T.card = 3 ∧
-    ∀ z : G, orderedSquare S z = orderedSquare T z)
+/-- A masked bank fails to distinguish two distinct supports with equal ordered squares.
+The masking hypothesis is explicit; existence of such a mask is not asserted. -/
+theorem masked_bank_collision
+    {R : Type*} [CommRing R]
+    (bank : List (G → R))
+    (hadd : ∀ chi ∈ bank, ∀ x y : G, chi (x + y) = chi x * chi y)
+    (v d : G) (hv0 : v ≠ 0)
+    (hv3 : (v + v) + v = 0)
+    (hd0 : d ≠ 0) (hd2 : d + d = 0)
+    (hmask : ∀ chi ∈ bank, chi d = -1 ∨ chi v = chi (-v)) :
+    (({0, v, v + d} : Finset G) ≠ {0, -v, -v + d}) ∧
+      (∀ z : G, orderedSquare ({0, v, v + d} : Finset G) z =
+        orderedSquare ({0, -v, -v + d} : Finset G) z) ∧
+      (∀ chi ∈ bank, tripleProbe chi 0 v (v + d) =
+        tripleProbe chi 0 (-v) (-v + d)) := by
+  exact Couret.Proof.recoh_masked_bank_collision bank hadd v d hv0 hv3 hd0 hd2 hmask
 
-/-- Each fibre has h or 2h elements, where h is the size of the doubling kernel. -/
-theorem fibre_cardinality (S : Finset G) (hS : S.card = 3) :
-    (squareFibre S).card = (twoTorsion : Finset G).card ∨
-      (squareFibre S).card = 2 * (twoTorsion : Finset G).card := by
-  exact Couret.Proof.squareFibre_card_h_or_two_h S hS
+end Couret.PalomarRECOH
 
-/-- In particular, every such fibre has at most twice the doubling-kernel size. -/
-theorem fibre_upper_bound (S : Finset G) (hS : S.card = 3) :
-    (squareFibre S).card ≤ 2 * (twoTorsion : Finset G).card := by
-  exact Couret.Proof.squareFibre_card_le_two_h S hS
-
-end Couret.PalomarCardinality
-
-#print axioms Couret.PalomarCardinality.fibre_cardinality
-#print axioms Couret.PalomarCardinality.fibre_upper_bound
+#print axioms Couret.PalomarRECOH.masked_bank_collision

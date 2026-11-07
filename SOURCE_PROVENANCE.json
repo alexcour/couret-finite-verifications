@@ -1,13 +1,12 @@
 {
-  "inherited_core_commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
-  "cardinality_source": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCardinality.lean",
-  "source_git_blob": "ed273fbebca19c6a8163fa41c59ca080360255cc",
-  "changes": [
-    "module header",
-    "public imports",
-    "exposed public section",
-    "namespace renamed to Couret.Proof",
-    "independent Challenge and Solution"
+  "source": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean",
+  "core_candidate": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+  "cardinality_candidate": "39f67850964ecbe956c7bc7a68448d64770cbfe7",
+  "transformations": [
+    "module system",
+    "public visibility",
+    "namespace renamed",
+    "independent Challenge/Solution"
   ],
   "new_build": "PENDING",
   "comparator": "NOT_RUN",

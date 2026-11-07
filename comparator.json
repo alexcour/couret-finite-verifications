@@ -2,13 +2,11 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Couret.PalomarCardinality.fibre_cardinality",
-    "Couret.PalomarCardinality.fibre_upper_bound"
+    "Couret.PalomarRECOH.masked_bank_collision"
   ],
   "definition_names": [
-    "Couret.PalomarCardinality.orderedSquare",
-    "Couret.PalomarCardinality.twoTorsion",
-    "Couret.PalomarCardinality.squareFibre"
+    "Couret.PalomarRECOH.orderedSquare",
+    "Couret.PalomarRECOH.tripleProbe"
   ],
   "permitted_axioms": [
     "propext",
