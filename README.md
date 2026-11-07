@@ -1,5 +1,11 @@
 > **Archive and working-tree boundary · 20 October 2026.** The version DOI below identifies the preserved v1.0.0 tag. The `research/` directory and later research presentations on this branch are a separate working review area, with their own evidence and open review gates. They are not included in that archived release. See [research/README.md](research/README.md).
 
+## Corpus Lean 4 — scientific reading path / parcours scientifique
+
+The [public Lean corpus catalogue](corpus/README.md) brings together the observed public branch snapshots and published proof archives, with immutable sources, dependency pins, historical attempts and explicit verification limits. [The machine-readable inventory](corpus/catalogue.json) distinguishes source variants from independently checked mathematical results. [Palomar preparation status](corpus/PALOMAR_STATUS.json) is tracked separately from publication of the corpus. This documentation does not change preserved release tags or DOI snapshots.
+
+
+
 > **Current research identity (14 October 2026): [Couret — Additive and Spectral Reconstruction](RESEARCH_PROGRAMME.md).** The active research focuses on reconstruction of three-element subsets from ordered pairwise sums and separately on Cayley-graph spectral ambiguities. Lean-checked structural results and bounded exhaustive computations do not constitute external human review or establish mathematical priority. The historical name “Couret–Unification” remains in provenance records. This note does not alter the archived v1.0.0 release.
 
 > **PUBLIC SCIENTIFIC CORRECTION — 13 October 2026.** The historical [T1′–T4 Riemann-hypothesis proof chain](https://github.com/couret-interia/rh-analytic-framework-t1t4) is **invalid as a proof**. Its published T2 argument omits the nonzero diagonal of the Gram-matrix error, and T3 asserts an incompatible wave-packet normalization. Read the [explicit mathematical erratum](ERRATUM_RH_T1T4_2026-10-13.md). The original archive is preserved for historical accountability; do **not** cite it as a valid RH proof or a journal-ready proof framework. This correction does not disqualify unrelated finite checks, which have separate review limits.
@@ -102,3 +108,4 @@ The maintainer authorized integration through PR #4 on 12 October 2026. The [int
 ## Lean trust and review map
 
 The main-branch G30 certificate uses `native_decide`, so its trust includes compiled evaluation. The source inventory, compiler dependency and per-theorem axiom-receipt procedure are documented in [LEAN_TRUST.md](LEAN_TRUST.md). The larger STROBO and COU-20 developments remain draft branches with separate source commits; [BRANCHES.md](BRANCHES.md) identifies their review status and the required module-by-module review.
+

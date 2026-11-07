@@ -1,0 +1,43 @@
+{
+  "as_of_paris": "2026-11-07",
+  "repository": "alexcour/couret-finite-verifications",
+  "branch": "palomar/strobo-three-supports-20261107",
+  "commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+  "comparator_config_path": "comparator.json",
+  "formalization_metadata_path": "formalization.yaml",
+  "project_path": "",
+  "responsible_author_and_maintainer": "Alexandre Couret",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+  "pipeline_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+  "mechanical_preflight": {
+    "status": "RERUN_PENDING_OBSERVATION",
+    "previous_run": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42387460539",
+    "previous_result": "fail",
+    "previous_stage": "solution-build",
+    "repair": "Explicit Finset sum_insert/sum_singleton expansion in orderedSquare_three, without changing the theorem statement."
+  },
+  "intake": {
+    "status": "NOT_STARTED",
+    "submission_id": null
+  },
+  "editorial_review": {
+    "status": "NOT_REQUESTED"
+  },
+  "registration": {
+    "status": "NOT_REGISTERED",
+    "palomar_id": null
+  },
+  "zulip": {
+    "message_sent": false,
+    "access_obtained": false,
+    "relay_guaranteed": false
+  },
+  "limitations": [
+    "Mechanical preflight is not registration or independent human review.",
+    "No claim of originality or of satisfying the research-interest floor.",
+    "Private and unlocated source collections are outside the public catalogue."
+  ],
+  "official_requirements": "https://palomar-registry.org/how-to-submit",
+  "submission_form": "https://submit.palomar-registry.org/"
+}
