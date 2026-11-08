@@ -1,4 +1,4 @@
-import json,pathlib,subprocess,zipfile
+import json,pathlib,re,subprocess,zipfile
 root=pathlib.Path(__file__).resolve().parent
 evidence=pathlib.Path('source-evidence')
 project=pathlib.Path('project');project.mkdir(exist_ok=True)
@@ -27,3 +27,14 @@ lake='\n'.join(l for l in lake.splitlines() if not l.startswith('require mathlib
 subprocess.run(['python',str(root/'validate_platform.py'),'project','generated','generated/validation'],check=True)
 result=json.loads((generated/'validation/platform-validation.json').read_text())
 if result['status']!='PASS':raise SystemExit('Generated decision source validation failed; no publication performed')
+plan=json.loads((generated/'plan.json').read_text())
+names=[t['name'] for t in plan['theorems']]
+(project/'AuditDecision.lean').write_text('import Lean\nimport DecisionInterface\n'+'\n'.join('#print axioms '+n for n in names)+'\n')
+with (evidence/'axioms.log').open('w') as output:
+    subprocess.run(['lake','env','lean','AuditDecision.lean'],cwd=project,stdout=output,stderr=subprocess.STDOUT,check=True)
+text=(evidence/'axioms.log').read_text()
+axioms={n:[a.strip() for a in body.split(',') if a.strip()] for n,body in re.findall(r"'([^'\n]+)' depends on axioms: \[([^\]]*)\]",text,re.S)}
+axioms.update({n:[] for n in re.findall(r"'([^'\n]+)' does not depend on any axioms",text)})
+assert all(n in axioms and set(axioms[n])<={'propext','Classical.choice','Quot.sound'} for n in names)
+(generated/'validation/axioms.json').write_text(json.dumps(axioms,indent=2))
+
