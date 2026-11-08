@@ -1,0 +1,38 @@
+name: Prove2Me generated four-point declarations
+on:
+  push:
+    branches: [prove2me/validate-four-point-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Recover the exact prior source and Lean oracle receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 42495420377 --repo alexcour/couret-finite-verifications --name prove2me-four-point --dir source-evidence
+      - name: Install official Lean toolchain manager
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Rebuild generated definitions, theorem stubs and solutions and compare exact types
+        run: python validate_four_point.py
+      - name: Preserve all generation and validation results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-four-point-generated
+          path: |
+            generated/Definitions/
+            generated/Theorems/
+            generated/Solutions/
+            generated/plan.json
+            generated/validation/
+          retention-days: 30
+          if-no-files-found: error
