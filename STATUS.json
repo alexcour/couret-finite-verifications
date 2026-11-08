@@ -1,7 +1,13 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-08T15:46:55.410923+00:00",
+  "observed_at_utc": "2026-11-08T16:34:10.972399+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
+  "counts": {
+    "confirmed_registrations": 1,
+    "official_mechanical_pass_awaiting_registration": 1,
+    "prepared_additional_candidates": 9,
+    "passing_full_predictive_reports": 9
+  },
   "records": [
     {
       "name": "STROBO three-point classification",
@@ -102,17 +108,21 @@
     },
     {
       "name": "bc_saturation",
-      "commit": "37393e162d54a11b749e3c9d5d5dd5f61b0eca10",
-      "source": "https://github.com/alexcour/couret-finite-verifications/tree/37393e162d54a11b749e3c9d5d5dd5f61b0eca10",
+      "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/b2f722c674e8f06937d81df59b6190079daf6b9e",
       "registration": "NOT_REGISTERED",
       "lean_build": {
-        "run": 42495902784,
-        "status": "IN_PROGRESS",
+        "run": 42498575596,
+        "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
       "predictive_check": {
-        "run": 42495902784,
-        "status": "IN_PROGRESS"
+        "run": 42498575596,
+        "status": "PASS",
+        "checked_at": "2026-11-08T16:18:09Z",
+        "errors": [],
+        "report": "reports/bc_saturation.json",
+        "report_sha256": "945628885f693047854864d1b323309e3897e2a77b12f6c1694364b4f7c1b0a7"
       }
     },
     {
