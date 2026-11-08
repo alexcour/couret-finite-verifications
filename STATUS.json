@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-08T17:07:26.704292+00:00",
+  "observed_at_utc": "2026-11-08T17:17:20.846791+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 1,
@@ -43,6 +43,7 @@
         "run": 42492473898,
         "status": "SUCCESS"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -61,6 +62,7 @@
         "run": 42492500278,
         "status": "SUCCESS"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -79,6 +81,7 @@
         "run": 42492551626,
         "status": "SUCCESS"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -97,6 +100,7 @@
         "run": 42492586090,
         "status": "SUCCESS"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -116,6 +120,7 @@
         "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42498575596,
         "status": "PASS",
@@ -135,6 +140,7 @@
         "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42495068348,
         "status": "PASS",
@@ -152,6 +158,17 @@
       "lean_build": {
         "run": 42419020891,
         "status": "SUCCESS"
+      },
+      "official_intake": "NOT_SUBMITTED_ACTIVE_REGISTRATION_PRESERVED",
+      "last_intake_attempt": {
+        "checked_at_utc": "2026-11-08T17:17:19.097504+00:00",
+        "outcome": "BLOCKED_BY_EXISTING_ACTIVE_SUBMISSION",
+        "browser_layout_and_metadata_checks": "PASS",
+        "authenticated_repository_access": "CONFIRMED",
+        "existing_commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
+        "existing_registration": "REGISTRATION_IN_PROGRESS",
+        "withdrawal_performed": false,
+        "note": "Palomar offered opening the existing submission or irreversibly abandoning it. The existing submission was opened and preserved."
       },
       "predictive_check": {
         "run": 42493140220,
@@ -171,6 +188,7 @@
         "run": 42490086064,
         "status": "SUCCESS"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -189,6 +207,7 @@
         "run": 42490489850,
         "status": "SUCCESS"
       },
+      "official_intake": "NOT_SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",

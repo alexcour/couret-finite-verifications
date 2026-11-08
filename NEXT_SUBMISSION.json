@@ -1,0 +1,21 @@
+{
+  "repository": "alexcour/couret-finite-verifications",
+  "candidate": "RECOH conditional masked-probe collision",
+  "commit": "2c16c4283999ccf5dcba22cc12e98bf56d019764",
+  "comparator_config_path": "comparator-recoh.json",
+  "relationship": "I have approval from a responsible author or maintainer",
+  "predictive_report": "prevalidation/recoh.json",
+  "ready": true,
+  "intake_status": "NOT_SUBMITTED_ACTIVE_REGISTRATION_PRESERVED",
+  "admission_constraint": {
+    "checked_at_utc": "2026-11-08T17:17:19.097504+00:00",
+    "outcome": "BLOCKED_BY_EXISTING_ACTIVE_SUBMISSION",
+    "browser_layout_and_metadata_checks": "PASS",
+    "authenticated_repository_access": "CONFIRMED",
+    "existing_commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
+    "existing_registration": "REGISTRATION_IN_PROGRESS",
+    "withdrawal_performed": false,
+    "note": "Palomar offered opening the existing submission or irreversibly abandoning it. The existing submission was opened and preserved."
+  },
+  "next_required_condition": "The existing registration must complete before Palomar admits a new submission from this repository."
+}
