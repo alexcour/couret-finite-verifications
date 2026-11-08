@@ -21,7 +21,7 @@
   },
   {
     "name": "bc_saturation",
-    "commit": "f23b41d8a603aa84c49a11becd30980f5f06cdf2",
+    "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
     "config": "comparator-bc_saturation.json"
   },
   {
