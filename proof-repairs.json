@@ -12,7 +12,7 @@
     "namespace": "Couret.Strobo2Tors",
     "expected_sha256": "e6ef4b2d3d4f2428f4fff1404fa0693f166695789e5e7c65fefd2b096c4f7024",
     "proofs": {
-      "Couret.Strobo2Tors.orderedRep_three": "by\n  classical\n  have hca : c ≠ a := Ne.symm hac\n  have hba : b ≠ a := Ne.symm hab\n  have hbc : b ≠ c := Ne.symm hcb\n  unfold orderedRep\n  rw [Finset.card_filter, Finset.product_eq_sprod, Finset.sum_product]\n  simp [hac, hab, hcb, hca, hba, hbc, add_comm, add_left_comm, add_assoc] <;> omega"
+      "Couret.Strobo2Tors.orderedRep_three": "by\n  classical\n  have ha_mem : a ∉ ({c, b} : Finset G) := by\n    simp only [Finset.mem_insert, Finset.mem_singleton, not_or]\n    exact ⟨hac, hab⟩\n  have hc_mem : c ∉ ({b} : Finset G) := by\n    simpa only [Finset.mem_singleton] using hcb\n  unfold orderedRep\n  rw [Finset.card_filter, Finset.product_eq_sprod, Finset.sum_product]\n  simp only [Finset.sum_insert ha_mem, Finset.sum_insert hc_mem,\n    Finset.sum_singleton, two_mul, add_comm, add_left_comm, add_assoc]"
     }
   }
 }
