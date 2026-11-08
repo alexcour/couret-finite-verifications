@@ -73,7 +73,9 @@ def choose3 : List V -> List (List V)
 
 def triplets : List (List V) := choose3 vertices
 
-theorem triplet_count : triplets.length = 56 := by native_decide
+theorem triplet_count : triplets.length = 56 := by
+  set_option maxHeartbeats 2000000 in
+    decide +kernel
 
 @[inline] def charSum (T : List V) (c : CharIdx) : GZ :=
   T.foldl (fun acc i => gAdd acc (evalChar c i)) (0,0)
@@ -121,7 +123,9 @@ def repsPairwiseDistinct : List (List V) -> Bool
 def repsComplete : Bool :=
   triplets.all (fun T => spectralReps.any (fun R => sameComplexSpectrum T R))
 
-theorem spectral_rep_count : spectralReps.length = 10 := by native_decide
+theorem spectral_rep_count : spectralReps.length = 10 := by
+  set_option maxHeartbeats 2000000 in
+    decide +kernel
 
 theorem spectral_reps_pairwise_distinct : repsPairwiseDistinct spectralReps = true := by
   native_decide
@@ -190,7 +194,9 @@ def p4 : List V := [0,1,5,4,3,2,6,7]
 
 theorem tc_iso_target0 : graphIsoCert TC tcTarget0 p0 = true := by native_decide
 theorem tc_iso_target1 : graphIsoCert TC tcTarget1 p1 = true := by native_decide
-theorem tc_iso_target2 : graphIsoCert TC tcTarget2 p2 = true := by native_decide
+theorem tc_iso_target2 : graphIsoCert TC tcTarget2 p2 = true := by
+  set_option maxHeartbeats 2000000 in
+    decide +kernel
 theorem tc_iso_target3 : graphIsoCert TC tcTarget3 p3 = true := by native_decide
 theorem tc_iso_target4 : graphIsoCert TC tcTarget4 p4 = true := by native_decide
 
