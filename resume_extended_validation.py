@@ -12,7 +12,7 @@ new=json.loads(pathlib.Path('generated/plan.json').read_text())
 assert old['source']==new['source'] and old['mathlib_rev']==new['mathlib_rev']
 assert {d['module'] for d in old['definitions']}=={d['module'] for d in new['definitions']}
 assert {t['name'] for t in old['theorems']}-{t['name'] for t in new['theorems']}=={'CouretOaiBridge01.delta_one'}
-assert not ({t['name'] for t in new['theorems']}-{t['name'] for t in old['theorems']})
+assert {t['name'] for t in new['theorems']}-{t['name'] for t in old['theorems']}=={'CouretOaiBridge01.u19_mul_u29'}
 shutil.copyfile('recovered/generated/axioms.json','generated/axioms.json')
 shutil.copytree('recovered/generated/.lake/build','generated/.lake/build',dirs_exist_ok=True)
 subprocess.run(['python',str(root/'validate_platform.py'),'project','generated','generated/validation'],check=True)
