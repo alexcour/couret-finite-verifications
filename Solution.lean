@@ -1,44 +1,63 @@
 module
 
 public import Mathlib
-public import CouretProof
+public import CayleyTwoColourAbelian
+public import CayleyTwoColourZMod
 
 @[expose] public section
 
 set_option autoImplicit false
 
-namespace Couret.Palomar
+namespace Couret.PalomarCayley
 
 variable {G : Type*} [AddCommGroup G] [DecidableEq G]
 
-/-- Ordered additive autoconvolution, counting diagonal pairs as well. -/
-def orderedSquare (S : Finset G) (z : G) : ℕ :=
-  S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
+/-- Directed arc with an increment from the specified finite support. -/
+def CayleyArc (S : Finset G) (x y : G) : Prop :=
+  ∃ s ∈ S, y = x + s
 
-/-- Translation of a finite support. -/
-def translateSupport (S : Finset G) (u : G) : Finset G :=
-  S.image (fun x => x + u)
+/-- A singleton increment and a translated half-turn pair. -/
+def TripleSupport (a b h : G) : Finset G := {a, b, b + h}
 
-/-- Translation by an element annihilated by doubling. -/
-def OrdinaryPartner (S T : Finset G) : Prop :=
-  ∃ u : G, u + u = 0 ∧ T = translateSupport S u
+/-- Source increment support for the reflected exceptional pair. -/
+def AbelianSource (a d h : G) : Finset G :=
+  TripleSupport a (a + d) h
 
-/-- Explicit exceptional paired shape; all torsion conditions are retained. -/
-def ExceptionalPartner (S T : Finset G) : Prop :=
-  ∃ a b d u : G, d + d = 0 ∧ d ≠ 0 ∧ a + a ≠ b + b ∧ u + u = 0 ∧
-    ((((b - a) + (b - a)) + (b - a) = 0) ∨
-      (((b - a) + (b - a)) + (b - a) = d)) ∧
-    S = {a, b, b + d} ∧
-    T = translateSupport ({a, b + b - a, (b + b - a) + d} : Finset G) u
+/-- Reflected target increment support. -/
+def AbelianTarget (a d h : G) : Finset G :=
+  TripleSupport a (a - d) h
 
-/-- Classification of equal ordered squares of three-point supports.
-The hypotheses and the exceptional torsion shape are explicit. No novelty claim is made. -/
-theorem classification (S T : Finset G) (hS : S.card = 3) (hT : T.card = 3) :
-    (∀ z : G, orderedSquare S z = orderedSquare T z) ↔
-      OrdinaryPartner S T ∨ ExceptionalPartner S T := by
-  exact Couret.Proof.orderedSquare_classification_iff S T hS hT
+/-- Under the explicit torsion and generation assumptions, the two directed Cayley
+graphs are isomorphic exactly when a and h do not generate the ambient group. -/
+theorem abelian_isomorphism_iff
+    (a d h : G)
+    (hhalf : h + h = 0) (hne : h ≠ 0)
+    (hthree : (d + d) + d = 0 ∨ (d + d) + d = h)
+    (hgen : AddSubgroup.closure ({a, d, h} : Set G) = ⊤)
+    (hd2 : d + d ≠ 0) :
+    (∃ f : G ≃ G, ∀ x y : G,
+      CayleyArc (AbelianSource a d h) x y ↔
+      CayleyArc (AbelianTarget a d h) (f x) (f y)) ↔
+        AddSubgroup.closure ({a, h} : Set G) ≠ ⊤ := by
+  exact Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration a d h hhalf hne hthree hgen hd2
 
-end Couret.Palomar
+/-- For every positive r, these explicit directed Cayley graphs on Z/(12r)Z
+are not isomorphic. The quantifier ranges over all vertex equivalences,
+without an affineness assumption. -/
+theorem cyclic_nonisomorphism
+    (r : ℕ) (hr : 0 < r)
+    (f : ZMod (12 * r) ≃ ZMod (12 * r))
+    (hf : ∀ x y : ZMod (12 * r),
+      CayleyArc (TripleSupport (1 : ZMod (12 * r))
+        ((1 + 2 * r : ℕ) : ZMod (12 * r))
+        ((6 * r : ℕ) : ZMod (12 * r))) x y ↔
+      CayleyArc (TripleSupport (1 : ZMod (12 * r))
+        ((1 + 4 * r : ℕ) : ZMod (12 * r))
+        ((6 * r : ℕ) : ZMod (12 * r))) (f x) (f y)) :
+    False := by
+  exact Couret.CayleyDoublet.cayley_twelve_mul_nonisomorphic r hr f hf
 
+end Couret.PalomarCayley
 
-#print axioms Couret.Palomar.classification
+#print axioms Couret.PalomarCayley.abelian_isomorphism_iff
+#print axioms Couret.PalomarCayley.cyclic_nonisomorphism

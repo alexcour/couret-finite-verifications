@@ -1,0 +1,19 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Couret.PalomarCayley.abelian_isomorphism_iff",
+    "Couret.PalomarCayley.cyclic_nonisomorphism"
+  ],
+  "definition_names": [
+    "Couret.PalomarCayley.CayleyArc",
+    "Couret.PalomarCayley.TripleSupport",
+    "Couret.PalomarCayley.AbelianSource",
+    "Couret.PalomarCayley.AbelianTarget"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "version": "v0.4",
   "project": {
-    "name": "Three-point ordered convolution-square classification",
-    "description": "For three-element finite supports S and T in any abelian group, equality of all labelled coefficients of their ordered additive convolution squares is equivalent to a translation by an element annihilated by doubling, or to the explicit exceptional paired shape in the statement. Diagonal pairs are included. The full proof development is contained in this snapshot. This is an adaptation of an existing public Couret formalization; mathematical novelty and independent human review are not established.",
+    "name": "Directed Cayley non-isomorphism and abelian generation dichotomy",
+    "description": "For exceptional three-increment directed Cayley graphs in an abelian group, under the displayed torsion, nondegeneracy and generation assumptions, the reflected pair is isomorphic exactly when the singleton and half-turn increments do not generate the ambient group. A separate theorem proves non-isomorphism for two explicit three-increment digraphs on Z/(12r)Z for every positive natural r, with no affine restriction on vertex equivalences. These are adaptations of prior public Couret formalizations; mathematical novelty and independent human review are not established.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -16,33 +16,87 @@
       "math.CO"
     ],
     "msc2020": [
-      "11B75"
+      "05C25"
     ]
   },
   "sources": [
     {
-      "title": "STROBO-2TORS: ordered-square classification of three-element finite supports",
+      "title": "CayleyDoubletCore.lean",
       "authors": [
         "Alexandre Couret"
       ],
-      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyDoubletCore.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyDoubletCore.lean",
       "type": "formalization",
       "relationship": "adapts",
       "license": "MIT",
-      "note": "Immutable public source theorem Couret.STROBO2TORS.orderedSquare_classification_iff. The complete proof file is copied here, with module-system visibility, imports and a renamed implementation namespace. This source reference makes no claim to a complete literature review.",
-      "author_endorsement": "participated"
+      "author_endorsement": "participated",
+      "note": "Full public source copied. Module headers, public imports and exposed declarations adapt the source to the selected toolchain; proof verification remains to be established for this snapshot."
+    },
+    {
+      "title": "CayleyTwoColourFamily.lean",
+      "authors": [
+        "Alexandre Couret"
+      ],
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourFamily.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourFamily.lean",
+      "type": "formalization",
+      "relationship": "adapts",
+      "license": "MIT",
+      "author_endorsement": "participated",
+      "note": "Full public source copied. Module headers, public imports and exposed declarations adapt the source to the selected toolchain; proof verification remains to be established for this snapshot."
+    },
+    {
+      "title": "CayleyTwoColourZMod.lean",
+      "authors": [
+        "Alexandre Couret"
+      ],
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourZMod.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourZMod.lean",
+      "type": "formalization",
+      "relationship": "adapts",
+      "license": "MIT",
+      "author_endorsement": "participated",
+      "note": "Full public source copied. Module headers, public imports and exposed declarations adapt the source to the selected toolchain; proof verification remains to be established for this snapshot."
+    },
+    {
+      "title": "CayleyTwoColourAbelian.lean",
+      "authors": [
+        "Alexandre Couret"
+      ],
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourAbelian.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourAbelian.lean",
+      "type": "formalization",
+      "relationship": "adapts",
+      "license": "MIT",
+      "author_endorsement": "participated",
+      "note": "Full public source copied. Module headers, public imports and exposed declarations adapt the source to the selected toolchain; proof verification remains to be established for this snapshot."
     }
   ],
   "related_formalizations": [
     {
-      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyDoubletCore.lean",
       "relationship": "adapts",
-      "note": "Original public Lean 4.29.1 source; the present snapshot is migrated for the current module system."
+      "note": "Prior public source, not an independent review."
+    },
+    {
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourFamily.lean",
+      "relationship": "adapts",
+      "note": "Prior public source, not an independent review."
+    },
+    {
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourZMod.lean",
+      "relationship": "adapts",
+      "note": "Prior public source, not an independent review."
+    },
+    {
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourAbelian.lean",
+      "relationship": "adapts",
+      "note": "Prior public source, not an independent review."
     }
   ],
   "status": {
-    "scope": "The single compared theorem is the cardinality-three ordered-square classification. Four explicit definitions are compared as well. The implementation includes the full source proof, not an assumed classification hypothesis. No statement about four-point supports, reconstruction cost, RH, Hilbert-Polya, BSD, P versus NP, or topological universality is submitted. The only intentional hole is in Challenge.lean. Current-toolchain mechanical verification is being attempted; no success is claimed by this metadata.",
+    "scope": "Only the two displayed directed-graph theorems and four definitions are compared. No undirected graph, cospectrality, spectral-necessity, arithmetic-priority or open-problem claim is submitted. Challenge contains two intentional theorem holes; Solution sorry_count below excludes the Challenge.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -53,13 +107,13 @@
         "method": "other",
         "models": [],
         "framework": "Historical AI-assisted Couret formalization",
-        "tool_setup": "The immutable source belongs to the AI-assisted Couret programme. Exact historical model identifiers and prompts are not preserved in this public source; they are not inferred here.",
+        "tool_setup": "The existing public proof sources are AI-assisted. Exact historical models and prompts are not reconstructed.",
         "cost": {
           "wall_time": "not tracked",
           "spend_usd": "not tracked",
           "hardware": "not recorded"
         },
-        "prompting_notes": "Historical prompts are not available in the submitted source snapshot."
+        "prompting_notes": "Historical prompts not preserved in the cited source snapshot."
       },
       {
         "method": "agent",
@@ -67,37 +121,42 @@
           "GPT-6"
         ],
         "framework": "ChatGPT Codex",
-        "tool_setup": "Module-system migration, independent Challenge/Solution packaging, explicit dependency pins, metadata and pinned Palomar mechanical-preflight workflow. Lean tactics in the proof include abel, omega, simp and aesop. No native_decide is used in this proof.",
+        "tool_setup": "Module-system migration, independent Challenge and Solution, pinned Lean/Mathlib and GitHub compilation. No theorem added as an axiom.",
         "cost": {
           "wall_time": "not tracked",
           "spend_usd": "subscription-based",
-          "hardware": "ChatGPT workspace and GitHub-hosted CI"
+          "hardware": "ChatGPT workspace and GitHub CI"
         },
-        "prompting_notes": "The author requested a public catalogue of the authorized Lean corpus and separate verified Palomar candidates, preserving open and conditional status."
+        "prompting_notes": "The author requested preparation of the authorized Lean corpus for Palomar while preserving the exact hypotheses and verification status."
       }
     ],
     "spend_usd": "not tracked",
-    "notes": "Alexandre Couret is the author and maintainer. Packaging is AI-assisted. No independent human mathematical review, originality assessment or journal endorsement is claimed."
+    "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "The public source theorem and all its exceptional torsion hypotheses are retained. Implementation namespace Couret.STROBO2TORS is renamed Couret.Proof. Imports and visibility are adapted to the module system; public definitions are exposed. The advertised namespace is Couret.Palomar. A full current-toolchain comparison is pending. The orderedSquare_three proof uses explicit sum_insert/sum_singleton expansion to avoid a changed simp normalization in Mathlib 4.35; its statement is unchanged."
+    "divergences": "The compared theorem statements retain all source assumptions. Module headers/public visibility are added; implementation names are retained in Couret.CayleyDoublet. The public statement definitions are independently restated in Couret.PalomarCayley. Current-toolchain verification is pending."
   },
   "review": {
     "status": "self-assessed; no independent human review",
     "reviewers": [],
-    "notes": "The informal interpretation and the definitions have been inspected during AI-assisted packaging. The pinned full Palomar mechanical workflow must pass before intake. Prior-art completeness and research interest remain for assessment; no Palomar registration has been made."
+    "notes": "Compilation and Comparator checks pending. No Palomar registration or originality assessment is claimed."
   },
   "alignment": {
-    "namespace": "Couret.Palomar",
+    "namespace": "Couret.PalomarCayley",
     "statements": [
       {
-        "source": "Couret.STROBO2TORS.orderedSquare_classification_iff at the cited immutable source",
-        "lean": "Couret.Palomar.classification",
+        "source": "Couret.CayleyDoublet.abelianThreeIso_iff_nongeneration",
+        "lean": "Couret.PalomarCayley.abelian_isomorphism_iff",
         "module": "Solution",
-        "status": "adapted; current-toolchain check pending",
-        "note": "The theorem has S.card = 3 and T.card = 3 and compares the full labelled ordered-square functions, including diagonal terms. The exceptional case is explicit rather than bundled as an unproved assumption."
+        "status": "adapted; current-toolchain verification pending"
+      },
+      {
+        "source": "Couret.CayleyDoublet.cayley_twelve_mul_nonisomorphic",
+        "lean": "Couret.PalomarCayley.cyclic_nonisomorphism",
+        "module": "Solution",
+        "status": "adapted; current-toolchain verification pending"
       }
     ]
   },
-  "acknowledgements": "Lean and Mathlib contributors; use of these libraries does not imply endorsement."
+  "acknowledgements": "Lean and Mathlib contributors. Library use does not imply endorsement."
 }

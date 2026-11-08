@@ -1,22 +1,28 @@
 {
-  "source_repository": "alexcour/couret-finite-verifications",
-  "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
-  "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-  "source_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
-  "source_license": "MIT",
-  "target_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
-  "target_toolchain": "leanprover/lean4:v4.35.0-rc2",
-  "transformations": [
-    "module header",
-    "Mathlib public import",
-    "@[expose] public section",
-    "implementation namespace Couret.Proof",
-    "independent compared statement and matching Solution",
-    "Replace global simp in orderedSquare_three with explicit finite-sum expansion for Mathlib 4.35; theorem statement unchanged."
+  "date": "2026-11-08",
+  "sources": [
+    {
+      "url": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyDoubletCore.lean"
+    },
+    {
+      "url": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourFamily.lean"
+    },
+    {
+      "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourZMod.lean"
+    },
+    {
+      "url": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/correspondants_20261013/lean/CayleyTwoColourAbelian.lean"
+    }
   ],
-  "validation": {
-    "local_lean": "unavailable",
-    "full_preflight": "not yet observed",
-    "registration": "not submitted"
-  }
+  "transformations": [
+    "module headers",
+    "public imports",
+    "@[expose] public section",
+    "independent Challenge/Solution"
+  ],
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "mathlib": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+  "build": "PENDING",
+  "comparator": "NOT_RUN",
+  "intake": "NOT_STARTED"
 }
