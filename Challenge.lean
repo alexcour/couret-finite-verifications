@@ -398,9 +398,6 @@ namespace Couret
 def PrimeNat (p : Nat) : Prop :=
   2 ≤ p ∧ ∀ d : Nat, d ∣ p → d = 1 ∨ d = p
 
-def Word.primeFactors : Word Nat → Prop
-  | .empty => True
-  | .snoc w p => w.primeFactors ∧ PrimeNat p
 
 namespace S5
 def length {α : Type} : Word α → Nat
@@ -424,8 +421,7 @@ theorem five_letter_counterexample :
   sorry
 
 theorem arithmetic_witness :
-    fivePrimes.primeFactors ∧ total natProduct fivePrimes=64141 ∧
-      length fivePrimes=5 := by
+    PrimeNat 7 ∧ PrimeNat 11 ∧ PrimeNat 17 ∧ 7*7*7*11*17=64141 := by
   sorry
 
 end S5

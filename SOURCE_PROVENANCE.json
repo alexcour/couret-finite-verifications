@@ -169,9 +169,9 @@
     "date": "2026-11-08",
     "grant": "Author expressly authorized MIT for adaptations of their own Lean files, retaining third-party licences."
   },
-  "frontend_note": "Three standalone compared statements replace the original conjunction. The original proof is retained, and the explicit code/arithmetic equality is proved by reflexivity. No mathematical hypothesis was removed.",
+  "frontend_note": "The original proof is retained. Three compared statements give the threshold, the explicit code witness and its direct prime/product facts. The code/arithmetic equality is separately proved by reflexivity.",
   "frontend_sha256": {
-    "Challenge.lean": "c5a3ecbf6026124b5a08f29fd78f05c1c77558e94ddd730611d5ba166ff092fe",
-    "Solution.lean": "e70caad8cc48e160755a06882a3fd33712c2cb18ca07afd3d862267f0cee3cd9"
+    "Challenge.lean": "8a9ec014cf0ced01e92988f778e73a29547abd43ee29b84976e46f6b299b1ed1",
+    "Solution.lean": "ad130557bf588cf143a432f81bf2bc4af1b56605682780ccc894a1709373379b"
   }
 }

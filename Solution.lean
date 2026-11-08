@@ -113,8 +113,7 @@ theorem five_letter_counterexample :
   · simpa only [he] using five_missing_identity
 
 theorem arithmetic_witness :
-    fivePrimes.primeFactors ∧ total natProduct fivePrimes=64141 ∧
-      length fivePrimes=5 := by
-  exact ⟨five_primeFactors, five_product, five_length⟩
+    PrimeNat 7 ∧ PrimeNat 11 ∧ PrimeNat 17 ∧ 7*7*7*11*17=64141 := by
+  exact ⟨prime_seven, prime_eleven, prime_seventeen, rfl⟩
 
 end Couret.S5

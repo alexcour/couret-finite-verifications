@@ -41,7 +41,7 @@
     }
   ],
   "status": {
-    "scope": "For words in the unit-residue code modulo 30, six or more letters make full and proper subsequence-product supports coincide. The explicit five-letter code word (0,1),(0,1),(0,1),(1,0),(1,1) has full support but misses the identity in proper support. A separate checked arithmetic witness is the prime word 7,7,7,11,17, of product 64141; Solution proves that encoding this arithmetic word gives the displayed code word. These are finite-group support statements, with no general integer-factorization or prime-distribution claim. Three theorem statements and the two explicit words are compared. The encoding-equality bridge is also proved in Solution. Challenge imports only Std and contains the full support semantics directly.",
+    "scope": "The universal six-letter threshold, the explicit five-code counterexample, and the primality/product facts for 7,11,17 and 64141 are compared. Solution also proves the encoding-equality bridge for the five-prime word. The three intentional Challenge theorem holes are excluded from sorry_count; Solution and imported proof modules contain no admitted proof.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -79,7 +79,7 @@
     "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "The archived conjunction is restated as the universal six-letter threshold, an explicit five-code counterexample, and its prime arithmetic witness. Solution additionally proves equality of the encoded arithmetic word with the code word. The canonical Challenge does not copy the historical rawCode30 matcher."
+    "divergences": "The archived conjunction is restated as a universal six-letter threshold, an explicit five-code counterexample, and direct primality/product facts for the arithmetic witness. Solution also retains the original prime-word proof and proves equality of its encoding with the code word. The canonical Challenge avoids copying the historical rawCode30 and recursive primeFactors compilation helpers."
   },
   "review": {
     "status": "self-assessed; no independent human review",
