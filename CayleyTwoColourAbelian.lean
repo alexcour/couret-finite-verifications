@@ -508,8 +508,11 @@ theorem abelianThreeProjection_of_character
   have hj1 : j 1 = e := abelianZModThreeLift_one e he
   have hχe : χ e = 1 := by
     change χ (-(d + d)) = 1
-    rw [χ.map_neg (d + d), χ.map_add d d, hχd]
-    decide
+    calc
+      χ (-(d + d)) = -(χ (d + d)) := χ.map_neg (d + d)
+      _ = -(χ d + χ d) := congrArg (fun z : ZMod 3 => -z) (χ.map_add d d)
+      _ = -((1 : ZMod 3) + 1) := congrArg (fun z : ZMod 3 => -(z + z)) hχd
+      _ = 1 := by decide
   have hleft : ∀ t : ZMod 3, χ (j t) = t := by
     intro t
     have hnat : ∀ n : ℕ, χ (j (n : ZMod 3)) = (n : ZMod 3) := by
@@ -625,7 +628,11 @@ theorem abelianThreeCharacter_of_generation
       neg_mem' := by
         rintro x ⟨u, hu⟩
         refine ⟨-u, ?_⟩
-        have heq : -x - j (-u) = -(x - j u) := by rw [j.map_neg u]; abel
+        have heq : -x - j (-u) = -(x - j u) := by
+          calc
+            -x - j (-u) = -x - -(j u) :=
+              congrArg (fun z : G => -x - z) (j.map_neg u)
+            _ = -(x - j u) := by abel
         rw [heq]
         exact K.neg_mem hu }
   have haH : a ∈ H := by refine ⟨0, ?_⟩; simpa using haK
