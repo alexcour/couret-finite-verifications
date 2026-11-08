@@ -1,0 +1,39 @@
+name: Prove2Me decision interface exact migration
+on:
+  push:
+    branches: [prove2me/validate-decision-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Recover exact source and declaration evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 42495420377 --repo alexcour/couret-finite-verifications --name prove2me-decision --dir source-evidence
+      - name: Install official Lean toolchain manager
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Validate the Init-only interface without unused Mathlib dependencies
+        run: python validate_decision.py
+      - name: Preserve generated migration and exact-type comparison
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-decision-generated
+          path: |
+            source-evidence/
+            generated/Definitions/
+            generated/Theorems/
+            generated/Solutions/
+            generated/plan.json
+            generated/validation/
+          retention-days: 30
+          if-no-files-found: error

@@ -4,7 +4,7 @@ Input: a completed remote evidence directory with sources.zip, decl_graph.jsonl,
 and *.oracle.jsonl. No declaration boundary is inferred from a text search.
 All generated text still requires compilation and an elaborated-type comparison.
 """
-import argparse, collections, json, pathlib, re, zipfile
+import argparse, collections, hashlib, json, pathlib, re, zipfile
 
 parser=argparse.ArgumentParser()
 parser.add_argument('evidence')
@@ -43,9 +43,23 @@ for row in rows:
 def theorem_unit(row):
     unit=units.get(key(row),[])
     return row['kind']=='theorem' and not any(r['kind'] in ['def','inductive','opaque','axiom'] for r in unit)
+source_refs=collections.defaultdict(set)
+for m,facts in oracles.items():
+    for ref in facts:
+        if ref['kind']!='ref':continue
+        name=ref['const']
+        if name not in graph:
+            matches=[r['name'] for r in rows if r['module']==m and r['isPrivate'] and name.endswith('.'+r['userName'])]
+            if len(matches)!=1:continue
+            name=matches[0]
+        for d in decls[m]:
+            if d['declStart']['offset']<=ref['start']['offset']<d['declEnd']['offset']:
+                k=(m,d['declStart']['offset'],d['declEnd']['offset'])
+                for row in units[k]:
+                    if name!=row['name']:source_refs[row['name']].add(name)
 def deps(n):
     r=graph.get(n,{})
-    return set(r.get('typeDeps',[])+r.get('valueDeps',[]))
+    return set(r.get('typeDeps',[])+r.get('valueDeps',[]))|source_refs[n]
 def closure(seeds):
     result=set();work=list(seeds)
     while work:
@@ -56,6 +70,15 @@ def closure(seeds):
 # Definitions need actual proofs for all supporting proof constants, never stubs.
 def_roots={r['name'] for r in rows if r['module'] in sources and joined.get(r['name']) and not theorem_unit(r)}
 embedded=closure(def_roots)
+active_defs={r['module'] for r in rows if r['module'] in sources and r['startLine']>0 and not theorem_unit(r)}
+module_imports={m:[p for line in data.decode('utf-8-sig').splitlines() if line.startswith('import ') for p in line[7:].split() if p in sources] for m,data in sources.items()}
+provider_cache={}
+def providers(m,active=()):
+    if m in active_defs:return [m]
+    if m in provider_cache:return provider_cache[m]
+    if m in active:raise ValueError('Import forwarding cycle: '+m)
+    provider_cache[m]=list(dict.fromkeys(p for child in module_imports[m] for p in providers(child,active+(m,))))
+    return provider_cache[m]
 crossfile={d for r in rows for d in deps(r['name']) if d in graph and graph[d]['module']!=r['module']}
 type_theorems={d for r in rows for d in r['typeDeps'] if d in graph and theorem_unit(graph[d])}
 nodes=set()
@@ -71,7 +94,7 @@ for r in rows:
 for m in sources:
     candidates=[r for r in rows if r['module']==m and joined.get(r['name']) and theorem_unit(r) and not r['isPrivate'] and r['name'] not in embedded and re.fullmatch(r'[A-Za-z_][A-Za-z0-9_.]*',r['name'])]
     if candidates:nodes.add(max(candidates,key=lambda r:r['startLine'])['name'])
-modules={m:'Couret_'+receipt['group'].replace('-','_')+'_'+m for m in sources}
+modules={m:m for m in sources}
 def keep_span_names(m,keep):
     return {key(graph[n]) for n in keep if n in graph and graph[n]['module']==m and key(graph[n])}
 def skeleton(m,keep,extra_imports=(),stub=None):
@@ -94,15 +117,30 @@ def skeleton(m,keep,extra_imports=(),stub=None):
     for line in lines:
         if line.startswith('import '):
             imports=line[7:].split()
-            rewritten.extend('import Definitions.Def_'+modules[p] if p in modules else 'import '+p for p in imports)
+            for p in imports:
+                if p in sources:rewritten.extend('import Definitions.Def_'+modules[q] for q in providers(p))
+                else:rewritten.append('import '+p)
         elif line.startswith(('#print ','#check ','#eval ')):
             continue
         else:rewritten.append(line)
     # Extra imports precede every namespace/section and preserve all source scope.
     return '\n'.join(['import '+p for p in sorted(set(extra_imports))]+rewritten)+'\n'
+# Bundle identities include the selected source skeleton, environment and the
+# full dependency fingerprint. Identical imported bundles can be reused across
+# source groups; a changed source or import closure receives a distinct name.
+abstract={m:skeleton(m,{n for n in embedded if n in graph and graph[n]['module']==m}) for m in sources}
+fingerprints={}
+def fingerprint(m,active=()):
+    if m in fingerprints:return fingerprints[m]
+    if m in active:raise ValueError('Module import cycle: '+m)
+    imports=re.findall(r'^import Definitions\.Def_([^\s]+)$',abstract[m],re.M)
+    children=[(p,fingerprint(p,active+(m,))) for p in imports if p in sources]
+    fingerprints[m]=hashlib.sha256(json.dumps([receipt['mathlib_rev'],abstract[m],children],sort_keys=True).encode()).hexdigest()
+    return fingerprints[m]
+modules={m:'Couret_'+m+'_'+fingerprint(m)[:12] for m in active_defs}
 for folder in ['Definitions','Theorems','Solutions']:(dest/folder).mkdir(exist_ok=True)
 plan={'source':receipt['source'],'mathlib_rev':receipt['mathlib_rev'],'group':receipt['group'],'definitions':[],'theorems':[],'skipped':skipped,'status':'GENERATED_UNCOMPILED'}
-for m in sources:
+for m in sorted(active_defs):
     keep={n for n in embedded if n in graph and graph[n]['module']==m}
     text=skeleton(m,keep)
     path='Definitions/Def_'+modules[m]+'.lean'
@@ -123,7 +161,7 @@ for n in sorted(nodes):
     if blocked:
         plan['skipped'].append({'name':n,'reason':'unresolved_cross_module_helper','dependencies':sorted(set(blocked))});continue
     slug=n.replace('.','_')
-    imports=['Definitions.Def_'+modules[m]]+['Theorems.Thm_'+d.replace('.','_') for d in child]
+    imports=['Definitions.Def_'+modules[p] for p in providers(m)]+['Theorems.Thm_'+d.replace('.','_') for d in child]
     stub=skeleton(m,{n},imports,stub=n)
     preamble, rest=stub.split('-- P2M_TARGET_BEGIN\n',1)
     formal, tail=rest.split('-- P2M_TARGET_END\n',1)
