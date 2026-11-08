@@ -1,0 +1,15 @@
+[
+  {
+    "record": 23981750,
+    "doi": "10.5281/zenodo.23981750",
+    "title": "Complete four-point convolution fibres and predictive observations on C12: supplementary proof archive",
+    "name": "Couret_Supplement_Fibres_Cayley_20261105.zip",
+    "sha256": "a12dde197808771ce3beb81d9e6ff1ab2074db9b06695b6816b0f28adbe8be8b",
+    "bytes": 692291,
+    "url": "https://zenodo.org/api/records/23981750/files/Couret_Supplement_Fibres_Cayley_20261105.zip/content",
+    "record_url": "https://zenodo.org/records/23981750",
+    "lean_file_count": 55,
+    "licence_note": "No standalone licence file found in the inspected ZIP; no licence inferred from public accessibility.",
+    "new_lean_build": "NOT_RUN"
+  }
+]
