@@ -5,14 +5,11 @@
     "Couret.Certificate.minimal_101_states"
   ],
   "definition_names": [
-    "Couret.Certificate.decoded",
-    "Couret.Certificate.noninitialDecoded",
-    "Couret.Certificate.strictDivisorResidue",
-    "Couret.Certificate.arithmeticPair",
-    "Couret.Certificate.factorPair",
-    "Couret.Certificate.appendWord",
-    "Couret.Certificate.machineRun",
-    "Couret.Certificate.quotientMachine"
+    "Couret.Certificate.nextNat",
+    "Couret.Certificate.tableOutput",
+    "Couret.Certificate.tableNext",
+    "Couret.Certificate.tableRun",
+    "Couret.Certificate.machineRun"
   ],
   "permitted_axioms": [
     "propext",
