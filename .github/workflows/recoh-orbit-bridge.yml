@@ -44,6 +44,12 @@ jobs:
         run: lake build RecohTwoPowerCubeGate && lake env lean RecohThreeRootSymmetricGate.lean
       - name: Compile historical primary characters
         run: lake env lean RecohPrimaryCharacters.lean
+      - name: Compile historical rank bounds
+        run: lake build RecohRankBounds && lake env lean RecohRankBounds.lean
+      - name: Compile historical character masks
+        run: lake build RecohCharacterMasks && lake env lean RecohCharacterMasks.lean
+      - name: Compile historical rank kernel
+        run: lake build RecohRankKernel && lake env lean RecohRankKernel.lean
       - name: Record exact checkout
         run: |
           echo "CHECKOUT_SHA=$(git rev-parse HEAD)"
