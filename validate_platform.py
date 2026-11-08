@@ -3,7 +3,7 @@
 Run inside a remote project which already contains source .olean files and its
 resolved .lake dependency directory. Generated files are never uploaded here.
 """
-import argparse,json,pathlib,shutil,subprocess
+import argparse,json,pathlib,shutil,subprocess,time
 parser=argparse.ArgumentParser()
 parser.add_argument('original')
 parser.add_argument('generated')
@@ -17,8 +17,17 @@ plan=json.loads((generated/'plan.json').read_text())
 def run(root,command,name):
     print('BEGIN',name,flush=True)
     with (out/name).open('w') as f:
-        try:return subprocess.run(command,cwd=root,stdout=f,stderr=subprocess.STDOUT,timeout=3600).returncode
-        except subprocess.TimeoutExpired:f.write('\nTIMEOUT\n');return 124
+        process=subprocess.Popen(command,cwd=root,stdout=f,stderr=subprocess.STDOUT)
+        started=time.monotonic()
+        while True:
+            try:return process.wait(timeout=45)
+            except subprocess.TimeoutExpired:
+                lines=(out/name).read_text(errors='replace').splitlines()
+                if lines:
+                    latest=next((line for line in reversed(lines) if line.startswith(('✔','⚠','✖','error:'))),lines[-1])
+                    print('PROGRESS',name,latest[:260],flush=True)
+                if time.monotonic()-started>=3600:
+                    process.kill();process.wait();f.write('\nTIMEOUT\n');return 124
 def type_script(imports,names,filename):
     return 'import Lean\n'+'\n'.join('import '+m for m in sorted(set(imports)))+'''\nopen Lean\npartial def canonicalBinders : Expr → Expr\n  | .forallE _ t b bi => .forallE .anonymous (canonicalBinders t) (canonicalBinders b) bi\n  | .lam _ t b bi => .lam .anonymous (canonicalBinders t) (canonicalBinders b) bi\n  | .letE _ t v b nondep => .letE .anonymous (canonicalBinders t) (canonicalBinders v) (canonicalBinders b) nondep\n  | .app f a => .app (canonicalBinders f) (canonicalBinders a)\n  | .mdata _ e => canonicalBinders e\n  | .proj n i e => .proj n i (canonicalBinders e)\n  | e => e\nrun_meta do\n  let names : List Name := ['''+', '.join('`'+n for n in names)+''']\n  let entries ← names.mapM fun n => do\n    let ci ← getConstInfo n\n    let levels := ci.levelParams.mapIdx fun i _ => Level.param (Name.mkSimple ("u_" ++ toString i))\n    let canonical := canonicalBinders (ci.type.instantiateLevelParams ci.levelParams levels)\n    pure (n.toString, Json.str (repr canonical).pretty)\n  IO.FS.writeFile "'''+filename+'''" (Json.mkObj entries).compress\n'''
 theorems=plan['theorems']
@@ -48,7 +57,7 @@ run_meta do
     let names := ci.levelParams.mapIdx fun i _ => Name.mkSimple ("p2m_u_" ++ toString i)
     let levels := names.map Level.param
     let ty := ci.type.instantiateLevelParams ci.levelParams levels
-    let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false |>.setBool `pp.deepTerms true |>.set `pp.maxSteps (100000000 : Nat)) do
+    let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false |>.setBool `pp.deepTerms true |>.setBool `pp.structureInstances false |>.setBool `pp.fieldNotation false |>.set `pp.maxSteps (100000000 : Nat)) do
       pure (← Meta.ppExpr ty).pretty
     pure (n.toString, Json.mkObj [("universes", toJson (names.map Name.toString)), ("type", Json.str text)])
   IO.FS.writeFile "source-signatures.json" (Json.mkObj entries).compress

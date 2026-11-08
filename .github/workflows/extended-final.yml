@@ -14,7 +14,7 @@ jobs:
       - name: Recover checked source text and compiled source cache
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh run download 42511730732 --repo alexcour/couret-finite-verifications --name prove2me-extended-validated --dir recovered
+        run: gh run download 42512281310 --repo alexcour/couret-finite-verifications --name prove2me-extended-validated --dir recovered
       - name: Install official Lean toolchain manager
         run: |
           set -euo pipefail
@@ -55,5 +55,6 @@ jobs:
             generated/.lake/build/
           retention-days: 30
           include-hidden-files: true
+
 
 

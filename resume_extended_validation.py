@@ -23,6 +23,6 @@ subprocess.run(['python',str(root/'validate_platform.py'),'project','generated',
 result=json.loads(pathlib.Path('generated/validation/platform-validation.json').read_text())
 if result['status']!='PASS':
     for log in pathlib.Path('generated/validation').glob('*.log'):
-        errors=[s for s in log.read_text().splitlines() if 'error' in s.lower() or 'PANIC' in s or 'Stack overflow' in s]
+        errors=[s for s in log.read_text().splitlines() if s.startswith('error:') or ': error' in s or 'PANIC' in s or 'Stack overflow' in s]
         if errors:print(log.name, '\n'.join(errors[:35]),flush=True)
     raise SystemExit('Validation failed; no publication performed')
