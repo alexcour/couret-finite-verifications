@@ -1,4 +1,4 @@
-name: Palomar corrected BC mechanical checks
+name: Palomar Std-aligned BC mechanical checks
 on:
   push:
     branches: [palomar/mechanical-preflight-20261108]
@@ -13,13 +13,13 @@ jobs:
       matrix:
         include:
           - name: bc_saturation
-            commit: 21df90808bd9b67e2251b828f38e94a3415beb51
+            commit: 94bd1c555d2ad39499654ec634253adaa9878886
             config: comparator-bc_saturation.json
-            request: coubcsat1108
+            request: cousatstd001
           - name: bc_minimality
-            commit: b9aa8aba691ff031e336209e7265041fd958991e
+            commit: 0f534367088531a2de7a98cd095a6aabe825e1b2
             config: comparator-bc_minimality.json
-            request: coubcmin1108
+            request: couminstd001
     uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
     with:
       repository: alexcour/couret-finite-verifications
