@@ -57,6 +57,8 @@ for module in sorted(closure):
         for variable in ["a", "b", "c", "d"]:
             raw = raw.replace("(AddMonoidAlgebra.single "+variable+" (1 : ℤ) : AddMonoidAlgebra ℤ G) x", "(AddMonoidAlgebra.single "+variable+" (1 : ℤ) : AddMonoidAlgebra ℤ G).coeff x")
         raw = raw.replace("AddMonoidAlgebra.single_apply", "AddMonoidAlgebra.coeff_single, Finsupp.single_apply")
+    if module == "XorFibreClosure":
+        raw = raw.replace("simpa only [add_assoc,Couret.InterIA.L4.half_add_half,add_zero] using hback", "simpa only [fibre,add_assoc,Couret.InterIA.L4.half_add_half,add_zero] using hback")
     lines = raw.splitlines()
     last_import = max(i for i,l in enumerate(lines) if l.startswith("import "))
     converted = ["public "+line if line.startswith("import ") else line for line in lines]
