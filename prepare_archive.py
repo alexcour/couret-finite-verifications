@@ -1,8 +1,8 @@
 import argparse, hashlib, json, pathlib, re, urllib.request, zipfile, io
 parser = argparse.ArgumentParser()
-parser.add_argument("--project", required=True, choices=["cubic", "fibres"])
+parser.add_argument("--project", required=True, choices=["cubic", "fibres", "bc_saturation", "bc_minimality"])
 args = parser.parse_args()
-spec = {"cubic": (23983731, "formal/lean", "CubicWitness8", "Couret.InterIA.Cubic.cyclic_four_two_cubic_probes"), "fibres": (23981750, "fibres/lean", "OptimalReconstruction", "Couret.InterIA.Fibres.cyclic_four_optimal_reconstruction")}[args.project]
+spec = {"cubic": (23983731, "formal/lean", "CubicWitness8", "Couret.InterIA.Cubic.cyclic_four_two_cubic_probes"), "fibres": (23981750, "fibres/lean", "OptimalReconstruction", "Couret.InterIA.Fibres.cyclic_four_optimal_reconstruction"), "bc_saturation": (23989640, "source/S5", "FivePairSemantics", "Couret.S5.six_threshold_optimal"), "bc_minimality": (23989640, "source/S4", "CertificateProofs", "Couret.Certificate.minimal_101_states")}[args.project]
 record, prefix, root_module, theorem = spec
 manifest = json.loads(pathlib.Path("archives.json").read_text())
 archive = next(a for a in manifest if a["record"] == record)
