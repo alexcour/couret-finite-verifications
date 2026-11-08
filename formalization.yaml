@@ -41,7 +41,7 @@
     }
   ],
   "status": {
-    "scope": "The universal six-letter threshold, the explicit five-code counterexample, and the primality/product facts for 7,11,17 and 64141 are compared. Solution also proves the encoding-equality bridge for the five-prime word. The three intentional Challenge theorem holes are excluded from sorry_count; Solution and imported proof modules contain no admitted proof.",
+    "scope": "The universal six-letter threshold, explicit five-code counterexample, direct prime/product facts and both data-field equations of mod30Product are compared. mod30Product is a definition target whose one and mul fields are fixed explicitly by the two compared equations; its remaining CMonoid fields are proofs in Prop. The five intentional Challenge theorem holes are excluded from sorry_count; Solution has no admitted proof. The encoding-equality bridge is also proved in Solution.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -79,7 +79,7 @@
     "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "The canonical Challenge remains standalone and imports only Std. Its declaration prefix is reproduced exactly in SolutionPrelude. Archived semantic and finite-certificate proofs use that interface; duplicate declarations of PrimeNat, length and fivePrimes are relocated rather than changed. The archived OptimalFive proof is retained in HistoricalSaturation. The three compared statements retain the universal threshold, explicit coded counterexample and direct prime/product facts; the encoding equality is also proved."
+    "divergences": "The canonical Challenge remains standalone and imports only Std. Its declaration prefix is reproduced exactly in SolutionPrelude. Archived semantic and finite-certificate proofs use that interface; duplicate declarations of PrimeNat, length and fivePrimes are relocated rather than changed. The archived OptimalFive proof is retained in HistoricalSaturation. The three compared statements retain the universal threshold, explicit coded counterexample and direct prime/product facts; the encoding equality is also proved. The CMonoid implementation is a typed definition target; compared equations fix its neutral element to (0,0) and multiplication to componentwise finite addition. Only the representation of the associativity/commutativity/unit proofs is abstracted, with all these proof fields still required by the record type. No mathematical operation is left unconstrained."
   },
   "review": {
     "status": "self-assessed; no independent human review",
@@ -106,6 +106,18 @@
         "lean": "Couret.S5.arithmetic_witness",
         "module": "Solution",
         "status": "adapted; current immutable package verification pending"
+      },
+      {
+        "source": "Explicit data fields of the archived Couret.mod30Product",
+        "lean": "Couret.S5.unit_equation",
+        "module": "Solution",
+        "status": "direct field equation; current package verification pending"
+      },
+      {
+        "source": "Explicit data fields of the archived Couret.mod30Product",
+        "lean": "Couret.S5.product_equation",
+        "module": "Solution",
+        "status": "direct field equation; current package verification pending"
       }
     ]
   },

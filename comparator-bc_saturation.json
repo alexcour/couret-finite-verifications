@@ -4,11 +4,14 @@
   "theorem_names": [
     "Couret.S5.threshold_six",
     "Couret.S5.five_letter_counterexample",
-    "Couret.S5.arithmetic_witness"
+    "Couret.S5.arithmetic_witness",
+    "Couret.S5.unit_equation",
+    "Couret.S5.product_equation"
   ],
   "definition_names": [
     "Couret.S5.fivePrimes",
-    "Couret.S5.counterexampleCodes"
+    "Couret.S5.counterexampleCodes",
+    "Couret.mod30Product"
   ],
   "permitted_axioms": [
     "propext",

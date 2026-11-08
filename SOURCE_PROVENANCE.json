@@ -223,8 +223,9 @@
   },
   "frontend_note": "Standalone Challenge declarations are reproduced in SolutionPrelude so the historical proofs use the same compiled definitions and decision instances. Semantic proofs from SupportSemantics are retained in that prefix. PrimeNat, length and fivePrimes are relocated, with no mathematical definition or hypothesis changed.",
   "frontend_sha256": {
-    "Challenge.lean": "8a9ec014cf0ced01e92988f778e73a29547abd43ee29b84976e46f6b299b1ed1",
+    "Challenge.lean": "c44ffa6c2e2241081496675ce63e6ed6a8f91a04ac03be01669525515a850da4",
     "SolutionPrelude.lean": "733f55aebdcf12782b0b2bd0919b6314abe0a664794cd4a22dc05ed58282d986",
-    "Solution.lean": "493b55dcfd4bd03c6deb74b669d2a5f3d5a2ad908404ce2725ee20d2911ee9c9"
-  }
+    "Solution.lean": "9eb8c5b76b089d7463ecbcd78a9b6f7295448596ed5867c7a3517009104f661f"
+  },
+  "model_interface_note": "The typed mod30Product definition target has both computational data fields constrained by selected, independently stated equations. Its remaining structure fields are propositions with kernel-checked proofs. This abstracts compiled proof representation while retaining the exact specified operation."
 }

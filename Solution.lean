@@ -28,4 +28,11 @@ theorem arithmetic_witness :
     PrimeNat 7 ∧ PrimeNat 11 ∧ PrimeNat 17 ∧ 7*7*7*11*17=64141 := by
   exact ⟨prime_seven, prime_eleven, prime_seventeen, rfl⟩
 
+theorem unit_equation : mod30Product.one=(0,0) := by
+  rfl
+
+theorem product_equation (a b : Code30) :
+    mod30Product.mul a b=(a.1+b.1,a.2+b.2) := by
+  rfl
+
 end Couret.S5
