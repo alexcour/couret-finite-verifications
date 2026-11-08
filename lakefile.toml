@@ -1,6 +1,6 @@
-name = "CouretPalomarCandidate"
+name = "CouretArchiveMigration"
 version = "0.0.1"
-defaultTargets = ["CouretProof", "Challenge", "Solution"]
+defaultTargets = ["Challenge", "Solution"]
 
 [[require]]
 name = "mathlib"
@@ -8,11 +8,134 @@ git = "https://github.com/leanprover-community/mathlib4.git"
 rev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"
 
 [[lean_lib]]
-name = "CouretProof"
+name = "CertificateChecks"
+
+[[lean_lib]]
+name = "CertificateData"
+
+
+[[lean_lib]]
+name = "ClassCheck00"
+
+[[lean_lib]]
+name = "ClassCheck01"
+
+[[lean_lib]]
+name = "ClassCheck02"
+
+[[lean_lib]]
+name = "ClassCheck03"
+
+[[lean_lib]]
+name = "ClassCheck04"
+
+[[lean_lib]]
+name = "ClassCheck05"
+
+[[lean_lib]]
+name = "ClassCheck06"
+
+[[lean_lib]]
+name = "ClassCheck07"
+
+[[lean_lib]]
+name = "ClassCheck08"
+
+[[lean_lib]]
+name = "ClassCheck09"
+
+[[lean_lib]]
+name = "ClassCheck10"
+
+[[lean_lib]]
+name = "ClassCheck11"
+
+[[lean_lib]]
+name = "ClassCheck12"
+
+[[lean_lib]]
+name = "ClassCheck13"
+
+[[lean_lib]]
+name = "ClassCheck14"
+
+[[lean_lib]]
+name = "DivisorCompleteness"
+
+[[lean_lib]]
+name = "MaskSemantics"
+
+[[lean_lib]]
+name = "ModularDivisorBridge"
+
+[[lean_lib]]
+name = "StateCheck00"
+
+[[lean_lib]]
+name = "StateCheck01"
+
+[[lean_lib]]
+name = "StateCheck02"
+
+[[lean_lib]]
+name = "StateCheck03"
+
+[[lean_lib]]
+name = "StateCheck04"
+
+[[lean_lib]]
+name = "StateCheck05"
+
+[[lean_lib]]
+name = "StateCheck06"
+
+[[lean_lib]]
+name = "StateCheck07"
+
+[[lean_lib]]
+name = "StateCheck08"
+
+[[lean_lib]]
+name = "StateCheck09"
+
+[[lean_lib]]
+name = "StateCheck10"
+
+[[lean_lib]]
+name = "StateCheck11"
+
+[[lean_lib]]
+name = "StateCheck12"
+
+[[lean_lib]]
+name = "StateCheck13"
+
+[[lean_lib]]
+name = "StateCheck14"
+
+[[lean_lib]]
+name = "StateCheck15"
+
+[[lean_lib]]
+name = "StateCheck16"
+
+[[lean_lib]]
+name = "StateCheck17"
+
+[[lean_lib]]
+name = "StateCheck18"
+
+[[lean_lib]]
+name = "StateCheck19"
+
+[[lean_lib]]
+name = "StateCheck20"
+
+[[lean_lib]]
+name = "SupportSemantics"
 
 [[lean_lib]]
 name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
-

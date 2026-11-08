@@ -1,0 +1,22 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Couret.Certificate.minimal_101_states"
+  ],
+  "definition_names": [
+    "Couret.Certificate.decoded",
+    "Couret.Certificate.noninitialDecoded",
+    "Couret.Certificate.strictDivisorResidue",
+    "Couret.Certificate.arithmeticPair",
+    "Couret.Certificate.factorPair",
+    "Couret.Certificate.appendWord",
+    "Couret.Certificate.machineRun",
+    "Couret.Certificate.quotientMachine"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
