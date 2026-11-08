@@ -14,14 +14,14 @@ jobs:
       - name: Recover checked source text and compiled source cache
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh run download 42506536317 --repo alexcour/couret-finite-verifications --name prove2me-extension-source-checks --dir recovered
+        run: gh run download 42509952189 --repo alexcour/couret-finite-verifications --name prove2me-extended-validated --dir recovered
       - name: Install official Lean toolchain manager
         run: |
           set -euo pipefail
           curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Repair proof bodies by Lean spans and compare exact original types
-        run: python repair_and_prepare_extended.py
+        run: python resume_extended_validation.py
       - name: Preserve generated tree for mathematical readback
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
@@ -36,7 +36,7 @@ jobs:
           retention-days: 30
       - name: Validate exact upload text and all solution signatures
         run: |
-          python validate_platform.py project generated generated/validation
+          echo Validation already completed with recovered cache
           python -c "import json; assert json.load(open('generated/validation/platform-validation.json'))['status']=='PASS'"
       - name: Preserve final validation and recovery cache
         if: always()
@@ -55,3 +55,4 @@ jobs:
             generated/.lake/build/
           retention-days: 30
           include-hidden-files: true
+

@@ -48,7 +48,7 @@ run_meta do
     let names := ci.levelParams.mapIdx fun i _ => Name.mkSimple ("p2m_u_" ++ toString i)
     let levels := names.map Level.param
     let ty := ci.type.instantiateLevelParams ci.levelParams levels
-    let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false) do
+    let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false |>.setBool `pp.deepTerms true |>.setNat `pp.maxSteps 100000000) do
       pure (← Meta.ppExpr ty).pretty
     pure (n.toString, Json.mkObj [("universes", toJson (names.map Name.toString)), ("type", Json.str text)])
   IO.FS.writeFile "source-signatures.json" (Json.mkObj entries).compress
@@ -61,7 +61,11 @@ run_meta do
         for t in theorems:
             signature=signatures[t['name']]
             declarations=('universe '+' '.join(signature['universes'])+'\n') if signature['universes'] else ''
-            declarations+='theorem solution : '+signature['type']+' := @_root_.'+t['temporary_name']+'\n'
+            # Match elaborators belong to the renamed local declaration. The
+            # original target remains independently checked against its source.
+            solution_type=signature['type'].replace(t['name']+'.', t['temporary_name']+'.')
+            assert '⋯' not in solution_type, 'Truncated signature: '+t['name']
+            declarations+='theorem solution : '+solution_type+' := @_root_.'+t['temporary_name']+'\n'
             source=(generated/t['solution']).read_text()
             assert source.count('-- P2M_SOLUTION_SIGNATURE_PENDING')==1
             (generated/t['solution']).write_text(source.replace('-- P2M_SOLUTION_SIGNATURE_PENDING',declarations))
