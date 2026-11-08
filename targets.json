@@ -21,12 +21,12 @@
   },
   {
     "name": "bc_saturation",
-    "commit": "1b4be33734c01838b981aed4c74eca02cb9c0997",
+    "commit": "37393e162d54a11b749e3c9d5d5dd5f61b0eca10",
     "config": "comparator-bc_saturation.json"
   },
   {
     "name": "bc_minimality",
-    "commit": "157fe2c4bd44331616b0afe7028af1459d61cb94",
+    "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
     "config": "comparator-bc_minimality.json"
   },
   {
