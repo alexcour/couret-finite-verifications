@@ -147,8 +147,21 @@ def skeleton(m,keep,extra_imports=(),stub=None,rename_target=None):
         elif line.startswith(('#print ','#check ','#eval ')):
             continue
         else:rewritten.append(line)
-    # Extra imports precede every namespace/section and preserve all source scope.
-    return '\n'.join(['import '+p for p in sorted(set(extra_imports)|inherited_external(m))]+rewritten)+'\n'
+    # Reapply source-local instance attributes to the imported canonical
+    # constants. The instance declarations themselves live in the Def bundle.
+    local_attrs=[]
+    if stub or rename_target:
+        for d in decls[m]:
+            if not d.get('localInstance'):continue
+            k=(m,d['declStart']['offset'],d['declEnd']['offset'])
+            for r in units[k]:
+                if r['kind']=='def' and not r['isPrivate'] and r['name'] in embedded:
+                    local_attrs.append('attribute [local instance] '+r['name'])
+    prefix=['import '+p for p in sorted(set(extra_imports)|inherited_external(m))]
+    if local_attrs:
+        imports=list(dict.fromkeys(prefix+[line for line in rewritten if line.startswith('import ')]))
+        return '\n'.join(imports+list(dict.fromkeys(local_attrs))+[line for line in rewritten if not line.startswith('import ')])+'\n'
+    return '\n'.join(prefix+rewritten)+'\n'
 # Bundle identities include the selected source skeleton, environment and the
 # full dependency fingerprint. Identical imported bundles can be reused across
 # source groups; a changed source or import closure receives a distinct name.

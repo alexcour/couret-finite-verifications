@@ -98,6 +98,19 @@ partial def collectRefs (t : InfoTree) (acc : Array (Name × String.Pos.Raw × S
       | _ => acc
     children.foldl (fun a c => collectRefs c a) acc
 
+-- Parser spans remain authoritative even when a proof fails elaboration.
+-- Such runs retain a nonzero exit code and cannot pass a publication gate.
+partial def hasAtomBefore (stx : Syntax) (atom : String) (before : String.Pos.Raw) : Bool :=
+  match stx with
+  | .atom _ val =>
+    if val == atom then
+      match stx.getPos? with
+      | some p => decide (p < before)
+      | none => false
+    else false
+  | .node _ _ args => args.any (fun s => hasAtomBefore s atom before)
+  | _ => false
+
 unsafe def main (args : List String) : IO UInt32 := do
   let some fileName := args[0]?
     | do IO.eprintln "usage: lake env lean --run extract_sketch_info.lean <File.lean> [namePrefix]"
@@ -112,10 +125,10 @@ unsafe def main (args : List String) : IO UInt32 := do
   let cmdState := Command.mkState env messages {}
   let cmdState := { cmdState with infoState := { enabled := true } }
   let s ← IO.processCommands inputCtx parserState cmdState
-  if s.commandState.messages.hasErrors then
+  let hadErrors := s.commandState.messages.hasErrors
+  if hadErrors then
     for msg in s.commandState.messages.toList do
       IO.eprintln (← msg.toString)
-    return 1
   let fm := inputCtx.fileMap
   -- decl facts: one per top-level declaration command
   for cmd in s.commands do
@@ -149,13 +162,18 @@ unsafe def main (args : List String) : IO UInt32 := do
     -- docstring from a formal_statement, and dropping `private` on promotion.
     let docStx := findKind? cmd ``Command.docComment
     let privStx := findKind? cmd ``Command.private
+    let isLocalInst :=
+      match valStx.bind (·.getPos?) with
+      | some p => hasAtomBefore cmd "local" p && hasAtomBefore decl "instance" p
+      | none => false
     let fields := [("kind", Json.str "decl"),
                    ("nameText", nameText?.map (Json.str ·.toString) |>.getD Json.null),
                    ("declStart", posJson fm ds), ("declEnd", posJson fm de),
                    ("valStart", (valStx.bind (·.getPos?)).map (posJson fm ·) |>.getD Json.null),
                    ("valKind", valKind.map Json.str |>.getD Json.null),
                    ("docstring", rangeJson fm docStx),
-                   ("privateTok", rangeJson fm privStx)]
+                   ("privateTok", rangeJson fm privStx),
+                   ("localInstance", Json.bool isLocalInst)]
     IO.println (Json.mkObj fields).compress
   -- ref facts: every resolved constant occurrence, deduped and sorted
   let mut refs : Array (Name × String.Pos.Raw × String.Pos.Raw) := #[]
@@ -174,4 +192,4 @@ unsafe def main (args : List String) : IO UInt32 := do
   for (c, s', e) in sorted do
     IO.println (Json.mkObj [("kind", Json.str "ref"), ("const", Json.str c.toString),
       ("start", posJson fm s'), ("end", posJson fm e)]).compress
-  return 0
+  return if hadErrors then 1 else 0

@@ -9,4 +9,4 @@ missing=[n for n in names if n not in axioms]
 nonstandard={n:axioms[n] for n in names if n in axioms and set(axioms[n])-allowed}
 pathlib.Path(args.output).write_text(json.dumps({n:axioms[n] for n in names if n in axioms},indent=2))
 print(json.dumps({'theorems':len(names),'receipts':len(names)-len(missing),'missing':missing,'nonstandard':nonstandard}))
-
+if missing or nonstandard:raise SystemExit('Missing or nonstandard axiom receipts; publication forbidden')

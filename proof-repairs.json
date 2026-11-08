@@ -1,0 +1,18 @@
+{
+  "BRIDGE01_A2_FixedModulusNoGain": {
+    "namespace": "CouretOaiBridge01",
+    "expected_sha256": "197dda21595e14e000b56f8ffd04688ab98f18a5fde99d1789b7b9054f7505fb",
+    "proofs": {
+      "CouretOaiBridge01.rationalToReal_sigma": "by\n  simp only [sigma, sigmaR, inverseNumerator, inverseNumeratorR,\n    delta, deltaR, smul_sub, smul_add, MonoidAlgebra.smul_single]\n  norm_num [rationalToReal, smul_eq_mul]",
+      "CouretOaiBridge01.tauR_convolution_apply": "by\n  have hsingle (u : U30) :\n      (MonoidAlgebra.single u (1 : ℝ) * x).coeff r =\n        x.coeff (u⁻¹ * r) := by\n    change (MonoidAlgebra.single u (1 : ℝ) * x) r = x (u⁻¹ * r)\n    simpa only [one_mul] using\n      (MonoidAlgebra.single_mul_apply x (1 : ℝ) u r)\n  simp [tauR, deltaR, add_mul, hsingle]",
+      "CouretOaiBridge01.sigmaR_convolution_apply": "by\n  have hsingle (u : U30) :\n      (MonoidAlgebra.single u (1 : ℝ) * x).coeff r =\n        x.coeff (u⁻¹ * r) := by\n    change (MonoidAlgebra.single u (1 : ℝ) * x) r = x (u⁻¹ * r)\n    simpa only [one_mul] using\n      (MonoidAlgebra.single_mul_apply x (1 : ℝ) u r)\n  simp [sigmaR, inverseNumeratorR, deltaR, sub_mul, add_mul, two_mul, hsingle]"
+    }
+  },
+  "Strobo2TorsSquareExpansion": {
+    "namespace": "Couret.Strobo2Tors",
+    "expected_sha256": "e6ef4b2d3d4f2428f4fff1404fa0693f166695789e5e7c65fefd2b096c4f7024",
+    "proofs": {
+      "Couret.Strobo2Tors.orderedRep_three": "by\n  classical\n  have hca : c ≠ a := Ne.symm hac\n  have hba : b ≠ a := Ne.symm hab\n  have hbc : b ≠ c := Ne.symm hcb\n  unfold orderedRep\n  rw [Finset.card_filter, Finset.product_eq_sprod, Finset.sum_product]\n  simp [hac, hab, hcb, hca, hba, hbc, add_comm, add_left_comm, add_assoc] <;> omega"
+    }
+  }
+}
