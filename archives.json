@@ -1,0 +1,67 @@
+[
+  {
+    "record": 23980513,
+    "doi": "10.5281/zenodo.23980513",
+    "title": "Couret — Additive reconstruction: STROBO-4, singleton collisions and RECOH formal proof artifacts",
+    "name": "COURET_MATHEMATIQUES_20261105.zip",
+    "sha256": "19a3b59aee930df74cab79c27b29e014843bd17179a26fef1261ed6b5a651ab7",
+    "bytes": 1011531,
+    "url": "https://zenodo.org/api/records/23980513/files/COURET_MATHEMATIQUES_20261105.zip/content",
+    "record_url": "https://zenodo.org/records/23980513",
+    "lean_file_count": 198,
+    "licence_note": "No standalone licence file found in the inspected ZIP; no licence inferred from public accessibility.",
+    "new_lean_build": "NOT_RUN"
+  },
+  {
+    "record": 23981308,
+    "doi": "10.5281/zenodo.23981308",
+    "title": "Observation, Reconstruction and Justified Decisions: A unified Couret research manuscript",
+    "name": "Couret_Unified_Companion_v02_20261105.zip",
+    "sha256": "ec2e5a91aa13da8b8bf4aef44bc28ccfb4074b2d257edf942053afe928d53154",
+    "bytes": 1688350,
+    "url": "https://zenodo.org/api/records/23981308/files/Couret_Unified_Companion_v02_20261105.zip/content",
+    "record_url": "https://zenodo.org/records/23981308",
+    "lean_file_count": 72,
+    "licence_note": "No standalone licence file found in the inspected ZIP; no licence inferred from public accessibility.",
+    "new_lean_build": "NOT_RUN"
+  },
+  {
+    "record": 23981750,
+    "doi": "10.5281/zenodo.23981750",
+    "title": "Complete four-point convolution fibres and predictive observations on C12: supplementary proof archive",
+    "name": "Couret_Supplement_Fibres_Cayley_20261105.zip",
+    "sha256": "a12dde197808771ce3beb81d9e6ff1ab2074db9b06695b6816b0f28adbe8be8b",
+    "bytes": 692291,
+    "url": "https://zenodo.org/api/records/23981750/files/Couret_Supplement_Fibres_Cayley_20261105.zip/content",
+    "record_url": "https://zenodo.org/records/23981750",
+    "lean_file_count": 55,
+    "licence_note": "No standalone licence file found in the inspected ZIP; no licence inferred from public accessibility.",
+    "new_lean_build": "NOT_RUN"
+  },
+  {
+    "record": 23983731,
+    "doi": "10.5281/zenodo.23983731",
+    "title": "Cubic observations for four-point convolution reconstruction: universal two-coordinate bound and Lean proof archive",
+    "name": "Cubic_Observations_Lean_Archive_20261105.zip",
+    "sha256": "7a118549d5729dbcfbfb20bd35fea7ebd91275b7bde61591d6bdda5c13b749ec",
+    "bytes": 144099,
+    "url": "https://zenodo.org/api/records/23983731/files/Cubic_Observations_Lean_Archive_20261105.zip/content",
+    "record_url": "https://zenodo.org/records/23983731",
+    "lean_file_count": 40,
+    "licence_note": "No standalone licence file found in the inspected ZIP; no licence inferred from public accessibility.",
+    "new_lean_build": "NOT_RUN"
+  },
+  {
+    "record": 23989640,
+    "doi": "10.5281/zenodo.23989640",
+    "title": "Certified minimal memory for a divisor-residue presence observable modulo 30",
+    "name": "Couret_BC_MOD30_Companion_20261105.zip",
+    "sha256": "9bb2678164c63a9e47c192093f5ce9deb1b7b74a1f1c8fecc77f305a408266a2",
+    "bytes": 277601,
+    "url": "https://zenodo.org/api/records/23989640/files/Couret_BC_MOD30_Companion_20261105.zip/content",
+    "record_url": "https://zenodo.org/records/23989640",
+    "lean_file_count": 71,
+    "licence_note": "No standalone licence file found in the inspected ZIP; no licence inferred from public accessibility.",
+    "new_lean_build": "NOT_RUN"
+  }
+]
