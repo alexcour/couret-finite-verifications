@@ -50,6 +50,14 @@ jobs:
         run: lake build RecohCharacterMasks && lake env lean RecohCharacterMasks.lean
       - name: Compile historical rank kernel
         run: lake build RecohRankKernel && lake env lean RecohRankKernel.lean
+      - name: Compile historical RecohKernelCollisions
+        run: lake build RecohKernelCollisions && lake env lean RecohKernelCollisions.lean
+      - name: Compile historical RecohPivotMasks
+        run: lake build RecohPivotMasks && lake env lean RecohPivotMasks.lean
+      - name: Compile historical RecohPivotCollision
+        run: lake build RecohPivotCollision && lake env lean RecohPivotCollision.lean
+      - name: Compile historical RecohBinaryDichotomy
+        run: lake build RecohBinaryDichotomy && lake env lean RecohBinaryDichotomy.lean
       - name: Record exact checkout
         run: |
           echo "CHECKOUT_SHA=$(git rev-parse HEAD)"
