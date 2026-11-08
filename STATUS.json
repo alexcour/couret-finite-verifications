@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-11-08T15:41:38.769657+00:00",
+  "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
+  "records": [
+    {
+      "name": "STROBO three-point classification",
+      "commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/24f69d5c2635ff405a628c170086a62d477fd3a5",
+      "registration": "REGISTERED",
+      "palomar_id": "PALOMAR-2026-11-08-000010",
+      "official_verification": {
+        "status": "SUCCESS",
+        "run": 42417850032
+      }
+    },
+    {
+      "name": "STROBO fibre-cardinality dichotomy and upper bound",
+      "commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
+      "registration": "NOT_REGISTERED",
+      "official_verification": {
+        "status": "SUCCESS",
+        "run": 42491892197
+      },
+      "lean_build": {
+        "run": 42418952303,
+        "status": "SUCCESS"
+      }
+    },
+    {
+      "name": "decision",
+      "commit": "098752e58b68ec98046fd183417dfb906037b966",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/098752e58b68ec98046fd183417dfb906037b966",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42492473898,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:11:46Z",
+        "errors": [],
+        "report": "reports/decision.json",
+        "report_sha256": "194f21c7a009d6f3b7ce18de43a803c6418cf38c71324d6032cd2a7cdef85662"
+      }
+    },
+    {
+      "name": "singleton",
+      "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/9b6ae2df44e49356f2228986bb31bb74591eed04",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42492500278,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:16:52Z",
+        "errors": [],
+        "report": "reports/singleton.json",
+        "report_sha256": "a6147202f0ef5a0ed46cd4fffb042af266298767e1110d038da7c2a406f17e64"
+      }
+    },
+    {
+      "name": "fibres",
+      "commit": "a356215242928d2e85afd24aead95945ae8e5e2e",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/a356215242928d2e85afd24aead95945ae8e5e2e",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42492551626,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:12:31Z",
+        "errors": [],
+        "report": "reports/fibres.json",
+        "report_sha256": "d0a624ac14706440b50da6a0aea068f79bbbb8576196d5be89ee98a11c997c7d"
+      }
+    },
+    {
+      "name": "cubic",
+      "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/eb5b9e28541146314aad53e7a55458ed28ffb65a",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42492586090,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:12:43Z",
+        "errors": [],
+        "report": "reports/cubic.json",
+        "report_sha256": "812442388e96cc53f1331bac466ee62e5759b1a4372b05cb0eeaa5f727d3f793"
+      }
+    },
+    {
+      "name": "bc_saturation",
+      "commit": "37393e162d54a11b749e3c9d5d5dd5f61b0eca10",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/37393e162d54a11b749e3c9d5d5dd5f61b0eca10",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42495902784,
+        "status": "IN_PROGRESS",
+        "origin": "Full Palomar predictive build and Comparator workflow"
+      },
+      "predictive_check": {
+        "run": 42495902784,
+        "status": "IN_PROGRESS"
+      }
+    },
+    {
+      "name": "bc_minimality",
+      "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/0f534367088531a2de7a98cd095a6aabe825e1b2",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42495068348,
+        "status": "IN_PROGRESS",
+        "origin": "Full Palomar predictive build and Comparator workflow"
+      },
+      "predictive_check": {
+        "run": 42495068348,
+        "status": "IN_PROGRESS"
+      }
+    },
+    {
+      "name": "recoh",
+      "commit": "2c16c4283999ccf5dcba22cc12e98bf56d019764",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/2c16c4283999ccf5dcba22cc12e98bf56d019764",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42419020891,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:18:23Z",
+        "errors": [],
+        "report": "reports/recoh.json",
+        "report_sha256": "264f1d055a6457fa40aa138150e8b335cb2e77bcfbb2e7b829714858077249e3"
+      }
+    },
+    {
+      "name": "cayley",
+      "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/4427850aabc46ef835de2eeb5013c6bd6c36155f",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42490086064,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:22:36Z",
+        "errors": [],
+        "report": "reports/cayley.json",
+        "report_sha256": "8f2129fd5d7595a3989a43a1768fd72e98b4f2fd9af409cdeefee3e9fe75db36"
+      }
+    },
+    {
+      "name": "g30",
+      "commit": "3b48ff3cf0525dd11524fe50655f4061a5f99d8e",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/3b48ff3cf0525dd11524fe50655f4061a5f99d8e",
+      "registration": "NOT_REGISTERED",
+      "lean_build": {
+        "run": 42490489850,
+        "status": "SUCCESS"
+      },
+      "predictive_check": {
+        "run": 42493140220,
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:23:18Z",
+        "errors": [],
+        "report": "reports/g30.json",
+        "report_sha256": "dca708d0d9b7e4cea2f1c3d54f4c9807da4e66744e51eee10b0236d387c00a39"
+      }
+    }
+  ],
+  "license_authorization": {
+    "date": "2026-11-08",
+    "scope": "MIT for new adaptations of author-owned Lean files from the identified archives; third-party licences preserved; original archive ZIPs not relicensed."
+  },
+  "limitations": [
+    "The whole 442-variant corpus has not been built or published to Palomar. Historical copies, configurations and negative controls are not independent results.",
+    "Compilation, predictive verification, official intake, automated review and registration are separate stages.",
+    "No independent human review or new mathematical originality assessment is claimed.",
+    "Private Drive documents and unlocated source collections have not been published.",
+    "The first registration is confirmed by intake, while its public frontend page was not yet available at the last check."
+  ]
+}

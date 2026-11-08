@@ -1,0 +1,1797 @@
+{
+  "build_log_tail": "nterIA.SingletonNecessity.fourth_square_kernel_cases' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\ninfo: C4SquareAlgebra.lean:137:0: 'Couret.InterIA.SingletonNecessity.injective_of_double_images' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\ninfo: C4SquareAlgebra.lean:138:0: 'Couret.InterIA.SingletonNecessity.contains_c4_square_of_four_torsion' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\ninfo: C4SquareAlgebra.lean:139:0: 'Couret.InterIA.SingletonNecessity.reverse_matching_contains_c4_square' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n\u2714 [1219/1230] Built RelabelBasics (3.1s)\n\u26a0 [1220/1230] Built MatchingEncoding (3.3s)\nwarning: MatchingEncoding.lean:12:0: automatically included section variable(s) unused in theorem `Couret.InterIA.SingletonNecessity.evaluated_terms`:\n  [DecidableEq G]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq G] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nwarning: MatchingEncoding.lean:28:2: Try this: \n  letI\u0335\n\nThe goal is a proposition, so `let` is preferred over `letI`.\nThe difference between `let` and `letI` is that `letI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\nwarning: MatchingEncoding.lean:24:0: automatically included section variable(s) unused in theorem `Couret.InterIA.SingletonNecessity.matching_rows_zero`:\n  [DecidableEq G]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq G] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nwarning: MatchingEncoding.lean:58:42: `if_false` has been deprecated: Use `ite_false` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335f\u0335a\u0335l\u0335s\u0335e\u0335i\u0332t\u0332e\u0332_\u0332f\u0332a\u0332l\u0332s\u0332e\u0332\nwarning: MatchingEncoding.lean:93:23: `if_true` has been deprecated: Use `ite_true` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335t\u0335r\u0335u\u0335e\u0335i\u0332t\u0332e\u0332_\u0332t\u0332r\u0332u\u0332e\u0332\n\u2714 [1221/1230] Built SquareExpansion (5.2s)\n\u26a0 [1222/1230] Built CountCancellation (2.0s)\nwarning: CountCancellation.lean:34:55: This simp argument is unused:\n  add_zero\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [List.count_cons, List.count_nil, beq_iff_eq] at h\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nwarning: CountCancellation.lean:35:73: This simp argument is unused:\n  add_zero\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [List.count_append, List.count_cons, List.count_nil, beq_iff_eq]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n\u26a0 [1223/1230] Built ExclusiveEnumeration (5.1s)\nwarning: ExclusiveEnumeration.lean:52:71: `simp` already closes the goal\n\nHint: Use `simp` instead of `simpa`:\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\n\u2714 [1224/1230] Built ParityRelabel (4.6s)\n\u2139 [1225/1230] Built MatchingCertificateData (129s)\ninfo: MatchingCertificateData.lean:6248:0: 'Couret.InterIA.SingletonNecessity.crossChunk0_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6250:0: 'Couret.InterIA.SingletonNecessity.crossChunk1_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6252:0: 'Couret.InterIA.SingletonNecessity.crossChunk2_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6254:0: 'Couret.InterIA.SingletonNecessity.crossChunk3_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6256:0: 'Couret.InterIA.SingletonNecessity.crossChunk4_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6258:0: 'Couret.InterIA.SingletonNecessity.crossChunk5_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6260:0: 'Couret.InterIA.SingletonNecessity.crossChunk6_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6262:0: 'Couret.InterIA.SingletonNecessity.crossChunk7_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6264:0: 'Couret.InterIA.SingletonNecessity.crossChunk8_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6266:0: 'Couret.InterIA.SingletonNecessity.crossChunk9_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6268:0: 'Couret.InterIA.SingletonNecessity.crossChunk10_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6270:0: 'Couret.InterIA.SingletonNecessity.crossChunk11_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6272:0: 'Couret.InterIA.SingletonNecessity.crossData_coverage' does not depend on any axioms\ninfo: MatchingCertificateData.lean:6274:0: 'Couret.InterIA.SingletonNecessity.crossData_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6276:0: 'Couret.InterIA.SingletonNecessity.mixedChunk0_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6278:0: 'Couret.InterIA.SingletonNecessity.mixedChunk1_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6280:0: 'Couret.InterIA.SingletonNecessity.mixedChunk2_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6282:0: 'Couret.InterIA.SingletonNecessity.mixedChunk3_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6284:0: 'Couret.InterIA.SingletonNecessity.mixedChunk4_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6286:0: 'Couret.InterIA.SingletonNecessity.mixedChunk5_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6288:0: 'Couret.InterIA.SingletonNecessity.mixedChunk6_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6290:0: 'Couret.InterIA.SingletonNecessity.mixedChunk7_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6292:0: 'Couret.InterIA.SingletonNecessity.mixedChunk8_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6294:0: 'Couret.InterIA.SingletonNecessity.mixedChunk9_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6296:0: 'Couret.InterIA.SingletonNecessity.mixedChunk10_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6298:0: 'Couret.InterIA.SingletonNecessity.mixedChunk11_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6300:0: 'Couret.InterIA.SingletonNecessity.mixedChunk12_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6302:0: 'Couret.InterIA.SingletonNecessity.mixedChunk13_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6304:0: 'Couret.InterIA.SingletonNecessity.mixedChunk14_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6306:0: 'Couret.InterIA.SingletonNecessity.mixedChunk15_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6308:0: 'Couret.InterIA.SingletonNecessity.mixedChunk16_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6310:0: 'Couret.InterIA.SingletonNecessity.mixedChunk17_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6312:0: 'Couret.InterIA.SingletonNecessity.mixedChunk18_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6314:0: 'Couret.InterIA.SingletonNecessity.mixedChunk19_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6316:0: 'Couret.InterIA.SingletonNecessity.mixedChunk20_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6318:0: 'Couret.InterIA.SingletonNecessity.mixedChunk21_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6320:0: 'Couret.InterIA.SingletonNecessity.mixedChunk22_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6322:0: 'Couret.InterIA.SingletonNecessity.mixedChunk23_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6324:0: 'Couret.InterIA.SingletonNecessity.mixedChunk24_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6326:0: 'Couret.InterIA.SingletonNecessity.mixedChunk25_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6328:0: 'Couret.InterIA.SingletonNecessity.mixedChunk26_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6330:0: 'Couret.InterIA.SingletonNecessity.mixedChunk27_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6332:0: 'Couret.InterIA.SingletonNecessity.mixedChunk28_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6334:0: 'Couret.InterIA.SingletonNecessity.mixedChunk29_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6336:0: 'Couret.InterIA.SingletonNecessity.mixedChunk30_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6338:0: 'Couret.InterIA.SingletonNecessity.mixedChunk31_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6340:0: 'Couret.InterIA.SingletonNecessity.mixedChunk32_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6342:0: 'Couret.InterIA.SingletonNecessity.mixedChunk33_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6344:0: 'Couret.InterIA.SingletonNecessity.mixedChunk34_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6346:0: 'Couret.InterIA.SingletonNecessity.mixedChunk35_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6348:0: 'Couret.InterIA.SingletonNecessity.mixedChunk36_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6350:0: 'Couret.InterIA.SingletonNecessity.mixedChunk37_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6352:0: 'Couret.InterIA.SingletonNecessity.mixedChunk38_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6354:0: 'Couret.InterIA.SingletonNecessity.mixedChunk39_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6356:0: 'Couret.InterIA.SingletonNecessity.mixedChunk40_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6358:0: 'Couret.InterIA.SingletonNecessity.mixedChunk41_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6360:0: 'Couret.InterIA.SingletonNecessity.mixedChunk42_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6362:0: 'Couret.InterIA.SingletonNecessity.mixedChunk43_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6364:0: 'Couret.InterIA.SingletonNecessity.mixedChunk44_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6366:0: 'Couret.InterIA.SingletonNecessity.mixedChunk45_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6368:0: 'Couret.InterIA.SingletonNecessity.mixedChunk46_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6370:0: 'Couret.InterIA.SingletonNecessity.mixedChunk47_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6372:0: 'Couret.InterIA.SingletonNecessity.mixedChunk48_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6374:0: 'Couret.InterIA.SingletonNecessity.mixedChunk49_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6376:0: 'Couret.InterIA.SingletonNecessity.mixedChunk50_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6378:0: 'Couret.InterIA.SingletonNecessity.mixedChunk51_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6380:0: 'Couret.InterIA.SingletonNecessity.mixedChunk52_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6382:0: 'Couret.InterIA.SingletonNecessity.mixedChunk53_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6384:0: 'Couret.InterIA.SingletonNecessity.mixedChunk54_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6386:0: 'Couret.InterIA.SingletonNecessity.mixedChunk55_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6388:0: 'Couret.InterIA.SingletonNecessity.mixedChunk56_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6390:0: 'Couret.InterIA.SingletonNecessity.mixedChunk57_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6392:0: 'Couret.InterIA.SingletonNecessity.mixedChunk58_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6394:0: 'Couret.InterIA.SingletonNecessity.mixedChunk59_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6396:0: 'Couret.InterIA.SingletonNecessity.mixedChunk60_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6398:0: 'Couret.InterIA.SingletonNecessity.mixedChunk61_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6400:0: 'Couret.InterIA.SingletonNecessity.mixedChunk62_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6402:0: 'Couret.InterIA.SingletonNecessity.mixedChunk63_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6404:0: 'Couret.InterIA.SingletonNecessity.mixedChunk64_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6406:0: 'Couret.InterIA.SingletonNecessity.mixedChunk65_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6408:0: 'Couret.InterIA.SingletonNecessity.mixedChunk66_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6410:0: 'Couret.InterIA.SingletonNecessity.mixedChunk67_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6412:0: 'Couret.InterIA.SingletonNecessity.mixedChunk68_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6414:0: 'Couret.InterIA.SingletonNecessity.mixedChunk69_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6416:0: 'Couret.InterIA.SingletonNecessity.mixedChunk70_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6418:0: 'Couret.InterIA.SingletonNecessity.mixedChunk71_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6420:0: 'Couret.InterIA.SingletonNecessity.mixedChunk72_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6422:0: 'Couret.InterIA.SingletonNecessity.mixedChunk73_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6424:0: 'Couret.InterIA.SingletonNecessity.mixedChunk74_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6426:0: 'Couret.InterIA.SingletonNecessity.mixedChunk75_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6428:0: 'Couret.InterIA.SingletonNecessity.mixedChunk76_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6430:0: 'Couret.InterIA.SingletonNecessity.mixedChunk77_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6432:0: 'Couret.InterIA.SingletonNecessity.mixedChunk78_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingCertificateData.lean:6434:0: 'Couret.InterIA.SingletonNecessity.mixedData_coverage' does not depend on any axioms\ninfo: MatchingCertificateData.lean:6436:0: 'Couret.InterIA.SingletonNecessity.mixedData_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u2139 [1226/1230] Built MatchingElimination (878ms)\ninfo: MatchingElimination.lean:61:0: 'Couret.InterIA.SingletonNecessity.cross_certificate_exists' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingElimination.lean:62:0: 'Couret.InterIA.SingletonNecessity.mixed_certificate_exists' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingElimination.lean:63:0: 'Couret.InterIA.SingletonNecessity.valid_certificate_contradicts_distinct' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\ninfo: MatchingElimination.lean:64:0: 'Couret.InterIA.SingletonNecessity.cross_matching_is_reverse' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: MatchingElimination.lean:65:0: 'Couret.InterIA.SingletonNecessity.mixed_matching_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]\n\u26a0 [1227/1230] Built ConditionalNecessity (1.9s)\nwarning: ConditionalNecessity.lean:19:14: `if_neg` has been deprecated: Use `ite_eq_right` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335n\u0335e\u0335g\u0335i\u0332t\u0332e\u0332_\u0332e\u0332q\u0332_\u0332r\u0332i\u0332g\u0332h\u0332t\u0332\nwarning: ConditionalNecessity.lean:22:14: `if_neg` has been deprecated: Use `ite_eq_right` instead\n\nHint: Replace the deprecated name:\n  i\u0335f\u0335_\u0335n\u0335e\u0335g\u0335i\u0332t\u0332e\u0332_\u0332e\u0332q\u0332_\u0332r\u0332i\u0332g\u0332h\u0332t\u0332\ninfo: ConditionalNecessity.lean:91:0: 'Couret.InterIA.SingletonNecessity.distinct_values' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: ConditionalNecessity.lean:92:0: 'Couret.InterIA.SingletonNecessity.reverse_relations_contains_c4_square' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\ninfo: ConditionalNecessity.lean:93:0: 'Couret.InterIA.SingletonNecessity.contains_c4_square_of_matching' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n\u2714 [1228/1230] Built FullNecessity (885ms)\n\u2139 [1229/1230] Built Solution (890ms)\ninfo: Solution.lean:20:0: 'Couret.PalomarSingleton.singleton_collision_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nBuild completed successfully (1230 jobs).",
+  "bwrap_source_tag": "v0.12.0",
+  "challenge": {
+    "bytes": 594,
+    "canonical_olean_sha256": "b760a535074819c7e45652641a94bf0c7c631e77b311e5ff69e3e6c60beb7cd6",
+    "dependencies": [
+      {
+        "provenance": "allowlisted",
+        "repository": "leanprover-community/mathlib4"
+      }
+    ],
+    "direct_imports": [
+      "Mathlib"
+    ],
+    "lines": 18,
+    "module": "Challenge",
+    "path": "Challenge.lean",
+    "sha256": "126a51acaa2d3932dd28f6d181bcc68f19be0f629785e8aa14b698df21894e0a",
+    "transitive_source_count": 2,
+    "trust_level": "high",
+    "untrusted_sources": []
+  },
+  "checked_at": "2026-11-08T15:16:52Z",
+  "classification": {
+    "arxiv": [
+      {
+        "code": "math.CO",
+        "name": "Combinatorics"
+      }
+    ],
+    "msc2020": [
+      {
+        "code": "05A15",
+        "name": "Exact enumeration problems, generating functions"
+      }
+    ]
+  },
+  "comparator": {
+    "challenge_module": "Challenge",
+    "definition_names": [
+      "Couret.PalomarSingleton.orderedSquare"
+    ],
+    "path": "comparator-singleton.json",
+    "permitted_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "sha256": "1f2a5a490b0732b438c51ba2eb9b9864d4dc9bbfbe65f0672950a8250c27c934",
+    "solution_module": "Solution",
+    "theorem_names": [
+      "Couret.PalomarSingleton.singleton_collision_iff"
+    ]
+  },
+  "comparator_log_tail": "Running nanoda kernel on solution\nnanoda kernel accepts the solution\nRunning Lean default kernel on solution\nLean default kernel accepts the solution\nYour solution is okay!",
+  "con_ron_checker": {
+    "archive_sha256": "26b3cea1a006ad419215520b8668dcd3f6a9eeba1a123756563a739f9c6274b2",
+    "archive_url": "https://github.com/leanprover/lean4/releases/download/v4.36.0-rc1/lean-4.36.0-rc1-linux.tar.zst",
+    "binary_sha256": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+    "kind": "maintainer-pinned-release",
+    "release_commit": "c9afcddf514a6772bd4d649f7cfc04eff0b9f15e",
+    "release_tag": "v4.36.0-rc1",
+    "source_toolchain": "leanprover/lean4:v4.35.0-rc2"
+  },
+  "errors": [],
+  "existing_id": null,
+  "formalization": {
+    "automation_method_count": 2,
+    "path": "formalization.yaml",
+    "project_name": "Singleton-overlap four-point square collisions and C4 \u00d7 C4 subgroups",
+    "review_status": "self-assessed; no independent human review",
+    "sha256": "ef7e8d4b2b790e3b4c5a03ba1512e9c0a4b2cd08d28142edf1892027adece827",
+    "source_count": 1
+  },
+  "kernel_attempts": [
+    {
+      "argv": [
+        "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+        "--jobs=2",
+        "--verified"
+      ],
+      "budget_seconds": 1800,
+      "detail": "con-ron: accepted 7034 declarations (--verified)\n\ncon-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)",
+      "exit_code": 0,
+      "name": "con-ron",
+      "reason": "complete",
+      "status": "accepted"
+    }
+  ],
+  "kernels": [
+    {
+      "argv": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+      ],
+      "name": "nanoda"
+    },
+    {
+      "argv": [
+        "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+        "--jobs=2",
+        "--verified"
+      ],
+      "name": "con-ron"
+    }
+  ],
+  "lake_manifest": {
+    "path": "lake-manifest.json",
+    "sha256": "ed0c53609b8a5eb5fdd5b5f250875903cf5782c70d71220960ac8b6758a18617"
+  },
+  "lakefile": {
+    "format": "toml",
+    "path": "lakefile.toml",
+    "sha256": "f953b5474bd7ac94e7ae9d5597342a169bc72a643778bca2928d540c255a9d50"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "lean_toolchain_path": "lean-toolchain",
+  "license": {
+    "declared_identifier": "MIT",
+    "detected_identifier": "MIT",
+    "path": "LICENSE",
+    "sha256": "ddaf33007324bcb08bbb5d755dcd4ecf635bd4e1eb12b00a1c6c7ab94ac86e88"
+  },
+  "mathlib_cache": {
+    "available": true,
+    "required": true
+  },
+  "mathlib_toolchain": [
+    {
+      "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+      "toolchain": "leanprover/lean4:v4.35.0-rc2"
+    }
+  ],
+  "orcid_validation": {
+    "checked_at": "2026-11-08T15:07:28Z",
+    "records": [],
+    "registry": "https://orcid.org",
+    "schema_version": 1
+  },
+  "phase": "verification",
+  "project_dependencies": [
+    {
+      "name": "mathlib",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+      "url": "https://github.com/leanprover-community/mathlib4.git"
+    },
+    {
+      "name": "plausible",
+      "repository": "leanprover-community/plausible",
+      "revision": "e50948299c4dc4a4c21b1c34b6a6a4fddc19f912",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    {
+      "name": "LeanSearchClient",
+      "repository": "leanprover-community/LeanSearchClient",
+      "revision": "95e037bfdc31d3916ac615446847fb01960e2719",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    {
+      "name": "importGraph",
+      "repository": "leanprover-community/import-graph",
+      "revision": "10930f8138f0462dbd744a91fc03a16fae0e046f",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    {
+      "name": "proofwidgets",
+      "repository": "leanprover-community/ProofWidgets4",
+      "revision": "4c70ac059693669e5756e32a7a94b57ee1e99dc5",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    },
+    {
+      "name": "aesop",
+      "repository": "leanprover-community/aesop",
+      "revision": "75d936c7af167cc93fac0d31237682fc2204591d",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    {
+      "name": "Qq",
+      "repository": "leanprover-community/quote4",
+      "revision": "786b7acdca7eb4e9c76c5d1d5bd810e7e5c56334",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    {
+      "name": "batteries",
+      "repository": "leanprover-community/batteries",
+      "revision": "ed9b316aabe389fec1ef43c3326ab48c7e59be42",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    {
+      "name": "Cli",
+      "repository": "leanprover/lean4-cli",
+      "revision": "2842b9871b04862f944c032e34052cb9448ccb71",
+      "url": "https://github.com/leanprover/lean4-cli"
+    }
+  ],
+  "protected_config": "{\n  \"challenge_module\": \"PalomarCanonicalb48037227d6ff420197eb438.Challenge\",\n  \"definition_names\": [\n    \"Couret.PalomarSingleton.orderedSquare\"\n  ],\n  \"external_kernels\": {\n    \"nanoda\": [\n      \"/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin\"\n    ]\n  },\n  \"permitted_axioms\": [\n    \"propext\",\n    \"Quot.sound\",\n    \"Classical.choice\"\n  ],\n  \"solution_module\": \"Solution\",\n  \"theorem_names\": [\n    \"Couret.PalomarSingleton.singleton_collision_iff\"\n  ]\n}\n",
+  "protected_config_sha256": "87cfee56894c2a88e7201af80146c30c90cc6e43033c424db3e9eb8f58df08fb",
+  "provenance": {
+    "mathematical_sources": [
+      {
+        "author_endorsement": "participated",
+        "authors": [
+          {
+            "name": "Alexandre Couret"
+          }
+        ],
+        "identifier": "https://zenodo.org/records/23980513",
+        "location": "https://zenodo.org/records/23980513",
+        "note": "The original archive grants no blanket new licence. The copyright holder expressly authorized MIT for these new adaptations on 2026-11-08. See SOURCE_PROVENANCE.json for exact files and archive SHA256; third-party notices retain their original scope.",
+        "relationship": "adapts",
+        "title": "Couret archived Lean sources, Zenodo 23980513",
+        "type": "formalization"
+      }
+    ],
+    "related_formalizations": [
+      {
+        "identifier": "https://zenodo.org/records/23980513",
+        "note": "Prior archived source; mathematical novelty is not established.",
+        "relationship": "adapts"
+      }
+    ],
+    "repository_role": "substantive-development",
+    "responsible_maintainers": [
+      {
+        "name": "Alexandre Couret"
+      }
+    ],
+    "result_origin": "source-based"
+  },
+  "resource_usage": [
+    {
+      "elapsed_seconds": 0.016,
+      "max_rss_kib": 13548,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 0,
+      "system_cpu_seconds": 0.015,
+      "user_cpu_seconds": 0.028,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 49046000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 8982528,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.033,
+      "max_rss_kib": 13384,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 0,
+      "system_cpu_seconds": 0.019,
+      "user_cpu_seconds": 0.041,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 65422000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 12918784,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.016,
+      "max_rss_kib": 13412,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.018,
+      "user_cpu_seconds": 0.025,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 47759000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 8966144,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.033,
+      "max_rss_kib": 13548,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 0,
+      "system_cpu_seconds": 0.025,
+      "user_cpu_seconds": 0.036,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 66068000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13656064,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.034,
+      "max_rss_kib": 13548,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.022,
+      "user_cpu_seconds": 0.039,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 66587000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13418496,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.033,
+      "max_rss_kib": 13412,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.023,
+      "user_cpu_seconds": 0.037,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 65659000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13422592,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.031,
+      "max_rss_kib": 13412,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-initial",
+      "returncode": 1,
+      "system_cpu_seconds": 0.028,
+      "user_cpu_seconds": 0.03,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 63604000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 12640256,
+      "phase": "confinement-initial:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.048,
+      "max_rss_kib": 25392,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "source-requirements",
+      "returncode": 0,
+      "system_cpu_seconds": 0.028,
+      "user_cpu_seconds": 0.047,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 80701000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 26263552,
+      "phase": "source-requirements:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.205,
+      "max_rss_kib": 78508,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.091,
+      "user_cpu_seconds": 0.141,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 238127000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 80654336,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.413,
+      "max_rss_kib": 350080,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.209,
+      "user_cpu_seconds": 0.233,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 448647000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 358744064,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.207,
+      "max_rss_kib": 78248,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.096,
+      "user_cpu_seconds": 0.139,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 240865000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 80388096,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.416,
+      "max_rss_kib": 349964,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.219,
+      "user_cpu_seconds": 0.225,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 449427000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 358625280,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.213,
+      "max_rss_kib": 78248,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.107,
+      "user_cpu_seconds": 0.133,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 245961000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 80388096,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.408,
+      "max_rss_kib": 349680,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.204,
+      "user_cpu_seconds": 0.231,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 440562000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 358334464,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.21,
+      "max_rss_kib": 78240,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.097,
+      "user_cpu_seconds": 0.14,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 243428000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 80379904,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.413,
+      "max_rss_kib": 349724,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.207,
+      "user_cpu_seconds": 0.233,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 445163000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 358133760,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.23,
+      "max_rss_kib": 51692,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.065,
+      "user_cpu_seconds": 0.215,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 285210000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 53194752,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.101,
+      "max_rss_kib": 31620,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 1,
+      "system_cpu_seconds": 0.03,
+      "user_cpu_seconds": 0.098,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 134472000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 32641024,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.233,
+      "max_rss_kib": 51776,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 1,
+      "system_cpu_seconds": 0.061,
+      "user_cpu_seconds": 0.218,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 285486000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 53280768,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.104,
+      "max_rss_kib": 31572,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "comparator-preflight",
+      "returncode": 1,
+      "system_cpu_seconds": 0.028,
+      "user_cpu_seconds": 0.103,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 137042000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 32591872,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 6.027,
+      "max_rss_kib": 125224,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "comparator-preflight",
+      "returncode": 0,
+      "system_cpu_seconds": 0.031,
+      "user_cpu_seconds": 6.052,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 6088769000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 128491520,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 6.004,
+      "max_rss_kib": 135312,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "comparator-preflight",
+      "returncode": 1,
+      "system_cpu_seconds": 0.04,
+      "user_cpu_seconds": 5.993,
+      "workspace_disk_peak_bytes": 4096
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 6038196000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 138821632,
+      "phase": "comparator-preflight:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 1.89,
+      "max_rss_kib": 144328,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "module-resolution",
+      "returncode": 0,
+      "system_cpu_seconds": 0.489,
+      "user_cpu_seconds": 1.469,
+      "workspace_disk_peak_bytes": 8192
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 1962980000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 148054016,
+      "phase": "module-resolution:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.047,
+      "max_rss_kib": 23104,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "module-resolution",
+      "returncode": 0,
+      "system_cpu_seconds": 0.032,
+      "user_cpu_seconds": 0.042,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 79701000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 23920640,
+      "phase": "module-resolution:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 50.875,
+      "max_rss_kib": 8513504,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "trusted-cache",
+      "returncode": 0,
+      "system_cpu_seconds": 35.853,
+      "user_cpu_seconds": 58.619,
+      "workspace_disk_peak_bytes": 7896535040
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 94478306000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 8717844480,
+      "phase": "trusted-cache:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 5.676,
+      "max_rss_kib": 268076,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "trusted-cache",
+      "returncode": 0,
+      "system_cpu_seconds": 2.611,
+      "user_cpu_seconds": 5.325,
+      "workspace_disk_peak_bytes": 1507328
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 7941026000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 274771968,
+      "phase": "trusted-cache:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 2.253,
+      "max_rss_kib": 142080,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "trusted-cache",
+      "returncode": 0,
+      "system_cpu_seconds": 0.587,
+      "user_cpu_seconds": 1.63,
+      "workspace_disk_peak_bytes": 1503232
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 2222719000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 145752064,
+      "phase": "trusted-cache:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 2.769,
+      "max_rss_kib": 582744,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "canonical-challenge",
+      "returncode": 0,
+      "system_cpu_seconds": 0.858,
+      "user_cpu_seconds": 1.964,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 2828921000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 596992000,
+      "phase": "canonical-challenge:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.043,
+      "max_rss_kib": 23100,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "canonical-challenge",
+      "returncode": 0,
+      "system_cpu_seconds": 0.024,
+      "user_cpu_seconds": 0.048,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 77356000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 23670784,
+      "phase": "canonical-challenge:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.045,
+      "max_rss_kib": 23056,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "canonical-challenge",
+      "returncode": 0,
+      "system_cpu_seconds": 0.02,
+      "user_cpu_seconds": 0.053,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 78539000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 23871488,
+      "phase": "canonical-challenge:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.014,
+      "max_rss_kib": 13276,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.014,
+      "user_cpu_seconds": 0.026,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 45940000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 9023488,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.03,
+      "max_rss_kib": 13412,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.019,
+      "user_cpu_seconds": 0.037,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 60866000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13164544,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.013,
+      "max_rss_kib": 13256,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.013,
+      "user_cpu_seconds": 0.026,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 44577000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 8732672,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.031,
+      "max_rss_kib": 13384,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.023,
+      "user_cpu_seconds": 0.036,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 64145000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13156352,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.03,
+      "max_rss_kib": 13256,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 0,
+      "system_cpu_seconds": 0.022,
+      "user_cpu_seconds": 0.034,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 61207000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13414400,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 0.03,
+      "max_rss_kib": 13240,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.019,
+      "user_cpu_seconds": 0.038,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 61576000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13692928,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.03,
+      "max_rss_kib": 13384,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.02,
+      "user_cpu_seconds": 0.036,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 61617000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 13398016,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 0.029,
+      "max_rss_kib": 13420,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 1,
+      "phase": "confinement-final",
+      "returncode": 1,
+      "system_cpu_seconds": 0.016,
+      "user_cpu_seconds": 0.04,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 61173000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "1",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 12632064,
+      "phase": "confinement-final:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "failed",
+      "systemd_result": "exit-code"
+    },
+    {
+      "elapsed_seconds": 1.154,
+      "max_rss_kib": 109500,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "candidate-configuration",
+      "returncode": 0,
+      "system_cpu_seconds": 0.534,
+      "user_cpu_seconds": 0.668,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 1207725000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 112144384,
+      "phase": "candidate-configuration:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 1.149,
+      "max_rss_kib": 109224,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "candidate-configuration",
+      "returncode": 0,
+      "system_cpu_seconds": 0.571,
+      "user_cpu_seconds": 0.625,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 1201844000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 112107520,
+      "phase": "candidate-configuration:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 3.34,
+      "max_rss_kib": 716396,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "challenge-export",
+      "returncode": 0,
+      "system_cpu_seconds": 1.381,
+      "user_cpu_seconds": 1.986,
+      "workspace_disk_peak_bytes": 7774208
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 3372373000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 733851648,
+      "phase": "challenge-export:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 136.651,
+      "max_rss_kib": 2854944,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "solution-build",
+      "returncode": 0,
+      "system_cpu_seconds": 17.138,
+      "user_cpu_seconds": 315.273,
+      "workspace_disk_peak_bytes": 125743104
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 332416308000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 2923479040,
+      "phase": "solution-build:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 4.031,
+      "max_rss_kib": 586324,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "solution-export",
+      "returncode": 0,
+      "system_cpu_seconds": 0.537,
+      "user_cpu_seconds": 1.912,
+      "workspace_disk_peak_bytes": 35913728
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 2454594000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 600412160,
+      "phase": "solution-export:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 81.833,
+      "max_rss_kib": 678940,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "comparator",
+      "returncode": 0,
+      "system_cpu_seconds": 4.547,
+      "user_cpu_seconds": 128.039,
+      "workspace_disk_peak_bytes": 8192
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 132590997000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 695250944,
+      "phase": "comparator:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    },
+    {
+      "elapsed_seconds": 56.112,
+      "max_rss_kib": 1357544,
+      "memory_source": "cgroup",
+      "peak_tasks_observed": 3,
+      "phase": "con-ron",
+      "returncode": 0,
+      "system_cpu_seconds": 0.946,
+      "user_cpu_seconds": 104.358,
+      "workspace_disk_peak_bytes": 0
+    },
+    {
+      "cpu_max_applied": false,
+      "cpu_usage_nanoseconds": 105309566000,
+      "deadline_fired": false,
+      "exec_main_code": "1",
+      "exec_main_status": "0",
+      "memory_events": {
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "memory_peak_bytes": 1390141440,
+      "phase": "con-ron:cgroup",
+      "pids_events_max": 0,
+      "rlimits_applied": {
+        "FSIZE": 1099511627776,
+        "NOFILE": 65536
+      },
+      "supervisor": "cgroup",
+      "supervisor_timeout": false,
+      "systemd_active_state": "inactive",
+      "systemd_result": "success"
+    }
+  ],
+  "schema_version": 2,
+  "solution": {
+    "module": "Solution",
+    "path": "Solution.lean",
+    "sha256": "704b169ca683be9da04deb306caab4ced37333d458e79f16da8ddd1eaefdf86c"
+  },
+  "source": {
+    "bytes": 487387,
+    "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
+    "repository": "alexcour/couret-finite-verifications",
+    "repository_url": "https://github.com/alexcour/couret-finite-verifications",
+    "tree_url": "https://github.com/alexcour/couret-finite-verifications/tree/9b6ae2df44e49356f2228986bb31bb74591eed04"
+  },
+  "source_requirements": {
+    "files_checked": 25,
+    "header_parser": "lean --deps-json",
+    "maximum_lines": 10000,
+    "module_required": true,
+    "schema_version": 1
+  },
+  "stage": "complete",
+  "status": "pass",
+  "submission": {
+    "authorization": {
+      "evidence": "Prepared at the explicit request of responsible author Alexandre Couret. MIT authorization for new author-owned archive adaptations received on 2026-11-08; third-party licences are retained.",
+      "relationship": "approved"
+    },
+    "requested_paths": {
+      "comparator_config_path": "comparator-singleton.json",
+      "formalization_metadata_path": "",
+      "project_path": ""
+    },
+    "submission_id": "couretsingle"
+  },
+  "tool_digests": {
+    "bwrap": "d28af74df812d8bad9e8dd875cff09b3183cf12dbe0f6ce9fb1279eea19ae1f9",
+    "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+    "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+    "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+    "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+    "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+  },
+  "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+  "verification_profile": {
+    "id": "palomar-standard-v1",
+    "limits": {
+      "execution_budget_seconds": 19800,
+      "file_size_max_bytes": 1099511627776,
+      "job_timeout_minutes": 350,
+      "memory_high_percent": 95,
+      "memory_max_percent": 98,
+      "minimum_host_memory_bytes": 15032385536,
+      "minimum_workspace_free_bytes": 21474836480,
+      "open_files_max": 1048576,
+      "tasks_max": 32768
+    },
+    "observed_host": {
+      "architecture": "x86_64",
+      "effective_cpus": 4.0,
+      "memory_bytes": 16760340480,
+      "memory_high_bytes": 15922323456,
+      "memory_max_bytes": 16425133670,
+      "workspace_free_bytes": 115727814656
+    },
+    "runner": {
+      "architecture": "x86_64",
+      "label": "ubuntu-24.04",
+      "provider": "github-hosted"
+    },
+    "sha256": "94fcd7906a1b6c076c0036d742e1c5add8625e49bb474818ec8924576dbf0caa",
+    "trusted_tools": {
+      "bwrap_source_tag": "v0.12.0",
+      "toolchain_floor": "v4.35.0-rc2"
+    }
+  },
+  "warnings": [],
+  "workflow_url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42493140220",
+  "execution_profile": "palomar-standard-v1"
+}
