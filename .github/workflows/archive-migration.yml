@@ -1,0 +1,30 @@
+name: Singleton C4-square criterion module migration
+on:
+  push:
+    branches: [palomar/singleton-migration-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [singleton]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Fetch immutable public archive and prepare selected closure
+        run: python3 prepare_archive.py --project ${{ matrix.project }}
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: archive-project
+          build: true
+          use-mathlib-cache: true
+      - name: Audit selected theorem axioms
+        working-directory: archive-project
+        run: |
+          set -o pipefail
+          lake env lean AuditSelected.lean | tee axioms.log
+          if grep -q 'sorryAx' axioms.log; then exit 1; fi
