@@ -97,7 +97,7 @@ for m in sources:
 modules={m:m for m in sources}
 def keep_span_names(m,keep):
     return {key(graph[n]) for n in keep if n in graph and graph[n]['module']==m and key(graph[n])}
-def skeleton(m,keep,extra_imports=(),stub=None):
+def skeleton(m,keep,extra_imports=(),stub=None,rename_target=None):
     data=sources[m];edits=[];wanted=keep_span_names(m,keep)
     for d in decls[m]:
         k=(m,d['declStart']['offset'],d['declEnd']['offset'])
@@ -111,6 +111,20 @@ def skeleton(m,keep,extra_imports=(),stub=None):
             da=d['docstring']['start']['offset']-a;db=d['docstring']['end']['offset']-a
             header=header[:da]+header[db:]
         edits.append((a,b,b'-- P2M_TARGET_BEGIN\n'+header+b':= by sorry\n-- P2M_TARGET_END\n'))
+    if rename_target:
+        d=joined[rename_target]
+        refs=[r for r in oracles[m] if r['kind']=='ref' and r['const']==rename_target and d['declStart']['offset']<=r['start']['offset']<d['declEnd']['offset']]
+        binding=[r for r in refs if r['end']['offset']<=d['valStart']['offset']]
+        if len(binding)!=1:raise ValueError('Expected one elaborator binding range: '+rename_target)
+        temp='p2m_local_'+rename_target.rsplit('.',1)[-1]
+        fully_qualified=rename_target.rsplit('.',1)[0]+'.'+temp if '.' in rename_target else temp
+        for ref in refs:
+            a=ref['start']['offset'];b=ref['end']['offset']
+            if ref is binding[0]:
+                original=data[a:b].decode()
+                replacement=original.rsplit('.',1)[0]+'.'+temp if '.' in original else temp
+            else:replacement='_root_.'+fully_qualified
+            edits.append((a,b,replacement.encode()))
     for a,b,value in sorted(edits,reverse=True):data=data[:a]+value+data[b:]
     lines=data.decode('utf-8-sig').splitlines()
     rewritten=[]
@@ -167,7 +181,8 @@ for n in sorted(nodes):
     formal, tail=rest.split('-- P2M_TARGET_END\n',1)
     formal_statement=formal+tail
     stub=preamble+formal_statement
-    solution=skeleton(m,needed|{n},imports)+'\ntheorem solution := @'+n+'\n'
+    temporary=n.rsplit('.',1)[0]+'.p2m_local_'+n.rsplit('.',1)[-1] if '.' in n else 'p2m_local_'+n
+    solution=skeleton(m,needed|{n},imports,rename_target=n)+'\ntheorem solution : _ := @_root_.'+temporary+'\n'
     target='Theorems/Thm_'+slug+'.lean';proof='Solutions/Sol_'+slug+'.lean'
     (dest/target).write_text(stub);(dest/proof).write_text(solution)
     plan['theorems'].append({'name':n,'module':m,'target':target,'solution':proof,'preamble':preamble,'formal_statement':formal_statement,'children':sorted(child),'source_path':next(r['source_path'] for r in receipt['modules'] if r['module']==m),'start_line':joined[n]['declStart']['line'],'end_line':joined[n]['declEnd']['line']})

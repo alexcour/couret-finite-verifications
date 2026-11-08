@@ -19,7 +19,7 @@ def run(root,command,name):
         try:return subprocess.run(command,cwd=root,stdout=f,stderr=subprocess.STDOUT,timeout=1200).returncode
         except subprocess.TimeoutExpired:f.write('\nTIMEOUT\n');return 124
 def type_script(imports,names,filename):
-    return '\n'.join('import '+m for m in sorted(set(imports)))+'''\nopen Lean\nrun_meta do\n  let names : List Name := ['''+', '.join('`'+n for n in names)+''']\n  let entries ← names.mapM fun n => do\n    let ci ← getConstInfo n\n    pure (n.toString, Json.str (repr ci.type).pretty)\n  IO.FS.writeFile "'''+filename+'''" (Json.mkObj entries).compress\n'''
+    return 'import Lean\n'+'\n'.join('import '+m for m in sorted(set(imports)))+'''\nopen Lean\npartial def canonicalBinders : Expr → Expr\n  | .forallE _ t b bi => .forallE .anonymous (canonicalBinders t) (canonicalBinders b) bi\n  | .lam _ t b bi => .lam .anonymous (canonicalBinders t) (canonicalBinders b) bi\n  | .letE _ t v b nondep => .letE .anonymous (canonicalBinders t) (canonicalBinders v) (canonicalBinders b) nondep\n  | .app f a => .app (canonicalBinders f) (canonicalBinders a)\n  | .mdata _ e => canonicalBinders e\n  | .proj n i e => .proj n i (canonicalBinders e)\n  | e => e\nrun_meta do\n  let names : List Name := ['''+', '.join('`'+n for n in names)+''']\n  let entries ← names.mapM fun n => do\n    let ci ← getConstInfo n\n    let levels := ci.levelParams.mapIdx fun i _ => Level.param (Name.mkSimple ("u_" ++ toString i))\n    let canonical := canonicalBinders (ci.type.instantiateLevelParams ci.levelParams levels)\n    pure (n.toString, Json.str (repr canonical).pretty)\n  IO.FS.writeFile "'''+filename+'''" (Json.mkObj entries).compress\n'''
 theorems=plan['theorems']
 names=[t['name'] for t in theorems]
 (original/'PrintSourceTypes.lean').write_text(type_script([t['module'] for t in theorems],names,'source-types.json'))
@@ -43,6 +43,8 @@ if source_exit==0 and staged_exit==0:
     b=json.loads((generated/'staged-types.json').read_text())
     differences=[n for n in names if a.get(n)!=b.get(n)]
 else:differences=names
+for root,name in [(original,'source-types.json'),(generated,'staged-types.json')]:
+    if (root/name).exists():shutil.copyfile(root/name,out/name)
 result={'source_types_exit':source_exit,'staged_types_exit':staged_exit,'type_differences':differences,'builds':checks,'unresolved_nodes':plan['unresolved_nodes']}
 result['status']='PASS' if not differences and source_exit==0 and staged_exit==0 and all(c==0 for c in checks.values()) and not plan['unresolved_nodes'] else 'FAIL'
 (out/'platform-validation.json').write_text(json.dumps(result,indent=2))
