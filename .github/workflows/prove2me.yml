@@ -1,0 +1,33 @@
+name: Prove2Me corpus compatibility and declaration evidence
+on:
+  push:
+    branches: [prove2me/corpus-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        group: [recoh, four-point, singleton, singleton-boundary, sum-autocorr, catalogue-equivalence, fibres, cubic, bc-minimality, bc-saturation, decision, cayley, g30]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Install official Lean toolchain manager
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile source modules and extract elaborated declarations
+        run: python remote_prepare.py '${{ matrix.group }}'
+      - name: Preserve source bytes, build logs, axiom receipts and Lean oracle
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-${{ matrix.group }}
+          path: evidence/
+          retention-days: 30
+          if-no-files-found: error
