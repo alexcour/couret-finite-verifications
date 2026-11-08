@@ -1,8 +1,8 @@
 {
   "version": "v0.4",
   "project": {
-    "name": "Three-point ordered convolution-square classification",
-    "description": "For three-element finite supports S and T in any abelian group, equality of all labelled coefficients of their ordered additive convolution squares is equivalent to a translation by an element annihilated by doubling, or to the explicit exceptional paired shape in the statement. Diagonal pairs are included. The full proof development is contained in this snapshot. This is an adaptation of an existing public Couret formalization; mathematical novelty and independent human review are not established.",
+    "name": "Two fixed cubic coefficients distinguish a cyclic four-point square fibre",
+    "description": "For a four-point support in Z/nZ with n positive and its full labelled ordered square supplied, at most two fixed labelled coefficients of the ordered cube separate the complete four-point square fibre. Coefficient responses are exact integer values embedded in the reals; they are not binary answers. No query lower bound or runtime claim is asserted.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -16,33 +16,32 @@
       "math.CO"
     ],
     "msc2020": [
-      "11B75"
+      "05A15"
     ]
   },
   "sources": [
     {
-      "title": "STROBO-2TORS: ordered-square classification of three-element finite supports",
+      "title": "Couret archived Lean sources, Zenodo 23983731",
       "authors": [
         "Alexandre Couret"
       ],
-      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+      "id": "https://zenodo.org/records/23983731",
+      "location": "https://zenodo.org/records/23983731",
       "type": "formalization",
       "relationship": "adapts",
-      "license": "MIT",
-      "note": "Immutable public source theorem Couret.STROBO2TORS.orderedSquare_classification_iff. The complete proof file is copied here, with module-system visibility, imports and a renamed implementation namespace. This source reference makes no claim to a complete literature review.",
-      "author_endorsement": "participated"
+      "author_endorsement": "participated",
+      "note": "The original archive grants no blanket new licence. The copyright holder expressly authorized MIT for these new adaptations on 2026-11-08. See SOURCE_PROVENANCE.json for exact files and archive SHA256; third-party notices retain their original scope."
     }
   ],
   "related_formalizations": [
     {
-      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+      "id": "https://zenodo.org/records/23983731",
       "relationship": "adapts",
-      "note": "Original public Lean 4.29.1 source; the present snapshot is migrated for the current module system."
+      "note": "Prior archived source; mathematical novelty is not established."
     }
   ],
   "status": {
-    "scope": "The single compared theorem is the cardinality-three ordered-square classification. Four explicit definitions are compared as well. The implementation includes the full source proof, not an assumed classification hypothesis. No statement about four-point supports, reconstruction cost, RH, Hilbert-Polya, BSD, P versus NP, or topological universality is submitted. The only intentional hole is in Challenge.lean. Current-toolchain mechanical verification is being attempted; no success is claimed by this metadata.",
+    "scope": "For a four-point support in Z/nZ with n positive and its full labelled ordered square supplied, at most two fixed labelled coefficients of the ordered cube separate the complete four-point square fibre. Coefficient responses are exact integer values embedded in the reals; they are not binary answers. No query lower bound or runtime claim is asserted. Challenge contains intentional theorem holes; Solution and imported proof modules contain no admitted theorem. Compilation and Comparator statuses must be read separately.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -53,13 +52,13 @@
         "method": "other",
         "models": [],
         "framework": "Historical AI-assisted Couret formalization",
-        "tool_setup": "The immutable source belongs to the AI-assisted Couret programme. Exact historical model identifiers and prompts are not preserved in this public source; they are not inferred here.",
+        "tool_setup": "The existing public proof sources are AI-assisted. Exact historical models and prompts are not reconstructed.",
         "cost": {
           "wall_time": "not tracked",
           "spend_usd": "not tracked",
           "hardware": "not recorded"
         },
-        "prompting_notes": "Historical prompts are not available in the submitted source snapshot."
+        "prompting_notes": "Historical prompts not preserved in the cited source snapshot."
       },
       {
         "method": "agent",
@@ -67,37 +66,36 @@
           "GPT-6"
         ],
         "framework": "ChatGPT Codex",
-        "tool_setup": "Module-system migration, independent Challenge/Solution packaging, explicit dependency pins, metadata and pinned Palomar mechanical-preflight workflow. Lean tactics in the proof include abel, omega, simp and aesop. No native_decide is used in this proof.",
+        "tool_setup": "Module-system migration, independent Challenge and Solution, pinned Lean/Mathlib and GitHub compilation. No theorem added as an axiom.",
         "cost": {
           "wall_time": "not tracked",
           "spend_usd": "subscription-based",
-          "hardware": "ChatGPT workspace and GitHub-hosted CI"
+          "hardware": "ChatGPT workspace and GitHub CI"
         },
-        "prompting_notes": "The author requested a public catalogue of the authorized Lean corpus and separate verified Palomar candidates, preserving open and conditional status."
+        "prompting_notes": "The author requested preparation of the authorized Lean corpus for Palomar while preserving the exact hypotheses and verification status."
       }
     ],
     "spend_usd": "not tracked",
-    "notes": "Alexandre Couret is the author and maintainer. Packaging is AI-assisted. No independent human mathematical review, originality assessment or journal endorsement is claimed."
+    "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "The public source theorem and all its exceptional torsion hypotheses are retained. Implementation namespace Couret.STROBO2TORS is renamed Couret.Proof. Imports and visibility are adapted to the module system; public definitions are exposed. The advertised namespace is Couret.Palomar. A full current-toolchain comparison is pending. The orderedSquare_three proof uses explicit sum_insert/sum_singleton expansion to avoid a changed simp normalization in Mathlib 4.35; its statement is unchanged."
+    "divergences": "Explicit independent Challenge statements and definitions preserve the displayed mathematical hypotheses. Module headers, visibility and documented proof adjustments migrate archived source to the pinned toolchain. Original archival comments about historical compilation are retained as historical text. This snapshot has not yet completed its package build."
   },
   "review": {
     "status": "self-assessed; no independent human review",
     "reviewers": [],
-    "notes": "The informal interpretation and the definitions have been inspected during AI-assisted packaging. The pinned full Palomar mechanical workflow must pass before intake. Prior-art completeness and research interest remain for assessment; no Palomar registration has been made."
+    "notes": "This package build and official Comparator verification are pending. No Palomar registration is claimed."
   },
   "alignment": {
-    "namespace": "Couret.Palomar",
+    "namespace": "Couret.PalomarCubic",
     "statements": [
       {
-        "source": "Couret.STROBO2TORS.orderedSquare_classification_iff at the cited immutable source",
-        "lean": "Couret.Palomar.classification",
+        "source": "Couret.InterIA.Cubic.cyclic_four_two_cubic_probes",
+        "lean": "Couret.PalomarCubic.two_cubic_coordinates",
         "module": "Solution",
-        "status": "adapted; current-toolchain check pending",
-        "note": "The theorem has S.card = 3 and T.card = 3 and compares the full labelled ordered-square functions, including diagonal terms. The exceptional case is explicit rather than bundled as an unproved assumption."
+        "status": "adapted; package verification pending"
       }
     ]
   },
-  "acknowledgements": "Lean and Mathlib contributors; use of these libraries does not imply endorsement."
+  "acknowledgements": "Lean and Mathlib contributors. Library use does not imply endorsement."
 }

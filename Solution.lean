@@ -1,44 +1,38 @@
 module
 
 public import Mathlib
-public import CouretProof
+public import CubicWitness8
 
 @[expose] public section
 
 set_option autoImplicit false
+namespace Couret.PalomarCubic
+open Finset
 
-namespace Couret.Palomar
+def orderedSquare {G : Type*} [AddCommGroup G] [DecidableEq G]
+    (S : Finset G) (z : G) : ℕ :=
+  ∑ a ∈ S, ∑ b ∈ S, if a+b=z then 1 else 0
 
-variable {G : Type*} [AddCommGroup G] [DecidableEq G]
+def orderedCube {G : Type*} [AddCommGroup G] [DecidableEq G]
+    (S : Finset G) (z : G) : ℕ :=
+  ∑ x ∈ S, orderedSquare S (z-x)
 
-/-- Ordered additive autoconvolution, counting diagonal pairs as well. -/
-def orderedSquare (S : Finset G) (z : G) : ℕ :=
-  S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
+noncomputable def realCube {G : Type*} [AddCommGroup G] [DecidableEq G]
+    (S : Finset G) : G → ℝ := fun z => (orderedCube S z : ℝ)
 
-/-- Translation of a finite support. -/
-def translateSupport (S : Finset G) (u : G) : Finset G :=
-  S.image (fun x => x + u)
+def cyclicFourFibre (n : ℕ) (S : Finset (ZMod n)) : Set (Finset (ZMod n)) :=
+  {T | T.card=4 ∧ ∀ z, orderedSquare S z=orderedSquare T z}
 
-/-- Translation by an element annihilated by doubling. -/
-def OrdinaryPartner (S T : Finset G) : Prop :=
-  ∃ u : G, u + u = 0 ∧ T = translateSupport S u
+def Separates {α ι : Type*} (q : α → ι → ℝ) (F : Set α) (Q : Finset ι) : Prop :=
+  ∀ A ∈ F, ∀ B ∈ F, (∀ z ∈ Q, q A z=q B z) → A=B
 
-/-- Explicit exceptional paired shape; all torsion conditions are retained. -/
-def ExceptionalPartner (S T : Finset G) : Prop :=
-  ∃ a b d u : G, d + d = 0 ∧ d ≠ 0 ∧ a + a ≠ b + b ∧ u + u = 0 ∧
-    ((((b - a) + (b - a)) + (b - a) = 0) ∨
-      (((b - a) + (b - a)) + (b - a) = d)) ∧
-    S = {a, b, b + d} ∧
-    T = translateSupport ({a, b + b - a, (b + b - a) + d} : Finset G) u
+/-- At most two fixed labelled coefficients of the ordered cube distinguish
+all four-point supports with the supplied full ordered square.
+Each response is an exact integer coefficient, not a binary answer. -/
+theorem two_cubic_coordinates (n : ℕ) (hn : 0<n)
+    (S : Finset (ZMod n)) (hS : S.card=4) :
+    ∃ Q : Finset (ZMod n), Q.card≤2 ∧
+      Separates realCube (cyclicFourFibre n S) Q := by
+  exact Couret.InterIA.Cubic.cyclic_four_two_cubic_probes n hn S hS
 
-/-- Classification of equal ordered squares of three-point supports.
-The hypotheses and the exceptional torsion shape are explicit. No novelty claim is made. -/
-theorem classification (S T : Finset G) (hS : S.card = 3) (hT : T.card = 3) :
-    (∀ z : G, orderedSquare S z = orderedSquare T z) ↔
-      OrdinaryPartner S T ∨ ExceptionalPartner S T := by
-  exact Couret.Proof.orderedSquare_classification_iff S T hS hT
-
-end Couret.Palomar
-
-
-#print axioms Couret.Palomar.classification
+end Couret.PalomarCubic

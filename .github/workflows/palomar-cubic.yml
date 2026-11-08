@@ -1,0 +1,22 @@
+name: Two fixed cubic coefficients distinguish a cyclic four-point square fibre
+on:
+  push:
+    branches: [palomar/cubic-package-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          build: true
+          use-mathlib-cache: true
+      - name: Record solution axioms
+        run: |
+          set -o pipefail
+          lake env lean AuditSelected.lean | tee axioms.log
+          if grep -q 'sorryAx' axioms.log; then exit 1; fi

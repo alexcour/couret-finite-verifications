@@ -1,0 +1,19 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Couret.PalomarCubic.two_cubic_coordinates"
+  ],
+  "definition_names": [
+    "Couret.PalomarCubic.orderedSquare",
+    "Couret.PalomarCubic.orderedCube",
+    "Couret.PalomarCubic.realCube",
+    "Couret.PalomarCubic.cyclicFourFibre",
+    "Couret.PalomarCubic.Separates"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
