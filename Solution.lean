@@ -89,3 +89,32 @@ theorem full_T_at_identity : (pairList (0,0) 255).length = 6 := by decide +kerne
 
 end S5
 end Couret
+
+namespace Couret.S5
+
+/-- Standalone coded counterexample; its arithmetic origin is proved below. -/
+def counterexampleCodes : Word Code30 :=
+  .snoc (.snoc (.snoc (.snoc (.snoc .empty (0,1)) (0,1)) (0,1)) (1,0)) (1,1)
+
+theorem codes_of_five_primes : fivePrimes.map encode30=counterexampleCodes := rfl
+
+theorem threshold_six :
+    ∀ w : Word Code30, 6 ≤ length w → ∀ u,
+      fullSupport mod30Product w u ↔ properSupport mod30Product w u := by
+  exact six_threshold_optimal.1
+
+theorem five_letter_counterexample :
+    length counterexampleCodes=5 ∧
+      (∀ u, fullSupport mod30Product counterexampleCodes u) ∧
+      ¬ properSupport mod30Product counterexampleCodes (0,0) := by
+  have he : fivePrimes.map encode30=counterexampleCodes := rfl
+  refine ⟨rfl, ?_, ?_⟩
+  · simpa only [he] using five_full_support
+  · simpa only [he] using five_missing_identity
+
+theorem arithmetic_witness :
+    fivePrimes.primeFactors ∧ total natProduct fivePrimes=64141 ∧
+      length fivePrimes=5 := by
+  exact ⟨five_primeFactors, five_product, five_length⟩
+
+end Couret.S5

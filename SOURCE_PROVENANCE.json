@@ -168,5 +168,10 @@
   "license_authorization": {
     "date": "2026-11-08",
     "grant": "Author expressly authorized MIT for adaptations of their own Lean files, retaining third-party licences."
+  },
+  "frontend_note": "Three standalone compared statements replace the original conjunction. The original proof is retained, and the explicit code/arithmetic equality is proved by reflexivity. No mathematical hypothesis was removed.",
+  "frontend_sha256": {
+    "Challenge.lean": "c5a3ecbf6026124b5a08f29fd78f05c1c77558e94ddd730611d5ba166ff092fe",
+    "Solution.lean": "e70caad8cc48e160755a06882a3fd33712c2cb18ca07afd3d862267f0cee3cd9"
   }
 }

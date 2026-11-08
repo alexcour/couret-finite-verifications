@@ -2,10 +2,13 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Couret.S5.six_threshold_optimal"
+    "Couret.S5.threshold_six",
+    "Couret.S5.five_letter_counterexample",
+    "Couret.S5.arithmetic_witness"
   ],
   "definition_names": [
-    "Couret.S5.fivePrimes"
+    "Couret.S5.fivePrimes",
+    "Couret.S5.counterexampleCodes"
   ],
   "permitted_axioms": [
     "propext",

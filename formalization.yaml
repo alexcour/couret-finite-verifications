@@ -2,7 +2,7 @@
   "version": "v0.4",
   "project": {
     "name": "Sharp six-letter saturation threshold modulo 30",
-    "description": "For words in the unit-residue code modulo 30, six or more letters make full and proper subsequence-product supports coincide. The five-prime word 7,7,7,11,17, of product 64141, witnesses failure at length five. This is a finite-group combinatorial support theorem, with no general integer factorization algorithm or prime distribution claim.",
+    "description": "For words in the unit-residue code modulo 30, six or more letters make full and proper subsequence-product supports coincide. The explicit five-letter code word (0,1),(0,1),(0,1),(1,0),(1,1) has full support but misses the identity in proper support. A separate checked arithmetic witness is the prime word 7,7,7,11,17, of product 64141; Solution proves that encoding this arithmetic word gives the displayed code word. These are finite-group support statements, with no general integer-factorization or prime-distribution claim.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -41,7 +41,7 @@
     }
   ],
   "status": {
-    "scope": "For words in the unit-residue code modulo 30, six or more letters make full and proper subsequence-product supports coincide. The five-prime word 7,7,7,11,17, of product 64141, witnesses failure at length five. This is a finite-group combinatorial support theorem, with no general integer factorization algorithm or prime distribution claim. Challenge contains intentional theorem holes; Solution and imported proof modules contain no admitted theorem. Compilation and Comparator statuses must be read separately.",
+    "scope": "For words in the unit-residue code modulo 30, six or more letters make full and proper subsequence-product supports coincide. The explicit five-letter code word (0,1),(0,1),(0,1),(1,0),(1,1) has full support but misses the identity in proper support. A separate checked arithmetic witness is the prime word 7,7,7,11,17, of product 64141; Solution proves that encoding this arithmetic word gives the displayed code word. These are finite-group support statements, with no general integer-factorization or prime-distribution claim. Three theorem statements and the two explicit words are compared. The encoding-equality bridge is also proved in Solution. Challenge imports only Std and contains the full support semantics directly.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -79,7 +79,7 @@
     "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "Explicit independent Challenge statements and definitions preserve the displayed mathematical hypotheses. Module headers, visibility and documented proof adjustments migrate archived source to the pinned toolchain. Original archival comments about historical compilation are retained as historical text. This snapshot has not yet completed its package build."
+    "divergences": "The archived conjunction is restated as the universal six-letter threshold, an explicit five-code counterexample, and its prime arithmetic witness. Solution additionally proves equality of the encoded arithmetic word with the code word. The canonical Challenge does not copy the historical rawCode30 matcher."
   },
   "review": {
     "status": "self-assessed; no independent human review",
@@ -90,10 +90,22 @@
     "namespace": "Couret.S5",
     "statements": [
       {
-        "source": "Couret.S5.six_threshold_optimal",
-        "lean": "Couret.S5.six_threshold_optimal",
+        "source": "Couret.S5.six_threshold_optimal and its explicit five-prime witness",
+        "lean": "Couret.S5.threshold_six",
         "module": "Solution",
-        "status": "adapted; package verification pending"
+        "status": "adapted; current immutable package verification pending"
+      },
+      {
+        "source": "Couret.S5.six_threshold_optimal and its explicit five-prime witness",
+        "lean": "Couret.S5.five_letter_counterexample",
+        "module": "Solution",
+        "status": "adapted; current immutable package verification pending"
+      },
+      {
+        "source": "Couret.S5.six_threshold_optimal and its explicit five-prime witness",
+        "lean": "Couret.S5.arithmetic_witness",
+        "module": "Solution",
+        "status": "adapted; current immutable package verification pending"
       }
     ]
   },

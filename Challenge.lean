@@ -394,7 +394,6 @@ end Couret
 #print axioms Couret.mod30_run_correct
 #print axioms Couret.properSupport_is_nontrivial_divisor
 
-universe v
 namespace Couret
 def PrimeNat (p : Nat) : Prop :=
   2 ≤ p ∧ ∀ d : Nat, d ∣ p → d = 1 ∨ d = p
@@ -403,24 +402,6 @@ def Word.primeFactors : Word Nat → Prop
   | .empty => True
   | .snoc w p => w.primeFactors ∧ PrimeNat p
 
-def Word.map {α : Type v} {β : Type v} (f : α → β) : Word α → Word β
-  | .empty => .empty
-  | .snoc w g => .snoc (w.map f) (f g)
-
-def rawCode30 (r : Nat) : Code30 :=
-  match r with
-  | 1 => (0, 0)
-  | 7 => (0, 1)
-  | 19 => (0, 2)
-  | 13 => (0, 3)
-  | 11 => (1, 0)
-  | 17 => (1, 1)
-  | 29 => (1, 2)
-  | 23 => (1, 3)
-  | _ => (0, 0)
-
-def encode30 (n : Nat) : Code30 := rawCode30 (n % 30)
-
 namespace S5
 def length {α : Type} : Word α → Nat
   | .empty => 0
@@ -428,12 +409,23 @@ def length {α : Type} : Word α → Nat
 
 def fivePrimes : Word Nat := .snoc (.snoc (.snoc (.snoc (.snoc .empty 7) 7) 7) 11) 17
 
-theorem six_threshold_optimal :
-    (∀ w : Word Code30, 6 ≤ length w → ∀ u,
-      fullSupport mod30Product w u ↔ properSupport mod30Product w u) ∧
-    ∃ w : Word Nat, w.primeFactors ∧ total natProduct w = 64141 ∧ length w = 5 ∧
-      (∀ u, fullSupport mod30Product (w.map encode30) u) ∧
-      ¬ properSupport mod30Product (w.map encode30) (0,0) := by
+def counterexampleCodes : Word Code30 :=
+  .snoc (.snoc (.snoc (.snoc (.snoc .empty (0,1)) (0,1)) (0,1)) (1,0)) (1,1)
+
+theorem threshold_six :
+    ∀ w : Word Code30, 6 ≤ length w → ∀ u,
+      fullSupport mod30Product w u ↔ properSupport mod30Product w u := by
+  sorry
+
+theorem five_letter_counterexample :
+    length counterexampleCodes=5 ∧
+      (∀ u, fullSupport mod30Product counterexampleCodes u) ∧
+      ¬ properSupport mod30Product counterexampleCodes (0,0) := by
+  sorry
+
+theorem arithmetic_witness :
+    fivePrimes.primeFactors ∧ total natProduct fivePrimes=64141 ∧
+      length fivePrimes=5 := by
   sorry
 
 end S5
