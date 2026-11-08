@@ -2,13 +2,10 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Couret.Palomar.classification"
+    "Couret.S5.six_threshold_optimal"
   ],
   "definition_names": [
-    "Couret.Palomar.orderedSquare",
-    "Couret.Palomar.translateSupport",
-    "Couret.Palomar.OrdinaryPartner",
-    "Couret.Palomar.ExceptionalPartner"
+    "Couret.S5.fivePrimes"
   ],
   "permitted_axioms": [
     "propext",
@@ -16,4 +13,3 @@
     "Classical.choice"
   ]
 }
-
