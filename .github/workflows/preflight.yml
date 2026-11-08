@@ -1,4 +1,4 @@
-name: Palomar predictive mechanical checks
+name: Palomar corrected BC mechanical checks
 on:
   push:
     branches: [palomar/mechanical-preflight-20261108]
@@ -12,42 +12,14 @@ jobs:
       max-parallel: 4
       matrix:
         include:
-          - name: decision
-            commit: 098752e58b68ec98046fd183417dfb906037b966
-            config: comparator-decision.json
-            request: couretdecisi
-          - name: singleton
-            commit: 9b6ae2df44e49356f2228986bb31bb74591eed04
-            config: comparator-singleton.json
-            request: couretsingle
-          - name: fibres
-            commit: a356215242928d2e85afd24aead95945ae8e5e2e
-            config: comparator-fibres.json
-            request: couretfibres
-          - name: cubic
-            commit: eb5b9e28541146314aad53e7a55458ed28ffb65a
-            config: comparator-cubic.json
-            request: couretcubic1
           - name: bc_saturation
-            commit: 1b4be33734c01838b981aed4c74eca02cb9c0997
+            commit: 21df90808bd9b67e2251b828f38e94a3415beb51
             config: comparator-bc_saturation.json
-            request: couretbcsatu
+            request: coubcsat1108
           - name: bc_minimality
-            commit: 157fe2c4bd44331616b0afe7028af1459d61cb94
+            commit: b9aa8aba691ff031e336209e7265041fd958991e
             config: comparator-bc_minimality.json
-            request: couretbcmini
-          - name: recoh
-            commit: 2c16c4283999ccf5dcba22cc12e98bf56d019764
-            config: comparator-recoh.json
-            request: couretrecoh1
-          - name: cayley
-            commit: 4427850aabc46ef835de2eeb5013c6bd6c36155f
-            config: comparator-cayley.json
-            request: couretcayley
-          - name: g30
-            commit: 3b48ff3cf0525dd11524fe50655f4061a5f99d8e
-            config: comparator-g30.json
-            request: couretg30110
+            request: coubcmin1108
     uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
     with:
       repository: alexcour/couret-finite-verifications
