@@ -44,6 +44,14 @@ for module in sorted(closure):
     if module == "GroupRingBridge": raw = patch_group_ring(raw)
     if module == "MixedAlgebra":
         raw = raw.replace("  change ((1-X h)*X z) z = (0 : ℤ) at hz\n  rw [sub_mul,one_mul,X_mul] at hz\n  change (X z) z-(X (h+z)) z=0 at hz\n  simp [X,AddMonoidAlgebra.single_apply,hn,hn.symm] at hz", "  rw [sub_mul,one_mul,X_mul] at hz\n  simp [X,hn,hn.symm] at hz")
+    if module in ["QuotientResidual", "QuotientPeriods"]:
+        raw = re.sub(r"(\\(residual[^\\n]*\\))\\.sum", r"\\1.coeff.sum", raw)
+    if module == "QuotientResidual":
+        for variable in ["a", "b", "c", "d"]:
+            raw = raw.replace("(A (projection m "+variable+")) z", "(A (projection m "+variable+")).coeff z")
+        raw = raw.replace("AddMonoidAlgebra.single_apply", "AddMonoidAlgebra.coeff_single, Finsupp.single_apply")
+    if module == "QuotientBridge":
+        raw = raw.replace("exact AddMonoidAlgebra.single_apply", "exact Finsupp.single_apply")
     lines = raw.splitlines()
     last_import = max(i for i,l in enumerate(lines) if l.startswith("import "))
     converted = ["public "+line if line.startswith("import ") else line for line in lines]
