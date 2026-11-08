@@ -1,0 +1,47 @@
+[
+  {
+    "name": "decision",
+    "commit": "098752e58b68ec98046fd183417dfb906037b966",
+    "config": "comparator-decision.json"
+  },
+  {
+    "name": "singleton",
+    "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
+    "config": "comparator-singleton.json"
+  },
+  {
+    "name": "fibres",
+    "commit": "a356215242928d2e85afd24aead95945ae8e5e2e",
+    "config": "comparator-fibres.json"
+  },
+  {
+    "name": "cubic",
+    "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
+    "config": "comparator-cubic.json"
+  },
+  {
+    "name": "bc_saturation",
+    "commit": "1b4be33734c01838b981aed4c74eca02cb9c0997",
+    "config": "comparator-bc_saturation.json"
+  },
+  {
+    "name": "bc_minimality",
+    "commit": "157fe2c4bd44331616b0afe7028af1459d61cb94",
+    "config": "comparator-bc_minimality.json"
+  },
+  {
+    "name": "recoh",
+    "commit": "2c16c4283999ccf5dcba22cc12e98bf56d019764",
+    "config": "comparator-recoh.json"
+  },
+  {
+    "name": "cayley",
+    "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
+    "config": "comparator-cayley.json"
+  },
+  {
+    "name": "g30",
+    "commit": "3b48ff3cf0525dd11524fe50655f4061a5f99d8e",
+    "config": "comparator-g30.json"
+  }
+]
