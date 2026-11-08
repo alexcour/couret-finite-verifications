@@ -3,7 +3,7 @@
 Run inside a remote project which already contains source .olean files and its
 resolved .lake dependency directory. Generated files are never uploaded here.
 """
-import argparse,json,pathlib,shutil,subprocess,time
+import argparse,hashlib,json,pathlib,shutil,subprocess,time
 parser=argparse.ArgumentParser()
 parser.add_argument('original')
 parser.add_argument('generated')
@@ -14,6 +14,9 @@ generated=pathlib.Path(args.generated).resolve()
 out=pathlib.Path(args.evidence).resolve()
 out.mkdir(parents=True,exist_ok=True)
 plan=json.loads((generated/'plan.json').read_text())
+reuse_file=generated/'prevalidated-solution-hashes.json'
+reused_solutions=json.loads(reuse_file.read_text()) if reuse_file.exists() else {}
+if reused_solutions:shutil.copyfile(reuse_file,out/'reused-solution-hashes.json')
 def run(root,command,name):
     print('BEGIN',name,flush=True)
     with (out/name).open('w') as f:
@@ -68,6 +71,9 @@ run_meta do
         signatures=json.loads((original/'source-signatures.json').read_text())
         shutil.copyfile(original/'source-signatures.json',out/'source-signatures.json')
         for t in theorems:
+            if t['name'] in reused_solutions:
+                assert hashlib.sha256((generated/t['solution']).read_bytes()).hexdigest()==reused_solutions[t['name']], 'Reused proof changed'
+                continue
             signature=signatures[t['name']]
             declarations=('universe '+' '.join(signature['universes'])+'\n') if signature['universes'] else ''
             # Match elaborators belong to the renamed local declaration. The

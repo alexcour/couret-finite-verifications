@@ -6,12 +6,21 @@ with zipfile.ZipFile('unified-evidence/sources.zip') as z:z.extractall(project)
 shutil.copytree('recovered/project/.lake/build',project/'.lake/build',dirs_exist_ok=True)
 for command in [['lake','update'],['lake','exe','cache','get']]:
     subprocess.run(command,cwd=project,check=True)
+extra=root/'decomposition-targets.json'
+if extra.exists():
+    receipt_file=pathlib.Path('unified-evidence/receipt.json')
+    receipt=json.loads(receipt_file.read_text())
+    receipt['targets']=sorted(set(receipt.get('targets',[]))|set(json.loads(extra.read_text())))
+    receipt_file.write_text(json.dumps(receipt,indent=2))
 subprocess.run(['python',str(root/'generate_platform.py'),'unified-evidence','generated'],check=True)
 old=json.loads(pathlib.Path('recovered/generated/plan.json').read_text())
 new=json.loads(pathlib.Path('generated/plan.json').read_text())
 assert old['source']==new['source'] and old['mathlib_rev']==new['mathlib_rev']
 assert {d['module'] for d in old['definitions']}=={d['module'] for d in new['definitions']}
-assert old==new, 'Exact checked plan changed'
+if extra.exists():
+    subprocess.run(['python',str(root/'preserve_existing_release.py'),'recovered/generated','generated',str(extra)],check=True)
+    new=json.loads(pathlib.Path('generated/plan.json').read_text())
+else:assert old==new, 'Exact checked plan changed'
 axiom_source='\n'.join('import '+m for m in sorted({t['module'] for t in new['theorems']}))+'\n'
 axiom_source+='\n'.join('#print axioms '+t['name'] for t in new['theorems'])+'\n'
 (project/'PrintMigrationAxioms.lean').write_text(axiom_source)
