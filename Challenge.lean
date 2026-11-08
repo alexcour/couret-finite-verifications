@@ -1,6 +1,6 @@
 module
 
-public import Mathlib
+public import Std
 
 @[expose] public section
 
