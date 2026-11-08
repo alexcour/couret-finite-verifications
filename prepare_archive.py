@@ -1,8 +1,8 @@
 import argparse, hashlib, json, pathlib, re, urllib.request, zipfile, io
 parser = argparse.ArgumentParser()
-parser.add_argument("--project", required=True, choices=["cubic", "fibres", "bc_saturation", "bc_minimality"])
+parser.add_argument("--project", required=True, choices=["cubic", "fibres", "bc_saturation", "bc_minimality", "decision"])
 args = parser.parse_args()
-spec = {"cubic": (23983731, "formal/lean", "CubicWitness8", "Couret.InterIA.Cubic.cyclic_four_two_cubic_probes"), "fibres": (23981750, "fibres/lean", "OptimalReconstruction", "Couret.InterIA.Fibres.cyclic_four_optimal_reconstruction"), "bc_saturation": (23989640, "source/S5", "FivePairSemantics", "Couret.S5.six_threshold_optimal"), "bc_minimality": (23989640, "source/S4", "CertificateProofs", "Couret.Certificate.minimal_101_states")}[args.project]
+spec = {"cubic": (23983731, "formal/lean", "CubicWitness8", "Couret.InterIA.Cubic.cyclic_four_two_cubic_probes"), "fibres": (23981750, "fibres/lean", "OptimalReconstruction", "Couret.InterIA.Fibres.cyclic_four_optimal_reconstruction"), "bc_saturation": (23989640, "source/S5", "FivePairSemantics", "Couret.S5.six_threshold_optimal"), "bc_minimality": (23989640, "source/S4", "CertificateProofs", "Couret.Certificate.minimal_101_states"), "decision": (23981308, "studies/query_cost", "DecisionInterface", "Couret.DecisionInterface.factorization_on_image_iff")}[args.project]
 record, prefix, root_module, theorem = spec
 manifest = json.loads(pathlib.Path("archives.json").read_text())
 archive = next(a for a in manifest if a["record"] == record)
@@ -42,6 +42,8 @@ for module in sorted(closure):
     name, raw = sources[module]
     original_raw = raw
     if module == "GroupRingBridge": raw = patch_group_ring(raw)
+    if module == "MixedAlgebra":
+        raw = raw.replace("  change ((1-X h)*X z) z = (0 : ℤ) at hz\n  rw [sub_mul,one_mul,X_mul] at hz\n  change (X z) z-(X (h+z)) z=0 at hz\n  simp [X,AddMonoidAlgebra.single_apply,hn,hn.symm] at hz", "  rw [sub_mul,one_mul,X_mul] at hz\n  simp [X,hn,hn.symm] at hz")
     lines = raw.splitlines()
     last_import = max(i for i,l in enumerate(lines) if l.startswith("import "))
     converted = ["public "+line if line.startswith("import ") else line for line in lines]
