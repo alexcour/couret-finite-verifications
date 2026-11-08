@@ -45,7 +45,8 @@ for module in sorted(closure):
     if module == "MixedAlgebra":
         raw = raw.replace("  change ((1-X h)*X z) z = (0 : ℤ) at hz\n  rw [sub_mul,one_mul,X_mul] at hz\n  change (X z) z-(X (h+z)) z=0 at hz\n  simp [X,AddMonoidAlgebra.single_apply,hn,hn.symm] at hz", "  rw [sub_mul,one_mul,X_mul] at hz\n  simp [X,hn,hn.symm] at hz")
     if module in ["QuotientResidual", "QuotientPeriods"]:
-        raw = re.sub(r"(\\(residual[^\\n]*\\))\\.sum", r"\\1.coeff.sum", raw)
+        for expression in ["residual m C a b", "residual m (S ∩ T) a b", "residual m (S ∩ T.image (fun x => x+t)) a b"]:
+            raw = raw.replace("("+expression+").sum", "("+expression+").coeff.sum")
     if module == "QuotientResidual":
         for variable in ["a", "b", "c", "d"]:
             raw = raw.replace("(A (projection m "+variable+")) z", "(A (projection m "+variable+")).coeff z")
