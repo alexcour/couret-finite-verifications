@@ -1,0 +1,40 @@
+name: Prove2Me g30-kernel interface exact migration
+on:
+  push:
+    branches: [prove2me/validate-g30-kernel-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Recover exact source and declaration evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 42495420377 --repo alexcour/couret-finite-verifications --name prove2me-g30 --dir source-evidence
+      - name: Install official Lean toolchain manager
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Check kernel-evaluated finite G30 proofs
+        run: python validate_g30.py
+      - name: Preserve generated migration and exact-type comparison
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-g30-kernel-generated
+          path: |
+            source-evidence/
+            generated/Definitions/
+            generated/Theorems/
+            generated/Solutions/
+            generated/plan.json
+            generated/axioms.json
+            generated/validation/
+          retention-days: 30
+          if-no-files-found: error
