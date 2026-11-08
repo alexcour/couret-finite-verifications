@@ -1,0 +1,18 @@
+name: Recover exact historical source archive
+on:
+  push:
+    branches: [prove2me/archive-source-receipt-20261108]
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - run: python recover_history_archive.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-history-source-archive
+          path: archive-receipt/
+          retention-days: 30
