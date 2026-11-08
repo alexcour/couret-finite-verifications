@@ -53,6 +53,10 @@ for module in sorted(closure):
         raw = raw.replace("AddMonoidAlgebra.single_apply", "AddMonoidAlgebra.coeff_single, Finsupp.single_apply")
     if module == "QuotientBridge":
         raw = raw.replace("exact AddMonoidAlgebra.single_apply", "exact Finsupp.single_apply")
+    if module == "QuotientOrbits":
+        for variable in ["a", "b", "c", "d"]:
+            raw = raw.replace("(AddMonoidAlgebra.single "+variable+" (1 : ℤ) : AddMonoidAlgebra ℤ G) x", "(AddMonoidAlgebra.single "+variable+" (1 : ℤ) : AddMonoidAlgebra ℤ G).coeff x")
+        raw = raw.replace("AddMonoidAlgebra.single_apply", "AddMonoidAlgebra.coeff_single, Finsupp.single_apply")
     lines = raw.splitlines()
     last_import = max(i for i,l in enumerate(lines) if l.startswith("import "))
     converted = ["public "+line if line.startswith("import ") else line for line in lines]
@@ -61,11 +65,22 @@ for module in sorted(closure):
     assert len(migrated.splitlines()) <= 10000
     (dest/(module+".lean")).write_text(migrated)
     receipt["modules"].append({"module":module, "archive_path":name, "original_sha256":hashlib.sha256(original_raw.encode()).hexdigest(), "migrated_sha256":hashlib.sha256(migrated.encode()).hexdigest()})
+extra_modules = []
+if args.project in ["fibres", "cubic"]:
+    for module in ["Challenge", "Solution"]:
+        (dest/(module+".lean")).write_text(pathlib.Path("frontend", args.project, module+".lean").read_text())
+        extra_modules.append(module)
+    root_module = "Solution"
+    theorem = "Couret.PalomarFour.fibre_cardinality" if args.project == "fibres" else "Couret.PalomarCubic.two_cubic_coordinates"
 lake = 'name = "CouretArchiveMigration"\nversion = "0.0.1"\ndefaultTargets = ["'+root_module+'"]\n\n[[require]]\nname = "mathlib"\ngit = "https://github.com/leanprover-community/mathlib4.git"\nrev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"\n\n'
-lake += "\n".join('[[lean_lib]]\nname = "'+module+'"\n' for module in sorted(closure))
+if extra_modules: lake = lake.replace('defaultTargets = ["Solution"]', 'defaultTargets = ["Challenge", "Solution"]')
+lake += "\n".join('[[lean_lib]]\nname = "'+module+'"\n' for module in sorted(closure) + extra_modules)
 (dest/"lakefile.toml").write_text(lake)
 (dest/"lean-toolchain").write_text("leanprover/lean4:v4.35.0-rc2\n")
 (dest/"lake-manifest.json").write_text(pathlib.Path("lake-manifest.json").read_text())
 (dest/"AuditSelected.lean").write_text("module\n\npublic import "+root_module+"\n\n#print axioms "+theorem+"\n")
+if args.project == "fibres":
+    with (dest/"AuditSelected.lean").open("a") as output:
+        output.write("#print axioms Couret.PalomarFour.fixed_membership_probes\n")
 pathlib.Path("archive-receipt.json").write_text(json.dumps(receipt, indent=2))
 print(json.dumps({"project":args.project, "record":record, "modules":len(closure), "root":root_module, "target_theorem":theorem}), flush=True)
