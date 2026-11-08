@@ -1,0 +1,2014 @@
+{
+  "modules": [
+    {
+      "module": "RecohRankOne",
+      "date": 1792097799,
+      "sha256": "07da71eb8926527921cf51da12d15c9f546c2c883d038fc93b2c3819a8b907be",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohRankOne.lean",
+        "git_blob_sha": "6ea9dcc57e5d4ac8b4d591b8172d507284865658",
+        "snapshots": [
+          "g098"
+        ],
+        "role": "source de développement",
+        "commit": "71d66a9addc72a758b9d02ffad265c35cab94534",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/71d66a9addc72a758b9d02ffad265c35cab94534/research/strobo-2tors-2026-10-12/lean/RecohRankOne.lean",
+        "environments": [
+          "e013"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "Strobo2TorsUnorderedPairs",
+      "date": 1792168183,
+      "sha256": "0a0634b10b5614f2bdf375961002c86d0995bc2a8ad571bab13c0dd8918d2528",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsUnorderedPairs.lean",
+        "git_blob_sha": "93dda81ef94c97577ee05bbdd7a652012956c21a",
+        "snapshots": [
+          "g120"
+        ],
+        "role": "source de développement",
+        "commit": "3fb45e3419d8f464ba08064afe59061c6f6f9189",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/3fb45e3419d8f464ba08064afe59061c6f6f9189/research/strobo-2tors-2026-10-12/lean/Strobo2TorsUnorderedPairs.lean",
+        "environments": [
+          "e029"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "RecohNoisySignRecovery",
+      "date": 1792265550,
+      "sha256": "0b99604778196eef3e1a2e7f4520b571c7f705ced9a9268c1833a15086c9a9a4",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohNoisySignRecovery.lean",
+        "git_blob_sha": "9d6762d70be39bfb1e4289e5351e93bc7fcea051",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohNoisySignRecovery.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "STROBO2Tors",
+      "date": 1791819746,
+      "sha256": "1195cde26255cdfacf54cf95d32e6bea1944cb956ac36432fd6e4edcfc6e3eab",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors.lean",
+        "git_blob_sha": "5808c9d56c99cd52fa53ee4af2dd445f7117f007",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "RecohConditionalBank",
+      "date": 1794001920,
+      "sha256": "139a2f5b1511ebbcff70862427a9c94f347105914d4a3f42f054896624ce9efb",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohConditionalBank.lean",
+        "git_blob_sha": "0e1dff75a7b02016ba96253a03b05b5b5e465005",
+        "snapshots": [
+          "g093"
+        ],
+        "role": "source de développement",
+        "commit": "60f6d03fdb26a2498e9e856b49f93ad590b99409",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohConditionalBank.lean",
+        "environments": [
+          "e004"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohEqualRank",
+      "date": 1792130625,
+      "sha256": "145264824ba6e4556bc833bba9f6993ce5e3f8a2793764e8545cc893e5195340",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohEqualRank.lean",
+        "git_blob_sha": "b8075847af10b042648fffd99c5a75412994c8ab",
+        "snapshots": [
+          "g095"
+        ],
+        "role": "source de développement",
+        "commit": "85df7268e792e69b2e1ad2461dec2af575c43c88",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/85df7268e792e69b2e1ad2461dec2af575c43c88/research/strobo-2tors-2026-10-12/lean/RecohEqualRank.lean",
+        "environments": [
+          "e010"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohProbeStability",
+      "date": 1792265550,
+      "sha256": "1d695a0d84e83ff92491e95ea472df8f9bf1059d52c5525c794d82c7f31a9800",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohProbeStability.lean",
+        "git_blob_sha": "4ee964153e0514d55de7d1074b9bdff7684f2d3c",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohProbeStability.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "BRIDGE01_B2_TCNonzeroChannels",
+      "date": 1791488543,
+      "sha256": "20187ae8758f4e235b891cee0692308db6f35eb2071b8bb573161596e9016dd9",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_B2_TCNonzeroChannels.lean",
+        "git_blob_sha": "5f843b489fafb937602be43ca9d28eda2432d3f0",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_B2_TCNonzeroChannels.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_06_AdversarialCases",
+      "date": 1791488543,
+      "sha256": "20b6292d6d043a85b3229ffe64c504f69f5c21240583c269d077c13cced07471",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_06_AdversarialCases.lean",
+        "git_blob_sha": "45f98127236fb3e03711e6f3ce586e7c49667932",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_06_AdversarialCases.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_04_TypedDependencies",
+      "date": 1791488543,
+      "sha256": "281beb127656947f4f40697a7241993ba3e4cf18764a18bef5cb9ba1952cd375",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_04_TypedDependencies.lean",
+        "git_blob_sha": "3e642bc6e0c13d2241cc4477a5dfb67a9302f608",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_04_TypedDependencies.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_11_FirstAdmittedBridge",
+      "date": 1791528093,
+      "sha256": "284266f3cbb33cc03c3c72d5c8c992c75377417437390531c742adc4c285c8d8",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
+        "git_blob_sha": "7d1815a3854a94ccb20e38bf034b4e6d4dd3a4ea",
+        "snapshots": [
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_02_ClaimContract",
+      "date": 1791488543,
+      "sha256": "2ce737b67669cb763530ea9c85c4f876ca1339f8a5f73803b724ea5cf51fc113",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_02_ClaimContract.lean",
+        "git_blob_sha": "6c6d2dbfa16c8e240a23f1f75f34fe55c2f4eb48",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_02_ClaimContract.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohStableSquareSelection",
+      "date": 1792265550,
+      "sha256": "2f7714eca3c4e8b224d008d7909c95a42c2c459aa1c10a8588b3fe2fc9d9a1c8",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohStableSquareSelection.lean",
+        "git_blob_sha": "f1ff467939e23c47acd9e83e9700353f7fa851c6",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStableSquareSelection.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "Strobo2TorsZeroFreeDeltaCount",
+      "date": 1792220004,
+      "sha256": "302023407fa92aa36bd7bd7c4099764736ee28c1a899b531c3a1166252b8c4b2",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeDeltaCount.lean",
+        "git_blob_sha": "4b76a41d34d75863091f5b92c4801b54fccc5255",
+        "snapshots": [
+          "g107",
+          "g113"
+        ],
+        "role": "source de développement",
+        "commit": "9c61de6daf8df99da6574d627b45941403594956",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c61de6daf8df99da6574d627b45941403594956/research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeDeltaCount.lean",
+        "environments": [
+          "e018",
+          "e022"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "RecohConditionalOrbitBridge",
+      "date": 1794001920,
+      "sha256": "77fd85e465aec792a492c75e9897831873146f28bdd5d5b45cdb4fa78369f8b0",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean",
+        "git_blob_sha": "6a10ee8cb72edda08dd6cdbdf6db393360f949b6",
+        "snapshots": [
+          "g093"
+        ],
+        "role": "source de développement",
+        "commit": "60f6d03fdb26a2498e9e856b49f93ad590b99409",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean",
+        "environments": [
+          "e004"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohOddPowerSelection",
+      "date": 1792265550,
+      "sha256": "4b170d730a51729f5ba927507b15a30bb6589eba29b9066d779b320d2f7bf524",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohOddPowerSelection.lean",
+        "git_blob_sha": "ba9446258bf0fc74526771ed8461852e16875abd",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohOddPowerSelection.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_03_DependencyGraph",
+      "date": 1791488543,
+      "sha256": "4e4de934f82aabd60e1dbb0a688ba35489f034249c2859a3a500801ac79d1b30",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_03_DependencyGraph.lean",
+        "git_blob_sha": "b4ca868bed425914929ab6370ce7d33b1098da6f",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_03_DependencyGraph.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_10_BridgeReceiptMutationSuite",
+      "date": 1791488543,
+      "sha256": "577a41a0270bef14eb9b020e54ed3421c0cf6bb66d2fe6526f3706c1b87392ba",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_10_BridgeReceiptMutationSuite.lean",
+        "git_blob_sha": "e43225b3d718a0da53fe3029f189931bcfb3b658",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_10_BridgeReceiptMutationSuite.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohStabilityReplay",
+      "date": 1792265550,
+      "sha256": "59d6cf8df33342c9f066c67c6fbb09475e683b0c03f06bc6e232176b2e9c5346",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohStabilityReplay.lean",
+        "git_blob_sha": "9a7dccb7841343a9968cf10057435b851da53b27",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStabilityReplay.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohNoisyUniqueness",
+      "date": 1792265550,
+      "sha256": "6052faa2e2efbc2d3e68381058002e13b4872e2433fd587269e83b1de0f67f8c",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohNoisyUniqueness.lean",
+        "git_blob_sha": "15ec38bf4287c551abe6a60644a8a7b1b45ef96a",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohNoisyUniqueness.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_07_RefinedPolicy",
+      "date": 1791488543,
+      "sha256": "614c7160a8c2f4fbe117be5d002aea4a89b078975e4b6fef00171ed27e326e4f",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_07_RefinedPolicy.lean",
+        "git_blob_sha": "1ec6ea87d1e9bc0b16a0a301615aca4e2dae471e",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_07_RefinedPolicy.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohFourierCovarianceBridge",
+      "date": 1794001920,
+      "sha256": "620bdf7b886bd292ce5fc61c0ac3d2d77eeeeea3aa34407de44d4f3ed56befbf",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohFourierCovarianceBridge.lean",
+        "git_blob_sha": "56aa4a031453aea5159fae66fe21b81892cd61b1",
+        "snapshots": [
+          "g093"
+        ],
+        "role": "source de développement",
+        "commit": "60f6d03fdb26a2498e9e856b49f93ad590b99409",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohFourierCovarianceBridge.lean",
+        "environments": [
+          "e004"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_05_MutationSuite",
+      "date": 1791488543,
+      "sha256": "62a8f58f0372313f9ba80d9a0dfb97d452fe508070b154c884b1a452a7b7e23f",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_05_MutationSuite.lean",
+        "git_blob_sha": "4387229e1252943fa4532636d2a28bb1d2bcedec",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_05_MutationSuite.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_13_BridgeRevocation",
+      "date": 1791521857,
+      "sha256": "65bf158abed25be0c2894ee1660e996bc9623ab11c4ad9856096b8e7a976acc4",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_13_BridgeRevocation.lean",
+        "git_blob_sha": "43eeff5632bf5125c135415b9d6e329b5fba64da",
+        "snapshots": [
+          "g063"
+        ],
+        "role": "source de développement",
+        "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_13_BridgeRevocation.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohOddPowerRuntime",
+      "date": 1792265550,
+      "sha256": "68f6c0865f66d96b40c799d0944d0bcb5663a26041e40b6e3ea290ce793e89bf",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohOddPowerRuntime.lean",
+        "git_blob_sha": "4eb9f602b57e3512808ff0c2e0be48a5edb6cd32",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohOddPowerRuntime.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourMatrixNewton",
+      "date": 1792489711,
+      "sha256": "690d7c3068be85de243c61c581f1c06c810bb3d0b94aaacad9a01fbf92387d15",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourMatrixNewton.lean",
+        "git_blob_sha": "89f0c8cc7648229b4e4f437f8bef979f475aa4fb",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourMatrixNewton.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "RecohStableReconstruction",
+      "date": 1792265550,
+      "sha256": "6ba847ab84346711528fad14d2971d71a5bd99f9152b733aa4ad067c05fd8df3",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohStableReconstruction.lean",
+        "git_blob_sha": "b70f58b9593459828b816e6733b3541c9a520f39",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStableReconstruction.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "CayleyNewtonDegreeOne",
+      "date": 1792390911,
+      "sha256": "6dc47834bf10a3b61d9ad6f01e2cadc90fb3c0ae4cddcc29d2073750f4c01997",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyNewtonDegreeOne.lean",
+        "git_blob_sha": "bd587aad109571969d0bafed5509601b2e122f77",
+        "snapshots": [
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "bef25648f750d1b9d7792a883597021665e3ba00",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/bef25648f750d1b9d7792a883597021665e3ba00/research/correspondants_20261013/lean/CayleyNewtonDegreeOne.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_12_FirstBridgeInvalidation",
+      "date": 1791521857,
+      "sha256": "700bbed8c4340ce17b17c6da88859ef43abf40a0fe9ce89c1cb1ac77b02c16cd",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_12_FirstBridgeInvalidation.lean",
+        "git_blob_sha": "0fa65522780ea47799b6ebe1d07ebfda7c4ee088",
+        "snapshots": [
+          "g063"
+        ],
+        "role": "source de développement",
+        "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_12_FirstBridgeInvalidation.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohStablePrecision",
+      "date": 1792265550,
+      "sha256": "75737fd29409c44da0d31022f86d5e77f03903b260a104075e16bef2fff8543d",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohStablePrecision.lean",
+        "git_blob_sha": "08b3b28f7f48632a47891637612962d30f798854",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStablePrecision.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohStableBank",
+      "date": 1792265550,
+      "sha256": "77be62a3e2bd7051471ff8ef5d23213a8670a43f693859dccdf4b62ca2c3d1e7",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohStableBank.lean",
+        "git_blob_sha": "fe6d0480d01dc8b5bec1e17f55fe6b4faad96a1c",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStableBank.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohExceptionalStability",
+      "date": 1792265550,
+      "sha256": "788e929f7e526870f55ea3a771c8f7f5dc647bcd18b0afb61c80f3eaf4f4c947",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohExceptionalStability.lean",
+        "git_blob_sha": "a20aabdcef11890b07fcf74c3d7e2027661eab41",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohExceptionalStability.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohOddPowerAverage",
+      "date": 1792265550,
+      "sha256": "82ee1df9b270ad5f4eb67127defb17a17528059f12fe33954ce8f77aa29140c7",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohOddPowerAverage.lean",
+        "git_blob_sha": "287f28547cdb26d5bb6d7e13e12edada01898270",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohOddPowerAverage.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "Prelude",
+      "date": 1791819746,
+      "sha256": "89fcdc8c9910bcaf6db0f9ef8c7ab2a0a0f7b5e04fda098817c5e55b8bab0dc9",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/Prelude.lean",
+        "git_blob_sha": "db5543e93b91bf3dbc712de9ddb9f941ab2db09c",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/Prelude.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "NORM02_FiniteArithmetic",
+      "date": 1791537119,
+      "sha256": "8a9082ec16916ce79648638644c086bc87becdd9603b3fe3314147ab2c5feab3",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/NORM02_FiniteArithmetic.lean",
+        "git_blob_sha": "bfa5f9a4e4cc2c3efca2051c134c7d1895cc5973",
+        "snapshots": [
+          "g062"
+        ],
+        "role": "source de développement",
+        "commit": "9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5/research/lean/CouretOaiBridge01/NORM02_FiniteArithmetic.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RectangleMatching",
+      "date": 1791819746,
+      "sha256": "9046a87f21f5540b482541a6018e31546f63602657c5edea54bbe0e5bd4e59cb",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/RectangleMatching.lean",
+        "git_blob_sha": "be3fd660163733fb53274f020ce312f582918ceb",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/RectangleMatching.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "Rectangle",
+      "date": 1791819746,
+      "sha256": "970727a249cdc2c537ec995230f642206b1cddba759bb4b266d9187410147ede",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/Rectangle.lean",
+        "git_blob_sha": "698eeec7622f8b427f7c1739e5214d5773956014",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/Rectangle.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "CayleyCharpolyTrace",
+      "date": 1792489711,
+      "sha256": "9d047dab2b170c5e9f2aa123bbdc1e6c99a3007f1937dea965a61d17a484ce92",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyCharpolyTrace.lean",
+        "git_blob_sha": "cdaee270bb8aef47fbd00e1edbaf44cd54b396b8",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyCharpolyTrace.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "PolynomialJacobi",
+      "date": 1792489711,
+      "sha256": "9f05f98f965a0100651cade5bd4826f50af073a9e71eb72ae472cdc0ba6092e3",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/PolynomialJacobi.lean",
+        "git_blob_sha": "8d383354d158bf75d0178d0380e0b7d96e4eeb41",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/PolynomialJacobi.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "BRIDGE01_B1_WeightedSumMultiplex",
+      "date": 1791488543,
+      "sha256": "a1f7837de0f1205815cb78782dfb1fedbacc565a70f12d76db2d82abfd994d36",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_B1_WeightedSumMultiplex.lean",
+        "git_blob_sha": "b8be938ed1751e6aac7666c7327049c229aa06b2",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_B1_WeightedSumMultiplex.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_08_BridgeReceipts",
+      "date": 1791488543,
+      "sha256": "a2817030ed438a98e6bcab5eb9b3ab12126da52b32e8fe7707b8fcf1cc99482e",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_08_BridgeReceipts.lean",
+        "git_blob_sha": "f27bad97a4fd91d29fc23a84479ac4561d06716d",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_08_BridgeReceipts.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "NORM02_Axioms",
+      "date": 1791537119,
+      "sha256": "aed49ab3711e2b4061765a3d103f0379d197629f73487719559635d9f070b5d7",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/NORM02_Axioms.lean",
+        "git_blob_sha": "12ddee90ed10aa7ffacabce9a83e615025d63fd8",
+        "snapshots": [
+          "g062"
+        ],
+        "role": "source de développement",
+        "commit": "9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5/research/lean/NORM02_Axioms.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "BRIDGE01_A0_GenericNoGain",
+      "date": 1791488543,
+      "sha256": "b264e6cd02b15c7dbdfaccd197fe24c72f5f0b2a1193340f20f0972cf344b2ce",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A0_GenericNoGain.lean",
+        "git_blob_sha": "a93c109b0f3017fea87f0bc272928b57c8068339",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_A0_GenericNoGain.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohSelectorReplay",
+      "date": 1792256595,
+      "sha256": "b3a4f04cc4130a006ff1b4971a8fb08d8fa6ab60b148f4416875f232d9371238",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohSelectorReplay.lean",
+        "git_blob_sha": "9d84b5e14e6518c392fa6fd0c3230d02a363d5da",
+        "snapshots": [
+          "g099",
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "51f629fec7fb921278e835e46e2568b22ae79523",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/51f629fec7fb921278e835e46e2568b22ae79523/research/strobo-2tors-2026-10-12/lean/RecohSelectorReplay.lean",
+        "environments": [
+          "e014",
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RectangleFibres",
+      "date": 1791819746,
+      "sha256": "b58bd5cc6a9c03963265e4cd70ec907a0c62b9c159fe478c6e46672a7d4e1d68",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/RectangleFibres.lean",
+        "git_blob_sha": "220a8624c2a9016f215a4c2b71534bf5b7ff3e16",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/RectangleFibres.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "CouretOaiBridge01",
+      "date": 1791528093,
+      "sha256": "ea89e9fa987ed28db58307883a502ad4ed8b380c3f9d0ab1820c03253961e27a",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01.lean",
+        "git_blob_sha": "80f4f14d39e8a405afa940723ec2c33ae0af8004",
+        "snapshots": [
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourZMod",
+      "date": 1792489711,
+      "sha256": "b9c53a814edc6573ecdb61d909b0988ad5b0154cde1bee9fcb4d39181b7464f1",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourZMod.lean",
+        "git_blob_sha": "5b84e2c66b7047f988eb4627ca298b87c86cda32",
+        "snapshots": [
+          "g056",
+          "g057",
+          "g126"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourZMod.lean",
+        "environments": [
+          "e006",
+          "e030"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "INTERIA_SA_05_BesselWeightedModes",
+      "date": 1791528093,
+      "sha256": "ba27450104fa7b1723307eecdf5fd7d660e905e673981ada5da5102e73e1a042",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/INTERIA_SA_05_BesselWeightedModes.lean",
+        "git_blob_sha": "4c631e02658a20a521b708a218111c612a3eaa44",
+        "snapshots": [
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01/INTERIA_SA_05_BesselWeightedModes.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohDataBridgeReplay",
+      "date": 1792246570,
+      "sha256": "bc45b2c457357394bfa6d80ae70aa81f6a0b1fdfcefac59d8be480831f452707",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohDataBridgeReplay.lean",
+        "git_blob_sha": "44727fc00de6a8d25592c8b7c0b8618a24b6c1ac",
+        "snapshots": [
+          "g096",
+          "g099",
+          "g100",
+          "g101",
+          "g111"
+        ],
+        "role": "source de développement",
+        "commit": "8febe10087c3dc984acb6c9fbee244b3debab554",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/8febe10087c3dc984acb6c9fbee244b3debab554/research/strobo-2tors-2026-10-12/lean/RecohDataBridgeReplay.lean",
+        "environments": [
+          "e011",
+          "e014",
+          "e015",
+          "e016",
+          "e020"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "RecohTripleNewton",
+      "date": 1792265550,
+      "sha256": "c0dfe04ad32a6cb240d859da6d7a72431007a71855a11b54c052d91aa4f8724e",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohTripleNewton.lean",
+        "git_blob_sha": "706c3b08fabf3b70b64617fff2600a3937376a69",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohTripleNewton.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "CrossedOrderThree",
+      "date": 1791819746,
+      "sha256": "c260e4e04ee42a43b8f1bfe9207a0e563323959fc9904fcf6de4efc377ad6dd0",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/CrossedOrderThree.lean",
+        "git_blob_sha": "32168b6300ab504ce7c1ee333b3731176bb282cf",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/CrossedOrderThree.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "RecohRationalComplex",
+      "date": 1792265550,
+      "sha256": "c7ad43f0d63569d28a37773ed02641e34239f2ed0c451642062ac97af4d5d57c",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohRationalComplex.lean",
+        "git_blob_sha": "1e99676771071daeaa7330c51e71b7ab05c72752",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohRationalComplex.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "BRIDGE01_A1_U30KernelInverse",
+      "date": 1791488543,
+      "sha256": "ca0ed4d030d67c53ca6a07164314c25550709108f4005bb62315f8c43a7f328a",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A1_U30KernelInverse.lean",
+        "git_blob_sha": "40072f43ce3ebac6959fd04e86321818567b1c4c",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_A1_U30KernelInverse.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "INTERIA_SA_04_PowerIntegrability",
+      "date": 1791528093,
+      "sha256": "cfac4fa678c7644bb2b685adf9e67098147f602e1a13561b1805959e09d41567",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/INTERIA_SA_04_PowerIntegrability.lean",
+        "git_blob_sha": "a30fb6053d474bdd2473d1afa782e6cc8b571450",
+        "snapshots": [
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01/INTERIA_SA_04_PowerIntegrability.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "BRIDGE01_A2_FixedModulusNoGain",
+      "date": 1791488543,
+      "sha256": "d05751252a8be9b8319eca7acb46757defdefacd59a3142c705663fd5461cbac",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_A2_FixedModulusNoGain.lean",
+        "git_blob_sha": "f14a47b397de6314e68e0c9e014d15f36eebb799",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_A2_FixedModulusNoGain.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "Strobo2TorsFibreMoment",
+      "date": 1792357813,
+      "sha256": "d086c5e93fc7de275469fcb96fb6cdd5cd945016a356726bacaff4d0ce5390dc",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsFibreMoment.lean",
+        "git_blob_sha": "4201a1c7961625c9e5fbdb83c7e61b3a940d50b6",
+        "snapshots": [
+          "g113"
+        ],
+        "role": "source de développement",
+        "commit": "46d8415e210e3292a6e74b2bd990cd104cfa2835",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/46d8415e210e3292a6e74b2bd990cd104cfa2835/research/strobo-2tors-2026-10-12/lean/Strobo2TorsFibreMoment.lean",
+        "environments": [
+          "e022"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_14_VersionedAdmission",
+      "date": 1791521857,
+      "sha256": "d0ea93469e49656e3d8531cfdac32348c680b5e16273b5c67edf5b332e20b977",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_14_VersionedAdmission.lean",
+        "git_blob_sha": "af743c80b6eae788bfdfd308e1e0320adb775084",
+        "snapshots": [
+          "g063"
+        ],
+        "role": "source de développement",
+        "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_14_VersionedAdmission.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "Strobo2TorsZeroFreeCompatibility",
+      "date": 1792220004,
+      "sha256": "d1d30fcfd3315a8e79e6308cfbe94a9cf53fec89005d1286ef2baa5e566230ba",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeCompatibility.lean",
+        "git_blob_sha": "fc050842f826870e045792f3c11c66e97880013a",
+        "snapshots": [
+          "g107",
+          "g113"
+        ],
+        "role": "source de développement",
+        "commit": "9c61de6daf8df99da6574d627b45941403594956",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c61de6daf8df99da6574d627b45941403594956/research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeCompatibility.lean",
+        "environments": [
+          "e018",
+          "e022"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "StroboHomometry",
+      "date": 1792243041,
+      "sha256": "d425a917138d22db0e9336b5a0dc3446107f7fd9eaaac85386bc9bdfb4cba274",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/StroboHomometry.lean",
+        "git_blob_sha": "52479c5cfc6afe4b7856d6018650716637a5a21b",
+        "snapshots": [
+          "g111"
+        ],
+        "role": "source de développement",
+        "commit": "41a2ef6f6ae6f6a26b3d630d365ad404fd97fe42",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/41a2ef6f6ae6f6a26b3d630d365ad404fd97fe42/research/strobo-2tors-2026-10-12/lean/StroboHomometry.lean",
+        "environments": [
+          "e020"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourCanonicalReturn",
+      "date": 1792489711,
+      "sha256": "d42d32ebf171bc2a72aa60523719dbdaaf3f0930bd30560960b5a8d6dae8cfa9",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourCanonicalReturn.lean",
+        "git_blob_sha": "9ed92983270aafbefc8e81bd762db80660c37251",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourCanonicalReturn.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourClassification",
+      "date": 1792489711,
+      "sha256": "d5e3fa101ab825c87b19dceead2d61cb5de3cf4986d44637cad46caf7831ac24",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourClassification.lean",
+        "git_blob_sha": "cc73b10232a31c094f881c42e3ec8888a536b8b1",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourClassification.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "Strobo2TorsProfilePartition",
+      "date": 1792063920,
+      "sha256": "d633af551e3cf27c64086b352688291b34fc31f6e6540a5de139ab273adc9a59",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsProfilePartition.lean",
+        "git_blob_sha": "762ffe574f81dda63fb75af0f9f06d358163e4fd",
+        "snapshots": [
+          "g118"
+        ],
+        "role": "source de développement",
+        "commit": "c7adacbb38c59753318ef256bb966a4cd0dc0d7d",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/c7adacbb38c59753318ef256bb966a4cd0dc0d7d/research/strobo-2tors-2026-10-12/lean/Strobo2TorsProfilePartition.lean",
+        "environments": [
+          "e027"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "RecohRationalRoots",
+      "date": 1792265550,
+      "sha256": "dc918d91d9f34ce1258fdf43b9d5f7cfbb17e66a2ab684f7e07f0e5f725df81c",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohRationalRoots.lean",
+        "git_blob_sha": "104f37507c467f25ab6c1fd446194fca53744240",
+        "snapshots": [
+          "g100"
+        ],
+        "role": "source de développement",
+        "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohRationalRoots.lean",
+        "environments": [
+          "e015"
+        ]
+      },
+      "families": [
+        "RECOH et reconstruction"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourFirstCoeff",
+      "date": 1792489711,
+      "sha256": "e45556611be08e80f77ef2e9b917f78da4477576677474f9c2ab22aad4727fd9",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourFirstCoeff.lean",
+        "git_blob_sha": "b21c9e0915c360a3b51f997b0324f2fc24bb578b",
+        "snapshots": [
+          "g056"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourFirstCoeff.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourThirdFactor",
+      "date": 1792489711,
+      "sha256": "e70e1aee776509b376b41c8a8e2a0e86da60bd4afd69cfc444455445ef314974",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourThirdFactor.lean",
+        "git_blob_sha": "7ae9ac62293a65330561f10d0473128ea0f53c3a",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourThirdFactor.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "Strobo2TorsZeroFreeIncidence",
+      "date": 1792220004,
+      "sha256": "ec8e64c1d4e0a5241d222480d0c92763461631f7d53eb941a4a6af3dfad66a5e",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeIncidence.lean",
+        "git_blob_sha": "c6c39622e1771e37257439fb227a146592324cfe",
+        "snapshots": [
+          "g107",
+          "g113"
+        ],
+        "role": "source de développement",
+        "commit": "9c61de6daf8df99da6574d627b45941403594956",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c61de6daf8df99da6574d627b45941403594956/research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeIncidence.lean",
+        "environments": [
+          "e018",
+          "e022"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "Strobo2TorsExceptionProfileTwo",
+      "date": 1792085995,
+      "sha256": "ed0971d15814589b8445fe572a967141327724a33d273c9e4cae899143d7b7ff",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsExceptionProfileTwo.lean",
+        "git_blob_sha": "5b0576b82ef4791a32e27ab92103888989c52d43",
+        "snapshots": [
+          "g047",
+          "g094",
+          "g096",
+          "g099",
+          "g100",
+          "g101",
+          "g107",
+          "g111",
+          "g112",
+          "g113",
+          "g114",
+          "g115",
+          "g116",
+          "g117",
+          "g119",
+          "g120",
+          "g121",
+          "g122",
+          "g123",
+          "g134",
+          "g135",
+          "g136",
+          "g137",
+          "g138"
+        ],
+        "role": "source de développement",
+        "commit": "a8937817c77d1fe4ff6044d411cc8acce36b57b8",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a8937817c77d1fe4ff6044d411cc8acce36b57b8/research/strobo-2tors-2026-10-12/lean/Strobo2TorsExceptionProfileTwo.lean",
+        "environments": [
+          "e005",
+          "e009",
+          "e011",
+          "e014",
+          "e015",
+          "e016",
+          "e018",
+          "e020",
+          "e021",
+          "e022",
+          "e023",
+          "e024",
+          "e025",
+          "e026",
+          "e028",
+          "e029",
+          "e019",
+          "e031",
+          "e032",
+          "e033",
+          "e034",
+          "e035"
+        ]
+      },
+      "families": [
+        "STROBO à trois points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_01_StatusTransport",
+      "date": 1791488543,
+      "sha256": "ee5a7b8aec759c0299316042f25743e7f347a3b6c75a56ffa45fec786dc899da",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_01_StatusTransport.lean",
+        "git_blob_sha": "e8cacda9b0f3b8aa4ab6c6910d64375f4c7f6f6d",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_01_StatusTransport.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "STAT_TRANS_07_ConcreteRegistry",
+      "date": 1791488543,
+      "sha256": "f05696e1b6dceb29b803de0750e8abb77295768df7abf264c8b4fef8d5008900",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_07_ConcreteRegistry.lean",
+        "git_blob_sha": "82af0acedea7f078f8f241ab7b2868719f014ebf",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_07_ConcreteRegistry.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "BRIDGE01_B0_DirichletMultiplexer",
+      "date": 1791488543,
+      "sha256": "f1579856311c26da1ffe23c1bae588a7a5100e3ddc136e2da67d3ac712ccad55",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/BRIDGE01_B0_DirichletMultiplexer.lean",
+        "git_blob_sha": "68b98d4e696c53d62eb503ea3442e7b994e07e37",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_B0_DirichletMultiplexer.lean",
+        "environments": [
+          "e007"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    },
+    {
+      "module": "CayleyTwoColourFirstCoefficient",
+      "date": 1792390911,
+      "sha256": "f26de50d22cca32e5b50cae2954724a46bdbf8e8b8465f15443d7d7c8bb63e39",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyTwoColourFirstCoefficient.lean",
+        "git_blob_sha": "53f10b63e09a3e3fdc9f64c73bd89458755eb5a3",
+        "snapshots": [
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "bef25648f750d1b9d7792a883597021665e3ba00",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/bef25648f750d1b9d7792a883597021665e3ba00/research/correspondants_20261013/lean/CayleyTwoColourFirstCoefficient.lean",
+        "environments": [
+          "e006"
+        ]
+      },
+      "families": [
+        "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "Strobo2TorsSquareExpansion",
+      "source_module": "STROBO2Tors.SquareExpansion",
+      "date": 0,
+      "sha256": "01be501848647215ec5106190839256dcf4cd37b939447c09e682624689abc6c",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/SquareExpansion.lean",
+        "git_blob_sha": "d2a798659204bf6102b370b3ee6b1252a8651b80",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/SquareExpansion.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "sha256": "5ab918a3f870d1141dbfbda2ac1255de06595feea847d8dcca21999cf631e5be",
+      "reason": "audit_or_smoke_executable",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/correspondants_20261013/lean/CayleyNewtonAPISmoke.lean",
+        "git_blob_sha": "ecf092af8cad9851d05f7c4f571a84b477fb200f",
+        "snapshots": [
+          "g056",
+          "g057"
+        ],
+        "role": "source de développement",
+        "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyNewtonAPISmoke.lean",
+        "environments": [
+          "e006"
+        ]
+      }
+    },
+    {
+      "sha256": "42f1bda7abb095970943ef1adbb435e58f50c5ba4567c003524891a17b20a03b",
+      "reason": "older_same_module_variant",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean",
+        "git_blob_sha": "a5eafe264d08c658ab978ab7efa27d1bfa75e4a3",
+        "snapshots": [
+          "g094"
+        ],
+        "role": "source de développement",
+        "commit": "ad2eec14cbdf5db27785ca27e34c18048b5b9578",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/ad2eec14cbdf5db27785ca27e34c18048b5b9578/research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean",
+        "environments": [
+          "e009"
+        ]
+      }
+    },
+    {
+      "sha256": "8b2d62d1e745efcba2e400aa5568e3001cbf232be6632ddee5d868de33c6175d",
+      "reason": "older_same_module_variant",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
+        "git_blob_sha": "98551ca2a6402149734bd73f0e63d803f139b805",
+        "snapshots": [
+          "g063"
+        ],
+        "role": "source de développement",
+        "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
+        "environments": [
+          "e007"
+        ]
+      }
+    },
+    {
+      "sha256": "8c9abbcaf6456e080edf756f2ac413f685a4fc11136b9362c4a76fbdd0af892e",
+      "reason": "older_same_module_variant",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
+        "git_blob_sha": "0e9cb68ebcba8b86db3b45466c92ca86f97de2a8",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g064",
+          "g065"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
+        "environments": [
+          "e007"
+        ]
+      }
+    },
+    {
+      "sha256": "d825b0bfbaab27ba1c1ddec37806fa1efe070fb340147178b83697b4bb163b4b",
+      "reason": "audit_or_smoke_executable",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/Audit.lean",
+        "git_blob_sha": "1c6048ccc20c1e1a49c94d72578d3c5739510151",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g063",
+          "g064",
+          "g065",
+          "g081"
+        ],
+        "role": "requêtes d’audit",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/Audit.lean",
+        "environments": [
+          "e007"
+        ]
+      }
+    },
+    {
+      "sha256": "b64dc67db53ee2e1e697ba4fed6b56d2add2ef0369367f82d9de5b6dec75f74d",
+      "reason": "older_same_module_variant",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01.lean",
+        "git_blob_sha": "e4d88350e18b6153d829811f4c3f49eb66265c19",
+        "snapshots": [
+          "g063"
+        ],
+        "role": "source de développement",
+        "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01.lean",
+        "environments": [
+          "e007"
+        ]
+      }
+    },
+    {
+      "sha256": "f31e9c40a186cda59e005f2c2b33526cdc42e13b7ced55bf183cf70ce48344ea",
+      "reason": "older_same_module_variant",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/lean/CouretOaiBridge01.lean",
+        "git_blob_sha": "af599a1cc38d1f90f4f205405c95293e6193db50",
+        "snapshots": [
+          "g058",
+          "g059",
+          "g060",
+          "g061",
+          "g062",
+          "g064",
+          "g065"
+        ],
+        "role": "source de développement",
+        "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01.lean",
+        "environments": [
+          "e007"
+        ]
+      }
+    }
+  ]
+}

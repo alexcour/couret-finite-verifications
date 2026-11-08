@@ -37,4 +37,3 @@ axioms={n:[a.strip() for a in body.split(',') if a.strip()] for n,body in re.fin
 axioms.update({n:[] for n in re.findall(r"'([^'\n]+)' does not depend on any axioms",text)})
 assert all(n in axioms and set(axioms[n])<={'propext','Classical.choice','Quot.sound'} for n in names)
 (generated/'validation/axioms.json').write_text(json.dumps(axioms,indent=2))
-
