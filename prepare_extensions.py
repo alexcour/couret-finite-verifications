@@ -7,8 +7,8 @@ manifest=json.loads((root/'extensions-manifest.json').read_text())
 checkout=pathlib.Path('branch-sources');checkout.mkdir()
 subprocess.run(['git','init'],cwd=checkout,check=True,stdout=subprocess.DEVNULL)
 subprocess.run(['git','remote','add','origin','https://github.com/alexcour/couret-finite-verifications.git'],cwd=checkout,check=True)
-for sha in sorted({m['location']['commit'] for m in manifest['modules']}):
-    subprocess.run(['git','fetch','--depth=1','origin',sha],cwd=checkout,check=True,stdout=subprocess.DEVNULL)
+shas=sorted({m['location']['commit'] for m in manifest['modules']})
+subprocess.run(['git','-c','maintenance.auto=false','-c','gc.auto=0','fetch','--depth=1','origin']+shas,cwd=checkout,check=True,stdout=subprocess.DEVNULL)
 # Only import paths are flattened; every declaration and its namespace is retained.
 mapping={}
 for m in manifest['modules']:
