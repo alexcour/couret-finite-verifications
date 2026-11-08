@@ -48,7 +48,7 @@ run_meta do
     let names := ci.levelParams.mapIdx fun i _ => Name.mkSimple ("p2m_u_" ++ toString i)
     let levels := names.map Level.param
     let ty := ci.type.instantiateLevelParams ci.levelParams levels
-    let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false |>.setBool `pp.deepTerms true |>.setNat `pp.maxSteps 100000000) do
+    let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false |>.setBool `pp.deepTerms true |>.set `pp.maxSteps (100000000 : Nat)) do
       pure (← Meta.ppExpr ty).pretty
     pure (n.toString, Json.mkObj [("universes", toJson (names.map Name.toString)), ("type", Json.str text)])
   IO.FS.writeFile "source-signatures.json" (Json.mkObj entries).compress
