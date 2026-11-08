@@ -1,8 +1,8 @@
 {
   "version": "v0.4",
   "project": {
-    "name": "Three-point ordered convolution-square classification",
-    "description": "For three-element finite supports S and T in any abelian group, equality of all labelled coefficients of their ordered additive convolution squares is equivalent to a translation by an element annihilated by doubling, or to the explicit exceptional paired shape in the statement. Diagonal pairs are included. The full proof development is contained in this snapshot. This is an adaptation of an existing public Couret formalization; mathematical novelty and independent human review are not established.",
+    "name": "Exact finite Gaussian-character signatures on U(30)",
+    "description": "The explicit eight-character table for C2 x C4 assigns Gaussian-integer sums to all 56 three-element subsets. For the stated table, exact list computations certify ten distinct signature classes with sizes 8,5,4,4,4,4,8,8,8,3, two squared-magnitude classes of sizes 32 and 24, a five-member distinguished fibre and five explicit adjacency-permutation checks. The submitted statements concern these fixed definitions and finite checks; no separate abstract adjacency-eigenvalue theorem, asymptotic arithmetic result or mathematical novelty is claimed. Proofs are being migrated from native evaluation to kernel checking.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -21,28 +21,28 @@
   },
   "sources": [
     {
-      "title": "STROBO-2TORS: ordered-square classification of three-element finite supports",
+      "title": "G30 exact finite signatures source",
       "authors": [
         "Alexandre Couret"
       ],
-      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+      "location": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
       "type": "formalization",
       "relationship": "adapts",
       "license": "MIT",
-      "note": "Immutable public source theorem Couret.STROBO2TORS.orderedSquare_classification_iff. The complete proof file is copied here, with module-system visibility, imports and a renamed implementation namespace. This source reference makes no claim to a complete literature review.",
-      "author_endorsement": "participated"
+      "author_endorsement": "participated",
+      "note": "Full public finite source, with native_decide replaced by decide +kernel and current module-system visibility. All compared definitions and certificate statements remain fixed."
     }
   ],
   "related_formalizations": [
     {
-      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+      "id": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
       "relationship": "adapts",
-      "note": "Original public Lean 4.29.1 source; the present snapshot is migrated for the current module system."
+      "note": "Kernel-only migration of the prior native-evaluation source."
     }
   ],
   "status": {
-    "scope": "The single compared theorem is the cardinality-three ordered-square classification. Four explicit definitions are compared as well. The implementation includes the full source proof, not an assumed classification hypothesis. No statement about four-point supports, reconstruction cost, RH, Hilbert-Polya, BSD, P versus NP, or topological universality is submitted. The only intentional hole is in Challenge.lean. Current-toolchain mechanical verification is being attempted; no success is claimed by this metadata.",
+    "scope": "Fourteen finite computational theorems and their exact table/list definitions are compared. Source counts do not establish an unstated general character theory or matrix spectral bridge. Challenge holes are intentional; Solution verification pending.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -80,22 +80,99 @@
     "notes": "Alexandre Couret is the author and maintainer. Packaging is AI-assisted. No independent human mathematical review, originality assessment or journal endorsement is claimed."
   },
   "fidelity": {
-    "divergences": "The public source theorem and all its exceptional torsion hypotheses are retained. Implementation namespace Couret.STROBO2TORS is renamed Couret.Proof. Imports and visibility are adapted to the module system; public definitions are exposed. The advertised namespace is Couret.Palomar. A full current-toolchain comparison is pending. The orderedSquare_three proof uses explicit sum_insert/sum_singleton expansion to avoid a changed simp normalization in Mathlib 4.35; its statement is unchanged."
+    "divergences": "Module header and exposed public definitions are added; native_decide proofs are replaced by decide +kernel. Mathematical statements and finite tables remain unchanged. No new result is assumed as an axiom."
   },
   "review": {
     "status": "self-assessed; no independent human review",
     "reviewers": [],
-    "notes": "The informal interpretation and the definitions have been inspected during AI-assisted packaging. The pinned full Palomar mechanical workflow must pass before intake. Prior-art completeness and research interest remain for assessment; no Palomar registration has been made."
+    "notes": "Compilation, actual per-theorem axioms and Comparator pending for this migrated snapshot. No peer review or novelty claim."
   },
   "alignment": {
-    "namespace": "Couret.Palomar",
+    "namespace": "CouretUnification.G30ComplexSpectrum",
     "statements": [
       {
-        "source": "Couret.STROBO2TORS.orderedSquare_classification_iff at the cited immutable source",
-        "lean": "Couret.Palomar.classification",
+        "source": "CouretUnification.G30ComplexSpectrum.triplet_count at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.triplet_count",
         "module": "Solution",
-        "status": "adapted; current-toolchain check pending",
-        "note": "The theorem has S.card = 3 and T.card = 3 and compares the full labelled ordered-square functions, including diagonal terms. The exceptional case is explicit rather than bundled as an unproved assumption."
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.spectrum_grid_covers_all_56 at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.spectrum_grid_covers_all_56",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.spectral_rep_count at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.spectral_rep_count",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.spectral_reps_pairwise_distinct at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.spectral_reps_pairwise_distinct",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.spectral_reps_complete at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.spectral_reps_complete",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.spectral_class_sizes at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.spectral_class_sizes",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.power_class_sizes at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.power_class_sizes",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_fiber_size at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_fiber_size",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_fiber_members at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_fiber_members",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_iso_target0 at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_iso_target0",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_iso_target1 at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_iso_target1",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_iso_target2 at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_iso_target2",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_iso_target3 at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_iso_target3",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
+      },
+      {
+        "source": "CouretUnification.G30ComplexSpectrum.tc_iso_target4 at https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/g30-gate-b-lean/G30ComplexSpectrum.lean",
+        "lean": "CouretUnification.G30ComplexSpectrum.tc_iso_target4",
+        "module": "Solution",
+        "status": "kernel migration; build pending"
       }
     ]
   },
