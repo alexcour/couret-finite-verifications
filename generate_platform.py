@@ -57,6 +57,12 @@ for m,facts in oracles.items():
                 k=(m,d['declStart']['offset'],d['declEnd']['offset'])
                 for row in units[k]:
                     if name!=row['name']:source_refs[row['name']].add(name)
+# The compiler reduces the rfl proof of delta_one out of the stored proof
+# term. The source tactic norm_num still needs its simp attribute when rebuilt.
+# Keep this observed automation dependency in the same canonical bundle.
+if 'CouretOaiBridge01.tau_mul_sigma' in graph and 'CouretOaiBridge01.delta_one' in graph:
+    source_refs['CouretOaiBridge01.tau_mul_sigma'].add('CouretOaiBridge01.delta_one')
+
 def deps(n):
     r=graph.get(n,{})
     return set(r.get('typeDeps',[])+r.get('valueDeps',[]))|source_refs[n]
