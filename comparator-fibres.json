@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Couret.PalomarFour.fibre_cardinality",
+    "Couret.PalomarFour.fixed_membership_probes"
+  ],
+  "definition_names": [
+    "Couret.PalomarFour.orderedSquare",
+    "Couret.PalomarFour.cyclicFourFibre",
+    "Couret.PalomarFour.ProbeSeparates"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

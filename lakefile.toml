@@ -1,6 +1,6 @@
-name = "CouretPalomarCandidate"
+name = "CouretArchiveMigration"
 version = "0.0.1"
-defaultTargets = ["CouretProof", "Challenge", "Solution"]
+defaultTargets = ["Challenge", "Solution"]
 
 [[require]]
 name = "mathlib"
@@ -8,11 +8,103 @@ git = "https://github.com/leanprover-community/mathlib4.git"
 rev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"
 
 [[lean_lib]]
-name = "CouretProof"
+name = "AntipodalFibres"
+
+[[lean_lib]]
+name = "AntipodalFreeFour"
+
+[[lean_lib]]
+name = "BinaryAffineFibre"
+
+[[lean_lib]]
+name = "ConvolutionParity"
+
+[[lean_lib]]
+name = "DisjointReduction"
+
+[[lean_lib]]
+name = "FixedMembershipProbes"
+
+[[lean_lib]]
+name = "GroupRingBridge"
+
+[[lean_lib]]
+name = "IntersectionThree"
+
+[[lean_lib]]
+name = "IntersectionTwo"
+
+[[lean_lib]]
+name = "IntersectionTwoAlgebra"
+
+[[lean_lib]]
+name = "L4Assembly"
+
+[[lean_lib]]
+name = "L4Foundations"
+
+[[lean_lib]]
+name = "MembershipDecisionTree"
+
+[[lean_lib]]
+name = "MixedAlgebra"
+
+[[lean_lib]]
+name = "MixedGeometry"
+
+[[lean_lib]]
+name = "OptimalReconstruction"
+
+[[lean_lib]]
+name = "OrbitGeometry"
+
+[[lean_lib]]
+name = "PureExchange"
+
+[[lean_lib]]
+name = "QuotientBridge"
+
+[[lean_lib]]
+name = "QuotientOrbits"
+
+[[lean_lib]]
+name = "QuotientPeriods"
+
+[[lean_lib]]
+name = "QuotientResidual"
+
+[[lean_lib]]
+name = "SingleSwap"
+
+[[lean_lib]]
+name = "StableFibreLift"
+
+[[lean_lib]]
+name = "StableProjection"
+
+[[lean_lib]]
+name = "TranslationControls"
+
+[[lean_lib]]
+name = "TwoPointCollision"
+
+[[lean_lib]]
+name = "TwoPointFibreBound"
+
+[[lean_lib]]
+name = "TwoSimpleFibre"
+
+[[lean_lib]]
+name = "UniversalFibre"
+
+[[lean_lib]]
+name = "WeightedFullPosition"
+
+[[lean_lib]]
+name = "XorFibreClosure"
 
 [[lean_lib]]
 name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
-

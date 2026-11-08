@@ -1,22 +1,208 @@
 {
-  "source_repository": "alexcour/couret-finite-verifications",
-  "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
-  "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-  "source_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
-  "source_license": "MIT",
-  "target_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
-  "target_toolchain": "leanprover/lean4:v4.35.0-rc2",
-  "transformations": [
-    "module header",
-    "Mathlib public import",
-    "@[expose] public section",
-    "implementation namespace Couret.Proof",
-    "independent compared statement and matching Solution",
-    "Replace global simp in orderedSquare_three with explicit finite-sum expansion for Mathlib 4.35; theorem statement unchanged."
+  "record": 23981750,
+  "archive_sha256": "a12dde197808771ce3beb81d9e6ff1ab2074db9b06695b6816b0f28adbe8be8b",
+  "project": "fibres",
+  "root": "OptimalReconstruction",
+  "theorem": "Couret.InterIA.Fibres.cyclic_four_optimal_reconstruction",
+  "modules": [
+    {
+      "module": "AntipodalFibres",
+      "archive_path": "fibres/lean/AntipodalFibres.lean",
+      "original_sha256": "9a1dfe7f920807e73cc1298e40bc46156ea44c37309efcb5a094afaf09a600a4",
+      "migrated_sha256": "28bbec7b18443fcd36d9a64d4123482533283f768086e293f12b3b3ad8cb53bb"
+    },
+    {
+      "module": "AntipodalFreeFour",
+      "archive_path": "fibres/lean/AntipodalFreeFour.lean",
+      "original_sha256": "7d4d6262bdcf95ddc7a9a560bac4324cde190e4dad3f7acc41bcda6a4ccb23ed",
+      "migrated_sha256": "1f7f31f10d31a9ea55c1d75f0b0fb5c43bc1b3d39d018b40b3fd6b069d30acc4"
+    },
+    {
+      "module": "BinaryAffineFibre",
+      "archive_path": "fibres/lean/BinaryAffineFibre.lean",
+      "original_sha256": "b920a719a42974e083f8586678ffbb9bb518599a9505a50ad0279045bdd7b28a",
+      "migrated_sha256": "1bf5213d00f4cd6280c4a17146debf62a00f1c6af62c164f2de2f7a96be99e69"
+    },
+    {
+      "module": "ConvolutionParity",
+      "archive_path": "fibres/lean/ConvolutionParity.lean",
+      "original_sha256": "ca105fed5a66cffb44bb01aa91771220219cd0dab9229dca8d48025b258dac97",
+      "migrated_sha256": "9791a7e149042ed1a647dacc7a471fd5536fef7790ea7c405ba80ec9b5632495"
+    },
+    {
+      "module": "DisjointReduction",
+      "archive_path": "fibres/lean/DisjointReduction.lean",
+      "original_sha256": "f25a642b4795363a49c52f9ac0f3b54862225a8fe7459401aab2e65462b4c8da",
+      "migrated_sha256": "c53974cb9f3310315c5aa1513ef4f600836ed636775d707f6683b0b4c7c5f607"
+    },
+    {
+      "module": "FixedMembershipProbes",
+      "archive_path": "fibres/lean/FixedMembershipProbes.lean",
+      "original_sha256": "ad66985fbc01dce4c10be3faf60eae345c3ccda9af3d563dfd2ae2e57262cb82",
+      "migrated_sha256": "72eb99f346e9dbb6c55cb94f4b52eff0866ee6ce8d01e023a1cd04f4d6af9168"
+    },
+    {
+      "module": "GroupRingBridge",
+      "archive_path": "fibres/lean/GroupRingBridge.lean",
+      "original_sha256": "93ff5e598eb6a676328a31e8492480c37a2b6ad19927c33980aaf4eabe01656d",
+      "migrated_sha256": "10a5e54ca36c11206b468b3f4d9e7c598429b5b24f1b32acf9b911a427eb1aed"
+    },
+    {
+      "module": "IntersectionThree",
+      "archive_path": "fibres/lean/IntersectionThree.lean",
+      "original_sha256": "b3124b74c98f6b286643eb93c66bfec0060bc80c1705a4a9f43c218fe84883d2",
+      "migrated_sha256": "57cf674f8f9f5807923b2e47f147fff81a4e2945dc890177ea60284fdc91569b"
+    },
+    {
+      "module": "IntersectionTwo",
+      "archive_path": "fibres/lean/IntersectionTwo.lean",
+      "original_sha256": "e2c77e9e622dffdbb4d1ff0106496bedf3d7a473e3aa12fb34654a7500cbc465",
+      "migrated_sha256": "bdacbf6372af4bcaae94a4230be3e4ace0715d74296f5cb84d9b7dbb6ed0f7f7"
+    },
+    {
+      "module": "IntersectionTwoAlgebra",
+      "archive_path": "fibres/lean/IntersectionTwoAlgebra.lean",
+      "original_sha256": "d3f401d66028b6fe548ef50d997edcce7176b82bbf76716b11c088a8ea729af9",
+      "migrated_sha256": "e2a648366b5b936a477af09ad9c2175a0a4dd8ec46dd19f695464b688dd5deff"
+    },
+    {
+      "module": "L4Assembly",
+      "archive_path": "fibres/lean/L4Assembly.lean",
+      "original_sha256": "963e8dd3e3584e7170596d25b739b90c527798bb137acf05581e70913cf1549c",
+      "migrated_sha256": "3dc0a47cdd84b684b227ad22ceb167ca9b83b5b3e9c2ca15153ca2a8f9600239"
+    },
+    {
+      "module": "L4Foundations",
+      "archive_path": "fibres/lean/L4Foundations.lean",
+      "original_sha256": "a80b43da8931fa1cb12280548eeb0978b71553697ecec5546d5732de3fbdf552",
+      "migrated_sha256": "4ff32e1a409f33c1b37c345ec91f3141e84b9c42e885d518e067a8c8e068a0ea"
+    },
+    {
+      "module": "MembershipDecisionTree",
+      "archive_path": "fibres/lean/MembershipDecisionTree.lean",
+      "original_sha256": "5e2fd5ee9c8bf68b4cdf22b33c6271447fa8b254d46cd000dc67939ef57a2581",
+      "migrated_sha256": "6d690c2af97f0cf8e17947229b5ea83fe93085e7e138165912a740e646ee81fa"
+    },
+    {
+      "module": "MixedAlgebra",
+      "archive_path": "fibres/lean/MixedAlgebra.lean",
+      "original_sha256": "ad5cb007779eb27976db8edb041358a1104119091e7c5499df08b9bc29f395ed",
+      "migrated_sha256": "b980044872d58c9ae3c6c476681b6336f76562c727d370e5122bbee73abf8f1b"
+    },
+    {
+      "module": "MixedGeometry",
+      "archive_path": "fibres/lean/MixedGeometry.lean",
+      "original_sha256": "59d78d29306c10a756d321393c071d5faf74789b4364a5fe0a7d2a8af11f3c63",
+      "migrated_sha256": "db48b45f4722c814a0fe4937991ba9e78a5e4cf681ac95e711684de8326410cc"
+    },
+    {
+      "module": "OptimalReconstruction",
+      "archive_path": "fibres/lean/OptimalReconstruction.lean",
+      "original_sha256": "1457b138661a3d14b47428659d147565f70f2bf4fc62982febb5f8ff25a3b478",
+      "migrated_sha256": "f73a751d5a13a0f352eda7b94488159495dae1cedf29d1578f67a6a00129f39d"
+    },
+    {
+      "module": "OrbitGeometry",
+      "archive_path": "fibres/lean/OrbitGeometry.lean",
+      "original_sha256": "301a50141bf5b6aefa2b3cf86e410719029833feb8828428fb74641b35f89b27",
+      "migrated_sha256": "44fd360fd819341be4dfb20b437da168b0ac274a28d53c4a96453bcbe1fddf30"
+    },
+    {
+      "module": "PureExchange",
+      "archive_path": "fibres/lean/PureExchange.lean",
+      "original_sha256": "25558e75a03e905ae76b5810d4cdd2f4c37c61cbce110d75a1e47668a30e5b81",
+      "migrated_sha256": "508696134844006444bd6cfd173347c3c3826ccf2773dfc59f772cd82edd97f7"
+    },
+    {
+      "module": "QuotientBridge",
+      "archive_path": "fibres/lean/QuotientBridge.lean",
+      "original_sha256": "e3039f9ffa13d11690462eb5cb4b77969858bb42cad9a16ac2921936d5203630",
+      "migrated_sha256": "77f5fb46dd4581b9bac9d85a64871dbfdfa564ad5d3d74b93b342fd1abab7ddb"
+    },
+    {
+      "module": "QuotientOrbits",
+      "archive_path": "fibres/lean/QuotientOrbits.lean",
+      "original_sha256": "90a9fb6b3c18f1724e125dbed131f8a89171589bc356f33f17aa73d3bf1014b8",
+      "migrated_sha256": "7954943ad3696e377915f70c4e3ef0e05719aaeab0f453012202aeefaafae719"
+    },
+    {
+      "module": "QuotientPeriods",
+      "archive_path": "fibres/lean/QuotientPeriods.lean",
+      "original_sha256": "bd9057bd807a1c77c8c1dc1a052c267cfc2bf47a18692508e9871acc4ea527c8",
+      "migrated_sha256": "61b39089a9c990903c461139d50daa9e5bd552d99314a162e246d541575a4d56"
+    },
+    {
+      "module": "QuotientResidual",
+      "archive_path": "fibres/lean/QuotientResidual.lean",
+      "original_sha256": "29c3ae2cbecdf646a84bc5ab6931803cdc7db5ad9705778c5cd73f60b149f4bb",
+      "migrated_sha256": "d93fdca39828eb7bf170b0ef6fa2453e88658cc8817892b1449f61d493e8f388"
+    },
+    {
+      "module": "SingleSwap",
+      "archive_path": "fibres/lean/SingleSwap.lean",
+      "original_sha256": "e3383e69cd7297f8889be28f527522076c49b30b4ad4047a2c7ec2230a566c63",
+      "migrated_sha256": "9d4e6dcc1569e4dcc1b29ba8809a8dcd1503dea86f75059bb354f2df1e35d826"
+    },
+    {
+      "module": "StableFibreLift",
+      "archive_path": "fibres/lean/StableFibreLift.lean",
+      "original_sha256": "a192181d5572a38417c71aa8bfa3fcad9861ecd9e0bbfa9f3fe9c8e7aeb3b60f",
+      "migrated_sha256": "e23edadf161a687526cb292716fd1bfcb8696b3aa1b90cb17d8f11fa77ce2349"
+    },
+    {
+      "module": "StableProjection",
+      "archive_path": "fibres/lean/StableProjection.lean",
+      "original_sha256": "6ce8aa246312a4979a5fa5cefe9a796e2df61ddcdc38e08f0109e9e007cd5feb",
+      "migrated_sha256": "eb8c7d8df79ba11195e0f42097a137b4f9d7d8f67fc48e3f5597f0c63787aba9"
+    },
+    {
+      "module": "TranslationControls",
+      "archive_path": "fibres/lean/TranslationControls.lean",
+      "original_sha256": "c764285724771fcbb1b02517caf13fbb761d34a18fd72c778c87d1496e10d81a",
+      "migrated_sha256": "94bd37439cf18c73a1da2723000746adb22e25632f8ab3a9f6c3a1c9619cf499"
+    },
+    {
+      "module": "TwoPointCollision",
+      "archive_path": "fibres/lean/TwoPointCollision.lean",
+      "original_sha256": "2b544e811d91074c1143be0a41817cbd978462a670ca9d6c7b39cd133d16f371",
+      "migrated_sha256": "13d0f06e8af31e4b5f7ff27d82c98f668a9344bb6ac00ecd7c8ca2474bc203cd"
+    },
+    {
+      "module": "TwoPointFibreBound",
+      "archive_path": "fibres/lean/TwoPointFibreBound.lean",
+      "original_sha256": "e6ffec2f521b035b477a11bcea69e1f9fc11afb2bff6c576d1a5a38de1b2eb19",
+      "migrated_sha256": "03c5dedb2eb1cef058cb98044114e84ed985a366e25d87d3d214da3850d80f16"
+    },
+    {
+      "module": "TwoSimpleFibre",
+      "archive_path": "fibres/lean/TwoSimpleFibre.lean",
+      "original_sha256": "06c3e6b8dbdb8d80fbe47dc48b06485708ba310ea7e7b7b8681b9c42b32966b7",
+      "migrated_sha256": "8b18f375c5c5bdecf44c6bc829030fe0993daf2384cbdea4786cdf52f41392d0"
+    },
+    {
+      "module": "UniversalFibre",
+      "archive_path": "fibres/lean/UniversalFibre.lean",
+      "original_sha256": "3fd4ea1a66d36d491e106728a1774c805d3d0d2019820d42d877037a669e290b",
+      "migrated_sha256": "593dab08104d7f6d10b8ed4702e4578edb13984d2dc84319b0559eda952f7f48"
+    },
+    {
+      "module": "WeightedFullPosition",
+      "archive_path": "fibres/lean/WeightedFullPosition.lean",
+      "original_sha256": "dd4284212807fae7b5a464f6a4836f0a20420be450257341cad34cea3ad4c439",
+      "migrated_sha256": "a24ae4001891544f51bc0ec1c47228c263411a1ff343b3710353259cb56ada4d"
+    },
+    {
+      "module": "XorFibreClosure",
+      "archive_path": "fibres/lean/XorFibreClosure.lean",
+      "original_sha256": "a86ebce55d2e73697b99a9d21c33602c973642d6738fd2fc71173d16937da5e2",
+      "migrated_sha256": "3321a677bc7447763a43f5f8171a9664bd66e16f85f8b730e648334436151517"
+    }
   ],
-  "validation": {
-    "local_lean": "unavailable",
-    "full_preflight": "not yet observed",
-    "registration": "not submitted"
+  "historical_licence": "No blanket relicensing of the source ZIP or third-party components.",
+  "published_sources": true,
+  "adaptation_license": "MIT",
+  "license_authorization": {
+    "date": "2026-11-08",
+    "grant": "Author expressly authorized MIT for adaptations of their own Lean files, retaining third-party licences."
   }
 }

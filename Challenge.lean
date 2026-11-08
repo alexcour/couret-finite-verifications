@@ -5,37 +5,33 @@ public import Mathlib
 @[expose] public section
 
 set_option autoImplicit false
+namespace Couret.PalomarFour
+open Finset
 
-namespace Couret.Palomar
+def orderedSquare {G : Type*} [AddCommGroup G] [DecidableEq G]
+    (S : Finset G) (z : G) : ℕ :=
+  ∑ a ∈ S, ∑ b ∈ S, if a+b=z then 1 else 0
 
-variable {G : Type*} [AddCommGroup G] [DecidableEq G]
+def cyclicFourFibre (n : ℕ) (S : Finset (ZMod n)) : Set (Finset (ZMod n)) :=
+  {T | T.card=4 ∧ ∀ z, orderedSquare S z=orderedSquare T z}
 
-/-- Ordered additive autoconvolution, counting diagonal pairs as well. -/
-def orderedSquare (S : Finset G) (z : G) : ℕ :=
-  S.sum (fun x => S.sum (fun y => if x + y = z then 1 else 0))
+def ProbeSeparates {α : Type*} [DecidableEq α] {d : ℕ}
+    (P : Set (Finset α)) (q : Fin d → α) : Prop :=
+  ∀ T ∈ P, ∀ U ∈ P, (∀ i, q i ∈ T ↔ q i ∈ U) → T=U
 
-/-- Translation of a finite support. -/
-def translateSupport (S : Finset G) (u : G) : Finset G :=
-  S.image (fun x => x + u)
-
-/-- Translation by an element annihilated by doubling. -/
-def OrdinaryPartner (S T : Finset G) : Prop :=
-  ∃ u : G, u + u = 0 ∧ T = translateSupport S u
-
-/-- Explicit exceptional paired shape; all torsion conditions are retained. -/
-def ExceptionalPartner (S T : Finset G) : Prop :=
-  ∃ a b d u : G, d + d = 0 ∧ d ≠ 0 ∧ a + a ≠ b + b ∧ u + u = 0 ∧
-    ((((b - a) + (b - a)) + (b - a) = 0) ∨
-      (((b - a) + (b - a)) + (b - a) = d)) ∧
-    S = {a, b, b + d} ∧
-    T = translateSupport ({a, b + b - a, (b + b - a) + d} : Finset G) u
-
-/-- Classification of equal ordered squares of three-point supports.
-The hypotheses and the exceptional torsion shape are explicit. No novelty claim is made. -/
-theorem classification (S T : Finset G) (hS : S.card = 3) (hT : T.card = 3) :
-    (∀ z : G, orderedSquare S z = orderedSquare T z) ↔
-      OrdinaryPartner S T ∨ ExceptionalPartner S T := by
+/-- The complete labelled ordered-square fibre has one, two or four elements. -/
+theorem fibre_cardinality (n : ℕ) (hn : 0<n)
+    (S : Finset (ZMod n)) (hS : S.card=4) :
+    (cyclicFourFibre n S).ncard=1 ∨ (cyclicFourFibre n S).ncard=2 ∨
+      (cyclicFourFibre n S).ncard=4 := by
   sorry
 
-end Couret.Palomar
+/-- At most two fixed binary membership questions separate the whole fibre.
+The square and the fibre are already supplied; no runtime bound is asserted. -/
+theorem fixed_membership_probes (n : ℕ) (hn : 0<n)
+    (S : Finset (ZMod n)) (hS : S.card=4) :
+    ∃ d : ℕ, d ≤ 2 ∧ (cyclicFourFibre n S).ncard=2^d ∧
+      ∃ q : Fin d → ZMod n, ProbeSeparates (cyclicFourFibre n S) q := by
+  sorry
 
+end Couret.PalomarFour
