@@ -86,3 +86,9 @@ name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
+
+[[lean_lib]]
+name = "SolutionPrelude"
+
+[[lean_lib]]
+name = "HistoricalSaturation"

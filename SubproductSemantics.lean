@@ -8,9 +8,6 @@ set_option maxHeartbeats 4000000
 namespace Couret
 namespace S5
 
-def length {α : Type} : Word α → Nat
-  | .empty => 0
-  | .snoc w _ => length w + 1
 
 def selectedSupport (w : Word Code30) (u : Code30) : Prop :=
   ∃ s : Choice w, s.picked ∧ Choice.eval mod30Product s = u

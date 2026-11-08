@@ -9,157 +9,209 @@
       "module": "DavenportThreshold",
       "archive_path": "source/S5/DavenportThreshold.lean",
       "original_sha256": "c800425f72bd7cac263232227e182bea9d8881d436ee30021d29b43628c45e05",
-      "migrated_sha256": "77e1f42d4cb47079e701c6048f4a43c91a07fd4ba0a6960082cf357ec2480e7c"
+      "included": true,
+      "adapted_destination": "DavenportThreshold.lean",
+      "adapted_destination_sha256": "77e1f42d4cb47079e701c6048f4a43c91a07fd4ba0a6960082cf357ec2480e7c"
     },
     {
       "module": "DivisorCompleteness",
       "archive_path": "source/S5/DivisorCompleteness.lean",
       "original_sha256": "986d74b33e5a43fec7c07b5bec764fc731e63f4cb0c4d6d7c709dfb6dba28abc",
-      "migrated_sha256": "6c53f762a89edc71105f0711f232bb4e93108b9f3fc283c3491ab949154fb1ca"
+      "included": true,
+      "adapted_destination": "DivisorCompleteness.lean",
+      "adapted_destination_sha256": "2ab8ac563e0e2dffba0ae8064fffc300cda04814849194d9ffb0aff6313cbfb0"
     },
     {
       "module": "FivePairSemantics",
       "archive_path": "source/S5/FivePairSemantics.lean",
       "original_sha256": "8b2d02904e438e1da57317890d439cece1022f7fb4ad1cbb929067cc80c7fde2",
-      "migrated_sha256": "17ae344b84136c859e3dd7d0eef8d772cd14f892673ff16af0ce995082f93ffe"
+      "migrated_sha256": "17ae344b84136c859e3dd7d0eef8d772cd14f892673ff16af0ce995082f93ffe",
+      "included": false,
+      "note": "Historical import-closure member outside the selected submission scope; not included as a destination file."
     },
     {
       "module": "MaskSemantics",
       "archive_path": "source/S5/MaskSemantics.lean",
       "original_sha256": "2b99a0c723013ccd7334d8463e5afb270be06050a7f31c47da8e9c55060a5eb7",
-      "migrated_sha256": "9fb0851395e4a02c21fa81d90d19c2e039bbc33c2dd7ad0d60493bc90a7debbc"
+      "included": true,
+      "adapted_destination": "MaskSemantics.lean",
+      "adapted_destination_sha256": "9fb0851395e4a02c21fa81d90d19c2e039bbc33c2dd7ad0d60493bc90a7debbc"
     },
     {
       "module": "ModularDivisorBridge",
       "archive_path": "source/S5/ModularDivisorBridge.lean",
       "original_sha256": "f72e04425efd9d90f42cc1765e52bcd661653cc739601fb88631de6f94f69c41",
-      "migrated_sha256": "ac3f59f1300f1bae4aad44044c0ba8a733e64df811d877b874c377c18002ded6"
+      "included": true,
+      "adapted_destination": "ModularDivisorBridge.lean",
+      "adapted_destination_sha256": "ac3f59f1300f1bae4aad44044c0ba8a733e64df811d877b874c377c18002ded6"
     },
     {
       "module": "OptimalFive",
       "archive_path": "source/S5/OptimalFive.lean",
       "original_sha256": "10e4872f2ae446d57ad6e2c526d92085da7cdb70df9bb99e2641c0da1b7e7c1f",
-      "migrated_sha256": "34cac46a33a2764c84e713633e661a1b50b795aae8c6f227e06f36cfd00740fc"
+      "included": true,
+      "adapted_destination": "HistoricalSaturation.lean",
+      "adapted_destination_sha256": "33a0e04dedb2d34ea0258ed2b2df1661ba5ff9377bbde28a9695be31b1bff00c"
     },
     {
       "module": "RankBlock00",
       "archive_path": "source/S5/RankBlock00.lean",
       "original_sha256": "5b5b79d47dbea03302241f73ec335797269838fe2f41d74a323693005f369d9b",
-      "migrated_sha256": "ead4f2d756d31d9305eaa1a304357f0db3ba010e67d43ccfc177477cdf4f2039"
+      "included": true,
+      "adapted_destination": "RankBlock00.lean",
+      "adapted_destination_sha256": "ead4f2d756d31d9305eaa1a304357f0db3ba010e67d43ccfc177477cdf4f2039"
     },
     {
       "module": "RankBlock01",
       "archive_path": "source/S5/RankBlock01.lean",
       "original_sha256": "e38be7835ee0f83719ae9bf298fb52efab4af74644d76cd11fb094e838048212",
-      "migrated_sha256": "73bc04b77fad417b827bb38c311c24211d016e1bdaf46bd1d5d54e435549f583"
+      "included": true,
+      "adapted_destination": "RankBlock01.lean",
+      "adapted_destination_sha256": "73bc04b77fad417b827bb38c311c24211d016e1bdaf46bd1d5d54e435549f583"
     },
     {
       "module": "RankBlock02",
       "archive_path": "source/S5/RankBlock02.lean",
       "original_sha256": "892ab82a03f018203ff4eb8a8bebb5d1750d0fb2cf1a92836703e32648dc36b2",
-      "migrated_sha256": "eba3e7163cb09c5a67d884a39d293024e2eb46730c6464021e790362e89f1a91"
+      "included": true,
+      "adapted_destination": "RankBlock02.lean",
+      "adapted_destination_sha256": "eba3e7163cb09c5a67d884a39d293024e2eb46730c6464021e790362e89f1a91"
     },
     {
       "module": "RankBlock03",
       "archive_path": "source/S5/RankBlock03.lean",
       "original_sha256": "38addb348266680bad5030d5abbcf4b0597b35d2901853f098e2e8b31d3ad946",
-      "migrated_sha256": "18e3b31c0170adbddee25a33b8ae9c34e29a0c9189a337784488bf1bbf9552ca"
+      "included": true,
+      "adapted_destination": "RankBlock03.lean",
+      "adapted_destination_sha256": "18e3b31c0170adbddee25a33b8ae9c34e29a0c9189a337784488bf1bbf9552ca"
     },
     {
       "module": "RankBlock04",
       "archive_path": "source/S5/RankBlock04.lean",
       "original_sha256": "68222c858830a0c00cda6c41384eaefb0092251c70b6430ca331c5231337e785",
-      "migrated_sha256": "c51704929d7f06bad3af9145ead3d9d92f504a6cb17dbdbafb043faad01a7986"
+      "included": true,
+      "adapted_destination": "RankBlock04.lean",
+      "adapted_destination_sha256": "c51704929d7f06bad3af9145ead3d9d92f504a6cb17dbdbafb043faad01a7986"
     },
     {
       "module": "RankBlock05",
       "archive_path": "source/S5/RankBlock05.lean",
       "original_sha256": "e78c60f253ce4867d6acb20b04f8a6585259ff94a4208908bde16cbe68fcd5c7",
-      "migrated_sha256": "e0f2617c392105f57759dbce35b0f8a011460f4ff6ce76917e6328e5aa6db46a"
+      "included": true,
+      "adapted_destination": "RankBlock05.lean",
+      "adapted_destination_sha256": "e0f2617c392105f57759dbce35b0f8a011460f4ff6ce76917e6328e5aa6db46a"
     },
     {
       "module": "RankBlock06",
       "archive_path": "source/S5/RankBlock06.lean",
       "original_sha256": "c75ce1af5a79a87826d359821ecfd18a5d6efd224a4153bb7e6ecf43476d435d",
-      "migrated_sha256": "86ea995c3e57cb7db3667f1d68443fdba82a75a0c78929e3878720a10a127c17"
+      "included": true,
+      "adapted_destination": "RankBlock06.lean",
+      "adapted_destination_sha256": "86ea995c3e57cb7db3667f1d68443fdba82a75a0c78929e3878720a10a127c17"
     },
     {
       "module": "RankBlock07",
       "archive_path": "source/S5/RankBlock07.lean",
       "original_sha256": "ffd8b4dce78a275163f5d9d787e9eb3a316a119a06cc46ad8a7fa891a1e6d16a",
-      "migrated_sha256": "3881b1e880822f18328007437c30e55938fd6835a804d7a84ca85acaec78dbdf"
+      "included": true,
+      "adapted_destination": "RankBlock07.lean",
+      "adapted_destination_sha256": "3881b1e880822f18328007437c30e55938fd6835a804d7a84ca85acaec78dbdf"
     },
     {
       "module": "RankBlock08",
       "archive_path": "source/S5/RankBlock08.lean",
       "original_sha256": "c09065767e9eab364ed3ea86037ad1e4b4f8918703497076bdc84e76bbb0bd0d",
-      "migrated_sha256": "6f08abd7000b01eb28e2a8f32885db28606dbecd611b6063cbad57c2fc8b748a"
+      "included": true,
+      "adapted_destination": "RankBlock08.lean",
+      "adapted_destination_sha256": "6f08abd7000b01eb28e2a8f32885db28606dbecd611b6063cbad57c2fc8b748a"
     },
     {
       "module": "RankBlock09",
       "archive_path": "source/S5/RankBlock09.lean",
       "original_sha256": "cf82452ae772ea8b3c462b4573a0213fc3b411e420f2f7e6970c57e7d682703c",
-      "migrated_sha256": "5a187a1e6cf7fcc83a482843bdbe865d0eda6c7765c7dbab7ee30873f6998727"
+      "included": true,
+      "adapted_destination": "RankBlock09.lean",
+      "adapted_destination_sha256": "5a187a1e6cf7fcc83a482843bdbe865d0eda6c7765c7dbab7ee30873f6998727"
     },
     {
       "module": "RankBlock10",
       "archive_path": "source/S5/RankBlock10.lean",
       "original_sha256": "52b63cffad1c4846b6e501c6169d3b95ec6d20a23003c5390648bc639bbcb164",
-      "migrated_sha256": "04324b7661ecccac0d9db432e468d4d1da76e07adeb10edb10b05b85873c30f5"
+      "included": true,
+      "adapted_destination": "RankBlock10.lean",
+      "adapted_destination_sha256": "04324b7661ecccac0d9db432e468d4d1da76e07adeb10edb10b05b85873c30f5"
     },
     {
       "module": "RankBlock11",
       "archive_path": "source/S5/RankBlock11.lean",
       "original_sha256": "beebb21d9e80a1812b276a77b823658ee8e852ee07a9149dbe0969b871d8273c",
-      "migrated_sha256": "b4a17e1e3e0826f961ccef5b1db004049976df9d5cd406d40aef7fb78af176ab"
+      "included": true,
+      "adapted_destination": "RankBlock11.lean",
+      "adapted_destination_sha256": "b4a17e1e3e0826f961ccef5b1db004049976df9d5cd406d40aef7fb78af176ab"
     },
     {
       "module": "RankBlock12",
       "archive_path": "source/S5/RankBlock12.lean",
       "original_sha256": "85cc881614c444586af7897c4b5325025e4d7fd22acd168385d4775218f86f16",
-      "migrated_sha256": "6dbd60fbdb89aef9dbc74f5d5c264df60a009b5b5abfcdc77594b03ff3515194"
+      "included": true,
+      "adapted_destination": "RankBlock12.lean",
+      "adapted_destination_sha256": "6dbd60fbdb89aef9dbc74f5d5c264df60a009b5b5abfcdc77594b03ff3515194"
     },
     {
       "module": "RankBlock13",
       "archive_path": "source/S5/RankBlock13.lean",
       "original_sha256": "459ec068eceb18493966b260925716bbfcf7ed2d8dc30afa4c14f69b504a59fe",
-      "migrated_sha256": "d137145366752c9fa61c0f935cdb1f64068fb512a2bebdefbb869323071e3d55"
+      "included": true,
+      "adapted_destination": "RankBlock13.lean",
+      "adapted_destination_sha256": "d137145366752c9fa61c0f935cdb1f64068fb512a2bebdefbb869323071e3d55"
     },
     {
       "module": "RankBlock14",
       "archive_path": "source/S5/RankBlock14.lean",
       "original_sha256": "efccd07f7a77ca64ab872bb12ccb4e9bc4540b9e7a3012eef771d5e4531f0e30",
-      "migrated_sha256": "177f2a91ca229e6c5e35a3d54fb3c69b6e81bd263947598ffbf1b8610c92a163"
+      "included": true,
+      "adapted_destination": "RankBlock14.lean",
+      "adapted_destination_sha256": "177f2a91ca229e6c5e35a3d54fb3c69b6e81bd263947598ffbf1b8610c92a163"
     },
     {
       "module": "RankBlock15",
       "archive_path": "source/S5/RankBlock15.lean",
       "original_sha256": "b95f23d3d2e017a6013682f0aa79326245001c6cca55f53129d2c627dd705355",
-      "migrated_sha256": "d74474c23656acb30731d6451914a585f23fd3f7db3f691a7a1ba739251408c9"
+      "included": true,
+      "adapted_destination": "RankBlock15.lean",
+      "adapted_destination_sha256": "d74474c23656acb30731d6451914a585f23fd3f7db3f691a7a1ba739251408c9"
     },
     {
       "module": "RankChecks",
       "archive_path": "source/S5/RankChecks.lean",
       "original_sha256": "b8d60d7ded486a808030beca51d8511969230b1e678abc7a67c0f65b3a068232",
-      "migrated_sha256": "75a0464f770b2dc6995f3e4761faa7b94389403e09651c3ff4dcd559b480de74"
+      "included": true,
+      "adapted_destination": "RankChecks.lean",
+      "adapted_destination_sha256": "75a0464f770b2dc6995f3e4761faa7b94389403e09651c3ff4dcd559b480de74"
     },
     {
       "module": "RankData",
       "archive_path": "source/S5/RankData.lean",
       "original_sha256": "0f652bdd5b44fe9bcddd0c43a564e3b187787064220585aa93c6a15a8bd8926d",
-      "migrated_sha256": "ae57a31b6ff920ce4f15c1bad7a4d1999f8e50b6aca2638bf8997ef00fddd1f9"
+      "included": true,
+      "adapted_destination": "RankData.lean",
+      "adapted_destination_sha256": "ae57a31b6ff920ce4f15c1bad7a4d1999f8e50b6aca2638bf8997ef00fddd1f9"
     },
     {
       "module": "SubproductSemantics",
       "archive_path": "source/S5/SubproductSemantics.lean",
       "original_sha256": "ba13bc319dc0b6baacbd98ea26d1e89628af10edec99409e87d0f01ff3d4e21c",
-      "migrated_sha256": "c3bc799d608fa1bd9e6dd8d8a6a91b9dd13363b9349399d418e08b1f25ac39dd"
+      "included": true,
+      "adapted_destination": "SubproductSemantics.lean",
+      "adapted_destination_sha256": "2b99e386e927e1bfad52221c0a9ab23773ecf92849615312f8e515e53fddcd28"
     },
     {
       "module": "SupportSemantics",
       "archive_path": "source/S5/SupportSemantics.lean",
       "original_sha256": "d67147f5a0bd9f4d541f1eb4f8b15d92c422e93056e459a13a8312006a871dc3",
-      "migrated_sha256": "4051a3d296bfb4d48b2112965299dab5cb2bd3fae7a97b1b386cf2f0e3f78412"
+      "included": true,
+      "adapted_destination": "SolutionPrelude.lean",
+      "adapted_destination_sha256": "733f55aebdcf12782b0b2bd0919b6314abe0a664794cd4a22dc05ed58282d986"
     }
   ],
   "historical_licence": "No blanket relicensing of the source ZIP or third-party components.",
@@ -169,9 +221,10 @@
     "date": "2026-11-08",
     "grant": "Author expressly authorized MIT for adaptations of their own Lean files, retaining third-party licences."
   },
-  "frontend_note": "The original proof is retained. Three compared statements give the threshold, the explicit code witness and its direct prime/product facts. The code/arithmetic equality is separately proved by reflexivity.",
+  "frontend_note": "Standalone Challenge declarations are reproduced in SolutionPrelude so the historical proofs use the same compiled definitions and decision instances. Semantic proofs from SupportSemantics are retained in that prefix. PrimeNat, length and fivePrimes are relocated, with no mathematical definition or hypothesis changed.",
   "frontend_sha256": {
     "Challenge.lean": "8a9ec014cf0ced01e92988f778e73a29547abd43ee29b84976e46f6b299b1ed1",
-    "Solution.lean": "ad130557bf588cf143a432f81bf2bc4af1b56605682780ccc894a1709373379b"
+    "SolutionPrelude.lean": "733f55aebdcf12782b0b2bd0919b6314abe0a664794cd4a22dc05ed58282d986",
+    "Solution.lean": "493b55dcfd4bd03c6deb74b669d2a5f3d5a2ad908404ce2725ee20d2911ee9c9"
   }
 }

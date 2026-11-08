@@ -79,7 +79,7 @@
     "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "The archived conjunction is restated as a universal six-letter threshold, an explicit five-code counterexample, and direct primality/product facts for the arithmetic witness. Solution also retains the original prime-word proof and proves equality of its encoding with the code word. The canonical Challenge avoids copying the historical rawCode30 and recursive primeFactors compilation helpers."
+    "divergences": "The canonical Challenge remains standalone and imports only Std. Its declaration prefix is reproduced exactly in SolutionPrelude. Archived semantic and finite-certificate proofs use that interface; duplicate declarations of PrimeNat, length and fivePrimes are relocated rather than changed. The archived OptimalFive proof is retained in HistoricalSaturation. The three compared statements retain the universal threshold, explicit coded counterexample and direct prime/product facts; the encoding equality is also proved."
   },
   "review": {
     "status": "self-assessed; no independent human review",
