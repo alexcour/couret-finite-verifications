@@ -1,22 +1,22 @@
 {
-  "source_repository": "alexcour/couret-finite-verifications",
-  "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
-  "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-  "source_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
-  "source_license": "MIT",
-  "target_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
-  "target_toolchain": "leanprover/lean4:v4.35.0-rc2",
-  "transformations": [
-    "module header",
-    "Mathlib public import",
-    "@[expose] public section",
-    "implementation namespace Couret.Proof",
-    "independent compared statement and matching Solution",
-    "Replace global simp in orderedSquare_three with explicit finite-sum expansion for Mathlib 4.35; theorem statement unchanged."
+  "record": 23981308,
+  "archive_sha256": "ec2e5a91aa13da8b8bf4aef44bc28ccfb4074b2d257edf942053afe928d53154",
+  "project": "decision",
+  "root": "DecisionInterface",
+  "theorem": "Couret.DecisionInterface.factorization_on_image_iff",
+  "modules": [
+    {
+      "module": "DecisionInterface",
+      "archive_path": "studies/query_cost/DecisionInterface.lean",
+      "original_sha256": "a6054a7030045dbc197d6b664892bb4e802173b59bf28b2249a8ce1488fd0ed8",
+      "migrated_sha256": "d2035e404ad1fca81317bb7a540e53a4ef818bceaae51433c8c435ad57993c7a"
+    }
   ],
-  "validation": {
-    "local_lean": "unavailable",
-    "full_preflight": "not yet observed",
-    "registration": "not submitted"
+  "historical_licence": "No blanket relicensing of the source ZIP or third-party components.",
+  "published_sources": true,
+  "adaptation_license": "MIT",
+  "license_authorization": {
+    "date": "2026-11-08",
+    "grant": "Author expressly authorized MIT for adaptations of their own Lean files, retaining third-party licences."
   }
 }

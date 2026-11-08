@@ -2,13 +2,11 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Couret.Palomar.classification"
+    "Couret.DecisionInterface.factorization_on_image_iff"
   ],
   "definition_names": [
-    "Couret.Palomar.orderedSquare",
-    "Couret.Palomar.translateSupport",
-    "Couret.Palomar.OrdinaryPartner",
-    "Couret.Palomar.ExceptionalPartner"
+    "Couret.DecisionInterface.FibreConstant",
+    "Couret.DecisionInterface.ObservedImage"
   ],
   "permitted_axioms": [
     "propext",
@@ -16,4 +14,3 @@
     "Classical.choice"
   ]
 }
-
