@@ -68,9 +68,12 @@ def closure(seeds):
         result.add(n);work.extend(deps(n)-result)
     return result
 # Definitions need actual proofs for all supporting proof constants, never stubs.
-def_roots={r['name'] for r in rows if r['module'] in sources and joined.get(r['name']) and not theorem_unit(r)}
+def_roots={r['name'] for r in rows if r['module'] in sources and joined.get(r['name']) and ((not theorem_unit(r) and not r['isPrivate']) or r['isInstance'])}
 embedded=closure(def_roots)
 active_defs={r['module'] for r in rows if r['module'] in sources and joined.get(r['name']) and r['name'] in embedded}
+# This source module provides an opened namespace even when its result bodies
+# become separate theorem nodes. Preserve that namespace through its interface.
+if 'AffineEquivalenceTransport' in sources:active_defs.add('AffineEquivalenceTransport')
 module_imports={m:[p for line in data.decode('utf-8-sig').splitlines() if line.startswith('import ') for p in line[7:].split() if p in sources] for m,data in sources.items()}
 external_imports={m:[p for line in data.decode('utf-8-sig').splitlines() if line.startswith('import ') for p in line[7:].split() if p not in sources] for m,data in sources.items()}
 @functools.cache
@@ -173,7 +176,7 @@ for n in sorted(nodes):
         d=work.pop()
         if d in needed or d==n:continue
         if d in nodes:child.add(d);continue
-        if d in embedded:continue
+        if d in embedded and not graph.get(d,{}).get('isPrivate'):continue
         if d not in graph:continue
         if not joined.get(d):work.extend(deps(d));continue
         if graph[d]['module']!=m:
