@@ -19,6 +19,14 @@ with zipfile.ZipFile(io.BytesIO(payload)) as z:
         if p.parent.as_posix() == prefix and p.suffix == ".lean" and p.name not in ["lakefile.lean", "AuditCubic.lean"]:
             raw = z.read(name).decode("utf-8-sig")
             sources[p.stem] = (name, raw)
+def patch_group_ring(raw):
+    raw = raw.replace("  simp only [indicator, AddMonoidAlgebra.coeff_sum, Finsupp.finset_sum_apply]\n  change (∑ a ∈ S, (AddMonoidAlgebra.single a (1 : ℤ) : AddMonoidAlgebra ℤ G) z) = _\n  simp [AddMonoidAlgebra.single_apply, eq_comm]", "  simp [indicator, AddMonoidAlgebra.coeff_sum, AddMonoidAlgebra.coeff_single, Finsupp.finsetSum_apply, Finsupp.single_apply, eq_comm]")
+    raw = raw.replace("  exact AddMonoidAlgebra.single_apply", "  simp [AddMonoidAlgebra.coeff_single, Finsupp.single_apply]")
+    raw = raw.replace("    apply AddMonoidAlgebra.ext\n    intro z", "    apply AddMonoidAlgebra.ext\n    ext z")
+    raw = raw.replace("  change ((AddMonoidAlgebra.single h (1 : ℤ) : AddMonoidAlgebra ℤ G) * f) z = f (z-h)\n  rw [AddMonoidAlgebra.single_mul_apply, one_mul]", "  rw [AddMonoidAlgebra.coeff_single_mul_apply, one_mul]")
+    raw = raw.replace("  ext z\n  have he : f+f=0 := by simpa [two_mul] using hf\n  have hz := congrArg (fun g : AddMonoidAlgebra ℤ G => g z) he\n  change f z+f z=0 at hz\n  change f z=0\n  omega", "  apply AddMonoidAlgebra.ext\n  ext z\n  have he : f+f=0 := by simpa [two_mul] using hf\n  have hz := congrArg (fun g : AddMonoidAlgebra ℤ G => g.coeff z) he\n  simp only [AddMonoidAlgebra.coeff_add, AddMonoidAlgebra.coeff_zero, Finsupp.add_apply, Finsupp.zero_apply] at hz ⊢\n  omega")
+    return raw
+
 closure = set()
 def visit(module):
     if module in closure: return
@@ -32,6 +40,8 @@ visit(root_module)
 receipt = {"record":record, "archive_sha256":archive["sha256"], "project":args.project, "root":root_module, "theorem":theorem, "modules":[], "historical_licence":"No new blanket licence; existing notices retain their scope", "published_sources":False}
 for module in sorted(closure):
     name, raw = sources[module]
+    original_raw = raw
+    if module == "GroupRingBridge": raw = patch_group_ring(raw)
     lines = raw.splitlines()
     last_import = max(i for i,l in enumerate(lines) if l.startswith("import "))
     converted = ["public "+line if line.startswith("import ") else line for line in lines]
@@ -39,7 +49,7 @@ for module in sorted(closure):
     migrated = "module\n\n" + "\n".join(converted) + "\n"
     assert len(migrated.splitlines()) <= 10000
     (dest/(module+".lean")).write_text(migrated)
-    receipt["modules"].append({"module":module, "archive_path":name, "original_sha256":hashlib.sha256(raw.encode()).hexdigest(), "migrated_sha256":hashlib.sha256(migrated.encode()).hexdigest()})
+    receipt["modules"].append({"module":module, "archive_path":name, "original_sha256":hashlib.sha256(original_raw.encode()).hexdigest(), "migrated_sha256":hashlib.sha256(migrated.encode()).hexdigest()})
 lake = 'name = "CouretArchiveMigration"\nversion = "0.0.1"\ndefaultTargets = ["'+root_module+'"]\n\n[[require]]\nname = "mathlib"\ngit = "https://github.com/leanprover-community/mathlib4.git"\nrev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"\n\n'
 lake += "\n".join('[[lean_lib]]\nname = "'+module+'"\n' for module in sorted(closure))
 (dest/"lakefile.toml").write_text(lake)
