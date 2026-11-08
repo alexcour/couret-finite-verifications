@@ -12,7 +12,7 @@
         "snapshots": [
           "g098"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "71d66a9addc72a758b9d02ffad265c35cab94534",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/71d66a9addc72a758b9d02ffad265c35cab94534/research/strobo-2tors-2026-10-12/lean/RecohRankOne.lean",
         "environments": [
@@ -35,7 +35,7 @@
         "snapshots": [
           "g120"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "3fb45e3419d8f464ba08064afe59061c6f6f9189",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/3fb45e3419d8f464ba08064afe59061c6f6f9189/research/strobo-2tors-2026-10-12/lean/Strobo2TorsUnorderedPairs.lean",
         "environments": [
@@ -43,7 +43,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -58,7 +58,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohNoisySignRecovery.lean",
         "environments": [
@@ -81,7 +81,7 @@
         "snapshots": [
           "g106"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors.lean",
         "environments": [
@@ -89,7 +89,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -104,7 +104,7 @@
         "snapshots": [
           "g093"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "60f6d03fdb26a2498e9e856b49f93ad590b99409",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohConditionalBank.lean",
         "environments": [
@@ -127,7 +127,7 @@
         "snapshots": [
           "g095"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "85df7268e792e69b2e1ad2461dec2af575c43c88",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/85df7268e792e69b2e1ad2461dec2af575c43c88/research/strobo-2tors-2026-10-12/lean/RecohEqualRank.lean",
         "environments": [
@@ -150,7 +150,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohProbeStability.lean",
         "environments": [
@@ -181,7 +181,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_B2_TCNonzeroChannels.lean",
         "environments": [
@@ -189,7 +189,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -212,7 +212,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_06_AdversarialCases.lean",
         "environments": [
@@ -220,7 +220,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -243,7 +243,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_04_TypedDependencies.lean",
         "environments": [
@@ -251,7 +251,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -266,7 +266,7 @@
         "snapshots": [
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
         "environments": [
@@ -274,7 +274,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -297,7 +297,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_02_ClaimContract.lean",
         "environments": [
@@ -305,7 +305,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -320,7 +320,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStableSquareSelection.lean",
         "environments": [
@@ -344,7 +344,7 @@
           "g107",
           "g113"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "9c61de6daf8df99da6574d627b45941403594956",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c61de6daf8df99da6574d627b45941403594956/research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeDeltaCount.lean",
         "environments": [
@@ -353,7 +353,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -368,7 +368,7 @@
         "snapshots": [
           "g093"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "60f6d03fdb26a2498e9e856b49f93ad590b99409",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean",
         "environments": [
@@ -391,7 +391,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohOddPowerSelection.lean",
         "environments": [
@@ -422,7 +422,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_03_DependencyGraph.lean",
         "environments": [
@@ -430,7 +430,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -453,7 +453,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_10_BridgeReceiptMutationSuite.lean",
         "environments": [
@@ -461,7 +461,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -476,7 +476,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStabilityReplay.lean",
         "environments": [
@@ -499,7 +499,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohNoisyUniqueness.lean",
         "environments": [
@@ -530,7 +530,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_07_RefinedPolicy.lean",
         "environments": [
@@ -538,7 +538,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -553,7 +553,7 @@
         "snapshots": [
           "g093"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "60f6d03fdb26a2498e9e856b49f93ad590b99409",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/60f6d03fdb26a2498e9e856b49f93ad590b99409/research/strobo-2tors-2026-10-12/lean/RecohFourierCovarianceBridge.lean",
         "environments": [
@@ -584,7 +584,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_05_MutationSuite.lean",
         "environments": [
@@ -592,7 +592,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -607,7 +607,7 @@
         "snapshots": [
           "g063"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_13_BridgeRevocation.lean",
         "environments": [
@@ -615,7 +615,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -630,7 +630,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohOddPowerRuntime.lean",
         "environments": [
@@ -654,7 +654,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourMatrixNewton.lean",
         "environments": [
@@ -677,7 +677,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStableReconstruction.lean",
         "environments": [
@@ -700,7 +700,7 @@
         "snapshots": [
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "bef25648f750d1b9d7792a883597021665e3ba00",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/bef25648f750d1b9d7792a883597021665e3ba00/research/correspondants_20261013/lean/CayleyNewtonDegreeOne.lean",
         "environments": [
@@ -723,7 +723,7 @@
         "snapshots": [
           "g063"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_12_FirstBridgeInvalidation.lean",
         "environments": [
@@ -731,7 +731,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -746,7 +746,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStablePrecision.lean",
         "environments": [
@@ -769,7 +769,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohStableBank.lean",
         "environments": [
@@ -792,7 +792,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohExceptionalStability.lean",
         "environments": [
@@ -815,7 +815,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohOddPowerAverage.lean",
         "environments": [
@@ -838,7 +838,7 @@
         "snapshots": [
           "g106"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/Prelude.lean",
         "environments": [
@@ -846,7 +846,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -861,7 +861,7 @@
         "snapshots": [
           "g062"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5/research/lean/CouretOaiBridge01/NORM02_FiniteArithmetic.lean",
         "environments": [
@@ -869,7 +869,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -884,7 +884,7 @@
         "snapshots": [
           "g106"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/RectangleMatching.lean",
         "environments": [
@@ -892,7 +892,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -907,7 +907,7 @@
         "snapshots": [
           "g106"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/Rectangle.lean",
         "environments": [
@@ -915,7 +915,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -931,7 +931,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyCharpolyTrace.lean",
         "environments": [
@@ -955,7 +955,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/PolynomialJacobi.lean",
         "environments": [
@@ -986,7 +986,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_B1_WeightedSumMultiplex.lean",
         "environments": [
@@ -994,7 +994,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1017,7 +1017,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_08_BridgeReceipts.lean",
         "environments": [
@@ -1025,7 +1025,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1040,7 +1040,7 @@
         "snapshots": [
           "g062"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c1b4e471ddf8ead0392fcc412f5dd8f8f910eb5/research/lean/NORM02_Axioms.lean",
         "environments": [
@@ -1048,7 +1048,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1071,7 +1071,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_A0_GenericNoGain.lean",
         "environments": [
@@ -1079,7 +1079,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1095,7 +1095,7 @@
           "g099",
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "51f629fec7fb921278e835e46e2568b22ae79523",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/51f629fec7fb921278e835e46e2568b22ae79523/research/strobo-2tors-2026-10-12/lean/RecohSelectorReplay.lean",
         "environments": [
@@ -1119,7 +1119,7 @@
         "snapshots": [
           "g106"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/RectangleFibres.lean",
         "environments": [
@@ -1127,7 +1127,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1142,7 +1142,7 @@
         "snapshots": [
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01.lean",
         "environments": [
@@ -1150,7 +1150,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1167,7 +1167,7 @@
           "g057",
           "g126"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourZMod.lean",
         "environments": [
@@ -1191,7 +1191,7 @@
         "snapshots": [
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01/INTERIA_SA_05_BesselWeightedModes.lean",
         "environments": [
@@ -1199,7 +1199,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1218,7 +1218,7 @@
           "g101",
           "g111"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "8febe10087c3dc984acb6c9fbee244b3debab554",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/8febe10087c3dc984acb6c9fbee244b3debab554/research/strobo-2tors-2026-10-12/lean/RecohDataBridgeReplay.lean",
         "environments": [
@@ -1245,7 +1245,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohTripleNewton.lean",
         "environments": [
@@ -1268,7 +1268,7 @@
         "snapshots": [
           "g106"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/CrossedOrderThree.lean",
         "environments": [
@@ -1276,7 +1276,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1291,7 +1291,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohRationalComplex.lean",
         "environments": [
@@ -1322,7 +1322,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_A1_U30KernelInverse.lean",
         "environments": [
@@ -1330,7 +1330,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1345,7 +1345,7 @@
         "snapshots": [
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "8a8227048f12169067627c9a591ee5448bdfc0b9",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/8a8227048f12169067627c9a591ee5448bdfc0b9/research/lean/CouretOaiBridge01/INTERIA_SA_04_PowerIntegrability.lean",
         "environments": [
@@ -1353,7 +1353,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1376,7 +1376,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_A2_FixedModulusNoGain.lean",
         "environments": [
@@ -1384,7 +1384,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1399,7 +1399,7 @@
         "snapshots": [
           "g113"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "46d8415e210e3292a6e74b2bd990cd104cfa2835",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/46d8415e210e3292a6e74b2bd990cd104cfa2835/research/strobo-2tors-2026-10-12/lean/Strobo2TorsFibreMoment.lean",
         "environments": [
@@ -1407,7 +1407,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -1422,7 +1422,7 @@
         "snapshots": [
           "g063"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_14_VersionedAdmission.lean",
         "environments": [
@@ -1430,7 +1430,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1446,7 +1446,7 @@
           "g107",
           "g113"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "9c61de6daf8df99da6574d627b45941403594956",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c61de6daf8df99da6574d627b45941403594956/research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeCompatibility.lean",
         "environments": [
@@ -1455,7 +1455,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -1470,7 +1470,7 @@
         "snapshots": [
           "g111"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "41a2ef6f6ae6f6a26b3d630d365ad404fd97fe42",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/41a2ef6f6ae6f6a26b3d630d365ad404fd97fe42/research/strobo-2tors-2026-10-12/lean/StroboHomometry.lean",
         "environments": [
@@ -1478,7 +1478,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -1494,7 +1494,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourCanonicalReturn.lean",
         "environments": [
@@ -1518,7 +1518,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourClassification.lean",
         "environments": [
@@ -1541,7 +1541,7 @@
         "snapshots": [
           "g118"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "c7adacbb38c59753318ef256bb966a4cd0dc0d7d",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/c7adacbb38c59753318ef256bb966a4cd0dc0d7d/research/strobo-2tors-2026-10-12/lean/Strobo2TorsProfilePartition.lean",
         "environments": [
@@ -1549,7 +1549,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -1564,7 +1564,7 @@
         "snapshots": [
           "g100"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "eb7323762a9fa64f54f95ea7aa2981dee0ba54af",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/eb7323762a9fa64f54f95ea7aa2981dee0ba54af/research/strobo-2tors-2026-10-12/lean/RecohRationalRoots.lean",
         "environments": [
@@ -1587,7 +1587,7 @@
         "snapshots": [
           "g056"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourFirstCoeff.lean",
         "environments": [
@@ -1611,7 +1611,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyTwoColourThirdFactor.lean",
         "environments": [
@@ -1635,7 +1635,7 @@
           "g107",
           "g113"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "9c61de6daf8df99da6574d627b45941403594956",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/9c61de6daf8df99da6574d627b45941403594956/research/strobo-2tors-2026-10-12/lean/Strobo2TorsZeroFreeIncidence.lean",
         "environments": [
@@ -1644,7 +1644,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -1682,7 +1682,7 @@
           "g137",
           "g138"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "a8937817c77d1fe4ff6044d411cc8acce36b57b8",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/a8937817c77d1fe4ff6044d411cc8acce36b57b8/research/strobo-2tors-2026-10-12/lean/Strobo2TorsExceptionProfileTwo.lean",
         "environments": [
@@ -1711,7 +1711,7 @@
         ]
       },
       "families": [
-        "STROBO \u00e0 trois points"
+        "STROBO à trois points"
       ]
     },
     {
@@ -1734,7 +1734,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_01_StatusTransport.lean",
         "environments": [
@@ -1742,7 +1742,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1765,7 +1765,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_07_ConcreteRegistry.lean",
         "environments": [
@@ -1773,7 +1773,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1796,7 +1796,7 @@
           "g065",
           "g081"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/BRIDGE01_B0_DirichletMultiplexer.lean",
         "environments": [
@@ -1804,7 +1804,7 @@
         ]
       },
       "families": [
-        "Collisions, fibres et reconstruction \u00e0 quatre points"
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     },
     {
@@ -1819,7 +1819,7 @@
         "snapshots": [
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "bef25648f750d1b9d7792a883597021665e3ba00",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/bef25648f750d1b9d7792a883597021665e3ba00/research/correspondants_20261013/lean/CayleyTwoColourFirstCoefficient.lean",
         "environments": [
@@ -1828,6 +1828,30 @@
       },
       "families": [
         "Graphes de Cayley et spectres"
+      ]
+    },
+    {
+      "module": "Strobo2TorsSquareExpansion",
+      "source_module": "STROBO2Tors.SquareExpansion",
+      "date": 0,
+      "sha256": "01be501848647215ec5106190839256dcf4cd37b939447c09e682624689abc6c",
+      "location": {
+        "kind": "github",
+        "repository": "alexcour/couret-finite-verifications",
+        "path": "research/STROBO_2TORS_01/lean/STROBO2Tors/SquareExpansion.lean",
+        "git_blob_sha": "d2a798659204bf6102b370b3ee6b1252a8651b80",
+        "snapshots": [
+          "g106"
+        ],
+        "role": "source de développement",
+        "commit": "a91e50bc44e6bea233226b8e1090ba3e1b805b46",
+        "url": "https://github.com/alexcour/couret-finite-verifications/blob/a91e50bc44e6bea233226b8e1090ba3e1b805b46/research/STROBO_2TORS_01/lean/STROBO2Tors/SquareExpansion.lean",
+        "environments": [
+          "e017"
+        ]
+      },
+      "families": [
+        "Collisions, fibres et reconstruction à quatre points"
       ]
     }
   ],
@@ -1844,7 +1868,7 @@
           "g056",
           "g057"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "1483e8ae3e5491ee176364fe944c90c4341d40ff",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/1483e8ae3e5491ee176364fe944c90c4341d40ff/research/correspondants_20261013/lean/CayleyNewtonAPISmoke.lean",
         "environments": [
@@ -1863,7 +1887,7 @@
         "snapshots": [
           "g094"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "ad2eec14cbdf5db27785ca27e34c18048b5b9578",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/ad2eec14cbdf5db27785ca27e34c18048b5b9578/research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean",
         "environments": [
@@ -1882,7 +1906,7 @@
         "snapshots": [
           "g063"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
         "environments": [
@@ -1907,7 +1931,7 @@
           "g064",
           "g065"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01/STAT_TRANS_11_FirstAdmittedBridge.lean",
         "environments": [
@@ -1934,7 +1958,7 @@
           "g065",
           "g081"
         ],
-        "role": "requ\u00eates d\u2019audit",
+        "role": "requêtes d’audit",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/Audit.lean",
         "environments": [
@@ -1953,7 +1977,7 @@
         "snapshots": [
           "g063"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "f72b0e6ff3408c36460034dc02c539a1fe7e8233",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/f72b0e6ff3408c36460034dc02c539a1fe7e8233/research/lean/CouretOaiBridge01.lean",
         "environments": [
@@ -1978,7 +2002,7 @@
           "g064",
           "g065"
         ],
-        "role": "source de d\u00e9veloppement",
+        "role": "source de développement",
         "commit": "d71ed2dafa9daa082f1a801b51d8a58abdb2c473",
         "url": "https://github.com/alexcour/couret-finite-verifications/blob/d71ed2dafa9daa082f1a801b51d8a58abdb2c473/research/lean/CouretOaiBridge01.lean",
         "environments": [

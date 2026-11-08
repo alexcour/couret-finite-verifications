@@ -1,0 +1,42 @@
+name: Prove2Me extension source repairs
+on:
+  push:
+    branches: [prove2me/extensions-source-checks-20261108]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Recover exact compiled source, declaration and axiom receipts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 42498569313 --repo alexcour/couret-finite-verifications --name prove2me-unified-migration --dir recovered
+      - run: cp -r recovered/unified-evidence unified-evidence
+      - name: Install official Lean toolchain manager
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Validate the complete deduplicated positive corpus
+        run: python prepare_extensions.py --source-only
+      - name: Preserve sources, declarations, axioms, generated proofs and type comparison
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-extension-source-checks
+          path: |
+            unified-evidence/
+            project/.lake/build/
+            generated/Definitions/
+            generated/Theorems/
+            generated/Solutions/
+            generated/plan.json
+            generated/axioms.json
+            generated/validation/
+          retention-days: 30
+          if-no-files-found: error
