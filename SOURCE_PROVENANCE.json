@@ -1,22 +1,148 @@
 {
-  "source_repository": "alexcour/couret-finite-verifications",
-  "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
-  "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
-  "source_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
-  "source_license": "MIT",
-  "target_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
-  "target_toolchain": "leanprover/lean4:v4.35.0-rc2",
-  "transformations": [
-    "module header",
-    "Mathlib public import",
-    "@[expose] public section",
-    "implementation namespace Couret.Proof",
-    "independent compared statement and matching Solution",
-    "Replace global simp in orderedSquare_three with explicit finite-sum expansion for Mathlib 4.35; theorem statement unchanged."
+  "record": 23980513,
+  "archive_sha256": "19a3b59aee930df74cab79c27b29e014843bd17179a26fef1261ed6b5a651ab7",
+  "project": "singleton",
+  "root": "FullNecessity",
+  "theorem": "Couret.InterIA.SingletonNecessity.singleton_collision_iff_contains_c4_square",
+  "modules": [
+    {
+      "module": "AbelianBoundary",
+      "archive_path": "source-tree/research/interia/abelian-singleton-boundary-20261103/AbelianBoundary.lean",
+      "original_sha256": "20b6936c6a495be9d966a8d0f5b874362f747e56efa3585823bc25fb7148aba0",
+      "migrated_sha256": "4803b0f58c557ef4483530891bf37c16914eb23270109650309cc75150549f67"
+    },
+    {
+      "module": "C4SquareAlgebra",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/C4SquareAlgebra.lean",
+      "original_sha256": "b1ddfe1104c004b9b50f0fd1a5930f7f7032d7121a8aa07043d9dda7d26b4f8c",
+      "migrated_sha256": "668c9fdcbc0644eb6f713877386e7988cd05840fff225d0d63a828d960222af2"
+    },
+    {
+      "module": "CertificateSoundness",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/CertificateSoundness.lean",
+      "original_sha256": "10bfe9fce95e54024ac1f979cda844bfbd42adbb9a4bcc608954b4c55b77c9f0",
+      "migrated_sha256": "1ca5b0bf1b22d31e6c496a5a776ded6628cbd65612201b5225f33530f3b842b2"
+    },
+    {
+      "module": "ConditionalNecessity",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/ConditionalNecessity.lean",
+      "original_sha256": "cb9bb017b413d40837c57c50cc3c78b5f8fc5f8253e41ffaffda5cd427f7047c",
+      "migrated_sha256": "77f52fdf38409e2a91d426c293ea4bf5a337578034a9053061debca0aeae5cb8"
+    },
+    {
+      "module": "ConvolutionParity",
+      "archive_path": "source-tree/research/interia/abelian-singleton-boundary-20261103/ConvolutionParity.lean",
+      "original_sha256": "ca105fed5a66cffb44bb01aa91771220219cd0dab9229dca8d48025b258dac97",
+      "migrated_sha256": "9791a7e149042ed1a647dacc7a471fd5536fef7790ea7c405ba80ec9b5632495"
+    },
+    {
+      "module": "CountCancellation",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/CountCancellation.lean",
+      "original_sha256": "a9c6879b38b272efd97ab8636f1963a931fe668d255d7f044d96fb16a8dc1e89",
+      "migrated_sha256": "1eee523d551e5e9ed5e3558622e62f0da6b8e4559b29a8f15ed37f6b1d052492"
+    },
+    {
+      "module": "EmbeddingTransport",
+      "archive_path": "source-tree/research/interia/abelian-singleton-boundary-20261103/EmbeddingTransport.lean",
+      "original_sha256": "10f68a5cfe5d6bb349f7f53be056fc22180a32943905fcd0344029778c6c8eca",
+      "migrated_sha256": "ed868dae835212c0b591121e1181ed09dd841d99405e79ccd7539701a75b9c0a"
+    },
+    {
+      "module": "ExclusiveEnumeration",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/ExclusiveEnumeration.lean",
+      "original_sha256": "e9335ae75c793b443dea30485ce117fdc77557ebd960ab9a5308276ea8778067",
+      "migrated_sha256": "46c20b4d151cb420aebb0a51cb815153aaf14ddba4bf16cc271377e3337b07c0"
+    },
+    {
+      "module": "ExtractionBasics",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/ExtractionBasics.lean",
+      "original_sha256": "65adcf683ecaaf85072801fa5eabac473cfd23154dfc02948e17c14bc16e67f1",
+      "migrated_sha256": "6f63a4edcb535248c46c348cdcffd691f1fc4ab030fa666e79b3d3e47d993c5f"
+    },
+    {
+      "module": "FullNecessity",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/FullNecessity.lean",
+      "original_sha256": "0cf350362495df380a95f93d0f74361540b30b45c3f7e0565988146968fb64d4",
+      "migrated_sha256": "75fbbe08a771b7c98fe91edb77050a5426d7d5585a430a54e0857c3657f99692"
+    },
+    {
+      "module": "L4Foundations",
+      "archive_path": "source-tree/research/interia/abelian-singleton-boundary-20261103/L4Foundations.lean",
+      "original_sha256": "a80b43da8931fa1cb12280548eeb0978b71553697ecec5546d5732de3fbdf552",
+      "migrated_sha256": "4ff32e1a409f33c1b37c345ec91f3141e84b9c42e885d518e067a8c8e068a0ea"
+    },
+    {
+      "module": "MatchingCertificateCore",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/MatchingCertificateCore.lean",
+      "original_sha256": "724d876deede1f52a8aeb641e2c00473de595d1d0f0a9a8d4d016bce9264e3ba",
+      "migrated_sha256": "88a23eefbbe9484b38901d881475184574c80e6891b9c54a4883d26dc5cdf286"
+    },
+    {
+      "module": "MatchingCertificateData",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/MatchingCertificateData.lean",
+      "original_sha256": "281f2db6030f883e89d5aa00658e16116a8de5187f3c58c3d03bf50c9b44685c",
+      "migrated_sha256": "fd806da1a61bda1ff7b02d61062686b4697a048f1a9ed456a760d779b62823dc"
+    },
+    {
+      "module": "MatchingElimination",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/MatchingElimination.lean",
+      "original_sha256": "5d9c53994ff9dbf4384c58f156be2344b6607d814710b9fb230bc1739b8c8dbd",
+      "migrated_sha256": "d30f14d3d8d31a601d3fa3571bdaea2585b63ff525cd06ef60929363a0d9e103"
+    },
+    {
+      "module": "MatchingEncoding",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/MatchingEncoding.lean",
+      "original_sha256": "a0d826191571fb63dcc640fefffc281719b6b20eb83cbb257aa021d20bf19b83",
+      "migrated_sha256": "232a3b2fba9d40f09a89dba02f32de47cd28881dea6cd27a2138f13e26318aed"
+    },
+    {
+      "module": "ParityRelabel",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/ParityRelabel.lean",
+      "original_sha256": "e38c100083df9eeb8ec0d544ff8ea7bc62af4aac0fcd7a4c8a30c69d9cc7593a",
+      "migrated_sha256": "8f2efdd47e9e6cbcf98a5dcf93de9e0b6427d7227b4d3833f99b3ece9d7f0571"
+    },
+    {
+      "module": "PermutationIndices",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/PermutationIndices.lean",
+      "original_sha256": "5efe3b1e4cab0d437f8cf9313def353f9b3c64d2ffe12333fea4edd2282f64f2",
+      "migrated_sha256": "900607c58067b23c29916cadbeaa9278bb721d68150147325414bf046fe3ca34"
+    },
+    {
+      "module": "RelabelBasics",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/RelabelBasics.lean",
+      "original_sha256": "ad051970dc8003cca85b8ddbc013f1c47aae55ee0fcba53af030e41581191f05",
+      "migrated_sha256": "74fd9ba026470fd8783c5ad190db7faf18ab64740c2c0bf6e7196ee76733f4a4"
+    },
+    {
+      "module": "ReverseMatching",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/ReverseMatching.lean",
+      "original_sha256": "b77b158445897505c2a291e6886b5611971702cef47a8ab244375e44271880e4",
+      "migrated_sha256": "ac883faec3460ae3297530d29e3b799982dcec4990fb6a317307e82f8bc5635e"
+    },
+    {
+      "module": "SingletonNormalization",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/SingletonNormalization.lean",
+      "original_sha256": "b79e3a7dcd27241fd2b42296a8a3585acdf1ea087086ba375ded443d56f96cf2",
+      "migrated_sha256": "a2fee541cfee43c0a8025e20b43d01e45ba3ede5293037b8e0bfe484b939e78d"
+    },
+    {
+      "module": "SixDoublePairing",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/SixDoublePairing.lean",
+      "original_sha256": "e79e5620a66aef560a893ef2c2f1adb2de1fc3f858804fed5dd6dbd8a3babec4",
+      "migrated_sha256": "4ce57af8fba0287b69bd0d423918454945cae1ada05b7dee0c98325b5551dde4"
+    },
+    {
+      "module": "SquareExpansion",
+      "archive_path": "source-tree/research/interia/abelian-singleton-necessity-20261104/formal/SquareExpansion.lean",
+      "original_sha256": "9bb0068b4b8d7143f97d46947e4be4105b05b8c1d63e1cf936d8c33c351a30cc",
+      "migrated_sha256": "6a0a388701319f1b062d9641c9f2c906d7d0022c7461d31c016f03e8dc841449"
+    }
   ],
-  "validation": {
-    "local_lean": "unavailable",
-    "full_preflight": "not yet observed",
-    "registration": "not submitted"
+  "historical_licence": "No blanket relicensing of the source ZIP or third-party components.",
+  "published_sources": true,
+  "adaptation_license": "MIT",
+  "license_authorization": {
+    "date": "2026-11-08",
+    "grant": "Author expressly authorized MIT for adaptations of their own Lean files, retaining third-party licences."
   }
 }

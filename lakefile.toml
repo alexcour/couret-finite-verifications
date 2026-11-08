@@ -1,6 +1,6 @@
-name = "CouretPalomarCandidate"
+name = "CouretArchiveMigration"
 version = "0.0.1"
-defaultTargets = ["CouretProof", "Challenge", "Solution"]
+defaultTargets = ["Challenge", "Solution"]
 
 [[require]]
 name = "mathlib"
@@ -8,11 +8,73 @@ git = "https://github.com/leanprover-community/mathlib4.git"
 rev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"
 
 [[lean_lib]]
-name = "CouretProof"
+name = "AbelianBoundary"
+
+[[lean_lib]]
+name = "C4SquareAlgebra"
+
+[[lean_lib]]
+name = "CertificateSoundness"
+
+[[lean_lib]]
+name = "ConditionalNecessity"
+
+[[lean_lib]]
+name = "ConvolutionParity"
+
+[[lean_lib]]
+name = "CountCancellation"
+
+[[lean_lib]]
+name = "EmbeddingTransport"
+
+[[lean_lib]]
+name = "ExclusiveEnumeration"
+
+[[lean_lib]]
+name = "ExtractionBasics"
+
+[[lean_lib]]
+name = "FullNecessity"
+
+[[lean_lib]]
+name = "L4Foundations"
+
+[[lean_lib]]
+name = "MatchingCertificateCore"
+
+[[lean_lib]]
+name = "MatchingCertificateData"
+
+[[lean_lib]]
+name = "MatchingElimination"
+
+[[lean_lib]]
+name = "MatchingEncoding"
+
+[[lean_lib]]
+name = "ParityRelabel"
+
+[[lean_lib]]
+name = "PermutationIndices"
+
+[[lean_lib]]
+name = "RelabelBasics"
+
+[[lean_lib]]
+name = "ReverseMatching"
+
+[[lean_lib]]
+name = "SingletonNormalization"
+
+[[lean_lib]]
+name = "SixDoublePairing"
+
+[[lean_lib]]
+name = "SquareExpansion"
 
 [[lean_lib]]
 name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
-

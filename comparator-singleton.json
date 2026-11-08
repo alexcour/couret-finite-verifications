@@ -2,13 +2,10 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Couret.Palomar.classification"
+    "Couret.PalomarSingleton.singleton_collision_iff"
   ],
   "definition_names": [
-    "Couret.Palomar.orderedSquare",
-    "Couret.Palomar.translateSupport",
-    "Couret.Palomar.OrdinaryPartner",
-    "Couret.Palomar.ExceptionalPartner"
+    "Couret.PalomarSingleton.orderedSquare"
   ],
   "permitted_axioms": [
     "propext",
@@ -16,4 +13,3 @@
     "Classical.choice"
   ]
 }
-
