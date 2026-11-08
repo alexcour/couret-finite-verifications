@@ -55,5 +55,6 @@ jobs:
       pipeline_commit: 14aa8d6b3c2f14a8540605e37144560b9a00e7e7
       request_id: ${{ matrix.request }}
       mode: full
+      execution_profile: palomar-standard-v1
       options: >-
         {"comparator_config_path":"${{ matrix.config }}","authorization_relationship":"I have approval from a responsible author or maintainer","authorization_evidence":"Prepared at the explicit request of responsible author Alexandre Couret. MIT authorization for new author-owned archive adaptations received on 2026-11-08; third-party licences are retained."}
