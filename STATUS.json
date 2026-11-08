@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-08T16:34:10.972399+00:00",
+  "observed_at_utc": "2026-11-08T17:07:26.704292+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 1,
@@ -24,7 +24,7 @@
       "name": "STROBO fibre-cardinality dichotomy and upper bound",
       "commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
-      "registration": "NOT_REGISTERED",
+      "registration": "REGISTRATION_IN_PROGRESS",
       "official_verification": {
         "status": "SUCCESS",
         "run": 42491892197
