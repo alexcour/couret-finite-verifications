@@ -13,9 +13,9 @@ jobs:
       matrix:
         include:
           - name: bc_saturation
-            commit: 972b48ff036531dbd914603917eb1bf9a41ea0d3
+            commit: f23b41d8a603aa84c49a11becd30980f5f06cdf2
             config: comparator-bc_saturation.json
-            request: cousatcode02
+            request: cousatpref01
     uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
     with:
       repository: alexcour/couret-finite-verifications
