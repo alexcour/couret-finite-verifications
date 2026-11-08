@@ -4,7 +4,7 @@ Input: a completed remote evidence directory with sources.zip, decl_graph.jsonl,
 and *.oracle.jsonl. No declaration boundary is inferred from a text search.
 All generated text still requires compilation and an elaborated-type comparison.
 """
-import argparse, collections, hashlib, json, pathlib, re, zipfile
+import argparse, collections, functools, hashlib, json, pathlib, re, zipfile
 
 parser=argparse.ArgumentParser()
 parser.add_argument('evidence')
@@ -70,8 +70,12 @@ def closure(seeds):
 # Definitions need actual proofs for all supporting proof constants, never stubs.
 def_roots={r['name'] for r in rows if r['module'] in sources and joined.get(r['name']) and not theorem_unit(r)}
 embedded=closure(def_roots)
-active_defs={r['module'] for r in rows if r['module'] in sources and r['startLine']>0 and not theorem_unit(r)}
+active_defs={r['module'] for r in rows if r['module'] in sources and joined.get(r['name']) and r['name'] in embedded}
 module_imports={m:[p for line in data.decode('utf-8-sig').splitlines() if line.startswith('import ') for p in line[7:].split() if p in sources] for m,data in sources.items()}
+external_imports={m:[p for line in data.decode('utf-8-sig').splitlines() if line.startswith('import ') for p in line[7:].split() if p not in sources] for m,data in sources.items()}
+@functools.cache
+def inherited_external(m):
+    return set(external_imports[m]).union(*(inherited_external(p) for p in module_imports[m]))
 provider_cache={}
 def providers(m,active=()):
     if m in active_defs:return [m]
@@ -141,7 +145,7 @@ def skeleton(m,keep,extra_imports=(),stub=None,rename_target=None):
             continue
         else:rewritten.append(line)
     # Extra imports precede every namespace/section and preserve all source scope.
-    return '\n'.join(['import '+p for p in sorted(set(extra_imports))]+rewritten)+'\n'
+    return '\n'.join(['import '+p for p in sorted(set(extra_imports)|inherited_external(m))]+rewritten)+'\n'
 # Bundle identities include the selected source skeleton, environment and the
 # full dependency fingerprint. Identical imported bundles can be reused across
 # source groups; a changed source or import closure receives a distinct name.

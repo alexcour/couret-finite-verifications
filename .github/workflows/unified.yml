@@ -12,17 +12,18 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - name: Recover the thirteen exact source and declaration receipts
+      - name: Recover exact compiled source, declaration and axiom receipts
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh run download 42495420377 --repo alexcour/couret-finite-verifications --pattern 'prove2me-*' --dir all-evidence
+        run: gh run download 42498569313 --repo alexcour/couret-finite-verifications --name prove2me-unified-migration --dir recovered
+      - run: cp -r recovered/unified-evidence unified-evidence
       - name: Install official Lean toolchain manager
         run: |
           set -euo pipefail
           curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Validate the complete deduplicated positive corpus
-        run: python unified_prepare.py
+        run: python resume_unified.py
       - name: Preserve sources, declarations, axioms, generated proofs and type comparison
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

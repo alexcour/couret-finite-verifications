@@ -3,7 +3,7 @@
 Run inside a remote project which already contains source .olean files and its
 resolved .lake dependency directory. Generated files are never uploaded here.
 """
-import argparse,json,pathlib,shutil,subprocess
+import argparse,json,pathlib,shutil,subprocess,concurrent.futures
 parser=argparse.ArgumentParser()
 parser.add_argument('original')
 parser.add_argument('generated')
@@ -37,14 +37,15 @@ checks={
 }
 checks['solution_signatures']=0
 if checks['definitions']==0 and checks['theorems_and_solutions']==0:
-    for t in theorems:
+    def emit_signature(t):
         slug=t['name'].replace('.','_')
         signature_file='signature_'+slug+'.json'
         printer='import Lean\nimport '+t['solution'][:-5].replace('/','.')+'''\nopen Lean\nrun_meta do\n  let ci ← getConstInfo `'''+t['temporary_name']+'''\n  let names := ci.levelParams.mapIdx fun i _ => Name.mkSimple ("p2m_u_" ++ toString i)\n  let levels := names.map Level.param\n  let ty := ci.type.instantiateLevelParams ci.levelParams levels\n  let text ← withOptions (fun o => o.setBool `pp.fullNames true |>.setBool `pp.universes true |>.setBool `pp.explicit true |>.setBool `pp.proofs true |>.setBool `pp.notation false) do\n    pure (← Meta.ppExpr ty).pretty\n  let result := Json.mkObj [("universes", toJson (names.map Name.toString)), ("type", Json.str text)]\n  IO.FS.writeFile "'''+signature_file+'''" result.compress\n'''
-        (generated/'PrintSolutionSignature.lean').write_text(printer)
-        code=run(generated,['lake','env','lean','PrintSolutionSignature.lean'],'signature_'+slug+'.log')
+        printer_file='PrintSolutionSignature_'+slug+'.lean'
+        (generated/printer_file).write_text(printer)
+        code=run(generated,['lake','env','lean',printer_file],'signature_'+slug+'.log')
         if code!=0:
-            checks['solution_signatures']=code;continue
+            return code
         signature=json.loads((generated/signature_file).read_text())
         shutil.copyfile(generated/signature_file,out/signature_file)
         declarations=('universe '+' '.join(signature['universes'])+'\n') if signature['universes'] else ''
@@ -52,6 +53,10 @@ if checks['definitions']==0 and checks['theorems_and_solutions']==0:
         source=(generated/t['solution']).read_text()
         assert source.count('-- P2M_SOLUTION_SIGNATURE_PENDING')==1
         (generated/t['solution']).write_text(source.replace('-- P2M_SOLUTION_SIGNATURE_PENDING',declarations))
+        return 0
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+        results=list(pool.map(emit_signature,theorems))
+    checks['solution_signatures']=max(results,default=0)
     checks['final_solutions']=run(generated,['lake','build']+[t['solution'][:-5].replace('/','.') for t in theorems],'final-solutions.log')
 else:checks['solution_signatures']=1
 (generated/'PrintStagedTypes.lean').write_text(type_script([t['target'][:-5].replace('/','.') for t in theorems],names,'staged-types.json'))
