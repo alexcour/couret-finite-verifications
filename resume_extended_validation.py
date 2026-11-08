@@ -13,7 +13,12 @@ assert old['source']==new['source'] and old['mathlib_rev']==new['mathlib_rev']
 assert {d['module'] for d in old['definitions']}=={d['module'] for d in new['definitions']}
 assert {t['name'] for t in old['theorems']}-{t['name'] for t in new['theorems']}=={'CouretOaiBridge01.delta_one'}
 assert {t['name'] for t in new['theorems']}-{t['name'] for t in old['theorems']}=={'CouretOaiBridge01.u19_mul_u29'}
-shutil.copyfile('recovered/generated/axioms.json','generated/axioms.json')
+axiom_source='\n'.join('import '+m for m in sorted({t['module'] for t in new['theorems']}))+'\n'
+axiom_source+='\n'.join('#print axioms '+t['name'] for t in new['theorems'])+'\n'
+(project/'PrintMigrationAxioms.lean').write_text(axiom_source)
+with pathlib.Path('unified-evidence/resumed-axioms.log').open('w') as log:
+    subprocess.run(['lake','env','lean','PrintMigrationAxioms.lean'],cwd=project,stdout=log,stderr=subprocess.STDOUT,check=True)
+subprocess.run(['python',str(root/'parse_axioms.py'),'unified-evidence/resumed-axioms.log','generated/plan.json','generated/axioms.json'],check=True)
 shutil.copytree('recovered/generated/.lake/build','generated/.lake/build',dirs_exist_ok=True)
 subprocess.run(['python',str(root/'validate_platform.py'),'project','generated','generated/validation'],check=True)
 result=json.loads(pathlib.Path('generated/validation/platform-validation.json').read_text())
