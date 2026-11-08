@@ -17,6 +17,7 @@ with (evidence/'DecisionInterface.oracle.jsonl').open('w') as out:
     subprocess.run(['lake','env','lean','--run','extract_sketch_info.lean','DecisionInterface.lean'],cwd=project,stdout=out,check=True)
 receipt=json.loads((evidence/'receipt.json').read_text())
 receipt['graph_exit']=0;receipt['oracle']={'DecisionInterface':0}
+receipt['targets']=['Couret.DecisionInterface.factorization_on_image_iff']
 (evidence/'receipt.json').write_text(json.dumps(receipt,indent=2))
 subprocess.run(['python',str(root/'generate_platform.py'),str(evidence),'generated'],check=True)
 generated=pathlib.Path('generated')

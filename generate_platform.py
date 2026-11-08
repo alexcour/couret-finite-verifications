@@ -94,6 +94,9 @@ for r in rows:
 for m in sources:
     candidates=[r for r in rows if r['module']==m and joined.get(r['name']) and theorem_unit(r) and not r['isPrivate'] and r['name'] not in embedded and re.fullmatch(r'[A-Za-z_][A-Za-z0-9_.]*',r['name'])]
     if candidates:nodes.add(max(candidates,key=lambda r:r['startLine'])['name'])
+for n in receipt.get('targets',[]):
+    if n not in graph or not joined.get(n) or not theorem_unit(graph[n]):raise ValueError('Unknown requested capstone: '+n)
+    if n not in embedded:nodes.add(n)
 modules={m:m for m in sources}
 def keep_span_names(m,keep):
     return {key(graph[n]) for n in keep if n in graph and graph[n]['module']==m and key(graph[n])}
@@ -182,10 +185,10 @@ for n in sorted(nodes):
     formal_statement=formal+tail
     stub=preamble+formal_statement
     temporary=n.rsplit('.',1)[0]+'.p2m_local_'+n.rsplit('.',1)[-1] if '.' in n else 'p2m_local_'+n
-    solution=skeleton(m,needed|{n},imports,rename_target=n)+'\ntheorem solution : _ := @_root_.'+temporary+'\n'
+    solution=skeleton(m,needed|{n},imports,rename_target=n)+'\n-- P2M_SOLUTION_SIGNATURE_PENDING\n'
     target='Theorems/Thm_'+slug+'.lean';proof='Solutions/Sol_'+slug+'.lean'
     (dest/target).write_text(stub);(dest/proof).write_text(solution)
-    plan['theorems'].append({'name':n,'module':m,'target':target,'solution':proof,'preamble':preamble,'formal_statement':formal_statement,'children':sorted(child),'source_path':next(r['source_path'] for r in receipt['modules'] if r['module']==m),'start_line':joined[n]['declStart']['line'],'end_line':joined[n]['declEnd']['line']})
+    plan['theorems'].append({'name':n,'module':m,'target':target,'solution':proof,'temporary_name':temporary,'preamble':preamble,'formal_statement':formal_statement,'children':sorted(child),'source_path':next(r['source_path'] for r in receipt['modules'] if r['module']==m),'start_line':joined[n]['declStart']['line'],'end_line':joined[n]['declEnd']['line']})
 # A missing child is a gate failure, not a silently omitted proof dependency.
 names={t['name'] for t in plan['theorems']}
 plan['unresolved_nodes']=sorted({c for t in plan['theorems'] for c in t['children'] if c not in names})
