@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-08T15:41:38.769657+00:00",
+  "observed_at_utc": "2026-11-08T15:46:55.410923+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "records": [
     {
@@ -122,12 +122,16 @@
       "registration": "NOT_REGISTERED",
       "lean_build": {
         "run": 42495068348,
-        "status": "IN_PROGRESS",
+        "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
       "predictive_check": {
         "run": 42495068348,
-        "status": "IN_PROGRESS"
+        "status": "PASS",
+        "checked_at": "2026-11-08T15:41:56Z",
+        "errors": [],
+        "report": "reports/bc_minimality.json",
+        "report_sha256": "a6b29685ccba0371e025ddc25334572b4fcb4cf961eb2c2d94e35433eeb74ccc"
       }
     },
     {
