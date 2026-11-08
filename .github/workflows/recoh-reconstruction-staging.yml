@@ -1,0 +1,30 @@
+name: RECOH Reconstruction Staging Lean 4
+on:
+  push:
+    branches:
+      - research/recoh-reconstruction-staging-20261108
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-reconstruction-staging.yml'
+permissions:
+  contents: read
+jobs:
+  lean-reconstruction:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research/strobo-2tors-2026-10-12/lean
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: research/strobo-2tors-2026-10-12/lean
+          build: false
+      - name: Compile historical nonvanishing
+        run: lake build RecohTwoPowerTripleNonzero
+      - name: Compile historical reconstruction
+        run: lake build RecohReconstruction
+      - name: Compile historical square Fourier
+        run: lake build RecohSquareFourier
+      - name: Record tested commit
+        run: git rev-parse HEAD
