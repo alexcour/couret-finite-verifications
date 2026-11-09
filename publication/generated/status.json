@@ -1,8 +1,8 @@
 {
   "schema": "couret-public-distribution/1",
-  "content_key": "bffa00f784b294c4b9e39569a28251e40b047b3e32a7bf876db7f4f7f5a8d14a",
-  "generated_at": "2026-11-09T17:45:28.833751+00:00",
-  "source_sha": "94e48afccc5d56653d2ffaba4a9aab0f8047bdf1",
+  "content_key": "a292295e3348c07cd7d2e567e1f8fe36f758d121ffaa20bf3d8e68af2aad16dd",
+  "generated_at": "2026-11-09T17:51:27.390616+00:00",
+  "source_sha": "ce2829062e71175f6012b0b812e2a4a538accf47",
   "repository": "alexcour/couret-finite-verifications",
   "entries": [
     {
@@ -36,7 +36,28 @@
     "publication_scope": "PUBLIC_FINITE_PEDAGOGY_ONLY",
     "contains_private_fci_material": false
   },
-  "runs": [],
-  "run_observation": "NOT_OBSERVED",
+  "runs": [
+    {
+      "id": 42664714724,
+      "path": ".github/workflows/public-mod30.yml",
+      "head_sha": "94e48afccc5d56653d2ffaba4a9aab0f8047bdf1",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42664714724",
+      "created_at": "2026-11-09T17:26:57Z",
+      "updated_at": "2026-11-09T17:27:08Z"
+    },
+    {
+      "id": 42668623611,
+      "path": ".github/workflows/verify.yml",
+      "head_sha": "ce2829062e71175f6012b0b812e2a4a538accf47",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42668623611",
+      "created_at": "2026-11-09T17:51:10Z",
+      "updated_at": "2026-11-09T17:51:14Z"
+    }
+  ],
+  "run_observation": "OBSERVED_PUBLIC_API",
   "limitations": "CI logicielle et intégrité documentaire ; aucune validation scientifique indépendante ni qualification physique."
 }
