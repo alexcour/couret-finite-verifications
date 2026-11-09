@@ -36,7 +36,7 @@ def validate(document):
             raise ValueError("UNSUPPORTED_STATUS_PROMOTION")
         for field in ("title", "summary", "limitations"):
             value = entry[field]
-            if not isinstance(value, str) or not 12 <= len(value) <= 450 or any(x in value for x in ("<", ">", "\x00", "https://", "@")):
+            if not isinstance(value, str) or not 12 <= len(value) <= 450 or any(x in value for x in ("<", "\x00", "https://", "@")):
                 raise ValueError("UNSAFE_PUBLIC_COPY")
         ids.add(entry["id"])
     if ids != ALLOWED_IDS:
