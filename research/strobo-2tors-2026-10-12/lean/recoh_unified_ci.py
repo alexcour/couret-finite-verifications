@@ -45,7 +45,7 @@ for p in json.loads((R/'lake-manifest.json').read_text())['packages']:
     dirty=subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=path,text=True).strip()
     assert rev==p['rev'] and not dirty,p['name']
     dependencies.append({'name':p['name'],'revision':rev,'tracked_clean':True})
-receipt={'result':'PASS_PUBLIC_PORT_EXACT_SHA_CI','source_commit':expected,'checkout_commit':checkout,'workflow_run':os.environ['GITHUB_RUN_ID'],'lean':version,'project_modules':37,'source_manifest':manifest,'steps':receipts,'axiom_roots':23,'axioms':axioms,'axiom_allowlist':sorted(allowed),'native_or_sorry_axioms':False,'negative_expected_rejection':True,'dependencies':dependencies,'original_pr96_branch_modified':False,'selector_1874_cases_replayed':False,'scope':'Dedicated public port from pinned PR96. This certificate is limited to the tested source commit; it is not a merge or release.'}
+receipt={'result':'PASS_PUBLIC_PORT_EXACT_SHA_CI','source_commit':expected,'checkout_commit':checkout,'workflow_run':os.environ['GITHUB_RUN_ID'],'lean':version,'project_modules':37,'source_manifest':manifest,'steps':receipts,'axiom_roots':23,'axioms':axioms,'axiom_allowlist':sorted(allowed),'native_or_sorry_axioms':False,'negative_expected_rejection':True,'dependencies':dependencies,'workflow_event':os.environ['GITHUB_EVENT_NAME'],'selector_1874_cases_replayed':False,'scope':'Unified RECOH audit of the exact workflow checkout. This certificate is limited to the tested source commit; it does not authorize a merge or release.'}
 (logs/'CI_RECOH_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print('RECOH_RECEIPT_JSON '+json.dumps(receipt,separators=(',',':')),flush=True)
 print('RECOH_EXACT_SHA_CI_PASS '+expected,flush=True)

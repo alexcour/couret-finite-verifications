@@ -3,6 +3,16 @@ on:
   push:
     branches:
       - research/recoh-unified-port-2026-11-08
+      - research/recoh-conditional-lean-repro-2026-10-30
+      - main
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-unified-port.yml'
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-unified-port.yml'
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
