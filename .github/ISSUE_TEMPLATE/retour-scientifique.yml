@@ -1,0 +1,53 @@
+name: Retour scientifique documenté
+description: Relecture, reproduction, antériorité ou correction avec une source précise.
+title: '[RETOUR] '
+body:
+  - type: markdown
+    attributes:
+      value: 'Ce formulaire est public. Ne joignez ni correspondance privée, ni données personnelles, ni pièce confidentielle. Une réception ne vaut pas validation scientifique.'
+  - type: dropdown
+    id: type
+    attributes:
+      label: Nature du retour
+      options:
+        - Relecture
+        - Reproduction
+        - Antériorité
+        - Correction
+        - Question méthodologique MIRAGE
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source et révision
+      description: URL, chemin, commit ou version précisément examiné.
+    validations:
+      required: true
+  - type: textarea
+    id: assertion
+    attributes:
+      label: Affirmation concernée
+      description: Indiquer l'énoncé exact et ses hypothèses.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Éléments de vérification
+      description: Argument, référence, commande, environnement et trace reproductible. Signaler ce qui n'a pas été vérifié.
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Question ou correction proposée
+    validations:
+      required: true
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: Visibilité
+      options:
+        - label: Je comprends que ce retour sera public et je n'y inclus aucune pièce confidentielle.
+          required: true

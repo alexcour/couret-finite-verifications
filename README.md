@@ -1,3 +1,9 @@
+## Explorer le programme et suivre ses sources
+
+[Présentation publique](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/) · [Journal](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/journal.html) · [Dossier de partage FR/EN](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/diffusion.html) · [RSS](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/api/public-feed)
+
+La [chaîne de diffusion publique](publication/README.md) contrôle les seuls contenus approuvés, conserve leurs statuts et publie des reçus. Son succès ne démontre ni nouveauté, ni validation scientifique indépendante, ni qualification physique. Pour une objection, une reproduction ou une antériorité, [ouvrir un retour documenté](https://github.com/alexcour/couret-finite-verifications/issues/new/choose). Ne déposer aucune pièce confidentielle dans une issue publique.
+
 > **Archive and working-tree boundary · 20 October 2026.** The version DOI below identifies the preserved v1.0.0 tag. The `research/` directory and later research presentations on this branch are a separate working review area, with their own evidence and open review gates. They are not included in that archived release. See [research/README.md](research/README.md).
 
 ## Corpus Lean 4 — scientific reading path / parcours scientifique
