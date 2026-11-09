@@ -5,10 +5,7 @@ on:
       - research/recoh-conditional-lean-repro-2026-10-30
   pull_request:
     paths:
-      - 'research/strobo-2tors-2026-10-12/lean/RecohConditionalOrbitBridge.lean'
-      - 'research/strobo-2tors-2026-10-12/lean/RecohConditionalBank.lean'
-      - 'research/strobo-2tors-2026-10-12/lean/RecohFourierBridge.lean'
-      - 'research/strobo-2tors-2026-10-12/lean/RecohFourierCovarianceBridge.lean'
+      - 'research/strobo-2tors-2026-10-12/lean/**'
       - '.github/workflows/recoh-orbit-bridge.yml'
 permissions:
   contents: read
@@ -19,10 +16,11 @@ jobs:
       run:
         working-directory: research/strobo-2tors-2026-10-12/lean
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - uses: leanprover/lean-action@v1
+          persist-credentials: false
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
         with:
           lake-package-directory: research/strobo-2tors-2026-10-12/lean
           build: false
