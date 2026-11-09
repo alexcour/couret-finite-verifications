@@ -1,0 +1,71 @@
+name: RECOH COU-27 Independent Selector Replay
+on:
+  push:
+    branches:
+      - research/recoh-selector-independent-replay-20261109
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  selector-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    env:
+      HISTORICAL_SOURCE_SHA: ee1043326ca360b298be5032f24ff7444a05aa76
+    defaults:
+      run:
+        working-directory: research/strobo-2tors-2026-10-12
+    steps:
+      - name: Checkout isolated replay commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Prove historical research sources unchanged
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          git diff --exit-code "$HISTORICAL_SOURCE_SHA" HEAD -- research/strobo-2tors-2026-10-12/
+          git diff --name-only "$HISTORICAL_SOURCE_SHA" HEAD
+      - name: Install pinned Lean / mathlib cache
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: research/strobo-2tors-2026-10-12/lean
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+      - name: Verify and run 1874 historical selector cases
+        run: |
+          set -euo pipefail
+          cd lean
+          lake resolve-deps
+          lake exe cache get
+          lake build RecohSelectorReplay RecohSelectedDecoder RecohSquareSelector RecohTernaryFibreSelector RecohTernarySelector
+          cd ..
+          python3 verify_recoh_selector_20261017.py --output lean/selector-replay-recheck.json --cases-output lean/selector-input-recheck.json --lean-timeout-seconds 1800 --lean-batch-size 100
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          base=pathlib.Path("lean")
+          case=base/"selector-input-recheck.json"
+          result=json.loads((base/"selector-replay-recheck.json").read_text())
+          digest=hashlib.sha256(case.read_bytes()).hexdigest()
+          assert digest=="69b181b6f2d8eab4182de7168d5df7ba77cb9a33645e9d4007760143308169c4"
+          assert result["status"]=="passed"
+          assert result["assertions"]==169097
+          assert result["lean_replay"]["executed"] is True
+          assert result["lean_replay"]["cases"]==1874
+          assert len(result["lean_replay"]["batches"])==19
+          assert result["lean_replay"]["case_input_sha256"]==digest
+          print("RECOH_SELECTOR_REPLAY_PASS 1874",digest)
+          PY
+      - name: Preserve replay evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: recoh-selector-replay-${{ github.run_id }}
+          path: |
+            research/strobo-2tors-2026-10-12/lean/selector-replay-recheck.json
+            research/strobo-2tors-2026-10-12/lean/selector-input-recheck.json
+          if-no-files-found: warn
+          retention-days: 90
