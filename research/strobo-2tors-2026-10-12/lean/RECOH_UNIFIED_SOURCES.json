@@ -1,0 +1,219 @@
+{
+  "base_pr96_commit": "12dfc7c69a733eba06dbd0d540a1af93019c7576",
+  "historical_pr60_commit": "51f629fec7fb921278e835e46e2568b22ae79523",
+  "scope": "Historical port provenance retained; current exact-checkout integration audits identify their event and SHA in the receipt.",
+  "project_modules": [
+    "RecohCharacterMasks",
+    "RecohConditionalBank",
+    "RecohConditionalOrbitBridge",
+    "RecohFourierBridge",
+    "RecohFourierCovarianceBridge",
+    "RecohPrimaryCharacters",
+    "RecohRankBounds",
+    "RecohRankKernel",
+    "RecohThreeRootSymmetricGate",
+    "RecohTwoPowerCoprimeGate",
+    "RecohTwoPowerCubeGate",
+    "Strobo2TorsCardinality",
+    "Strobo2TorsCore",
+    "Strobo2TorsEnumeration",
+    "Strobo2TorsOrdinaryCount",
+    "Strobo2TorsOrdinaryProfiles",
+    "Strobo2TorsPairCount",
+    "Strobo2TorsSurvivalCounts",
+    "Strobo2TorsZeroFree",
+    "Strobo2TorsZeroFreeAll",
+    "RecohReconstruction",
+    "RecohSquareFourier",
+    "RecohFibreLower",
+    "RecohTwoPowerTripleNonzero",
+    "RecohKernelCollisions",
+    "RecohPivotMasks",
+    "RecohPivotCollision",
+    "RecohBinaryDichotomy",
+    "RecohInformationSet",
+    "RecohBinaryLinearTransport",
+    "RecohBinaryStructuralDichotomy",
+    "RecohComplexCharacterEncodings",
+    "RecohLowerBound",
+    "RecohOptimalBank",
+    "RecohFibreUpper",
+    "RecohFibreOptimal",
+    "RecohBranchComparison"
+  ],
+  "files": [
+    {
+      "path": "RecohCharacterMasks.lean",
+      "sha256": "2f48c1baa26825432269452ec7f65dbaede084f1d2dd01b4d0f22f7d0b963d87"
+    },
+    {
+      "path": "RecohConditionalBank.lean",
+      "sha256": "139a2f5b1511ebbcff70862427a9c94f347105914d4a3f42f054896624ce9efb"
+    },
+    {
+      "path": "RecohConditionalOrbitBridge.lean",
+      "sha256": "77fd85e465aec792a492c75e9897831873146f28bdd5d5b45cdb4fa78369f8b0"
+    },
+    {
+      "path": "RecohFourierBridge.lean",
+      "sha256": "162c4aac6224640abce8987d230b6cd34d69fa584578b00550229ed923853089"
+    },
+    {
+      "path": "RecohFourierCovarianceBridge.lean",
+      "sha256": "620bdf7b886bd292ce5fc61c0ac3d2d77eeeeea3aa34407de44d4f3ed56befbf"
+    },
+    {
+      "path": "RecohPrimaryCharacters.lean",
+      "sha256": "aac0eb1afaa745a9c06971d4d58da34eac3567a8d188e887ea7a48d1d5932cfb"
+    },
+    {
+      "path": "RecohRankBounds.lean",
+      "sha256": "add8a12a52f7726a5c2b90e8bf4620a04e4cd4af53fa055a48c44e96579cec49"
+    },
+    {
+      "path": "RecohRankKernel.lean",
+      "sha256": "487347524b5e69a3ac7a4b19c6bd0f66ddebcee99da5fdb907592b14d58f65ff"
+    },
+    {
+      "path": "RecohThreeRootSymmetricGate.lean",
+      "sha256": "6ab358ec34f7ce8435be6e7e0260b92e81cb28004a1224f612fea207491e9ea0"
+    },
+    {
+      "path": "RecohTwoPowerCoprimeGate.lean",
+      "sha256": "4bf596c724a3008f424374c52c9bde458fd647cd65dc7f10702947a982bbfdf6"
+    },
+    {
+      "path": "RecohTwoPowerCubeGate.lean",
+      "sha256": "a3a804e73478510d319fdf91e4fbb561f49cd7a64e0f725a951aabb34d574d11"
+    },
+    {
+      "path": "Strobo2TorsCardinality.lean",
+      "sha256": "43bb7bc977683362729a3aa2f7c214abefd9138f3283fb79ee93f0a1da784093"
+    },
+    {
+      "path": "Strobo2TorsCore.lean",
+      "sha256": "8c32a0fc004922553a9d42003aa4c0c8c9a6b30d8a906ee36d61566951be18b5"
+    },
+    {
+      "path": "Strobo2TorsEnumeration.lean",
+      "sha256": "c5994a3923540d425df056cc4b93ff327cc2020eebfa6a424ceca158f26761bc"
+    },
+    {
+      "path": "Strobo2TorsOrdinaryCount.lean",
+      "sha256": "36abdb7751662075f2a7470be2d1ccb52e577e35046510b06cdd5f29e66531f2"
+    },
+    {
+      "path": "Strobo2TorsOrdinaryProfiles.lean",
+      "sha256": "8256c216c05e31a8b906a7995786f22d09fd15ab7049e1a9f6c0763f1c34c435"
+    },
+    {
+      "path": "Strobo2TorsPairCount.lean",
+      "sha256": "f6c997c461f640aab1856a21d5adfad3e6bfdbf876e67e5783b3ba87b26827cd"
+    },
+    {
+      "path": "Strobo2TorsSurvivalCounts.lean",
+      "sha256": "eb83aad035d165b4936c91ba5553308053fd7af14d21de79283c272887a1f571"
+    },
+    {
+      "path": "Strobo2TorsZeroFree.lean",
+      "sha256": "5b8447d710c8e734bf9ff71c397ece8eebe34e569041c803c65dea8a9c580a24"
+    },
+    {
+      "path": "Strobo2TorsZeroFreeAll.lean",
+      "sha256": "57e0e6b2919f605519cfad328e82e56477cae03c002010fa3c4fd6a8c218120b"
+    },
+    {
+      "path": "RecohReconstruction.lean",
+      "sha256": "513a4060ff87ff1fa62542ec6ee81bb251e2eebfa05d359dd9f60f5fb115b612"
+    },
+    {
+      "path": "RecohSquareFourier.lean",
+      "sha256": "d945a6e2f58d516ec42667f54f80235d5d7aef6c8722194abaf14ac9355633e8"
+    },
+    {
+      "path": "RecohFibreLower.lean",
+      "sha256": "25b4421c1b3f5d0b165e92effb04f9cec71c9084d67a55ff431cc52c867772ef"
+    },
+    {
+      "path": "RecohTwoPowerTripleNonzero.lean",
+      "sha256": "aadc8ab3b2ba1146930247b9f110207ef6730467024bdc3e6c5c977cd3bbefcb"
+    },
+    {
+      "path": "RecohKernelCollisions.lean",
+      "sha256": "e531d83ad9b2feb52dc9ec79d690ceed0416e241f5f923161f3dcaf4db7e67e7"
+    },
+    {
+      "path": "RecohPivotMasks.lean",
+      "sha256": "ca749d3ade136a0a3bef0e29e0a9e22c72cc0777a775f12eb43077d9f51a1597"
+    },
+    {
+      "path": "RecohPivotCollision.lean",
+      "sha256": "257b958abd3db51c3274d1b72eeabb6d37611aa042b0fc101e79c88f3df7986d"
+    },
+    {
+      "path": "RecohBinaryDichotomy.lean",
+      "sha256": "740733aa832d9a2d29988c8cbc79b0861bfba8e7e0e0aa8e9f9826db98ef1779"
+    },
+    {
+      "path": "RecohInformationSet.lean",
+      "sha256": "2c995fdd3163c7d085d3e54cdc03e3de75d6531a6e78bbfae2a5598e0da70298"
+    },
+    {
+      "path": "RecohBinaryLinearTransport.lean",
+      "sha256": "5cbb44f8ac5aad6f63d170a7fc63e533aac72967c7f079ea654d26b9087fc8a1"
+    },
+    {
+      "path": "RecohBinaryStructuralDichotomy.lean",
+      "sha256": "dc6f50a8d341d5ccb0715f1e68f32f1090ae5d26497fe51241a74cd8529b077f"
+    },
+    {
+      "path": "RecohComplexCharacterEncodings.lean",
+      "sha256": "3305e08ce41ea1179dcef4587f7da08eb723592588b747f5a6b789df0b5fd760"
+    },
+    {
+      "path": "RecohLowerBound.lean",
+      "sha256": "13a6eef82b24691dea82326ef99d8a4fd3ca6ddf05da19cda5211e7f7d912184"
+    },
+    {
+      "path": "RecohOptimalBank.lean",
+      "sha256": "eefa340afa430ea5481039b5dcc716ba178daf20a3ab3a669e9ff87e2565a8d5"
+    },
+    {
+      "path": "RecohFibreUpper.lean",
+      "sha256": "682ad74687cb91c6b5c8d4f92be42d438a63b3a643e0e0c7a5093423d4d3efdc"
+    },
+    {
+      "path": "RecohFibreOptimal.lean",
+      "sha256": "609b61fbff59a0b55eb1cdb79538dc43bc1d0ed28d4633216dc67d9b09fe3bac"
+    },
+    {
+      "path": "RecohBranchComparison.lean",
+      "sha256": "d7710d121efd743a6a2abf20367e2a96184cf99167f1921858f6ee57e7485dbc"
+    },
+    {
+      "path": "lakefile.lean",
+      "sha256": "b04be09b5702263e1360624dc3be29552715a20361cea6b16063a8633ea94a1a"
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha256": "b68bce6325161324e52e9507224ad0614491fbab88572f33dd696a265898fc87"
+    },
+    {
+      "path": "lean-toolchain",
+      "sha256": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2"
+    },
+    {
+      "path": "PortAudit.lean",
+      "sha256": "5a2a52aef4a92c3ba890996d546f1f3d6e622934560f0dc24f2598fd0992d5c7"
+    },
+    {
+      "path": "PortNegative.lean",
+      "sha256": "1f017531bc2528e721926832e83edb4f73a16acfb2751567ae4210ac92612a08"
+    },
+    {
+      "path": "recoh_unified_ci.py",
+      "sha256": "8c76d1668e6e5e27f3471870c527e05f07c0cad90e1fce353b2aeedceebd44b1"
+    }
+  ],
+  "integration_base_pr96_commit": "b571a8ea63ebc4785874582016fa0c7a17fe7225"
+}
