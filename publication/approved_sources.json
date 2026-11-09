@@ -1,0 +1,6 @@
+{
+  "schema": "couret-public-approval/1",
+  "source": "research/mod30-permutations/journal.json",
+  "canonical_sha256": "373f73d015f5c2a4b7f4ea0b1fe8aa67125ea8926b58b3ab922ce85061345915",
+  "scope": "PUBLIC_ONLY_FINITE_PEDAGOGY"
+}

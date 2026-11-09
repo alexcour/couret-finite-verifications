@@ -1,0 +1,70 @@
+name: Public research distribution
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - publication/**
+      - '!publication/generated/**'
+      - research/mod30-permutations/journal.json
+      - .github/workflows/public-distribution.yml
+  pull_request:
+    paths:
+      - publication/**
+      - research/mod30-permutations/journal.json
+      - .github/workflows/public-distribution.yml
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: public-distribution-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13'
+      - run: python -m unittest discover -s publication -p 'test_*.py' -v
+      - run: python publication/build_public.py --source-sha "$GITHUB_SHA"
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13'
+      - name: Verify current source before publishing
+        run: python -m unittest discover -s publication -p 'test_*.py' -v
+      - name: Build public projection from approved sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python publication/build_public.py --source-sha "$(git rev-parse HEAD)" --fetch-runs
+      - name: Persist only a material change
+        run: |
+          git add -- publication/generated/status.json publication/generated/feed.xml publication/generated/receipt.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh allowlisted public research snapshot [skip ci]'
+          git push origin HEAD:main
