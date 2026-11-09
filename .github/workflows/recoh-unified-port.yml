@@ -22,7 +22,6 @@ jobs:
     env:
       LEAN_NUM_THREADS: '2'
       SOURCE_SHA: ${{ github.sha }}
-      MATHLIB_CACHE_DIR: ${{ runner.temp }}/recoh-ci/mathlib-cache
     defaults:
       run:
         working-directory: research/strobo-2tors-2026-10-12/lean

@@ -216,7 +216,7 @@
     },
     {
       "path": "recoh_ci_bootstrap.py",
-      "sha256": "92a3fda6ef8f5f02a253c68a2803b8d64042f16ac509de7a964b3e1700e63d94"
+      "sha256": "e055aa94c61510fe38ea5f3387544d344d215541cde114266bdb14bb16d393c0"
     },
     {
       "path": "test_recoh_ci_bootstrap.py",

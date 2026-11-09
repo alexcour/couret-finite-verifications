@@ -147,6 +147,7 @@ def toolchain() -> None:
         out.write(str(binary) + "\n" + str(shim_dir) + "\n")
     with open(os.environ["GITHUB_ENV"], "a") as out:
         out.write("RECOH_SYSTEM_CURL=" + real_curl + "\n")
+        out.write("MATHLIB_CACHE_DIR=" + str(runtime / "mathlib-cache") + "\n")
     record("toolchain_ready", lean=lean, lake=lake, toolchain=version)
 
 
