@@ -1,41 +1,35 @@
-# PUBLIC-BRIDGE-01 — déploiement et provenance
+# PUBLIC-BRIDGE-01 — raccordement au site officiel WordPress
 
-Cette proposition ajoute **uniquement** trois ressources publiques au site statique :
-`index.html`, `journal.html` et `journal.json`. Le workflow
-`.github/workflows/observatoire-pages.yml` vérifie les tests arithmétiques,
-le schéma et les garde-fous puis constitue une archive GitHub Pages par liste
-blanche. Aucun dossier privé, réponse InterIA, source FCI, carnet de contacts,
-secret, manuscrit ou brevet n'est exporté.
+**Site officiel confirmé : https://www.couretunification.fr/**. Il dispose déjà de pages de recherche et de statut. Ne pas créer un autre cockpit ni remplacer le thème WordPress existant.
 
-## Étapes d'activation
+## Paquet proposé
 
-1. Revoir les contenus exacts de la PR #101 et vérifier que tous les contrôles
-   attendus réussissent sur le commit de tête. La PR en brouillon n'est pas une
-   publication sur le site.
-2. Autoriser la fusion sur `main` selon les protections existantes.
-3. Dans **Settings → Pages** du dépôt public, sélectionner **GitHub Actions**
-   comme source de déploiement, si l'option n'est pas déjà configurée.
-4. Vérifier le workflow `Observatoire - publication statique MOD30` sur le
-   **SHA de fusion** et ouvrir l'URL exacte renvoyée par l'étape `deploy`.
-   Sans cette étape, aucune URL n'est déclarée opérationnelle.
-5. Vérifier visuellement le laboratoire, la navigation vers le journal et
-   l'absence de ressource non autorisée dans l'archive publiée.
+La CI `.github/workflows/public-mod30.yml` exécute les tests arithmétiques et les garde-fous, puis génère `couret-mod30-public.zip`. Cette archive contient **exactement quatre fichiers** dans le dossier plugin `couret-mod30-public/` :
 
-Les mises à jour des trois ressources sont déclenchées à chaque push sur `main`
-qui modifie la page ou le workflow, **après** tests et contrôles de périmètre.
-Le passage de PR en attente à contenu public actif est un acte éditorial
-distinct. Le déploiement ne doit pas remplacer un site Observatoire existant
-sans identification de son hébergement et contrôle de la configuration.
+- `couret-mod30-public.php` — deux shortcodes WordPress, aucun appel externe ni écriture en base ;
+- `index.html` — expérience interactive sur les permutations finies modulo 30 ;
+- `journal.html` — deux entrées pédagogiques statiques avec statuts distincts ;
+- `journal.json` — registre public des deux entrées, sans métadonnées privées.
 
-## Statuts et limites
+Le programme `package_wordpress.py` construit le zip de manière déterministe et les tests vérifient l'inventaire exact. L'archive est disponible comme artefact du run GitHub Actions pour une durée limitée. Aucune installation WordPress n'a été réalisée par la CI.
 
-- Permutations modulo 30 : propriétés mathématiques finies exactes.
-- Passage vers le continu et interprétation physique : **ouverts**.
-- Originalité, revue humaine indépendante et impact industriel : non établis.
-- Aucune donnée du laboratoire privé n'est synchronisée automatiquement.
-- Aucune affirmation RH, Hilbert–Pólya, identité det₂–xi ou universalité
-  topologique n'est revendiquée.
+## Installation sur WordPress existant
 
-Ce premier pont n'effectue ni campagne de communication automatique, ni envoi
-à des tiers, ni levée de HOLD FCI. Tout élargissement de publication doit
-réviser explicitement la liste blanche et les tests.
+1. Vérifier que le run `Public MOD30 finite permutation checks` est **SUCCESS** au SHA exact de la PR.
+2. Télécharger l'archive du run et l'inspecter. En tant qu'administrateur du WordPress officiel, aller dans **Extensions → Ajouter → Téléverser une extension**, sélectionner `couret-mod30-public.zip`, installer puis activer.
+3. Dans une page de l'Observatoire destinée à l'exploration pédagogique, insérer un bloc « Code court » contenant **`[couret_mod30]`**.
+4. Dans une page dédiée au journal, insérer **`[couret_mod30_journal]`**. Les pages ne sont **pas** créées automatiquement.
+5. Vérifier l'affichage sur téléphone et ordinateur, les flèches et cycles, l'absence d'appel externe, les sources et statuts affichés.
+6. Lors d'une nouvelle version, répéter la revue avant de mettre à jour l'extension. Aucun contenu de laboratoire privé ne se synchronise automatiquement.
+
+Les deux shortcodes ne créent aucune tâche CRON, aucun compte, aucun flux de données, ni nouvelle page WordPress. L'intégration et la mise en ligne restent conditionnées à l'accès administrateur ou à la connexion d'un outil WordPress, qui n'a pas été confirmée dans cette session.
+
+## Maintien des frontières
+
+- Les résultats modulo 30 sont finis et exacts dans leur périmètre.
+- Le passage vers le continu et une interprétation physique sont **ouverts**.
+- Aucune affirmation de résolution RH, Hilbert–Pólya, det₂–ξ ou universalité.
+- Aucun mécanisme privé FCI/MIRAGE, brevet ou correspondance n'est inclus.
+- Aucun consentement général à publier des résultats futurs ne remplace leur revue spécifique.
+
+La branche GitHub reste une source de preuve et une préparation éditoriale ; elle n'est pas l'hébergement officiel du site. L'extension WordPress doit être installée sur le site existant, jamais sur un site parallèle.
