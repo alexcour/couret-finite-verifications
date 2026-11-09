@@ -22,6 +22,7 @@ jobs:
     env:
       LEAN_NUM_THREADS: '2'
       SOURCE_SHA: ${{ github.sha }}
+      MATHLIB_CACHE_DIR: ${{ runner.temp }}/recoh-ci/mathlib-cache
     defaults:
       run:
         working-directory: research/strobo-2tors-2026-10-12/lean
@@ -31,15 +32,11 @@ jobs:
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
-      - name: Install pinned Lean and fetch Mathlib cache
-        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
-        with:
-          lake-package-directory: research/strobo-2tors-2026-10-12/lean
-          auto-config: 'false'
-          build: 'false'
-          test: 'false'
-          lint: 'false'
-          use-mathlib-cache: 'true'
-          use-github-cache: 'false'
+      - name: Test transport failures without network
+        run: python3 -m unittest -v test_recoh_ci_bootstrap
+      - name: Install and validate pinned Lean archive
+        run: python3 recoh_ci_bootstrap.py toolchain
+      - name: Resolve pinned dependencies and validate cache tools
+        run: python3 recoh_ci_bootstrap.py cache
       - name: Build 37 modules, audit 23 roots and reject false budget
         run: python3 recoh_unified_ci.py

@@ -31,3 +31,15 @@ Le changement de workflow rend le contrôle complet applicable aux PR touchant l
 PR96 demeure en brouillon. COU-107 reste Backlog et P04 global PARTIAL. Aucun merge vers main, release ou diffusion supplémentaire n’est autorisé par cette note. Toute fusion nécessite une décision explicite séparée.
 
 RHClaimed=false ; HilbertPolyaClaimed=false ; Det2IdentityClaimed=false ; EngineeringVerdictClaimed=false.
+
+## Fiabilisation de la préparation CI — 9 novembre 2026
+
+Les deux tentatives du run 42571413064 ont échoué avant l'audit : HTTP 504 sur ProofWidgets puis sur Lean. D'autres jobs ont reçu une archive leantar invalide. Ces échecs et leurs journaux sont conservés ; aucun certificat nouveau n'en est déduit.
+
+La préparation est désormais séparée de l'audit : installation directe de l'archive officielle Lean 4.29.1 dans le répertoire temporaire du job, puis résolution des neuf dépendances épinglées et récupération du cache Mathlib. Leantar 0.1.17 est installé après validation de son archive et de sa version. Le téléchargement de l'archive ProofWidgets attendue passe par une validation HTTP/archive avant que Lake conserve son rôle d'installation et de contrôle. Les autres appels curl de Mathlib sont préservés.
+
+Chaque téléchargement contrôlé dispose de trois tentatives au maximum, avec délais de 15 puis 30 secondes. Les réponses HTTP d'erreur, les contenus incomplets et les archives invalides ne remplacent jamais le fichier cible. Les archives validées sont journalisées avec taille et SHA-256 calculé ; cette empreinte journalisée n'est pas présentée comme une comparaison à une empreinte publiée indépendante. Aucun miroir alternatif ni changement de toolchain/lockfile n'est introduit.
+
+Sept tests de transport, sans réseau ni exécution Lean, vérifient les erreurs HTTP, le contenu HTML sous HTTP 200, les archives incomplètes, les reprises bornées, les chemins d'archive et la conservation des autres appels curl. Ces tests sont distincts des preuves mathématiques.
+
+Les 37 modules, les 23 racines d'axiomes et le test négatif restent contrôlés par le même harnais, exécuté une seule fois après préparation réussie. Aucun cache du projet GitHub n'est restauré. Toute panne persistante fait échouer la CI ; HOLD est maintenu jusqu'à réception du nouveau run au SHA exact. Les 1874 cas historiques ne sont pas rejoués. Aucun merge ni release n'est autorisé.
