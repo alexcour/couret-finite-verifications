@@ -1,6 +1,11 @@
 name: Public MOD30 finite permutation checks
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - research/mod30-permutations/**
+      - .github/workflows/public-mod30.yml
   pull_request:
     paths:
       - research/mod30-permutations/**
