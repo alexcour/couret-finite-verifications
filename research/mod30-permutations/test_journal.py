@@ -44,7 +44,7 @@ def validate(document):
     g = document["governance"]
     if (not isinstance(g, dict) or set(g) != CLAIMS | {"publication_scope"}
         or any(g[key] is not False for key in CLAIMS)
-        or g["publication_scope"] != "DRAFT_PUBLIC_GITHUB_BRANCH"):
+        or g["publication_scope"] != "PUBLIC_FINITE_PEDAGOGY_ONLY"):
         raise ValueError("GOVERNANCE_LOCK")
     return True
 
