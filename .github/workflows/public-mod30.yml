@@ -1,0 +1,35 @@
+name: Public MOD30 finite permutation checks
+
+on:
+  pull_request:
+    paths:
+      - research/mod30-permutations/**
+      - .github/workflows/public-mod30.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-exact:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13'
+      - name: Check eight group permutations and cycles
+        run: python -m unittest discover -s research/mod30-permutations -p "test_*.py" -v
+      - name: Ensure static page has no external scripts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path('research/mod30-permutations/index.html').read_text()
+          assert '<script src=' not in html.lower()
+          assert 'fetch(' not in html
+          assert 'XMLHttpRequest' not in html
+          assert 'localStorage' not in html
+          assert 'PUBLICATION' not in html
+          print('Static self-contained page checked')
+          PY
