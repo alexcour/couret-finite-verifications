@@ -1,7 +1,7 @@
 {
   "base_pr96_commit": "12dfc7c69a733eba06dbd0d540a1af93019c7576",
   "historical_pr60_commit": "51f629fec7fb921278e835e46e2568b22ae79523",
-  "scope": "Dedicated public port; reconciled with the advanced PR96 base without changing its branch.",
+  "scope": "Historical port provenance retained; current exact-checkout integration audits identify their event and SHA in the receipt.",
   "project_modules": [
     "RecohCharacterMasks",
     "RecohConditionalBank",
@@ -212,7 +212,7 @@
     },
     {
       "path": "recoh_unified_ci.py",
-      "sha256": "34fb47431f05bec9c5b210cb95e691bc4c6e4686af83c61214afe9b2948384d0"
+      "sha256": "8c76d1668e6e5e27f3471870c527e05f07c0cad90e1fce353b2aeedceebd44b1"
     },
     {
       "path": "recoh_ci_bootstrap.py",

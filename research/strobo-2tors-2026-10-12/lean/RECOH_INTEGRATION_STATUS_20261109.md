@@ -43,3 +43,7 @@ Chaque téléchargement contrôlé dispose de trois tentatives au maximum, avec 
 Sept tests de transport, sans réseau ni exécution Lean, vérifient les erreurs HTTP, le contenu HTML sous HTTP 200, les archives incomplètes, les reprises bornées, les chemins d'archive et la conservation des autres appels curl. Ces tests sont distincts des preuves mathématiques.
 
 Les 37 modules, les 23 racines d'axiomes et le test négatif restent contrôlés par le même harnais, exécuté une seule fois après préparation réussie. Aucun cache du projet GitHub n'est restauré. Toute panne persistante fait échouer la CI ; HOLD est maintenu jusqu'à réception du nouveau run au SHA exact. Les 1874 cas historiques ne sont pas rejoués. Aucun merge ni release n'est autorisé.
+
+## Rapprochement avec la base PR96 avancée
+
+Pendant cette correction, PR96 a avancé à 1695aa090098dbccf12ed35217f1d092399d908a. PR100 incorpore cette base sur sa propre branche afin de conserver les déclencheurs élargis, le reçu d'intégration enrichi, les corrections des anciennes notes et la conservation des artefacts CI. Le pilote scientifique de cette base est conservé à l'identique ; son empreinte sert au manifeste courant. Cette synchronisation ne déplace ni PR96 ni main et ne fusionne aucune PR.
