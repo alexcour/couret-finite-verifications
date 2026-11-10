@@ -1,10 +1,10 @@
 {
   "schema": "couret-public-receipt/1",
-  "generated_at": "2026-11-09T17:51:27.390616+00:00",
-  "source_sha": "ce2829062e71175f6012b0b812e2a4a538accf47",
+  "generated_at": "2026-11-10T06:36:34.201747+00:00",
+  "source_sha": "d9747326c46ea4119844361f9b1afc3df6346917",
   "journal_canonical_sha256": "373f73d015f5c2a4b7f4ea0b1fe8aa67125ea8926b58b3ab922ce85061345915",
   "files_sha256": {
-    "status.json": "1cf1044b12a24bd4ea4853bca92a68ecc763d248442ce2c9b5c77b84ee0e1a37",
+    "status.json": "42765d60877dcf7467b712fc38c1728713b2b0be56e709de70452f23c0681169",
     "feed.xml": "079dbacae4c593f511ee4c4c25e0f8c4b8f536b01426fbfb173acf0ba0eaa8e7"
   },
   "independent_validation": false
