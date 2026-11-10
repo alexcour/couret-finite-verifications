@@ -1,0 +1,18 @@
+name: q15-aveiro-numerical-comparison
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  external-decimal-replay:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Replay archived approximate decimals (not zero certification)
+        run: python research/audits/liouville_grothendieck_20261008/verify_q15_aveiro_comparison.py --check
+      - name: Reject source corruption, conjugate swaps, missing values and false certification
+        run: python research/audits/liouville_grothendieck_20261008/test_q15_aveiro_comparison.py
