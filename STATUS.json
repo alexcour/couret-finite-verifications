@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-10T21:05:08.825282+00:00",
+  "observed_at_utc": "2026-11-10T21:13:15.880486+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 2,
@@ -161,13 +161,17 @@
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/2c16c4283999ccf5dcba22cc12e98bf56d019764",
       "registration": "NOT_REGISTERED",
       "submitted_at": "2026-11-10T21:04:18Z",
+      "official_verification": {
+        "status": "QUEUED",
+        "run": 42901412084
+      },
       "lean_build": {
         "run": 42419020891,
         "status": "SUCCESS"
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-10T21:05:08.812211+00:00",
+        "checked_at_utc": "2026-11-10T21:13:15.858461+00:00",
         "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
         "browser_layout_and_metadata_checks": "PASS",
         "official_submission_created": true,
