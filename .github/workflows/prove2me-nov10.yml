@@ -1,0 +1,39 @@
+name: Prove2Me five RECOH bridge theorems
+on:
+  push:
+    branches: [prove2me/recoh-bridges-20261110]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Recover immutable validated release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 42521218888 --repo alexcour/couret-finite-verifications --name prove2me-extended-validated --dir recovered
+      - name: Install Lean toolchain manager
+        run: |
+          set -euo pipefail
+          curl -sSf https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile source, extract Lean graph, compare types and validate upload text
+        run: python prepare_nov10.py
+      - name: Preserve evidence and validated new nodes
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: prove2me-nov10-validated
+          path: |
+            unified-evidence/
+            generated/Definitions/
+            generated/Theorems/
+            generated/Solutions/
+            generated/plan.json
+            generated/axioms.json
+            generated/decomposition-receipt.json
+            generated/validation/
+          retention-days: 30
