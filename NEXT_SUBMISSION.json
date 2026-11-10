@@ -6,13 +6,13 @@
   "relationship": "I have approval from a responsible author or maintainer",
   "predictive_report": "prevalidation/recoh.json",
   "ready": true,
-  "intake_status": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
+  "intake_status": "SUBMITTED",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-10T12:53:15.463214+00:00",
-    "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
+    "checked_at_utc": "2026-11-10T21:05:08.812211+00:00",
+    "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
     "browser_layout_and_metadata_checks": "PASS",
-    "official_submission_created": false,
-    "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
+    "official_submission_created": true,
+    "submitted_at": "2026-11-10T21:04:18Z"
   },
-  "next_required_condition": "Palomar submission intake must become available again. The prior cardinality result is now publicly registered as PALOMAR-2026-11-09-000005."
+  "next_required_condition": "Await official mechanical verification and editorial review before registering RECOH."
 }

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-10T12:53:21.233430+00:00",
+  "observed_at_utc": "2026-11-10T21:05:08.825282+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 2,
@@ -29,6 +29,7 @@
       "palomar_id": "PALOMAR-2026-11-09-000005",
       "public_url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-09-000005&version=1",
       "registered_date": "2026-11-09",
+      "submitted_at": "2026-11-08T14:51:54Z",
       "official_verification": {
         "status": "SUCCESS",
         "run": 42491892197
@@ -159,23 +160,22 @@
       "commit": "2c16c4283999ccf5dcba22cc12e98bf56d019764",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/2c16c4283999ccf5dcba22cc12e98bf56d019764",
       "registration": "NOT_REGISTERED",
+      "submitted_at": "2026-11-10T21:04:18Z",
       "lean_build": {
         "run": 42419020891,
         "status": "SUCCESS"
       },
-      "official_intake": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
+      "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-10T12:53:15.463214+00:00",
-        "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
+        "checked_at_utc": "2026-11-10T21:05:08.812211+00:00",
+        "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
         "browser_layout_and_metadata_checks": "PASS",
-        "official_submission_created": false,
-        "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
+        "official_submission_created": true,
+        "submitted_at": "2026-11-10T21:04:18Z"
       },
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
-        "checked_at": "2026-11-08T15:18:23Z",
-        "errors": [],
         "report": "reports/recoh.json",
         "report_sha256": "264f1d055a6457fa40aa138150e8b335cb2e77bcfbb2e7b829714858077249e3"
       }
