@@ -1,0 +1,24 @@
+{
+  "P2_used_as_external_upper": "56303/1000000",
+  "arithmetic_density_certified": false,
+  "cells": 2400,
+  "global_GRH_or_LI_proved": false,
+  "high_frequency_integral_exact": "775505229722013639896469397243941833029/14341485625402759132374080107315200000000000000000000",
+  "independently_reproduces_first_0_000175363_bound": true,
+  "integral_upper_exact": "33175611520194979856780115615536772335946873103813182527343410645619281/106852394531687789651558400000000000000000000000000000000000000000000000",
+  "low_frequency_integral_exact": "3974153591218675414740286647536235035757788820827/12800000000000000000000000000000000000000000000000",
+  "method": "argument-range cells, fixed-point signed series, u-Lipschitz, Landau tail",
+  "number_signed_phases": 67,
+  "outside_human_review_completed": false,
+  "root_completeness_independently_proved": false,
+  "root_sha256": {
+    "q15_root_interval_certificate_20261012.json": "b694a1e8382b25fb3843f80854721a9c569377344d7818e10fb85f5f9c5ff684",
+    "q3_q5_root_interval_certificate_20261013.json": "5284f66aca1ae9c8df2986214c33020d14fd082840c6e4c8ad9829101545340f"
+  },
+  "scope": "Gaussian replacement error only, not full sign probability",
+  "status": "SECOND_PATH_RATIONAL_BESSEL_SUBCERTIFICATE",
+  "tail_witness_constant_exact": "775505229722013639896469397243941833029/25000000000000000000",
+  "tail_witness_count": 66,
+  "tail_witness_power": 33,
+  "uniform_error_upper": "0.000173887"
+}

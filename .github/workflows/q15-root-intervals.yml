@@ -1,0 +1,68 @@
+name: zero-intervals-and-tail-bounds
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  finite-67-roots-and-conditional-tail-bounds:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install pinned ball-arithmetic backend
+        run: python -m pip install python-flint==0.9.0
+      - name: Replay 37 isolations and finite argument counts (not global GRH or density)
+        run: python research/audits/liouville_grothendieck_20261008/certify_q15_root_intervals.py --check
+      - name: Reject unresolved signs, wrong roots, boundary zeros and altered receipts
+        run: python research/audits/liouville_grothendieck_20261008/test_q15_root_intervals.py
+      - name: Replay thirty q3/q5 isolations and finite counts up to 25
+        run: python research/audits/liouville_grothendieck_20261008/certify_q3_q5_root_intervals.py --check
+      - name: Recompute at 320 bits and reject wrong labels, bad seeds and reversed-count misuse
+        run: python research/audits/liouville_grothendieck_20261008/test_q3_q5_root_intervals.py
+      - name: Replay analytic K enclosures independently of ordinate data
+        run: python research/audits/liouville_grothendieck_20261008/certify_spectral_constants.py --check
+      - name: Verify exact tail aggregation and conditional Gaussian comparison bounds
+        run: python research/audits/liouville_grothendieck_20261008/verify_q15_tail_bounds.py --check
+      - name: Check signed weights, rational rounding and refusal controls
+        run: python research/audits/liouville_grothendieck_20261008/test_q15_tail_bounds.py
+      - name: Verify full seven-character Gaussian tail replacement bounds
+        run: python research/audits/liouville_grothendieck_20261008/verify_all_tail_bounds.py --check
+      - name: Verify full-tail witnesses and reject incomplete or uncertain inputs
+        run: python research/audits/liouville_grothendieck_20261008/test_all_tail_bounds.py
+      - name: Enclose Q5 conditional sign probability with rational Fourier/Simpson errors
+        run: python research/audits/liouville_grothendieck_20261008/certify_q5_probability.py --check
+      - name: Reject invalid Q5 inversion parameters and preserve conditional scope
+        run: python research/audits/liouville_grothendieck_20261008/test_certify_q5_probability.py
+      - name: CU-BRUIT exact Q5 density and finite T4 gap (not arithmetic convergence)
+        run: python -S research/audits/liouville_grothendieck_20261008/verify_quantitative_specialization_20261013.py --check
+      - name: Reject invalid quantitative witnesses and scope promotion
+        run: python -S research/audits/liouville_grothendieck_20261008/test_quantitative_specialization_20261013.py
+      - name: Direct finite arithmetic truncation error through 65536 (not a rate theorem)
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_arithmetic_truncation_20261013.py --check
+      - name: Trial division and elementary-interval refusal controls
+        run: python -S research/audits/liouville_grothendieck_20261008/test_finite_arithmetic_truncation_20261013.py
+      - name: Direct finite sign comparison through 65536 (not independent-phase mixing)
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_finite_sign_transport_20261013.py --check
+      - name: Adaptive sign-cover and unresolved-mass refusal controls
+        run: python -S research/audits/liouville_grothendieck_20261008/test_finite_sign_transport_20261013.py
+      - name: Replay refined K for independently storable deterministic receipt
+        run: |
+          python research/audits/liouville_grothendieck_20261008/certify_refined_K_20261013.py > /tmp/cu_refined_K.json
+          echo REFINED_K_JSON_BEGIN
+          cat /tmp/cu_refined_K.json
+          echo REFINED_K_JSON_END
+      - name: Recalculate Q5 probability with refined K and preserve old certified enclosure
+        run: python research/audits/liouville_grothendieck_20261008/refine_q5_probability_20261013.py
+      - name: Rigorous full 67-Bessel factor envelope and improved conditional Q5 bound
+        run: python research/audits/liouville_grothendieck_20261008/certify_q5_full_bessel_envelope_20261013.py
+      - name: Cross-audit Q5 Bessel envelope using independent argument-cell rational arithmetic
+        run: python -S research/audits/liouville_grothendieck_20261008/audit_q5_bessel_second_path_20261013.py --check
+      - name: Certify direct T4 Haar sign occupation and finite-time discrepancy
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_t4_haar_sign_20261013.py
+      - name: Cross-check T4 Haar sign with independent rational Taylor threshold grid
+        run: python -S research/audits/liouville_grothendieck_20261008/crosscheck_t4_haar_threshold_20261013.py
+      - name: Compare four T4 finite horizons without asserting an asymptotic mixing rate
+        run: python -S research/audits/liouville_grothendieck_20261008/certify_t4_four_horizons_20261014.py

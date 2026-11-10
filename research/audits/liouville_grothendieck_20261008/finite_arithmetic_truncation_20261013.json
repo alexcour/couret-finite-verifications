@@ -1,0 +1,81 @@
+{
+  "arithmetic": {
+    "D_at_bound": -57,
+    "complement_prime_count": 4094,
+    "primes_through_bound": 6542,
+    "sieve_bitmap_sha256": "82a70701fcd4eed9e47d6d87be60d7cf4efb8faf2a5ca469a38a966ee23a865a",
+    "support_prime_count": 2445
+  },
+  "arithmetic_function": "E(y)=y*exp(-y/2)*D(exp(y))",
+  "averaged_absolute_truncation_error": {
+    "25": {
+      "decimal_outer": [
+        "0.749592",
+        "1.140467"
+      ],
+      "exact": [
+        "18739812429389489740402505750381808198614354945401/25000000000000000000000000000000000000000000000000",
+        "114046609347615930396336437413454815052510451181203/100000000000000000000000000000000000000000000000000"
+      ],
+      "phases": 67,
+      "time_derivative_upper": 166
+    },
+    "4": {
+      "decimal_outer": [
+        "1.375161",
+        "1.554206"
+      ],
+      "exact": [
+        "137516101279483531391097890899593176452645176347633/100000000000000000000000000000000000000000000000000",
+        "155420550905561397262719153454690002669201320422911/100000000000000000000000000000000000000000000000000"
+      ],
+      "phases": 2,
+      "time_derivative_upper": 4
+    }
+  },
+  "cell_cover_and_interval_trace_sha256": "a2caad70dc67153c3cbd8cf91433b0a56080ae35712f72aa20d7c6e4e508abea",
+  "complete_arithmetic_to_limit_budget_closed": false,
+  "elementary_arithmetic": {
+    "angle_divisor": 512,
+    "doublings": 9,
+    "log_atanh_terms": 64,
+    "scale": "100000000000000000000000000000000000000000000000000",
+    "sine_cosine_terms": 21
+  },
+  "finite_positive_log_occupation": {
+    "GRH_LI_ELI_needed": false,
+    "decimal_outer": [
+      "0.167988",
+      "0.167989"
+    ],
+    "exact": [
+      "16798867852027217763095055739191837713657424018889/100000000000000000000000000000000000000000000000000",
+      "8399433926013608881547527869595918856828712016341/50000000000000000000000000000000000000000000000000"
+    ]
+  },
+  "global_GRH_LI_ELI_needed_for_this_finite_comparison": false,
+  "grid": {
+    "exponent": 16,
+    "parts_per_doubling": 512,
+    "total_cells": 7680
+  },
+  "id": "CU-BRUIT-DIRECT-FINITE-ARITHMETIC-TRUNCATION-20261013",
+  "independent_human_review_claimed": false,
+  "limit_law_identification_still_requires_analytic_hypotheses": true,
+  "log_interval_length_exact": [
+    "41588830833596718565033927287490594084530008061597/4000000000000000000000000000000000000000000000000",
+    "51986038541995898206292409109363242605662510077051/5000000000000000000000000000000000000000000000000"
+  ],
+  "logarithmic_horizon_symbolic": "log(65536)",
+  "normalized_interval_symbolic": "[log(2),log(65536)]",
+  "prime_argument_upper": 65536,
+  "root_enclosures_recomputed_by_this_program": false,
+  "root_enclosures_trusted": true,
+  "root_input_sha256": {
+    "q15_root_interval_certificate_20261012.json": "b694a1e8382b25fb3843f80854721a9c569377344d7818e10fb85f5f9c5ff684",
+    "q3_q5_root_interval_certificate_20261013.json": "5284f66aca1ae9c8df2986214c33020d14fd082840c6e4c8ad9829101545340f"
+  },
+  "spectral_function": "E_T(y)=-1-2*sum c_chi*(cos(gamma*y)/2+gamma*sin(gamma*y))/(1/4+gamma^2)",
+  "status": "INTERNAL_FINITE_INTERVAL_CERTIFICATE_NOT_AN_ASYMPTOTIC_RATE",
+  "uniform_in_horizon_arithmetic_rate_certified": false
+}
