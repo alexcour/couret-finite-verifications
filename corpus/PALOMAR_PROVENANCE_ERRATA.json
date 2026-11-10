@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "as_of_paris": "2026-11-10",
+  "kind": "DOCUMENTARY_PROVENANCE_ERRATUM",
+  "registration": {
+    "palomar_id": "PALOMAR-2026-11-08-000010",
+    "version": 1,
+    "registered_at": "2026-11-08T07:43:43Z",
+    "record_url": "https://data.palomar-registry.org/entries/PALOMAR-2026-11-08-000010-v1.json",
+    "source_repository": "alexcour/couret-finite-verifications",
+    "registered_commit": "24f69d5c2635ff405a628c170086a62d477fd3a5"
+  },
+  "affected_metadata": {
+    "path": "SOURCE_PROVENANCE.json",
+    "at_commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+    "field": "source_sha256",
+    "declared_value": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
+    "correct_value": "8c32a0fc004922553a9d42003aa4c0c8c9a6b30d8a906ee36d61566951be18b5"
+  },
+  "historical_source": {
+    "repository": "alexcour/couret-finite-verifications",
+    "commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
+    "path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+    "bytes": 56510,
+    "sha256": "8c32a0fc004922553a9d42003aa4c0c8c9a6b30d8a906ee36d61566951be18b5",
+    "url": "https://github.com/alexcour/couret-finite-verifications/blob/cb79157d413075a4a47fe92ab1437141aa4200c9/research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean"
+  },
+  "correction_policy": {
+    "registered_snapshot_changed": false,
+    "registered_branch_moved": false,
+    "archive_tag_changed": false,
+    "original_metadata_retained": true,
+    "scope": "Correct the interpretation of one auxiliary provenance hash through this separate dated erratum. The registered SOURCE_PROVENANCE.json, Lean sources, statements, dependencies and historical validation wording remain unchanged."
+  },
+  "audit": {
+    "registered_identity_ambiguous": false,
+    "registered_challenge_sha256": "3415fa4d7ec8430c1499d9d3b9159d241b911f739934855927a380cb617dcfcd",
+    "registered_solution_sha256": "29f317c148ae5307e60020637a1f48ab15c083ae439a0b29c88c29b18968114d",
+    "snapshot_files_matching_registered_git_blobs": 12,
+    "registered_toolchain": "leanprover/lean4:v4.35.0-rc2",
+    "registered_mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+    "origin_lf_crlf_conversion_explains_discrepancy": false,
+    "independent_human_review": "NOT_ESTABLISHED",
+    "mathematical_novelty": "NOT_ESTABLISHED",
+    "new_mathematical_validation": "NOT_PERFORMED",
+    "new_registration": "NOT_PERFORMED",
+    "registered_mechanical_report_bytes_retrieved_in_this_audit": false
+  },
+  "limitations": [
+    "This erratum corrects provenance metadata only; it does not validate later Lean 4.29.1 modules or establish a port to the registered toolchain.",
+    "The registered mechanical report digest is confirmed in the official record; its report bytes were not retrieved and rehashed in this audit.",
+    "Registration and automated review do not establish mathematical novelty, priority, or independent human review."
+  ]
+}
