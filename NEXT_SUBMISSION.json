@@ -6,16 +6,13 @@
   "relationship": "I have approval from a responsible author or maintainer",
   "predictive_report": "prevalidation/recoh.json",
   "ready": true,
-  "intake_status": "NOT_SUBMITTED_ACTIVE_REGISTRATION_PRESERVED",
+  "intake_status": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-08T17:17:19.097504+00:00",
-    "outcome": "BLOCKED_BY_EXISTING_ACTIVE_SUBMISSION",
+    "checked_at_utc": "2026-11-10T12:53:15.463214+00:00",
+    "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
     "browser_layout_and_metadata_checks": "PASS",
-    "authenticated_repository_access": "CONFIRMED",
-    "existing_commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
-    "existing_registration": "REGISTRATION_IN_PROGRESS",
-    "withdrawal_performed": false,
-    "note": "Palomar offered opening the existing submission or irreversibly abandoning it. The existing submission was opened and preserved."
+    "official_submission_created": false,
+    "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
   },
-  "next_required_condition": "The existing registration must complete before Palomar admits a new submission from this repository."
+  "next_required_condition": "Palomar submission intake must become available again. The prior cardinality result is now publicly registered as PALOMAR-2026-11-09-000005."
 }

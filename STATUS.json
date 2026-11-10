@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-08T17:17:20.846791+00:00",
+  "observed_at_utc": "2026-11-10T12:53:21.233430+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
-    "confirmed_registrations": 1,
-    "official_mechanical_pass_awaiting_registration": 1,
+    "confirmed_registrations": 2,
+    "official_mechanical_pass_awaiting_registration": 0,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -15,6 +15,7 @@
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/24f69d5c2635ff405a628c170086a62d477fd3a5",
       "registration": "REGISTERED",
       "palomar_id": "PALOMAR-2026-11-08-000010",
+      "public_url": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-08-000010&version=1",
       "official_verification": {
         "status": "SUCCESS",
         "run": 42417850032
@@ -24,7 +25,10 @@
       "name": "STROBO fibre-cardinality dichotomy and upper bound",
       "commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
-      "registration": "REGISTRATION_IN_PROGRESS",
+      "registration": "REGISTERED",
+      "palomar_id": "PALOMAR-2026-11-09-000005",
+      "public_url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-09-000005&version=1",
+      "registered_date": "2026-11-09",
       "official_verification": {
         "status": "SUCCESS",
         "run": 42491892197
@@ -159,16 +163,13 @@
         "run": 42419020891,
         "status": "SUCCESS"
       },
-      "official_intake": "NOT_SUBMITTED_ACTIVE_REGISTRATION_PRESERVED",
+      "official_intake": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-08T17:17:19.097504+00:00",
-        "outcome": "BLOCKED_BY_EXISTING_ACTIVE_SUBMISSION",
+        "checked_at_utc": "2026-11-10T12:53:15.463214+00:00",
+        "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
         "browser_layout_and_metadata_checks": "PASS",
-        "authenticated_repository_access": "CONFIRMED",
-        "existing_commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
-        "existing_registration": "REGISTRATION_IN_PROGRESS",
-        "withdrawal_performed": false,
-        "note": "Palomar offered opening the existing submission or irreversibly abandoning it. The existing submission was opened and preserved."
+        "official_submission_created": false,
+        "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
       },
       "predictive_check": {
         "run": 42493140220,
