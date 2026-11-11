@@ -1,5 +1,5 @@
 {
-  "as_of_paris": "2026-11-07",
+  "as_of_paris": "2026-11-10",
   "repository": "alexcour/couret-finite-verifications",
   "branch": "palomar/strobo-three-supports-20261107",
   "commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
@@ -37,16 +37,32 @@
     ]
   },
   "intake": {
-    "status": "NOT_STARTED",
-    "submission_id": null
+    "status": "COMPLETED_OBSERVED",
+    "submission_id": "ui9arjmjl89d",
+    "evidence": "https://data.palomar-registry.org/entries/PALOMAR-2026-11-08-000010-v1.json"
   },
   "editorial_review": {
-    "status": "NOT_REQUESTED"
+    "status": "AUTOMATED_REVIEW_OBSERVED",
+    "outcome": "neutral",
+    "policy_commit": "28bd48b9b71bbb2a82c718ce761d5a4220ef8e60",
+    "report": {
+      "sha256": "ce7523a8319a5ce5a46a02183692abe80d132325616ee29d72686d6e894091ce"
+    },
+    "reviewed_at": "2026-11-07T23:00:21Z",
+    "reviewer_models": [
+      "codex:gpt-6-sol"
+    ],
+    "warnings": [],
+    "independent_human_review": "NOT_ESTABLISHED"
   },
   "registration": {
-    "status": "NOT_REGISTERED",
-    "palomar_id": null,
-    "next_step": "The author must authenticate on the Palomar submission form, submit the exact repository/commit/configuration, inspect the automated editorial review and then decide whether to register. No GitHub credential usable for agent intake is available in this session."
+    "status": "REGISTERED",
+    "palomar_id": "PALOMAR-2026-11-08-000010",
+    "version": 1,
+    "registered_at": "2026-11-08T07:43:43Z",
+    "url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-08-000010&version=1",
+    "record_url": "https://data.palomar-registry.org/entries/PALOMAR-2026-11-08-000010-v1.json",
+    "next_step": "Review the documentary reconciliation and the separate provenance erratum. Preserve the registered source commit and archive tag. Independent human review and literature comparison remain open; do not resubmit this registered snapshot."
   },
   "zulip": {
     "message_sent": false,
@@ -78,5 +94,61 @@
       "stage": "solution-build",
       "repair": "Replace broad simp with explicit finite-sum expansion; unchanged theorem statement."
     }
-  ]
+  ],
+  "registered_verification": {
+    "bwrap_source_tag": "v0.12.0",
+    "challenge_sha256": "3415fa4d7ec8430c1499d9d3b9159d241b911f739934855927a380cb617dcfcd",
+    "evidence_path": "evidence/PALOMAR-2026-11-08-000010-v1/09baee7c62e458d86b9edb6248a1d2c0ef0accfaf3314308cd93849ed0d7f581/",
+    "evidence_tree_sha256": "09baee7c62e458d86b9edb6248a1d2c0ef0accfaf3314308cd93849ed0d7f581",
+    "kernels": [
+      {
+        "argv": [
+          "/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin"
+        ],
+        "name": "nanoda"
+      },
+      {
+        "argv": [
+          "/home/runner/work/_temp/palomar/trusted-checker-update/con-ron",
+          "--jobs=2",
+          "--verified"
+        ],
+        "name": "con-ron"
+      }
+    ],
+    "mechanical_report_sha256": "170d404dc5f0d4fada300364abc46f74ea1b92bf26ae4babea5c31ba0fc634cf",
+    "protected_config_sha256": "e0983089a40b4f261bc8c264457dfe5b89d49b291ef28e9a9288ef1b207f73c5",
+    "repository": "PalomarRegistry/PalomarSubmission",
+    "run_id": 42417850032,
+    "solution_sha256": "29f317c148ae5307e60020637a1f48ab15c083ae439a0b29c88c29b18968114d",
+    "tool_digests": {
+      "bwrap": "30ea287236eae41961adee9e2a35ee734ee494241208bb02f38693cd7d64fe8e",
+      "con-ron": "4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef",
+      "lake": "8ba83c98f76562d03b8dbc33f1057151ba6cbb121679dde76b2260ccc90495e1",
+      "lean": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "leanchecker": "9e36e955a251b1313c8eb5b7fa101282d51df109d34d8bb7c1cfdf51985aba29",
+      "leanexport": "c5bc1a10a21e22cbb3671d65987cdef2076833b14182d823ccb2153adf2fa954",
+      "nanoda_bin": "8241c5e6baa29490aa118d382f97961b208ae730fdb96545c2abed74c9ece5a8"
+    },
+    "toolchain_commit": "11acb17ec6b07a8f9e9173e6845197929540936b",
+    "verified_at": "2026-11-07T22:13:09Z",
+    "workflow_commit": "14aa8d6b3c2f14a8540605e37144560b9a00e7e7",
+    "workflow_path": ".github/workflows/submission.yml",
+    "workflow_run_attempt": 1,
+    "workflow_url": "https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/42417850032"
+  },
+  "historical_observation_scopes": {
+    "mechanical_preflight": "Historical author-run evidence; distinct from registered_verification.",
+    "source_integrity": "Historical run retained; not a new whole-corpus audit.",
+    "zulip": "Historical 2026-11-07 observation retained; not a current claim about delivery or access."
+  },
+  "provenance_hash_discrepancy": {
+    "source_commit": "cb79157d413075a4a47fe92ab1437141aa4200c9",
+    "source_path": "research/strobo-2tors-2026-10-12/lean/Strobo2TorsCore.lean",
+    "declared_sha256": "a48b4966fe852ce3ae0d828ad0d9a7659a8b7d169ee38ed85429bd7dbfe79113",
+    "observed_sha256": "8c32a0fc004922553a9d42003aa4c0c8c9a6b30d8a906ee36d61566951be18b5",
+    "correction_status": "DOCUMENTED_IN_SEPARATE_ERRATUM",
+    "registered_snapshot_changed": false,
+    "erratum_path": "corpus/PALOMAR_PROVENANCE_ERRATA.json"
+  }
 }
