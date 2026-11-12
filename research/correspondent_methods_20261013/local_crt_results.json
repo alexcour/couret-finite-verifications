@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers, Python standard library",
+  "local2_vs_ramanujan_mismatches": 0,
+  "extra_stress_checks": 3648,
+  "cases": [
+    {
+      "n": 24,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 128,
+      "local2": 8,
+      "integral_patterns": 4,
+      "distinct_solutions": 4,
+      "rejected_by_stage": {
+        "2": 96,
+        "3": 24
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          1,
+          9,
+          21
+        ],
+        [
+          5,
+          13,
+          17
+        ],
+        [
+          9,
+          13,
+          21
+        ]
+      ],
+      "brute_supports_examined": 2024
+    },
+    {
+      "n": 40,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 128,
+      "local2": 8,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 96,
+        "3": 24
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          21,
+          25,
+          37
+        ]
+      ],
+      "brute_supports_examined": 9880
+    },
+    {
+      "n": 48,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 512,
+      "local2": 8,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 384,
+        "3": 96,
+        "4": 24
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          25,
+          29,
+          41
+        ]
+      ],
+      "brute_supports_examined": 17296
+    },
+    {
+      "n": 56,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 128,
+      "local2": 8,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 96,
+        "3": 24
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          29,
+          33,
+          45
+        ]
+      ],
+      "brute_supports_examined": 27720
+    },
+    {
+      "n": 72,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 2048,
+      "local2": 32,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 1792,
+        "3": 224
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          37,
+          41,
+          53
+        ]
+      ],
+      "brute_supports_examined": 59640
+    },
+    {
+      "n": 80,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 512,
+      "local2": 8,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 384,
+        "3": 96,
+        "4": 24
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          41,
+          45,
+          57
+        ]
+      ],
+      "brute_supports_examined": 82160
+    },
+    {
+      "n": 96,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 2048,
+      "local2": 8,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 1536,
+        "3": 384,
+        "4": 96,
+        "5": 24
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          49,
+          53,
+          65
+        ]
+      ],
+      "brute_supports_examined": 142880
+    },
+    {
+      "n": 120,
+      "support": [
+        1,
+        5,
+        17
+      ],
+      "sign_patterns": 32768,
+      "local2": 128,
+      "integral_patterns": 2,
+      "distinct_solutions": 2,
+      "rejected_by_stage": {
+        "2": 30720,
+        "3": 1920
+      },
+      "solutions": [
+        [
+          1,
+          5,
+          17
+        ],
+        [
+          61,
+          65,
+          77
+        ]
+      ],
+      "brute_supports_examined": 280840
+    }
+  ],
+  "boundary": "Finite replay plus written proof; no formal or external certification."
+}

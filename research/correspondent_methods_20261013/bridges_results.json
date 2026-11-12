@@ -1,0 +1,232 @@
+{
+  "status": "PASS",
+  "race": {
+    "rows": [
+      {
+        "u": 0,
+        "v": 0,
+        "conductor": 1,
+        "t_hat": [
+          0,
+          0
+        ],
+        "t_star_hat": [
+          1,
+          0
+        ]
+      },
+      {
+        "u": 0,
+        "v": 1,
+        "conductor": 5,
+        "t_hat": [
+          1,
+          0
+        ],
+        "t_star_hat": [
+          0,
+          0
+        ]
+      },
+      {
+        "u": 0,
+        "v": 2,
+        "conductor": 5,
+        "t_hat": [
+          3,
+          0
+        ],
+        "t_star_hat": [
+          4,
+          0
+        ]
+      },
+      {
+        "u": 0,
+        "v": 3,
+        "conductor": 5,
+        "t_hat": [
+          1,
+          0
+        ],
+        "t_star_hat": [
+          0,
+          0
+        ]
+      },
+      {
+        "u": 1,
+        "v": 0,
+        "conductor": 3,
+        "t_hat": [
+          -1,
+          0
+        ],
+        "t_star_hat": [
+          0,
+          0
+        ]
+      },
+      {
+        "u": 1,
+        "v": 1,
+        "conductor": 15,
+        "t_hat": [
+          1,
+          0
+        ],
+        "t_star_hat": [
+          0,
+          0
+        ]
+      },
+      {
+        "u": 1,
+        "v": 2,
+        "conductor": 15,
+        "t_hat": [
+          -1,
+          0
+        ],
+        "t_star_hat": [
+          0,
+          0
+        ]
+      },
+      {
+        "u": 1,
+        "v": 3,
+        "conductor": 15,
+        "t_hat": [
+          1,
+          0
+        ],
+        "t_star_hat": [
+          0,
+          0
+        ]
+      }
+    ],
+    "support_size": 7,
+    "lambda_t": 9,
+    "lambda_t_star": 5,
+    "conductor_product": 1265625,
+    "mean_numerator": -8,
+    "mean_denominator": 8,
+    "C_exploratory_float": 104.11329266122952,
+    "log_conductor_product_exploratory_float": 14.051076629277041,
+    "full_H1_frequency_pairs_N67": 46354731573948918542880962705293,
+    "boundary": "Fourier data exact; logarithmic floats not interval certificates."
+  },
+  "graphs": [
+    {
+      "n": 12,
+      "S": [
+        1,
+        3,
+        9
+      ],
+      "T": [
+        1,
+        5,
+        11
+      ],
+      "same_labelled_square": true,
+      "cospectral_by_exact_newton_identities": true,
+      "characteristic_polynomial_coefficients_descending": [
+        1,
+        0,
+        -12,
+        0,
+        36,
+        0,
+        -80,
+        0,
+        -12,
+        0,
+        36,
+        0,
+        -81
+      ],
+      "reciprocal_component_sizes_S": [
+        4,
+        4,
+        4
+      ],
+      "reciprocal_component_sizes_T": [
+        12
+      ],
+      "separating_return_length": 3,
+      "arc_return_values_S": [
+        3,
+        4,
+        5
+      ],
+      "arc_return_values_T": [
+        3,
+        3,
+        6
+      ],
+      "multiplicity_per_step": 12,
+      "nonisomorphism_reason": "Isomorphisms preserve the multiset of (A^3)[v,u] over directed arcs u->v."
+    },
+    {
+      "n": 24,
+      "S": [
+        1,
+        5,
+        17
+      ],
+      "T": [
+        1,
+        9,
+        21
+      ],
+      "same_labelled_square": true,
+      "cospectral_by_exact_newton_identities": true,
+      "characteristic_polynomial_coefficients_descending": [
+        1,
+        0,
+        0,
+        0,
+        -72,
+        0,
+        0,
+        0,
+        -648,
+        0,
+        0,
+        0,
+        -6560,
+        0,
+        0,
+        0,
+        -72,
+        0,
+        0,
+        0,
+        -648,
+        0,
+        0,
+        0,
+        -6561
+      ],
+      "reciprocal_component_sizes_S": [],
+      "reciprocal_component_sizes_T": [],
+      "separating_return_length": 3,
+      "arc_return_values_S": [
+        3,
+        3,
+        6
+      ],
+      "arc_return_values_T": [
+        3,
+        4,
+        5
+      ],
+      "multiplicity_per_step": 24,
+      "nonisomorphism_reason": "Isomorphisms preserve the multiset of (A^3)[v,u] over directed arcs u->v."
+    }
+  ],
+  "boundary": "No zero certification, no prime-race density, no nauty census."
+}
