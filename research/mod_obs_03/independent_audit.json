@@ -1,0 +1,91 @@
+{
+  "method": "exact Gaussian elimination for gambler-ruin absorbing chains",
+  "delta": "1/20",
+  "channels": {
+    "q1": {
+      "property_threshold_net_votes": 2,
+      "property_error": {
+        "fraction": "1/82",
+        "decimal": 0.012195121951219513
+      },
+      "property_expected_queries": {
+        "fraction": "100/41",
+        "decimal": 2.4390243902439024
+      },
+      "property_expected_cost": {
+        "fraction": "200/41",
+        "decimal": 4.878048780487805
+      },
+      "reconstruction_threshold_net_votes": 2,
+      "reconstruction_bit_error": {
+        "fraction": "1/82",
+        "decimal": 0.012195121951219513
+      },
+      "reconstruction_expected_queries": {
+        "fraction": "100/41",
+        "decimal": 2.4390243902439024
+      },
+      "reconstruction_expected_cost": {
+        "fraction": "200/41",
+        "decimal": 4.878048780487805
+      }
+    },
+    "q4": {
+      "property_threshold_net_votes": 3,
+      "property_error": {
+        "fraction": "1/65",
+        "decimal": 0.015384615384615385
+      },
+      "property_expected_queries": {
+        "fraction": "63/13",
+        "decimal": 4.846153846153846
+      },
+      "property_expected_cost": {
+        "fraction": "63/13",
+        "decimal": 4.846153846153846
+      },
+      "reconstruction_threshold_net_votes": 3,
+      "reconstruction_bit_error": {
+        "fraction": "1/65",
+        "decimal": 0.015384615384615385
+      },
+      "reconstruction_expected_queries": {
+        "fraction": "63/13",
+        "decimal": 4.846153846153846
+      },
+      "reconstruction_expected_cost": {
+        "fraction": "63/13",
+        "decimal": 4.846153846153846
+      }
+    }
+  },
+  "negative_controls": {
+    "iid_miscalibration_property_q1_error": {
+      "fraction": "1/10",
+      "decimal": 0.1
+    },
+    "iid_miscalibration_reconstruction_error": {
+      "fraction": "5627/25400",
+      "decimal": 0.22153543307086615
+    },
+    "persistent_flip_property_q1_error": {
+      "fraction": "1/10",
+      "decimal": 0.1
+    },
+    "persistent_flip_reconstruction_error": {
+      "fraction": "7/25",
+      "decimal": 0.28
+    }
+  },
+  "reconstruction_error_iid": {
+    "fraction": "73/2665",
+    "decimal": 0.027392120075046905
+  },
+  "reconstruction_expected_cost_iid": {
+    "fraction": "5183/533",
+    "decimal": 9.72420262664165
+  },
+  "kl_cost_lower_bound": 6.20110747673486,
+  "property_q1_cost_upper_bound": 4.878048780487805,
+  "strict_separation": true
+}
