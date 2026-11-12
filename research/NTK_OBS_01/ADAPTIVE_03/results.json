@@ -1,0 +1,493 @@
+{
+  "adaptive_minimax": {
+    "optimal_cost": "5/2",
+    "policy": {
+      "candidate_models": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "outcomes": [
+        {
+          "compatible_models": [
+            "A",
+            "B"
+          ],
+          "continuation": {
+            "candidate_models": [
+              "A",
+              "B"
+            ],
+            "outcomes": [
+              {
+                "compatible_models": [
+                  "A"
+                ],
+                "continuation": {
+                  "label": "A",
+                  "stop": [
+                    "A"
+                  ]
+                },
+                "witness_y": "49/100"
+              },
+              {
+                "compatible_models": [
+                  "B"
+                ],
+                "continuation": {
+                  "label": "B",
+                  "stop": [
+                    "B"
+                  ]
+                },
+                "witness_y": "537/1300"
+              }
+            ],
+            "query_time": 1,
+            "worst_case_cost": "5/4"
+          },
+          "witness_y": "99/100"
+        },
+        {
+          "compatible_models": [
+            "C",
+            "D"
+          ],
+          "continuation": {
+            "candidate_models": [
+              "C",
+              "D"
+            ],
+            "outcomes": [
+              {
+                "compatible_models": [
+                  "C"
+                ],
+                "continuation": {
+                  "label": "C",
+                  "stop": [
+                    "C"
+                  ]
+                },
+                "witness_y": "121/400"
+              },
+              {
+                "compatible_models": [
+                  "D"
+                ],
+                "continuation": {
+                  "label": "D",
+                  "stop": [
+                    "D"
+                  ]
+                },
+                "witness_y": "7/50"
+              }
+            ],
+            "query_time": 2,
+            "worst_case_cost": "3/2"
+          },
+          "witness_y": "299/100"
+        }
+      ],
+      "query_time": 0,
+      "worst_case_cost": "5/2"
+    },
+    "visited_dp_states": 12
+  },
+  "adversarial_corner_and_center_checks": 36,
+  "alternative_property_minimax": {
+    "optimal_cost": "1",
+    "policy": {
+      "candidate_models": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "outcomes": [
+        {
+          "compatible_models": [
+            "A",
+            "B"
+          ],
+          "continuation": {
+            "label": "mass1",
+            "stop": [
+              "A",
+              "B"
+            ]
+          },
+          "witness_y": "99/100"
+        },
+        {
+          "compatible_models": [
+            "C",
+            "D"
+          ],
+          "continuation": {
+            "label": "mass3",
+            "stop": [
+              "C",
+              "D"
+            ]
+          },
+          "witness_y": "299/100"
+        }
+      ],
+      "query_time": 0,
+      "worst_case_cost": "1"
+    },
+    "visited_dp_states": 6
+  },
+  "claim_scope": "finite known two-atom hypothesis bank; classical decision-tree and Prony framework; no novelty claimed",
+  "date": "2026-10-11",
+  "epsilon_scan": {
+    "0": {
+      "adaptive_minimax_cost": "5/2",
+      "dp_states": 12,
+      "fixed_unconditional_minimax_cost": "7/2",
+      "robust_exact_identification_possible": true
+    },
+    "1/100": {
+      "adaptive_minimax_cost": "5/2",
+      "dp_states": 12,
+      "fixed_unconditional_minimax_cost": "7/2",
+      "robust_exact_identification_possible": true
+    },
+    "1/20": {
+      "adaptive_minimax_cost": null,
+      "dp_states": null,
+      "fixed_unconditional_minimax_cost": null,
+      "robust_exact_identification_possible": false
+    },
+    "1/26": {
+      "adaptive_minimax_cost": null,
+      "dp_states": null,
+      "fixed_unconditional_minimax_cost": null,
+      "robust_exact_identification_possible": false
+    },
+    "1/30": {
+      "adaptive_minimax_cost": "5/2",
+      "dp_states": 12,
+      "fixed_unconditional_minimax_cost": "7/2",
+      "robust_exact_identification_possible": true
+    },
+    "487/13000": {
+      "adaptive_minimax_cost": "5/2",
+      "dp_states": 12,
+      "fixed_unconditional_minimax_cost": "7/2",
+      "robust_exact_identification_possible": true
+    }
+  },
+  "fixed_best": {
+    "ambiguous_pairs": [],
+    "horizon": 2,
+    "query_count": 3,
+    "successful": true,
+    "times": [
+      0,
+      1,
+      2
+    ],
+    "worst_unconditional_cost": "7/2"
+  },
+  "fixed_path_with_early_stop": {
+    "A": [
+      0,
+      1
+    ],
+    "B": [
+      0,
+      1
+    ],
+    "C": [
+      0,
+      1,
+      2
+    ],
+    "D": [
+      0,
+      1,
+      2
+    ]
+  },
+  "models": {
+    "A": {
+      "atoms": [
+        {
+          "q": "1/4",
+          "w": "1/2"
+        },
+        {
+          "q": "3/4",
+          "w": "1/2"
+        }
+      ],
+      "moments_0_1_2": [
+        "1",
+        "1/2",
+        "5/16"
+      ]
+    },
+    "B": {
+      "atoms": [
+        {
+          "q": "3/52",
+          "w": "1/2"
+        },
+        {
+          "q": "41/52",
+          "w": "1/2"
+        }
+      ],
+      "moments_0_1_2": [
+        "1",
+        "11/26",
+        "5/16"
+      ]
+    },
+    "C": {
+      "atoms": [
+        {
+          "q": "1/20",
+          "w": "275/108"
+        },
+        {
+          "q": "23/28",
+          "w": "49/108"
+        }
+      ],
+      "moments_0_1_2": [
+        "3",
+        "1/2",
+        "5/16"
+      ]
+    },
+    "D": {
+      "atoms": [
+        {
+          "q": "1/10",
+          "w": "5/2"
+        },
+        {
+          "q": "1/2",
+          "w": "1/2"
+        }
+      ],
+      "moments_0_1_2": [
+        "3",
+        "1/2",
+        "3/20"
+      ]
+    }
+  },
+  "noise_model": {
+    "absolute_epsilon": "1/100",
+    "noise_at_loss_L_scale": "1/200",
+    "sharp_feasibility_threshold": "1/26"
+  },
+  "observation_times": [
+    0,
+    1,
+    2
+  ],
+  "path_by_model": {
+    "A": [
+      0,
+      1
+    ],
+    "B": [
+      0,
+      1
+    ],
+    "C": [
+      0,
+      2
+    ],
+    "D": [
+      0,
+      2
+    ]
+  },
+  "project": "NTK-OBS-03",
+  "query_partitions_at_nominal_epsilon": {
+    "0": [
+      {
+        "candidates": [
+          "A",
+          "B"
+        ],
+        "rational_witness": "99/100"
+      },
+      {
+        "candidates": [
+          "C",
+          "D"
+        ],
+        "rational_witness": "299/100"
+      }
+    ],
+    "1": [
+      {
+        "candidates": [
+          "A",
+          "C",
+          "D"
+        ],
+        "rational_witness": "49/100"
+      },
+      {
+        "candidates": [
+          "B"
+        ],
+        "rational_witness": "537/1300"
+      }
+    ],
+    "2": [
+      {
+        "candidates": [
+          "A",
+          "B",
+          "C"
+        ],
+        "rational_witness": "121/400"
+      },
+      {
+        "candidates": [
+          "D"
+        ],
+        "rational_witness": "7/50"
+      }
+    ]
+  },
+  "sharp_boundary_midpoint_observations": {
+    "0": "1",
+    "1": "6/13",
+    "2": "5/16"
+  },
+  "status": {
+    "external_independent_review": "OPEN",
+    "general_ntk_training_theorem": "NO",
+    "local_exact_arithmetic": "PASS",
+    "novelty": "NO CLAIM"
+  },
+  "time_cost_weight_scan": {
+    "0": {
+      "adaptive": "2",
+      "fixed": "3"
+    },
+    "1": {
+      "adaptive": "4",
+      "fixed": "5"
+    },
+    "1/4": {
+      "adaptive": "5/2",
+      "fixed": "7/2"
+    },
+    "3": {
+      "adaptive": "8",
+      "fixed": "9"
+    }
+  },
+  "unconditional_fixed_designs": [
+    {
+      "ambiguous_pairs": [
+        "AB",
+        "CD"
+      ],
+      "horizon": 0,
+      "query_count": 1,
+      "successful": false,
+      "times": [
+        0
+      ],
+      "worst_unconditional_cost": "1"
+    },
+    {
+      "ambiguous_pairs": [
+        "AC",
+        "AD",
+        "CD"
+      ],
+      "horizon": 1,
+      "query_count": 1,
+      "successful": false,
+      "times": [
+        1
+      ],
+      "worst_unconditional_cost": "5/4"
+    },
+    {
+      "ambiguous_pairs": [
+        "AB",
+        "AC",
+        "BC"
+      ],
+      "horizon": 2,
+      "query_count": 1,
+      "successful": false,
+      "times": [
+        2
+      ],
+      "worst_unconditional_cost": "3/2"
+    },
+    {
+      "ambiguous_pairs": [
+        "CD"
+      ],
+      "horizon": 1,
+      "query_count": 2,
+      "successful": false,
+      "times": [
+        0,
+        1
+      ],
+      "worst_unconditional_cost": "9/4"
+    },
+    {
+      "ambiguous_pairs": [
+        "AB"
+      ],
+      "horizon": 2,
+      "query_count": 2,
+      "successful": false,
+      "times": [
+        0,
+        2
+      ],
+      "worst_unconditional_cost": "5/2"
+    },
+    {
+      "ambiguous_pairs": [
+        "AC"
+      ],
+      "horizon": 2,
+      "query_count": 2,
+      "successful": false,
+      "times": [
+        1,
+        2
+      ],
+      "worst_unconditional_cost": "5/2"
+    },
+    {
+      "ambiguous_pairs": [],
+      "horizon": 2,
+      "query_count": 3,
+      "successful": true,
+      "times": [
+        0,
+        1,
+        2
+      ],
+      "worst_unconditional_cost": "7/2"
+    }
+  ],
+  "uniform_prior_comparison": {
+    "adaptive_average_cost": "19/8",
+    "fixed_early_stop_average_cost": "23/8"
+  }
+}
