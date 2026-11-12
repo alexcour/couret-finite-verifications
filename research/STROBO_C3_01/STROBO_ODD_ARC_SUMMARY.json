@@ -1,0 +1,99 @@
+{
+  "status": "INTERNAL_EXACT_VERIFICATION_NOT_EXTERNAL_REVIEW",
+  "bound": 60,
+  "family": "explicit nontranslation pairs; zero excluded",
+  "witness18": {
+    "S": [
+      1,
+      4,
+      13
+    ],
+    "T": [
+      1,
+      7,
+      16
+    ],
+    "trace3_S": 108,
+    "trace3_T": 54
+  },
+  "totals": {
+    "pairs": 550,
+    "multiplier_iso": 106,
+    "arc_cycle": 160,
+    "odd_trace": 284
+  },
+  "by_n": [
+    {
+      "n": 6,
+      "pairs": 1,
+      "odd_trace": 0,
+      "arc_cycle": 0,
+      "multiplier_iso": 1
+    },
+    {
+      "n": 12,
+      "pairs": 13,
+      "odd_trace": 0,
+      "arc_cycle": 8,
+      "multiplier_iso": 5
+    },
+    {
+      "n": 18,
+      "pairs": 25,
+      "odd_trace": 24,
+      "arc_cycle": 0,
+      "multiplier_iso": 1
+    },
+    {
+      "n": 24,
+      "pairs": 37,
+      "odd_trace": 0,
+      "arc_cycle": 24,
+      "multiplier_iso": 13
+    },
+    {
+      "n": 30,
+      "pairs": 49,
+      "odd_trace": 40,
+      "arc_cycle": 0,
+      "multiplier_iso": 9
+    },
+    {
+      "n": 36,
+      "pairs": 61,
+      "odd_trace": 24,
+      "arc_cycle": 32,
+      "multiplier_iso": 5
+    },
+    {
+      "n": 42,
+      "pairs": 73,
+      "odd_trace": 60,
+      "arc_cycle": 0,
+      "multiplier_iso": 13
+    },
+    {
+      "n": 48,
+      "pairs": 85,
+      "odd_trace": 0,
+      "arc_cycle": 56,
+      "multiplier_iso": 29
+    },
+    {
+      "n": 54,
+      "pairs": 97,
+      "odd_trace": 96,
+      "arc_cycle": 0,
+      "multiplier_iso": 1
+    },
+    {
+      "n": 60,
+      "pairs": 109,
+      "odd_trace": 40,
+      "arc_cycle": 40,
+      "multiplier_iso": 29
+    }
+  ],
+  "reference_nauty_comparison": "agree_all_pairs",
+  "scope": "No originality claim, no general STROBO exhaustiveness proof, no merge."
+}

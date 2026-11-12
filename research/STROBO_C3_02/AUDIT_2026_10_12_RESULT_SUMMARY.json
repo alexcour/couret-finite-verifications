@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-12",
+  "status": "INTERNAL_BOUNDED_CHECK_NOT_EXTERNAL_REVIEW",
+  "range": "n=3..90",
+  "scans": 176,
+  "supports_allow_zero": 2672670,
+  "supports_no_zero": 2555190,
+  "anomalies": 0,
+  "method": "sorted multiset of nine ordered sums; direct grouping by exact square; exhaustive pairs compared with exceptional family and half-turn; fibre size formulas tested",
+  "examples": [
+    {
+      "n": 6,
+      "no_zero": {
+        "exceptional": 1,
+        "half_turn": 2,
+        "all": 3
+      }
+    },
+    {
+      "n": 12,
+      "no_zero": {
+        "exceptional": 13,
+        "half_turn": 60,
+        "all": 73
+      }
+    },
+    {
+      "n": 18,
+      "no_zero": {
+        "f1": 118,
+        "f2": 269,
+        "f4": 6,
+        "exceptional": 25,
+        "all": 305
+      },
+      "allow_zero": {
+        "f2": 390,
+        "f4": 9,
+        "exceptional": 36,
+        "all": 444
+      }
+    },
+    {
+      "n": 90,
+      "no_zero": {
+        "exceptional": 169,
+        "half_turn": 54868,
+        "all": 55037
+      },
+      "allow_zero": {
+        "exceptional": 180,
+        "all": 58920
+      }
+    }
+  ],
+  "script_sha256": "62dde85a00651fee8d7020b810d55caef01c310a3810ffe59423d6749e7feab7",
+  "detailed_results_sha256": "bd375b31f7957e5681ca821b149c6cde43153da32b8a23508bd1116f70a008ce",
+  "note": "Raw detail and script initially generated locally. Add script to repository for full replay. No external verification claimed."
+}

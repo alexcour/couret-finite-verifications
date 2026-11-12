@@ -1,0 +1,37 @@
+{
+  "status": "finite_exact_replay_passed_not_independent_proof_review",
+  "date_utc": "2026-10-10",
+  "repository": "alexcour/couret-finite-verifications",
+  "branch": "research/strobo-c3-01-2026-10-10",
+  "draft_pr": 8,
+  "archive_drive_url": "https://drive.google.com/file/d/1Ggaeyq0Utmw2ZxtO3KRLHitGe1bd1rl5/view?usp=drivesdk",
+  "archive_sha256": "6dc72a162876b6a0e925e700b524536388c554ad07f523516426024cb8a8727a",
+  "range": {
+    "min_n": 5,
+    "max_n": 60,
+    "orders": 56,
+    "allow_zero_in_scan": false
+  },
+  "totals": {
+    "supports": 487634,
+    "connected_supports": 455040,
+    "collision_pairs": 118290,
+    "nontranslation_pairs": 550,
+    "nondihedral_pairs": 0,
+    "connected_collision_pairs": 97937,
+    "connected_nontranslation_pairs": 373,
+    "connected_nondihedral_pairs": 0
+  },
+  "archived_json_sha256": {
+    "summary_primary.json": "61f914e3af34c2e595f73c56d2db082e7873df1d54d9fa660b0b6414176148c5",
+    "summary_independent.json": "6a818bc249c30480d801a2ac405692dd5e32f3f1e6ddcdba8a788c9e4f14e866",
+    "family_verification.json": "48eda669eea478ab441ee66ebd7540ad24cf4fd6446a2007cde3cd45cca05e6a"
+  },
+  "comparison": "archived JSON and rerun JSON match after excluding generated_utc, duration_seconds, elapsed_seconds; all SHA256 manifest entries match",
+  "gates": {
+    "Q": "finite replay passed; human code audit open",
+    "E": "internal candidate proof; independent review open",
+    "N": "not audited",
+    "R": "open"
+  }
+}
