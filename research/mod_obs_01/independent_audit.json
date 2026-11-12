@@ -1,0 +1,379 @@
+{
+  "audit": "matrix multiplication + independent coefficient count",
+  "experiments": [
+    {
+      "n": 6,
+      "supports": 10,
+      "fibres": 7,
+      "size_hist": {
+        "1": 4,
+        "2": 3
+      },
+      "collisions": 3,
+      "lower_bound_witnesses": [
+        {
+          "unqueried_coset": [
+            1,
+            4
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              5
+            ],
+            [
+              2,
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            2,
+            5
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              4
+            ],
+            [
+              1,
+              4,
+              5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "supports": 35,
+      "fibres": 25,
+      "size_hist": {
+        "1": 15,
+        "2": 10
+      },
+      "collisions": 10,
+      "lower_bound_witnesses": [
+        {
+          "unqueried_coset": [
+            1,
+            5
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              6
+            ],
+            [
+              2,
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            2,
+            6
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              5
+            ],
+            [
+              1,
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            3,
+            7
+          ],
+          "pair": [
+            [
+              1,
+              3,
+              5
+            ],
+            [
+              1,
+              5,
+              7
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "supports": 165,
+      "fibres": 101,
+      "size_hist": {
+        "1": 43,
+        "2": 55,
+        "4": 3
+      },
+      "collisions": 73,
+      "lower_bound_witnesses": [
+        {
+          "unqueried_coset": [
+            1,
+            7
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              8
+            ],
+            [
+              2,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            2,
+            8
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              7
+            ],
+            [
+              1,
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            3,
+            9
+          ],
+          "pair": [
+            [
+              1,
+              3,
+              7
+            ],
+            [
+              1,
+              7,
+              9
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            4,
+            10
+          ],
+          "pair": [
+            [
+              1,
+              4,
+              7
+            ],
+            [
+              1,
+              7,
+              10
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            5,
+            11
+          ],
+          "pair": [
+            [
+              1,
+              5,
+              7
+            ],
+            [
+              1,
+              7,
+              11
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "supports": 680,
+      "fibres": 393,
+      "size_hist": {
+        "1": 118,
+        "2": 269,
+        "4": 6
+      },
+      "collisions": 305,
+      "lower_bound_witnesses": [
+        {
+          "unqueried_coset": [
+            1,
+            10
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              11
+            ],
+            [
+              2,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            2,
+            11
+          ],
+          "pair": [
+            [
+              1,
+              2,
+              10
+            ],
+            [
+              1,
+              10,
+              11
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            3,
+            12
+          ],
+          "pair": [
+            [
+              1,
+              3,
+              10
+            ],
+            [
+              1,
+              10,
+              12
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            4,
+            13
+          ],
+          "pair": [
+            [
+              1,
+              4,
+              10
+            ],
+            [
+              1,
+              10,
+              13
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            5,
+            14
+          ],
+          "pair": [
+            [
+              1,
+              5,
+              10
+            ],
+            [
+              1,
+              10,
+              14
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            6,
+            15
+          ],
+          "pair": [
+            [
+              1,
+              6,
+              10
+            ],
+            [
+              1,
+              10,
+              15
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            7,
+            16
+          ],
+          "pair": [
+            [
+              1,
+              7,
+              10
+            ],
+            [
+              1,
+              10,
+              16
+            ]
+          ]
+        },
+        {
+          "unqueried_coset": [
+            8,
+            17
+          ],
+          "pair": [
+            [
+              1,
+              8,
+              10
+            ],
+            [
+              1,
+              10,
+              17
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

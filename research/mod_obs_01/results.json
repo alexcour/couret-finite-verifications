@@ -1,0 +1,594 @@
+{
+  "protocol": "MOD-OBS-01 v1, 2026-10-11",
+  "scope": "Finite exact exhaustive, no novelty audit",
+  "experiments": [
+    {
+      "n": 6,
+      "zero_allowed": false,
+      "supports": 10,
+      "fibers": 7,
+      "fiber_counts": {
+        "1": 4,
+        "2": 3
+      },
+      "collision_pairs": 3,
+      "predicted_fiber_counts": {
+        "1": 4,
+        "2": 3
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 4,
+        "1": 3
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 5,
+            "1": 2
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 7
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 7
+          },
+          "worst": 0
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 7
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 5,
+            "1": 2
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 7
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 7,
+      "zero_allowed": false,
+      "supports": 20,
+      "fibers": 20,
+      "fiber_counts": {
+        "1": 20
+      },
+      "collision_pairs": 0,
+      "predicted_fiber_counts": {
+        "1": 20
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 20
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 20
+          },
+          "worst": 0
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 20
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 20
+          },
+          "worst": 0
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 20
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 20
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 8,
+      "zero_allowed": false,
+      "supports": 35,
+      "fibers": 25,
+      "fiber_counts": {
+        "1": 15,
+        "2": 10
+      },
+      "collision_pairs": 10,
+      "predicted_fiber_counts": {
+        "1": 15,
+        "2": 10
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 15,
+        "1": 10
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 19,
+            "1": 6
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 25
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 25
+          },
+          "worst": 0
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 25
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 15,
+            "1": 10
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 25
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 9,
+      "zero_allowed": false,
+      "supports": 56,
+      "fibers": 56,
+      "fiber_counts": {
+        "1": 56
+      },
+      "collision_pairs": 0,
+      "predicted_fiber_counts": {
+        "1": 56
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 56
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 56
+          },
+          "worst": 0
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 56
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 56
+          },
+          "worst": 0
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 56
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 56
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 12,
+      "zero_allowed": false,
+      "supports": 165,
+      "fibers": 101,
+      "fiber_counts": {
+        "1": 43,
+        "2": 55,
+        "4": 3
+      },
+      "collision_pairs": 73,
+      "predicted_fiber_counts": {
+        "1": 43,
+        "2": 55,
+        "4": 3
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 43,
+        "1": 55,
+        "2": 3
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 72,
+            "1": 29
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 101
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 91,
+            "1": 10
+          },
+          "worst": 1
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 101
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 44,
+            "1": 57
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 101
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 18,
+      "zero_allowed": false,
+      "supports": 680,
+      "fibers": 393,
+      "fiber_counts": {
+        "1": 118,
+        "2": 269,
+        "4": 6
+      },
+      "collision_pairs": 305,
+      "predicted_fiber_counts": {
+        "1": 118,
+        "2": 269,
+        "4": 6
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 118,
+        "1": 269,
+        "2": 6
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 301,
+            "1": 92
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 337,
+            "1": 56
+          },
+          "worst": 1
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 211,
+            "1": 182
+          },
+          "worst": 1
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 393
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 119,
+            "1": 274
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 393
+          },
+          "worst": 0
+        }
+      },
+      "global_fixed_membership_suite": {
+        "minimum": 8,
+        "witness": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "pairs": 305,
+        "searched_subsets": 131071,
+        "full_coverage_sha256": "572c3df06305990e539712c4dba106a54522909e3f71d62ed526a155711af642"
+      }
+    },
+    {
+      "n": 24,
+      "zero_allowed": false,
+      "supports": 1771,
+      "fibers": 991,
+      "fiber_counts": {
+        "1": 229,
+        "2": 753,
+        "4": 9
+      },
+      "collision_pairs": 807,
+      "predicted_fiber_counts": {
+        "1": 229,
+        "2": 753,
+        "4": 9
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 229,
+        "1": 753,
+        "2": 9
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 800,
+            "1": 191
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 991
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 601,
+            "1": 390
+          },
+          "worst": 1
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 991
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 230,
+            "1": 761
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 991
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 30,
+      "zero_allowed": false,
+      "supports": 3654,
+      "fibers": 2003,
+      "fiber_counts": {
+        "1": 376,
+        "2": 1615,
+        "4": 12
+      },
+      "collision_pairs": 1687,
+      "predicted_fiber_counts": {
+        "1": 376,
+        "2": 1615,
+        "4": 12
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 376,
+        "1": 1615,
+        "2": 12
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 1677,
+            "1": 326
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 1643,
+            "1": 360
+          },
+          "worst": 1
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 1043,
+            "1": 960
+          },
+          "worst": 1
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 2003
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 377,
+            "1": 1626
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 2003
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 36,
+      "zero_allowed": false,
+      "supports": 6545,
+      "fibers": 3537,
+      "fiber_counts": {
+        "1": 559,
+        "2": 2963,
+        "4": 15
+      },
+      "collision_pairs": 3053,
+      "predicted_fiber_counts": {
+        "1": 559,
+        "2": 2963,
+        "4": 15
+      },
+      "formula_agrees": true,
+      "reconstruction_depth_histogram": {
+        "0": 559,
+        "1": 2963,
+        "2": 15
+      },
+      "properties": {
+        "contains_1": {
+          "depth_histogram": {
+            "0": 3040,
+            "1": 497
+          },
+          "worst": 1
+        },
+        "connected": {
+          "depth_histogram": {
+            "0": 3537
+          },
+          "worst": 0
+        },
+        "closed_walk_length_3": {
+          "depth_histogram": {
+            "0": 2217,
+            "1": 1320
+          },
+          "worst": 1
+        },
+        "symmetric": {
+          "depth_histogram": {
+            "0": 3537
+          },
+          "worst": 0
+        },
+        "majority_lower_half": {
+          "depth_histogram": {
+            "0": 560,
+            "1": 2977
+          },
+          "worst": 1
+        },
+        "contains_halfturn": {
+          "depth_histogram": {
+            "0": 3537
+          },
+          "worst": 0
+        }
+      }
+    },
+    {
+      "n": 18,
+      "zero_allowed": true,
+      "supports": 816,
+      "fibers": 399,
+      "fiber_counts": {
+        "2": 390,
+        "4": 9
+      },
+      "collision_pairs": 444,
+      "reconstruction_depth_histogram": {
+        "1": 390,
+        "2": 9
+      },
+      "global_fixed_membership_suite": {
+        "minimum": 9,
+        "witness": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "pairs": 444,
+        "searched_subsets": 262143,
+        "full_coverage_sha256": "d105653c3280c09826ba9f7babe57ae6a10f61be1a19efbd82b065d78e72ab59"
+      }
+    }
+  ]
+}
