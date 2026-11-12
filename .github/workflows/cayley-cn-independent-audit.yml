@@ -1,0 +1,43 @@
+name: Cayley C_n independent finite audit
+
+on:
+  push:
+    paths:
+      - "research/cayley/**"
+      - ".github/workflows/cayley-cn-independent-audit.yml"
+  pull_request:
+    paths:
+      - "research/cayley/**"
+      - ".github/workflows/cayley-cn-independent-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  cyclic-n-independent-audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (Node 24)
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0 (Node 24)
+        with:
+          python-version: '3.12'
+      - name: Recompute exact C_n audit with Python standard library
+        run: python3 research/cayley/audit_cyclic_n_independent_20261020.py --output /tmp/cayley_cn_audit.json
+      - name: Compare every deterministic row with stored evidence
+        run: |
+          python3 - <<'PY'
+          import gzip, hashlib, json
+          from pathlib import Path
+          receipt = json.loads(Path('research/cayley/audit_cyclic_n_summary_20261020.json').read_text())
+          compressed = Path('research/cayley/audit_cyclic_n_cases_20261020.json.gz').read_bytes()
+          raw = gzip.decompress(compressed)
+          if hashlib.sha256(compressed).hexdigest() != receipt['evidence']['compressed_sha256']:
+              raise SystemExit('Compressed evidence hash differs')
+          if hashlib.sha256(raw).hexdigest() != receipt['evidence']['uncompressed_sha256']:
+              raise SystemExit('Uncompressed evidence hash differs')
+          expected = json.loads(raw)
+          actual = json.loads(Path('/tmp/cayley_cn_audit.json').read_text())
+          expected.pop('python')
+          actual.pop('python')
+          if actual != expected:
+              raise SystemExit('Recomputed finite evidence differs')
+          print('All exact rows and script digest agree; Python patch version may differ.')
+          PY
