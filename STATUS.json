@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-11T23:41:29.565286+00:00",
+  "observed_at_utc": "2026-11-12T19:13:30.959892+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 2,
-    "official_mechanical_pass_awaiting_registration": 0,
+    "official_mechanical_pass_awaiting_registration": 1,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -62,10 +62,10 @@
       "name": "singleton",
       "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/9b6ae2df44e49356f2228986bb31bb74591eed04",
-      "registration": "NOT_REGISTERED",
+      "registration": "REGISTRATION_IN_PROGRESS",
       "submitted_at": "2026-11-11T23:40:09Z",
       "official_verification": {
-        "status": "QUEUED",
+        "status": "SUCCESS",
         "run": 43121589443
       },
       "lean_build": {
@@ -74,11 +74,10 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-11T23:41:29.565286+00:00",
-        "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
-        "browser_layout_and_metadata_checks": "PASS",
+        "checked_at_utc": "2026-11-12T19:13:30.942872+00:00",
+        "outcome": "REGISTRATION_REQUEST_CONFIRMED",
         "official_submission_created": true,
-        "submitted_at": "2026-11-11T23:40:09Z"
+        "registration_requested_at": "2026-11-12T19:12:24Z"
       },
       "predictive_check": {
         "run": 42493140220,
