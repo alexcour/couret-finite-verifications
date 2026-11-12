@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED_INDEPENDENTLY",
+  "design": "FIXED_BUDGET_300M_PROSPECTIVE_AFTER_DRIVE_FREEZE",
+  "projection_theta": 12.448868316043566,
+  "selected": "Bgap16_Rhalf",
+  "beta": 0.5,
+  "pairs": 13841026,
+  "pooled_brier": {
+    "Bgap16": 0.8159493432855573,
+    "Bgap16_Rhalf": 0.8159480350722851,
+    "Bgap16_Rplus": 0.8159494037540578,
+    "mid_111": 0.8159591342075472,
+    "win_111": 0.8159637756378714
+  },
+  "primary_gains": [
+    8.205777130010361e-07,
+    1.6048200590645934e-06,
+    1.501197744224747e-06
+  ],
+  "pooled_gain": 1.3082132722663786e-06,
+  "descriptive_bootstrap_95": [
+    8.2898034762503e-07,
+    1.8110432794464784e-06
+  ],
+  "descriptive_bootstrap_95_blocks_5M": [
+    8.700162200106888e-07,
+    1.7594106262582214e-06
+  ],
+  "criterion": true,
+  "sensitivity_5M_positive": true,
+  "elapsed_seconds": 20.363487379999697,
+  "independent_bootstrap_95": [
+    8.289803476143478e-07,
+    1.811043279427629e-06
+  ],
+  "independent_bootstrap_95_blocks_5M": [
+    8.700162199902633e-07,
+    1.7594106262207315e-06
+  ]
+}
