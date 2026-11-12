@@ -1,0 +1,126 @@
+{
+  "generated_from": "REGISTRE_CANONIQUE.md",
+  "date": "2026-10-11",
+  "status": "NON AUDITEE: bibliographic originality and external review open",
+  "claims": [
+    {
+      "canonical_id": "CU-STROBO-CLS-01",
+      "historical_alias": "STROBO-C3-01",
+      "exact_claim_scope": "Classification candidate de toutes paires triples à même A², nul exclu ou admis selon énoncé",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/8"
+      ],
+      "reference_commit_sha": "3cd6ae6ea39cc16540bea4f8547101d69c70d188",
+      "gate_as_of_2026_10_11": "E interne candidate ; Q balayages ; N ouverte ; R ouverte"
+    },
+    {
+      "canonical_id": "CU-STROBO-EX6-01",
+      "historical_alias": "construction « exceptionnelle »",
+      "exact_claim_scope": "Motif d'ordre six et plongements en 6d",
+      "source_links": [
+        "https://doi.org/10.1017/S0004972720000945",
+        "https://github.com/alexcour/couret-finite-verifications/pull/8"
+      ],
+      "reference_commit_sha": null,
+      "gate_as_of_2026_10_11": "Antériorité directe : pas de priorité à revendiquer"
+    },
+    {
+      "canonical_id": "CU-STROBO-ISO-01",
+      "historical_alias": "audit nauty et arcs",
+      "exact_claim_scope": "106 paires isomorphes / 444 non isomorphes parmi 550 paires étudiées",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/8"
+      ],
+      "reference_commit_sha": null,
+      "gate_as_of_2026_10_11": "Q interne ; pas de classification générale établie"
+    },
+    {
+      "canonical_id": "CU-MODOBS-FIX-01",
+      "historical_alias": "MOD-OBS-01 (questions fixes avant A²)",
+      "exact_claim_scope": "Coût universel `n/2−1` pour n pair≥6, questions d'appartenance, nul exclu",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/14"
+      ],
+      "reference_commit_sha": "184c4f66f93d32835539cbbe7882439d976d5de7",
+      "gate_as_of_2026_10_11": "Preuve interne ; ZIP rejoué ; N/R ouvertes"
+    },
+    {
+      "canonical_id": "CU-MODOBS-ADV-02",
+      "historical_alias": "MOD-OBS-02 / bruit adversarial",
+      "exact_claim_scope": "Reconstruction de fibre sous 0 ou 1 erreur globale ; n18 coût 2→5",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/16"
+      ],
+      "reference_commit_sha": "f8e2cd898507d1a610fd2aef35caf492b7ce123c",
+      "gate_as_of_2026_10_11": "Q interne et ZIP rejoué ; R ouverte"
+    },
+    {
+      "canonical_id": "CU-MODOBS-CUB-03",
+      "historical_alias": "MOD-OBS-03 (MAJUSCULE dans PR #15)",
+      "exact_claim_scope": "Sondes cubiques, effets de la trace, décision locale de connexité n18",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/15"
+      ],
+      "reference_commit_sha": "b92d90caa39854df6096f76c14aabeed4dc050ea",
+      "gate_as_of_2026_10_11": "Résultat fini ; extrapolation trace universelle réfutée n22"
+    },
+    {
+      "canonical_id": "CU-MODOBS-CONN-04",
+      "historical_alias": "`MOD_OBS_03/AUDIT_04`",
+      "exact_claim_scope": "A² décide la forte connexité si n impair ou si 4 divise n ; contre-exemple n22 hors régime",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/blob/research/mod-obs-03-2026-10-11/research/MOD_OBS_03/AUDIT_04/PROOF_AUDIT.md"
+      ],
+      "reference_commit_sha": null,
+      "gate_as_of_2026_10_11": "Preuve interne + nouveau replay n5..36 ; N/R ouvertes"
+    },
+    {
+      "canonical_id": "CU-MODOBS-ADV-04",
+      "historical_alias": "CU-MOD-OBS-04 (PR #13, noms préexistants)",
+      "exact_claim_scope": "Recherche avec e erreurs, 0/1/2/3 mensonges, nonadaptatif vs adaptatif et fraîcheur de l'état",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/13"
+      ],
+      "reference_commit_sha": "04159b86e08a990c11c4cb77dd6ee8d19dfafcad",
+      "gate_as_of_2026_10_11": "Contrôles internes ; audit externe ouvert ; périmètre distinct de CONN-04"
+    },
+    {
+      "canonical_id": "CU-MODOBS-PROB-03",
+      "historical_alias": "MOD-OBS-03, *lowercase* dans PR #17",
+      "exact_claim_scope": "Risque nominal 5 %, canaux hétérogènes, KL, fragilité à corrélation",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/17"
+      ],
+      "reference_commit_sha": "bc9c54d524c535943bc53ec94c692825b229fd06",
+      "gate_as_of_2026_10_11": "Modèle conditionnel ; ZIP rejoué ; pas de validation de sources réelles"
+    },
+    {
+      "canonical_id": "CU-LOGSPEC-02",
+      "historical_alias": "CU-LOG-SPEC-02",
+      "exact_claim_scope": "Deux fenêtres dépassent seuil exploratoire 5 %, donc règle générale non maintenue",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/11"
+      ],
+      "reference_commit_sha": null,
+      "gate_as_of_2026_10_11": "Résultat négatif expérimental ; pas de théorème arithmétique"
+    },
+    {
+      "canonical_id": "CU-BRUIT-GATE",
+      "historical_alias": "CU-BRUIT-02",
+      "exact_claim_scope": "Zéros q15 non rapprochés indépendamment ; modèle probabiliste conditionnel",
+      "source_links": [
+        "https://github.com/alexcour/couret-finite-verifications/pull/4"
+      ],
+      "reference_commit_sha": null,
+      "gate_as_of_2026_10_11": "37/67 zéros externes à certifier"
+    },
+    {
+      "canonical_id": "CU-OBSSEQ-04",
+      "historical_alias": "OBS-SEQ-04",
+      "exact_claim_scope": "Corpus symbolique : comparaison de générateurs et observables",
+      "source_links": [],
+      "reference_commit_sha": null,
+      "gate_as_of_2026_10_11": "Manifeste à corriger et provenance à fermer, sans altérer historique"
+    }
+  ]
+}

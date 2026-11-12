@@ -1,0 +1,1077 @@
+{
+  "scope": "Finite exact independent audit, n=5..36, both zero conventions; no external review",
+  "theorem_A": "If n odd or 4|n, A^2 identifies strong connectivity of 3-support Cayley digraphs.",
+  "rows": [
+    {
+      "n": 5,
+      "allow_zero": false,
+      "supports": 4,
+      "fibers": 4,
+      "histogram": {
+        "1": 4
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 5,
+      "allow_zero": true,
+      "supports": 10,
+      "fibers": 10,
+      "histogram": {
+        "1": 10
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 6,
+      "allow_zero": false,
+      "supports": 10,
+      "fibers": 7,
+      "histogram": {
+        "1": 4,
+        "2": 3
+      },
+      "collisions": 3,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 6,
+      "allow_zero": true,
+      "supports": 20,
+      "fibers": 7,
+      "histogram": {
+        "2": 4,
+        "4": 3
+      },
+      "collisions": 22,
+      "ambiguous_connectivity_fibers": 1,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          1,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "allow_zero": false,
+      "supports": 20,
+      "fibers": 20,
+      "histogram": {
+        "1": 20
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 7,
+      "allow_zero": true,
+      "supports": 35,
+      "fibers": 35,
+      "histogram": {
+        "1": 35
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 8,
+      "allow_zero": false,
+      "supports": 35,
+      "fibers": 25,
+      "histogram": {
+        "1": 15,
+        "2": 10
+      },
+      "collisions": 10,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 8,
+      "allow_zero": true,
+      "supports": 56,
+      "fibers": 28,
+      "histogram": {
+        "2": 28
+      },
+      "collisions": 28,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 9,
+      "allow_zero": false,
+      "supports": 56,
+      "fibers": 56,
+      "histogram": {
+        "1": 56
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 9,
+      "allow_zero": true,
+      "supports": 84,
+      "fibers": 84,
+      "histogram": {
+        "1": 84
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 10,
+      "allow_zero": false,
+      "supports": 84,
+      "fibers": 56,
+      "histogram": {
+        "1": 28,
+        "2": 28
+      },
+      "collisions": 28,
+      "ambiguous_connectivity_fibers": 4,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          7
+        ],
+        "T": [
+          2,
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "n": 10,
+      "allow_zero": true,
+      "supports": 120,
+      "fibers": 60,
+      "histogram": {
+        "2": 60
+      },
+      "collisions": 60,
+      "ambiguous_connectivity_fibers": 10,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          5,
+          7,
+          9
+        ]
+      }
+    },
+    {
+      "n": 11,
+      "allow_zero": false,
+      "supports": 120,
+      "fibers": 120,
+      "histogram": {
+        "1": 120
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 11,
+      "allow_zero": true,
+      "supports": 165,
+      "fibers": 165,
+      "histogram": {
+        "1": 165
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 12,
+      "allow_zero": false,
+      "supports": 165,
+      "fibers": 101,
+      "histogram": {
+        "1": 43,
+        "2": 55,
+        "4": 3
+      },
+      "collisions": 73,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 12,
+      "allow_zero": true,
+      "supports": 220,
+      "fibers": 104,
+      "histogram": {
+        "2": 98,
+        "4": 6
+      },
+      "collisions": 134,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 13,
+      "allow_zero": false,
+      "supports": 220,
+      "fibers": 220,
+      "histogram": {
+        "1": 220
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 13,
+      "allow_zero": true,
+      "supports": 286,
+      "fibers": 286,
+      "histogram": {
+        "1": 286
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 14,
+      "allow_zero": false,
+      "supports": 286,
+      "fibers": 176,
+      "histogram": {
+        "1": 66,
+        "2": 110
+      },
+      "collisions": 110,
+      "ambiguous_connectivity_fibers": 20,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          5
+        ],
+        "T": [
+          8,
+          10,
+          12
+        ]
+      }
+    },
+    {
+      "n": 14,
+      "allow_zero": true,
+      "supports": 364,
+      "fibers": 182,
+      "histogram": {
+        "2": 182
+      },
+      "collisions": 182,
+      "ambiguous_connectivity_fibers": 35,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          7,
+          9,
+          11
+        ]
+      }
+    },
+    {
+      "n": 15,
+      "allow_zero": false,
+      "supports": 364,
+      "fibers": 364,
+      "histogram": {
+        "1": 364
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 15,
+      "allow_zero": true,
+      "supports": 455,
+      "fibers": 455,
+      "histogram": {
+        "1": 455
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 16,
+      "allow_zero": false,
+      "supports": 455,
+      "fibers": 273,
+      "histogram": {
+        "1": 91,
+        "2": 182
+      },
+      "collisions": 182,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 16,
+      "allow_zero": true,
+      "supports": 560,
+      "fibers": 280,
+      "histogram": {
+        "2": 280
+      },
+      "collisions": 280,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 17,
+      "allow_zero": false,
+      "supports": 560,
+      "fibers": 560,
+      "histogram": {
+        "1": 560
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 17,
+      "allow_zero": true,
+      "supports": 680,
+      "fibers": 680,
+      "histogram": {
+        "1": 680
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 18,
+      "allow_zero": false,
+      "supports": 680,
+      "fibers": 393,
+      "histogram": {
+        "1": 118,
+        "2": 269,
+        "4": 6
+      },
+      "collisions": 305,
+      "ambiguous_connectivity_fibers": 56,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          5
+        ],
+        "T": [
+          10,
+          12,
+          14
+        ]
+      }
+    },
+    {
+      "n": 18,
+      "allow_zero": true,
+      "supports": 816,
+      "fibers": 399,
+      "histogram": {
+        "2": 390,
+        "4": 9
+      },
+      "collisions": 444,
+      "ambiguous_connectivity_fibers": 83,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          9,
+          11,
+          13
+        ]
+      }
+    },
+    {
+      "n": 19,
+      "allow_zero": false,
+      "supports": 816,
+      "fibers": 816,
+      "histogram": {
+        "1": 816
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 19,
+      "allow_zero": true,
+      "supports": 969,
+      "fibers": 969,
+      "histogram": {
+        "1": 969
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 20,
+      "allow_zero": false,
+      "supports": 969,
+      "fibers": 561,
+      "histogram": {
+        "1": 153,
+        "2": 408
+      },
+      "collisions": 408,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 20,
+      "allow_zero": true,
+      "supports": 1140,
+      "fibers": 570,
+      "histogram": {
+        "2": 570
+      },
+      "collisions": 570,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 21,
+      "allow_zero": false,
+      "supports": 1140,
+      "fibers": 1140,
+      "histogram": {
+        "1": 1140
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 21,
+      "allow_zero": true,
+      "supports": 1330,
+      "fibers": 1330,
+      "histogram": {
+        "1": 1330
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 22,
+      "allow_zero": false,
+      "supports": 1330,
+      "fibers": 760,
+      "histogram": {
+        "1": 190,
+        "2": 570
+      },
+      "collisions": 570,
+      "ambiguous_connectivity_fibers": 120,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          5
+        ],
+        "T": [
+          12,
+          14,
+          16
+        ]
+      }
+    },
+    {
+      "n": 22,
+      "allow_zero": true,
+      "supports": 1540,
+      "fibers": 770,
+      "histogram": {
+        "2": 770
+      },
+      "collisions": 770,
+      "ambiguous_connectivity_fibers": 165,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          11,
+          13,
+          15
+        ]
+      }
+    },
+    {
+      "n": 23,
+      "allow_zero": false,
+      "supports": 1540,
+      "fibers": 1540,
+      "histogram": {
+        "1": 1540
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 23,
+      "allow_zero": true,
+      "supports": 1771,
+      "fibers": 1771,
+      "histogram": {
+        "1": 1771
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 24,
+      "allow_zero": false,
+      "supports": 1771,
+      "fibers": 991,
+      "histogram": {
+        "1": 229,
+        "2": 753,
+        "4": 9
+      },
+      "collisions": 807,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 24,
+      "allow_zero": true,
+      "supports": 2024,
+      "fibers": 1000,
+      "histogram": {
+        "2": 988,
+        "4": 12
+      },
+      "collisions": 1060,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 25,
+      "allow_zero": false,
+      "supports": 2024,
+      "fibers": 2024,
+      "histogram": {
+        "1": 2024
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 25,
+      "allow_zero": true,
+      "supports": 2300,
+      "fibers": 2300,
+      "histogram": {
+        "1": 2300
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 26,
+      "allow_zero": false,
+      "supports": 2300,
+      "fibers": 1288,
+      "histogram": {
+        "1": 276,
+        "2": 1012
+      },
+      "collisions": 1012,
+      "ambiguous_connectivity_fibers": 220,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          5
+        ],
+        "T": [
+          14,
+          16,
+          18
+        ]
+      }
+    },
+    {
+      "n": 26,
+      "allow_zero": true,
+      "supports": 2600,
+      "fibers": 1300,
+      "histogram": {
+        "2": 1300
+      },
+      "collisions": 1300,
+      "ambiguous_connectivity_fibers": 286,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          13,
+          15,
+          17
+        ]
+      }
+    },
+    {
+      "n": 27,
+      "allow_zero": false,
+      "supports": 2600,
+      "fibers": 2600,
+      "histogram": {
+        "1": 2600
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 27,
+      "allow_zero": true,
+      "supports": 2925,
+      "fibers": 2925,
+      "histogram": {
+        "1": 2925
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 28,
+      "allow_zero": false,
+      "supports": 2925,
+      "fibers": 1625,
+      "histogram": {
+        "1": 325,
+        "2": 1300
+      },
+      "collisions": 1300,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 28,
+      "allow_zero": true,
+      "supports": 3276,
+      "fibers": 1638,
+      "histogram": {
+        "2": 1638
+      },
+      "collisions": 1638,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 29,
+      "allow_zero": false,
+      "supports": 3276,
+      "fibers": 3276,
+      "histogram": {
+        "1": 3276
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 29,
+      "allow_zero": true,
+      "supports": 3654,
+      "fibers": 3654,
+      "histogram": {
+        "1": 3654
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 30,
+      "allow_zero": false,
+      "supports": 3654,
+      "fibers": 2003,
+      "histogram": {
+        "1": 376,
+        "2": 1615,
+        "4": 12
+      },
+      "collisions": 1687,
+      "ambiguous_connectivity_fibers": 360,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          5
+        ],
+        "T": [
+          16,
+          18,
+          20
+        ]
+      }
+    },
+    {
+      "n": 30,
+      "allow_zero": true,
+      "supports": 4060,
+      "fibers": 2015,
+      "histogram": {
+        "2": 2000,
+        "4": 15
+      },
+      "collisions": 2090,
+      "ambiguous_connectivity_fibers": 444,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          15,
+          17,
+          19
+        ]
+      }
+    },
+    {
+      "n": 31,
+      "allow_zero": false,
+      "supports": 4060,
+      "fibers": 4060,
+      "histogram": {
+        "1": 4060
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 31,
+      "allow_zero": true,
+      "supports": 4495,
+      "fibers": 4495,
+      "histogram": {
+        "1": 4495
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 32,
+      "allow_zero": false,
+      "supports": 4495,
+      "fibers": 2465,
+      "histogram": {
+        "1": 435,
+        "2": 2030
+      },
+      "collisions": 2030,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 32,
+      "allow_zero": true,
+      "supports": 4960,
+      "fibers": 2480,
+      "histogram": {
+        "2": 2480
+      },
+      "collisions": 2480,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 33,
+      "allow_zero": false,
+      "supports": 4960,
+      "fibers": 4960,
+      "histogram": {
+        "1": 4960
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 33,
+      "allow_zero": true,
+      "supports": 5456,
+      "fibers": 5456,
+      "histogram": {
+        "1": 5456
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 34,
+      "allow_zero": false,
+      "supports": 5456,
+      "fibers": 2976,
+      "histogram": {
+        "1": 496,
+        "2": 2480
+      },
+      "collisions": 2480,
+      "ambiguous_connectivity_fibers": 560,
+      "first_counterexample": {
+        "S": [
+          1,
+          3,
+          5
+        ],
+        "T": [
+          18,
+          20,
+          22
+        ]
+      }
+    },
+    {
+      "n": 34,
+      "allow_zero": true,
+      "supports": 5984,
+      "fibers": 2992,
+      "histogram": {
+        "2": 2992
+      },
+      "collisions": 2992,
+      "ambiguous_connectivity_fibers": 680,
+      "first_counterexample": {
+        "S": [
+          0,
+          2,
+          4
+        ],
+        "T": [
+          17,
+          19,
+          21
+        ]
+      }
+    },
+    {
+      "n": 35,
+      "allow_zero": false,
+      "supports": 5984,
+      "fibers": 5984,
+      "histogram": {
+        "1": 5984
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 35,
+      "allow_zero": true,
+      "supports": 6545,
+      "fibers": 6545,
+      "histogram": {
+        "1": 6545
+      },
+      "collisions": 0,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 36,
+      "allow_zero": false,
+      "supports": 6545,
+      "fibers": 3537,
+      "histogram": {
+        "1": 559,
+        "2": 2963,
+        "4": 15
+      },
+      "collisions": 3053,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    },
+    {
+      "n": 36,
+      "allow_zero": true,
+      "supports": 7140,
+      "fibers": 3552,
+      "histogram": {
+        "2": 3534,
+        "4": 18
+      },
+      "collisions": 3642,
+      "ambiguous_connectivity_fibers": 0,
+      "first_counterexample": null
+    }
+  ],
+  "witnesses": {
+    "n10": {
+      "S": [
+        2,
+        4,
+        6
+      ],
+      "T": [
+        1,
+        7,
+        9
+      ],
+      "equal_squares": true,
+      "strong_S": false,
+      "strong_T": true
+    },
+    "n22": {
+      "S": [
+        1,
+        3,
+        13
+      ],
+      "T": [
+        2,
+        12,
+        14
+      ],
+      "equal_squares": true,
+      "trace3_S": 0,
+      "trace3_T": 0,
+      "cubic_coefficient_r3_S": 1,
+      "cubic_coefficient_r3_T": 0
+    },
+    "n6_ordered_representation": {
+      "A": [
+        0,
+        1,
+        4
+      ],
+      "B": [
+        0,
+        2,
+        5
+      ],
+      "equal_squares": true
+    },
+    "n18_trace": {
+      "S": [
+        1,
+        4,
+        13
+      ],
+      "T": [
+        1,
+        7,
+        16
+      ],
+      "trace3_S": 108,
+      "trace3_T": 54
+    }
+  },
+  "exceptional_family_checks": [
+    {
+      "n": 6,
+      "tested_quadruples": 3
+    },
+    {
+      "n": 12,
+      "tested_quadruples": 6
+    },
+    {
+      "n": 18,
+      "tested_quadruples": 9
+    },
+    {
+      "n": 24,
+      "tested_quadruples": 12
+    },
+    {
+      "n": 30,
+      "tested_quadruples": 15
+    },
+    {
+      "n": 36,
+      "tested_quadruples": 18
+    },
+    {
+      "n": 42,
+      "tested_quadruples": 21
+    },
+    {
+      "n": 48,
+      "tested_quadruples": 24
+    },
+    {
+      "n": 54,
+      "tested_quadruples": 27
+    },
+    {
+      "n": 60,
+      "tested_quadruples": 30
+    },
+    {
+      "n": 66,
+      "tested_quadruples": 33
+    },
+    {
+      "n": 72,
+      "tested_quadruples": 36
+    }
+  ]
+}
