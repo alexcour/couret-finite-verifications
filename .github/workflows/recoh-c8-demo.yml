@@ -1,0 +1,23 @@
+name: RECOH C8 demonstrator
+on:
+  pull_request:
+    paths:
+      - 'research/demos/recoh-lab/**'
+      - '.github/workflows/recoh-c8-demo.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: |
+          node --check research/demos/recoh-lab/recoh-core.js
+          node --check research/demos/recoh-lab/test.js
+      - name: Run C8 finite checks
+        run: node research/demos/recoh-lab/test.js
