@@ -1,0 +1,23 @@
+name: MATH-ANC wheel-30 exact replay
+on:
+  pull_request:
+    paths:
+      - 'research/audits/bernard_couret_ranks_20261014/**'
+      - '.github/workflows/math-anc-ranks.yml'
+  workflow_dispatch:
+jobs:
+  exact-finite-replay:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Unit and boundary tests
+        run: python -m unittest discover -s research/audits/bernard_couret_ranks_20261014 -p 'test_*.py' -v
+      - name: Finite replay to 100,000
+        run: python research/audits/bernard_couret_ranks_20261014/verify_ranks_36.py --limit 100000
