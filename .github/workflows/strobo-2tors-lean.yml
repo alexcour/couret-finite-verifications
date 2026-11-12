@@ -1,0 +1,43 @@
+name: strobo-2tors-lean-scaffold
+on:
+  push:
+    branches:
+      - research/strobo-2tors-01-2026-10-12
+    paths:
+      - 'research/STROBO_2TORS_01/lean/**'
+      - '.github/workflows/strobo-2tors-lean.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-scaffold:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Reject placeholders in theorem files
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RnE '(^|[[:space:]])(sorry|admit)([[:space:]]|$)|^[[:space:]]*axiom[[:space:]]' research/STROBO_2TORS_01/lean/STROBO2Tors; then
+            exit 1
+          fi
+      - name: Install Lean and compile pinned package
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: research/STROBO_2TORS_01/lean
+          build: true
+          test: false
+          lint: false
+          auto-config: true
+      - name: Elaborate rectangle and model
+        working-directory: research/STROBO_2TORS_01/lean
+        run: |
+          set -euo pipefail
+          lake env lean STROBO2Tors/Prelude.lean
+          lake env lean STROBO2Tors/Rectangle.lean
+          lake env lean STROBO2Tors/RectangleFibres.lean
+          lake env lean STROBO2Tors/RectangleMatching.lean
+          lake env lean STROBO2Tors/CrossedOrderThree.lean
+          lake env lean STROBO2Tors/SquareExpansion.lean
