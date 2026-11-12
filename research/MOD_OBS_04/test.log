@@ -1,0 +1,17 @@
+test_convolution_matches_matrix_square_all_n18 (test_mod_obs_04.IndependentAuditTests.test_convolution_matches_matrix_square_all_n18) ... ok
+test_finite_fibre_and_boundary_n6 (test_mod_obs_04.IndependentAuditTests.test_finite_fibre_and_boundary_n6) ... ok
+test_four_fibre_and_question_geometry (test_mod_obs_04.IndependentAuditTests.test_four_fibre_and_question_geometry) ... ok
+test_json_archive_reconstructs_special_result (test_mod_obs_04.IndependentAuditTests.test_json_archive_reconstructs_special_result) ... ok
+test_n18_profiles_and_costs (test_mod_obs_04.IndependentAuditTests.test_n18_profiles_and_costs) ... ok
+test_nonadaptive_needs_code_distance (test_mod_obs_04.IndependentAuditTests.test_nonadaptive_needs_code_distance) ... ok
+test_serialized_policy_dags_are_sound_and_complete (test_mod_obs_04.IndependentAuditTests.test_serialized_policy_dags_are_sound_and_complete) ... ok
+test_two_lies_restricted_lower_bound (test_mod_obs_04.IndependentAuditTests.test_two_lies_restricted_lower_bound) ... ok
+test_unchanged_square_does_not_certify_snapshot_freshness (test_mod_obs_04.IndependentAuditTests.test_unchanged_square_does_not_certify_snapshot_freshness) ... ok
+test_unweighted_one_lie_is_five (test_mod_obs_04.IndependentAuditTests.test_unweighted_one_lie_is_five) ... ok
+test_weighted_e1_is_seven_not_six (test_mod_obs_04.IndependentAuditTests.test_weighted_e1_is_seven_not_six) ... ok
+test_weighted_e2_is_eleven (test_mod_obs_04.IndependentAuditTests.test_weighted_e2_is_eleven) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.081s
+
+OK
