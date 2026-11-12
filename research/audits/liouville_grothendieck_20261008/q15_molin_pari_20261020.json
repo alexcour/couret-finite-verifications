@@ -1,0 +1,59 @@
+{
+  "schema": "cu-bruit-q15-molin-positive-20261020-v1",
+  "source": {
+    "attribution": "Pascal Molin",
+    "medium": "private correspondence",
+    "date_paris": "2026-10-20 10:03 Europe/Paris",
+    "software": "PARI/GP",
+    "execution_status": "Reported by correspondent; not independently rerun in this cross-check",
+    "raw_email_sha256": "NOT_CAPTURED; these are transcribed data, not an authenticated raw email archive",
+    "command": "g=znstar(15,1);forvec(c=g.cyc,if(zncharconductor(g,c)==15,print([15,znconreyexp(g,c),lfunzeros([g,c],20)])))"
+  },
+  "horizon_reported": "20",
+  "characters": {
+    "15.2": {
+      "positive_zeros": [
+        "2.7346037091188372552684654873441221613",
+        "5.2430104927544893929578062941208394242",
+        "8.4146852498048992712645419327533962545",
+        "10.187602727645302441039228173773421109",
+        "11.907372476546670320666869161029018811",
+        "13.337395855415589240387784943843074200",
+        "15.366139576497782314794718332093482950",
+        "17.772390249216664060850231425992858099",
+        "18.976999650088253534533618503606845190"
+      ]
+    },
+    "15.14": {
+      "positive_zeros": [
+        "3.0570182098086891528741550690470882907",
+        "5.3431920936799689178236716103691464863",
+        "7.2676305982668072528607776772071015192",
+        "10.133748155228375797259200600348258080",
+        "12.159698533810770817923243817453444129",
+        "13.489384573155318040533222555331632793",
+        "15.240408529039033166877888159850560843",
+        "16.633558416185586381588234425081937543",
+        "19.103497185254694657443056319366277420"
+      ]
+    },
+    "15.8": {
+      "positive_zeros": [
+        "4.4067002398036737371993780375729820542",
+        "6.5907826702154708894813325724146406850",
+        "8.2645016539034249559622725883592349002",
+        "10.326204250314941250444125974117565734",
+        "13.028956273991639300529286612507524052",
+        "14.464461134463343178771840651126204110",
+        "16.171892884989842407415907063216002236",
+        "17.444764266095670233483440867886031438",
+        "19.137842424192780623258417222703158795"
+      ]
+    }
+  },
+  "disclaimers": [
+    "These are reported critical-line values only, not certified intervals.",
+    "No guarantee of zero completeness is provided by this source or this transcription.",
+    "Complex conjugate positive ordinates must not be paired by sign reversal with each other."
+  ]
+}

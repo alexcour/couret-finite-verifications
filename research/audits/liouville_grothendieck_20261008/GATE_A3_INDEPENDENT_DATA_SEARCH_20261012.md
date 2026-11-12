@@ -69,3 +69,14 @@ Les 30 anciennes comparaisons externes de décimales q3/q5 restent inchangées :
 **Pas de nouveau courriel à Greg Martin ; pas de fusion de PR #4 ; pas de release/Zenodo ; aucune promotion de statut.**
 
 Documents connexes : [GATE A3 du 10 octobre](GATE_A3_PRIMARY_SOURCES_20261010.md), [comparateur fail-closed](gate_q15_external_compare_20261010.py), [PR #4](https://github.com/alexcour/couret-finite-verifications/pull/4).
+
+
+---
+
+## Mise à jour datée du 20 octobre 2026 — NE PAS CONFONDRE avec l'état du 12 octobre
+
+La PR #4 a été **fusionnée le 12 octobre** (voir [PR #26](https://github.com/alexcour/couret-finite-verifications/pull/26)). Les instructions « garder PR #4 en draft / ne pas merger » ci-dessus décrivent uniquement l'état historique de la note du 12 octobre.
+
+Le 20 octobre, une liste PARI/GP rapportée par Pascal Molin a permis une confrontation décimale de **27 des 37** candidats q15 : **9/9** pour 15.2, **9/9** pour 15.14 et **9/9** pour 15.8 sous T=20 ; écart absolu affiché maximal **5e-35**. Les **10** valeurs locales entre 20 et 25 restent non confrontées. Aucun calcul T=25 n'est déclaré exécuté ; aucune garantie numérique rigoureuse ni exhaustivité certifiée. GATE A3 demeure HOLD pour ces deux questions.
+
+Voir [rapport détaillé et tableau des 27 écarts](GATE_A3_MOLIN_PARI_CROSSCHECK_20261020.md), [données transcrites](q15_molin_pari_20261020.json), [rapport structuré](q15_molin_decimal_comparison_20261020.json) et [reproducteur](verify_q15_molin_decimal_20261020.py).
