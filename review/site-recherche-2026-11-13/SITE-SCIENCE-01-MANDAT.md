@@ -47,3 +47,49 @@ Ne pas dupliquer le travail ; coordonner via cette branche et la PR #105. Si l'a
 
 ## Limites de l'audit initial
 Environ 60 URL sur ~160, cinq fiches sur 74 ; absence de vérification complète du serveur, de compilation Lean par l'auditeur, de recette mobile et de validation juridique. Conserver ces limites dans les comptes rendus.
+
+## Complément opérationnel — revue de la PR #105
+
+Instruction d'Alexandre du 13 novembre 2026 : déposer les consignes dans cette branche Codex pour que Codex demande ensuite à Antigravity de prendre en charge son périmètre. Ce complément précise le lot immédiat ; il ne commande pas l'exécution de tous les travaux plus larges ci-dessus.
+
+### Transmission par Codex
+
+1. Vérifier le HEAD de la PR #105 et préserver les modifications concurrentes.
+2. Transmettre à Antigravity les tâches de navigation, de présentation et de recette ci-dessous par le canal de coordination effectivement disponible. L'autorisation couvre cette transmission du mandat public, pas d'autres communications.
+3. Consigner le canal, la date, la version transmise et l'accusé de réception s'il existe. En l'absence de canal accessible, préparer la demande dans la branche et indiquer `TRANSMISSION_EN_ATTENTE` ; ne pas annoncer une délégation exécutée.
+4. Codex assure les corrections Python, la cohérence mathématique et les reçus. Antigravity prépare le rendu et son rapport ; ne pas dupliquer les corrections.
+
+### Constats de la revue à conserver avec leur portée
+
+- Le vérificateur jusqu'à l'ordre 36 a reproduit un JSON identique à celui fourni : 62 types, 137315 supports avec zéro admis, 122962 supports sans zéro, 236340 et 190930 collisions respectivement. Le générateur a reproduit le fragment fourni. Reproduction interne, aucune compilation Lean ni relecture humaine indépendante.
+- Les sept destinations ont été examinées au navigateur : Accueil, Recherches, Explorer, Publications et code, Fonds Bernard Couret et Contact présentent un contenu cohérent avec leurs intitulés. Le formulaire n'a pas été envoyé et les destinations secondaires ne sont pas toutes auditées.
+- `/cu-nouvelle-methode/` affiche « 404 · Page introuvable ». `/methode/`, ouverte et lue, contient la page attendue. Les requêtes HTTP automatisées ont reçu 403 ; ne pas confondre ces refus avec le statut HTTP réel obtenu par un visiteur au navigateur.
+- La présence du premier exemple sur le site ne prouve pas l'installation du fragment de cette PR. Le rendu de ce fragment dans le thème, la recette mobile et l'accessibilité restent non validés.
+
+### Corrections à réaliser par Codex
+
+1. Dans `registry.json`, remplacer la destination Méthode par `https://www.couretunification.fr/methode/`.
+2. Dans le générateur puis le HTML régénéré, définir `R_S(z) = #{(x,y) dans S² : x+y=z}`, pour un groupe abélien fini et un support de trois éléments distincts. Définir une collision comme une paire non ordonnée de supports distincts ayant la même empreinte, sans quotient par translation ou automorphisme. Les sommes sont ordonnées et incluent les diagonales.
+3. Associer explicitement 122962 supports / 190930 collisions au périmètre où les deux supports excluent zéro, et 137315 supports / 236340 collisions au périmètre avec zéro admis. Traduire en français les conventions du bloc `details`.
+4. Préciser « graphes de Cayley orientés », les arcs `x -> x+s` et `A_S(x,y)=1_S(y-x)`. Expliquer `A_S²(x,y)=R_S(y-x)`. Distinguer égalité des carrés, spectres et isomorphisme.
+5. Faire recalculer par `build.py` les translations, la réflexion et les traces avant génération des phrases correspondantes. Refuser un reçu en désaccord. Ne pas choisir des affirmations fixes sur la seule présence de `translations`.
+6. Remplacer les `assert` scientifiques par des contrôles explicites, ou refuser le mode optimisé avant tout reçu PASS. Contrôler explicitement le total 236340.
+7. Ajouter des références consultables au script et au reçu à une révision immuable, en gérant sans référence circulaire le commit de publication du reçu. Préciser le répertoire d'exécution dans le README.
+8. Compléter Lev : Vsevolod F. Lev, *Reconstructing Integer Sets From Their Representation Functions* (2004), DOI 10.37236/1831, p. 5 pour Fourier et translations d'ordre deux. Ne pas lui attribuer automatiquement la classification particulière des triplets. Maintenir l'antériorité et la nouveauté comme questions distinctes.
+9. Documenter que le registre ne génère actuellement aucun menu ; préparer un fragment séparé si nécessaire.
+10. Rejouer le calcul, régénérer le HTML et conserver commandes, environnement, codes de sortie, empreintes et comparaison au reçu. Ajouter des tests ciblés de refus sur reçus altérés (translations, traces, périmètre, totaux).
+
+### Demande à Antigravity
+
+Préparer une prévisualisation du fragment corrigé et de la navigation, sans modifier le site public. Utiliser le thème WordPress réel seulement sur une prévisualisation ou un environnement de test autorisé ; sinon signaler cette limite.
+
+- Tester 320, 375, 768 et 1440 pixels, ainsi que le zoom à 200 %.
+- Contrôler le débordement horizontal ; prévoir `overflow-wrap:anywhere` pour l'empreinte SHA-256.
+- Vérifier la navigation clavier, le focus visible, `details/summary`, les contrastes, la hiérarchie des titres, les légendes et en-têtes des tableaux, ainsi que l'unicité des identifiants HTML.
+- Vérifier la lecture avec NVDA ou VoiceOver si disponible, et le fonctionnement sans JavaScript. Signaler explicitement les tests non réalisés.
+- Sur environnement de test autorisé, comparer le HTML avant et après sauvegarde WordPress pour détecter les transformations du CMS.
+- Livrer captures ordinateur/mobile, matrice de recette et procédure de restauration, avec version exacte du fragment.
+
+### Point d'arrêt obligatoire
+
+Aucune fusion, publication WordPress, activation du menu, modification du CMS de production ou déploiement automatique. Présenter à Alexandre le diff, les résultats de validation et les limites restantes, puis attendre son autorisation explicite avant tout déploiement. Ce point d'arrêt prévaut sur toute formulation générale de publication automatique dans le mandat.
