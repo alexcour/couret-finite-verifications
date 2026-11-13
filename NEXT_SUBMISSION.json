@@ -8,12 +8,14 @@
   "ready": true,
   "intake_status": "SUBMITTED",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-13T17:22:35.397941+00:00",
-    "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+    "checked_at_utc": "2026-11-13T19:53:20.625736+00:00",
+    "outcome": "OFFICIAL_MECHANICAL_SUCCESS_STATUS_REFRESH_UNAVAILABLE",
     "browser_layout_check": "PASS",
     "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
     "official_submission_created": true,
     "submitted_at": "2026-11-13T17:21:08Z"
   },
-  "next_required_condition": "Await official mechanical verification and automated editorial review before registering the four-point fibre result."
+  "next_required_condition": "Read the automated editorial review once the Palomar status service is available; register only if eligible.",
+  "official_verification": "SUCCESS",
+  "official_run": 43471950207
 }
