@@ -1,0 +1,141 @@
+{
+  "source": "https://data.palomar-registry.org/recent.json",
+  "entries": [
+    {
+      "abstract": "For any decidable abelian group, two four-point finite supports with one common point and identical full labelled ordered squares exist exactly when Z/4Z × Z/4Z embeds additively. The ambient group need not be cyclic or finite. No novelty assessment or independent human review is asserted.",
+      "authors": [
+        {
+          "name": "Alexandre Couret"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "05A15"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Couret.PalomarSingleton.singleton_collision_iff"
+        ]
+      },
+      "id": "PALOMAR-2026-11-12-000011",
+      "path": "entries/PALOMAR-2026-11-12-000011-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
+            "fork_repository": "PalomarArchive/alexcour--couret-finite-verifications--331d9268956b",
+            "source_repository": "alexcour/couret-finite-verifications"
+          }
+        ]
+      },
+      "published_at": "2026-11-12T19:20:31Z",
+      "source": {
+        "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
+        "project_path": null,
+        "repository": "alexcour/couret-finite-verifications"
+      },
+      "status": "registered",
+      "title": "Singleton-overlap four-point square collisions and C4 × C4 subgroups",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "In any finite abelian group G, fix a three-element support S and retain the entire labelled ordered additive convolution square, including diagonal pairs. The number of three-element supports with the same square is h or 2h, where h is the number of elements u satisfying u+u=0; in particular it is at most 2h. The full proof is included. This adapts a prior public Couret formalization; novelty and independent human review are not established.",
+      "authors": [
+        {
+          "name": "Alexandre Couret"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "11B75"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Couret.PalomarCardinality.fibre_cardinality",
+          "Couret.PalomarCardinality.fibre_upper_bound"
+        ]
+      },
+      "id": "PALOMAR-2026-11-09-000005",
+      "path": "entries/PALOMAR-2026-11-09-000005-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
+            "fork_repository": "PalomarArchive/alexcour--couret-finite-verifications--331d9268956b",
+            "source_repository": "alexcour/couret-finite-verifications"
+          }
+        ]
+      },
+      "published_at": "2026-11-09T01:07:46Z",
+      "source": {
+        "commit": "b792519f9a6a2f5482b481a62e2dc08cba5f8b86",
+        "project_path": null,
+        "repository": "alexcour/couret-finite-verifications"
+      },
+      "status": "registered",
+      "title": "Cardinalities of three-point ordered convolution-square fibres",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    },
+    {
+      "abstract": "For three-element finite supports S and T in any abelian group, equality of all labelled coefficients of their ordered additive convolution squares is equivalent to a translation by an element annihilated by doubling, or to the explicit exceptional paired shape in the statement. Diagonal pairs are included. The full proof development is contained in this snapshot. This is an adaptation of an existing public Couret formalization; mathematical novelty and independent human review are not established.",
+      "authors": [
+        {
+          "name": "Alexandre Couret"
+        }
+      ],
+      "classification": {
+        "arxiv": [
+          "math.CO"
+        ],
+        "msc2020": [
+          "11B75"
+        ]
+      },
+      "formalization": {
+        "theorem_names": [
+          "Couret.Palomar.classification"
+        ]
+      },
+      "id": "PALOMAR-2026-11-08-000010",
+      "path": "entries/PALOMAR-2026-11-08-000010-v1.json",
+      "preservation": {
+        "repositories": [
+          {
+            "commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+            "fork_repository": "PalomarArchive/alexcour--couret-finite-verifications--331d9268956b",
+            "source_repository": "alexcour/couret-finite-verifications"
+          }
+        ]
+      },
+      "published_at": "2026-11-08T07:43:43Z",
+      "source": {
+        "commit": "24f69d5c2635ff405a628c170086a62d477fd3a5",
+        "project_path": null,
+        "repository": "alexcour/couret-finite-verifications"
+      },
+      "status": "registered",
+      "title": "Three-point ordered convolution-square classification",
+      "trust": {
+        "level": "high"
+      },
+      "version": 1,
+      "versions": 1
+    }
+  ]
+}

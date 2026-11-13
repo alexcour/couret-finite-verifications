@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-12T19:13:30.959892+00:00",
+  "observed_at_utc": "2026-11-13T17:22:35.397941+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
-    "confirmed_registrations": 2,
-    "official_mechanical_pass_awaiting_registration": 1,
+    "confirmed_registrations": 3,
+    "official_mechanical_pass_awaiting_registration": 0,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -15,7 +15,8 @@
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/24f69d5c2635ff405a628c170086a62d477fd3a5",
       "registration": "REGISTERED",
       "palomar_id": "PALOMAR-2026-11-08-000010",
-      "public_url": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-08-000010&version=1",
+      "public_url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-08-000010&version=1",
+      "registered_date": "2026-11-08",
       "official_verification": {
         "status": "SUCCESS",
         "run": 42417850032
@@ -62,7 +63,10 @@
       "name": "singleton",
       "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/9b6ae2df44e49356f2228986bb31bb74591eed04",
-      "registration": "REGISTRATION_IN_PROGRESS",
+      "registration": "REGISTERED",
+      "palomar_id": "PALOMAR-2026-11-12-000011",
+      "public_url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-12-000011&version=1",
+      "registered_date": "2026-11-12",
       "submitted_at": "2026-11-11T23:40:09Z",
       "official_verification": {
         "status": "SUCCESS",
@@ -93,11 +97,24 @@
       "commit": "a356215242928d2e85afd24aead95945ae8e5e2e",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/a356215242928d2e85afd24aead95945ae8e5e2e",
       "registration": "NOT_REGISTERED",
+      "submitted_at": "2026-11-13T17:21:08Z",
+      "official_verification": {
+        "status": "QUEUED",
+        "run": 43471950207
+      },
       "lean_build": {
         "run": 42492551626,
         "status": "SUCCESS"
       },
-      "official_intake": "NOT_SUBMITTED",
+      "official_intake": "SUBMITTED",
+      "last_intake_attempt": {
+        "checked_at_utc": "2026-11-13T17:22:35.397941+00:00",
+        "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+        "browser_layout_check": "PASS",
+        "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
+        "official_submission_created": true,
+        "submitted_at": "2026-11-13T17:21:08Z"
+      },
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -242,7 +259,6 @@
     "The whole 442-variant corpus has not been built or published to Palomar. Historical copies, configurations and negative controls are not independent results.",
     "Compilation, predictive verification, official intake, automated review and registration are separate stages.",
     "No independent human review or new mathematical originality assessment is claimed.",
-    "Private Drive documents and unlocated source collections have not been published.",
-    "The first registration is confirmed by intake, while its public frontend page was not yet available at the last check."
+    "Private Drive documents and unlocated source collections have not been published."
   ]
 }

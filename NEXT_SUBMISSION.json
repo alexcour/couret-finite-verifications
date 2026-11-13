@@ -1,17 +1,19 @@
 {
   "repository": "alexcour/couret-finite-verifications",
-  "candidate": "Four-point singleton-intersection collision iff C4 x C4 embeds",
-  "commit": "9b6ae2df44e49356f2228986bb31bb74591eed04",
-  "comparator_config_path": "comparator-singleton.json",
+  "candidate": "Cyclic four-point square fibres and fixed membership reconstruction",
+  "commit": "a356215242928d2e85afd24aead95945ae8e5e2e",
+  "comparator_config_path": "comparator-fibres.json",
   "relationship": "I have approval from a responsible author or maintainer",
-  "predictive_report": "prevalidation/singleton.json",
+  "predictive_report": "prevalidation/fibres.json",
   "ready": true,
-  "intake_status": "REGISTRATION_IN_PROGRESS",
+  "intake_status": "SUBMITTED",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-12T19:13:30.942872+00:00",
-    "outcome": "REGISTRATION_REQUEST_CONFIRMED",
+    "checked_at_utc": "2026-11-13T17:22:35.397941+00:00",
+    "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+    "browser_layout_check": "PASS",
+    "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
     "official_submission_created": true,
-    "registration_requested_at": "2026-11-12T19:12:24Z"
+    "submitted_at": "2026-11-13T17:21:08Z"
   },
-  "next_required_condition": "Await completed C4 x C4 registration and public registry ID before submitting another prepared candidate."
+  "next_required_condition": "Await official mechanical verification and automated editorial review before registering the four-point fibre result."
 }
