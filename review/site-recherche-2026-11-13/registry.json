@@ -1,0 +1,43 @@
+{
+  "status": "PREPARED_NOT_DEPLOYED",
+  "navigation_status": "proposed_targets_require_http_and_content_check_before_activation",
+  "navigation": [
+    {
+      "label": "Accueil",
+      "url": "https://www.couretunification.fr/"
+    },
+    {
+      "label": "Recherches",
+      "url": "https://www.couretunification.fr/cu-nouvelle-recherche/"
+    },
+    {
+      "label": "Explorer",
+      "url": "https://www.couretunification.fr/explorer/"
+    },
+    {
+      "label": "Publications et code",
+      "url": "https://www.couretunification.fr/cu-nouvelle-publications/"
+    },
+    {
+      "label": "Méthode",
+      "url": "https://www.couretunification.fr/cu-nouvelle-methode/"
+    },
+    {
+      "label": "Fonds Bernard Couret",
+      "url": "https://www.couretunification.fr/cu-nouvelle-fonds-bernard/"
+    },
+    {
+      "label": "Contact",
+      "url": "https://www.couretunification.fr/contact/"
+    }
+  ],
+  "expected_totals": {
+    "group_types": 62,
+    "supports": 137315,
+    "zero_free_supports": 122962,
+    "zero_free_collisions": 190930,
+    "all_collisions": 236340
+  },
+  "review": "internal_AI_assisted_finite_replay_no_independent_human_review",
+  "scope": "three distinct elements, ordered sums including diagonals, unordered collision pairs, no symmetry quotient"
+}
