@@ -6,16 +6,17 @@
   "relationship": "I have approval from a responsible author or maintainer",
   "predictive_report": "prevalidation/fibres.json",
   "ready": true,
-  "intake_status": "SUBMITTED",
+  "intake_status": "REGISTRATION_IN_PROGRESS",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-13T19:53:20.625736+00:00",
-    "outcome": "OFFICIAL_MECHANICAL_SUCCESS_STATUS_REFRESH_UNAVAILABLE",
+    "checked_at_utc": "2026-11-14T19:39:39.461486+00:00",
+    "outcome": "REGISTRATION_REQUEST_CONFIRMED",
     "browser_layout_check": "PASS",
     "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
     "official_submission_created": true,
-    "submitted_at": "2026-11-13T17:21:08Z"
+    "submitted_at": "2026-11-13T17:21:08Z",
+    "registration_requested_at": "2026-11-14T19:38:37Z"
   },
-  "next_required_condition": "Read the automated editorial review once the Palomar status service is available; register only if eligible.",
+  "next_required_condition": "Await completed four-point fibre registration and public registry ID before submitting the cubic-observation candidate.",
   "official_verification": "SUCCESS",
   "official_run": 43471950207
 }

@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-13T19:53:20.625736+00:00",
+  "observed_at_utc": "2026-11-14T19:39:39.461486+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 3,
-    "official_mechanical_pass_awaiting_registration": 0,
+    "official_mechanical_pass_awaiting_registration": 1,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -96,7 +96,7 @@
       "name": "fibres",
       "commit": "a356215242928d2e85afd24aead95945ae8e5e2e",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/a356215242928d2e85afd24aead95945ae8e5e2e",
-      "registration": "NOT_REGISTERED",
+      "registration": "REGISTRATION_IN_PROGRESS",
       "submitted_at": "2026-11-13T17:21:08Z",
       "official_verification": {
         "status": "SUCCESS",
@@ -108,12 +108,13 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-13T19:53:20.625736+00:00",
-        "outcome": "OFFICIAL_MECHANICAL_SUCCESS_STATUS_REFRESH_UNAVAILABLE",
+        "checked_at_utc": "2026-11-14T19:39:39.461486+00:00",
+        "outcome": "REGISTRATION_REQUEST_CONFIRMED",
         "browser_layout_check": "PASS",
         "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
         "official_submission_created": true,
-        "submitted_at": "2026-11-13T17:21:08Z"
+        "submitted_at": "2026-11-13T17:21:08Z",
+        "registration_requested_at": "2026-11-14T19:38:37Z"
       },
       "predictive_check": {
         "run": 42493140220,
