@@ -1,0 +1,53 @@
+{
+  "prepared_at_utc": "2026-11-16T16:22:23.338575+00:00",
+  "repository": "alexcour/couret-finite-verifications",
+  "candidate": "A minimal 101-state observation machine for the certified modulo 30 table",
+  "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+  "comparator_config_path": "comparator-bc_minimality.json",
+  "existing_palomar_id": null,
+  "relationship": "I have approval from a responsible author or maintainer",
+  "notes": "The selected theorem proves a lower bound of 101 reachable states for every deterministic observation machine that reproduces, on every finite word over Fin 8, the output of the explicit 147-state transition table from state zero. The conclusion constructs an injection Fin 101 into the machine state type and proves every image state is reachable. No finite-state assumption on that state type is needed. Minimality is relative to this exact table and output semantics. The archived construction of a correct 101-state quotient is background proof material, not an additional selected Comparator theorem; do not infer a separately compared upper bound. No general factorization or cryptographic claim is made. The five named definition targets expose the transition, output and run interface of the standalone Std Challenge. A full predictive mechanical check passed at this exact commit in run 42495068348; this is not official Palomar verification or editorial review. Historical pending-check text in formalization.yaml predates the predictive run.",
+  "license": "MIT for authorized new adaptations; third-party notices retained",
+  "scope_fr": [
+    "Toute machine déterministe reproduisant les sorties de la table explicite à 147 états, pour tout mot sur huit symboles, possède au moins 101 états accessibles.",
+    "Le théorème construit une injection de Fin 101 dans les états accessibles, sans supposer fini le type des états de la machine.",
+    "La borne est relative à la table et à ses sorties ; la construction annexe à 101 états ne constitue pas un théorème supplémentaire sélectionné par Comparator."
+  ],
+  "theorem_names": [
+    "Couret.Certificate.minimal_101_states"
+  ],
+  "definition_names": [
+    "Couret.Certificate.nextNat",
+    "Couret.Certificate.tableOutput",
+    "Couret.Certificate.tableNext",
+    "Couret.Certificate.tableRun",
+    "Couret.Certificate.machineRun"
+  ],
+  "verification": {
+    "kind": "PREDICTIVE_NOT_OFFICIAL",
+    "status": "PASS",
+    "run": 42495068348,
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42495068348",
+    "report_sha256": "a6b29685ccba0371e025ddc25334572b4fcb4cf961eb2c2d94e35433eeb74ccc",
+    "source_integrity": {
+      "name": "bc_minimality",
+      "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+      "files": 54,
+      "mismatches": []
+    }
+  },
+  "source_packet": {
+    "project": "bc_minimality",
+    "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+    "archive": "palomar-bc_minimality-0f5343670885.zip",
+    "sha256": "cfa4dfaf0c3c2046ee71dc3e9c21336e73358e3729655207e56d16db09a8f5c4",
+    "lean_build": {
+      "run": 42495068348,
+      "status": "SUCCESS",
+      "origin": "Full Palomar predictive build and Comparator workflow"
+    },
+    "note": "Source-only adaptation packet matching the committed files; no binary build artifacts or Palomar registration included."
+  },
+  "readiness": "PREPARED_NOT_SUBMITTED",
+  "queue_position": "After the prepared six-letter saturation result; preserve the current cubic-observation registration."
+}

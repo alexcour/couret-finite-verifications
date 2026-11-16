@@ -1,0 +1,17 @@
+{
+  "active_candidate": "cubic",
+  "active_registration": "REGISTRATION_IN_PROGRESS",
+  "prepared_order": [
+    {
+      "name": "bc_saturation",
+      "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
+      "file": "NEXT_PREPARED_SUBMISSION.json"
+    },
+    {
+      "name": "bc_minimality",
+      "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+      "file": "prepared-submissions/bc_minimality.json"
+    }
+  ],
+  "rule": "Submit sequentially after the active registration completes; these prepared candidates are not registered."
+}
