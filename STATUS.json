@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-14T19:39:39.461486+00:00",
+  "observed_at_utc": "2026-11-16T09:32:27.487015+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
-    "confirmed_registrations": 3,
-    "official_mechanical_pass_awaiting_registration": 1,
+    "confirmed_registrations": 4,
+    "official_mechanical_pass_awaiting_registration": 0,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -96,7 +96,10 @@
       "name": "fibres",
       "commit": "a356215242928d2e85afd24aead95945ae8e5e2e",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/a356215242928d2e85afd24aead95945ae8e5e2e",
-      "registration": "REGISTRATION_IN_PROGRESS",
+      "registration": "REGISTERED",
+      "palomar_id": "PALOMAR-2026-11-14-000023",
+      "public_url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-14-000023&version=1",
+      "registered_date": "2026-11-14",
       "submitted_at": "2026-11-13T17:21:08Z",
       "official_verification": {
         "status": "SUCCESS",
@@ -130,11 +133,24 @@
       "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/eb5b9e28541146314aad53e7a55458ed28ffb65a",
       "registration": "NOT_REGISTERED",
+      "submitted_at": "2026-11-16T09:30:53Z",
+      "official_verification": {
+        "status": "QUEUED",
+        "run": 43840452066
+      },
       "lean_build": {
         "run": 42492586090,
         "status": "SUCCESS"
       },
-      "official_intake": "NOT_SUBMITTED",
+      "official_intake": "SUBMITTED",
+      "last_intake_attempt": {
+        "checked_at_utc": "2026-11-16T09:32:27.487015+00:00",
+        "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+        "browser_layout_check": "PASS",
+        "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
+        "official_submission_created": true,
+        "submitted_at": "2026-11-16T09:30:53Z"
+      },
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
