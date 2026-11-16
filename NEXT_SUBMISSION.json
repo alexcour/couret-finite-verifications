@@ -6,14 +6,15 @@
   "relationship": "I have approval from a responsible author or maintainer",
   "predictive_report": "prevalidation/cubic.json",
   "ready": true,
-  "intake_status": "SUBMITTED",
+  "intake_status": "REGISTRATION_IN_PROGRESS",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-16T09:32:27.487015+00:00",
-    "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+    "checked_at_utc": "2026-11-16T16:17:10.857260+00:00",
+    "outcome": "REGISTRATION_REQUEST_CONFIRMED",
     "browser_layout_check": "PASS",
     "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
     "official_submission_created": true,
-    "submitted_at": "2026-11-16T09:30:53Z"
+    "submitted_at": "2026-11-16T09:30:53Z",
+    "registration_requested_at": "2026-11-16T16:16:13Z"
   },
-  "next_required_condition": "Await official mechanical verification and automated editorial review before registering the cubic-observation result."
+  "next_required_condition": "Await completed cubic-observation registration and public registry ID before submitting the prepared modulo 30 saturation candidate."
 }

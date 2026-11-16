@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-16T09:32:27.487015+00:00",
+  "observed_at_utc": "2026-11-16T16:17:10.857260+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 4,
-    "official_mechanical_pass_awaiting_registration": 0,
+    "official_mechanical_pass_awaiting_registration": 1,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -132,10 +132,10 @@
       "name": "cubic",
       "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/eb5b9e28541146314aad53e7a55458ed28ffb65a",
-      "registration": "NOT_REGISTERED",
+      "registration": "REGISTRATION_IN_PROGRESS",
       "submitted_at": "2026-11-16T09:30:53Z",
       "official_verification": {
-        "status": "QUEUED",
+        "status": "SUCCESS",
         "run": 43840452066
       },
       "lean_build": {
@@ -144,12 +144,13 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-16T09:32:27.487015+00:00",
-        "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+        "checked_at_utc": "2026-11-16T16:17:10.857260+00:00",
+        "outcome": "REGISTRATION_REQUEST_CONFIRMED",
         "browser_layout_check": "PASS",
         "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
         "official_submission_created": true,
-        "submitted_at": "2026-11-16T09:30:53Z"
+        "submitted_at": "2026-11-16T09:30:53Z",
+        "registration_requested_at": "2026-11-16T16:16:13Z"
       },
       "predictive_check": {
         "run": 42493140220,
