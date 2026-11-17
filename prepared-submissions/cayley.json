@@ -1,0 +1,51 @@
+{
+  "prepared_at_utc": "2026-11-17T16:02:50.130858+00:00",
+  "repository": "alexcour/couret-finite-verifications",
+  "candidate": "Directed Cayley non-isomorphism and abelian generation dichotomy",
+  "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
+  "comparator_config_path": "comparator-cayley.json",
+  "existing_palomar_id": null,
+  "relationship": "I have approval from a responsible author or maintainer",
+  "notes": "The selected results concern directed Cayley graphs: CayleyArc S x y means y=x+s for an increment s in S. The abelian equivalence retains all hypotheses: h+h=0, h nonzero, 3d=0 or 3d=h, a,d,h generate the ambient abelian group, and 2d is nonzero. The reflected supports are {a,a+d,a+d+h} and {a,a-d,a-d+h}; they are isomorphic exactly when a,h do not generate the group. Separately, for every positive natural r, the two displayed three-increment digraphs on ZMod (12*r) are non-isomorphic. The quantifier ranges over arbitrary vertex equivalences, without assuming affineness. No undirected-graph or spectral claim is selected. These adapt prior public formalizations, with no claim of mathematical novelty or independent human review. A complete predictive mechanical check passed on this exact commit in run 42493140220 for this candidate; the overall multi-candidate run included unrelated historical failures, so only the candidate report is claimed to pass. This evidence is not official Palomar intake or editorial approval.",
+  "license": "MIT for authorized adaptations; existing third-party notices retained",
+  "scope_fr": [
+    "Sous les hypothèses de torsion, de non-dégénérescence et de génération affichées, les supports réfléchis définissent des graphes orientés isomorphes si et seulement si a et h ne génèrent pas le groupe ambiant.",
+    "Pour tout entier r strictement positif, les deux graphes orientés explicites sur Z/(12r)Z ne sont pas isomorphes, même en autorisant toute bijection des sommets."
+  ],
+  "theorem_names": [
+    "Couret.PalomarCayley.abelian_isomorphism_iff",
+    "Couret.PalomarCayley.cyclic_nonisomorphism"
+  ],
+  "definition_names": [
+    "Couret.PalomarCayley.CayleyArc",
+    "Couret.PalomarCayley.TripleSupport",
+    "Couret.PalomarCayley.AbelianSource",
+    "Couret.PalomarCayley.AbelianTarget"
+  ],
+  "verification": {
+    "kind": "PREDICTIVE_NOT_OFFICIAL",
+    "status": "PASS",
+    "run": 42493140220,
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42493140220",
+    "report_sha256": "8f2129fd5d7595a3989a43a1768fd72e98b4f2fd9af409cdeefee3e9fe75db36",
+    "source_integrity": {
+      "name": "cayley",
+      "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
+      "files": 15,
+      "mismatches": []
+    }
+  },
+  "source_packet": {
+    "project": "cayley",
+    "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
+    "archive": "palomar-cayley-4427850aabc4.zip",
+    "sha256": "2460800b68b5a1f6586d0a1c456443d350621f1b1a86f659f758c674ffd84a57",
+    "lean_build": {
+      "run": 42490086064,
+      "status": "SUCCESS"
+    },
+    "note": "Source-only adaptation packet matching the committed files; no binary build artifacts or Palomar registration included."
+  },
+  "readiness": "PREPARED_NOT_SUBMITTED",
+  "queue_position": "After modulo 30 saturation and modulo 30 observation-machine minimality."
+}
