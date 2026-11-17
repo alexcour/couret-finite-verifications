@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-16T16:17:10.857260+00:00",
+  "observed_at_utc": "2026-11-17T15:59:36.561230+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
-    "confirmed_registrations": 4,
-    "official_mechanical_pass_awaiting_registration": 1,
+    "confirmed_registrations": 5,
+    "official_mechanical_pass_awaiting_registration": 0,
     "prepared_additional_candidates": 9,
     "passing_full_predictive_reports": 9
   },
@@ -132,7 +132,10 @@
       "name": "cubic",
       "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/eb5b9e28541146314aad53e7a55458ed28ffb65a",
-      "registration": "REGISTRATION_IN_PROGRESS",
+      "registration": "REGISTERED",
+      "palomar_id": "PALOMAR-2026-11-16-000021",
+      "public_url": "https://palomar-registry.org/entry?id=PALOMAR-2026-11-16-000021&version=1",
+      "registered_date": "2026-11-16",
       "submitted_at": "2026-11-16T09:30:53Z",
       "official_verification": {
         "status": "SUCCESS",
@@ -171,7 +174,14 @@
         "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
-      "official_intake": "NOT_SUBMITTED",
+      "official_intake": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
+      "last_intake_attempt": {
+        "checked_at_utc": "2026-11-17T15:59:36.561230+00:00",
+        "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
+        "browser_layout_and_metadata_checks": "PASS",
+        "official_submission_created": false,
+        "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
+      },
       "predictive_check": {
         "run": 42498575596,
         "status": "PASS",

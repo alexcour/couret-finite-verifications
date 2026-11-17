@@ -1,6 +1,6 @@
 {
-  "active_candidate": "cubic",
-  "active_registration": "REGISTRATION_IN_PROGRESS",
+  "active_candidate": null,
+  "intake_block": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
   "prepared_order": [
     {
       "name": "bc_saturation",
@@ -13,5 +13,5 @@
       "file": "prepared-submissions/bc_minimality.json"
     }
   ],
-  "rule": "Submit sequentially after the active registration completes; these prepared candidates are not registered."
+  "rule": "Submit sequentially once intake is available. Five earlier results are registered; these prepared candidates are not registered."
 }

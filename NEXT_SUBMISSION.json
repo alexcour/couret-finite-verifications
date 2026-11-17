@@ -1,20 +1,18 @@
 {
   "repository": "alexcour/couret-finite-verifications",
-  "candidate": "Two fixed cubic coefficients distinguish a cyclic four-point square fibre",
-  "commit": "eb5b9e28541146314aad53e7a55458ed28ffb65a",
-  "comparator_config_path": "comparator-cubic.json",
+  "candidate": "Sharp six-letter saturation threshold modulo 30",
+  "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
+  "comparator_config_path": "comparator-bc_saturation.json",
   "relationship": "I have approval from a responsible author or maintainer",
-  "predictive_report": "prevalidation/cubic.json",
+  "predictive_report": "prevalidation/bc_saturation.json",
   "ready": true,
-  "intake_status": "REGISTRATION_IN_PROGRESS",
+  "intake_status": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-16T16:17:10.857260+00:00",
-    "outcome": "REGISTRATION_REQUEST_CONFIRMED",
-    "browser_layout_check": "PASS",
-    "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
-    "official_submission_created": true,
-    "submitted_at": "2026-11-16T09:30:53Z",
-    "registration_requested_at": "2026-11-16T16:16:13Z"
+    "checked_at_utc": "2026-11-17T15:59:36.561230+00:00",
+    "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
+    "browser_layout_and_metadata_checks": "PASS",
+    "official_submission_created": false,
+    "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
   },
-  "next_required_condition": "Await completed cubic-observation registration and public registry ID before submitting the prepared modulo 30 saturation candidate."
+  "next_required_condition": "Retry when the Palomar intake service becomes available. The prior cubic result is already publicly registered."
 }

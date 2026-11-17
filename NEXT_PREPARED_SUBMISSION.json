@@ -1,5 +1,5 @@
 {
-  "prepared_at_utc": "2026-11-16T09:35:48.050572+00:00",
+  "prepared_at_utc": "2026-11-16T10:35:48.050572+01:00",
   "repository": "alexcour/couret-finite-verifications",
   "candidate": "Sharp six-letter saturation threshold modulo 30",
   "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
@@ -51,5 +51,5 @@
     "note": "Source-only adaptation packet matching the committed files; no binary build artifacts or Palomar registration included."
   },
   "readiness": "PREPARED_NOT_SUBMITTED",
-  "submission_condition": "Wait for the active cubic-observation submission to finish; do not abandon it to start this one."
+  "submission_condition": "Retry when the Palomar intake service is available; the previous cubic result is registered."
 }
