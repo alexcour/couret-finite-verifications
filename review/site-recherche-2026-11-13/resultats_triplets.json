@@ -5,7 +5,7 @@
   "support_convention": "three distinct elements; ordered sums; diagonals included",
   "pair_convention": "unordered pairs of distinct supports; no symmetry quotient",
   "zero_free_convention": "zero excluded from both supports for the four counting formulae",
-  "source_sha256": "414784458b670935ad0ddfd67508b119c997b793d99bc7220f19a855e678c41d",
+  "source_sha256": "b8341c3d1206b2a450b48fe9df56fed01da460757e62f851c49bad8881ecc2b5",
   "python_version": "3.12.14",
   "totals": {
     "supports": 137315,

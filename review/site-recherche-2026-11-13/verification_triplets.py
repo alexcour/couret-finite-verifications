@@ -143,6 +143,8 @@ def example_checks():
 
 
 def main():
+    if not __debug__:
+        raise SystemExit("Exécuter sans -O pour conserver les contrôles scientifiques.")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--max-order", type=int, default=36)
     parser.add_argument("--output", type=Path, default=Path("resultats_triplets.json"))
@@ -160,6 +162,7 @@ def main():
         assert totals["supports"] == 137315
         assert totals["zero_free_supports"] == 122962
         assert totals["zero_free_collisions"] == 190930
+        assert totals["all_collisions"] == 236340
         assert totals["classes"] == {
             "translation_delta2": 20532, "translation_delta6": 166744,
             "reflection_delta4": 948, "reflection_delta6": 2706,
