@@ -6,13 +6,14 @@
   "relationship": "I have approval from a responsible author or maintainer",
   "predictive_report": "prevalidation/bc_saturation.json",
   "ready": true,
-  "intake_status": "NOT_SUBMITTED_SERVICE_UNAVAILABLE",
+  "intake_status": "SUBMITTED",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-17T15:59:36.561230+00:00",
-    "outcome": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
+    "checked_at_utc": "2026-11-18T08:20:48.039136+00:00",
+    "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
     "browser_layout_and_metadata_checks": "PASS",
-    "official_submission_created": false,
-    "message": "Submission intake is temporarily unavailable. This is ours to fix, not yours. Please try again in a moment."
+    "official_submission_created": true,
+    "submitted_at": "2026-11-18T08:19:30Z"
   },
-  "next_required_condition": "Retry when the Palomar intake service becomes available. The prior cubic result is already publicly registered."
+  "next_required_condition": "Await official mechanical verification and automated editorial review before registering modulo 30 saturation.",
+  "official_run": 44266005907
 }

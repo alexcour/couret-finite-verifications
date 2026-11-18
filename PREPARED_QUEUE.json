@@ -1,12 +1,7 @@
 {
-  "active_candidate": null,
-  "intake_block": "PALOMAR_INTAKE_TEMPORARILY_UNAVAILABLE",
+  "active_candidate": "bc_saturation",
+  "intake_block": null,
   "prepared_order": [
-    {
-      "name": "bc_saturation",
-      "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
-      "file": "NEXT_PREPARED_SUBMISSION.json"
-    },
     {
       "name": "bc_minimality",
       "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
@@ -18,5 +13,6 @@
       "file": "prepared-submissions/cayley.json"
     }
   ],
-  "rule": "Submit sequentially once intake is available. Five earlier results are registered; these prepared candidates are not registered."
+  "rule": "Preserve the active saturation submission. Submit remaining prepared candidates sequentially after completed registration.",
+  "active_official_run": 44266005907
 }

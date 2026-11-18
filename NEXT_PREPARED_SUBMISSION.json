@@ -1,55 +1,53 @@
 {
-  "prepared_at_utc": "2026-11-16T10:35:48.050572+01:00",
+  "prepared_at_utc": "2026-11-16T16:22:23.338575+00:00",
   "repository": "alexcour/couret-finite-verifications",
-  "candidate": "Sharp six-letter saturation threshold modulo 30",
-  "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
-  "comparator_config_path": "comparator-bc_saturation.json",
+  "candidate": "A minimal 101-state observation machine for the certified modulo 30 table",
+  "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+  "comparator_config_path": "comparator-bc_minimality.json",
   "existing_palomar_id": null,
   "relationship": "I have approval from a responsible author or maintainer",
-  "notes": "The selected universal threshold equates full subsequence-product support with nonempty proper subsequence-product support for every code word of length at least six. Full support permits empty and full selections; proper support requires at least one selected and one omitted position. The five-letter word has full support but its proper support misses the identity. The arithmetic witness 7,7,7,11,17 is prime-checked with product 64141, and Solution proves its encoding equals the displayed code word. The mod30Product definition target is constrained by both compared data-field equations (identity and multiplication); remaining record fields are proofs in Prop. A complete predictive mechanical check passed on this exact commit (run 42498575596), including the independent kernels. This is preparation evidence, not official Palomar intake or editorial approval. Historical pending-verification text in formalization.yaml predates that predictive run.",
+  "notes": "The selected theorem proves a lower bound of 101 reachable states for every deterministic observation machine that reproduces, on every finite word over Fin 8, the output of the explicit 147-state transition table from state zero. The conclusion constructs an injection Fin 101 into the machine state type and proves every image state is reachable. No finite-state assumption on that state type is needed. Minimality is relative to this exact table and output semantics. The archived construction of a correct 101-state quotient is background proof material, not an additional selected Comparator theorem; do not infer a separately compared upper bound. No general factorization or cryptographic claim is made. The five named definition targets expose the transition, output and run interface of the standalone Std Challenge. A full predictive mechanical check passed at this exact commit in run 42495068348; this is not official Palomar verification or editorial review. Historical pending-check text in formalization.yaml predates the predictive run.",
   "license": "MIT for authorized new adaptations; third-party notices retained",
   "scope_fr": [
-    "Tout mot de codes de résidus inversibles modulo 30 de longueur au moins six a le même support pour toutes les sélections et pour les sélections non vides et propres.",
-    "Le mot (0,1),(0,1),(0,1),(1,0),(1,1) de longueur cinq atteint tous les codes mais aucune sélection non vide et propre ne donne le neutre.",
-    "Le témoin arithmétique 7,7,7,11,17 a pour produit 64141 et son encodage est prouvé dans Solution."
+    "Toute machine déterministe reproduisant les sorties de la table explicite à 147 états, pour tout mot sur huit symboles, possède au moins 101 états accessibles.",
+    "Le théorème construit une injection de Fin 101 dans les états accessibles, sans supposer fini le type des états de la machine.",
+    "La borne est relative à la table et à ses sorties ; la construction annexe à 101 états ne constitue pas un théorème supplémentaire sélectionné par Comparator."
   ],
   "theorem_names": [
-    "Couret.S5.threshold_six",
-    "Couret.S5.five_letter_counterexample",
-    "Couret.S5.arithmetic_witness",
-    "Couret.S5.unit_equation",
-    "Couret.S5.product_equation"
+    "Couret.Certificate.minimal_101_states"
   ],
   "definition_names": [
-    "Couret.S5.fivePrimes",
-    "Couret.S5.counterexampleCodes",
-    "Couret.mod30Product"
+    "Couret.Certificate.nextNat",
+    "Couret.Certificate.tableOutput",
+    "Couret.Certificate.tableNext",
+    "Couret.Certificate.tableRun",
+    "Couret.Certificate.machineRun"
   ],
   "verification": {
     "kind": "PREDICTIVE_NOT_OFFICIAL",
     "status": "PASS",
-    "run": 42498575596,
-    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42498575596",
-    "report_sha256": "945628885f693047854864d1b323309e3897e2a77b12f6c1694364b4f7c1b0a7",
+    "run": 42495068348,
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42495068348",
+    "report_sha256": "a6b29685ccba0371e025ddc25334572b4fcb4cf961eb2c2d94e35433eeb74ccc",
     "source_integrity": {
-      "name": "bc_saturation",
-      "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
-      "files": 38,
+      "name": "bc_minimality",
+      "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+      "files": 54,
       "mismatches": []
     }
   },
   "source_packet": {
-    "project": "bc_saturation",
-    "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
-    "archive": "palomar-bc_saturation-b2f722c674e8.zip",
-    "sha256": "02fdd06456a7aa46b5b23bab6fed926dfeffded7651ed1d25b8500ac29967b8c",
+    "project": "bc_minimality",
+    "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+    "archive": "palomar-bc_minimality-0f5343670885.zip",
+    "sha256": "cfa4dfaf0c3c2046ee71dc3e9c21336e73358e3729655207e56d16db09a8f5c4",
     "lean_build": {
-      "run": 42498575596,
+      "run": 42495068348,
       "status": "SUCCESS",
       "origin": "Full Palomar predictive build and Comparator workflow"
     },
     "note": "Source-only adaptation packet matching the committed files; no binary build artifacts or Palomar registration included."
   },
   "readiness": "PREPARED_NOT_SUBMITTED",
-  "submission_condition": "Retry when the Palomar intake service is available; the previous cubic result is registered."
+  "queue_position": "After the prepared six-letter saturation result; preserve the current cubic-observation registration."
 }
