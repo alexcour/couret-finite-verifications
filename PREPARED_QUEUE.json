@@ -11,6 +11,11 @@
       "name": "cayley",
       "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
       "file": "prepared-submissions/cayley.json"
+    },
+    {
+      "name": "g30",
+      "commit": "3b48ff3cf0525dd11524fe50655f4061a5f99d8e",
+      "file": "prepared-submissions/g30.json"
     }
   ],
   "rule": "Preserve the active saturation submission. Submit remaining prepared candidates sequentially after completed registration.",
