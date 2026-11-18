@@ -1,0 +1,48 @@
+{
+  "prepared_at_utc": "2026-11-18T08:24:26.851897+00:00",
+  "repository": "alexcour/couret-finite-verifications",
+  "candidate": "Decision factorization on the attained observation image",
+  "commit": "098752e58b68ec98046fd183417dfb906037b966",
+  "comparator_config_path": "comparator-decision.json",
+  "existing_palomar_id": null,
+  "relationship": "I have approval from a responsible author or maintainer",
+  "notes": "This auxiliary logical interface theorem states that D:X->A factors through the attained image of O:X->Y if and only if D is constant on every fibre of O. Restricting the factor domain to the attained image avoids any condition on unattained observations. Types are arbitrary; no decidability or finiteness assumption is made. The statement does not assert executable extraction, runtime or parity cost, optimality of query counts, or equivalence to a Python implementation. It is an elementary factorization principle; no mathematical novelty, independent human review, or standalone research-interest assessment is claimed. Predictive mechanical verification passed for this candidate at the exact pinned commit in run 42493140220; the overall multi-candidate run included unrelated historical failures. Official Palomar intake and editorial review remain separate.",
+  "license": "MIT for authorized adaptations; third-party notices retained",
+  "scope_fr": [
+    "Une fonction de décision se factorise par les observations effectivement atteintes si et seulement si elle est constante sur chaque fibre d’observation.",
+    "Il s’agit d’un principe logique auxiliaire ; aucune borne de temps, optimalité des requêtes ou équivalence avec un programme Python n’est affirmée."
+  ],
+  "theorem_names": [
+    "Couret.DecisionInterface.factorization_on_image_iff"
+  ],
+  "definition_names": [
+    "Couret.DecisionInterface.FibreConstant",
+    "Couret.DecisionInterface.ObservedImage"
+  ],
+  "verification": {
+    "kind": "PREDICTIVE_NOT_OFFICIAL",
+    "status": "PASS",
+    "run": 42493140220,
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/42493140220",
+    "report_sha256": "194f21c7a009d6f3b7ce18de43a803c6418cf38c71324d6032cd2a7cdef85662",
+    "source_integrity": {
+      "name": "decision",
+      "commit": "098752e58b68ec98046fd183417dfb906037b966",
+      "files": 13,
+      "mismatches": []
+    }
+  },
+  "source_packet": {
+    "project": "decision",
+    "commit": "098752e58b68ec98046fd183417dfb906037b966",
+    "archive": "palomar-decision-098752e58b68.zip",
+    "sha256": "824ee3502a10b99d9516e1735c1c63ec786859e2e067ee4d3afd6bbe0682c228",
+    "lean_build": {
+      "run": 42492473898,
+      "status": "SUCCESS"
+    },
+    "note": "Source-only adaptation packet matching the committed files; no binary build artifacts or Palomar registration included."
+  },
+  "readiness": "PREPARED_NOT_SUBMITTED",
+  "queue_position": "Auxiliary candidate after G30; independent editorial research-interest assessment remains necessary."
+}

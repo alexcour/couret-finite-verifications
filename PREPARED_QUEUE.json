@@ -16,6 +16,11 @@
       "name": "g30",
       "commit": "3b48ff3cf0525dd11524fe50655f4061a5f99d8e",
       "file": "prepared-submissions/g30.json"
+    },
+    {
+      "name": "decision",
+      "commit": "098752e58b68ec98046fd183417dfb906037b966",
+      "file": "prepared-submissions/decision.json"
     }
   ],
   "rule": "Preserve the active saturation submission. Submit remaining prepared candidates sequentially after completed registration.",

@@ -8,12 +8,13 @@
   "ready": true,
   "intake_status": "SUBMITTED",
   "admission_constraint": {
-    "checked_at_utc": "2026-11-18T08:20:48.039136+00:00",
-    "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+    "checked_at_utc": "2026-11-18T08:25:07.317512+00:00",
+    "outcome": "OFFICIAL_MECHANICAL_PASS_AWAITING_AUTOMATED_REVIEW",
     "browser_layout_and_metadata_checks": "PASS",
     "official_submission_created": true,
     "submitted_at": "2026-11-18T08:19:30Z"
   },
-  "next_required_condition": "Await official mechanical verification and automated editorial review before registering modulo 30 saturation.",
-  "official_run": 44266005907
+  "next_required_condition": "Await the automated editorial review; register saturation only if it identifies no blocking problems.",
+  "official_run": 44266005907,
+  "official_verification": "SUCCESS"
 }

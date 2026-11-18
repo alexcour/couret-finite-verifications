@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-18T08:20:48.039136+00:00",
+  "observed_at_utc": "2026-11-18T08:25:07.317512+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 5,
@@ -171,7 +171,7 @@
       "registration": "NOT_REGISTERED",
       "submitted_at": "2026-11-18T08:19:30Z",
       "official_verification": {
-        "status": "QUEUED",
+        "status": "SUCCESS",
         "run": 44266005907
       },
       "lean_build": {
@@ -181,8 +181,8 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-18T08:20:48.039136+00:00",
-        "outcome": "SUBMITTED_MECHANICAL_VERIFICATION_QUEUED",
+        "checked_at_utc": "2026-11-18T08:25:07.317512+00:00",
+        "outcome": "OFFICIAL_MECHANICAL_PASS_AWAITING_AUTOMATED_REVIEW",
         "browser_layout_and_metadata_checks": "PASS",
         "official_submission_created": true,
         "submitted_at": "2026-11-18T08:19:30Z"
