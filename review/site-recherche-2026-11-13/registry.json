@@ -7,28 +7,32 @@
       "url": "https://www.couretunification.fr/"
     },
     {
-      "label": "Recherches",
-      "url": "https://www.couretunification.fr/cu-nouvelle-recherche/"
+      "label": "Recherche actuelle",
+      "url": "https://www.couretunification.fr/recherche-actuelle/"
     },
     {
-      "label": "Explorer",
-      "url": "https://www.couretunification.fr/explorer/"
+      "label": "STROBO",
+      "url": "https://www.couretunification.fr/strobo/"
     },
     {
-      "label": "Publications et code",
-      "url": "https://www.couretunification.fr/cu-nouvelle-publications/"
+      "label": "Cayley",
+      "url": "https://www.couretunification.fr/cayley/"
+    },
+    {
+      "label": "Vérifier",
+      "url": "https://www.couretunification.fr/verification/"
+    },
+    {
+      "label": "Publications et dépôts",
+      "url": "https://www.couretunification.fr/publications-et-depots/"
     },
     {
       "label": "Méthode",
-      "url": "https://www.couretunification.fr/cu-nouvelle-methode/"
+      "url": "https://www.couretunification.fr/methode/"
     },
     {
-      "label": "Fonds Bernard Couret",
-      "url": "https://www.couretunification.fr/cu-nouvelle-fonds-bernard/"
-    },
-    {
-      "label": "Contact",
-      "url": "https://www.couretunification.fr/contact/"
+      "label": "Historique et corrections",
+      "url": "https://www.couretunification.fr/historique-et-corrections/"
     }
   ],
   "expected_totals": {
@@ -39,5 +43,6 @@
     "all_collisions": 236340
   },
   "review": "internal_AI_assisted_finite_replay_no_independent_human_review",
-  "scope": "three distinct elements, ordered sums including diagonals, unordered collision pairs, no symmetry quotient"
+  "scope": "three distinct elements, ordered sums including diagonals, unordered collision pairs, no symmetry quotient",
+  "evidence_revision": "640de004f67e309db7bcbd1d86b83f5bac56fdff"
 }
