@@ -1,20 +1,13 @@
 {
-  "repository": "alexcour/couret-finite-verifications",
-  "candidate": "Sharp six-letter saturation threshold modulo 30",
-  "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
-  "comparator_config_path": "comparator-bc_saturation.json",
+  "registration": "NOT_REGISTERED",
   "relationship": "I have approval from a responsible author or maintainer",
-  "predictive_report": "prevalidation/bc_saturation.json",
-  "ready": true,
+  "official_run": 44626540794,
+  "candidate": "A minimal 101-state observation machine for the certified modulo 30 table",
   "intake_status": "SUBMITTED",
-  "admission_constraint": {
-    "checked_at_utc": "2026-11-18T08:25:07.317512+00:00",
-    "outcome": "OFFICIAL_MECHANICAL_PASS_AWAITING_AUTOMATED_REVIEW",
-    "browser_layout_and_metadata_checks": "PASS",
-    "official_submission_created": true,
-    "submitted_at": "2026-11-18T08:19:30Z"
-  },
-  "next_required_condition": "Await the automated editorial review; register saturation only if it identifies no blocking problems.",
-  "official_run": 44266005907,
-  "official_verification": "SUCCESS"
+  "next_required_condition": "Await official mechanical verification and automated editorial review; register only if offered.",
+  "repository": "alexcour/couret-finite-verifications",
+  "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
+  "submitted_at": "2026-11-19T22:13:23Z",
+  "official_verification": "IN_PROGRESS",
+  "comparator_config_path": "comparator-bc_minimality.json"
 }

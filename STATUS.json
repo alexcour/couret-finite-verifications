@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-18T08:25:07.317512+00:00",
+  "observed_at_utc": "2026-11-19T22:14:26.9013607Z",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 5,
@@ -78,7 +78,7 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-12T19:13:30.942872+00:00",
+        "checked_at_utc": "2026-11-12T20:13:30.942872+01:00",
         "outcome": "REGISTRATION_REQUEST_CONFIRMED",
         "official_submission_created": true,
         "registration_requested_at": "2026-11-12T19:12:24Z"
@@ -111,7 +111,7 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-14T19:39:39.461486+00:00",
+        "checked_at_utc": "2026-11-14T20:39:39.461486+01:00",
         "outcome": "REGISTRATION_REQUEST_CONFIRMED",
         "browser_layout_check": "PASS",
         "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
@@ -147,7 +147,7 @@
       },
       "official_intake": "SUBMITTED",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-16T16:17:10.857260+00:00",
+        "checked_at_utc": "2026-11-16T17:17:10.85726+01:00",
         "outcome": "REGISTRATION_REQUEST_CONFIRMED",
         "browser_layout_check": "PASS",
         "browser_complete_preflight": "UNAVAILABLE_NON_BLOCKING",
@@ -168,7 +168,7 @@
       "name": "bc_saturation",
       "commit": "b2f722c674e8f06937d81df59b6190079daf6b9e",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/b2f722c674e8f06937d81df59b6190079daf6b9e",
-      "registration": "NOT_REGISTERED",
+      "registration": "WITHDRAWN_WITH_AUTHOR_APPROVAL",
       "submitted_at": "2026-11-18T08:19:30Z",
       "official_verification": {
         "status": "SUCCESS",
@@ -179,14 +179,7 @@
         "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
-      "official_intake": "SUBMITTED",
-      "last_intake_attempt": {
-        "checked_at_utc": "2026-11-18T08:25:07.317512+00:00",
-        "outcome": "OFFICIAL_MECHANICAL_PASS_AWAITING_AUTOMATED_REVIEW",
-        "browser_layout_and_metadata_checks": "PASS",
-        "official_submission_created": true,
-        "submitted_at": "2026-11-18T08:19:30Z"
-      },
+      "official_intake": "WITHDRAWN",
       "predictive_check": {
         "run": 42498575596,
         "status": "PASS",
@@ -206,7 +199,7 @@
         "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
-      "official_intake": "NOT_SUBMITTED",
+      "official_intake": "SUBMITTED",
       "predictive_check": {
         "run": 42495068348,
         "status": "PASS",
@@ -214,6 +207,11 @@
         "errors": [],
         "report": "reports/bc_minimality.json",
         "report_sha256": "a6b29685ccba0371e025ddc25334572b4fcb4cf961eb2c2d94e35433eeb74ccc"
+      },
+      "submitted_at": "2026-11-19T22:13:23Z",
+      "official_verification": {
+        "status": "IN_PROGRESS",
+        "run": 44626540794
       }
     },
     {
@@ -232,7 +230,7 @@
       },
       "official_intake": "WITHDRAWN_WITH_AUTHOR_APPROVAL",
       "last_intake_attempt": {
-        "checked_at_utc": "2026-11-11T23:41:29.565286+00:00",
+        "checked_at_utc": "2026-11-12T00:41:29.565286+01:00",
         "outcome": "WITHDRAWN_WITH_AUTHOR_APPROVAL",
         "official_submission_created": true
       },

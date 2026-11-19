@@ -1,12 +1,7 @@
 {
-  "active_candidate": "bc_saturation",
+  "active_candidate": "bc_minimality",
   "intake_block": null,
   "prepared_order": [
-    {
-      "name": "bc_minimality",
-      "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
-      "file": "prepared-submissions/bc_minimality.json"
-    },
     {
       "name": "cayley",
       "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
@@ -23,6 +18,6 @@
       "file": "prepared-submissions/decision.json"
     }
   ],
-  "rule": "Preserve the active saturation submission. Submit remaining prepared candidates sequentially after completed registration.",
-  "active_official_run": 44266005907
+  "rule": "Preserve active bc_minimality submission. Submit remaining prepared candidates sequentially after registration or specifically authorized closure.",
+  "active_official_run": 44626540794
 }
