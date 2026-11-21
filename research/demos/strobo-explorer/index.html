@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STROBO Explorer — Fibres additives et collisions finies (C₄ / C₈)</title>
+<style>
+:root{
+  --bg:#0a121d;--surface:#152232;--surface-elev:#1b2d42;--border:#2b425b;--accent:#38b2ac;
+  --text:#e4ecf3;--muted:#9ab0c4;--gold:#ecc94b;--font:system-ui,sans-serif;--mono:ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);margin:0;padding:20px;line-height:1.55}
+.container{max-width:960px;margin:auto}
+header{border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px}
+h1{font-size:1.6rem;margin:0 0 6px;color:#fff}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:16px}
+.panel h2{font-size:1.1rem;margin-top:0;margin-bottom:10px;color:#fff;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px}
+.btn{background:#1a414e;color:#fff;border:1px solid #4a7785;border-radius:6px;padding:8px 12px;font:inherit;font-size:0.9rem;cursor:pointer}
+.btn:hover{background:#235868}
+.btn-accent{background:var(--accent);color:#061821;font-weight:600;border-color:var(--accent)}
+.digits{font-family:var(--mono)}
+select{background:#0a1522;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font:inherit}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.85rem}
+th,td{border:1px solid var(--border);padding:6px 10px;text-align:left}
+th{background:var(--surface-elev);color:var(--muted)}
+.notice{padding:12px;border-radius:6px;background:var(--surface-elev);border-left:4px solid var(--gold);margin:10px 0;font-size:0.9rem}
+a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <p><a href="../recoh-lab/index.html">← Retour au RECOH Lab</a></p>
+  <h1>STROBO Explorer — Fibres additives et collisions (C₄ / C₈)</h1>
+  <p style="color:var(--muted);font-size:0.9rem;margin:0">
+    Exploration exhaustive des triplets de résidus, des fonctions de sommes ordonnées R_S(z) et des paires en collision additive exacte.
+  </p>
+</header>
+<main>
+  <section class="panel">
+    <h2>1. Choix du groupe abélien fini</h2>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <label style="font-weight:bold;color:#fff">Groupe :</label>
+      <select id="grp-sel">
+        <option value="4">C₄ (ℤ/4ℤ — 4 triplets, 2 fibres)</option>
+        <option value="8" selected>C₈ (ℤ/8ℤ — 56 triplets, 28 fibres)</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2. Partition complète en fibres d'égales convolutions</h2>
+    <p id="part-summary" style="font-size:0.85rem;color:var(--muted)"></p>
+    <div style="max-height:280px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;">
+      <table id="fiber-tbl">
+        <thead><tr><th>Fibre #</th><th>Convolution R (total 9)</th><th>Candidats {a,b,c}</th><th>Action</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>3. Analyse d'une collision et certificat témoin</h2>
+    <div id="collision-detail" class="notice">Sélectionnez une fibre pour inspecter la collision.</div>
+    <button class="btn btn-accent" id="btn-export-wit" disabled>Exporter le certificat témoin JSON</button>
+  </section>
+</main>
+</div>
+
+<script src="./strobo-core.js"></script>
+<script>
+(function(){
+  "use strict";
+  const S = window.STROBO_CORE;
+  if (!S) return;
+
+  const $ = id => document.getElementById(id);
+  let currentN = 8;
+  let selectedFiber = null;
+
+  function renderFibers() {
+    currentN = Number($("grp-sel").value);
+    const partition = S.fiberPartition(currentN);
+    const totalTriples = S.triples(currentN).length;
+    $("part-summary").textContent = `Dans C_${currentN}, l'énumération exacte compte ${totalTriples} triplets distincts, partitionnés en ${partition.length} fibres de taille 2.`;
+
+    const tbody = $("fiber-tbl").querySelector("tbody");
+    tbody.replaceChildren();
+
+    partition.forEach((fib, idx) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${idx + 1}</td>
+        <td class="digits">[${fib.r.join(", ")}]</td>
+        <td class="digits">${fib.candidates.map(c => "{" + c.join(", ") + "}").join(" et ")}</td>
+        <td><button class="btn" style="padding:3px 8px;font-size:0.8rem;" data-idx="${idx}">Inspecter</button></td>
+      `;
+      tbody.append(tr);
+    });
+
+    tbody.querySelectorAll("button").forEach(btn => {
+      btn.onclick = () => {
+        const i = Number(btn.dataset.idx);
+        inspectFiber(partition[i]);
+      };
+    });
+
+    // Inspecter la première par défaut
+    if (partition.length > 0) inspectFiber(partition[0]);
+  }
+
+  function inspectFiber(fib) {
+    selectedFiber = fib;
+    const candA = fib.candidates[0];
+    const candB = fib.candidates[1];
+    const diff = S.symmetricDifference(candA, candB);
+    const isZeroFree = !diff.includes(0);
+
+    $("collision-detail").innerHTML = `
+      <strong>Collision additive exacte confirmée :</strong><br>
+      • Support S = {${candA.join(", ")}}, Support T = {${candB.join(", ")}}<br>
+      • Convolution commune : R = [${fib.r.join(", ")}] (somme = 9, diagonales incluses)<br>
+      • Différence symétrique S △ T = {${diff.join(", ")}} (cardinal = ${diff.length})<br>
+      • Présence de zéro dans S △ T : ${isZeroFree ? "Non (zéro-free)" : "Oui (zéro présent)"}
+    `;
+    $("btn-export-wit").disabled = false;
+  }
+
+  $("btn-export-wit").onclick = () => {
+    if (!selectedFiber) return;
+    const wit = S.exportCollisionWitness(selectedFiber.candidates[0], selectedFiber.candidates[1], currentN);
+    const blob = new Blob([JSON.stringify(wit, null, 2)], { type: "application/json" });
+    const u = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = u;
+    a.download = `strobo-collision-witness-C${currentN}.json`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(u), 1000);
+  };
+
+  $("grp-sel").onchange = renderFibers;
+  renderFibers();
+})();
+</script>
+</body>
+</html>

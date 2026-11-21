@@ -1,0 +1,1 @@
+Découvrez comment une lecture supplémentaire peut départager deux configurations qui donnent exactement la même observation. Choisissez la mesure, faites varier son erreur et examinez ce que l’on peut décider à partir des configurations compatibles.

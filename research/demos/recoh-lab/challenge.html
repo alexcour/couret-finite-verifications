@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Défi RECOH — Reconstruction à l'aveugle</title>
+<style>
+:root{
+  --bg:#0a121d;--surface:#152232;--surface-elev:#1b2d42;--border:#2b425b;--accent:#38b2ac;
+  --accent-hover:#2c9691;--text:#e4ecf3;--muted:#9ab0c4;--gold:#ecc94b;--ok:#48bb78;
+  --err:#f56565;--warn:#ed8936;--font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);margin:0;padding:20px;line-height:1.55}
+.container{max-width:880px;margin:auto}
+header{border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px}
+h1{font-size:1.6rem;margin:6px 0;color:#fff}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:16px}
+.panel h2{font-size:1.1rem;margin-top:0;margin-bottom:10px;color:#fff;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px}
+.btn{background:#1a414e;color:#fff;border:1px solid #4a7785;border-radius:6px;padding:8px 12px;font:inherit;font-size:0.9rem;cursor:pointer;transition:background 0.15s}
+.btn:hover{background:#235868}
+.btn:disabled{opacity:0.4;cursor:not-allowed}
+.btn-accent{background:var(--accent);color:#061821;font-weight:600;border-color:var(--accent)}
+.btn-accent:hover{background:var(--accent-hover)}
+.btn-danger{background:#5a2323;border-color:#9b4444}
+.digits{font-family:var(--mono)}
+.nodes-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.node-btn{width:42px;height:42px;border-radius:8px;background:var(--surface-elev);border:1px solid var(--border);color:var(--text);font-weight:bold;font-size:1.05rem;cursor:pointer}
+.node-btn.active{background:var(--accent);color:#0a1720;border-color:var(--accent)}
+.barrow{display:grid;grid-template-columns:26px 1fr 26px;gap:8px;align-items:center;margin:3px 0}
+.bar-track{height:12px;background:#0d1824;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent);border-radius:4px}
+.notice{padding:12px;border-radius:6px;background:var(--surface-elev);border-left:4px solid var(--gold);margin:10px 0;font-size:0.9rem}
+.notice-ok{border-left-color:var(--ok)}
+.notice-err{border-left-color:var(--err)}
+.badge{display:inline-block;padding:3px 8px;border-radius:4px;font-size:0.8rem;font-weight:bold}
+.badge-ok{background:#22543d;color:#9ae6b4;border:1px solid #38a169}
+.badge-warn{background:#744210;color:#fbd38d;border:1px solid #d69e2e}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+select{background:#0a1522;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font:inherit;font-size:0.9rem}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <p><a href="./index.html">← Retour au laboratoire RECOH</a></p>
+  <h1>Défi à l'aveugle : Reconstruire le support caché</h1>
+  <p style="color:var(--muted);font-size:0.9rem;margin:0">
+    Un triplet secret a produit une signature additive R. Votre objectif : explorer la fibre, sélectionner une mesure supplémentaire étanche et lever l'ambiguïté.
+  </p>
+</header>
+
+<main>
+  <!-- Étape 1 : Choix du groupe et tirage secret -->
+  <section class="panel">
+    <h2>1. Observation initiale aveugle</h2>
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+      <label style="font-weight:bold;color:#fff">Groupe :</label>
+      <select id="challenge-group">
+        <option value="8" selected>C₈ (ℤ/8ℤ)</option>
+        <option value="4">C₄ (ℤ/4ℤ)</option>
+      </select>
+      <button class="btn btn-accent" id="btn-new-challenge">Nouveau défi aléatoire</button>
+      <button class="btn btn-danger" id="btn-reveal" style="margin-left:auto">Dévoiler la solution</button>
+    </div>
+
+    <div id="bars-container"></div>
+    <p class="digits" id="vector-label" style="font-weight:bold;margin:8px 0"></p>
+    <div id="fiber-info" class="notice"></div>
+  </section>
+
+  <!-- Étape 2 : Première proposition du joueur -->
+  <section class="panel">
+    <h2>2. Première proposition : Expliquer la signature R</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">
+      Choisissez 3 résidus et vérifiez si leur convolution reproduit exactement l'observation R.
+    </p>
+    <div id="guess-nodes" class="nodes-row" role="group" aria-label="Résidus pour votre proposition"></div>
+    <p class="digits" id="guess-label" style="font-weight:bold;margin:8px 0"></p>
+    <button class="btn" id="btn-test-r" disabled>Tester la conformité additive à R</button>
+    <div id="r-feedback" class="notice" style="display:none"></div>
+  </section>
+
+  <!-- Étape 3 : Mesure supplémentaire étanche -->
+  <section class="panel">
+    <h2>3. Mesure spectrale étanche et séparation</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">
+      Le simulateur de mesure calcule χᵏ sur le support secret. Le sélecteur ne reçoit QUE la fibre publique pour recommander le meilleur k.
+    </p>
+    <div style="display:flex;gap:12px;align-items:center;margin:10px 0;flex-wrap:wrap">
+      <label style="font-weight:bold;color:#fff">Caractère à mesurer :</label>
+      <select id="select-k"></select>
+      <button class="btn btn-accent" id="btn-take-meas" disabled>Acquérir la mesure χᵏ</button>
+    </div>
+    <div id="meas-recommendation" style="font-size:0.85rem;color:var(--muted);margin-bottom:8px"></div>
+    <div id="meas-result" class="notice" style="display:none"></div>
+  </section>
+
+  <!-- Étape 4 : Vérification finale -->
+  <section class="panel">
+    <h2>4. Validation conjointe (R et spectrale)</h2>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0 0 8px">
+      Ajustez éventuellement votre triplet proposé, puis vérifiez la concordance conjointe.
+    </p>
+    <button class="btn btn-accent" id="btn-test-both" disabled>Vérifier la concordance conjointe</button>
+    <div id="final-feedback" class="notice" style="display:none"></div>
+  </section>
+
+  <!-- Solution révélée -->
+  <section id="solution-panel" class="panel" style="display:none;border-color:var(--gold)">
+    <h2>Solution et analyse de la fibre</h2>
+    <div id="solution-content"></div>
+  </section>
+
+  <section class="panel" style="font-size:0.85rem;color:var(--muted)">
+    <h3 style="margin-top:0;color:var(--text);font-size:0.95rem">Garantie d'étanchéité (Zero Target Leakage)</h3>
+    <p>
+      Le moteur de défi isole le support secret dans une fermeture privée inaccessible. Le sélecteur d'assistance ne reçoit que la fibre publique et maximise la distance minimale de séparation $\delta_k = \min_{S \ne T} |P_k(S) - P_k(T)|$. Aucune méta-variable ni graine cachée n'est divulguée avant l'appel explicite de révélation.
+    </p>
+  </section>
+</main>
+</div>
+
+<script src="./recoh-core.js"></script>
+<script>
+(function(){
+  "use strict";
+  const C = window.RECOH_CORE;
+  if (!C) return;
+
+  const $ = id => document.getElementById(id);
+  const fmt = x => Math.abs(x) < 1e-10 ? "0" : Number(x).toFixed(6);
+  const displaySet = arr => "{" + arr.join(", ") + "}";
+
+  let currentN = 8;
+  let challenge = null;
+  let guess = [];
+  let acquiredMeas = null;
+  let step = 0; // 0: initial, 1: R matched, 2: meas acquired, 3: completed
+
+  function initGroupSelectors() {
+    const sel = $("select-k");
+    sel.replaceChildren();
+    for (let i = 1; i < currentN; i++) {
+      const opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = "χ" + i;
+      sel.append(opt);
+    }
+  }
+
+  function startNewGame() {
+    currentN = Number($("challenge-group").value);
+    initGroupSelectors();
+
+    const allTriples = C.triples(currentN);
+    const target = allTriples[Math.floor(Math.random() * allTriples.length)];
+    challenge = C.createBlindChallenge(target, currentN);
+    guess = [];
+    acquiredMeas = null;
+    step = 0;
+
+    // Reset UI
+    $("r-feedback").style.display = "none";
+    $("meas-result").style.display = "none";
+    $("final-feedback").style.display = "none";
+    $("solution-panel").style.display = "none";
+    $("btn-take-meas").disabled = true;
+    $("btn-test-both").disabled = true;
+
+    drawBars();
+    renderGuessNodes();
+
+    // Recommandation étanche
+    const rec = challenge.recommendNextMeasurement();
+    $("select-k").value = rec.recommendedK;
+    $("meas-recommendation").innerHTML = "<em>Recommandation du sélecteur étanche :</em> Le caractère <strong>χ" + rec.recommendedK +
+      "</strong> maximise la séparation sur la fibre publique (δ = " + rec.expectedSeparation.toFixed(4) + ").";
+  }
+
+  function drawBars() {
+    const r = challenge.getObservationR();
+    const container = $("bars-container");
+    container.replaceChildren();
+    for (let i = 0; i < currentN; i++) {
+      const row = document.createElement("div");
+      row.className = "barrow";
+      const lbl = document.createElement("span");
+      lbl.textContent = i;
+      const track = document.createElement("div");
+      track.className = "bar-track";
+      const fill = document.createElement("div");
+      fill.className = "bar-fill";
+      fill.style.width = (r[i] / 9 * 100) + "%";
+      track.append(fill);
+      const val = document.createElement("strong");
+      val.textContent = r[i];
+      row.append(lbl, track, val);
+      container.append(row);
+    }
+    $("vector-label").textContent = "Observation : R = [" + r.join(", ") + "] (total = 9)";
+    $("fiber-info").innerHTML = "Il existe exactement <strong>" + challenge.getFiberCount() +
+      " configurations</strong> de C_" + currentN + " produisant cette même convolution R.";
+  }
+
+  function renderGuessNodes() {
+    const container = $("guess-nodes");
+    container.replaceChildren();
+    for (let i = 0; i < currentN; i++) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "node-btn" + (guess.includes(i) ? " active" : "");
+      btn.textContent = i;
+      btn.setAttribute("aria-pressed", String(guess.includes(i)));
+      btn.onclick = () => {
+        if (guess.includes(i)) {
+          guess = guess.filter(x => x !== i);
+        } else if (guess.length < 3) {
+          guess = [...guess, i].sort((a, b) => a - b);
+        }
+        $("guess-label").textContent = "Votre proposition : " + displaySet(guess) +
+          (guess.length !== 3 ? " (choisissez 3 résidus)" : "");
+        $("btn-test-r").disabled = guess.length !== 3 || step >= 3;
+        $("btn-test-both").disabled = guess.length !== 3 || step < 2 || step >= 3;
+        renderGuessNodes();
+      };
+      container.append(btn);
+    }
+    $("guess-label").textContent = guess.length === 3 ? "Votre proposition : " + displaySet(guess) : "Votre proposition : incomplète";
+    $("btn-test-r").disabled = guess.length !== 3 || step >= 3;
+    $("btn-test-both").disabled = guess.length !== 3 || step < 2 || step >= 3;
+  }
+
+  // Étape 2 : Test de conformité à R
+  $("btn-test-r").onclick = () => {
+    if (guess.length !== 3) return;
+    const res = challenge.verifyGuess(guess);
+    const box = $("r-feedback");
+    box.style.display = "block";
+    if (res.matchesR) {
+      box.className = "notice notice-ok";
+      box.innerHTML = "<strong>Conformité additive confirmée !</strong> Votre proposition reproduit exactement R.<br>" +
+        "Cependant, la convolution seule ne suffit pas à garantir qu'il s'agit du support secret (" + challenge.getFiberCount() + " candidats possibles). Passez à l'étape 3 pour acquérir une mesure spectrale.";
+      step = 1;
+      $("btn-take-meas").disabled = false;
+    } else {
+      box.className = "notice notice-err";
+      box.innerHTML = "<strong>Échec :</strong> Votre proposition ne reproduit pas le vecteur R. Ajustez les résidus et réessayez.";
+    }
+  };
+
+  // Étape 3 : Acquisition mesure spectrale
+  $("btn-take-meas").onclick = () => {
+    const k = Number($("select-k").value);
+    acquiredMeas = challenge.takeMeasurement(k);
+    const box = $("meas-result");
+    box.style.display = "block";
+    box.className = "notice notice-ok";
+    box.innerHTML = "<strong>Mesure acquise sur le support secret :</strong><br>" +
+      "χ" + k + "(S_secret) ≈ " + fmt(acquiredMeas.re) + (acquiredMeas.im < 0 ? " − " : " + ") + fmt(Math.abs(acquiredMeas.im)) + "i.<br>" +
+      "Cette observation est désormais verrouillée. Testez si votre proposition concorde simultanément avec R et cette mesure.";
+    step = 2;
+    $("btn-take-meas").disabled = true;
+    $("btn-test-both").disabled = guess.length !== 3;
+  };
+
+  // Étape 4 : Test conjoint
+  $("btn-test-both").onclick = () => {
+    if (guess.length !== 3 || !acquiredMeas) return;
+    const res = challenge.verifyGuess(guess);
+    const box = $("final-feedback");
+    box.style.display = "block";
+    if (res.isExactMatch) {
+      box.className = "notice notice-ok";
+      box.innerHTML = "<strong>Félicitations ! Victoire complète.</strong><br>" +
+        "Votre triplet " + displaySet(guess) + " est le seul et unique candidat de la fibre compatible avec la signature R et la mesure spectrale χ" + acquiredMeas.k + ".";
+      step = 3;
+      $("btn-reveal").click();
+    } else {
+      box.className = "notice notice-err";
+      box.innerHTML = "<strong>Incohérence détectée :</strong> Votre triplet explique bien R, mais sa valeur spectrale pour χ" + acquiredMeas.k +
+        " ne concorde pas avec la mesure observée. Cherchez l'autre configuration de la fibre !";
+    }
+  };
+
+  // Révélation de la solution
+  $("btn-reveal").onclick = () => {
+    const sol = challenge.revealSecret();
+    const panel = $("solution-panel");
+    panel.style.display = "block";
+    $("solution-content").innerHTML = `
+      <p><strong>Support secret simulé :</strong> <span class="digits" style="font-size:1.1rem;font-weight:bold">${displaySet(sol.secret)}</span></p>
+      <p><strong>Fibre complète sous R :</strong> ${sol.fiber.map(s => displaySet(s)).join(" et ")}</p>
+      <p style="font-size:0.85rem;color:var(--muted)">Dans C_${currentN}, la mesure spectrale χ³ (ou χ¹ dans C₄) lève totalement l'ambiguïté additive.</p>
+    `;
+    step = 3;
+  };
+
+  $("btn-new-challenge").onclick = startNewGame;
+  $("challenge-group").onchange = startNewGame;
+
+  // Démarrage initial
+  startNewGame();
+})();
+</script>
+</body>
+</html>
