@@ -1,0 +1,48 @@
+{
+  "status": "PREPARED_NOT_DEPLOYED",
+  "navigation_status": "proposed_targets_require_http_and_content_check_before_activation",
+  "navigation": [
+    {
+      "label": "Accueil",
+      "url": "https://www.couretunification.fr/"
+    },
+    {
+      "label": "Recherche actuelle",
+      "url": "https://www.couretunification.fr/recherche-actuelle/"
+    },
+    {
+      "label": "STROBO",
+      "url": "https://www.couretunification.fr/strobo/"
+    },
+    {
+      "label": "Cayley",
+      "url": "https://www.couretunification.fr/cayley/"
+    },
+    {
+      "label": "Vérifier",
+      "url": "https://www.couretunification.fr/verification/"
+    },
+    {
+      "label": "Publications et dépôts",
+      "url": "https://www.couretunification.fr/publications-et-depots/"
+    },
+    {
+      "label": "Méthode",
+      "url": "https://www.couretunification.fr/methode/"
+    },
+    {
+      "label": "Historique et corrections",
+      "url": "https://www.couretunification.fr/historique-et-corrections/"
+    }
+  ],
+  "expected_totals": {
+    "group_types": 62,
+    "supports": 137315,
+    "zero_free_supports": 122962,
+    "zero_free_collisions": 190930,
+    "all_collisions": 236340
+  },
+  "review": "internal_AI_assisted_finite_replay_no_independent_human_review",
+  "scope": "three distinct elements, ordered sums including diagonals, unordered collision pairs, no symmetry quotient",
+  "evidence_revision": "640de004f67e309db7bcbd1d86b83f5bac56fdff"
+}
