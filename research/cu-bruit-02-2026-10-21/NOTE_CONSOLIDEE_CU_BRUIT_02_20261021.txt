@@ -1,0 +1,163 @@
+CU-BRUIT-02 — Théorème conditionnel consolidé et audit critique
+21 octobre 2026 — version de travail interne, proposée à la relecture
+
+Résultat. Pour T={1,11,29}, la densité logarithmique δ+ de {x≥2 : D(x)>0} existe et est strictement inférieure à 0,468 sous GRH pour sept fonctions L et sous l'indépendance relative du bloc de 67 basses fréquences définie ci-dessous. La preuve accepte des relations rationnelles, coïncidences et multiplicités arbitraires parmi les zéros hauts. Elle n'utilise aucune symétrie globale.
+
+Les certificats numériques font partie de la démonstration assistée par ordinateur et de sa base de confiance déclarée ; une expertise indépendante reste ouverte. Aucun résultat inconditionnel de densité, aucune nouveauté et aucune validation de Greg Martin ne sont revendiqués. Les anciens compléments sont des annexes historiques ; leurs hypothèses propres ne doivent pas être fusionnées.
+
+1. Énoncé et conventions
+
+D(x)=8Σa∈T π(x;30,a)−3Σ(a,30)=1 π(x;30,a), E(x)=(log x)D(x)/√x.
+Définir δ+=limX→∞ [1/log(X/2)]∫2^X 1{D(x)>0} dx/x, lorsque la limite existe.
+
+La réduction est exacte : T15={1,11,14} et D30(x)=D15(x)+3 pour x≥2. Seul le premier 2 ajoute une contribution −3 à D15. La correction normalisée tend vers zéro.
+
+Écrire n=11^x7^y dans U(30), x modulo 2, y modulo 4, et χab(n)=(−1)^(ax)i^(by). Le coefficient de Fourier hχ=Σa∈T conj(χ(a)) est réel ici. Dans l'ordre des caractères primitifs induisant ces sept caractères non principaux :
+
+Caractère   (a,b)   conducteur   conjugué   hχ   vχ=|hχ|²
+5.2         (0,1)      5         5.3       1     1
+5.4         (0,2)      5         5.4       3     9
+5.3         (0,3)      5         5.2       1     1
+3.2         (1,0)      3         3.2      −1     1
+15.2        (1,1)     15         15.8      1     1
+15.14       (1,2)     15         15.14    −1     1
+15.8        (1,3)     15         15.2      1     1
+
+Le caractère principal a coefficient nul. Les remplacements par les caractères primitifs ne modifient que les premiers 2,3,5, donc E d'un terme tendant vers zéro. RH pour ζ n'est pas requise.
+
+Pour γ>0, noter mχ(γ) la multiplicité de 1/2+iγ dans L(s,χ), nγ=Σχmχ(γ), et Mγ=Σχhχmχ(γ). Le spectre actif Γ est l'ensemble DISTINCT des γ>0 tels que Mγ≠0. On agrège avant tout calcul de variance. La conjugaison donne mχ(−γ)=mconjχ(γ), sans identifier les deux listes positives des caractères complexes.
+
+B est l'ensemble des 67 ordonnées positives ≤25. Les certificats finis établissent qu'elles sont simples, distinctes entre les sept caractères, et complètes dans cette région ; ainsi B⊂Γ.
+
+Hypothèses globales du théorème :
+G : GRH pour chacune des sept fonctions L primitives du tableau.
+L : les 67 éléments de B sont linéairement indépendants sur Q.
+S : spanQ(B) ∩ spanQ(Γ\B)={0}.
+
+L et S expriment l'autosuffisance des 67 fréquences dans le spectre actif de cette observable. Elles sont plus faibles que LI jointe complète. Cette formulation relative à l'observable peut être plus faible que l'autosuffisance dans le multiensemble de tous les zéros du module, au sens de Martin–Ng. Aucune LI n'est déduite des décimales ou des intervalles finis.
+
+La non-annulation centrale est un fait fini supplémentaire certifié ici : audit_center_and_characters.py encadre directement les sept L(1/2,χ), sans GRH ni LI, à 256 et 320 bits. Dans les deux calculs |L(1/2,χ)|>1/10 pour chaque χ. Ce certificat partage le backend Arb/FLINT des autres calculs ; il remplace la dépendance au seul argument Kχ<4 pour justifier le centrage. Les bornes arrondies de module sont environ 0,794 ; 0,232 ; 0,794 ; 0,481 ; 0,552 ; 1,847 ; 0,552 ; seuls les intervalles exacts des reçus sont probants.
+
+2. Obligation I : existence de la distribution limite
+
+Sous G, le théorème 2.1 de Devin s'applique à la famille de Dirichlet du tableau, fermée par conjugaison, avec coefficients hχ=hconjχ réels. Ces L ont les propriétés analytiques requises ; les fonctions de second moment sont les L associées à χ², avec les facteurs finis ramifiés appropriés. La distribution limite de E pour la mesure dx/x existe, sans L, S ni LI complète.
+
+L'autre voie est le théorème 1.2(a) d'Akbary–Ng–Shahabi, après la formule explicite et son erreur quadratique moyenne : pour les coefficients rγ=−2Mγ/(1/2+iγ), Σt<γ≤t+1 |rγ|=O(log t/t), car les sept comptes locaux, avec multiplicité, sont O(log t). On prend β=1 et l'exposant logarithmique 1. Il s'agit du mécanisme B² presque périodique ; le théorème 1.9 d'ANS sous LI n'est pas nécessaire à cette obligation.
+
+GRH₇ est ici une hypothèse suffisante à la normalisation √x utilisée ; aucune nécessité logique de GRH n'est affirmée. Le résultat plus général de Devin sans GRH emploie la normalisation x^βS,0 et ne donne pas automatiquement notre conclusion pour E.
+
+3. Obligation II : moyenne et comportement après centrage
+
+Devin 2.1 donne m=−Σχ nonprincipal,χ²=1 hχ−2Σχhχmχ(0).
+Le premier terme vaut −(3−1−1)=−1. Il concorde avec le calcul fini μ(T)=3−4|T∩{1,19}|=−1. Les enclosures centrales ci-dessus donnent mχ(0)=0, donc m=−1.
+
+La réalité de la loi et son espérance ne prouvent pas sa symétrie. Une condition suffisante de symétrie, issue de Devin 2.3, impose que toute relation entière entre fréquences ait une somme de coefficients paire. Sur le tore actif, elle permet la translation de toutes les phases de π, qui change le signe de la partie centrée. LI complète implique cette condition. Notre théorème principal ne la suppose pas et ne conclut pas que la loi centrée est symétrique.
+
+Sous L et S, Kronecker–Weyl et la factorisation des tores (Devin, proposition 5.1 ; comparer Martin–Ng, lemme 3.9 et proposition 3.10) donnent
+X=−1+U+R, U=Σj=1^67 aj cos Θj, aj=2|hχj|/√(1/4+γj²),
+avec Θj uniformes indépendantes, U indépendant de R, ER=0.
+Les phases fixes des coefficients sont absorbées par des rotations des phases basses. Aucune rotation arbitraire du tore haut n'est supposée. Pour chaque troncature haute la factorisation est exacte ; les sommes hautes convergent en L². L'inégalité |exp(itv)−exp(itw)|≤|t||v−w| transmet la factorisation à la limite en L¹.
+
+La convergence L² et la variance proviennent de l'orthogonalité de caractères de Haar de fréquences positives distinctes. Elle ne requiert aucune LI dans le reste :
+Var(R)=2Σγ>25 |Mγ|²/(1/4+γ²).
+La convergence de cette série découle aussi de la majoration de comptage de la section suivante. En particulier, des relations comme γ3=γ1+γ2 peuvent créer des dépendances sans créer de covariance entre deux fréquences distinctes.
+
+La fonction caractéristique de U est P(t)=Πj J0(ajt). Les douze amplitudes sélectionnées dans le certificat donnent |P(t)|≤min(1,6t^−6). On utilise |J0(z)|≤min(1,√(2/(πz))) pour z>0 : si u=√z J0(z) et k=1+1/(4z²), alors u''+ku=0 et (u²+u'²/k)'=−k'u'²/k²≥0 ; l'asymptotique de Bessel donne la limite 2/π. Cette preuve justifie l'enveloppe sur toute la demi-droite.
+
+P et tP sont intégrables. Ainsi U a une densité C¹ bornée ; X, qui est sa convolution avec une probabilité, n'a pas d'atome. La convergence en loi permet alors l'indicatrice du signe : δ+ existe et vaut P(U+R>1). L'ajout du terme 3 entre modules 15 et 30 préserve cette conclusion. Pour cette obligation de continuité, l'extraction d'un bloc actif non constant convenablement séparé suffit en principe (Devin 2.2) ; les 67 phases indépendantes sont employées ici pour le contrôle quantitatif.
+
+4. Obligation III : majorer le signe sans symétrie du reste
+
+Poser g(r)=P(U+r>1). Un certificat global établit
+ g(r)≤Q(r)=67/200+(83/500)r+(11/500)r², r∈R.
+Par indépendance et ER=0,
+ δ+=E g(R)≤67/200+(11/500)Var(R).
+Il suffit donc de Var(R)<15/2 pour obtenir strictement δ+<1/2. Ce lemme résulte de l'intégration d'un majorant ; aucun théorème d'optimalité en problème de moments n'est invoqué.
+
+Preuve certifiée du majorant :
+– L'enveloppe de P donne ||f'U||∞≤[τ²/2+6/(4τ⁴)]/π<1/2, τ=3/2. Donc |(Q−g)''|≤0,544.
+– Sur [−5,3], les valeurs de g sur une grille de pas d sont encadrées par inversion de Fourier et Simpson validé. La perte entre deux nœuds est au plus 0,544d²/8. Avec d=1/16, la marge globale restante est >0,00811721298.
+– L'intégrande est a sinc(at)P(t), a=1−r, sur [0,12]. Son dérivé quatrième a module ≤3|a|[Var(U)+a²/3]² : c'est a fois la fonction caractéristique de Uniform[−|a|,|a|]+U, dont les quatrièmes cumulants sont non positifs. L'erreur Simpson est donc explicitement majorée ; la queue d'inversion vaut au plus 6/(6π12⁶). Quatre contrôles Arb par une autre quadrature sont conservés.
+– À gauche, g croît et Q décroît jusqu'à −5, où Q(−5)=0,055>g(−5). À droite de 3, Q croît et Q(3)=1,031>1≥g. Les trois régions couvrent R.
+Le rejeu à 192 bits du présent audit retrouve ce certificat. Un échantillonnage flottant seul ne suffirait pas.
+
+5. Variance : contrôle des multiplicités et de la queue infinie
+
+Les certificats internes à 256/320 bits comptent et isolent 995 zéros positifs jusqu'à H=200 : 114 pour 3.2 ; 130,129,129 pour 5.2,5.4,5.3 ; 165,164,164 pour 15.2,15.14,15.8. Les 995 intervalles sont disjoints, chaque racine est simple et le compte avec multiplicité sur un contour de la fonction complétée égale le nombre d'isolations. Aucun zéro n'est situé au bord. Ce fait fini ne suppose ni ne prouve GRH globale.
+
+Pour R=V200+R200, les fréquences des deux régions sont distinctes, donc Cov(V200,R200)=0, sans affirmer leur indépendance. Le calcul par intervalles donne
+ 0,64135059342784<Var(V200)<0,64135059342786.
+
+Pour la queue, Bennett–Martin–O'Bryant–Rechnitzer 2021, théorème 1.1, donne, pour χ primitif de conducteur q et t≥200,
+ |Nχ(t)−Fχ(t)|≤Eq(t),
+ Fχ(t)=t/π log(qt/(2πe))−χ(−1)/4,
+ Eq(t)=0,22737ℓq(t)+2log(1+ℓq(t))−1/2,
+ ℓq(t)=log(q(t+2)/(2π)).
+Nχ compte TOUTES les ordonnées |Imρ|≤t, avec multiplicité. Les conditions t≥5/7 et ℓq(t)>1,567 sont vérifiées pour q=3,5,15 et t≥200. Le théorème de comptage est inconditionnel.
+
+Soit B(t)=E3(t)+3E5(t)+3E15(t). La somme des sept Nχ a un saut 2nγ à toute hauteur γ>200 : les ordonnées négatives passent aux positives du conjugué. La partie principale est continue et l'erreur totale est bornée en valeur absolue par B. Les limites à gauche et à droite donnent nγ≤B(γ).
+
+Cauchy–Schwarz donne |Mγ|²≤nγΣχvχmχ(γ). La fermeture par conjugaison et vχ=vconjχ donnent exactement
+ Var(R200)≤Σχvχ ∫(H,∞) [B(t)/t²] dNχ(t).
+Le facteur 2 de la variance positive est ainsi absorbé par le compte signé. La substitution 1/(γ²+1/4)≤1/γ² ne fait qu'élargir la majoration.
+
+Voici le contrôle explicite de cette intégrale. Poser eq=Eq(H), dq=0,22737+2/(1+ℓq(H)), Lq=log(qH/(2π)), B0=e3+3e5+3e15 et D0=d3+3d5+3d15. Pour u=log(t/H),
+ Eq(t)≤eq+dq u, Eq'(t)≤dq/t, B(t)≤B0+D0u.
+Comme tB'(t)≤D0 et B(t)≥B0, le contrôle 2B0>D0 rend f=B/t² décroissante. Avec Gχ=Fχ+Eq, l'intégration de Stieltjes donne
+ ∫(H,∞) f dNχ≤f(H)[Gχ(H)−Nχ(H)]+∫H∞ fGχ' dt.
+En effet ∫f dN=−f(H)N(H)−∫Nf', et −f'≥0 permet N≤G. Le bord à l'infini s'annule. H n'est pas un saut du compte.
+
+En intégrant les majorants avec t=H exp(u),
+ Jχ = B0/H² [Gχ(H)−Nχ(H)]
+      +[B0Lq+B0+D0Lq+2D0]/(πH)
+      +dq/H²[B0/2+D0/4]
+est un majorant de l'intégrale. Les moments utilisés sont ceux de exp(−u) et exp(−2u). On a Nχ(H)=Pχ(H)+Pconjχ(H), et non 2Pχ(H) pour les caractères complexes. Le calcul signé exact fournit
+ Var(R200)<5,390185770657,
+ Var(R)<6,031536364085<6,032.
+Même en remplaçant Gχ(H)−Nχ(H) par 2eq, une borne plus grossière reste suffisante. Aucune borne uniforme conjecturale sur nγ n'est requise.
+
+Finalement
+ δ+<0,335+0,022×6,031536364085<0,467693800010<0,468<1/2.
+Les deux dernières variances et δ+ ne sont bornées que par le haut. En particulier 0,4677 n'est pas une estimation de la densité vraie. Cela termine la preuve conditionnelle assistée par ordinateur.
+
+6. Audit critique et confrontation à CU-BRUIT-02
+
+Points revus explicitement : Fourier et inductions primitives ; non-annulation centrale directe ; conjugaison des listes positives et négatives ; agrégation des multiplicités avant mise au carré ; covariance nulle sans indépendance du reste ; signe de l'intégration de Stieltjes et terme de bord ; majoration de g entre les nœuds et sur les deux régions extérieures ; factorisation et passage L² ; absence d'atome pour le signe.
+
+La relecture interne n'a pas identifié de rupture dans cette chaîne. Elle ajoute une justification directe du centrage et rend les dépendances de la preuve explicites. Elle n'est pas une expertise humaine indépendante ni une formalisation de l'analyse dans Lean.
+
+La formule μ=−1 de la note du 12 octobre est conservée. En revanche, μ<0 seule ne prouve pas δ+<1/2. Exemple : pour Θ uniforme, Y=−1−8(cosΘ+cos2Θ) a moyenne −1 et une loi sans atomes, mais P(Y>0)=[acos((−1−√8)/4)−acos((−1+√8)/4)]/π>1/2. Ce n'est pas un contre-exemple arithmétique à notre course.
+
+Si la loi centrée S est symétrique et sans atomes, on a δ+=1/2−P(|S|<1)/2. La stricte inégalité exige donc une masse centrale positive ; le corollaire 2.4 de Devin énonce une inégalité large, qu'on ne peut rendre stricte sans argument supplémentaire. La preuve principale ci-dessus contourne cette obligation de symétrie par un majorant quantitatif.
+
+L'ancienne enceinte 0,2875≤δ+≤0,2914 conserve LI complète. Elle ne peut pas être transférée au reste dépendant. Les proportions finies gelées jusqu'à 10^9 ne prouvent aucune convergence, et aucun nouveau crible jusqu'à 10^9 n'a été exécuté dans cet audit.
+
+7. Antériorité et portée des sources
+
+ANS 2014 : existence B² presque périodique, pas une validation du biais strict spécialisé sous LI affaiblie.
+Devin 2020 : existence, formule de moyenne/variance, blocs séparés et symétrie ; les caractères et leurs coefficients entrent dans son cadre. Son théorème 2.5(1), qui exige des parties réelles de coefficients non négatives, ne s'applique pas directement aux h3.2=h15.14=−1.
+Martin–Ng 2020 : autosuffisance et extraction de facteurs de convolution déjà établies. Leurs conclusions pour les ordres entre classes ne donnent pas automatiquement la borne 0,468 de cette forme linéaire.
+BMOR 2021 : comptage explicite avec multiplicité ; employé ici dans une majoration dérivée de variance.
+Bertsimas–Popescu 2005 : cadre classique des majorants et contraintes de moments. Notre lemme n'en requiert que l'idée élémentaire de dualité faible ; aucune dualité forte pour g non polynomial n'est affirmée.
+La bibliographie Martin et al., version arXiv v3 de décembre 2024, sert de carte des références ; elle ne couvre pas exhaustivement les travaux de 2025–2026.
+Bailleul–Hayani–Untrau 2026, théorème 5.17 : taux de convergence pour des poids généraux sous GRH et indépendance linéaire EFFECTIVE ELIA. C'est une piste pertinente pour comparer données finies et limite, mais elle ne remplace ni G,L,S ni notre contrôle du signe par une moyenne seule. Le présent audit n'en tire aucun taux effectif ou seuil numérique pour notre course. Le théorème 5.19 exige en outre des coefficients de Fourier dans {−1,0,1}, condition non satisfaite par h5.4=3 ; il n'est pas appliqué directement.
+
+Ce repérage établit plusieurs recouvrements classiques. Il ne prouve pas la nouveauté de la spécialisation quantitative. Aucune absence d'antécédent n'est certifiée. La priorité reste ouverte.
+
+8. Reproduction et prochaines obligations
+
+Fichiers centraux : audit_center_and_characters.py et reçus 256/320 ; audit_quadratic_majorant.py et reçus 128/192 ; certify_roots_height200.py et certificats 256/320 ; audit_variance_counting.py et reçus 128/192. Le manifeste et les sources importées sont conservés dans le paquet.
+
+Hypothèses mathématiques encore ouvertes : G, L, S. Travail de validation encore ouvert : relecture extérieure de l'argument et de la base de confiance informatique. Travail documentaire encore ouvert : comparaison d'antériorité plus complète. Le prochain effort utile est cette relecture, avant tout nouvel affaiblissement de L ou S.
+
+Le paquet est proposé en contribution GitHub en brouillon, avec une configuration CI ; son état d'exécution se lit sur la PR. Un succès CI constitue un rejeu informatique, pas une validation mathématique des hypothèses. Aucun nouveau message au chercheur n'est envoyé.
+
+Références primaires
+[A] Akbary–Ng–Shahabi, Q. J. Math. 65 (2014), 743–780, DOI 10.1093/qmath/hat059, théorèmes 1.2(a), 1.9 : https://www.math.ubc.ca/~gerg/teaching/592-Fall2018/papers/2014.Akbary.pdf
+[D] Devin, Chebyshev's bias for analytic L-functions, Math. Proc. Cambridge Philos. Soc. 169 (2020), 103–140, théorèmes 2.1–2.3, corollaire 2.4, proposition 5.1 : https://www-lmpa.univ-littoral.fr/~ldevin/Chebyshev_bias.pdf
+[MN] Martin–Ng, Inclusive prime number races, Trans. AMS 373 (2020), 3561–3607, DOI 10.1090/tran/7996 : https://personal.math.ubc.ca/~gerg/papers/downloads/IPNR.pdf
+[B] Bennett–Martin–O'Bryant–Rechnitzer, Math. Comp. 90 (2021), 1455–1482, DOI 10.1090/mcom/3599, théorème 1.1 : https://personal.math.ubc.ca/~bennett/BeMaObRe-MathComp-2021.pdf
+[BP] Bertsimas–Popescu, SIAM J. Optim. 15 (2005), 780–804, DOI 10.1137/S1052623401399903 : https://web.mit.edu/dbertsim/www/papers/MomentProblems/Optimal-inequalities-in-probability-theory-A-convex-optimization-approach-SIAM15.pdf
+[BHU] Bailleul–Hayani–Untrau, A Wasserstein metric approach to generalized Skewes' numbers. I. Prime number races, prépublication 2026, théorèmes 5.17 et 5.19 : https://arxiv.org/abs/2603.20093
+[Carte] Martin et al., An annotated bibliography for comparative prime number theory, arXiv:2309.08729v3 : https://arxiv.org/abs/2309.08729
+[Bessel] NIST DLMF, équation 10.2, intégrales 10.9, asymptotiques 10.17 : https://dlmf.nist.gov/10.2 ; https://dlmf.nist.gov/10.9 ; https://dlmf.nist.gov/10.17

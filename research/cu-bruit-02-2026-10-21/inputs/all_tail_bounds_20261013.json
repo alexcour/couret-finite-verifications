@@ -1,0 +1,620 @@
+{
+  "GRH_required_for_residual_as_phase_tail_weight": true,
+  "Gaussian_density_evaluated_by_this_program": false,
+  "conditional_on_zero_certificate_trust_base": true,
+  "counts_by_character": {
+    "15.14": 13,
+    "15.2": 12,
+    "15.8": 12,
+    "3.2": 6,
+    "5.2": 8,
+    "5.3": 8,
+    "5.4": 8
+  },
+  "cutoff_exact": "25",
+  "global_GRH_or_LI_proved": false,
+  "id": "CU-BRUIT-ALL-TAIL-BOUNDS-20261013",
+  "independent_human_review_claimed": false,
+  "independent_uniform_phases_required_for_probability_bounds": true,
+  "input_sha256": {
+    "q15_root_interval_certificate_20261012.json": "b694a1e8382b25fb3843f80854721a9c569377344d7818e10fb85f5f9c5ff684",
+    "q3_q5_root_interval_certificate_20261013.json": "5284f66aca1ae9c8df2986214c33020d14fd082840c6e4c8ad9829101545340f",
+    "spectral_constants_certificate_20261012.json": "7d511b7d67697b287e41f1459e3e635b39a66cf6aa5c9c4897a7c1121ab64355"
+  },
+  "originality_claimed": false,
+  "positive_roots": 67,
+  "prime_race_density_certified": false,
+  "profiles": {
+    "C15": {
+      "bessel_product_C_upper_exact": "468223607517/250000000000",
+      "conditional_full_tail_P2_upper": {
+        "decimal_upper_bound": "0.046823",
+        "upper_exact": "4424069193573059891605967/94485108589255861435629568"
+      },
+      "conditional_full_tail_variance": {
+        "decimal_outer_bounds": [
+          "0.880018",
+          "0.952594"
+        ],
+        "lower_exact": "531938449074156257382635/604462909807314587353088",
+        "upper_exact": "1151614686561375957250847/1208925819614629174706176"
+      },
+      "integral_t_cubed_envelope_upper_exact": "1872067804099/1642800000000",
+      "selected_independent_low_phases": 12,
+      "selected_phase_witnesses": [
+        {
+          "amplitude_lower_exact": "804358825523/500000000000",
+          "character": "15.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "40335158853/40000000000",
+          "character": "15.8",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "849118596909/1000000000000",
+          "character": "15.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "135319954481/200000000000",
+          "character": "15.8",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "645653264827/1000000000000",
+          "character": "15.14",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "270069149387/500000000000",
+          "character": "15.8",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "21221289779/40000000000",
+          "character": "15.2",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "240209140387/500000000000",
+          "character": "5.3",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "175380199/400000000",
+          "character": "15.2",
+          "index_1based": 4
+        },
+        {
+          "amplitude_lower_exact": "216289668747/500000000000",
+          "character": "15.8",
+          "index_1based": 4
+        },
+        {
+          "amplitude_lower_exact": "187623192081/500000000000",
+          "character": "15.2",
+          "index_1based": 5
+        },
+        {
+          "amplitude_lower_exact": "372679925973/1000000000000",
+          "character": "15.14",
+          "index_1based": 2
+        }
+      ],
+      "smooth_error_coefficient_upper": {
+        "decimal_upper_bound": "0.002195",
+        "upper_exact": "13272207580719179674817901/6047046949712375131880292352"
+      },
+      "split_t_exact": "111/100",
+      "uniform_characteristic_error_coefficient_upper": {
+        "decimal_upper_bound": "0.001464",
+        "upper_exact": "4424069193573059891605967/3023523474856187565940146176"
+      },
+      "uniform_threshold_probability_error_upper": {
+        "decimal_upper_bound": "0.000556",
+        "upper_exact": "8282157500394351995002993604255458733/14901133093481234799979416413798400000000"
+      },
+      "v_by_signed_representative": {
+        "0,1": 1,
+        "0,2": 1,
+        "1,0": 1,
+        "1,1": 5,
+        "1,2": 1
+      }
+    },
+    "C5": {
+      "bessel_product_C_upper_exact": "5515764758879/1000000000000",
+      "conditional_full_tail_P2_upper": {
+        "decimal_upper_bound": "0.038249",
+        "upper_exact": "3613911858657332993897231/94485108589255861435629568"
+      },
+      "conditional_full_tail_variance": {
+        "decimal_outer_bounds": [
+          "0.776698",
+          "0.840903"
+        ],
+        "lower_exact": "469485675086656436342619/604462909807314587353088",
+        "upper_exact": "1016588464075421474299391/1208925819614629174706176"
+      },
+      "integral_t_cubed_envelope_upper_exact": "16566430371527/7075600000000",
+      "selected_independent_low_phases": 12,
+      "selected_phase_witnesses": [
+        {
+          "amplitude_lower_exact": "268561983361/250000000000",
+          "character": "5.3",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "28835002563/40000000000",
+          "character": "5.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "179860101217/250000000000",
+          "character": "15.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "645653264827/1000000000000",
+          "character": "15.14",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "527872731759/1000000000000",
+          "character": "5.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "3694794167/7812500000",
+          "character": "5.3",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "450960785393/1000000000000",
+          "character": "15.8",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "395975557271/1000000000000",
+          "character": "5.3",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "379737380729/1000000000000",
+          "character": "15.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "372679925973/1000000000000",
+          "character": "15.14",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "88139630661/250000000000",
+          "character": "5.2",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "63325340923/200000000000",
+          "character": "5.3",
+          "index_1based": 4
+        }
+      ],
+      "smooth_error_coefficient_upper": {
+        "decimal_upper_bound": "0.001793",
+        "upper_exact": "10841735575971998981691693/6047046949712375131880292352"
+      },
+      "split_t_exact": "133/100",
+      "uniform_characteristic_error_coefficient_upper": {
+        "decimal_upper_bound": "0.001196",
+        "upper_exact": "3613911858657332993897231/3023523474856187565940146176"
+      },
+      "uniform_threshold_probability_error_upper": {
+        "decimal_upper_bound": "0.000933",
+        "upper_exact": "59869619175282432141471859778986541737/64179728096077322224698294848716800000000"
+      },
+      "v_by_signed_representative": {
+        "0,1": 5,
+        "0,2": 1,
+        "1,0": 1,
+        "1,1": 1,
+        "1,2": 1
+      }
+    },
+    "Q15": {
+      "bessel_product_C_upper_exact": "1992715931483/1000000000000",
+      "conditional_full_tail_P2_upper": {
+        "decimal_upper_bound": "0.073936",
+        "upper_exact": "6985828992183674597836783/94485108589255861435629568"
+      },
+      "conditional_full_tail_variance": {
+        "decimal_outer_bounds": [
+          "0.871921",
+          "0.947945"
+        ],
+        "lower_exact": "527044192489279638961431/604462909807314587353088",
+        "upper_exact": "1145994305861502713125519/1208925819614629174706176"
+      },
+      "integral_t_cubed_envelope_upper_exact": "119185090963/100352000000",
+      "selected_independent_low_phases": 12,
+      "selected_phase_witnesses": [
+        {
+          "amplitude_lower_exact": "1936959794481/1000000000000",
+          "character": "15.14",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "1118039777921/1000000000000",
+          "character": "15.14",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "411815828119/500000000000",
+          "character": "15.14",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "179860101217/250000000000",
+          "character": "15.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "147840411163/250000000000",
+          "character": "15.14",
+          "index_1based": 4
+        },
+        {
+          "amplitude_lower_exact": "123254165831/250000000000",
+          "character": "15.14",
+          "index_1based": 5
+        },
+        {
+          "amplitude_lower_exact": "240209140387/500000000000",
+          "character": "5.3",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "450960785393/1000000000000",
+          "character": "15.8",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "444488961221/1000000000000",
+          "character": "15.14",
+          "index_1based": 6
+        },
+        {
+          "amplitude_lower_exact": "196739266957/500000000000",
+          "character": "15.14",
+          "index_1based": 7
+        },
+        {
+          "amplitude_lower_exact": "379737380729/1000000000000",
+          "character": "15.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "360553702731/1000000000000",
+          "character": "15.14",
+          "index_1based": 8
+        }
+      ],
+      "smooth_error_coefficient_upper": {
+        "decimal_upper_bound": "0.003466",
+        "upper_exact": "20957486976551023793510349/6047046949712375131880292352"
+      },
+      "split_t_exact": "28/25",
+      "uniform_characteristic_error_coefficient_upper": {
+        "decimal_upper_bound": "0.002311",
+        "upper_exact": "6985828992183674597836783/3023523474856187565940146176"
+      },
+      "uniform_threshold_probability_error_upper": {
+        "decimal_upper_bound": "0.000915",
+        "upper_exact": "832606663885373872946769424882292029/910249883246304403851676647161856000000"
+      },
+      "v_by_signed_representative": {
+        "0,1": 1,
+        "0,2": 1,
+        "1,0": 1,
+        "1,1": 1,
+        "1,2": 9
+      }
+    },
+    "Q3": {
+      "bessel_product_C_upper_exact": "11865365964847/500000000000",
+      "conditional_full_tail_P2_upper": {
+        "decimal_upper_bound": "0.053821",
+        "upper_exact": "5085213271418004178288223/94485108589255861435629568"
+      },
+      "conditional_full_tail_variance": {
+        "decimal_outer_bounds": [
+          "0.717918",
+          "0.790730"
+        ],
+        "lower_exact": "433955152396227096199615/604462909807314587353088",
+        "upper_exact": "955932733784935671170663/1208925819614629174706176"
+      },
+      "integral_t_cubed_envelope_upper_exact": "16546022604490079/4643871600000000",
+      "selected_independent_low_phases": 14,
+      "selected_phase_witnesses": [
+        {
+          "amplitude_lower_exact": "186213499279/250000000000",
+          "character": "3.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "179860101217/250000000000",
+          "character": "15.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "645653264827/1000000000000",
+          "character": "15.14",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "532844886493/1000000000000",
+          "character": "3.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "240209140387/500000000000",
+          "character": "5.3",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "450960785393/1000000000000",
+          "character": "15.8",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "95464928379/250000000000",
+          "character": "3.2",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "379737380729/1000000000000",
+          "character": "15.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "372679925973/1000000000000",
+          "character": "15.14",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "328428059041/1000000000000",
+          "character": "3.2",
+          "index_1based": 4
+        },
+        {
+          "amplitude_lower_exact": "322385129311/1000000000000",
+          "character": "5.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "302584616931/1000000000000",
+          "character": "15.8",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "299974733107/1000000000000",
+          "character": "5.4",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "58645635809/200000000000",
+          "character": "3.2",
+          "index_1based": 5
+        }
+      ],
+      "smooth_error_coefficient_upper": {
+        "decimal_upper_bound": "0.002523",
+        "upper_exact": "15255639814254012534864669/6047046949712375131880292352"
+      },
+      "split_t_exact": "157/100",
+      "uniform_characteristic_error_coefficient_upper": {
+        "decimal_upper_bound": "0.001682",
+        "upper_exact": "5085213271418004178288223/3023523474856187565940146176"
+      },
+      "uniform_threshold_probability_error_upper": {
+        "decimal_upper_bound": "0.001998",
+        "upper_exact": "84140053737535240501366647854684006039617/42122564390453890565227716379725004800000000"
+      },
+      "v_by_signed_representative": {
+        "0,1": 1,
+        "0,2": 1,
+        "1,0": 9,
+        "1,1": 1,
+        "1,2": 1
+      }
+    },
+    "Q5": {
+      "bessel_product_C_upper_exact": "6914450088843/1000000000000",
+      "conditional_full_tail_P2_upper": {
+        "decimal_upper_bound": "0.060445",
+        "upper_exact": "5711120298224190549588463/94485108589255861435629568"
+      },
+      "conditional_full_tail_variance": {
+        "decimal_outer_bounds": [
+          "0.747557",
+          "0.842503"
+        ],
+        "lower_exact": "451870654936549381908331/604462909807314587353088",
+        "upper_exact": "1018523436465554308300687/1208925819614629174706176"
+      },
+      "integral_t_cubed_envelope_upper_exact": "691188753829/253920000000",
+      "selected_independent_low_phases": 12,
+      "selected_phase_witnesses": [
+        {
+          "amplitude_lower_exact": "449962099661/500000000000",
+          "character": "5.4",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "179860101217/250000000000",
+          "character": "15.2",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "645653264827/1000000000000",
+          "character": "15.14",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "609499009827/1000000000000",
+          "character": "5.4",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "125320679159/250000000000",
+          "character": "5.4",
+          "index_1based": 3
+        },
+        {
+          "amplitude_lower_exact": "240209140387/500000000000",
+          "character": "5.3",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "450960785393/1000000000000",
+          "character": "15.8",
+          "index_1based": 1
+        },
+        {
+          "amplitude_lower_exact": "379737380729/1000000000000",
+          "character": "15.2",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "93506793187/250000000000",
+          "character": "5.4",
+          "index_1based": 4
+        },
+        {
+          "amplitude_lower_exact": "372679925973/1000000000000",
+          "character": "15.14",
+          "index_1based": 2
+        },
+        {
+          "amplitude_lower_exact": "170705672231/500000000000",
+          "character": "5.4",
+          "index_1based": 5
+        },
+        {
+          "amplitude_lower_exact": "322385129311/1000000000000",
+          "character": "5.2",
+          "index_1based": 1
+        }
+      ],
+      "smooth_error_coefficient_upper": {
+        "decimal_upper_bound": "0.002834",
+        "upper_exact": "17133360894672571648765389/6047046949712375131880292352"
+      },
+      "split_t_exact": "69/50",
+      "uniform_characteristic_error_coefficient_upper": {
+        "decimal_upper_bound": "0.001889",
+        "upper_exact": "5711120298224190549588463/3023523474856187565940146176"
+      },
+      "uniform_threshold_probability_error_upper": {
+        "decimal_upper_bound": "0.001714",
+        "upper_exact": "3947462121897085107632288369765474827/2303199242206449440230565751029760000000"
+      },
+      "v_by_signed_representative": {
+        "0,1": 1,
+        "0,2": 9,
+        "1,0": 1,
+        "1,1": 1,
+        "1,2": 1
+      }
+    }
+  },
+  "replacement_scope": "All seven-character phases with positive ordinate >25; 67 low phases retained",
+  "status": "EXACT_67_ROOT_AGGREGATION_AND_CONDITIONAL_FULL_TAIL_BOUNDS",
+  "unconditional_Hadamard_low_masses": {
+    "0,1": {
+      "decimal_outer_bounds": [
+        "0.152292",
+        "0.152293"
+      ],
+      "lower_exact": "92054926648687864672573/604462909807314587353088",
+      "upper_exact": "92054926648687864672581/604462909807314587353088"
+    },
+    "0,2": {
+      "decimal_outer_bounds": [
+        "0.106425",
+        "0.106426"
+      ],
+      "lower_exact": "64330379785396054712489/604462909807314587353088",
+      "upper_exact": "64330379785396054712493/604462909807314587353088"
+    },
+    "1,0": {
+      "decimal_outer_bounds": [
+        "0.068920",
+        "0.068921"
+      ],
+      "lower_exact": "83319207156631609841677/1208925819614629174706176",
+      "upper_exact": "83319207156631609841683/1208925819614629174706176"
+    },
+    "1,1": {
+      "decimal_outer_bounds": [
+        "0.342186",
+        "0.342187"
+      ],
+      "lower_exact": "51709807103262751909203/151115727451828646838272",
+      "upper_exact": "25854903551631375954603/75557863725914323419136"
+    },
+    "1,2": {
+      "decimal_outer_bounds": [
+        "0.396405",
+        "0.396406"
+      ],
+      "lower_exact": "59903108906820574728641/151115727451828646838272",
+      "upper_exact": "479224871254564597829141/1208925819614629174706176"
+    }
+  },
+  "unconditional_positive_Hadamard_residuals": {
+    "0,1": {
+      "decimal_outer_bounds": [
+        "0.049997",
+        "0.053712"
+      ],
+      "lower_exact": "30221390651301375338495/604462909807314587353088",
+      "upper_exact": "32466542432273893994973/604462909807314587353088"
+    },
+    "0,2": {
+      "decimal_outer_bounds": [
+        "0.046354",
+        "0.053912"
+      ],
+      "lower_exact": "28019513132537993534209/604462909807314587353088",
+      "upper_exact": "16293739103328598060027/302231454903657293676544"
+    },
+    "1,0": {
+      "decimal_outer_bounds": [
+        "0.042649",
+        "0.047440"
+      ],
+      "lower_exact": "51560150629995415641239/1208925819614629174706176",
+      "upper_exact": "57351118578237062598855/1208925819614629174706176"
+    },
+    "1,1": {
+      "decimal_outer_bounds": [
+        "0.062912",
+        "0.067673"
+      ],
+      "lower_exact": "38027987399738852968497/604462909807314587353088",
+      "upper_exact": "40905681337646049179439/604462909807314587353088"
+    },
+    "1,2": {
+      "decimal_outer_bounds": [
+        "0.061899",
+        "0.067092"
+      ],
+      "lower_exact": "74832410653258551331693/1208925819614629174706176",
+      "upper_exact": "20277203771951985710803/302231454903657293676544"
+    }
+  }
+}
