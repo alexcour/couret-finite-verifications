@@ -1,6 +1,6 @@
 # Exact 101-state observation of factor-pair residue types modulo 30
 
-This expanded preparation exposes seven mathematical statements, rather than only a table-specific lower bound. A supplied list of prime factors of n > 1 with gcd(n,30)=1 is mapped to the eight units modulo 30. The direct execution theorem connects the 101-state machine to the table observation and to the represented nontrivial factor-pair residue types. Repeated prime occurrences are allowed. It counts residue types, not individual divisor pairs, and takes the prime factorization as input.
+This expanded preparation exposes seven mathematical results and two additional execution laws, rather than only a table-specific lower bound. A supplied list of prime factors of n > 1 with gcd(n,30)=1 is mapped to the eight units modulo 30. The direct execution theorem connects the 101-state machine to the table observation and to the represented nontrivial factor-pair residue types. Repeated prime occurrences are allowed. It counts residue types, not individual divisor pairs, and takes the prime factorization as input.
 
 The selected statements also establish exact 147-state semantic reachability, equality of classes exactly when all future observations agree, reachability of all 101 classes, correctness of the explicit machine on Fin 101, and a universal lower bound of 101 reachable states for every deterministic machine reproducing the exact table observation. The lower bound does not assume a finite competing state type.
 
@@ -15,10 +15,12 @@ The observation-specific quotient is an application of the classical distinguish
 - `quotientMachine_correct`: The explicit machine on Fin 101 reproduces the table output for every word.
 - `minimal_101_states`: Every deterministic machine with these outputs has 101 distinct reachable states, even without a finite state-type assumption.
 - `factorization_quotient_observation`: The actual quotient run is linked to the supplied factorization and its factor-pair residue types.
+- `machineRun_empty`: The empty-word equation fixes the base case of the generic run interface.
+- `machineRun_snoc`: The append equation fixes every transition of the generic run interface; together with the base case it uniquely constrains execution.
 
 ## Audit and verification
 
-`ChallengeComplete101.lean` imports only Std. It copies ordinary semantic definitions and fixes all computational tables and operations. Its only intentional holes are the seven selected theorem proofs. `SolutionComplete101.lean` imports the earlier proof development and adds the direct execution bridge. `comparator-complete101.json` selects all seven claims; it has no unconstrained definition targets.
+`ChallengeComplete101.lean` imports only Std. It fixes ordinary semantic definitions, arithmetic operations and finite tables. The generic machineRun definition is implemented by the Solution and uniquely constrained by the separately compared empty-word and append equations for every state type, machine and starting state. Induction on a word determines its behavior completely. `SolutionComplete101.lean` imports the earlier proof development and adds the two semantic bridges and the two run equations. `comparator-complete101.json` selects nine theorem proofs and this one constrained definition target.
 
 The earlier official run 44626540794 passed the original one-theorem configuration at commit 0f534367088531a2de7a98cd095a6aabe825e1b2. That run does not certify this new configuration. A fresh predictive check is required before treating this expanded preparation as mechanically verified. No Palomar registration is claimed.
 

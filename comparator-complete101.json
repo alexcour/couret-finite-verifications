@@ -8,7 +8,12 @@
     "Couret.Certificate.every_quotient_class_reachable",
     "Couret.Certificate.quotientMachine_correct",
     "Couret.Certificate.minimal_101_states",
-    "Couret.Certificate.factorization_quotient_observation"
+    "Couret.Certificate.factorization_quotient_observation",
+    "Couret.Certificate.machineRun_empty",
+    "Couret.Certificate.machineRun_snoc"
+  ],
+  "definition_names": [
+    "Couret.Certificate.machineRun"
   ],
   "permitted_axioms": [
     "propext",
