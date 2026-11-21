@@ -11,7 +11,6 @@ set_option maxHeartbeats 8000000
 namespace Couret
 namespace Certificate
 
-def decoded (i : StateId) : State Code30 := decode (entry i)
 
 theorem decoded_injective {i j : StateId} (h : decoded i = decoded j) : i = j :=
   entry_injective i j (decode_injective h)
@@ -144,9 +143,6 @@ theorem coded_product_iff (n : Nat) (hc : Nat.gcd n 30 = 1) (a b : Symbol) :
     rw [mul30_residue, decode_encode30 n hc]
     exact h
 
-def factorPair (n : Nat) (a b : Symbol) : Prop :=
-  ∃ d e : Nat, 1 < d ∧ 1 < e ∧ d * e = n ∧
-    d % 30 = residue30 (symbolCode a) ∧ e % 30 = residue30 (symbolCode b) ∧ a.val ≤ b.val
 
 theorem code_left_cancel : ∀ a b c : Code30, mul30 a b = mul30 a c → b = c := by decide
 
@@ -262,14 +258,7 @@ theorem tableRun_append (i : StateId) (u v : Word Symbol) :
   | empty => rfl
   | snoc v g ih => change tableNext (tableRun i (appendWord u v)) g = _; rw [ih]; rfl
 
-structure ObservationMachine (β : Type) where
-  initial : β
-  next : β → Symbol → β
-  output : β → Nat
 
-def machineRun {β : Type} (M : ObservationMachine β) (b : β) : Word Symbol → β
-  | .empty => b
-  | .snoc w g => M.next (machineRun M b w) g
 
 theorem machineRun_append {β : Type} (M : ObservationMachine β) (b : β)
     (u v : Word Symbol) :
@@ -304,10 +293,6 @@ theorem minimal_101_states {β : Type} (M : ObservationMachine β)
     simpa only [representatives_checked] using hs
   · intro c; exact ⟨reachWord (representative c), rfl⟩
 
-def quotientMachine : ObservationMachine ClassId where
-  initial := 0
-  next := quotientNext
-  output := quotientOutput
 
 theorem quotientMachine_run (c : ClassId) (w : Word Symbol) :
     machineRun quotientMachine c w = quotientRun c w := by

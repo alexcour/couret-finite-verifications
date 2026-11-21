@@ -2,7 +2,7 @@
   "version": "v0.4",
   "project": {
     "name": "Exact 101-state observation of factor-pair residue types modulo 30",
-    "description": "Seven mathematical results expose the semantic correctness and exact 147-state reachability of the modulo-30 table, the characterization and reachability of its 101 observational classes, an explicit correct 101-state machine, the universal reachable-state lower bound, and an end-to-end link from supplied prime factorizations of n > 1 coprime to 30 to that machine and the represented nontrivial factor-pair residue types. Two additional selected recursion laws uniquely constrain the generic run interface. Minimality is relative to the exact output interface. No general integer-factorization algorithm or mathematical novelty is claimed.",
+    "description": "Seven mathematical results expose the semantic correctness and exact 147-state reachability of the modulo-30 table, the characterization and reachability of its 101 observational classes, an explicit correct 101-state machine, the universal reachable-state lower bound, and an end-to-end link from supplied prime factorizations of n > 1 coprime to 30 to that machine and the represented nontrivial factor-pair residue types. Two additional selected recursion laws document the fixed generic run interface. Minimality is relative to the exact output interface. No general integer-factorization algorithm or mathematical novelty is claimed.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -61,7 +61,7 @@
     }
   ],
   "status": {
-    "scope": "Seven mathematical results expose the semantic correctness and exact 147-state reachability of the modulo-30 table, the characterization and reachability of its 101 observational classes, an explicit correct 101-state machine, the universal reachable-state lower bound, and an end-to-end link from supplied prime factorizations of n > 1 coprime to 30 to that machine and the represented nontrivial factor-pair residue types. Two additional selected recursion laws uniquely constrain the generic run interface. Minimality is relative to the exact output interface. No general integer-factorization algorithm or mathematical novelty is claimed. This expanded Challenge and its new bridge require fresh mechanical verification; the earlier one-theorem PASS does not certify this expanded configuration.",
+    "scope": "Seven mathematical results expose the semantic correctness and exact 147-state reachability of the modulo-30 table, the characterization and reachability of its 101 observational classes, an explicit correct 101-state machine, the universal reachable-state lower bound, and an end-to-end link from supplied prime factorizations of n > 1 coprime to 30 to that machine and the represented nontrivial factor-pair residue types. Two additional selected recursion laws document the fixed generic run interface. Minimality is relative to the exact output interface. No general integer-factorization algorithm or mathematical novelty is claimed. The completed proof-side development has no admitted theorems; the standalone Challenge contains nine intentional theorem proof holes. All definitions are fixed. This expanded configuration requires fresh verification; the earlier one-theorem PASS does not certify it.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": [
@@ -103,7 +103,7 @@
     "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "Semantic definitions are copied into a standalone Std-only Challenge without importing project proof modules. All arithmetic operations and finite tables are fixed. The generic machineRun implementation is a compared definition hole uniquely constrained for every state type, machine, starting state and word by two separately compared recursion equations. The original executable structural recursions are retained. Named nonzero and positivity witnesses stabilize proof-instance arguments across independently elaborated modules. Two bridge statements compose existing proofs into independent proper-selection semantics and direct execution-to-factor-pair-residue statements."
+    "divergences": "The ordinary semantic and finite-interface definitions are collected in InterfaceDefinitions101 on the proof side and copied independently into a standalone Std-only Challenge. Historical proof modules import the proof-side interface transitively; the Challenge imports no project code and the Solution imports no Challenge. All computational definitions and tables are fixed, with no definition holes. The original executable structural recursions are retained. Named nonzero and positivity witnesses stabilize proof-instance arguments. Two bridge statements compose existing proofs into independent proper-selection semantics and direct execution-to-factor-pair-residue statements."
   },
   "review": {
     "status": "Preparation; expanded configuration not yet mechanically verified; no independent human review",
