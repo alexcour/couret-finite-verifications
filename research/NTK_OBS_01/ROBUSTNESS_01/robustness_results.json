@@ -1,0 +1,175 @@
+{
+  "baseline": {
+    "eta": "1/2",
+    "hankel_determinant": "25/64",
+    "m": [
+      "5",
+      "25/16",
+      "145/256",
+      "985/4096"
+    ],
+    "q": [
+      "9/16",
+      "1/4"
+    ],
+    "s1": "13/16",
+    "s2": "9/64",
+    "w": [
+      "1",
+      "4"
+    ]
+  },
+  "certificate_for_all_componentwise_errors": {
+    "R": "1082979287625/2047883265663488",
+    "description": "Symbolic inequality for every error vector |e_k| <= eps, not merely test-grid noise",
+    "eps": "1/1000000",
+    "gamma": "5129904560625/16383066125307904",
+    "h0": "4/57",
+    "hankel_D_abs_error_bound": "34765633/4000000000000",
+    "lambda_error_lt": "3/1000 (positive branch, eta=1/2)",
+    "node_error_lt": "1/1000",
+    "rho": "7125/127996352",
+    "weight_error_lt": "1/50"
+  },
+  "colliding_family": [
+    {
+      "D_A": "1/64",
+      "D_B": "1/16",
+      "d": "1/8",
+      "lower_bound_over_noise": "16/9",
+      "max_raw_moment_distance": "9/128",
+      "midpoint_noise_radius": "9/256",
+      "minimax_node_error_lower_bound": "1/16",
+      "model_A_nodes": [
+        "5/8",
+        "3/8"
+      ],
+      "model_B_nodes": [
+        "3/4",
+        "1/4"
+      ]
+    },
+    {
+      "D_A": "1/256",
+      "D_B": "1/64",
+      "d": "1/16",
+      "lower_bound_over_noise": "32/9",
+      "max_raw_moment_distance": "9/512",
+      "midpoint_noise_radius": "9/1024",
+      "minimax_node_error_lower_bound": "1/32",
+      "model_A_nodes": [
+        "9/16",
+        "7/16"
+      ],
+      "model_B_nodes": [
+        "5/8",
+        "3/8"
+      ]
+    },
+    {
+      "D_A": "1/4096",
+      "D_B": "1/1024",
+      "d": "1/64",
+      "lower_bound_over_noise": "128/9",
+      "max_raw_moment_distance": "9/8192",
+      "midpoint_noise_radius": "9/16384",
+      "minimax_node_error_lower_bound": "1/128",
+      "model_A_nodes": [
+        "33/64",
+        "31/64"
+      ],
+      "model_B_nodes": [
+        "17/32",
+        "15/32"
+      ]
+    },
+    {
+      "D_A": "1/65536",
+      "D_B": "1/16384",
+      "d": "1/256",
+      "lower_bound_over_noise": "512/9",
+      "max_raw_moment_distance": "9/131072",
+      "midpoint_noise_radius": "9/262144",
+      "minimax_node_error_lower_bound": "1/512",
+      "model_A_nodes": [
+        "129/256",
+        "127/256"
+      ],
+      "model_B_nodes": [
+        "65/128",
+        "63/128"
+      ]
+    },
+    {
+      "D_A": "1/1048576",
+      "D_B": "1/262144",
+      "d": "1/1024",
+      "lower_bound_over_noise": "2048/9",
+      "max_raw_moment_distance": "9/2097152",
+      "midpoint_noise_radius": "9/4194304",
+      "minimax_node_error_lower_bound": "1/2048",
+      "model_A_nodes": [
+        "513/1024",
+        "511/1024"
+      ],
+      "model_B_nodes": [
+        "257/512",
+        "255/512"
+      ]
+    },
+    {
+      "D_A": "1/1000000",
+      "D_B": "1/250000",
+      "d": "1/1000",
+      "lower_bound_over_noise": "2000/9",
+      "max_raw_moment_distance": "9/2000000",
+      "midpoint_noise_radius": "9/4000000",
+      "minimax_node_error_lower_bound": "1/2000",
+      "model_A_nodes": [
+        "501/1000",
+        "499/1000"
+      ],
+      "model_B_nodes": [
+        "251/500",
+        "249/500"
+      ]
+    }
+  ],
+  "environment": "Python standard library, fractions.Fraction, integer isqrt, deterministic",
+  "id": "NTK-OBS-01-ROBUSTNESS-2026-10-11",
+  "limitations": [
+    "two fixed positive modes only",
+    "absolute componentwise noise only",
+    "unweighted spectrum and branch alias not identified",
+    "not externally reviewed"
+  ],
+  "rank_collapse_example": {
+    "center": "1/2",
+    "componentwise_error_radius": "3/2000000",
+    "d": "1/1000",
+    "observed_D": "0",
+    "observed_moments": [
+      "1",
+      "1/2",
+      "1/4",
+      "1/8"
+    ],
+    "original_D": "1/1000000",
+    "true_moments": [
+      "1",
+      "1/2",
+      "250001/1000000",
+      "250003/2000000"
+    ]
+  },
+  "status": "internal exact rational checks only; no external audit",
+  "stress_test": {
+    "cases": 81,
+    "description": "Cases sampled, not an exhaustive check of continuous noise cube",
+    "grid": "{-eps,0,+eps}^4",
+    "interval_sqrt_digits": 18,
+    "max_certified_node_error_upper_12dp": "0.000025001182",
+    "max_certified_weight_error_upper_12dp": "0.000176011700",
+    "min_perturbed_D": "3999911/10240000"
+  }
+}
