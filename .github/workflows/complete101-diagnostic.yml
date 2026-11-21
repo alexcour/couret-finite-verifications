@@ -1,0 +1,29 @@
+name: Diagnose 101-state encoding declarations
+on:
+  push:
+    branches: [palomar/complete101-diagnostic-20261121]
+permissions:
+  contents: read
+jobs:
+  encoding:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          build: false
+          use-mathlib-cache: false
+      - name: Inspect declaration values and reducibility hints
+        shell: bash
+        run: |
+          lake build ChallengeComplete101 MaskSemantics
+          python3 - <<'PY'
+          from pathlib import Path
+          for mod in ['ChallengeComplete101','MaskSemantics']:
+              text = 'module\npublic import Lean\npublic import '+mod+'\nopen Lean Elab Command\nset_option pp.all true\n'
+              for name in ['Couret.Certificate.symbolCode','Couret.Certificate.codeSymbol','Couret.residue30']:
+                  text += 'run_cmd do\n  let some (.defnInfo d) := (← getEnv).find? `'+name+' | throwError "missing definition"\n  logInfo m!"NAME '+name+' HINTS {repr d.hints} LEVELS {d.levelParams}"\n  logInfo m!"TYPE {d.type}"\n  logInfo m!"VALUE {d.value}"\n'
+              Path('Print'+mod+'.lean').write_text(text)
+          PY
+          lake env lean PrintChallengeComplete101.lean
+          lake env lean PrintMaskSemantics.lean
