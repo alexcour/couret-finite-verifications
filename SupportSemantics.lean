@@ -20,6 +20,7 @@ instance (priority := 2000) instNeZero30 : NeZero (30 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero101 : NeZero (101 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero147 : NeZero (147 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero256 : NeZero (256 : Nat) := ⟨by decide⟩
+def stateCountPos : 0 < 147 := by decide
 
 structure CMonoid (α : Type u) where
   one : α

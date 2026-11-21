@@ -13,6 +13,7 @@ instance (priority := 2000) instNeZero30 : NeZero (30 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero101 : NeZero (101 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero147 : NeZero (147 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero256 : NeZero (256 : Nat) := ⟨by decide⟩
+def stateCountPos : 0 < 147 := by decide
 /-- Commutative monoid with explicit operations and their ordinary monoid laws. -/
 structure CMonoid (α : Type u) where
   one : α
@@ -296,7 +297,7 @@ def nextNat : StateId → Symbol → Nat :=
 def tableOutput : StateId → Nat :=
   (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (3) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (3) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (3) (Fin.cases (4) (Fin.cases (3) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (4) (Fin.cases (3) (Fin.cases (3) (Fin.cases (5) (Fin.cases (4) (Fin.cases (5) (Fin.cases (4) (Fin.cases (6) (Fin.cases (5) (Fin.cases (5) (Fin.cases (5) (Fin.cases (5) (Fin.cases (6) (Fin.cases (5) (Fin.cases (5) (fun i => Fin.elim0 i))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ (by decide)⟩
+def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ stateCountPos⟩
 
 def tableRun (i : StateId) : Word Symbol → StateId
   | .empty => i
