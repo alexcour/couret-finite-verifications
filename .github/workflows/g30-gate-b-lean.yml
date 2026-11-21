@@ -7,6 +7,7 @@ on:
     paths:
       - "research/g30-gate-b-lean/**"
       - ".github/workflows/g30-gate-b-lean.yml"
+      - "LEAN_TRUST.md"
   workflow_dispatch:
 
 jobs:
@@ -15,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Verify canonical Drive hashes
+      - name: Verify current source hashes
         working-directory: research/g30-gate-b-lean
         run: sha256sum -c SHA256SUMS.txt
 
@@ -80,6 +81,10 @@ jobs:
             exit 1
           fi
 
+      - name: Enforce the pinned three-kernel and eleven-native inventory
+        working-directory: research/g30-gate-b-lean
+        run: python verify_g30_axioms.py G30_AXIOMS.log G30_AXIOM_CHECK.json
+
       - name: Archive the G30 build and axiom receipt
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -90,6 +95,10 @@ jobs:
             research/g30-gate-b-lean/G30_AXIOMS.log
             research/g30-gate-b-lean/G30_TOOLCHAIN.log
             research/g30-gate-b-lean/G30_TRUST_RECEIPT.json
+            research/g30-gate-b-lean/G30_AXIOM_CHECK.json
+            research/g30-gate-b-lean/verify_g30_axioms.py
+            research/g30-gate-b-lean/SHA256SUMS.txt
+            LEAN_TRUST.md
             research/g30-gate-b-lean/lake-manifest.json
             research/g30-gate-b-lean/lean-toolchain
             research/g30-gate-b-lean/lakefile.lean

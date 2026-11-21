@@ -1,4 +1,16 @@
+## Explorer le programme et suivre ses sources
+
+[Présentation publique](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/) · [Journal](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/journal.html) · [Dossier de partage FR/EN](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/diffusion.html) · [RSS](https://couret-recherche-publique.espace-de-tr-5012.chatgpt.site/api/public-feed)
+
+La [chaîne de diffusion publique](publication/README.md) contrôle les seuls contenus approuvés, conserve leurs statuts et publie des reçus. Son succès ne démontre ni nouveauté, ni validation scientifique indépendante, ni qualification physique. Pour une objection, une reproduction ou une antériorité, [ouvrir un retour documenté](https://github.com/alexcour/couret-finite-verifications/issues/new/choose). Ne déposer aucune pièce confidentielle dans une issue publique.
+
 > **Archive and working-tree boundary · 20 October 2026.** The version DOI below identifies the preserved v1.0.0 tag. The `research/` directory and later research presentations on this branch are a separate working review area, with their own evidence and open review gates. They are not included in that archived release. See [research/README.md](research/README.md).
+
+## Corpus Lean 4 — scientific reading path / parcours scientifique
+
+The [public Lean corpus catalogue](corpus/README.md) brings together the observed public branch snapshots and published proof archives, with immutable sources, dependency pins, historical attempts and explicit verification limits. [The machine-readable inventory](corpus/catalogue.json) distinguishes source variants from independently checked mathematical results. [Palomar preparation status](corpus/PALOMAR_STATUS.json) is tracked separately from publication of the corpus. This documentation does not change preserved release tags or DOI snapshots.
+
+
 
 > **Current research identity (14 October 2026): [Couret — Additive and Spectral Reconstruction](RESEARCH_PROGRAMME.md).** The active research focuses on reconstruction of three-element subsets from ordered pairwise sums and separately on Cayley-graph spectral ambiguities. Lean-checked structural results and bounded exhaustive computations do not constitute external human review or establish mathematical priority. The historical name “Couret–Unification” remains in provenance records. This note does not alter the archived v1.0.0 release.
 
@@ -85,7 +97,7 @@ near `0.378` is withdrawn. The corrective report gives `0.3749982` (rounded) at 
 See [F001_ERRATUM.md](F001_ERRATUM.md) for the observable, source links and archive boundary.
 This documentary correction is not a new mathematical advance or an independent replay at `10^9`.
 
-## Research review packet — integration decision of 12 October 2026
+## Research review packet — merged on 12 October 2026
 
 This repository hosts a **publicly readable research review packet** on Liouville/Grothendieck claim corrections and CU-BRUIT-02 conditional prime-race computations. It is explicitly *not* part of the stable v1.0.0 claims:
 
@@ -97,7 +109,7 @@ This repository hosts a **publicly readable research review packet** on Liouvill
 
 The packet intentionally reports **30/67 external decimal ordinate comparisons**, with 37 q=15 still awaiting independent catalogue comparison; no certified zero completeness, no unconditional sign-density, no novelty or RH claim. The historical frozen prime-sieve ZIP is *not* mirrored here. CI tests the exact finite checks, the 56-triplet census and two structural verifiers; it does not certify the exploratory analytic or zero-finding programs.
 
-The maintainer authorized integration through PR #4 on 12 October 2026. The [integration decision and remaining scientific gates](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) supersede the packet's earlier draft/no-merge annotations. The finite classification proof establishes five labelled profiles and thirteen nonempty bias/profile classes; it awaits external mathematical review. Published v1.0.0 tags and DOI records retain their original scope.
+PR #4 was merged into `main` on 12 October 2026 at 16:13:05 Europe/Paris, as authorized by the maintainer. The [merge commit `3b6d6e75`](https://github.com/alexcour/couret-finite-verifications/commit/3b6d6e75b6c2dfcee60fddc6590fad4a9fac749e) integrates source head `fd99acea789c2676bb840ce92ac731c46e43be74`; [post-merge CI 38261302155](https://github.com/alexcour/couret-finite-verifications/actions/runs/38261302155) passed. The [integration decision and remaining scientific gates](research/audits/liouville_grothendieck_20261008/INTEGRATION_DECISION_20261012.md) supersede the packet's earlier draft/no-merge annotations. The finite classification proof establishes five labelled profiles and thirteen nonempty bias/profile classes; it awaits external mathematical review. Published v1.0.0 tags and DOI records retain their original scope.
 
 ## Lean trust and review map
 

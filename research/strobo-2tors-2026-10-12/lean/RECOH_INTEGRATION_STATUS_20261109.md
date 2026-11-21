@@ -1,5 +1,9 @@
 # RECOH — état d’intégration proposé au 9 novembre 2026
 
+## État vérifié le 21 novembre 2026
+
+La [PR #96](https://github.com/alexcour/couret-finite-verifications/pull/96) a intégré la branche de reconstruction dans `main` le 9 novembre 2026 au [commit `cdce88ec`](https://github.com/alexcour/couret-finite-verifications/commit/cdce88ec0df5c798d6a6dfaccbbf424ac9db88e8). Les mentions de brouillon ci-dessous datent de la préparation de cette branche. La PR #100 apporte le téléchargement contrôlé des dépendances, ses tests, le workflow et la documentation associée. Le périmètre scientifique reste celui des sources Lean épinglées.
+
 Cette note complète les constats historiques datés des 31 octobre, 3 et 4 novembre ; elle ne les réécrit pas.
 
 ## Révisions observées avant cette proposition

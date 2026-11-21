@@ -1,5 +1,7 @@
 # CU-BRUIT-02: conditional sign-density exploration (not certified)
 
+> **Current repository status — 12 October 2026:** PR #4 was merged into `main` at 16:13:05 Europe/Paris. [The integration record](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifies the merge commit and successful CI. DRAFT, branch-only, no-merge and earlier CI statements retained below are dated historical observations, superseded for repository workflow only. External mathematical review remains outstanding; 0/37 q15 external comparisons, GRH/LI, zero completeness and rigorous density/tail certification remain open or conditional. No release or DOI change.
+
 Drive worklog: https://docs.google.com/document/d/1gzH_yp1lUV_BZP4l6ErginfNVKYyEzNBM8I_wiWGBPY/edit
 
 **Scope**: frozen CU-BRUIT-01 weights `S={1,11,29}`, `D=5A-3B`, `E_D=(log x/sqrt x)D`; no modification of the first-run protocol or prime counts.
@@ -48,3 +50,4 @@ GitHub scripts were transcribed and saved for external replay; no GitHub CI PASS
 - [Fail-closed q15 comparison script](gate_q15_external_compare_20261010.py): requires explicit independent source provenance, archived original-file SHA256, Conrey labels, coverage claim and bounded decimal error. Refuses missing source and incomplete data. Even full decimal compatibility is NOT mathematical certification; explicit review of source proof/coverage remains mandatory.
 - [Gate B1 independent mathematical control](GATE_B1_INDEPENDENT_REVIEW_20261010.md) and [B1 replay script](gate_b1_independent_check_20261010.py): finite exact U(30) Fourier coefficients + square-bias yield mu=-1 and Parseval=960. An independent symmetric numerical difference for L'(1)/L(1) reproduces the older variance to ~9e-9 but is NOT interval arithmetic. The seven-character sign-density formula, signed zero multiplicities and complete Gaussian-tail error still need independent review.
 - No numerical CI run of the new scripts has been confirmed. A local analogous replay and synthetic comparator tests passed. Stable main unchanged; PR #4 intentionally **DRAFT**; no theorem of density/GRH, no priority claim, no release.
+
