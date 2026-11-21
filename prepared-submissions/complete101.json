@@ -1,0 +1,32 @@
+{
+  "branch": "palomar/complete101-20261121",
+  "repository": "alexcour/couret-finite-verifications",
+  "readiness": "PREPARED_PREDICTIVE_PASS_NOT_SUBMITTED",
+  "comparator_config_path": "comparator-complete101.json",
+  "registration": "NOT_REGISTERED",
+  "relationship": "I have approval from a responsible author or maintainer",
+  "official_intake": "NOT_SUBMITTED",
+  "admission_constraint": "Preserve active Cayley submission. Do not submit this preparation before fresh mechanical validation and the end of the current intake.",
+  "predictive_check": {
+    "run": 44935231645,
+    "status": "SUCCESS",
+    "url": "https://github.com/alexcour/couret-finite-verifications/actions/runs/44935231645"
+  },
+  "notes": "Expanded preparation exposes seven mathematical results and two additional recursion laws. Every semantic definition, arithmetic operation, finite table and execution function is fixed in a standalone Std-only Challenge. The proof-side InterfaceDefinitions101 module contains the same declaration prefix and is imported transitively by the historical proof modules; the Challenge imports only Std and the Solution does not import the Challenge. The selected results cover independent proper-selection semantics, exact 147-state reachability, the 101 observational classes, quotient correctness and reachability, a universal lower bound, and actual quotient execution on supplied prime factorizations linked to nontrivial factor-pair residue types. This is not a factorization algorithm; no mathematical novelty or automatic research significance is claimed. The nine Challenge proof holes are intentional; the completed proof development has no admitted theorems. Earlier one-theorem verification is not evidence for this expanded configuration. Pending-check wording in the immutable source metadata predates the fresh successful predictive run 44935231645. This success is mechanical evidence and does not establish editorial acceptance or research interest.",
+  "commit": "41c87c0d7745da413e1996ee6f9e2a78d02795ac",
+  "selected_theorems": 9,
+  "existing_palomar_id": null,
+  "formal_scope": [
+    "Exact agreement with independent proper-selection semantics",
+    "Exactly 147 reachable semantic states",
+    "Observational equivalence characterized by all continuations",
+    "All 101 quotient states reachable",
+    "Explicit 101-state machine correctness",
+    "Universal lower bound of 101 reachable states",
+    "Actual quotient execution linked to supplied prime factorization residue types"
+  ],
+  "updated_at_utc": "2026-11-21T18:36:43.130544+00:00",
+  "mathematical_results": 7,
+  "additional_run_laws": 2,
+  "definition_names": []
+}

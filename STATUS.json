@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-21T16:39:47.9270023Z",
+  "observed_at_utc": "2026-11-21T18:36:41.754326+00:00",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 5,
     "official_mechanical_pass_awaiting_registration": 0,
-    "prepared_additional_candidates": 9,
-    "passing_full_predictive_reports": 9
+    "prepared_additional_candidates": 10,
+    "passing_full_predictive_reports": 10
   },
   "records": [
     {
@@ -180,6 +180,13 @@
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
       "official_intake": "WITHDRAWN",
+      "last_intake_attempt": {
+        "checked_at_utc": "2026-11-19T22:11:55.850859Z",
+        "outcome": "OFFICIAL_SUBMISSION_OPEN_REGISTRATION_NOT_OFFERED",
+        "browser_layout_and_metadata_checks": "PASS",
+        "official_submission_created": true,
+        "submitted_at": "2026-11-18T08:19:30Z"
+      },
       "predictive_check": {
         "run": 42498575596,
         "status": "PASS",
@@ -194,6 +201,11 @@
       "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/0f534367088531a2de7a98cd095a6aabe825e1b2",
       "registration": "WITHDRAWN_WITH_AUTHOR_APPROVAL",
+      "submitted_at": "2026-11-19T22:13:23Z",
+      "official_verification": {
+        "status": "SUCCESS",
+        "run": 44626540794
+      },
       "lean_build": {
         "run": 42495068348,
         "status": "SUCCESS",
@@ -207,11 +219,6 @@
         "errors": [],
         "report": "reports/bc_minimality.json",
         "report_sha256": "a6b29685ccba0371e025ddc25334572b4fcb4cf961eb2c2d94e35433eeb74ccc"
-      },
-      "submitted_at": "2026-11-19T22:13:23Z",
-      "official_verification": {
-        "status": "SUCCESS",
-        "run": 44626540794
       }
     },
     {
@@ -248,6 +255,11 @@
       "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/4427850aabc46ef835de2eeb5013c6bd6c36155f",
       "registration": "NOT_REGISTERED",
+      "submitted_at": "2026-11-21T16:38:53Z",
+      "official_verification": {
+        "status": "QUEUED",
+        "run": 44925719153
+      },
       "lean_build": {
         "run": 42490086064,
         "status": "SUCCESS"
@@ -260,11 +272,6 @@
         "errors": [],
         "report": "reports/cayley.json",
         "report_sha256": "8f2129fd5d7595a3989a43a1768fd72e98b4f2fd9af409cdeefee3e9fe75db36"
-      },
-      "submitted_at": "2026-11-21T16:38:53Z",
-      "official_verification": {
-        "status": "QUEUED",
-        "run": 44925719153
       }
     },
     {
@@ -284,6 +291,20 @@
         "errors": [],
         "report": "reports/g30.json",
         "report_sha256": "dca708d0d9b7e4cea2f1c3d54f4c9807da4e66744e51eee10b0236d387c00a39"
+      }
+    },
+    {
+      "name": "complete101",
+      "commit": "41c87c0d7745da413e1996ee6f9e2a78d02795ac",
+      "source": "https://github.com/alexcour/couret-finite-verifications/tree/41c87c0d7745da413e1996ee6f9e2a78d02795ac",
+      "registration": "NOT_REGISTERED",
+      "official_intake": "NOT_SUBMITTED",
+      "predictive_check": {
+        "run": 44935231645,
+        "status": "PASS",
+        "checked_at": "2026-11-21T18:35:41Z",
+        "report_sha256": "0e4c44c28613fdf23885d9e63caae2e5ce35548e1f4c0f08e05d322a547f4946",
+        "report": "reports/complete101.json"
       }
     }
   ],

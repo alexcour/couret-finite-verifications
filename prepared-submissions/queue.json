@@ -1,0 +1,23 @@
+{
+  "active_candidate": "cayley",
+  "intake_block": null,
+  "prepared_order": [
+    {
+      "name": "complete101",
+      "commit": "41c87c0d7745da413e1996ee6f9e2a78d02795ac",
+      "file": "prepared-submissions/complete101.json"
+    },
+    {
+      "name": "g30",
+      "commit": "3b48ff3cf0525dd11524fe50655f4061a5f99d8e",
+      "file": "prepared-submissions/g30.json"
+    },
+    {
+      "name": "decision",
+      "commit": "098752e58b68ec98046fd183417dfb906037b966",
+      "file": "prepared-submissions/decision.json"
+    }
+  ],
+  "rule": "Preserve active Cayley submission. Submit remaining prepared candidates sequentially after registration or specifically authorized closure.",
+  "active_official_run": 44925719153
+}

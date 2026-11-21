@@ -43,25 +43,28 @@ Le principe de distinction par les continuations appartient à la théorie class
 
 Une extension scientifique substantielle consisterait à expliquer les 101 classes par des invariants arithmétiques, à déterminer la mémoire minimale pour une famille de modules, ou à comparer plusieurs observations et leurs quotients. Ces directions sont des travaux à mener, et non des conclusions déjà démontrées dans ce dossier.
 
-## Périmètre de la vérification et références
+## Sept énoncés exposés pour une nouvelle vérification
 
-Le commit de référence est `0f534367088531a2de7a98cd095a6aabe825e1b2`. La vérification mécanique officielle a réussi. La configuration Comparator sélectionnait uniquement `Couret.Certificate.minimal_101_states` comme théorème ; les résultats annexes ci-dessous ne constituaient pas des cibles supplémentaires comparées séparément.
+La nouvelle configuration `comparator-complete101.json` sélectionne les sept affirmations suivantes dans un Challenge autonome qui importe uniquement Std. Toutes les définitions et toutes les tables sont fixées. Deux équations de lecture sont sélectionnées en plus des sept résultats : machineRun_empty et machineRun_snoc. Les modules de preuve réutilisent InterfaceDefinitions101, tandis que le Challenge en contient une copie indépendante et n’importe aucun module du projet.
 
-| Élément de la chaîne | Déclaration dans Solution.lean |
+| Affirmation | Déclaration |
 |---|---|
-| Correspondance entre table et sémantique | tableRun_sound |
+| Correspondance avec le produit total et les sous-sélections propres | tableRun_semantic |
 | Exactement 147 états sémantiques accessibles | exactly_147_reachable |
-| Interprétation de la sortie | table_T_is_presence_count |
-| Lien avec les factorisations fournies | factorization_T_factor_pairs |
-| Classes caractérisées par toutes les sorties futures | classes_iff_all_future_outputs |
-| Accessibilité des classes | every_quotient_class_reachable |
+| Classes caractérisées par toutes les observations futures | classes_iff_all_future_outputs |
+| Accessibilité des 101 classes | every_quotient_class_reachable |
 | Correction de la machine à 101 états | quotientMachine_correct |
-| Au moins 101 états dans toute machine équivalente | minimal_101_states |
+| Borne universelle de 101 états accessibles | minimal_101_states |
+| Liaison de l’exécution réelle du quotient aux types de factorisations fournis | factorization_quotient_observation |
 
-Pour une éventuelle nouvelle formalisation de la chaîne complète, ces énoncés devront être exposés dans un Challenge indépendant avec leurs définitions et hypothèses, puis faire l’objet d’une nouvelle vérification Comparator. Une amélioration documentaire ne constitue pas ce contrôle supplémentaire.
+Les deux liaisons explicites tableRun_semantic et factorization_quotient_observation composent des preuves déjà présentes dans le développement. La portée formellement exposée est élargie ; cela ne constitue pas une nouvelle méthode de minimisation ni une démonstration de nouveauté mathématique.
 
-- [Sources Lean figées](https://github.com/alexcour/couret-finite-verifications/blob/0f534367088531a2de7a98cd095a6aabe825e1b2/Solution.lean).
-- [Vérification mécanique officielle](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/44626540794).
-- [Tal Malkin, Myhill–Nerode et distinction par continuation, Columbia University](https://www.cs.columbia.edu/~tal/3261/fall24/Handouts/3_Myhill_Nerode.pdf).
-- [Lawrence C. Paulson, Finite Automata in Hereditarily Finite Set Theory, Archive of Formal Proofs](https://isa-afp.org/entries/Finite_Automata_HF.html).
+La vérification antérieure ne portait que sur le théorème de borne inférieure. La configuration élargie demande un nouveau contrôle mécanique. Un succès prédictif ne vaut ni dépôt officiel ni enregistrement Palomar.
 
+- [Sources de la préparation élargie](https://github.com/alexcour/couret-finite-verifications/tree/palomar/complete101-20261121).
+- [Tal Malkin, Myhill–Nerode et distinction par continuation](https://www.cs.columbia.edu/~tal/3261/fall24/Handouts/3_Myhill_Nerode.pdf).
+- [Lawrence C. Paulson, formalisation de la minimisation des automates](https://isa-afp.org/entries/Finite_Automata_HF.html).
+
+## Prévalidation élargie achevée
+
+Le commit `41c87c0d7745da413e1996ee6f9e2a78d02795ac` a réussi la prévalidation complète des neuf énoncés : [exécution 44935231645](https://github.com/alexcour/couret-finite-verifications/actions/runs/44935231645). Les contrôles NanoDa et con-ron ont accepté le développement. Le rapport signale que le Challenge dépasse la taille de lecture préférée, sans dépasser la limite obligatoire. Le dossier reste non déposé officiellement ; la soumission Cayley est conservée.
