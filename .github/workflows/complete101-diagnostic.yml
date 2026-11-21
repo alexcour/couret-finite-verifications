@@ -16,14 +16,14 @@ jobs:
       - name: Inspect declaration values and reducibility hints
         shell: bash
         run: |
-          lake build ChallengeComplete101 MaskSemantics
+          lake build ChallengeComplete101 CertificateData
           python3 - <<'PY'
           from pathlib import Path
-          for mod in ['ChallengeComplete101','MaskSemantics']:
+          for mod in ['ChallengeComplete101','CertificateData']:
               text = 'module\npublic import Lean\npublic import '+mod+'\nopen Lean Elab Command\nset_option pp.all true\n'
-              for name in ['Couret.Certificate.symbolCode','Couret.Certificate.codeSymbol','Couret.residue30']:
-                  text += 'run_cmd do\n  let some (.defnInfo d) := (← getEnv).find? `'+name+' | throwError "missing definition"\n  let h := match d.hints with | .opaque => "opaque" | .abbrev => "abbrev" | .regular n => toString n\n  logInfo m!"NAME '+name+' HINTS {h} LEVELS {d.levelParams}"\n  logInfo m!"TYPE {d.type}"\n  logInfo m!"VALUE {d.value}"\n'
+              for name in ["Couret.total","Couret.step","Couret.semanticState","Couret.run","Couret.natProduct","Couret.Code30","Couret.mul30","Couret.mod30Product","Couret.residue30","Couret.PrimeNat","Couret.Word.primeFactors","Couret.Word.map","Couret.rawCode30","Couret.encode30","Couret.Certificate.symbolCode","Couret.Certificate.codeSymbol","Couret.Certificate.contains","Couret.Certificate.maskSupport","Couret.Certificate.decode","Couret.Certificate.pairPresent","Couret.Certificate.presenceCount","Couret.Certificate.nextNat","Couret.Certificate.tableOutput","Couret.Certificate.entry","Couret.Certificate.classNat","Couret.Certificate.quotientNextNat","Couret.Certificate.quotientOutput","Couret.Certificate.tableNext","Couret.Certificate.classOf","Couret.Certificate.quotientNext","Couret.Certificate.tableRun","Couret.Certificate.quotientRun"]:
+                  text += 'run_cmd do\n  let some (.defnInfo d) := (← getEnv).find? `'+name+' | throwError "missing definition"\n  let h := match d.hints with | .opaque => "opaque" | .abbrev => "abbrev" | .regular n => toString n\n  logInfo m!"NAME '+name+' HINTS {h} LEVELS {d.levelParams}"\n  logInfo m!"TYPE {d.type}"\n  logInfo m!"VALUEHASH {d.value.hash} TYPEHASH {d.type.hash}"\n'
               Path('Print'+mod+'.lean').write_text(text)
           PY
           lake env lean PrintChallengeComplete101.lean
-          lake env lean PrintMaskSemantics.lean
+          lake env lean PrintCertificateData.lean
