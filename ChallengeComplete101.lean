@@ -6,6 +6,13 @@ set_option maxHeartbeats 16000000
 
 universe u
 namespace Couret
+instance (priority := 2000) instNeZero2 : NeZero (2 : Nat) := ⟨by decide⟩
+instance (priority := 2000) instNeZero4 : NeZero (4 : Nat) := ⟨by decide⟩
+instance (priority := 2000) instNeZero8 : NeZero (8 : Nat) := ⟨by decide⟩
+instance (priority := 2000) instNeZero30 : NeZero (30 : Nat) := ⟨by decide⟩
+instance (priority := 2000) instNeZero101 : NeZero (101 : Nat) := ⟨by decide⟩
+instance (priority := 2000) instNeZero147 : NeZero (147 : Nat) := ⟨by decide⟩
+instance (priority := 2000) instNeZero256 : NeZero (256 : Nat) := ⟨by decide⟩
 /-- Commutative monoid with explicit operations and their ordinary monoid laws. -/
 structure CMonoid (α : Type u) where
   one : α
