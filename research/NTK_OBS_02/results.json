@@ -1,0 +1,146 @@
+{
+  "continuous_piecewise": {
+    "contraction_exp_minus_ln2": "1/2",
+    "final_gap": "27/250",
+    "losses_repeated_Pplus": [
+      "1/2",
+      "17/40",
+      "13/32"
+    ],
+    "losses_switched_Pplus_Pminus": [
+      "1/2",
+      "17/40",
+      "1193/4000"
+    ],
+    "sample_times": [
+      "0",
+      "ln(2)",
+      "2ln(2)"
+    ]
+  },
+  "date": "2026-10-11",
+  "discrete_counterexample": {
+    "current_state_quadratic_Pplus_Pminus": [
+      "0",
+      "64/125"
+    ],
+    "e0": [
+      "1",
+      "0"
+    ],
+    "eta": "1",
+    "losses_repeated_Pplus": [
+      "1/2",
+      "2/5",
+      "2/5"
+    ],
+    "losses_switched_Pplus_Pminus": [
+      "1/2",
+      "2/5",
+      "18/125"
+    ],
+    "second_step_gap": "32/125"
+  },
+  "order_and_gauge": {
+    "gauge_loss_trace_length_seven": [
+      "1/2",
+      "2/5",
+      "18/125",
+      "162/3125",
+      "1458/78125",
+      "13122/1953125",
+      "118098/48828125"
+    ],
+    "gauge_states_different_but_losses_equal": true,
+    "swapped_final_losses_equal": true,
+    "swapped_final_states": [
+      [
+        "12/25",
+        "6/25"
+      ],
+      [
+        "12/25",
+        "-6/25"
+      ]
+    ]
+  },
+  "project": "NTK-OBS-02",
+  "projectors": {
+    "P_minus": [
+      [
+        "1/5",
+        "-2/5"
+      ],
+      [
+        "-2/5",
+        "4/5"
+      ]
+    ],
+    "P_plus": [
+      [
+        "1/5",
+        "2/5"
+      ],
+      [
+        "2/5",
+        "4/5"
+      ]
+    ],
+    "commutator_Pplus_Pminus": [
+      [
+        "0",
+        "12/25"
+      ],
+      [
+        "-12/25",
+        "0"
+      ]
+    ],
+    "e0_weight_on_lambda_1_and_0": [
+      [
+        "1/5",
+        "4/5"
+      ],
+      [
+        "1/5",
+        "4/5"
+      ]
+    ]
+  },
+  "reset_reconstruction_R2": {
+    "L0": "5/2",
+    "L_after_Pdiag": "1/4",
+    "L_after_Px": "1/2",
+    "grid_exact_checks": 49,
+    "one_probe_counterexample_states": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "1",
+        "-1"
+      ]
+    ],
+    "probe_state": [
+      "2",
+      "1"
+    ],
+    "reconstructed_outer": [
+      [
+        "4",
+        "2"
+      ],
+      [
+        "2",
+        "1"
+      ]
+    ]
+  },
+  "stability_bound": {
+    "bound_holds": true,
+    "kernel_operator_norm_gap": "4/5",
+    "loss_difference": "32/125"
+  },
+  "status": "bounded exact rational verification; classical; external review open"
+}
