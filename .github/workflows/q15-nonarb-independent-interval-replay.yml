@@ -1,0 +1,35 @@
+name: q15-nonarb-independent-interval-replay
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  nonarb-replay:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Verify immutable evidence archive SHA-256
+        run: |
+          echo "8e9e0e4c1e44cf3cd5bfab1f4ce9f206892f4c940fe8708b4d3a4c72868410bf  research/audits/liouville_grothendieck_20261008/nonarb_q15_20261013/CU_BRUIT_A3_NONARB_20261013.zip" | sha256sum --check
+      - name: Unpack archived source certificates
+        run: |
+          mkdir -p /tmp/q15-nonarb
+          unzip -q "research/audits/liouville_grothendieck_20261008/nonarb_q15_20261013/CU_BRUIT_A3_NONARB_20261013.zip" -d /tmp/q15-nonarb
+      - name: Recompute six exact-rational contour windings offline
+        run: |
+          cd /tmp/q15-nonarb
+          python -S replay_offline.py
+          python -S test_offline.py
+      - name: Install independent elementary interval backend
+        run: python -m pip install mpmath==1.3.0
+      - name: Run analytic regression tests without FLINT
+        run: |
+          cd /tmp/q15-nonarb
+          python test_analytic.py
+      - name: Regenerate a small contour source chart using Euler-Maclaurin
+        run: |
+          cd /tmp/q15-nonarb
+          python worker.py --b 2 --top 1/2 --side 0 --out /tmp/q15-nonarb-sample.json
+          python -c 'import json; d=json.load(open("/tmp/q15-nonarb-sample.json")); assert d["character_b"]==2 and d["side"]==0 and d["segments"]; print("SAMPLE_INTERVAL_GENERATION_OK",len(d["segments"]))'
