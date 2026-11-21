@@ -104,9 +104,9 @@ def decForallFin : (n : Nat) → (P : Fin n → Prop) →
     | _, isFalse hs => isFalse (fun h => hs (fun i => h i.succ))
 instance (n : Nat) (P : Fin n → Prop) [DecidablePred P] : Decidable (∀ i, P i) :=
   decForallFin n P (fun _ => inferInstance)
-instance (P : Code30 → Prop) [DecidablePred P] : Decidable (∀ a, P a) :=
+instance instDecidableForallOfDecidablePredCode30 (P : Code30 → Prop) [hP : DecidablePred P] : Decidable (∀ a, P a) :=
   match (inferInstance : Decidable (∀ a : Fin 2, ∀ b : Fin 4, P (a, b))) with
-  | isTrue h => isTrue (fun ⟨a, b⟩ => h a b)
+  | isTrue h => isTrue (fun p => h p.1 p.2)
   | isFalse h => isFalse (fun h' => h (fun a b => h' (a, b)))
 /-- Multiplication of units in C2 times C4 coordinates, implemented by coordinate addition. -/
 def mul30 (a b : Code30) : Code30 := (a.1 + b.1, a.2 + b.2)
@@ -189,10 +189,10 @@ def decExistsFin : (n : Nat) → (P : Fin n → Prop) →
         (Fin.exists_fin_succ.mp h).elim h0 hs)
 instance (n : Nat) (P : Fin n → Prop) [DecidablePred P] : Decidable (∃ i, P i) :=
   decExistsFin n P (fun _ => inferInstance)
-instance (P : Code30 → Prop) [DecidablePred P] : Decidable (∃ a, P a) :=
+instance instDecidableExistsCode30OfDecidablePred (P : Code30 → Prop) [hP : DecidablePred P] : Decidable (∃ a, P a) :=
   match (inferInstance : Decidable (∃ a : Fin 2, ∃ b : Fin 4, P (a,b))) with
-  | isTrue h => isTrue (by rcases h with ⟨a,b,h⟩; exact ⟨(a,b),h⟩)
-  | isFalse h => isFalse (fun ⟨a,ha⟩ => h ⟨a.1,a.2,ha⟩)
+  | isTrue h => isTrue (Exists.elim h (fun a ha => Exists.elim ha (fun b hb => Exists.intro (a,b) hb)))
+  | isFalse h => isFalse (fun hs => Exists.elim hs (fun p hp => h (Exists.intro p.1 (Exists.intro p.2 hp))))
 abbrev Symbol := Fin 8
 abbrev Mask := Fin 256
 abbrev EncodedState := Option (Symbol × Mask)
