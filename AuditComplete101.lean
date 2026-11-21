@@ -7,3 +7,5 @@ public import SolutionComplete101
 #print axioms Couret.Certificate.quotientMachine_correct
 #print axioms Couret.Certificate.minimal_101_states
 #print axioms Couret.Certificate.factorization_quotient_observation
+#print axioms Couret.Certificate.machineRun_empty
+#print axioms Couret.Certificate.machineRun_snoc

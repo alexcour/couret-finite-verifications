@@ -38,5 +38,15 @@ theorem factorization_quotient_observation (w : Word Nat) (hp : w.primeFactors)
     a.val ≤ b.val ∧ mul30 (symbolCode a) (symbolCode b) = encode30 n) ↔ arithmeticPair n a b
   simp only [arithmeticPair, coded_product_iff n hc a b]
 
+/-- Reading the empty word preserves the starting state. -/
+theorem machineRun_empty {β : Type} (M : ObservationMachine β) (b : β) :
+    machineRun M b Word.empty = b
+:= by rfl
+/-- Appending one symbol applies exactly the declared machine transition. -/
+theorem machineRun_snoc {β : Type} (M : ObservationMachine β) (b : β)
+    (w : Word Symbol) (g : Symbol) :
+    machineRun M b (Word.snoc w g) = M.next (machineRun M b w) g
+:= by rfl
+
 end Certificate
 end Couret

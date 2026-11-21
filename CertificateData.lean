@@ -473,10 +473,12 @@ def wordOfList (xs : List Nat) : Word Symbol := xs.foldl (fun w g => .snoc w ⟨
 def reachWord (i : StateId) : Word Symbol := wordOfList (reachList i)
 def separatingWord (c d : ClassId) : Word Symbol :=
   wordOfList (separatingList c d)
-def tableRun (i : StateId) (w : Word Symbol) : StateId :=
-  Word.rec (motive := fun _ => StateId) i (fun _ g ih => tableNext ih g) w
-def quotientRun (i : ClassId) (w : Word Symbol) : ClassId :=
-  Word.rec (motive := fun _ => ClassId) i (fun _ g ih => quotientNext ih g) w
+def tableRun (i : StateId) : Word Symbol → StateId
+  | .empty => i
+  | .snoc w g => tableNext (tableRun i w) g
+def quotientRun (i : ClassId) : Word Symbol → ClassId
+  | .empty => i
+  | .snoc w g => quotientNext (quotientRun i w) g
 def wordLength : Word Symbol → Nat
   | .empty => 0
   | .snoc w _ => wordLength w + 1

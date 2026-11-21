@@ -30,8 +30,9 @@ variable {α : Type u}
 def Word.nonempty : Word α → Prop
   | .empty => False
   | .snoc _ _ => True
-def total (M : CMonoid α) (w : Word α) : α :=
-  Word.rec (motive := fun _ => α) M.one (fun _ g ih => M.mul ih g) w
+def total (M : CMonoid α) : Word α → α
+  | .empty => M.one
+  | .snoc w g => M.mul (total M w) g
 /-- Independent take or skip decisions on labelled word occurrences; repetitions remain distinct occurrences. -/
 inductive Choice : Word α → Type u where
   | empty : Choice .empty
@@ -78,8 +79,9 @@ def step (M : CMonoid α) : State α → α → State α
 def semanticState (M : CMonoid α) : Word α → State α
   | .empty => .initial
   | .snoc w g => .active (total M (.snoc w g)) (properSupport M (.snoc w g))
-def run (M : CMonoid α) (w : Word α) : State α :=
-  Word.rec (motive := fun _ => State α) State.initial (fun _ g ih => step M ih g) w
+def run (M : CMonoid α) : Word α → State α
+  | .empty => .initial
+  | .snoc w g => step M (run M w) g
 def natProduct : CMonoid Nat where
   one := 1
   mul := Nat.mul
@@ -140,8 +142,9 @@ end Couret
 
 universe v
 namespace Couret
-def Word.map {α : Type v} {β : Type v} (f : α → β) (w : Word α) : Word β :=
-  Word.rec (motive := fun _ => Word β) Word.empty (fun _ g ih => Word.snoc ih (f g)) w
+def Word.map {α : Type v} {β : Type v} (f : α → β) : Word α → Word β
+  | .empty => .empty
+  | .snoc w g => .snoc (w.map f) (f g)
 namespace Choice
 def map {α : Type v} {β : Type v} (f : α → β) :
     {w : Word α} → Choice w → Choice (w.map f)
@@ -296,8 +299,9 @@ def tableOutput : StateId → Nat :=
 
 def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ stateCountPos⟩
 
-def tableRun (i : StateId) (w : Word Symbol) : StateId :=
-  Word.rec (motive := fun _ => StateId) i (fun _ g ih => tableNext ih g) w
+def tableRun (i : StateId) : Word Symbol → StateId
+  | .empty => i
+  | .snoc w g => tableNext (tableRun i w) g
 
 /-- Fixed decoding of each table state to its product residue and eight-bit support, with none for the initial state. -/
 def entry : StateId → EncodedState :=
@@ -322,8 +326,9 @@ def classOf (i : StateId) : ClassId := ⟨classNat i % 101, Nat.mod_lt _ (by dec
 def quotientNext (i : ClassId) (g : Symbol) : ClassId := ⟨quotientNextNat i g % 101, Nat.mod_lt _ (by decide)⟩
 
 /-- Sequential iteration of the fixed quotient transition. -/
-def quotientRun (i : ClassId) (w : Word Symbol) : ClassId :=
-  Word.rec (motive := fun _ => ClassId) i (fun _ g ih => quotientNext ih g) w
+def quotientRun (i : ClassId) : Word Symbol → ClassId
+  | .empty => i
+  | .snoc w g => quotientNext (quotientRun i w) g
 
 def decoded (i : StateId) : State Code30 := decode (entry i)
 
@@ -338,9 +343,8 @@ structure ObservationMachine (β : Type) where
   next : β → Symbol → β
   output : β → Nat
 
-/-- Sequential execution of any deterministic observation machine. -/
-def machineRun {β : Type} (M : ObservationMachine β) (b : β) (w : Word Symbol) : β :=
-  Word.rec (motive := fun _ => β) b (fun _ g ih => M.next ih g) w
+/-- Sequential execution, uniquely constrained for every word by machineRun_empty and machineRun_snoc. -/
+def machineRun {β : Type} (M : ObservationMachine β) (b : β) : Word Symbol → β := by sorry
 
 /-- The explicit deterministic observation machine whose state type is Fin 101. -/
 def quotientMachine : ObservationMachine ClassId where
@@ -391,6 +395,16 @@ theorem factorization_quotient_observation (w : Word Nat) (hp : w.primeFactors)
     quotientMachine.output (machineRun quotientMachine quotientMachine.initial symbols) =
       presenceCount (entry i) ∧
     ∀ a b : Symbol, pairPresent (entry i) a b = true ↔ factorPair n a b
+:= by sorry
+
+/-- Reading the empty word preserves the starting state. -/
+theorem machineRun_empty {β : Type} (M : ObservationMachine β) (b : β) :
+    machineRun M b Word.empty = b
+:= by sorry
+/-- Appending one symbol applies exactly the declared machine transition. -/
+theorem machineRun_snoc {β : Type} (M : ObservationMachine β) (b : β)
+    (w : Word Symbol) (g : Symbol) :
+    machineRun M b (Word.snoc w g) = M.next (machineRun M b w) g
 := by sorry
 
 end Certificate

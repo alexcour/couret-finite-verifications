@@ -40,8 +40,9 @@ def Word.nonempty : Word α → Prop
   | .empty => False
   | .snoc _ _ => True
 
-def total (M : CMonoid α) (w : Word α) : α :=
-  Word.rec (motive := fun _ => α) M.one (fun _ g ih => M.mul ih g) w
+def total (M : CMonoid α) : Word α → α
+  | .empty => M.one
+  | .snoc w g => M.mul (total M w) g
 
 inductive Choice : Word α → Type u where
   | empty : Choice .empty
@@ -251,8 +252,9 @@ theorem semantic_step (M : CMonoid α) (w : Word α) (g : α) :
     funext u
     exact propext (properSupport_snoc M (.snoc w a) True.intro g u).symm
 
-def run (M : CMonoid α) (w : Word α) : State α :=
-  Word.rec (motive := fun _ => State α) State.initial (fun _ g ih => step M ih g) w
+def run (M : CMonoid α) : Word α → State α
+  | .empty => .initial
+  | .snoc w g => step M (run M w) g
 
 theorem run_correct (M : CMonoid α) (w : Word α) :
     run M w = semanticState M w := by
