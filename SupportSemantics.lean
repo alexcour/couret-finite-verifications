@@ -20,6 +20,7 @@ instance (priority := 2000) instNeZero30 : NeZero (30 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero101 : NeZero (101 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero147 : NeZero (147 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero256 : NeZero (256 : Nat) := ⟨by decide⟩
+def stateCountPos : 0 < 147 := by decide
 
 structure CMonoid (α : Type u) where
   one : α
@@ -39,9 +40,8 @@ def Word.nonempty : Word α → Prop
   | .empty => False
   | .snoc _ _ => True
 
-def total (M : CMonoid α) : Word α → α
-  | .empty => M.one
-  | .snoc w g => M.mul (total M w) g
+def total (M : CMonoid α) (w : Word α) : α :=
+  Word.rec (motive := fun _ => α) M.one (fun _ g ih => M.mul ih g) w
 
 inductive Choice : Word α → Type u where
   | empty : Choice .empty
@@ -251,9 +251,8 @@ theorem semantic_step (M : CMonoid α) (w : Word α) (g : α) :
     funext u
     exact propext (properSupport_snoc M (.snoc w a) True.intro g u).symm
 
-def run (M : CMonoid α) : Word α → State α
-  | .empty => .initial
-  | .snoc w g => step M (run M w) g
+def run (M : CMonoid α) (w : Word α) : State α :=
+  Word.rec (motive := fun _ => State α) State.initial (fun _ g ih => step M ih g) w
 
 theorem run_correct (M : CMonoid α) (w : Word α) :
     run M w = semanticState M w := by

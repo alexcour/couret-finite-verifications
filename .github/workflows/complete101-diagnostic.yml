@@ -1,4 +1,4 @@
-name: Diagnose 101-state encoding declarations
+name: Diagnose complete observation definition closure
 on:
   push:
     branches: [palomar/complete101-diagnostic-20261121]
@@ -13,17 +13,25 @@ jobs:
         with:
           build: false
           use-mathlib-cache: false
-      - name: Inspect declaration values and reducibility hints
+      - name: Compare common definition closure
         shell: bash
         run: |
           lake build ChallengeComplete101 CertificateData
           python3 - <<'PY'
           from pathlib import Path
+          body = '''open Lean Elab Command
+          run_cmd do
+            let env ← getEnv
+            for (name, info) in env.constants.toList do
+              if "Couret.".isPrefixOf name.toString then
+                if let .defnInfo d := info then
+                  let h := match d.hints with | .opaque => "opaque" | .abbrev => "abbrev" | .regular n => toString n
+                  logInfo m!"DECL {name} VALUEHASH {d.value.hash} TYPEHASH {d.type.hash} HINTS {h} LEVELS {d.levelParams}"
+          '''
           for mod in ['ChallengeComplete101','CertificateData']:
-              text = 'module\npublic import Lean\npublic import '+mod+'\nopen Lean Elab Command\nset_option pp.all true\n'
-              for name in ["Couret.total","Couret.step","Couret.semanticState","Couret.run","Couret.natProduct","Couret.Code30","Couret.mul30","Couret.mod30Product","Couret.residue30","Couret.PrimeNat","Couret.Word.primeFactors","Couret.Word.map","Couret.rawCode30","Couret.encode30","Couret.Certificate.symbolCode","Couret.Certificate.codeSymbol","Couret.Certificate.contains","Couret.Certificate.maskSupport","Couret.Certificate.decode","Couret.Certificate.pairPresent","Couret.Certificate.presenceCount","Couret.Certificate.nextNat","Couret.Certificate.tableOutput","Couret.Certificate.entry","Couret.Certificate.classNat","Couret.Certificate.quotientNextNat","Couret.Certificate.quotientOutput","Couret.Certificate.tableNext","Couret.Certificate.classOf","Couret.Certificate.quotientNext","Couret.Certificate.tableRun","Couret.Certificate.quotientRun"]:
-                  text += 'run_cmd do\n  let some (.defnInfo d) := (← getEnv).find? `'+name+' | throwError "missing definition"\n  let h := match d.hints with | .opaque => "opaque" | .abbrev => "abbrev" | .regular n => toString n\n  logInfo m!"NAME '+name+' HINTS {h} LEVELS {d.levelParams}"\n  logInfo m!"TYPE {d.type}"\n  logInfo m!"VALUEHASH {d.value.hash} TYPEHASH {d.type.hash}"\n'
-              Path('Print'+mod+'.lean').write_text(text)
+              Path('Closure'+mod+'.lean').write_text('module\npublic import Lean\npublic import '+mod+'\n'+body)
           PY
-          lake env lean PrintChallengeComplete101.lean
-          lake env lean PrintCertificateData.lean
+          echo CHALLENGE_CLOSURE
+          lake env lean ClosureChallengeComplete101.lean
+          echo SOLUTION_CLOSURE
+          lake env lean ClosureCertificateData.lean

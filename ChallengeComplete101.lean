@@ -13,6 +13,7 @@ instance (priority := 2000) instNeZero30 : NeZero (30 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero101 : NeZero (101 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero147 : NeZero (147 : Nat) := ⟨by decide⟩
 instance (priority := 2000) instNeZero256 : NeZero (256 : Nat) := ⟨by decide⟩
+def stateCountPos : 0 < 147 := by decide
 /-- Commutative monoid with explicit operations and their ordinary monoid laws. -/
 structure CMonoid (α : Type u) where
   one : α
@@ -29,9 +30,8 @@ variable {α : Type u}
 def Word.nonempty : Word α → Prop
   | .empty => False
   | .snoc _ _ => True
-def total (M : CMonoid α) : Word α → α
-  | .empty => M.one
-  | .snoc w g => M.mul (total M w) g
+def total (M : CMonoid α) (w : Word α) : α :=
+  Word.rec (motive := fun _ => α) M.one (fun _ g ih => M.mul ih g) w
 /-- Independent take or skip decisions on labelled word occurrences; repetitions remain distinct occurrences. -/
 inductive Choice : Word α → Type u where
   | empty : Choice .empty
@@ -78,9 +78,8 @@ def step (M : CMonoid α) : State α → α → State α
 def semanticState (M : CMonoid α) : Word α → State α
   | .empty => .initial
   | .snoc w g => .active (total M (.snoc w g)) (properSupport M (.snoc w g))
-def run (M : CMonoid α) : Word α → State α
-  | .empty => .initial
-  | .snoc w g => step M (run M w) g
+def run (M : CMonoid α) (w : Word α) : State α :=
+  Word.rec (motive := fun _ => State α) State.initial (fun _ g ih => step M ih g) w
 def natProduct : CMonoid Nat where
   one := 1
   mul := Nat.mul
@@ -141,9 +140,8 @@ end Couret
 
 universe v
 namespace Couret
-def Word.map {α : Type v} {β : Type v} (f : α → β) : Word α → Word β
-  | .empty => .empty
-  | .snoc w g => .snoc (w.map f) (f g)
+def Word.map {α : Type v} {β : Type v} (f : α → β) (w : Word α) : Word β :=
+  Word.rec (motive := fun _ => Word β) Word.empty (fun _ g ih => Word.snoc ih (f g)) w
 namespace Choice
 def map {α : Type v} {β : Type v} (f : α → β) :
     {w : Word α} → Choice w → Choice (w.map f)
@@ -296,11 +294,10 @@ def nextNat : StateId → Symbol → Nat :=
 def tableOutput : StateId → Nat :=
   (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (0) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (1) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (3) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (2) (Fin.cases (2) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (3) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (3) (Fin.cases (4) (Fin.cases (3) (Fin.cases (4) (Fin.cases (4) (Fin.cases (4) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (3) (Fin.cases (4) (Fin.cases (3) (Fin.cases (3) (Fin.cases (5) (Fin.cases (4) (Fin.cases (5) (Fin.cases (4) (Fin.cases (6) (Fin.cases (5) (Fin.cases (5) (Fin.cases (5) (Fin.cases (5) (Fin.cases (6) (Fin.cases (5) (Fin.cases (5) (fun i => Fin.elim0 i))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ (by decide)⟩
+def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ stateCountPos⟩
 
-def tableRun (i : StateId) : Word Symbol → StateId
-  | .empty => i
-  | .snoc w g => tableNext (tableRun i w) g
+def tableRun (i : StateId) (w : Word Symbol) : StateId :=
+  Word.rec (motive := fun _ => StateId) i (fun _ g ih => tableNext ih g) w
 
 /-- Fixed decoding of each table state to its product residue and eight-bit support, with none for the initial state. -/
 def entry : StateId → EncodedState :=
@@ -325,9 +322,8 @@ def classOf (i : StateId) : ClassId := ⟨classNat i % 101, Nat.mod_lt _ (by dec
 def quotientNext (i : ClassId) (g : Symbol) : ClassId := ⟨quotientNextNat i g % 101, Nat.mod_lt _ (by decide)⟩
 
 /-- Sequential iteration of the fixed quotient transition. -/
-def quotientRun (i : ClassId) : Word Symbol → ClassId
-  | .empty => i
-  | .snoc w g => quotientNext (quotientRun i w) g
+def quotientRun (i : ClassId) (w : Word Symbol) : ClassId :=
+  Word.rec (motive := fun _ => ClassId) i (fun _ g ih => quotientNext ih g) w
 
 def decoded (i : StateId) : State Code30 := decode (entry i)
 
@@ -343,9 +339,8 @@ structure ObservationMachine (β : Type) where
   output : β → Nat
 
 /-- Sequential execution of any deterministic observation machine. -/
-def machineRun {β : Type} (M : ObservationMachine β) (b : β) : Word Symbol → β
-  | .empty => b
-  | .snoc w g => M.next (machineRun M b w) g
+def machineRun {β : Type} (M : ObservationMachine β) (b : β) (w : Word Symbol) : β :=
+  Word.rec (motive := fun _ => β) b (fun _ g ih => M.next ih g) w
 
 /-- The explicit deterministic observation machine whose state type is Fin 101. -/
 def quotientMachine : ObservationMachine ClassId where

@@ -465,7 +465,7 @@ def separatingList : ClassId → ClassId → List Nat :=
   (Fin.cases (separatingList_0) (Fin.cases (separatingList_1) (Fin.cases (separatingList_2) (Fin.cases (separatingList_3) (Fin.cases (separatingList_4) (Fin.cases (separatingList_5) (Fin.cases (separatingList_6) (Fin.cases (separatingList_7) (Fin.cases (separatingList_8) (Fin.cases (separatingList_9) (Fin.cases (separatingList_10) (Fin.cases (separatingList_11) (Fin.cases (separatingList_12) (Fin.cases (separatingList_13) (Fin.cases (separatingList_14) (Fin.cases (separatingList_15) (Fin.cases (separatingList_16) (Fin.cases (separatingList_17) (Fin.cases (separatingList_18) (Fin.cases (separatingList_19) (Fin.cases (separatingList_20) (Fin.cases (separatingList_21) (Fin.cases (separatingList_22) (Fin.cases (separatingList_23) (Fin.cases (separatingList_24) (Fin.cases (separatingList_25) (Fin.cases (separatingList_26) (Fin.cases (separatingList_27) (Fin.cases (separatingList_28) (Fin.cases (separatingList_29) (Fin.cases (separatingList_30) (Fin.cases (separatingList_31) (Fin.cases (separatingList_32) (Fin.cases (separatingList_33) (Fin.cases (separatingList_34) (Fin.cases (separatingList_35) (Fin.cases (separatingList_36) (Fin.cases (separatingList_37) (Fin.cases (separatingList_38) (Fin.cases (separatingList_39) (Fin.cases (separatingList_40) (Fin.cases (separatingList_41) (Fin.cases (separatingList_42) (Fin.cases (separatingList_43) (Fin.cases (separatingList_44) (Fin.cases (separatingList_45) (Fin.cases (separatingList_46) (Fin.cases (separatingList_47) (Fin.cases (separatingList_48) (Fin.cases (separatingList_49) (Fin.cases (separatingList_50) (Fin.cases (separatingList_51) (Fin.cases (separatingList_52) (Fin.cases (separatingList_53) (Fin.cases (separatingList_54) (Fin.cases (separatingList_55) (Fin.cases (separatingList_56) (Fin.cases (separatingList_57) (Fin.cases (separatingList_58) (Fin.cases (separatingList_59) (Fin.cases (separatingList_60) (Fin.cases (separatingList_61) (Fin.cases (separatingList_62) (Fin.cases (separatingList_63) (Fin.cases (separatingList_64) (Fin.cases (separatingList_65) (Fin.cases (separatingList_66) (Fin.cases (separatingList_67) (Fin.cases (separatingList_68) (Fin.cases (separatingList_69) (Fin.cases (separatingList_70) (Fin.cases (separatingList_71) (Fin.cases (separatingList_72) (Fin.cases (separatingList_73) (Fin.cases (separatingList_74) (Fin.cases (separatingList_75) (Fin.cases (separatingList_76) (Fin.cases (separatingList_77) (Fin.cases (separatingList_78) (Fin.cases (separatingList_79) (Fin.cases (separatingList_80) (Fin.cases (separatingList_81) (Fin.cases (separatingList_82) (Fin.cases (separatingList_83) (Fin.cases (separatingList_84) (Fin.cases (separatingList_85) (Fin.cases (separatingList_86) (Fin.cases (separatingList_87) (Fin.cases (separatingList_88) (Fin.cases (separatingList_89) (Fin.cases (separatingList_90) (Fin.cases (separatingList_91) (Fin.cases (separatingList_92) (Fin.cases (separatingList_93) (Fin.cases (separatingList_94) (Fin.cases (separatingList_95) (Fin.cases (separatingList_96) (Fin.cases (separatingList_97) (Fin.cases (separatingList_98) (Fin.cases (separatingList_99) (Fin.cases (separatingList_100) (fun i => Fin.elim0 i))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 
-def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ (by decide)⟩
+def tableNext (i : StateId) (g : Symbol) : StateId := ⟨nextNat i g % 147, Nat.mod_lt _ stateCountPos⟩
 def classOf (i : StateId) : ClassId := ⟨classNat i % 101, Nat.mod_lt _ (by decide)⟩
 def quotientNext (i : ClassId) (g : Symbol) : ClassId := ⟨quotientNextNat i g % 101, Nat.mod_lt _ (by decide)⟩
 def representative (i : ClassId) : StateId := ⟨representativeNat i % 147, Nat.mod_lt _ (by decide)⟩
@@ -473,12 +473,10 @@ def wordOfList (xs : List Nat) : Word Symbol := xs.foldl (fun w g => .snoc w ⟨
 def reachWord (i : StateId) : Word Symbol := wordOfList (reachList i)
 def separatingWord (c d : ClassId) : Word Symbol :=
   wordOfList (separatingList c d)
-def tableRun (i : StateId) : Word Symbol → StateId
-  | .empty => i
-  | .snoc w g => tableNext (tableRun i w) g
-def quotientRun (i : ClassId) : Word Symbol → ClassId
-  | .empty => i
-  | .snoc w g => quotientNext (quotientRun i w) g
+def tableRun (i : StateId) (w : Word Symbol) : StateId :=
+  Word.rec (motive := fun _ => StateId) i (fun _ g ih => tableNext ih g) w
+def quotientRun (i : ClassId) (w : Word Symbol) : ClassId :=
+  Word.rec (motive := fun _ => ClassId) i (fun _ g ih => quotientNext ih g) w
 def wordLength : Word Symbol → Nat
   | .empty => 0
   | .snoc w _ => wordLength w + 1
