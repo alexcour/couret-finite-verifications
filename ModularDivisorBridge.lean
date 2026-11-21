@@ -13,9 +13,8 @@ No finite 147-state / 101-class table is imported here.
 universe v
 namespace Couret
 
-def Word.map {α : Type v} {β : Type v} (f : α → β) : Word α → Word β
-  | .empty => .empty
-  | .snoc w g => .snoc (w.map f) (f g)
+def Word.map {α : Type v} {β : Type v} (f : α → β) (w : Word α) : Word β :=
+  Word.rec (motive := fun _ => Word β) Word.empty (fun _ g ih => Word.snoc ih (f g)) w
 
 namespace Choice
 

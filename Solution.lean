@@ -267,9 +267,8 @@ structure ObservationMachine (β : Type) where
   next : β → Symbol → β
   output : β → Nat
 
-def machineRun {β : Type} (M : ObservationMachine β) (b : β) : Word Symbol → β
-  | .empty => b
-  | .snoc w g => M.next (machineRun M b w) g
+def machineRun {β : Type} (M : ObservationMachine β) (b : β) (w : Word Symbol) : β :=
+  Word.rec (motive := fun _ => β) b (fun _ g ih => M.next ih g) w
 
 theorem machineRun_append {β : Type} (M : ObservationMachine β) (b : β)
     (u v : Word Symbol) :
