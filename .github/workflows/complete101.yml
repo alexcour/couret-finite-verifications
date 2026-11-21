@@ -1,0 +1,18 @@
+name: Complete 101-state arithmetic observation prevalidation
+on:
+  push:
+    branches: [palomar/complete101-20261121]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mechanical:
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+    with:
+      repository: alexcour/couret-finite-verifications
+      commit: ${{ github.sha }}
+      pipeline_commit: 14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+      request_id: couret101all1
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator-complete101.json","authorization_relationship":"approved"}'

@@ -1,6 +1,6 @@
 name = "CouretArchiveMigration"
 version = "0.0.1"
-defaultTargets = ["Challenge", "Solution"]
+defaultTargets = ["ChallengeComplete101", "SolutionComplete101"]
 
 [[require]]
 name = "mathlib"
@@ -139,3 +139,9 @@ name = "Challenge"
 
 [[lean_lib]]
 name = "Solution"
+
+[[lean_lib]]
+name = "ChallengeComplete101"
+
+[[lean_lib]]
+name = "SolutionComplete101"

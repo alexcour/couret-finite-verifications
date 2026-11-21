@@ -1,8 +1,8 @@
 {
   "version": "v0.4",
   "project": {
-    "name": "A minimal 101-state observation machine for the certified modulo 30 table",
-    "description": "Any deterministic observation machine reproducing every word output of the explicit certified modulo 30 transition table has at least 101 distinct reachable states. The archived proofs also construct a correct 101-state quotient machine. Minimality is relative to the stated table and output semantics, with no general integer-factorization or cryptographic claim.",
+    "name": "Exact 101-state observation of factor-pair residue types modulo 30",
+    "description": "Seven selected statements expose the semantic correctness and exact 147-state reachability of the modulo-30 table, the characterization and reachability of its 101 observational classes, an explicit correct 101-state machine, the universal reachable-state lower bound, and an end-to-end link from supplied prime factorizations of n > 1 coprime to 30 to that machine and the represented nontrivial factor-pair residue types. Minimality is relative to the exact output interface. No general integer-factorization algorithm or mathematical novelty is claimed.",
     "authors": [
       "Alexandre Couret"
     ],
@@ -31,6 +31,26 @@
       "relationship": "adapts",
       "author_endorsement": "participated",
       "note": "The original archive grants no blanket new licence. The copyright holder expressly authorized MIT for these new adaptations on 2026-11-08. See SOURCE_PROVENANCE.json for exact files and archive SHA256; third-party notices retain their original scope."
+    },
+    {
+      "title": "Myhill-Nerode Theorem and Implications",
+      "authors": [
+        "Tal Malkin"
+      ],
+      "id": "https://www.cs.columbia.edu/~tal/3261/fall24/Handouts/3_Myhill_Nerode.pdf",
+      "type": "other",
+      "relationship": "background",
+      "note": "Classical distinguishing-continuation method. The current observation is numeric-valued, not Boolean language acceptance."
+    },
+    {
+      "title": "Finite Automata in Hereditarily Finite Set Theory",
+      "authors": [
+        "Lawrence C. Paulson"
+      ],
+      "id": "https://isa-afp.org/entries/Finite_Automata_HF.html",
+      "type": "formalization",
+      "relationship": "background",
+      "note": "Prior formalized automata minimization; no priority is claimed for the minimization method."
     }
   ],
   "related_formalizations": [
@@ -41,7 +61,7 @@
     }
   ],
   "status": {
-    "scope": "Any deterministic observation machine reproducing every word output of the explicit certified modulo 30 transition table has at least 101 distinct reachable states. The archived proofs also construct a correct 101-state quotient machine. Minimality is relative to the stated table and output semantics, with no general integer-factorization or cryptographic claim. Challenge contains intentional theorem holes; Solution and imported proof modules contain no admitted theorem. Compilation and Comparator statuses must be read separately.",
+    "scope": "Seven selected statements expose the semantic correctness and exact 147-state reachability of the modulo-30 table, the characterization and reachability of its 101 observational classes, an explicit correct 101-state machine, the universal reachable-state lower bound, and an end-to-end link from supplied prime factorizations of n > 1 coprime to 30 to that machine and the represented nontrivial factor-pair residue types. Minimality is relative to the exact output interface. No general integer-factorization algorithm or mathematical novelty is claimed. This expanded Challenge and its new bridge require fresh mechanical verification; the earlier one-theorem PASS does not certify this expanded configuration.",
     "sorry_count": 0,
     "sorry_in_definitions": 0,
     "axioms": []
@@ -79,21 +99,57 @@
     "notes": "AI assistance is not authorship or independent human review."
   },
   "fidelity": {
-    "divergences": "Explicit independent Challenge statements and definitions preserve the displayed mathematical hypotheses. Module headers, visibility and documented proof adjustments migrate archived source to the pinned toolchain. Original archival comments about historical compilation are retained as historical text. This snapshot has not yet completed its package build."
+    "divergences": "Semantic definitions are copied into a standalone Std-only Challenge without importing project proof modules. All computational values are fixed; the seven selected theorem proofs are supplied by SolutionComplete101 and the archived Solution. A new theorem composes existing semantic and quotient proofs into a direct execution-to-factor-pair-residue statement."
   },
   "review": {
-    "status": "self-assessed; no independent human review",
+    "status": "Preparation; expanded configuration not yet mechanically verified; no independent human review",
     "reviewers": [],
-    "notes": "This package build and official Comparator verification are pending. No Palomar registration is claimed."
+    "notes": "Earlier mechanical verification covered only the original lower-bound selection. Research interest must be assessed on the expanded actual statements; improved exposition does not establish novelty or research significance."
   },
   "alignment": {
     "namespace": "Couret.Certificate",
     "statements": [
       {
+        "source": "Couret.Certificate.tableRun_sound",
+        "lean": "Couret.Certificate.tableRun_sound",
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
+      },
+      {
+        "source": "Couret.Certificate.exactly_147_reachable",
+        "lean": "Couret.Certificate.exactly_147_reachable",
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
+      },
+      {
+        "source": "Couret.Certificate.classes_iff_all_future_outputs",
+        "lean": "Couret.Certificate.classes_iff_all_future_outputs",
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
+      },
+      {
+        "source": "Couret.Certificate.every_quotient_class_reachable",
+        "lean": "Couret.Certificate.every_quotient_class_reachable",
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
+      },
+      {
+        "source": "Couret.Certificate.quotientMachine_correct",
+        "lean": "Couret.Certificate.quotientMachine_correct",
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
+      },
+      {
         "source": "Couret.Certificate.minimal_101_states",
         "lean": "Couret.Certificate.minimal_101_states",
-        "module": "Solution",
-        "status": "adapted; package verification pending"
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
+      },
+      {
+        "source": "Couret.Certificate.factorization_quotient_observation",
+        "lean": "Couret.Certificate.factorization_quotient_observation",
+        "module": "SolutionComplete101",
+        "status": "prepared; fresh verification pending"
       }
     ]
   },
