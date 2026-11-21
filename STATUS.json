@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_at_utc": "2026-11-19T22:14:26.9013607Z",
+  "observed_at_utc": "2026-11-21T16:39:47.9270023Z",
   "purpose": "Evidence of current candidate preparation; predictive checks do not constitute official intake, automated editorial review or registration.",
   "counts": {
     "confirmed_registrations": 5,
@@ -193,13 +193,13 @@
       "name": "bc_minimality",
       "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
       "source": "https://github.com/alexcour/couret-finite-verifications/tree/0f534367088531a2de7a98cd095a6aabe825e1b2",
-      "registration": "NOT_REGISTERED",
+      "registration": "WITHDRAWN_WITH_AUTHOR_APPROVAL",
       "lean_build": {
         "run": 42495068348,
         "status": "SUCCESS",
         "origin": "Full Palomar predictive build and Comparator workflow"
       },
-      "official_intake": "SUBMITTED",
+      "official_intake": "WITHDRAWN",
       "predictive_check": {
         "run": 42495068348,
         "status": "PASS",
@@ -210,7 +210,7 @@
       },
       "submitted_at": "2026-11-19T22:13:23Z",
       "official_verification": {
-        "status": "IN_PROGRESS",
+        "status": "SUCCESS",
         "run": 44626540794
       }
     },
@@ -252,7 +252,7 @@
         "run": 42490086064,
         "status": "SUCCESS"
       },
-      "official_intake": "NOT_SUBMITTED",
+      "official_intake": "SUBMITTED",
       "predictive_check": {
         "run": 42493140220,
         "status": "PASS",
@@ -260,6 +260,11 @@
         "errors": [],
         "report": "reports/cayley.json",
         "report_sha256": "8f2129fd5d7595a3989a43a1768fd72e98b4f2fd9af409cdeefee3e9fe75db36"
+      },
+      "submitted_at": "2026-11-21T16:38:53Z",
+      "official_verification": {
+        "status": "QUEUED",
+        "run": 44925719153
       }
     },
     {

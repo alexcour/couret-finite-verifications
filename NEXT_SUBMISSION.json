@@ -1,13 +1,13 @@
 {
+  "official_run": 44925719153,
+  "repository": "alexcour/couret-finite-verifications",
+  "intake_status": "SUBMITTED",
+  "comparator_config_path": "comparator-cayley.json",
+  "next_required_condition": "Await official mechanical verification and automated review; register only if offered.",
   "registration": "NOT_REGISTERED",
   "relationship": "I have approval from a responsible author or maintainer",
-  "official_run": 44626540794,
-  "candidate": "A minimal 101-state observation machine for the certified modulo 30 table",
-  "intake_status": "SUBMITTED",
-  "next_required_condition": "Await official mechanical verification and automated editorial review; register only if offered.",
-  "repository": "alexcour/couret-finite-verifications",
-  "commit": "0f534367088531a2de7a98cd095a6aabe825e1b2",
-  "submitted_at": "2026-11-19T22:13:23Z",
-  "official_verification": "IN_PROGRESS",
-  "comparator_config_path": "comparator-bc_minimality.json"
+  "official_verification": "QUEUED",
+  "commit": "4427850aabc46ef835de2eeb5013c6bd6c36155f",
+  "candidate": "Directed Cayley non-isomorphism and abelian generation dichotomy",
+  "submitted_at": "2026-11-21T16:38:53Z"
 }
