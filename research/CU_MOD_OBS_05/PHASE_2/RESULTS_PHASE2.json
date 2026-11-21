@@ -1,0 +1,375 @@
+{
+  "campaign": "phase-2",
+  "date": "2026-10-11",
+  "exact_minimax": {
+    "n18_contains_1": {
+      "e0_m0": {
+        "dp_visited_states": 10,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 2,
+        "optimal_including_baseline": 3,
+        "worlds": 8
+      },
+      "e0_m1": {
+        "dp_visited_states": 39,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 4,
+        "optimal_including_baseline": 5,
+        "worlds": 16
+      },
+      "e0_m2": {
+        "dp_visited_states": 107,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 6,
+        "optimal_including_baseline": 7,
+        "worlds": 24
+      },
+      "e1_m0": {
+        "dp_visited_states": 35,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 4,
+        "optimal_including_baseline": 5,
+        "worlds": 16
+      },
+      "e1_m1": {
+        "dp_visited_states": 254,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 7,
+        "optimal_including_baseline": 8,
+        "policy_dag_nodes": 27,
+        "worlds": 32
+      },
+      "e1_m2": {
+        "dp_visited_states": 1402,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 10,
+        "optimal_including_baseline": 11,
+        "worlds": 48
+      },
+      "e2_m0": {
+        "dp_visited_states": 85,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 6,
+        "optimal_including_baseline": 7,
+        "worlds": 24
+      },
+      "e2_m1": {
+        "dp_visited_states": 1111,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 10,
+        "optimal_including_baseline": 11,
+        "worlds": 48
+      },
+      "e2_m2": {
+        "dp_visited_states": 9967,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 14,
+        "optimal_including_baseline": 15,
+        "worlds": 72
+      }
+    },
+    "n18_reconstruction": {
+      "e0_m0": {
+        "dp_visited_states": 20,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 3,
+        "optimal_including_baseline": 4,
+        "worlds": 8
+      },
+      "e0_m1": {
+        "dp_visited_states": 95,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 6,
+        "optimal_including_baseline": 7,
+        "worlds": 16
+      },
+      "e0_m2": {
+        "dp_visited_states": 277,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 9,
+        "optimal_including_baseline": 10,
+        "worlds": 24
+      },
+      "e1_m0": {
+        "dp_visited_states": 88,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 6,
+        "optimal_including_baseline": 7,
+        "worlds": 16
+      },
+      "e1_m1": {
+        "dp_visited_states": 913,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 11,
+        "optimal_including_baseline": 12,
+        "policy_dag_nodes": 142,
+        "worlds": 32
+      },
+      "e1_m2": {
+        "dp_visited_states": 6058,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 16,
+        "optimal_including_baseline": 17,
+        "worlds": 48
+      },
+      "e2_m0": {
+        "dp_visited_states": 231,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 9,
+        "optimal_including_baseline": 10,
+        "worlds": 24
+      },
+      "e2_m1": {
+        "dp_visited_states": 5057,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 16,
+        "optimal_including_baseline": 17,
+        "worlds": 48
+      },
+      "e2_m2": {
+        "dp_visited_states": 67365,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 23,
+        "optimal_including_baseline": 24,
+        "worlds": 72
+      }
+    },
+    "n22_connected": {
+      "e0_m0": {
+        "dp_visited_states": 7,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 2,
+        "optimal_including_baseline": 3,
+        "worlds": 4
+      },
+      "e0_m1": {
+        "dp_visited_states": 21,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 4,
+        "optimal_including_baseline": 5,
+        "worlds": 8
+      },
+      "e0_m2": {
+        "dp_visited_states": 51,
+        "e_lies": 0,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 6,
+        "optimal_including_baseline": 7,
+        "worlds": 12
+      },
+      "e1_m0": {
+        "dp_visited_states": 22,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 4,
+        "optimal_including_baseline": 5,
+        "worlds": 8
+      },
+      "e1_m1": {
+        "dp_visited_states": 93,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 7,
+        "optimal_including_baseline": 8,
+        "policy_dag_nodes": 27,
+        "worlds": 16
+      },
+      "e1_m2": {
+        "dp_visited_states": 375,
+        "e_lies": 1,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 10,
+        "optimal_including_baseline": 11,
+        "worlds": 24
+      },
+      "e2_m0": {
+        "dp_visited_states": 46,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 0,
+        "optimal_after_baseline": 6,
+        "optimal_including_baseline": 7,
+        "worlds": 12
+      },
+      "e2_m1": {
+        "dp_visited_states": 278,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 1,
+        "optimal_after_baseline": 10,
+        "optimal_including_baseline": 11,
+        "worlds": 24
+      },
+      "e2_m2": {
+        "dp_visited_states": 1758,
+        "e_lies": 2,
+        "lower_depth_infeasible": true,
+        "m_mutations": 2,
+        "optimal_after_baseline": 13,
+        "optimal_including_baseline": 14,
+        "worlds": 36
+      }
+    }
+  },
+  "n18": {
+    "selected_full_fiber": [
+      [
+        1,
+        4,
+        13
+      ],
+      [
+        1,
+        7,
+        16
+      ],
+      [
+        4,
+        10,
+        13
+      ],
+      [
+        7,
+        10,
+        16
+      ]
+    ],
+    "total_supports": 680
+  },
+  "n22": {
+    "connectivities": [
+      true,
+      false
+    ],
+    "cube_traces": [
+      0,
+      0
+    ],
+    "same_square": true,
+    "selected_full_fiber": [
+      [
+        1,
+        3,
+        13
+      ],
+      [
+        2,
+        12,
+        14
+      ]
+    ],
+    "total_supports": 1330
+  },
+  "negative_controls": {
+    "n18_phantom": {
+      "false_inferred_state": [
+        1,
+        7,
+        16
+      ],
+      "first_state": [
+        1,
+        4,
+        13
+      ],
+      "honest_responses": [
+        1,
+        0
+      ],
+      "lies": 0,
+      "mutations": 1,
+      "queries": [
+        1,
+        4
+      ],
+      "second_state": [
+        7,
+        10,
+        16
+      ]
+    },
+    "n22_cubic_trace_blindness": true,
+    "post_validation_mutation": "unprotected validate-then-act not certified",
+    "version_modulo_2_ABA": {
+      "states": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ],
+        [
+          1,
+          7,
+          16
+        ]
+      ],
+      "versions_mod2": [
+        0,
+        1,
+        0
+      ],
+      "warning": "same token after two mutations; state is different"
+    }
+  },
+  "program": "CU-MOD-OBS-05",
+  "rules": {
+    "baseline_version_read_cost": 1,
+    "lie_budget": "global across retries",
+    "mutation_budget": "global across retries",
+    "mutations": "adversarial at any operation boundary, including before final validation",
+    "query_cost": 1,
+    "scope": "only selected exact square fibers; no all-n or AI guarantee",
+    "version_action": "binary same/changed, atomic compare-and-act",
+    "version_validation_cost": 1
+  },
+  "status": "internal exact finite model; no external audit or novelty claim"
+}
