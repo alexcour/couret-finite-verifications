@@ -12,9 +12,7 @@
     "Couret.Certificate.machineRun_empty",
     "Couret.Certificate.machineRun_snoc"
   ],
-  "definition_names": [
-    "Couret.Certificate.machineRun"
-  ],
+  "definition_names": [],
   "permitted_axioms": [
     "propext",
     "Quot.sound",

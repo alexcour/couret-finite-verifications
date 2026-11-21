@@ -13,23 +13,7 @@ No finite 147-state / 101-class table is imported here.
 universe v
 namespace Couret
 
-def Word.map {α : Type v} {β : Type v} (f : α → β) : Word α → Word β
-  | .empty => .empty
-  | .snoc w g => .snoc (w.map f) (f g)
-
 namespace Choice
-
-def map {α : Type v} {β : Type v} (f : α → β) :
-    {w : Word α} → Choice w → Choice (w.map f)
-  | _, .empty => .empty
-  | _, .skip s g => .skip (map f s) (f g)
-  | _, .take s g => .take (map f s) (f g)
-
-def pullback {α : Type v} {β : Type v} (f : α → β) :
-    (w : Word α) → Choice (w.map f) → Choice w
-  | .empty, .empty => .empty
-  | .snoc w g, .skip s _ => .skip (pullback f w s) g
-  | .snoc w g, .take s _ => .take (pullback f w s) g
 
 theorem map_pullback {α : Type v} {β : Type v} (f : α → β)
     (w : Word α) (s : Choice (w.map f)) : map f (pullback f w s) = s := by
@@ -56,20 +40,6 @@ theorem omitted_map {α : Type v} {β : Type v} (f : α → β)
 
 end Choice
 
-def rawCode30 (r : Nat) : Code30 :=
-  match r with
-  | 1 => (0, 0)
-  | 7 => (0, 1)
-  | 19 => (0, 2)
-  | 13 => (0, 3)
-  | 11 => (1, 0)
-  | 17 => (1, 1)
-  | 29 => (1, 2)
-  | 23 => (1, 3)
-  | _ => (0, 0)
-
-def encode30 (n : Nat) : Code30 := rawCode30 (n % 30)
-
 theorem decode_unit_residue : ∀ r : Fin 30, Nat.gcd r.val 30 = 1 →
     residue30 (rawCode30 r.val) = r.val := by decide
 
@@ -85,10 +55,6 @@ theorem coprime30_of_dvd {d n : Nat} (hd : d ∣ n)
   apply Nat.gcd_eq_one_iff.mpr
   intro c hcd hc30
   exact Nat.gcd_eq_one_iff.mp hn c (Nat.dvd_trans hcd hd) hc30
-
-def Word.coprime30Factors : Word Nat → Prop
-  | .empty => True
-  | .snoc w p => w.coprime30Factors ∧ Nat.gcd p 30 = 1
 
 theorem coprime30Factors_of_total (w : Word Nat)
     (hw : Nat.gcd (total natProduct w) 30 = 1) : w.coprime30Factors := by

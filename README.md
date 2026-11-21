@@ -20,7 +20,7 @@ The observation-specific quotient is an application of the classical distinguish
 
 ## Audit and verification
 
-`ChallengeComplete101.lean` imports only Std. It fixes ordinary semantic definitions, arithmetic operations and finite tables. The generic machineRun definition is implemented by the Solution and uniquely constrained by the separately compared empty-word and append equations for every state type, machine and starting state. Induction on a word determines its behavior completely. `SolutionComplete101.lean` imports the earlier proof development and adds the two semantic bridges and the two run equations. `comparator-complete101.json` selects nine theorem proofs and this one constrained definition target.
+`ChallengeComplete101.lean` imports only Std and fixes every semantic definition, arithmetic operation, finite table and execution function. `InterfaceDefinitions101.lean` supplies the same declaration prefix on the proof side; the historical proof modules import it transitively. The Challenge imports no project module, and the Solution does not import the Challenge. This keeps the statement independently auditable and avoids module-local generated-helper differences. `SolutionComplete101.lean` adds the two semantic bridges and two run equations. `comparator-complete101.json` selects nine theorem proofs and has no definition holes.
 
 The earlier official run 44626540794 passed the original one-theorem configuration at commit 0f534367088531a2de7a98cd095a6aabe825e1b2. That run does not certify this new configuration. A fresh predictive check is required before treating this expanded preparation as mechanically verified. No Palomar registration is claimed.
 

@@ -45,7 +45,7 @@ Une extension scientifique substantielle consisterait à expliquer les 101 class
 
 ## Sept énoncés exposés pour une nouvelle vérification
 
-La nouvelle configuration `comparator-complete101.json` sélectionne les sept affirmations suivantes dans un Challenge autonome qui importe uniquement Std. Les opérations arithmétiques et les tables sont fixées. L’interface générique machineRun est complétée par les preuves et entièrement déterminée par deux équations de récurrence sélectionnées en plus des sept résultats : machineRun_empty et machineRun_snoc.
+La nouvelle configuration `comparator-complete101.json` sélectionne les sept affirmations suivantes dans un Challenge autonome qui importe uniquement Std. Toutes les définitions et toutes les tables sont fixées. Deux équations de lecture sont sélectionnées en plus des sept résultats : machineRun_empty et machineRun_snoc. Les modules de preuve réutilisent InterfaceDefinitions101, tandis que le Challenge en contient une copie indépendante et n’importe aucun module du projet.
 
 | Affirmation | Déclaration |
 |---|---|

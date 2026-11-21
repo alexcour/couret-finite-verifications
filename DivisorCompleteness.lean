@@ -13,13 +13,6 @@ The library theorem Nat.dvd_mul splits a divisor across a product.
 
 namespace Couret
 
-def PrimeNat (p : Nat) : Prop :=
-  2 ≤ p ∧ ∀ d : Nat, d ∣ p → d = 1 ∨ d = p
-
-def Word.primeFactors : Word Nat → Prop
-  | .empty => True
-  | .snoc w p => w.primeFactors ∧ PrimeNat p
-
 theorem primeFactors_atLeastTwo (w : Word Nat) (h : w.primeFactors) :
     w.atLeastTwo := by
   induction w with

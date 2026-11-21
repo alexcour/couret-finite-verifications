@@ -141,6 +141,9 @@ name = "Challenge"
 name = "Solution"
 
 [[lean_lib]]
+name = "InterfaceDefinitions101"
+
+[[lean_lib]]
 name = "ChallengeComplete101"
 
 [[lean_lib]]

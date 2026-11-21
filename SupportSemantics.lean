@@ -1,6 +1,6 @@
 module
 
-public import Std
+public import InterfaceDefinitions101
 
 @[expose] public section
 
@@ -13,66 +13,9 @@ distinct factors is made. This file does not certify the 147/101 finite tables.
 
 universe u
 namespace Couret
-instance (priority := 2000) instNeZero2 : NeZero (2 : Nat) := ⟨by decide⟩
-instance (priority := 2000) instNeZero4 : NeZero (4 : Nat) := ⟨by decide⟩
-instance (priority := 2000) instNeZero8 : NeZero (8 : Nat) := ⟨by decide⟩
-instance (priority := 2000) instNeZero30 : NeZero (30 : Nat) := ⟨by decide⟩
-instance (priority := 2000) instNeZero101 : NeZero (101 : Nat) := ⟨by decide⟩
-instance (priority := 2000) instNeZero147 : NeZero (147 : Nat) := ⟨by decide⟩
-instance (priority := 2000) instNeZero256 : NeZero (256 : Nat) := ⟨by decide⟩
-def stateCountPos : 0 < 147 := by decide
-
-structure CMonoid (α : Type u) where
-  one : α
-  mul : α → α → α
-  assoc : ∀ a b c, mul (mul a b) c = mul a (mul b c)
-  comm : ∀ a b, mul a b = mul b a
-  one_mul : ∀ a, mul one a = a
-  mul_one : ∀ a, mul a one = a
-
-inductive Word (α : Type u) where
-  | empty : Word α
-  | snoc (w : Word α) (g : α) : Word α
-
 variable {α : Type u}
 
-def Word.nonempty : Word α → Prop
-  | .empty => False
-  | .snoc _ _ => True
-
-def total (M : CMonoid α) : Word α → α
-  | .empty => M.one
-  | .snoc w g => M.mul (total M w) g
-
-inductive Choice : Word α → Type u where
-  | empty : Choice .empty
-  | skip {w : Word α} (s : Choice w) (g : α) : Choice (.snoc w g)
-  | take {w : Word α} (s : Choice w) (g : α) : Choice (.snoc w g)
-
 namespace Choice
-
-def picked : {w : Word α} → Choice w → Prop
-  | _, .empty => False
-  | _, .skip s _ => picked s
-  | _, .take _ _ => True
-
-def omitted : {w : Word α} → Choice w → Prop
-  | _, .empty => False
-  | _, .skip _ _ => True
-  | _, .take s _ => omitted s
-
-def eval (M : CMonoid α) : {w : Word α} → Choice w → α
-  | _, .empty => M.one
-  | _, .skip s _ => eval M s
-  | _, .take s g => M.mul (eval M s) g
-
-def allSkip : (w : Word α) → Choice w
-  | .empty => .empty
-  | .snoc w g => .skip (allSkip w) g
-
-def allTake : (w : Word α) → Choice w
-  | .empty => .empty
-  | .snoc w g => .take (allTake w) g
 
 theorem eval_allSkip (M : CMonoid α) (w : Word α) :
     eval M (allSkip w) = M.one := by
@@ -105,11 +48,6 @@ theorem eval_of_not_omitted (M : CMonoid α) {w : Word α} (s : Choice w) :
   | empty => intro _; rfl
   | skip s g ih => intro h; exact False.elim (h True.intro)
   | take s g ih => intro h; exact congrArg (fun x => M.mul x g) (ih h)
-
-def complement : {w : Word α} → Choice w → Choice w
-  | _, .empty => .empty
-  | _, .skip s g => .take (complement s) g
-  | _, .take s g => .skip (complement s) g
 
 theorem complement_complement {w : Word α} (s : Choice w) :
     complement (complement s) = s := by
@@ -151,12 +89,6 @@ theorem eval_mul_complement (M : CMonoid α) {w : Word α} (s : Choice w) :
       _ = M.mul (total M _) g := congrArg (fun x => M.mul x g) ih
 
 end Choice
-
-def fullSupport (M : CMonoid α) (w : Word α) (u : α) : Prop :=
-  ∃ s : Choice w, Choice.eval M s = u
-
-def properSupport (M : CMonoid α) (w : Word α) (u : α) : Prop :=
-  ∃ s : Choice w, s.picked ∧ s.omitted ∧ Choice.eval M s = u
 
 theorem fullSupport_iff (M : CMonoid α) (w : Word α) (u : α) :
     fullSupport M w u ↔ properSupport M w u ∨ u = M.one ∨ u = total M w := by
@@ -224,19 +156,6 @@ theorem properSupport_snoc (M : CMonoid α) (w : Word α) (hw : w.nonempty)
       exact (congrArg (fun x => M.mul x g) (Choice.eval_allSkip M w)).trans
         ((M.one_mul g).trans h.symm)
 
-inductive State (α : Type u) where
-  | initial : State α
-  | active (r : α) (support : α → Prop) : State α
-
-def step (M : CMonoid α) : State α → α → State α
-  | .initial, g => .active g (fun _ => False)
-  | .active r U, g => .active (M.mul r g)
-      (fun u => U u ∨ (∃ v, U v ∧ M.mul g v = u) ∨ u = r ∨ u = g)
-
-def semanticState (M : CMonoid α) : Word α → State α
-  | .empty => .initial
-  | .snoc w g => .active (total M (.snoc w g)) (properSupport M (.snoc w g))
-
 theorem semantic_step (M : CMonoid α) (w : Word α) (g : α) :
     step M (semanticState M w) g = semanticState M (.snoc w g) := by
   cases w with
@@ -252,10 +171,6 @@ theorem semantic_step (M : CMonoid α) (w : Word α) (g : α) :
     funext u
     exact propext (properSupport_snoc M (.snoc w a) True.intro g u).symm
 
-def run (M : CMonoid α) : Word α → State α
-  | .empty => .initial
-  | .snoc w g => step M (run M w) g
-
 theorem run_correct (M : CMonoid α) (w : Word α) :
     run M w = semanticState M w := by
   induction w with
@@ -264,14 +179,6 @@ theorem run_correct (M : CMonoid α) (w : Word α) :
     change step M (run M w) g = semanticState M (.snoc w g)
     rw [ih]
     exact semantic_step M w g
-
-def natProduct : CMonoid Nat where
-  one := 1
-  mul := Nat.mul
-  assoc := Nat.mul_assoc
-  comm := Nat.mul_comm
-  one_mul := Nat.one_mul
-  mul_one := Nat.mul_one
 
 theorem selectedProduct_dvd_total {w : Word Nat} (s : Choice w) :
     Choice.eval natProduct s ∣ total natProduct w := by
@@ -283,10 +190,6 @@ theorem properSupport_dvd_total (w : Word Nat) (d : Nat)
   rcases h with ⟨s, _, _, hd⟩
   rw [← hd]
   exact selectedProduct_dvd_total s
-
-def Word.atLeastTwo : Word Nat → Prop
-  | .empty => True
-  | .snoc w g => w.atLeastTwo ∧ 2 ≤ g
 
 theorem selectedProduct_positive {w : Word Nat} (s : Choice w) :
     w.atLeastTwo → 0 < Choice.eval natProduct s := by
@@ -333,47 +236,6 @@ theorem properSupport_is_nontrivial_divisor (w : Word Nat) (hw : w.atLeastTwo)
    not native_decide. -/
 theorem forall_fin_zero (P : Fin 0 → Prop) : (∀ i, P i) ↔ True :=
   ⟨fun _ => True.intro, fun _ i => Fin.elim0 i⟩
-
-abbrev Code30 := Fin 2 × Fin 4
-
-def decForallFin : (n : Nat) → (P : Fin n → Prop) →
-    ((i : Fin n) → Decidable (P i)) → Decidable (∀ i, P i)
-  | 0, _, _ => isTrue (fun i => Fin.elim0 i)
-  | n + 1, P, dp =>
-    match dp 0, decForallFin n (fun i => P i.succ) (fun i => dp i.succ) with
-    | isTrue h0, isTrue hs => isTrue (Fin.forall_fin_succ.mpr ⟨h0, hs⟩)
-    | isFalse h0, _ => isFalse (fun h => h0 (h 0))
-    | _, isFalse hs => isFalse (fun h => hs (fun i => h i.succ))
-
-instance (n : Nat) (P : Fin n → Prop) [DecidablePred P] : Decidable (∀ i, P i) :=
-  decForallFin n P (fun _ => inferInstance)
-
-instance (P : Code30 → Prop) [DecidablePred P] : Decidable (∀ a, P a) :=
-  match (inferInstance : Decidable (∀ a : Fin 2, ∀ b : Fin 4, P (a, b))) with
-  | isTrue h => isTrue (fun ⟨a, b⟩ => h a b)
-  | isFalse h => isFalse (fun h' => h (fun a b => h' (a, b)))
-
-def mul30 (a b : Code30) : Code30 := (a.1 + b.1, a.2 + b.2)
-
-def mod30Product : CMonoid Code30 where
-  one := (0, 0)
-  mul := mul30
-  assoc := by decide
-  comm := by decide
-  one_mul := by decide
-  mul_one := by decide
-
-def residue30 (a : Code30) : Nat :=
-  match a.1.val, a.2.val with
-  | 0, 0 => 1
-  | 0, 1 => 7
-  | 0, 2 => 19
-  | 0, 3 => 13
-  | 1, 0 => 11
-  | 1, 1 => 17
-  | 1, 2 => 29
-  | 1, 3 => 23
-  | _, _ => 1
 
 theorem mul30_residue : ∀ a b : Code30,
     residue30 (mul30 a b) = (residue30 a * residue30 b) % 30 := by decide

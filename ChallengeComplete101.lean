@@ -344,7 +344,9 @@ structure ObservationMachine (β : Type) where
   output : β → Nat
 
 /-- Sequential execution, uniquely constrained for every word by machineRun_empty and machineRun_snoc. -/
-def machineRun {β : Type} (M : ObservationMachine β) (b : β) : Word Symbol → β := by sorry
+def machineRun {β : Type} (M : ObservationMachine β) (b : β) : Word Symbol → β
+  | .empty => b
+  | .snoc w g => M.next (machineRun M b w) g
 
 /-- The explicit deterministic observation machine whose state type is Fin 101. -/
 def quotientMachine : ObservationMachine ClassId where
