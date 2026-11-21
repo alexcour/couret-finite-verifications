@@ -1,5 +1,7 @@
 # CU-BRUIT-02 — Classification structurelle des triplets de U(30)
 
+> **Statut du dépôt au 12 octobre 2026 :** la PR #4 a été fusionnée dans `main` à 16 h 13 min 05 s (heure de Paris). Le [constat de fusion](INTEGRATION_DECISION_20261012.md#verified-merge-result--12-october-2026) identifie le commit intégré et les CI réussies. Les mentions conservées ci-dessous « brouillon », « DRAFT », « sans fusion » ou relatives aux anciennes CI sont historiques ; seul le statut du dépôt est actualisé. Relecture mathématique externe toujours attendue, 0/37 comparaisons externes q15, hypothèses GRH/LI et certification des zéros, queues et densités toujours ouvertes ou conditionnelles. Aucune nouvelle release ni modification de DOI.
+
 12 octobre 2026. Preuve mathématique autonome, proposée à la relecture dans
 la PR #4 en brouillon. La vérification informatique ci-jointe contrôle les
 conventions et les conséquences finies ; elle ne remplace pas la preuve.
@@ -331,3 +333,4 @@ La CI [38249227759](https://github.com/alexcour/couret-finite-verifications/acti
 du commit 07b7a22b3bf035a411adfc071e0354c76878924e a réussi et inclut
 le premier contrôle structurel. Elle précède le contrôle complémentaire
 de cette section ; le statut de celui-ci doit être suivi au commit qui l'ajoute.
+
