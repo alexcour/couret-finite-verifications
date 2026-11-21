@@ -105,7 +105,8 @@ def decForallFin : (n : Nat) → (P : Fin n → Prop) →
 instance (n : Nat) (P : Fin n → Prop) [DecidablePred P] : Decidable (∀ i, P i) :=
   decForallFin n P (fun _ => inferInstance)
 instance instDecidableForallOfDecidablePredCode30 (P : Code30 → Prop) [hP : DecidablePred P] : Decidable (∀ a, P a) :=
-  match (inferInstance : Decidable (∀ a : Fin 2, ∀ b : Fin 4, P (a, b))) with
+  match decForallFin 2 (fun a => ∀ b : Fin 4, P (a,b))
+      (fun a => decForallFin 4 (fun b => P (a,b)) (fun b => hP (a,b))) with
   | isTrue h => isTrue (fun p => h p.1 p.2)
   | isFalse h => isFalse (fun h' => h (fun a b => h' (a, b)))
 /-- Multiplication of units in C2 times C4 coordinates, implemented by coordinate addition. -/
@@ -190,7 +191,8 @@ def decExistsFin : (n : Nat) → (P : Fin n → Prop) →
 instance (n : Nat) (P : Fin n → Prop) [DecidablePred P] : Decidable (∃ i, P i) :=
   decExistsFin n P (fun _ => inferInstance)
 instance instDecidableExistsCode30OfDecidablePred (P : Code30 → Prop) [hP : DecidablePred P] : Decidable (∃ a, P a) :=
-  match (inferInstance : Decidable (∃ a : Fin 2, ∃ b : Fin 4, P (a,b))) with
+  match decExistsFin 2 (fun a => ∃ b : Fin 4, P (a,b))
+      (fun a => decExistsFin 4 (fun b => P (a,b)) (fun b => hP (a,b))) with
   | isTrue h => isTrue (Exists.elim h (fun a ha => Exists.elim ha (fun b hb => Exists.intro (a,b) hb)))
   | isFalse h => isFalse (fun hs => Exists.elim hs (fun p hp => h (Exists.intro p.1 (Exists.intro p.2 hp))))
 abbrev Symbol := Fin 8

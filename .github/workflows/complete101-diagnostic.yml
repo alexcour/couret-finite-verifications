@@ -20,6 +20,7 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           body = '''open Lean Elab Command
+          set_option pp.all true
           run_cmd do
             let env ← getEnv
             for (name, info) in env.constants.toList do
@@ -27,6 +28,8 @@ jobs:
                 if let .defnInfo d := info then
                   let h := match d.hints with | .opaque => "opaque" | .abbrev => "abbrev" | .regular n => toString n
                   logInfo m!"DECL {name} VALUEHASH {d.value.hash} TYPEHASH {d.type.hash} HINTS {h} LEVELS {d.levelParams}"
+                  if name.toString == "Couret.instDecidableForallOfDecidablePredCode30" || name.toString == "Couret.Certificate.instDecidableExistsCode30OfDecidablePred" then
+                    logInfo m!"VALUE {name} {d.value}"
           '''
           for mod in ['ChallengeComplete101','CertificateData']:
               Path('Closure'+mod+'.lean').write_text('module\npublic import Lean\npublic import '+mod+'\n'+body)
