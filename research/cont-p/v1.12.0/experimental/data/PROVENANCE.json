@@ -1,0 +1,15 @@
+{
+  "role": "POSTHOC_DRIVE_WORKING_EXTRACT_NO_PRIVATE_AUDIT_SNAPSHOTS",
+  "source_npz_sha256": {
+    "inputs/train_420.npz": "93876e02152cbb91114f4b37ca5f3a9bf7d76a69544914a7e2bb610345c27954",
+    "inputs/train_640.npz": "c633eaca66a0bd7220d46a609075f7ff345361f339408e62afa165fe5a6e6260",
+    "inputs/train_900.npz": "8a4b32f9805689f5571a0c0df836670d7f8b9f09b87d150834a7e605b1ab888d",
+    "inputs/test_counts_2380000000.npz": "9dacaa27cc3778de1a6f33f7d455bfa132a22ab9b6765a5da4eb8ce1fa86cf81",
+    "inputs/test_counts_2540000000.npz": "680bef587530ab6dd6dc7645d29b79759b00e53319a799275185b6cf84c4a3ab",
+    "inputs/test_counts_2700000000.npz": "61542b78c776c89dc5bd3e40db2d0f5c46b76773c57e50f64732bbc68c966685"
+  },
+  "coefficient_sha256": "db4523b9610fd0c54f3334ecdf4af2bc197cee2e8c28677807cebf698955bfa9",
+  "source_archive_sha256": "31f46db47a53e6422f8ca6d5cabb423a6569f3736743dfa84ac827a684ab5b7a",
+  "source_archive_drive": "https://drive.google.com/file/d/1U_2OTZoLU2OD6UIh4d8Rkq6tcMhmcW4W/view",
+  "source_note_drive": "https://drive.google.com/file/d/1w1F6KRSrxlZYriCHhcjSV-A-FVfGWS2G/view"
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "role": "EXACT_CHECKS_OF_FINITE_TABLE_AND_EXAMPLES",
+  "table_theta_exact": "82660485618529256667/6640000000000000000",
+  "table_theta_float": 12.448868316043562,
+  "geometric_energy_fraction": 0.9018280321788931,
+  "brier_logistic_counterexample_curvature": "-9/64",
+  "lean_compilation": false
+}
