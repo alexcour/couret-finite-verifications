@@ -1,0 +1,38 @@
+name: MOD-OBS-02 standalone exact reproduction
+
+on:
+  push:
+    branches:
+      - research/mod-obs-02-2026-10-11
+    paths:
+      - 'research/mod_obs_02/**'
+      - '.github/workflows/mod-obs-02-reproduction.yml'
+  pull_request:
+    paths:
+      - 'research/mod_obs_02/**'
+      - '.github/workflows/mod-obs-02-reproduction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-mod-obs-02:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Clean checkout of PR branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Python standard library runtime
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Hashes, twelve tests, exact double recomputation
+        working-directory: research/mod_obs_02
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: sh verify.sh
+      - name: No tracked research data rewritten
+        run: git diff --exit-code -- research/mod_obs_02

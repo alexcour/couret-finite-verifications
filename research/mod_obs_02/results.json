@@ -1,0 +1,3015 @@
+{
+  "date": "2026-10-11",
+  "exemplar_policies": {
+    "U_b0_connected": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 0,
+      "node_count": 1,
+      "nodes": [
+        {
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "terminal": 1
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "verified": {
+        "candidate_comparisons": 16,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 0
+      }
+    },
+    "U_b0_contains_1": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 1,
+      "node_count": 3,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 32,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 1
+      }
+    },
+    "U_b0_majority_lower_half": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 1,
+      "node_count": 3,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 32,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 1
+      }
+    },
+    "U_b0_reconstruction": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 2,
+      "node_count": 7,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "terminal": 2
+        },
+        {
+          "state": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "terminal": 3
+        }
+      ],
+      "target_values": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "verified": {
+        "candidate_comparisons": 48,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 2
+      }
+    },
+    "U_b1_connected": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 0,
+      "node_count": 1,
+      "nodes": [
+        {
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "terminal": 1
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "verified": {
+        "candidate_comparisons": 16,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 0
+      }
+    },
+    "U_b1_contains_1": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 3,
+      "node_count": 8,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 3
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              0,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            2,
+            2,
+            0,
+            0
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 128,
+        "replayed_leaves": 12,
+        "verified_worst_cost": 3
+      }
+    },
+    "U_b1_majority_lower_half": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 3,
+      "node_count": 8,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 3
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              0,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            2,
+            2,
+            0,
+            0
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 128,
+        "replayed_leaves": 12,
+        "verified_worst_cost": 3
+      }
+    },
+    "U_b1_reconstruction": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 5,
+      "node_count": 20,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 5
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              0,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              0,
+              2,
+              2
+            ],
+            "1": [
+              0,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "worst_cost": 3
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "1": [
+              0,
+              2,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            0,
+            1,
+            2,
+            2
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            0,
+            2,
+            2,
+            2
+          ],
+          "terminal": 0
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              0,
+              2,
+              2
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            1,
+            0,
+            2,
+            2
+          ],
+          "worst_cost": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "1": [
+              1,
+              2,
+              2,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            1,
+            2,
+            2,
+            2
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            2,
+            0,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              0
+            ],
+            "1": [
+              2,
+              2,
+              0,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            0,
+            0
+          ],
+          "worst_cost": 3
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              2,
+              2,
+              0,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            0,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            2,
+            2,
+            0,
+            2
+          ],
+          "terminal": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              2,
+              0
+            ],
+            "1": [
+              2,
+              2,
+              1,
+              1
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            1,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              2,
+              1
+            ],
+            "1": [
+              2,
+              2,
+              1,
+              2
+            ]
+          },
+          "cost": 1,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "worst_cost": 1
+        },
+        {
+          "state": [
+            2,
+            2,
+            1,
+            2
+          ],
+          "terminal": 2
+        },
+        {
+          "state": [
+            2,
+            2,
+            2,
+            0
+          ],
+          "terminal": 3
+        },
+        {
+          "state": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "terminal": 3
+        }
+      ],
+      "target_values": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "verified": {
+        "candidate_comparisons": 272,
+        "replayed_leaves": 20,
+        "verified_worst_cost": 5
+      }
+    },
+    "W_b0_connected": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 0,
+      "node_count": 1,
+      "nodes": [
+        {
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "terminal": 1
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "verified": {
+        "candidate_comparisons": 16,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 0
+      }
+    },
+    "W_b0_contains_1": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 2,
+      "node_count": 3,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 32,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 2
+      }
+    },
+    "W_b0_majority_lower_half": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 2,
+      "node_count": 3,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 32,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 2
+      }
+    },
+    "W_b0_reconstruction": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 0,
+      "minimax_cost": 4,
+      "node_count": 7,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "terminal": 2
+        },
+        {
+          "state": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "terminal": 3
+        }
+      ],
+      "target_values": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "verified": {
+        "candidate_comparisons": 48,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 4
+      }
+    },
+    "W_b1_connected": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 0,
+      "node_count": 1,
+      "nodes": [
+        {
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "terminal": 1
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "verified": {
+        "candidate_comparisons": 16,
+        "replayed_leaves": 4,
+        "verified_worst_cost": 0
+      }
+    },
+    "W_b1_contains_1": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 6,
+      "node_count": 8,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 6
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              0,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 4
+        },
+        {
+          "state": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            2,
+            2,
+            0,
+            0
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 128,
+        "replayed_leaves": 12,
+        "verified_worst_cost": 6
+      }
+    },
+    "W_b1_majority_lower_half": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 6,
+      "node_count": 8,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 6
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              0,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 4
+        },
+        {
+          "state": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            2,
+            2,
+            0,
+            0
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "terminal": 0
+        }
+      ],
+      "target_values": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "verified": {
+        "candidate_comparisons": 128,
+        "replayed_leaves": 12,
+        "verified_worst_cost": 6
+      }
+    },
+    "W_b1_reconstruction": {
+      "fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "lies": 1,
+      "minimax_cost": 10,
+      "node_count": 20,
+      "nodes": [
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "1": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_cost": 10
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "1": [
+              0,
+              0,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "worst_cost": 8
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              0,
+              2,
+              2
+            ],
+            "1": [
+              0,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "worst_cost": 6
+        },
+        {
+          "branches": {
+            "0": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "1": [
+              0,
+              2,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            0,
+            1,
+            2,
+            2
+          ],
+          "worst_cost": 4
+        },
+        {
+          "state": [
+            0,
+            2,
+            2,
+            2
+          ],
+          "terminal": 0
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              0,
+              2,
+              2
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            1,
+            0,
+            2,
+            2
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "worst_cost": 8
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              1,
+              1,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 1,
+          "state": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "1": [
+              1,
+              2,
+              2,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            1,
+            2,
+            2,
+            2
+          ],
+          "terminal": 0
+        },
+        {
+          "state": [
+            2,
+            0,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "state": [
+            2,
+            1,
+            2,
+            2
+          ],
+          "terminal": 1
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              0
+            ],
+            "1": [
+              2,
+              2,
+              0,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            0,
+            0
+          ],
+          "worst_cost": 6
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              1,
+              1
+            ],
+            "1": [
+              2,
+              2,
+              0,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            0,
+            1
+          ],
+          "worst_cost": 4
+        },
+        {
+          "state": [
+            2,
+            2,
+            0,
+            2
+          ],
+          "terminal": 2
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              2,
+              0
+            ],
+            "1": [
+              2,
+              2,
+              1,
+              1
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            1,
+            0
+          ],
+          "worst_cost": 4
+        },
+        {
+          "branches": {
+            "0": [
+              2,
+              2,
+              2,
+              1
+            ],
+            "1": [
+              2,
+              2,
+              1,
+              2
+            ]
+          },
+          "cost": 2,
+          "question": 4,
+          "state": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "worst_cost": 2
+        },
+        {
+          "state": [
+            2,
+            2,
+            1,
+            2
+          ],
+          "terminal": 2
+        },
+        {
+          "state": [
+            2,
+            2,
+            2,
+            0
+          ],
+          "terminal": 3
+        },
+        {
+          "state": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "terminal": 3
+        }
+      ],
+      "target_values": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "verified": {
+        "candidate_comparisons": 272,
+        "replayed_leaves": 20,
+        "verified_worst_cost": 10
+      }
+    }
+  },
+  "experiment": "MOD-OBS-02",
+  "n": {
+    "12": {
+      "collisions": 73,
+      "fiber_hist": {
+        "1": 43,
+        "2": 55,
+        "4": 3
+      },
+      "fibers": 101,
+      "n": 12,
+      "regimes": {
+        "U_b0": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 91,
+              "1": 10
+            },
+            "expanded_states": 121,
+            "mean_per_fiber": 0.09901,
+            "mean_per_fiber_exact": "10/101",
+            "worst": 1
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 101
+            },
+            "expanded_states": 101,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/101",
+            "worst": 0
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 72,
+              "1": 29
+            },
+            "expanded_states": 177,
+            "mean_per_fiber": 0.287129,
+            "mean_per_fiber_exact": "29/101",
+            "worst": 1
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 101
+            },
+            "expanded_states": 101,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/101",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 44,
+              "1": 57
+            },
+            "expanded_states": 233,
+            "mean_per_fiber": 0.564356,
+            "mean_per_fiber_exact": "57/101",
+            "worst": 1
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 43,
+              "1": 55,
+              "2": 3
+            },
+            "expanded_states": 235,
+            "mean_per_fiber": 0.60396,
+            "mean_per_fiber_exact": "61/101",
+            "worst": 2
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 101
+            },
+            "expanded_states": 101,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/101",
+            "worst": 0
+          }
+        },
+        "U_b1": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 91,
+              "3": 10
+            },
+            "expanded_states": 171,
+            "mean_per_fiber": 0.29703,
+            "mean_per_fiber_exact": "30/101",
+            "worst": 3
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 101
+            },
+            "expanded_states": 101,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/101",
+            "worst": 0
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 72,
+              "3": 29
+            },
+            "expanded_states": 382,
+            "mean_per_fiber": 0.861386,
+            "mean_per_fiber_exact": "87/101",
+            "worst": 3
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 101
+            },
+            "expanded_states": 101,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/101",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 44,
+              "3": 57
+            },
+            "expanded_states": 578,
+            "mean_per_fiber": 1.693069,
+            "mean_per_fiber_exact": "171/101",
+            "worst": 3
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 43,
+              "3": 55,
+              "5": 3
+            },
+            "expanded_states": 585,
+            "mean_per_fiber": 1.782178,
+            "mean_per_fiber_exact": "180/101",
+            "worst": 5
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 101
+            },
+            "expanded_states": 101,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/101",
+            "worst": 0
+          }
+        }
+      },
+      "supports": 165,
+      "zero_excluded": true
+    },
+    "18": {
+      "collisions": 305,
+      "fiber_hist": {
+        "1": 118,
+        "2": 269,
+        "4": 6
+      },
+      "fibers": 393,
+      "four_fiber": [
+        [
+          1,
+          4,
+          13
+        ],
+        [
+          1,
+          7,
+          16
+        ],
+        [
+          4,
+          10,
+          13
+        ],
+        [
+          7,
+          10,
+          16
+        ]
+      ],
+      "n": 18,
+      "regimes": {
+        "U_b0": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 211,
+              "1": 182
+            },
+            "expanded_states": 757,
+            "mean_per_fiber": 0.463104,
+            "mean_per_fiber_exact": "182/393",
+            "worst": 1
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 337,
+              "1": 56
+            },
+            "expanded_states": 505,
+            "mean_per_fiber": 0.142494,
+            "mean_per_fiber_exact": "56/393",
+            "worst": 1
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 301,
+              "1": 92
+            },
+            "expanded_states": 595,
+            "mean_per_fiber": 0.234097,
+            "mean_per_fiber_exact": "92/393",
+            "worst": 1
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 119,
+              "1": 274
+            },
+            "expanded_states": 977,
+            "mean_per_fiber": 0.697201,
+            "mean_per_fiber_exact": "274/393",
+            "worst": 1
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 118,
+              "1": 269,
+              "2": 6
+            },
+            "expanded_states": 979,
+            "mean_per_fiber": 0.715013,
+            "mean_per_fiber_exact": "281/393",
+            "worst": 2
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          }
+        },
+        "U_b1": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 211,
+              "3": 182
+            },
+            "expanded_states": 1667,
+            "mean_per_fiber": 1.389313,
+            "mean_per_fiber_exact": "546/393",
+            "worst": 3
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 337,
+              "3": 56
+            },
+            "expanded_states": 785,
+            "mean_per_fiber": 0.427481,
+            "mean_per_fiber_exact": "168/393",
+            "worst": 3
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 301,
+              "3": 92
+            },
+            "expanded_states": 1115,
+            "mean_per_fiber": 0.70229,
+            "mean_per_fiber_exact": "276/393",
+            "worst": 3
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 119,
+              "3": 274
+            },
+            "expanded_states": 2467,
+            "mean_per_fiber": 2.091603,
+            "mean_per_fiber_exact": "822/393",
+            "worst": 3
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 118,
+              "3": 269,
+              "5": 6
+            },
+            "expanded_states": 2474,
+            "mean_per_fiber": 2.129771,
+            "mean_per_fiber_exact": "837/393",
+            "worst": 5
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          }
+        },
+        "W_b0": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 211,
+              "1": 108,
+              "2": 73,
+              "3": 1
+            },
+            "expanded_states": 757,
+            "mean_per_fiber": 0.653944,
+            "mean_per_fiber_exact": "257/393",
+            "worst": 3
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 337,
+              "1": 36,
+              "2": 19,
+              "3": 1
+            },
+            "expanded_states": 505,
+            "mean_per_fiber": 0.195929,
+            "mean_per_fiber_exact": "77/393",
+            "worst": 3
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 301,
+              "1": 44,
+              "2": 48
+            },
+            "expanded_states": 595,
+            "mean_per_fiber": 0.356234,
+            "mean_per_fiber_exact": "140/393",
+            "worst": 2
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 119,
+              "1": 158,
+              "2": 94,
+              "3": 22
+            },
+            "expanded_states": 977,
+            "mean_per_fiber": 1.048346,
+            "mean_per_fiber_exact": "412/393",
+            "worst": 3
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 118,
+              "1": 159,
+              "2": 91,
+              "3": 19,
+              "4": 3,
+              "6": 3
+            },
+            "expanded_states": 979,
+            "mean_per_fiber": 1.089059,
+            "mean_per_fiber_exact": "428/393",
+            "worst": 6
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          }
+        },
+        "W_b1": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 211,
+              "3": 108,
+              "6": 73,
+              "9": 1
+            },
+            "expanded_states": 1667,
+            "mean_per_fiber": 1.961832,
+            "mean_per_fiber_exact": "771/393",
+            "worst": 9
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 337,
+              "3": 36,
+              "6": 19,
+              "9": 1
+            },
+            "expanded_states": 785,
+            "mean_per_fiber": 0.587786,
+            "mean_per_fiber_exact": "231/393",
+            "worst": 9
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 301,
+              "3": 44,
+              "6": 48
+            },
+            "expanded_states": 1115,
+            "mean_per_fiber": 1.068702,
+            "mean_per_fiber_exact": "420/393",
+            "worst": 6
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 119,
+              "3": 158,
+              "6": 94,
+              "9": 22
+            },
+            "expanded_states": 2467,
+            "mean_per_fiber": 3.145038,
+            "mean_per_fiber_exact": "1236/393",
+            "worst": 9
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 118,
+              "10": 3,
+              "15": 3,
+              "3": 159,
+              "6": 91,
+              "9": 19
+            },
+            "expanded_states": 2474,
+            "mean_per_fiber": 3.229008,
+            "mean_per_fiber_exact": "1269/393",
+            "worst": 15
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 393
+            },
+            "expanded_states": 393,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/393",
+            "worst": 0
+          }
+        }
+      },
+      "supports": 680,
+      "zero_excluded": true
+    },
+    "24": {
+      "collisions": 807,
+      "fiber_hist": {
+        "1": 229,
+        "2": 753,
+        "4": 9
+      },
+      "fibers": 991,
+      "n": 24,
+      "regimes": {
+        "U_b0": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 601,
+              "1": 390
+            },
+            "expanded_states": 1771,
+            "mean_per_fiber": 0.393542,
+            "mean_per_fiber_exact": "390/991",
+            "worst": 1
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 991
+            },
+            "expanded_states": 991,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/991",
+            "worst": 0
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 800,
+              "1": 191
+            },
+            "expanded_states": 1391,
+            "mean_per_fiber": 0.192735,
+            "mean_per_fiber_exact": "191/991",
+            "worst": 1
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 991
+            },
+            "expanded_states": 991,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/991",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 230,
+              "1": 761
+            },
+            "expanded_states": 2567,
+            "mean_per_fiber": 0.767911,
+            "mean_per_fiber_exact": "761/991",
+            "worst": 1
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 229,
+              "1": 753,
+              "2": 9
+            },
+            "expanded_states": 2569,
+            "mean_per_fiber": 0.778002,
+            "mean_per_fiber_exact": "771/991",
+            "worst": 2
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 991
+            },
+            "expanded_states": 991,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/991",
+            "worst": 0
+          }
+        },
+        "U_b1": {
+          "closed_walk_length_3": {
+            "cost_hist_per_fiber": {
+              "0": 601,
+              "3": 390
+            },
+            "expanded_states": 3721,
+            "mean_per_fiber": 1.180626,
+            "mean_per_fiber_exact": "1170/991",
+            "worst": 3
+          },
+          "connected": {
+            "cost_hist_per_fiber": {
+              "0": 991
+            },
+            "expanded_states": 991,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/991",
+            "worst": 0
+          },
+          "contains_1": {
+            "cost_hist_per_fiber": {
+              "0": 800,
+              "3": 191
+            },
+            "expanded_states": 2406,
+            "mean_per_fiber": 0.578204,
+            "mean_per_fiber_exact": "573/991",
+            "worst": 3
+          },
+          "contains_halfturn": {
+            "cost_hist_per_fiber": {
+              "0": 991
+            },
+            "expanded_states": 991,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/991",
+            "worst": 0
+          },
+          "majority_lower_half": {
+            "cost_hist_per_fiber": {
+              "0": 230,
+              "3": 761
+            },
+            "expanded_states": 6552,
+            "mean_per_fiber": 2.303734,
+            "mean_per_fiber_exact": "2283/991",
+            "worst": 3
+          },
+          "reconstruction": {
+            "cost_hist_per_fiber": {
+              "0": 229,
+              "3": 753,
+              "5": 9
+            },
+            "expanded_states": 6559,
+            "mean_per_fiber": 2.324924,
+            "mean_per_fiber_exact": "2304/991",
+            "worst": 5
+          },
+          "symmetric": {
+            "cost_hist_per_fiber": {
+              "0": 991
+            },
+            "expanded_states": 991,
+            "mean_per_fiber": 0.0,
+            "mean_per_fiber_exact": "0/991",
+            "worst": 0
+          }
+        }
+      },
+      "supports": 1771,
+      "zero_excluded": true
+    }
+  },
+  "protocol_sha256": "702b526ca9145549fa5d0e0ea618c0dd847a4f7439133f7a3042c0a150453730"
+}
