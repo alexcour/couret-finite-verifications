@@ -1,0 +1,319 @@
+{
+  "cardinalities": [
+    1,
+    3,
+    5
+  ],
+  "certificates": {
+    "n10_connectivity_failure": true,
+    "n12_nonisomorphism_arc_signature": {
+      "P": [
+        3,
+        4,
+        5
+      ],
+      "Q": [
+        3,
+        3,
+        6
+      ]
+    },
+    "n18_trace_cubic": {
+      "R": 108,
+      "T": 54
+    },
+    "n22_trace_zero_failure": true,
+    "n4_even_cardinality_failure": true
+  },
+  "claim": "Odd-support strong-connectivity invariant under A^2 when n odd or 4 divides n",
+  "limitation": "bounded computational test, not proof or novelty audit",
+  "per_n_k": [
+    {
+      "fibres": 3,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 3,
+      "supports": 3
+    },
+    {
+      "fibres": 1,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 3,
+      "supports": 1
+    },
+    {
+      "fibres": 2,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 4,
+      "supports": 4
+    },
+    {
+      "fibres": 2,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 4,
+      "supports": 4
+    },
+    {
+      "fibres": 5,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 5,
+      "supports": 5
+    },
+    {
+      "fibres": 10,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 5,
+      "supports": 10
+    },
+    {
+      "fibres": 1,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 5,
+      "supports": 1
+    },
+    {
+      "fibres": 3,
+      "k": 1,
+      "mixed_connectivity_fibres": 2,
+      "n": 6,
+      "supports": 6
+    },
+    {
+      "fibres": 7,
+      "k": 3,
+      "mixed_connectivity_fibres": 1,
+      "n": 6,
+      "supports": 20
+    },
+    {
+      "fibres": 3,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 6,
+      "supports": 6
+    },
+    {
+      "fibres": 7,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 7,
+      "supports": 7
+    },
+    {
+      "fibres": 35,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 7,
+      "supports": 35
+    },
+    {
+      "fibres": 21,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 7,
+      "supports": 21
+    },
+    {
+      "fibres": 4,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 8,
+      "supports": 8
+    },
+    {
+      "fibres": 28,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 8,
+      "supports": 56
+    },
+    {
+      "fibres": 28,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 8,
+      "supports": 56
+    },
+    {
+      "fibres": 9,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 9,
+      "supports": 9
+    },
+    {
+      "fibres": 84,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 9,
+      "supports": 84
+    },
+    {
+      "fibres": 126,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 9,
+      "supports": 126
+    },
+    {
+      "fibres": 5,
+      "k": 1,
+      "mixed_connectivity_fibres": 4,
+      "n": 10,
+      "supports": 10
+    },
+    {
+      "fibres": 60,
+      "k": 3,
+      "mixed_connectivity_fibres": 10,
+      "n": 10,
+      "supports": 120
+    },
+    {
+      "fibres": 71,
+      "k": 5,
+      "mixed_connectivity_fibres": 1,
+      "n": 10,
+      "supports": 252
+    },
+    {
+      "fibres": 11,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 11,
+      "supports": 11
+    },
+    {
+      "fibres": 165,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 11,
+      "supports": 165
+    },
+    {
+      "fibres": 462,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 11,
+      "supports": 462
+    },
+    {
+      "fibres": 6,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 12,
+      "supports": 12
+    },
+    {
+      "fibres": 104,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 12,
+      "supports": 220
+    },
+    {
+      "fibres": 390,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 12,
+      "supports": 792
+    },
+    {
+      "fibres": 13,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 13,
+      "supports": 13
+    },
+    {
+      "fibres": 286,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 13,
+      "supports": 286
+    },
+    {
+      "fibres": 1287,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 13,
+      "supports": 1287
+    },
+    {
+      "fibres": 7,
+      "k": 1,
+      "mixed_connectivity_fibres": 6,
+      "n": 14,
+      "supports": 14
+    },
+    {
+      "fibres": 182,
+      "k": 3,
+      "mixed_connectivity_fibres": 35,
+      "n": 14,
+      "supports": 364
+    },
+    {
+      "fibres": 1001,
+      "k": 5,
+      "mixed_connectivity_fibres": 21,
+      "n": 14,
+      "supports": 2002
+    },
+    {
+      "fibres": 15,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 15,
+      "supports": 15
+    },
+    {
+      "fibres": 455,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 15,
+      "supports": 455
+    },
+    {
+      "fibres": 3003,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 15,
+      "supports": 3003
+    },
+    {
+      "fibres": 8,
+      "k": 1,
+      "mixed_connectivity_fibres": 0,
+      "n": 16,
+      "supports": 16
+    },
+    {
+      "fibres": 280,
+      "k": 3,
+      "mixed_connectivity_fibres": 0,
+      "n": 16,
+      "supports": 560
+    },
+    {
+      "fibres": 2184,
+      "k": 5,
+      "mixed_connectivity_fibres": 0,
+      "n": 16,
+      "supports": 4368
+    }
+  ],
+  "range_n": [
+    3,
+    16
+  ],
+  "tested_square_fibres": 10374,
+  "tested_supports": 14889,
+  "zero_allowed": true
+}
