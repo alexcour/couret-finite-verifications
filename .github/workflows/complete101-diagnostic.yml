@@ -22,7 +22,7 @@ jobs:
           for mod in ['ChallengeComplete101','MaskSemantics']:
               text = 'module\npublic import Lean\npublic import '+mod+'\nopen Lean Elab Command\nset_option pp.all true\n'
               for name in ['Couret.Certificate.symbolCode','Couret.Certificate.codeSymbol','Couret.residue30']:
-                  text += 'run_cmd do\n  let some (.defnInfo d) := (← getEnv).find? `'+name+' | throwError "missing definition"\n  logInfo m!"NAME '+name+' HINTS {repr d.hints} LEVELS {d.levelParams}"\n  logInfo m!"TYPE {d.type}"\n  logInfo m!"VALUE {d.value}"\n'
+                  text += 'run_cmd do\n  let some (.defnInfo d) := (← getEnv).find? `'+name+' | throwError "missing definition"\n  let h := match d.hints with | .opaque => "opaque" | .abbrev => "abbrev" | .regular n => toString n\n  logInfo m!"NAME '+name+' HINTS {h} LEVELS {d.levelParams}"\n  logInfo m!"TYPE {d.type}"\n  logInfo m!"VALUE {d.value}"\n'
               Path('Print'+mod+'.lean').write_text(text)
           PY
           lake env lean PrintChallengeComplete101.lean
