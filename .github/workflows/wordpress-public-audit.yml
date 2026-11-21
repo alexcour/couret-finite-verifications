@@ -1,0 +1,33 @@
+name: WordPress 16 URL audit (read-only)
+on:
+  pull_request:
+    paths:
+      - 'review/site-couret-2026-10-11/audit_wordpress_public.py'
+      - 'review/site-couret-2026-10-11/WORDPRESS_PUBLIC_URLS_2026-10-14.json'
+      - '.github/workflows/wordpress-public-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  receipts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Validate manifest and parser locally
+        run: python review/site-couret-2026-10-11/audit_wordpress_public.py --self-test
+      - name: Fetch public site for technical receipts only
+        run: python review/site-couret-2026-10-11/audit_wordpress_public.py --json out/wordpress-http-receipts.json --markdown out/wordpress-http-receipts.md
+      - name: Archive inspection receipts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: wordpress-public-readonly-receipts
+          path: out/
+          retention-days: 14
+          if-no-files-found: warn
