@@ -1,0 +1,36 @@
+{
+  "schema": "public-research-journal/1",
+  "scope": "PUBLIC_ONLY_FINITE_PEDAGOGY",
+  "entries": [
+    {
+      "id": "MOD30-FINITE-01",
+      "date": "2026-11-09",
+      "title": "Permutations sur les huit unités modulo 30",
+      "status": "FINITE_EXACT",
+      "kind": "exact_arithmetic",
+      "summary": "Pour tout a inversible modulo 30, x -> ax modulo 30 permute les huit unités. Les cycles se calculent exactement.",
+      "source": "research/mod30-permutations/index.html",
+      "limitations": "Résultat élémentaire sur un groupe fini; aucune nouveauté générale revendiquée."
+    },
+    {
+      "id": "MOD30-HORIZON-01",
+      "date": "2026-11-09",
+      "title": "Du discret au continu : question de recherche",
+      "status": "OPEN_QUESTION",
+      "kind": "research_question",
+      "summary": "Établir les conditions de compatibilité et de convergence permettant d'examiner des descriptions continues et des observables physiques.",
+      "source": "research/mod30-permutations/README.md",
+      "limitations": "La limite profinie est totalement discontinue et ne fournit pas seule un modèle physique."
+    }
+  ],
+  "governance": {
+    "RHClaimed": false,
+    "HilbertPolyaClaimed": false,
+    "Det2IdentityClaimed": false,
+    "TopologicalUniversalityClaimed": false,
+    "scientific_independent_review": false,
+    "physical_validation": false,
+    "publication_scope": "PUBLIC_FINITE_PEDAGOGY_ONLY",
+    "contains_private_fci_material": false
+  }
+}

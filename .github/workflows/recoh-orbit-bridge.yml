@@ -1,0 +1,63 @@
+name: RECOH Orbit Bridge Lean 4 Reproduction
+on:
+  push:
+    branches:
+      - research/recoh-conditional-lean-repro-2026-10-30
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-orbit-bridge.yml'
+permissions:
+  contents: read
+jobs:
+  lean-bridge:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: research/strobo-2tors-2026-10-12/lean
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: research/strobo-2tors-2026-10-12/lean
+          build: false
+      - name: Build STROBO prerequisite
+        run: lake build Strobo2TorsCardinality
+      - name: Compile the exact bridge module
+        run: lake env lean RecohConditionalOrbitBridge.lean
+      - name: Compile conditional bank lemma
+        run: lake env lean RecohConditionalBank.lean
+      - name: Compile Fourier prerequisite lemma
+        run: lake env lean RecohFourierCovarianceBridge.lean
+      - name: Compile restored historical Fourier bridge
+        run: lake env lean RecohFourierBridge.lean
+      - name: Compile historical coprime gate
+        run: lake env lean RecohTwoPowerCoprimeGate.lean
+      - name: Compile historical cube gate
+        run: lake build RecohTwoPowerCoprimeGate && lake env lean RecohTwoPowerCubeGate.lean
+      - name: Compile historical third-root gate
+        run: lake build RecohTwoPowerCubeGate && lake env lean RecohThreeRootSymmetricGate.lean
+      - name: Compile historical primary characters
+        run: lake env lean RecohPrimaryCharacters.lean
+      - name: Compile historical rank bounds
+        run: lake build RecohRankBounds && lake env lean RecohRankBounds.lean
+      - name: Compile historical character masks
+        run: lake build RecohCharacterMasks && lake env lean RecohCharacterMasks.lean
+      - name: Compile historical rank kernel
+        run: lake build RecohRankKernel && lake env lean RecohRankKernel.lean
+      - name: Compile historical RecohKernelCollisions
+        run: lake build RecohKernelCollisions && lake env lean RecohKernelCollisions.lean
+      - name: Compile historical RecohPivotMasks
+        run: lake build RecohPivotMasks && lake env lean RecohPivotMasks.lean
+      - name: Compile historical RecohPivotCollision
+        run: lake build RecohPivotCollision && lake env lean RecohPivotCollision.lean
+      - name: Compile historical RecohBinaryDichotomy
+        run: lake build RecohBinaryDichotomy && lake env lean RecohBinaryDichotomy.lean
+      - name: Record exact checkout
+        run: |
+          echo "CHECKOUT_SHA=$(git rev-parse HEAD)"
+          echo "EXPECTED_SHA=${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha || github.sha }}"

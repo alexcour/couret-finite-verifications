@@ -1,0 +1,43 @@
+name: strobo-lean-foundation
+on:
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/split-strobo-lean-foundation.yml'
+  push:
+    branches:
+      - 'split/strobo-lean-foundation-20261020'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean-foundation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install Lean toolchain manager
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Resolve pinned dependencies and compile isolated module roots
+        shell: bash
+        working-directory: research/strobo-2tors-2026-10-12/lean
+        run: |
+          set -euo pipefail
+          lake resolve-deps
+          lake exe cache get
+          lean --version
+          lake build
+      - name: Reject unsafe placeholders in the extracted Lean source
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -nE '(^|[^[:alnum:]_])(sorry|admit|sorryAx)([^[:alnum:]_]|$)' research/strobo-2tors-2026-10-12/lean/*.lean; then
+            echo "::error::An unproved placeholder was detected"
+            exit 1
+          fi

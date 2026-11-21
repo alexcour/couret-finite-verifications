@@ -1,7 +1,12 @@
 # Independent review wanted — Couret finite research portfolio
 
+<!-- research-vision-20261016 -->
+> **Programme et rêve de recherche · 16 octobre 2026**  
+> [Présentation générale en français](RESEARCH_VISION_FR.md) · [Research vision in English](RESEARCH_VISION_EN.md). Cette présentation élargit le contexte aux questions de mémoire, de continuation et de compréhension par l’IA, en distinguant acquis et ambitions. Les énoncés mathématiques et reçus datés ci-dessous gardent leur périmètre propre.
+<!-- /research-vision-20261016 -->
+
 **Status: open call for criticism, counterexamples, prior art and replication.**  
-**Updated: 12 October 2026.**  
+**Updated: 12 October 2026.**
 Author: Alexandre Couret (independent researcher, France).
 
 > **FR — Objet de cette page :** solliciter des objections vérifiables, y compris des contre-exemples et des antériorités qui invalident les revendications. Aucun résultat ci-dessous n'est présenté comme une découverte reconnue. La critique négative et les corrections publiques sont recherchées.
@@ -59,4 +64,3 @@ GitHub public-review material is preliminary and may change. A Zenodo archive sh
 ## Corrections and refutations — publicly reproducible
 
 [PUBLIC_FALSIFICATIONS.md](PUBLIC_FALSIFICATIONS.md) records falsified numerical observations, withdrawn proof routes and experimental demotions without confusing them with still-open conjectures. The [independent C++17 segmented-sieve code](research/open-reproduction/falsifications/verify_mod30_prime_proportion.cpp) reproduces the F-001 correction at 10^9. **Negative results and broken assertions should be as accessible as positive finite certificates.**
-

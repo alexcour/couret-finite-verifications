@@ -1,0 +1,27 @@
+name: G02 CayleyTwoColourParity Lean
+on:
+  pull_request:
+    paths:
+      - 'research/correspondants_20261013/lean/**'
+      - '.github/workflows/g02-cayleytwocolourparity-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1.6.2
+        with:
+          lake-package-directory: research/correspondants_20261013/lean
+          build: true
+          use-mathlib-cache: true
+      - name: Check original proof source and import
+        working-directory: research/correspondants_20261013/lean
+        run: |
+          echo "checkout=$(git rev-parse HEAD)"
+          if grep -nE '(^|[[:space:]])sorry([[:space:]]|$)|sorryAx' CayleyTwoColourParity.lean; then exit 1; fi
+          printf 'import CayleyTwoColourParity\n' > G02ImportCheck.lean
+          lake env lean G02ImportCheck.lean

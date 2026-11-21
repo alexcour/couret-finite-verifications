@@ -1,0 +1,51 @@
+name: RECOH Unified Port Exact-SHA CI
+on:
+  push:
+    branches:
+      - research/recoh-unified-port-2026-11-08
+      - research/recoh-conditional-lean-repro-2026-10-30
+      - main
+  pull_request:
+    paths:
+      - 'research/strobo-2tors-2026-10-12/lean/**'
+      - '.github/workflows/recoh-unified-port.yml'
+      - '.github/workflows/recoh-orbit-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recoh-unified:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: '2'
+      SOURCE_SHA: ${{ github.sha }}
+    defaults:
+      run:
+        working-directory: research/strobo-2tors-2026-10-12/lean
+    steps:
+      - name: Checkout exact workflow source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Install pinned Lean and fetch Mathlib cache
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          lake-package-directory: research/strobo-2tors-2026-10-12/lean
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build 37 modules, audit 23 roots and reject false budget
+        run: python3 recoh_unified_ci.py
+      - name: Preserve audit evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: recoh-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: research/strobo-2tors-2026-10-12/lean/ci-evidence/
+          if-no-files-found: warn
+          retention-days: 90

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explorer les permutations exactes des huit unités modulo 30, sans confondre structures finies et physique continue.">
+<title>Du discret au continu — Permutations modulo 30</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,-apple-system,sans-serif}
+body{max-width:930px;margin:0 auto;padding:clamp(1rem,4vw,2.5rem);line-height:1.55}
+h1{line-height:1.12;letter-spacing:-.035em}h2{margin-top:2rem}
+a{color:#2364b1}a:hover{text-decoration-thickness:2px}
+header,section,footer{margin-bottom:1.6rem}
+.kicker{font-weight:750;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+.panel{border:1px solid #8793a9;border-radius:14px;padding:1.2rem;margin:1.2rem 0}
+small,.muted{opacity:.78}
+button{font:inherit;padding:.5rem .8rem;border:1px solid #778399;border-radius:8px;background:transparent;cursor:pointer}
+button[aria-pressed=true]{background:#1756a1;color:white}
+.buttons{display:flex;gap:.45rem;flex-wrap:wrap;margin:.8rem 0}
+svg{max-width:100%;height:auto}
+table{border-collapse:collapse;width:100%;max-width:550px}
+td,th{text-align:left;padding:.4rem;border-bottom:1px solid #8886}
+code{font-size:.95em}
+.alert{border-left:4px solid #71849c;padding-left:1rem}
+@media(prefers-color-scheme:dark){a{color:#9dccff}button[aria-pressed=true]{background:#255cb1}}
+</style>
+</head>
+<body>
+<header>
+<p class="kicker">Observatoire Couret · démonstration finie</p>
+<h1>Du discret au continu : commencer par une permutation</h1>
+<p>Huit éléments. Huit transformations possibles par multiplication. Une première question : <strong>quelles informations restent conservées quand nous changeons de représentation ?</strong></p>
+<p class="muted">Statut : calcul arithmétique fini exact. Interprétation continue et portée physique : questions ouvertes.</p>
+<p><a href="journal.html">Consulter le journal public de recherche</a> · <a href="journal.json">Registre JSON</a></p>
+</header>
+<main>
+<section>
+<h2>Le noyau arithmétique</h2>
+<p>Nous étudions le groupe des unités de l'anneau des entiers modulo 30 :</p>
+<p><code>G₃₀ = {1, 7, 11, 13, 17, 19, 23, 29}</code>.</p>
+<p>Pour chaque <code>a</code> de ce groupe, la règle <code>Pₐ(x) = a × x (mod 30)</code> est une permutation réversible. Elle ne crée ni ne détruit d'élément.</p>
+</section>
+<section class="panel" aria-labelledby="lab-title">
+<h2 id="lab-title">Laboratoire interactif</h2>
+<p>Choisissez le multiplicateur :</p>
+<div class="buttons" id="choices" role="group" aria-label="Multiplicateur"></div>
+<p id="formula" aria-live="polite"></p>
+<svg id="graph" viewBox="0 0 700 380" role="img" aria-label="Huit résidus disposés en cercle ; les flèches représentent la permutation par multiplication"></svg>
+<h3>Cycles calculés</h3>
+<p id="cycles" aria-live="polite"></p>
+<details>
+<summary>Afficher toutes les correspondances</summary>
+<table><thead><tr><th>Résidu x</th><th>Pₐ(x)</th></tr></thead><tbody id="mapping"></tbody></table>
+</details>
+<p><small>Calcul entièrement local dans le navigateur, sans réseau ni stockage de données utilisateur.</small></p>
+</section>
+<section>
+<h2>Ce qui est établi</h2>
+<p>Pour tout élément inversible <code>a</code> modulo 30, la multiplication par <code>a</code> est bijective. Son inverse est la multiplication par l'inverse de <code>a</code> modulo 30. La décomposition en cycles est calculée exactement dans ce groupe fini.</p>
+<h2>Ce qui reste à rechercher</h2>
+<p>Les extensions arithmétiques <code>30 → 210 → 2310 → …</code> offrent une famille de problèmes de compatibilité et de passage à la limite. Cependant, une limite profinie de groupes finis est encore totalement discontinue : elle ne constitue pas à elle seule un continuum physique.</p>
+<p class="alert"><strong>Question ouverte :</strong> sous quelles hypothèses un transport d'information défini sur des structures discrètes peut-il admettre une description continue dotée d'observables testables ? Aucun passage universel vers la physique n'est revendiqué ici.</p>
+</section>
+<section>
+<h2>Provenance et prudence</h2>
+<p>Cette page est une présentation pédagogique de propriétés classiques d'arithmétique modulaire, pas la déclaration d'une découverte, d'une validation expérimentale ou d'une preuve de l'hypothèse de Riemann. Les preuves, calculs, conjectures et résultats de programmation doivent toujours être distingués.</p>
+<p>Sources publiques :
+<a href="https://github.com/alexcour/couret-finite-verifications">vérifications finies</a> et
+<a href="https://github.com/alexcour/couret-finite-verifications/blob/main/RESEARCH_VISION_FR.md">vision de recherche</a>.
+L'application pédagogique et son code source sont proposés dans une branche de revue : aucune validation scientifique indépendante n'est sous-entendue.</p>
+</section>
+</main>
+<footer><small>Alexandre Couret · Observatoire Couret · contenu pédagogique original sous CC BY 4.0 · aucune donnée privée FCI ou correspondance externe n'est incorporée.</small></footer>
+<script>
+"use strict";
+const U=[1,7,11,13,17,19,23,29];
+const ns="http://www.w3.org/2000/svg";
+const svg=document.querySelector("#graph");
+function node(name,attrs,content){const el=document.createElementNS(ns,name);for(const [k,v] of Object.entries(attrs||{}))el.setAttribute(k,String(v));if(content!==undefined)el.textContent=content;return el}
+function render(a){
+  const map=new Map(U.map(x=>[x,(x*a)%30]));
+  if(new Set(map.values()).size!==8||U.some(x=>!map.has(x)))throw Error("not a permutation");
+  const seen=new Set(),orbits=[];
+  for(const x of U){if(seen.has(x))continue;const cycle=[];let y=x;while(!seen.has(y)){seen.add(y);cycle.push(y);y=map.get(y)}if(y!==x)throw Error("cycle error");orbits.push(cycle)}
+  document.querySelector("#formula").textContent="P"+a+"(x) = "+a+" × x mod 30";
+  document.querySelector("#cycles").textContent=orbits.map(c=>"("+c.join(" → ")+" → "+c[0]+")").join("  ·  ");
+  const tb=document.querySelector("#mapping");tb.replaceChildren();
+  for(const x of U){const tr=document.createElement("tr");for(const val of [x,map.get(x)]){const td=document.createElement("td");td.textContent=String(val);tr.append(td)}tb.append(tr)}
+  svg.replaceChildren();const positions=new Map(U.map((x,i)=>[x,[350+148*Math.cos((i/8)*Math.PI*2-Math.PI/2),180+145*Math.sin((i/8)*Math.PI*2-Math.PI/2)]]));
+  const defs=node("defs");const mark=node("marker",{id:"arrow",viewBox:"0 0 10 10",refX:"8",refY:"5",markerWidth:"6",markerHeight:"6",orient:"auto-start-reverse"});mark.append(node("path",{d:"M 0 0 L 10 5 L 0 10 z",fill:"#5285cf"}));defs.append(mark);svg.append(defs);
+  for(const x of U){const y=map.get(x),p=positions.get(x),q=positions.get(y);if(x===y){svg.append(node("path",{d:"M "+(p[0]+7)+" "+(p[1]-20)+" C "+(p[0]+62)+" "+(p[1]-67)+", "+(p[0]-63)+" "+(p[1]-67)+", "+(p[0]-8)+" "+(p[1]-20),fill:"none",stroke:"#5285cf","stroke-width":"2","marker-end":"url(#arrow)"}));continue}
+    const dx=q[0]-p[0],dy=q[1]-p[1],len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len,off=22;svg.append(node("line",{x1:p[0]+ux*off,y1:p[1]+uy*off,x2:q[0]-ux*off,y2:q[1]-uy*off,stroke:"#5285cf","stroke-width":"2","marker-end":"url(#arrow)"}))}
+  for(const x of U){const [cx,cy]=positions.get(x);svg.append(node("circle",{cx,cy,r:"20",fill:"#152c51",stroke:"#8ab8ff","stroke-width":"2"}));svg.append(node("text",{x:cx,y:cy+6,"text-anchor":"middle",fill:"#fff","font-weight":"700","font-size":"16"},x))}
+  for(const button of document.querySelectorAll("#choices button"))button.setAttribute("aria-pressed",String(Number(button.dataset.value)===a));
+}
+for(const a of U){const b=document.createElement("button");b.type="button";b.dataset.value=a;b.textContent=String(a);b.addEventListener("click",()=>render(a));document.querySelector("#choices").append(b)}
+render(7);
+</script>
+</body>
+</html>
