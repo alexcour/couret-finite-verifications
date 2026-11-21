@@ -8,7 +8,7 @@ The observation-specific quotient is an application of the classical distinguish
 
 ## Formal claims
 
-- `tableRun_sound`: The explicit 147-state table implements the independently defined product and proper-subselection semantics.
+- `tableRun_semantic`: The explicit 147-state table implements the independently defined total-product and proper-subselection semantics.
 - `exactly_147_reachable`: The reachable semantic states are exactly the 147 distinct decoded table states, including the empty word.
 - `classes_iff_all_future_outputs`: Two table states have the same class exactly when every continuation gives equal observations.
 - `every_quotient_class_reachable`: Every one of the 101 quotient classes is reachable from the initial class.
@@ -30,4 +30,4 @@ Run `lake build`, then `lake env lean AuditComplete101.lean`. The predictive CI 
 - Lawrence C. Paulson, [Finite Automata in Hereditarily Finite Set Theory](https://isa-afp.org/entries/Finite_Automata_HF.html), 2015: prior formalized minimization.
 - [Archived Couret sources](https://zenodo.org/records/23989640): original development. Exact inherited provenance is in SOURCE_PROVENANCE.json.
 
-MIT covers author-authorized adaptations; third-party rights and notices are retained. See README.fr.md for the French scientific presentation; its original-submission scope table is historical and is superseded for this preparation by the seven targets above.
+MIT covers author-authorized adaptations; third-party rights and notices are retained. See README.fr.md for the French scientific presentation and the seven selected statements.

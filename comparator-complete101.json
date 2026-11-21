@@ -2,7 +2,7 @@
   "challenge_module": "ChallengeComplete101",
   "solution_module": "SolutionComplete101",
   "theorem_names": [
-    "Couret.Certificate.tableRun_sound",
+    "Couret.Certificate.tableRun_semantic",
     "Couret.Certificate.exactly_147_reachable",
     "Couret.Certificate.classes_iff_all_future_outputs",
     "Couret.Certificate.every_quotient_class_reachable",

@@ -3,6 +3,12 @@ public import Solution
 @[expose] public section
 namespace Couret
 namespace Certificate
+/-- The table run agrees with the independent total-product and proper-subselection semantics for every word. -/
+theorem tableRun_semantic (w : Word Symbol) :
+    decoded (tableRun 0 w) = semanticState mod30Product (w.map symbolCode)
+ := by
+  exact (tableRun_sound w).trans (mod30_run_correct (w.map symbolCode))
+
 /-- On a supplied prime factorization of n > 1 coprime to 30, the actual
 101-state run has the table presence-count output; the represented ordered
 residue pairs are exactly the nontrivial factor-pair residue types of n.
